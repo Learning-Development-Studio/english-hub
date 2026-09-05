@@ -177,7 +177,7 @@
     <section class="panel">
       <div class="kicker">Espacio de alumnos</div>
       <h1>Escribe tu nombre y elige tu nivel.</h1>
-      <p class="lead">Entras solo al material de tu nivel. El PIN es por nivel (ciclo 26).</p>
+      <p class="lead">Entras solo al material de tu nivel. Cada nivel tiene su propio PIN.</p>
       <form id="entry-form" novalidate>
         <label>Tu nombre
           <input id="student-name" name="name" type="text" autocomplete="nickname" placeholder="Ej. Sofía" required maxlength="40">
@@ -199,7 +199,7 @@
           <span class="pin-wrap">
             <input id="pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="••••" required maxlength="8" autocomplete="off">
           </span>
-          <span class="hint">Te lo da tu teacher. Es temporal (aún no es seguridad real).</span>
+          <span class="hint">Te lo da tu teacher. Úsalo solo para tu nivel.</span>
         </label>
         <div id="error" class="error" role="alert"></div>
         <button type="submit">Entrar <span class="arrow" aria-hidden="true">→</span></button>
