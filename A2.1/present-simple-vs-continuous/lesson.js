@@ -27,7 +27,7 @@ function escapeHtml(s) {
 function noticeHTML() {
   return `
     <h4>Same week, different meanings</h4>
-    <p class="intro">Read each pair. Do not choose yet — <strong>explain</strong> why the verb form changes. Tap a card to reveal a thinking prompt, then write your idea.</p>
+    <p class="intro">Read each pair. The sentences and the question are already visible — <strong>explain</strong> why the verb form changes, then write your idea in the box.</p>
     <div class="scene" aria-label="Contrast pairs">
       <div class="zone">
         <div class="who"><div class="avatar">1</div><div><strong>Pair A</strong><span>habit vs now</span></div></div>
