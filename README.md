@@ -1,22 +1,23 @@
 # English Hub · Learning & Development Studio
 
-Student learning hub organized by level.
+Student-facing English hub organized by level:
 
-## Levels
+`PreA1 → A1.1 → A1.2 → A2.1 → A2.2 → B1.1 → B1.2 → B1+`
 
-| Level | Folder | Status |
-|-------|--------|--------|
-| PreA1 | [`PreA1/`](./PreA1/) | Scaffold |
-| A1.1 | [`A1.1/`](./A1.1/) | Scaffold |
-| A1.2 | [`A1.2/`](./A1.2/) | Scaffold |
-| A2.1 | [`A2.1/`](./A2.1/) | Scaffold |
-| A2.2 | [`A2.2/`](./A2.2/) | Scaffold |
-| B1.1 | [`B1.1/`](./B1.1/) | Scaffold |
-| B1.2 | [`B1.2/`](./B1.2/) | Scaffold |
-| B1+ | [`B1+/`](./B1+/) | Scaffold |
+## Hub page
+
+Open [`index.html`](./index.html) for the level index.
+
+### GitHub Pages
+
+Settings → Pages → Deploy from branch → `main` / `/ (root)`.
+
+Expected URL after enabling:
+
+`https://learning-development-studio.github.io/english-hub/`
 
 ## Notes
 
-- This repo starts empty on purpose. Content will be built level by level.
-- The current alphabet/numbers starter still lives in an external Base44 app and is linked from the older personal hub when needed.
+- Level folders start as scaffolds.
+- Temporary PreA1 starter (external Base44 app): https://first-english-flow.base44.app/
 - Personal repo `israelventura104-afk/english-activities` was not moved.

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#eef3f6">
+  <meta name="description" content="English learning hub by Learning &amp; Development Studio. Levels PreA1 through B1+.">
+  <title>English Hub · L&amp;D Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --teal: #5bb8b0;
+      --teal-dark: #238d85;
+      --ink: #1c2438;
+      --secondary: #6b7a94;
+      --tertiary: #8b97ab;
+      --line: rgba(30, 45, 90, 0.08);
+      --fill: rgba(30, 45, 90, 0.045);
+      --paper: #ffffff;
+      --bg: #e8eef3;
+      --shadow: 0 1px 2px rgba(30, 45, 90, 0.04), 0 12px 32px rgba(30, 45, 90, 0.06);
+      --radius: 20px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 100% -10%, rgba(91, 184, 176, 0.18), transparent 55%),
+        radial-gradient(900px 420px at -10% 8%, rgba(30, 45, 90, 0.06), transparent 50%),
+        var(--bg);
+      min-height: 100vh;
+      min-height: 100dvh;
+      line-height: 1.45;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: calc(18px + var(--safe-top)) 20px calc(48px + var(--safe-bottom));
+    }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    .brand-meta {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+    .teacher {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      white-space: nowrap;
+    }
+    .hero { margin-bottom: 22px; }
+    .hero h1 {
+      font-size: clamp(34px, 8vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      color: var(--navy);
+    }
+    .hero h1 em { font-style: normal; color: var(--teal-dark); }
+    .hero p {
+      margin-top: 10px;
+      max-width: 40rem;
+      font-size: 17px;
+      color: var(--secondary);
+      letter-spacing: -0.01em;
+    }
+    .level-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      margin: 0 -16px 28px;
+      padding: 10px 16px 12px;
+      background: rgba(232, 238, 243, 0.78);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    .levels {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .levels::-webkit-scrollbar { display: none; }
+    .levels button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      padding: 8px 14px;
+      min-height: 36px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .levels button[aria-pressed="true"] {
+      background: var(--navy);
+      color: #fff;
+    }
+    .levels button:focus-visible {
+      outline: 3px solid rgba(91, 184, 176, 0.65);
+      outline-offset: 2px;
+    }
+    .stage {
+      margin-bottom: 28px;
+      scroll-margin-top: 72px;
+    }
+    .stage.is-hidden { display: none; }
+    .stage-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 4px 10px;
+    }
+    .stage-kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+    }
+    .stage-head h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-top: 4px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--tertiary);
+      background: var(--fill);
+      border-radius: 999px;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+    .stage-can {
+      padding: 0 4px 14px;
+      font-size: 15px;
+      color: var(--secondary);
+    }
+    .group {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      min-height: 68px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .row + .row::before {
+      content: "";
+      position: absolute;
+      left: 66px;
+      right: 0;
+      top: 0;
+      height: 1px;
+      background: var(--line);
+    }
+    a.row:hover { background: var(--fill); }
+    a.row:focus-visible {
+      outline: 3px solid rgba(91, 184, 176, 0.55);
+      outline-offset: -3px;
+    }
+    .glyph {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+    }
+    .g-teal { background: var(--teal); }
+    .g-navy { background: var(--navy); }
+    .g-gold { background: #d4a843; color: var(--navy); }
+    .g-blue { background: #3a6ea5; }
+    .g-plum { background: #6b4c9a; }
+    .g-clay { background: #c46b3a; }
+    .g-rose { background: #c45c7a; }
+    .g-sea { background: #168c8c; }
+    .row-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .row-body p {
+      margin-top: 2px;
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.35;
+    }
+    .chev {
+      width: 18px;
+      height: 18px;
+      color: var(--tertiary);
+    }
+    .note {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(35, 141, 133, 0.08);
+      border: 1px solid rgba(35, 141, 133, 0.16);
+      font-size: 13px;
+      color: var(--secondary);
+    }
+    .note a {
+      color: var(--teal-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .note a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 36px;
+      padding: 0 4px;
+      font-size: 13px;
+      color: var(--tertiary);
+    }
+    .footer strong { color: var(--navy); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div>
+        <div class="brand-name">Learning &amp; Development Studio</div>
+        <div class="brand-meta">English Hub</div>
+      </div>
+      <div class="teacher">Israel Ventura</div>
+    </header>
+
+    <section class="hero">
+      <h1>Choose your <em>level</em></h1>
+      <p>Start where you are. Each level opens when its modules are ready. Empty folders are scaffolds — coming soon.</p>
+    </section>
+
+    <div class="level-bar">
+      <div class="levels" role="toolbar" aria-label="Filter by level">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="PreA1" aria-pressed="false">PreA1</button>
+        <button type="button" data-filter="A1.1" aria-pressed="false">A1.1</button>
+        <button type="button" data-filter="A1.2" aria-pressed="false">A1.2</button>
+        <button type="button" data-filter="A2.1" aria-pressed="false">A2.1</button>
+        <button type="button" data-filter="A2.2" aria-pressed="false">A2.2</button>
+        <button type="button" data-filter="B1.1" aria-pressed="false">B1.1</button>
+        <button type="button" data-filter="B1.2" aria-pressed="false">B1.2</button>
+        <button type="button" data-filter="B1+" aria-pressed="false">B1+</button>
+      </div>
+    </div>
+
+    <section class="stage" data-stage="PreA1" id="PreA1">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">PreA1 · First contact</div>
+          <h2>Alphabet &amp; basics</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Letters, numbers, and first words. Building in this hub soon.</p>
+      <div class="group">
+        <a class="row" href="./PreA1/">
+          <span class="glyph g-teal">Pre</span>
+          <div class="row-body">
+            <h3>PreA1 folder</h3>
+            <p>Open the level folder (README for now).</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="note">Temporary starter app (external): <a href="https://first-english-flow.base44.app/" target="_blank" rel="noopener noreferrer">First English Flow</a></p>
+    </section>
+
+    <section class="stage" data-stage="A1.1" id="A1.1">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">A1.1 · Beginner</div>
+          <h2>Who I am, what I see</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Say who you are. Name things around you. Point: this, that, these, those.</p>
+      <div class="group">
+        <a class="row" href="./A1.1/">
+          <span class="glyph g-navy">A1</span>
+          <div class="row-body">
+            <h3>A1.1 folder</h3>
+            <p>Modules will land here as they are rebuilt.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="A1.2" id="A1.2">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">A1.2 · Beginner</div>
+          <h2>Daily life</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">What I do every day — verbs and simple present.</p>
+      <div class="group">
+        <a class="row" href="./A1.2/">
+          <span class="glyph g-sea">A12</span>
+          <div class="row-body">
+            <h3>A1.2 folder</h3>
+            <p>Coming soon in this hub.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="A2.1" id="A2.1">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">A2.1 · Elementary</div>
+          <h2>Expanding everyday English</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">More situations, more control of the present and near future.</p>
+      <div class="group">
+        <a class="row" href="./A2.1/">
+          <span class="glyph g-gold">A21</span>
+          <div class="row-body">
+            <h3>A2.1 folder</h3>
+            <p>Coming soon.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="A2.2" id="A2.2">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">A2.2 · Elementary</div>
+          <h2>Real possibilities</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Habits, plans, and first conditionals when ready.</p>
+      <div class="group">
+        <a class="row" href="./A2.2/">
+          <span class="glyph g-clay">A22</span>
+          <div class="row-body">
+            <h3>A2.2 folder</h3>
+            <p>Coming soon.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="B1.1" id="B1.1">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">B1.1 · Intermediate</div>
+          <h2>Past &amp; stories</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Tell what happened with more confidence.</p>
+      <div class="group">
+        <a class="row" href="./B1.1/">
+          <span class="glyph g-blue">B11</span>
+          <div class="row-body">
+            <h3>B1.1 folder</h3>
+            <p>Coming soon.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="B1.2" id="B1.2">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">B1.2 · Intermediate</div>
+          <h2>Reports &amp; opinions</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Report what someone said; explain ideas more clearly.</p>
+      <div class="group">
+        <a class="row" href="./B1.2/">
+          <span class="glyph g-plum">B12</span>
+          <div class="row-body">
+            <h3>B1.2 folder</h3>
+            <p>Coming soon.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="stage" data-stage="B1+" id="B1plus">
+      <div class="stage-head">
+        <div>
+          <div class="stage-kicker">B1+ · Upper intermediate bridge</div>
+          <h2>Stretch &amp; refine</h2>
+        </div>
+        <span class="badge">Scaffold</span>
+      </div>
+      <p class="stage-can">Stronger fluency, nuance, and exam-ready control.</p>
+      <div class="group">
+        <a class="row" href="./B1+/">
+          <span class="glyph g-rose">B1+</span>
+          <div class="row-body">
+            <h3>B1+ folder</h3>
+            <p>Coming soon.</p>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>Learning &amp; Development Studio</strong> · Israel Ventura · Educational use
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const buttons = Array.from(document.querySelectorAll(".levels [data-filter]"));
+      const stages = Array.from(document.querySelectorAll("[data-stage]"));
+      function applyFilter(id) {
+        buttons.forEach((btn) => {
+          btn.setAttribute("aria-pressed", btn.dataset.filter === id ? "true" : "false");
+        });
+        stages.forEach((stage) => {
+          const show = id === "all" || stage.dataset.stage === id;
+          stage.classList.toggle("is-hidden", !show);
+        });
+        if (id !== "all") {
+          const target = document.querySelector('[data-stage="' + id + '"]');
+          if (target) target.scrollIntoView({ block: "start" });
+        } else {
+          window.scrollTo({ top: 0 });
+        }
+      }
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
+      });
+    })();
+  </script>
+</body>
+</html>
