@@ -27,7 +27,7 @@ function escapeHtml(s) {
 function noticeHTML() {
   return `
     <h4>Same week, different meanings</h4>
-    <p class="intro">Read each pair. The sentences and the question are already visible — <strong>explain</strong> why the verb form changes, then write your idea in the box.</p>
+    <p class="intro">Read each pair. Do not choose yet — <strong>explain</strong> why the verb form changes. Tap a card to reveal a thinking prompt, then write your idea.</p>
     <div class="scene" aria-label="Contrast pairs">
       <div class="zone">
         <div class="who"><div class="avatar">1</div><div><strong>Pair A</strong><span>habit vs now</span></div></div>
@@ -109,19 +109,27 @@ function analyseHTML() {
 
 
 const LISTEN_SCRIPT = [
-  { who: 'Narrator', line: 'Maya and Omar are talking after class.' },
-  { who: 'Omar', line: 'You usually walk home, right?' },
-  { who: 'Maya', line: 'Yes, I usually walk. But look outside — it is raining hard.' },
-  { who: 'Omar', line: 'So what are you doing now?' },
-  { who: 'Maya', line: 'I am waiting for my brother. He is picking me up today.' },
-  { who: 'Omar', line: 'Nice. I take the bus every day, but this week I am staying with my aunt near school, so I am walking.' },
-  { who: 'Maya', line: 'That sounds temporary.' },
-  { who: 'Omar', line: 'Exactly. Next Monday I go back to my normal routine.' }
+  { who: 'Narrator', line: 'After English class, two classmates are talking near the front door.' },
+  { who: 'Diego', line: 'You usually walk home, right?' },
+  { who: 'Lucia', line: 'Yes, I usually walk. It takes about fifteen minutes.' },
+  { who: 'Diego', line: 'But look outside — it is raining hard right now.' },
+  { who: 'Lucia', line: 'I know. That is why I am waiting here.' },
+  { who: 'Diego', line: 'So what are you doing now? Are you calling a taxi?' },
+  { who: 'Lucia', line: 'No. I am waiting for my brother. He is picking me up today because of the rain.' },
+  { who: 'Diego', line: 'That makes sense. I take the bus every day.' },
+  { who: 'Lucia', line: 'Do you like the bus?' },
+  { who: 'Diego', line: 'It is okay. But this week I am staying with my aunt near school, so I am walking in the mornings.' },
+  { who: 'Lucia', line: 'Oh — so your walking is temporary.' },
+  { who: 'Diego', line: 'Exactly. My aunt is visiting for work this month. Next Monday I go back to my normal routine.' },
+  { who: 'Lucia', line: 'Lucky you this week. I usually enjoy walking, but I am not enjoying this storm.' },
+  { who: 'Diego', line: 'Same. Listen — a car is stopping outside. Is that your brother?' },
+  { who: 'Lucia', line: 'Yes! He is waving at me. See you tomorrow in class.' },
+  { who: 'Diego', line: 'See you. I am going to the bus stop before it rains even more.' }
 ];
 function listeningHTML() {
   return `
     <h4>Listening · After class</h4>
-    <p class="intro">Play the conversation. Listen for habits vs now/temporary actions. Then answer — gist, detail, inference, and language in context.</p>
+    <p class="intro">Play the full conversation (it is a bit longer). Listen for habits vs now/temporary actions. Then answer — gist, detail, inference, and language in context.</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
       <button type="button" class="btn" id="playListen">Play conversation</button>
       <button type="button" class="btn ghost" id="stopListen">Stop</button>
@@ -132,13 +140,13 @@ function listeningHTML() {
     <p class="intro">In one or two sentences: what is the conversation mainly about?</p>
     <textarea data-li="gist" placeholder="It is mainly about…">${escapeHtml((state.listen||{}).gist||'')}</textarea>
     <h5 style="color:var(--navy)">B · Detail</h5>
-    <p class="intro">How does Maya usually go home? What is different today, and why?</p>
+    <p class="intro">How does Lucia usually go home? What is different today, and why?</p>
     <textarea data-li="detail" placeholder="Usually… Today… because…">${escapeHtml((state.listen||{}).detail||'')}</textarea>
     <h5 style="color:var(--navy)">C · Inference</h5>
-    <p class="intro">Why does Omar say his walking is temporary? What clue tells you that?</p>
+    <p class="intro">Why does Diego say his walking is temporary? What clue tells you that?</p>
     <textarea data-li="infer" placeholder="I think… because…">${escapeHtml((state.listen||{}).infer||'')}</textarea>
     <h5 style="color:var(--navy)">D · Language in context</h5>
-    <p class="intro">Omar says “Next Monday I go back to my normal routine.” What does <strong>routine</strong> mean here? Use a clue from the conversation.</p>
+    <p class="intro">Diego says “Next Monday I go back to my normal routine.” What does <strong>routine</strong> mean here? Use a clue from the conversation.</p>
     <textarea data-li="vocab" placeholder="Here, routine means… The clue is…">${escapeHtml((state.listen||{}).vocab||'')}</textarea>
     <h5 style="color:var(--navy)">E · Form hunt</h5>
     <p class="intro">List 2 Present Simple ideas and 2 Present Continuous ideas you heard. Do not copy long sentences — paraphrase.</p>
