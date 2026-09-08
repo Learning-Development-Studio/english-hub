@@ -1,5 +1,5 @@
 const sections = ['1 Notice', '2 Grammar', '3 Analyse', '4 Listening', '5 Reading', '6 Speaking', '7 Writing', '8 Can-do'];
-const KEY = 'a21PsPcReviewv2';
+const KEY = 'a21PsPcReviewv3';
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
   catch { return {}; }
@@ -27,7 +27,7 @@ function escapeHtml(s) {
 function noticeHTML() {
   return `
     <h4>Same week, different meanings</h4>
-    <p class="intro">Read each pair. Do not choose yet — <strong>explain</strong> why the verb form changes. Tap a card to reveal a thinking prompt, then write your idea.</p>
+    <p class="intro">Read each pair. Do not choose yet — <strong>explain</strong> why the verb form changes. Each card shows a thinking prompt; write your idea below.</p>
     <div class="scene" aria-label="Contrast pairs">
       <div class="zone">
         <div class="who"><div class="avatar">1</div><div><strong>Pair A</strong><span>habit vs now</span></div></div>
@@ -46,6 +46,12 @@ function noticeHTML() {
         <div class="bubble on" style="cursor:default">We <strong>usually cook</strong> at home.<br>Listen! Dad <strong>is cooking</strong> something special.</div>
         <p class="intro" style="margin-top:8px"><em>Which words push you to Simple? Which to Continuous?</em></p>
         <textarea data-notice="c" placeholder="Simple signals… Continuous signals…">${escapeHtml((state.notice||{}).c||'')}</textarea>
+      </div>
+      <div class="zone">
+        <div class="who"><div class="avatar">4</div><div><strong>Pair D</strong><span>permanent vs this week</span></div></div>
+        <div class="bubble on" style="cursor:default">Omar <strong>works</strong> at a bookstore downtown.<br>This week he <strong>is working</strong> from home.</div>
+        <p class="intro" style="margin-top:8px"><em>Why is “this week” paired with Continuous here?</em></p>
+        <textarea data-notice="d" placeholder="Because…">${escapeHtml((state.notice||{}).d||'')}</textarea>
       </div>
     </div>
     <div class="tip"><strong>Think first:</strong> Present Simple = what is normal / true. Present Continuous = what is happening now or for a short time.</div>
@@ -126,31 +132,101 @@ const LISTEN_SCRIPT = [
   { who: 'Lucia', line: 'Yes! He is waving at me. See you tomorrow in class.' },
   { who: 'Diego', line: 'See you. I am going to the bus stop before it rains even more.' }
 ];
+
+const WHO_ITEMS = [
+  { id: '1', text: 'Asks if the other person usually walks home', answer: 'Diego' },
+  { id: '2', text: 'Usually walks; takes about fifteen minutes', answer: 'Lucia' },
+  { id: '3', text: 'Waiting for brother because of the rain', answer: 'Lucia' },
+  { id: '4', text: 'Staying with aunt near school this week', answer: 'Diego' },
+  { id: '5', text: 'Sets the scene after English class', answer: 'Narrator' }
+];
+
+const SORT_ITEMS = [
+  { id: '1', text: 'usually walk home' },
+  { id: '2', text: 'it is raining hard right now' },
+  { id: '3', text: 'waiting for brother' },
+  { id: '4', text: 'take the bus every day' },
+  { id: '5', text: 'staying with aunt this week' },
+  { id: '6', text: 'aunt is visiting this month' }
+];
+
+const TF_ITEMS = [
+  { id: '1', text: 'Lucia usually takes a taxi home.' },
+  { id: '2', text: 'Diego’s walking to school this week is temporary.' },
+  { id: '3', text: 'Lucia’s brother is picking her up today because of the rain.' }
+];
+
 function listeningHTML() {
+  const who = state.listenWho || {};
+  const sort = state.listenSort || {};
+  const tf = state.listenTf || {};
+  const vocab = state.listenVocab || {};
   return `
     <h4>Listening · After class</h4>
-    <p class="intro">Play the full conversation (it is a bit longer). Listen for habits vs now/temporary actions. Then answer — gist, detail, inference, and language in context.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
-      <button type="button" class="btn" id="playListen">Play conversation</button>
-      <button type="button" class="btn ghost" id="stopListen">Stop</button>
-      <button type="button" class="btn ghost" id="toggleScript">Show / hide script</button>
+    <p class="intro">Play the conversation. Listen for habits vs now/temporary actions. Then complete the tasks below — tap choices, do not write long essays.</p>
+    <div class="listen-player">
+      <audio id="listenAudio" src="./audio/after-class.mp3" controls preload="metadata"></audio>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button type="button" class="btn" id="playListen">Play</button>
+        <button type="button" class="btn ghost" id="stopListen">Stop</button>
+        <button type="button" class="btn ghost" id="toggleScript">Show / hide script</button>
+      </div>
     </div>
     <div id="listenScript" class="card" style="display:none;padding:14px;margin-bottom:12px"></div>
-    <h5 style="color:var(--navy)">A · Gist</h5>
-    <p class="intro">In one or two sentences: what is the conversation mainly about?</p>
-    <textarea data-li="gist" placeholder="It is mainly about…">${escapeHtml((state.listen||{}).gist||'')}</textarea>
-    <h5 style="color:var(--navy)">B · Detail</h5>
-    <p class="intro">How does Lucia usually go home? What is different today, and why?</p>
-    <textarea data-li="detail" placeholder="Usually… Today… because…">${escapeHtml((state.listen||{}).detail||'')}</textarea>
-    <h5 style="color:var(--navy)">C · Inference</h5>
-    <p class="intro">Why does Diego say his walking is temporary? What clue tells you that?</p>
-    <textarea data-li="infer" placeholder="I think… because…">${escapeHtml((state.listen||{}).infer||'')}</textarea>
-    <h5 style="color:var(--navy)">D · Language in context</h5>
-    <p class="intro">Diego says “Next Monday I go back to my normal routine.” What does <strong>routine</strong> mean here? Use a clue from the conversation.</p>
-    <textarea data-li="vocab" placeholder="Here, routine means… The clue is…">${escapeHtml((state.listen||{}).vocab||'')}</textarea>
-    <h5 style="color:var(--navy)">E · Form hunt</h5>
-    <p class="intro">List 2 Present Simple ideas and 2 Present Continuous ideas you heard. Do not copy long sentences — paraphrase.</p>
-    <textarea data-li="forms" placeholder="Simple: … / Continuous: …">${escapeHtml((state.listen||{}).forms||'')}</textarea>
+
+    <h5 style="color:var(--navy)">A · Who said it?</h5>
+    <p class="intro">Tap Diego, Lucia, or Narrator for each paraphrase.</p>
+    <div class="listen-tasks">
+      ${WHO_ITEMS.map((it) => `
+        <div class="listen-item" data-who-item="${it.id}">
+          <p class="listen-prompt">${it.id}. ${it.text}</p>
+          <div class="btn-group" role="group" aria-label="Who said it ${it.id}">
+            ${['Diego','Lucia','Narrator'].map((opt) => `
+              <button type="button" class="opt listen-who ${who[it.id]===opt?'selected':''}" data-who="${it.id}" data-val="${opt}">${opt}</button>
+            `).join('')}
+          </div>
+        </div>`).join('')}
+    </div>
+
+    <h5 style="color:var(--navy)">B · Habit or now?</h5>
+    <p class="intro">Is each idea a habit/routine or something now/temporary?</p>
+    <div class="listen-tasks">
+      ${SORT_ITEMS.map((it) => `
+        <div class="listen-item" data-sort-item="${it.id}">
+          <p class="listen-prompt">${it.id}. ${it.text}</p>
+          <div class="btn-group" role="group" aria-label="Habit or now ${it.id}">
+            <button type="button" class="opt listen-sort ${sort[it.id]==='habit'?'selected':''}" data-sort="${it.id}" data-val="habit">Habit / routine</button>
+            <button type="button" class="opt listen-sort ${sort[it.id]==='now'?'selected':''}" data-sort="${it.id}" data-val="now">Now / temporary</button>
+          </div>
+        </div>`).join('')}
+    </div>
+
+    <h5 style="color:var(--navy)">C · True / False + evidence</h5>
+    <p class="intro">Choose T or F, then write one short line of evidence from the audio.</p>
+    <div class="listen-tasks">
+      ${TF_ITEMS.map((it) => `
+        <div class="listen-item" data-tf-item="${it.id}">
+          <p class="listen-prompt">${it.id}. ${it.text}</p>
+          <div class="btn-group" role="group" aria-label="True or false ${it.id}">
+            <button type="button" class="opt listen-tf ${tf[it.id] && tf[it.id].ans==='T'?'selected':''}" data-tf="${it.id}" data-val="T">True</button>
+            <button type="button" class="opt listen-tf ${tf[it.id] && tf[it.id].ans==='F'?'selected':''}" data-tf="${it.id}" data-val="F">False</button>
+          </div>
+          <textarea class="short" data-tf-ev="${it.id}" placeholder="Evidence (one line)…">${escapeHtml((tf[it.id]&&tf[it.id].ev)||'')}</textarea>
+        </div>`).join('')}
+    </div>
+
+    <h5 style="color:var(--navy)">D · Word in context</h5>
+    <p class="intro">Two short items only — what do these mean in the conversation?</p>
+    <div class="listen-tasks">
+      <div class="listen-item">
+        <p class="listen-prompt">1. <strong>routine</strong> (Diego: “Next Monday I go back to my normal routine.”)</p>
+        <textarea class="short" data-vocab="routine" placeholder="Here, routine means…">${escapeHtml(vocab.routine||'')}</textarea>
+      </div>
+      <div class="listen-item">
+        <p class="listen-prompt">2. <strong>picking me up</strong> (Lucia about her brother)</p>
+        <textarea class="short" data-vocab="pickup" placeholder="Here, picking me up means…">${escapeHtml(vocab.pickup||'')}</textarea>
+      </div>
+    </div>
   `;
 }
 
@@ -290,13 +366,6 @@ function bindPanel(i) {
       save();
     });
   });
-  document.querySelectorAll('textarea[data-li]').forEach((el) => {
-    el.addEventListener('input', () => {
-      state.listen = state.listen || {};
-      state.listen[el.dataset.li] = el.value;
-      save();
-    });
-  });
   document.querySelectorAll('textarea[data-rd]').forEach((el) => {
     el.addEventListener('input', () => {
       state.read = state.read || {};
@@ -317,33 +386,75 @@ function bindPanel(i) {
     });
   }
 }
-let speakQueue = [];
 function bindListening() {
   const box = document.getElementById('listenScript');
+  const audio = document.getElementById('listenAudio');
   box.innerHTML = LISTEN_SCRIPT.map((t) => `<p><strong>${t.who}:</strong> ${t.line}</p>`).join('');
   document.getElementById('toggleScript').addEventListener('click', () => {
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
   });
-  document.getElementById('stopListen').addEventListener('click', () => {
-    if (window.speechSynthesis) speechSynthesis.cancel();
-    speakQueue = [];
-  });
   document.getElementById('playListen').addEventListener('click', () => {
-    if (!window.speechSynthesis) {
-      alert('Speech playback is not available in this browser. Use Show script and read aloud with a partner.');
-      return;
-    }
-    speechSynthesis.cancel();
-    speakQueue = LISTEN_SCRIPT.slice();
-    const next = () => {
-      if (!speakQueue.length) return;
-      const turn = speakQueue.shift();
-      const u = new SpeechSynthesisUtterance(`${turn.who}. ${turn.line}`);
-      u.rate = 0.95;
-      u.onend = next;
-      speechSynthesis.speak(u);
-    };
-    next();
+    if (audio) audio.play();
+  });
+  document.getElementById('stopListen').addEventListener('click', () => {
+    if (!audio) return;
+    audio.pause();
+    audio.currentTime = 0;
+  });
+
+  document.querySelectorAll('.listen-who').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.who;
+      const val = btn.dataset.val;
+      state.listenWho = state.listenWho || {};
+      state.listenWho[id] = val;
+      save();
+      const group = btn.closest('.btn-group');
+      group.querySelectorAll('.listen-who').forEach((b) => b.classList.toggle('selected', b.dataset.val === val));
+    });
+  });
+
+  document.querySelectorAll('.listen-sort').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.sort;
+      const val = btn.dataset.val;
+      state.listenSort = state.listenSort || {};
+      state.listenSort[id] = val;
+      save();
+      const group = btn.closest('.btn-group');
+      group.querySelectorAll('.listen-sort').forEach((b) => b.classList.toggle('selected', b.dataset.val === val));
+    });
+  });
+
+  document.querySelectorAll('.listen-tf').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.tf;
+      const val = btn.dataset.val;
+      state.listenTf = state.listenTf || {};
+      state.listenTf[id] = state.listenTf[id] || {};
+      state.listenTf[id].ans = val;
+      save();
+      const group = btn.closest('.btn-group');
+      group.querySelectorAll('.listen-tf').forEach((b) => b.classList.toggle('selected', b.dataset.val === val));
+    });
+  });
+
+  document.querySelectorAll('textarea[data-tf-ev]').forEach((el) => {
+    el.addEventListener('input', () => {
+      const id = el.dataset.tfEv;
+      state.listenTf = state.listenTf || {};
+      state.listenTf[id] = state.listenTf[id] || {};
+      state.listenTf[id].ev = el.value;
+      save();
+    });
+  });
+
+  document.querySelectorAll('textarea[data-vocab]').forEach((el) => {
+    el.addEventListener('input', () => {
+      state.listenVocab = state.listenVocab || {};
+      state.listenVocab[el.dataset.vocab] = el.value;
+      save();
+    });
   });
 }
 function bindSpeaking() {
