@@ -239,3 +239,27 @@
   .grid2, .grid4, .scene { grid-template-columns: 1fr; }
   .hero::after { opacity: 0.08; width: 120px; }
   }
+
+  /* Notice: 4 cards as 2×2 on desktop (scene already 2-col) */
+  .scene .zone textarea { min-height: 88px; }
+
+  /* Listening player + redesigned tasks */
+  .listen-player {
+    margin-bottom: 16px; padding: 14px; border-radius: 14px;
+    background: var(--soft); border: 1px solid var(--line);
+  }
+  .listen-player audio { width: 100%; display: block; }
+  .listen-tasks { display: grid; gap: 12px; margin-bottom: 8px; }
+  .listen-item {
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; background: #fff;
+  }
+  .listen-prompt {
+    margin: 0 0 10px; font-weight: 700; line-height: 1.45; color: var(--navy);
+  }
+  .btn-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn-group .opt.selected {
+    background: var(--wash); border-color: var(--teal);
+    box-shadow: 0 0 0 2px rgba(91, 184, 176, 0.35);
+  }
+  textarea.short { min-height: 64px; margin-top: 10px; }
