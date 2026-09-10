@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/logo.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Verbs 1 | A1.2 | Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --teal: #5bb8b0;
+      --teal-dark: #238d85;
+      --gold: #d4a843;
+      --ink: #172033;
+      --muted: #6b7fa3;
+      --line: #e8ecf4;
+      --paper: #fff;
+      --wash: #f0faf9;
+      --shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
+      --card-w: min(520px, calc(100vw - 48px));
+      --card-ratio: 1136 / 912;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(91, 184, 176, 0.16), transparent 34rem),
+        linear-gradient(180deg, #f7fafc 0%, #eef4f7 100%);
+      min-height: 100vh;
+    }
+    button { font: inherit; cursor: pointer; }
+    .shell { max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+    .topbar {
+      position: sticky; top: 16px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      margin-bottom: 18px; padding: 12px 16px;
+      background: var(--navy); color: #fff; border-radius: 18px;
+      box-shadow: 0 16px 34px rgba(11, 31, 58, 0.22);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 999px;
+      display: grid; place-items: center; background: #fff;
+      overflow: hidden; padding: 3px; flex: 0 0 auto;
+    }
+    .brand-mark img { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block; }
+    .brand h1 { margin: 0; color: #fff; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.1; font-weight: 800; }
+    .brand p { margin: 3px 0 0; color: #d7ecea; font-size: 0.82rem; }
+    .topbar-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .mode-pill {
+      border: 1px solid rgba(255, 255, 255, 0.18); color: #fff;
+      background: rgba(255, 255, 255, 0.10); border-radius: 999px;
+      padding: 8px 12px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;
+    }
+    .home-btn {
+      display: inline-flex; align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.28); color: #fff !important;
+      background: rgba(91, 184, 176, 0.28); border-radius: 999px;
+      padding: 8px 14px; font-size: 0.82rem; font-weight: 800;
+      text-decoration: none !important; white-space: nowrap;
+    }
+    .home-btn:hover { background: rgba(91, 184, 176, 0.48); }
+
+    .hero {
+      position: relative; overflow: hidden; border-radius: 20px;
+      background: #f4fbfa; color: var(--navy);
+      border: 1px solid rgba(30, 45, 90, 0.08); box-shadow: var(--shadow); margin-bottom: 22px;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%);
+      width: 200px; height: 200px; border-radius: 999px;
+      background: url("../../assets/logo.png") center / contain no-repeat; opacity: 0.12; pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; padding: clamp(24px, 5vw, 42px); max-width: 640px; }
+    .eyebrow {
+      color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.12em;
+      font-size: 0.75rem; font-weight: 800;
+    }
+    .hero h2 {
+      margin: 10px 0 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1;
+      letter-spacing: -0.03em; font-weight: 800;
+    }
+    .hero h2 span { color: var(--teal); }
+    .hero p { color: var(--muted); margin: 16px 0 0; line-height: 1.65; font-size: 1.02rem; }
+
+    .lesson {
+      background: var(--paper); border: 1px solid rgba(30, 45, 90, 0.08);
+      border-radius: 18px; box-shadow: var(--shadow); overflow: hidden;
+    }
+    .lesson-head { background: var(--navy); color: #fff; padding: 22px 24px; }
+    .lesson-head h3 { margin: 0; font-size: 1.15rem; }
+    .lesson-head p { color: #d7ecea; line-height: 1.55; margin: 6px 0 0; }
+    .panel { padding: 26px; }
+    .intro { color: var(--muted); line-height: 1.65; margin: 0 0 18px; }
+
+    .stage { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 8px 0 4px; }
+    .card-shell { perspective: 1400px; width: var(--card-w); }
+    .flip {
+      width: 100%; aspect-ratio: var(--card-ratio); cursor: pointer; position: relative;
+      filter: drop-shadow(0 16px 32px rgba(30, 45, 90, 0.18));
+    }
+    .flip-inner {
+      width: 100%; height: 100%; position: relative; transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+    .flip.is-flipped .flip-inner { transform: rotateY(180deg); }
+    .face {
+      position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: 18px; overflow: hidden; background: #f4f1ea;
+    }
+    .face img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .face.back { transform: rotateY(180deg); }
+    .audio-btn {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(11, 31, 58, 0.82);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(30, 45, 90, 0.28);
+      transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 0;
+    }
+    .audio-btn:hover { background: rgba(35, 141, 133, 0.95); transform: scale(1.06); }
+    .audio-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .audio-btn.playing { background: rgba(35, 141, 133, 0.95); }
+    .audio-btn svg { width: 18px; height: 18px; display: block; pointer-events: none; }
+    .audio-btn.missing { opacity: 0.35; cursor: not-allowed; }
+    .verb-name {
+      text-align: center; font-weight: 800; color: var(--navy); font-size: 1.15rem; letter-spacing: 0.04em;
+    }
+    .controls { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 520px; }
+    .nav-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .nav-btn, .action-btn {
+      border: 1px solid var(--line); background: var(--paper); color: var(--navy);
+      font-weight: 700; box-shadow: 0 4px 14px rgba(30, 45, 90, 0.06);
+    }
+    .nav-btn { width: 48px; height: 48px; border-radius: 999px; font-size: 1.25rem; display: grid; place-items: center; }
+    .action-btn { border-radius: 999px; padding: 10px 16px; font-size: 0.9rem; }
+    .counter { min-width: 72px; text-align: center; font-weight: 800; color: var(--muted); }
+    .hint { text-align: center; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+    .activities { margin-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+    .activities-label { margin: 0 4px 4px; color: var(--navy); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .activity { background: var(--paper); border: 1px solid rgba(30,45,90,0.08); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+    .activity > summary { list-style: none; cursor: pointer; display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; user-select: none; }
+    .activity > summary::-webkit-details-marker { display: none; }
+    .activity-num { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; color: #fff; flex: 0 0 auto; }
+    .n1 { background: var(--navy); } .n2 { background: var(--teal); } .n3 { background: var(--gold); color: var(--navy); } .n4 { background: var(--teal-dark); } .n5 { background: var(--navy); } .n6 { background: #168c8c; } .n7 { background: var(--gold); color: var(--navy); }
+    .activity-meta { flex: 1; min-width: 0; }
+    .activity-meta h3 { margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--navy); }
+    .activity-meta h3 span { color: var(--teal); }
+    .activity-meta p { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .activity-chevron {
+      flex: 0 0 auto; width: 28px; height: 28px; margin-top: 6px; border-radius: 999px;
+      background: var(--wash); color: var(--navy); display: grid; place-items: center;
+      font-size: 0.85rem; font-weight: 800; transition: transform 0.2s ease;
+    }
+    .activity[open] .activity-chevron { transform: rotate(180deg); background: rgba(91,184,176,0.2); color: var(--teal-dark); }
+    .activity-body { padding: 0 18px 20px; border-top: 1px solid var(--line); }
+    .activity-body-inner { padding-top: 16px; }
+    .photo-quiz { display: grid; gap: 14px; justify-items: center; }
+    .photo-quiz[hidden] { display: none; }
+    .photo-quiz img, .speak-photo, .type-photo { width: min(100%, 420px); border-radius: 14px; display: block; }
+    .opts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .opt { border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 10px 14px; font-weight: 800; color: var(--navy); }
+    .opt.correct { background: #e9f8ef; border-color: #72b98c; }
+    .opt.wrong { background: #fff0f0; border-color: #d98989; }
+    .fb { margin-top: 10px; font-weight: 700; color: var(--navy); text-align: center; min-height: 1.4em; }
+    .btn { border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 800; background: var(--navy); color: #fff; }
+    .btn.ghost { background: #fff; color: var(--navy); border: 1px solid var(--line); }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+    .score-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; }
+    .stat { border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-weight: 800; font-size: 0.82rem; color: var(--navy); background: #fff; }
+    .stat em { font-style: normal; }
+    .stat.low { color: #9a6700; border-color: var(--gold); background: #fff8e8; }
+    .bins { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+    .bin { border: 1px dashed var(--line); border-radius: 14px; padding: 10px; min-height: 120px; background: var(--wash); }
+    .bin.hot { border-color: var(--teal); background: #fff; }
+    .bin.ok { border-style: solid; border-color: #72b98c; }
+    .bin.bad { border-style: solid; border-color: #d98989; }
+    .bin h5 { margin: 0 0 8px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-dark); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 10px; font-weight: 800; font-size: 0.8rem; color: var(--navy); cursor: pointer; }
+    .chip.on { background: var(--navy); color: #fff; }
+    .type-photo { margin: 0 auto 12px; }
+    .type-box {
+      width: min(100%, 280px); border: 1px solid var(--line); border-radius: 12px;
+      padding: 12px; font-weight: 800; text-align: center; display: block; margin: 0 auto 10px;
+    }
+    .speak-photo { margin: 0 auto 12px; }
+    .stem { text-align: center; font-size: 1.15rem; font-weight: 800; color: var(--navy); }
+    .cando { display: grid; gap: 10px; }
+    .cando label { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: #f8fafc; cursor: pointer; }
+    .cando input { width: 18px; height: 18px; }
+    .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px; }
+    .footer strong { color: var(--navy); }
+
+    @media (max-width: 720px) {
+      .shell { padding: 12px; }
+      .brand p { display: none; }
+      .panel { padding: 18px; }
+      .hero::after { opacity: 0.08; width: 120px; }
+      .bins { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div>
+        <div>
+          <h1>Verbs 1</h1>
+          <p>A1.2 · Daily life verbs</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="home-btn" href="../../">Home</a>
+        <span class="mode-pill">A1.2</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">A1.2 · Verb set 1</span>
+        <h2>Thirty <span>verbs</span></h2>
+        <p>Photo first. Flip the card for the verb, an example, and a play button. Then play five short games with the same 30 words.</p>
+      </div>
+    </section>
+
+    <p class="activities-label">Activities</p>
+    <div class="activities" id="activities">
+
+      <details class="activity" id="act-deck" open>
+        <summary>
+          <span class="activity-num n1">01</span>
+          <div class="activity-meta">
+            <h3>Verb <span>deck</span></h3>
+            <p>30 verbs. Flip the card, then tap play to hear the word.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <p class="intro">The back shows the verb, an example, and a play button. Today just learn the word.</p>
+            <div class="stage">
+              <div class="card-shell">
+                <div class="flip" id="flipCard" role="button" tabindex="0" aria-label="Flip verb card">
+                  <div class="flip-inner">
+                    <div class="face front"><img id="frontImg" alt="" src="assets/front/01.jpg"></div>
+                    <div class="face back">
+                      <img id="backImg" alt="" src="assets/back/01.png">
+                      <button type="button" class="audio-btn" id="btnAudio" title="Play pronunciation" aria-label="Play verb audio">
+                        <svg id="iconPlay" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 9v6h3.5L12 19V5L7.5 9H4z" fill="currentColor"/>
+                          <path d="M15.5 8.5a4.5 4.5 0 010 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                          <path d="M17.8 6a7.5 7.5 0 010 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                        <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+                          <rect x="6" y="5" width="4" height="14" rx="1"/>
+                          <rect x="14" y="5" width="4" height="14" rx="1"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="verb-name" id="verbName">HAVE</div>
+              <div class="controls">
+                <div class="nav-row">
+                  <button type="button" class="nav-btn" id="btnPrev" aria-label="Previous">←</button>
+                  <div class="counter" id="counter">1 / 30</div>
+                  <button type="button" class="nav-btn" id="btnNext" aria-label="Next">→</button>
+                </div>
+                <div class="nav-row">
+                  <button type="button" class="action-btn" id="btnFlip">Flip card</button>
+                  <button type="button" class="action-btn" id="btnShuffle">Shuffle</button>
+                  <button type="button" class="action-btn" id="btnReset">Reset order</button>
+                </div>
+                <p class="hint"><strong>Space</strong> to flip · <strong>← →</strong> on the keyboard keeps the same side</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-name">
+        <summary>
+          <span class="activity-num n2">02</span>
+          <div class="activity-meta">
+            <h3>Name the <span>verb</span></h3>
+            <p>Look at the photo. Tap the verb. 10 photos · no timer.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Photo <em id="nameRound">1 / 10</em></span>
+              <span class="stat">Score <em id="nameScore">0</em></span>
+            </div>
+            <div class="photo-quiz" id="namePlay">
+              <img id="nameImg" alt="Daily-life photo">
+              <div class="opts" id="nameOpts" role="group" aria-label="Choose the verb"></div>
+              <p class="fb" id="nameFb" role="status"></p>
+            </div>
+            <div class="photo-quiz" id="nameDone" hidden>
+              <p class="hint">You named the photos. Press New set to play again.</p>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn ghost" id="btnNameNew">New set</button>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-speed">
+        <summary>
+          <span class="activity-num n3">03</span>
+          <div class="activity-meta">
+            <h3>Speed <span>round</span></h3>
+            <p>45 seconds. One photo, four verbs. How many can you name?</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat" id="speedTimeStat">Time <em id="speedTime">0:45</em></span>
+              <span class="stat">Score <em id="speedScore">0</em></span>
+              <span class="stat">Best <em id="speedBest">0</em></span>
+            </div>
+            <div id="speedIdle">
+              <p class="intro">Look at the photo. Tap the verb. The clock starts when you press Start.</p>
+              <div class="btn-row">
+                <button type="button" class="btn" id="btnSpeedStart">Start</button>
+              </div>
+            </div>
+            <div class="photo-quiz" id="speedPlay" hidden>
+              <img id="speedImg" alt="Daily-life photo">
+              <div class="opts" id="speedOpts" role="group" aria-label="Choose the verb"></div>
+              <p class="fb" id="speedFb" role="status"></p>
+            </div>
+            <div id="speedDone" hidden>
+              <p class="stem" id="speedFinal">0 in 45 seconds</p>
+              <p class="hint" id="speedHint">Press Play again to beat your score.</p>
+              <div class="btn-row">
+                <button type="button" class="btn" id="btnSpeedAgain">Play again</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-bins">
+        <summary>
+          <span class="activity-num n4">04</span>
+          <div class="activity-meta">
+            <h3>Verb <span>groups</span></h3>
+            <p>Tap a word, then tap a group. Twelve verbs in three families.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <p class="intro">Move. Food. School. Put each verb in one group.</p>
+            <div class="chips" id="binPool"></div>
+            <div class="bins">
+              <div class="bin" data-bin="move"><h5>Move</h5><div class="chips" id="bin-move"></div></div>
+              <div class="bin" data-bin="food"><h5>Food</h5><div class="chips" id="bin-food"></div></div>
+              <div class="bin" data-bin="school"><h5>School</h5><div class="chips" id="bin-school"></div></div>
+            </div>
+            <p class="fb" id="binFb" role="status"></p>
+            <div class="btn-row">
+              <button type="button" class="btn" id="btnBinCheck">Check</button>
+              <button type="button" class="btn ghost" id="btnBinReset">Reset</button>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-type">
+        <summary>
+          <span class="activity-num n5">05</span>
+          <div class="activity-meta">
+            <h3>Write the <span>verb</span></h3>
+            <p>45 seconds. Look at the photo. Type the verb.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat" id="typeTimeStat">Time <em id="typeTime">0:45</em></span>
+              <span class="stat">Score <em id="typeScore">0</em></span>
+              <span class="stat">Best <em id="typeBest">0</em></span>
+            </div>
+            <div id="typeIdle">
+              <p class="intro">Type the verb. The clock starts when you press Start.</p>
+              <div class="btn-row">
+                <button type="button" class="btn" id="btnTypeStart">Start</button>
+              </div>
+            </div>
+            <div id="typePlay" hidden>
+              <img class="type-photo" id="typeImg" alt="Daily-life photo">
+              <input class="type-box" id="typeInput" type="text" autocomplete="off" spellcheck="false" placeholder="type the verb" aria-label="Type the verb">
+              <p class="fb" id="typeFb" role="status"></p>
+              <div class="btn-row">
+                <button type="button" class="btn" id="btnTypeCheck">Check</button>
+              </div>
+            </div>
+            <div id="typeDone" hidden>
+              <p class="stem" id="typeFinal">0 in 45 seconds</p>
+              <p class="hint" id="typeHint">Press Play again to beat your score.</p>
+              <div class="btn-row"><button type="button" class="btn" id="btnTypeAgain">Play again</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-say">
+        <summary>
+          <span class="activity-num n6">06</span>
+          <div class="activity-meta">
+            <h3>Mime <span>it</span></h3>
+            <p>Look at the photo. Act the verb. Don't speak. Then reveal.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Photo <em id="sayRound">1 / 8</em></span>
+            </div>
+            <img class="speak-photo" id="sayImg" alt="Daily-life photo">
+            <p class="stem" id="sayWord">Mime the verb.</p>
+            <p class="hint" id="sayHint">Look. Act it out. No talking. Then tap Reveal.</p>
+            <div class="btn-row">
+              <button type="button" class="btn" id="btnSayReveal">Reveal</button>
+              <button type="button" class="btn ghost" id="btnSayNext">Next photo</button>
+              <button type="button" class="btn ghost" id="btnSayNew">New set</button>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-cando">
+        <summary>
+          <span class="activity-num n7">07</span>
+          <div class="activity-meta">
+            <h3>Can-do</h3>
+            <p>Check what you can do with these 30 verbs.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="cando" id="candoList"></div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.2</footer>
+  </div>
+<script>
+const verbs = [
+  'have','do','go','come','eat','drink','sleep','wake up','get up','walk',
+  'run','sit','stand','read','write','listen','speak','watch','look','work',
+  'study','cook','buy','pay','open','close','give','take','help','wait'
+];
+const pad = (n) => String(n).padStart(2, '0');
+const front = (i) => `assets/front/${pad(i + 1)}.jpg`;
+const audioSrc = (i) => `assets/audio/${verbs[i].replace(/\s+/g, '-')}.mp3`;
+const KEY = 'verbs1A12v1';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch { return {}; }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch { /* ignore */ }
+}
+const state = loadState();
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ----- 01 Deck ----- */
+let order = verbs.map((_, i) => i);
+let card = 0;
+let flipped = false;
+const btnAudio = document.getElementById('btnAudio');
+const iconPlay = document.getElementById('iconPlay');
+const iconPause = document.getElementById('iconPause');
+const player = new Audio();
+player.preload = 'none';
+
+function setAudioUI(playing) {
+  btnAudio.classList.toggle('playing', playing);
+  iconPlay.hidden = playing;
+  iconPause.hidden = !playing;
+  btnAudio.setAttribute('aria-label', playing ? 'Stop audio' : 'Play verb audio');
+  btnAudio.title = playing ? 'Stop' : 'Play pronunciation';
+}
+function stopAudio() {
+  player.pause();
+  player.currentTime = 0;
+  setAudioUI(false);
+}
+function playAudioForCurrent() {
+  const i = order[card];
+  const src = audioSrc(i);
+  const absolute = new URL(src, window.location.href).href;
+  if (player.src !== absolute) player.src = src;
+  else player.currentTime = 0;
+  player.play().then(() => {
+    btnAudio.classList.remove('missing');
+    setAudioUI(true);
+  }).catch(() => {
+    btnAudio.classList.add('missing');
+    setAudioUI(false);
+  });
+}
+function toggleAudio(e) {
+  if (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+  if (!flipped) return;
+  if (!player.paused && !player.ended) {
+    stopAudio();
+    return;
+  }
+  playAudioForCurrent();
+}
+player.addEventListener('ended', () => setAudioUI(false));
+player.addEventListener('error', () => {
+  btnAudio.classList.add('missing');
+  setAudioUI(false);
+});
+btnAudio.addEventListener('click', toggleAudio);
+
+function show() {
+  stopAudio();
+  const i = order[card];
+  document.getElementById('frontImg').src = front(i);
+  document.getElementById('frontImg').alt = verbs[i];
+  document.getElementById('backImg').src = `assets/back/${pad(i + 1)}.png`;
+  document.getElementById('backImg').alt = verbs[i];
+  document.getElementById('verbName').textContent = verbs[i].toUpperCase();
+  document.getElementById('counter').textContent = `${card + 1} / ${verbs.length}`;
+  document.getElementById('flipCard').classList.toggle('is-flipped', flipped);
+  btnAudio.classList.remove('missing');
+}
+function flip() {
+  flipped = !flipped;
+  show();
+}
+function goPrev() {
+  card = (card - 1 + verbs.length) % verbs.length;
+  show();
+}
+function goNext() {
+  card = (card + 1) % verbs.length;
+  show();
+}
+function isTypingTarget(el) {
+  if (!el || el === document.body) return false;
+  const tag = (el.tagName || '').toLowerCase();
+  return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
+}
+document.getElementById('flipCard').addEventListener('click', (e) => {
+  if (e.target.closest('#btnAudio')) return;
+  flip();
+});
+document.getElementById('flipCard').addEventListener('keydown', (e) => {
+  if (e.target.closest('#btnAudio')) return;
+  if (e.key === 'Enter') { e.preventDefault(); flip(); }
+});
+document.getElementById('btnFlip').addEventListener('click', (e) => { e.stopPropagation(); flip(); });
+document.getElementById('btnPrev').addEventListener('click', goPrev);
+document.getElementById('btnNext').addEventListener('click', goNext);
+document.addEventListener('keydown', (e) => {
+  if (isTypingTarget(e.target)) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (!document.getElementById('act-deck').open) return;
+  if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    goNext();
+  } else if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    goPrev();
+  } else if (e.code === 'Space') {
+    e.preventDefault();
+    flip();
+  }
+});
+document.getElementById('btnShuffle').addEventListener('click', () => {
+  order = shuffle(order);
+  card = 0;
+  show();
+});
+document.getElementById('btnReset').addEventListener('click', () => {
+  order = verbs.map((_, i) => i);
+  card = 0;
+  flipped = false;
+  show();
+});
+show();
+
+/* ----- 02 Name the verb ----- */
+let nameSet = [];
+let nameQ = 0;
+let nameScore = 0;
+let nameLocked = false;
+
+function startName() {
+  nameSet = shuffle(verbs.map((_, i) => i)).slice(0, 10);
+  nameQ = 0;
+  nameScore = 0;
+  nameLocked = false;
+  document.getElementById('namePlay').hidden = false;
+  document.getElementById('nameDone').hidden = true;
+  document.getElementById('nameScore').textContent = '0';
+  showName();
+}
+function showName() {
+  if (nameQ >= nameSet.length) {
+    document.getElementById('namePlay').hidden = true;
+    document.getElementById('nameDone').hidden = false;
+    return;
+  }
+  nameLocked = false;
+  const i = nameSet[nameQ];
+  document.getElementById('nameRound').textContent = `${nameQ + 1} / ${nameSet.length}`;
+  document.getElementById('nameImg').src = front(i);
+  document.getElementById('nameImg').alt = 'What verb is this?';
+  document.getElementById('nameFb').textContent = '';
+  const others = shuffle(verbs.map((_, n) => n).filter((n) => n !== i)).slice(0, 3);
+  const opts = shuffle([i, ...others]);
+  document.getElementById('nameOpts').innerHTML = opts.map((n) =>
+    `<button type="button" class="opt" data-v="${n}">${verbs[n]}</button>`
+  ).join('');
+  document.querySelectorAll('#nameOpts .opt').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (nameLocked) return;
+      nameLocked = true;
+      const pick = Number(btn.dataset.v);
+      document.querySelectorAll('#nameOpts .opt').forEach((o) => {
+        if (Number(o.dataset.v) === i) o.classList.add('correct');
+        else if (o === btn) o.classList.add('wrong');
+      });
+      if (pick === i) {
+        nameScore += 1;
+        document.getElementById('nameFb').textContent = 'Yes — ' + verbs[i] + '.';
+      } else {
+        document.getElementById('nameFb').textContent = 'This photo is ' + verbs[i] + '.';
+      }
+      document.getElementById('nameScore').textContent = String(nameScore);
+      setTimeout(() => { nameQ += 1; showName(); }, 850);
+    });
+  });
+}
+document.getElementById('btnNameNew').addEventListener('click', startName);
+
+/* ----- 03 Speed round ----- */
+const SPEED_MS = 45000;
+let speedRunning = false;
+let speedLocked = false;
+let speedScore = 0;
+let speedCurrent = -1;
+let speedQueue = [];
+let speedEndsAt = 0;
+let speedTick = null;
+let speedNextTimer = null;
+
+function formatTime(ms) {
+  const s = Math.max(0, Math.ceil(ms / 1000));
+  return '0:' + String(s).padStart(2, '0');
+}
+function showSpeedBest() {
+  document.getElementById('speedBest').textContent = String(state.speedBest || 0);
+}
+function setSpeedView(view) {
+  document.getElementById('speedIdle').hidden = view !== 'idle';
+  document.getElementById('speedPlay').hidden = view !== 'play';
+  document.getElementById('speedDone').hidden = view !== 'done';
+}
+function clearSpeedTimers() {
+  if (speedTick) { clearInterval(speedTick); speedTick = null; }
+  if (speedNextTimer) { clearTimeout(speedNextTimer); speedNextTimer = null; }
+}
+function paintSpeedClock() {
+  const left = speedRunning ? Math.max(0, speedEndsAt - Date.now()) : SPEED_MS;
+  const el = document.getElementById('speedTime');
+  const stat = document.getElementById('speedTimeStat');
+  el.textContent = formatTime(speedRunning ? left : SPEED_MS);
+  stat.classList.toggle('low', speedRunning && left <= 10000 && left > 0);
+}
+function speedFinish() {
+  if (!speedRunning) return;
+  speedRunning = false;
+  speedLocked = true;
+  clearSpeedTimers();
+  paintSpeedClock();
+  document.getElementById('speedTime').textContent = '0:00';
+  document.getElementById('speedTimeStat').classList.remove('low');
+  const prevBest = state.speedBest || 0;
+  if (speedScore > prevBest) {
+    state.speedBest = speedScore;
+    save();
+  }
+  showSpeedBest();
+  document.getElementById('speedFinal').textContent = speedScore + ' in 45 seconds';
+  document.getElementById('speedHint').textContent = speedScore > prevBest
+    ? 'New best. Press Play again to go higher.'
+    : 'Press Play again to beat your score.';
+  setSpeedView('done');
+}
+function speedShowPhoto() {
+  if (!speedRunning) return;
+  speedLocked = false;
+  if (!speedQueue.length) speedQueue = shuffle(verbs.map((_, i) => i));
+  if (speedQueue[0] === speedCurrent && speedQueue.length > 1) {
+    speedQueue.push(speedQueue.shift());
+  }
+  const i = speedQueue.shift();
+  speedCurrent = i;
+  document.getElementById('speedImg').src = front(i);
+  document.getElementById('speedImg').alt = 'What verb is this?';
+  document.getElementById('speedFb').textContent = '';
+  const others = shuffle(verbs.map((_, n) => n).filter((n) => n !== i)).slice(0, 3);
+  const opts = shuffle([i, ...others]);
+  document.getElementById('speedOpts').innerHTML = opts.map((n) =>
+    `<button type="button" class="opt" data-v="${n}">${verbs[n]}</button>`
+  ).join('');
+  document.querySelectorAll('#speedOpts .opt').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!speedRunning || speedLocked) return;
+      speedLocked = true;
+      const pick = Number(btn.dataset.v);
+      document.querySelectorAll('#speedOpts .opt').forEach((o) => {
+        if (Number(o.dataset.v) === i) o.classList.add('correct');
+        else if (o === btn) o.classList.add('wrong');
+      });
+      if (pick === i) {
+        speedScore += 1;
+        document.getElementById('speedScore').textContent = String(speedScore);
+        document.getElementById('speedFb').textContent = 'Yes.';
+      } else {
+        document.getElementById('speedFb').textContent = verbs[i] + '.';
+      }
+      speedNextTimer = setTimeout(speedShowPhoto, pick === i ? 280 : 520);
+    });
+  });
+}
+function speedStart() {
+  clearSpeedTimers();
+  speedRunning = true;
+  speedLocked = false;
+  speedScore = 0;
+  speedCurrent = -1;
+  speedQueue = shuffle(verbs.map((_, i) => i));
+  speedEndsAt = Date.now() + SPEED_MS;
+  document.getElementById('speedScore').textContent = '0';
+  showSpeedBest();
+  setSpeedView('play');
+  paintSpeedClock();
+  speedTick = setInterval(() => {
+    paintSpeedClock();
+    if (Date.now() >= speedEndsAt) speedFinish();
+  }, 100);
+  speedShowPhoto();
+}
+document.getElementById('btnSpeedStart').addEventListener('click', speedStart);
+document.getElementById('btnSpeedAgain').addEventListener('click', speedStart);
+showSpeedBest();
+paintSpeedClock();
+setSpeedView('idle');
+
+/* ----- 04 Verb groups ----- */
+const binItems = [
+  { i: 2, b: 'move' }, { i: 3, b: 'move' }, { i: 9, b: 'move' }, { i: 10, b: 'move' },
+  { i: 4, b: 'food' }, { i: 5, b: 'food' }, { i: 21, b: 'food' }, { i: 22, b: 'food' },
+  { i: 13, b: 'school' }, { i: 14, b: 'school' }, { i: 15, b: 'school' }, { i: 16, b: 'school' }
+];
+let binPlace = {};
+let binPick = null;
+
+function binReset() {
+  binPlace = {};
+  binPick = null;
+  document.getElementById('binFb').textContent = '';
+  document.querySelectorAll('.bin').forEach((el) => el.classList.remove('ok', 'bad'));
+  renderBins();
+}
+function renderBins() {
+  const pool = document.getElementById('binPool');
+  pool.innerHTML = '';
+  ['move', 'food', 'school'].forEach((b) => { document.getElementById('bin-' + b).innerHTML = ''; });
+  binItems.forEach((item) => {
+    const loc = binPlace[item.i] || 'pool';
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip' + (binPick === item.i ? ' on' : '');
+    chip.textContent = verbs[item.i];
+    chip.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.bin').forEach((el) => el.classList.remove('ok', 'bad'));
+      document.getElementById('binFb').textContent = '';
+      if (binPick === item.i) binPick = null;
+      else binPick = item.i;
+      renderBins();
+    });
+    if (loc === 'pool') pool.appendChild(chip);
+    else document.getElementById('bin-' + loc).appendChild(chip);
+  });
+}
+document.querySelectorAll('.bin').forEach((bin) => {
+  bin.addEventListener('click', () => {
+    if (binPick == null) return;
+    binPlace[binPick] = bin.dataset.bin;
+    binPick = null;
+    renderBins();
+  });
+});
+document.getElementById('btnBinCheck').addEventListener('click', () => {
+  let right = 0;
+  document.querySelectorAll('.bin').forEach((el) => el.classList.remove('ok', 'bad'));
+  const miss = { move: false, food: false, school: false };
+  binItems.forEach((item) => {
+    if (binPlace[item.i] === item.b) right += 1;
+    else miss[item.b] = true;
+  });
+  ['move', 'food', 'school'].forEach((b) => {
+    document.querySelector(`.bin[data-bin="${b}"]`).classList.add(miss[b] ? 'bad' : 'ok');
+  });
+  document.getElementById('binFb').textContent = right === binItems.length
+    ? 'All twelve verbs are in the right group.'
+    : `${right} / 12. Move = go, come, walk, run. Food = eat, drink, cook, buy. School = read, write, listen, speak.`;
+});
+document.getElementById('btnBinReset').addEventListener('click', binReset);
+binReset();
+
+/* ----- 05 Type the verb ----- */
+const TYPE_MS = 45000;
+let typeRunning = false;
+let typeLocked = false;
+let typeScore = 0;
+let typeCurrent = -1;
+let typeQueue = [];
+let typeEndsAt = 0;
+let typeTick = null;
+let typeNextTimer = null;
+
+function norm(s) {
+  return String(s).trim().toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ');
+}
+function showTypeBest() {
+  document.getElementById('typeBest').textContent = String(state.typeBest || 0);
+}
+function setTypeView(view) {
+  document.getElementById('typeIdle').hidden = view !== 'idle';
+  document.getElementById('typePlay').hidden = view !== 'play';
+  document.getElementById('typeDone').hidden = view !== 'done';
+}
+function clearTypeTimers() {
+  if (typeTick) { clearInterval(typeTick); typeTick = null; }
+  if (typeNextTimer) { clearTimeout(typeNextTimer); typeNextTimer = null; }
+}
+function paintTypeClock() {
+  const left = typeRunning ? Math.max(0, typeEndsAt - Date.now()) : TYPE_MS;
+  document.getElementById('typeTime').textContent = formatTime(typeRunning ? left : TYPE_MS);
+  document.getElementById('typeTimeStat').classList.toggle('low', typeRunning && left <= 10000 && left > 0);
+}
+function typeFinish() {
+  if (!typeRunning) return;
+  typeRunning = false;
+  typeLocked = true;
+  clearTypeTimers();
+  paintTypeClock();
+  document.getElementById('typeTime').textContent = '0:00';
+  document.getElementById('typeTimeStat').classList.remove('low');
+  const prevBest = state.typeBest || 0;
+  if (typeScore > prevBest) {
+    state.typeBest = typeScore;
+    save();
+  }
+  showTypeBest();
+  document.getElementById('typeFinal').textContent = typeScore + ' in 45 seconds';
+  document.getElementById('typeHint').textContent = typeScore > prevBest
+    ? 'New best. Press Play again to go higher.'
+    : 'Press Play again to beat your score.';
+  setTypeView('done');
+}
+function typeShowPhoto() {
+  if (!typeRunning) return;
+  typeLocked = false;
+  if (!typeQueue.length) typeQueue = shuffle(verbs.map((_, i) => i));
+  if (typeQueue[0] === typeCurrent && typeQueue.length > 1) {
+    typeQueue.push(typeQueue.shift());
+  }
+  typeCurrent = typeQueue.shift();
+  document.getElementById('typeImg').src = front(typeCurrent);
+  document.getElementById('typeImg').alt = 'Type the verb for this photo';
+  document.getElementById('typeInput').value = '';
+  document.getElementById('typeFb').textContent = '';
+  document.getElementById('typeInput').focus();
+}
+function checkType() {
+  if (!typeRunning || typeLocked) return;
+  const i = typeCurrent;
+  const ok = norm(document.getElementById('typeInput').value) === norm(verbs[i]);
+  typeLocked = true;
+  if (ok) {
+    typeScore += 1;
+    document.getElementById('typeScore').textContent = String(typeScore);
+    document.getElementById('typeFb').textContent = 'Yes.';
+  } else {
+    document.getElementById('typeFb').textContent = 'The verb is ' + verbs[i] + '.';
+  }
+  typeNextTimer = setTimeout(typeShowPhoto, ok ? 280 : 700);
+}
+function typeStart() {
+  clearTypeTimers();
+  typeRunning = true;
+  typeLocked = false;
+  typeScore = 0;
+  typeCurrent = -1;
+  typeQueue = shuffle(verbs.map((_, i) => i));
+  typeEndsAt = Date.now() + TYPE_MS;
+  document.getElementById('typeScore').textContent = '0';
+  showTypeBest();
+  setTypeView('play');
+  paintTypeClock();
+  typeTick = setInterval(() => {
+    paintTypeClock();
+    if (Date.now() >= typeEndsAt) typeFinish();
+  }, 100);
+  typeShowPhoto();
+}
+document.getElementById('btnTypeCheck').addEventListener('click', checkType);
+document.getElementById('typeInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); checkType(); }
+});
+document.getElementById('btnTypeStart').addEventListener('click', typeStart);
+document.getElementById('btnTypeAgain').addEventListener('click', typeStart);
+showTypeBest();
+paintTypeClock();
+setTypeView('idle');
+
+/* ----- 06 Say it ----- */
+let saySet = [];
+let sayQ = 0;
+let sayOpen = false;
+
+function startSay() {
+  saySet = shuffle(verbs.map((_, i) => i)).slice(0, 8);
+  sayQ = 0;
+  sayOpen = false;
+  showSay();
+}
+function showSay() {
+  const i = saySet[sayQ];
+  document.getElementById('sayRound').textContent = `${sayQ + 1} / ${saySet.length}`;
+  document.getElementById('sayImg').src = front(i);
+  document.getElementById('sayImg').alt = 'Mime this verb';
+  document.getElementById('sayWord').textContent = sayOpen ? verbs[i].toUpperCase() : 'Mime the verb.';
+  document.getElementById('sayHint').textContent = sayOpen
+    ? 'That was the verb. Next photo.'
+    : 'Look. Act it out. No talking. Then tap Reveal.';
+}
+document.getElementById('btnSayReveal').addEventListener('click', () => {
+  sayOpen = true;
+  showSay();
+});
+document.getElementById('btnSayNext').addEventListener('click', () => {
+  sayQ = (sayQ + 1) % saySet.length;
+  sayOpen = false;
+  showSay();
+});
+document.getElementById('btnSayNew').addEventListener('click', startSay);
+
+/* ----- 07 Can-do ----- */
+const candoItems = [
+  ['name', 'I can name these 30 daily-life verbs from a photo.'],
+  ['say', 'I can mime these verbs from a photo.'],
+  ['speed', 'I can name verbs from a photo against the clock.'],
+  ['group', 'I can group verbs: move, food, and school.'],
+  ['write', 'I can write the verb for a photo.']
+];
+function renderCando() {
+  const c = state.cando || {};
+  document.getElementById('candoList').innerHTML = candoItems.map(([id, label]) => `
+    <label>
+      <input type="checkbox" data-cando="${id}" ${c[id] ? 'checked' : ''}>
+      <span>${label}</span>
+    </label>
+  `).join('');
+  document.querySelectorAll('[data-cando]').forEach((el) => {
+    el.addEventListener('change', () => {
+      state.cando = state.cando || {};
+      state.cando[el.dataset.cando] = el.checked;
+      save();
+    });
+  });
+}
+renderCando();
+
+/* Accordion: only one open */
+const activityPanels = Array.from(document.querySelectorAll('.activity'));
+activityPanels.forEach((panel) => {
+  panel.addEventListener('toggle', () => {
+    if (panel.id === 'act-speed' && !panel.open && speedRunning) speedFinish();
+    if (panel.id === 'act-type' && !panel.open && typeRunning) typeFinish();
+    if (!panel.open) return;
+    activityPanels.forEach((other) => { if (other !== panel) other.open = false; });
+    if (panel.id === 'act-name' && !nameSet.length) startName();
+    if (panel.id === 'act-say' && !saySet.length) startSay();
+  });
+});
+startName();
+startSay();
+</script>
+</body>
+</html>
