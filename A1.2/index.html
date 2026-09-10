@@ -131,7 +131,9 @@
     .g-navy { background: var(--navy); }
     .g-teal { background: var(--teal); }
     .g-gold { background: var(--gold); color: var(--navy); }
-    .g-sea { background: #168c8c; }
+    .row.tone-navy .row-body h3 { color: var(--navy); }
+    .row.tone-teal .row-body h3 { color: var(--teal-dark); }
+    .row.tone-gold .row-body h3 { color: #b8892a; }
     .row-body { min-width: 0; }
     .row-body h3 {
       font-size: 16px; font-weight: 600; letter-spacing: -0.02em;
@@ -145,6 +147,27 @@
     }
     .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
     .footer strong { color: var(--navy); }
+
+    .row.soon {
+      opacity: 0.72;
+      cursor: default;
+      background: rgba(30, 45, 90, 0.02);
+    }
+    .row.soon .glyph { opacity: 0.85; }
+    .soon-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      background: rgba(91, 184, 176, 0.16);
+      color: var(--teal-dark);
+    }
+    .row.soon .chev { opacity: 0.35; }
     @media (min-width: 900px) {
       .row { padding: 14px 18px; min-height: 72px; }
     }
@@ -174,11 +197,11 @@
     <section class="hero">
       <span class="eyebrow">A1.2 · Level landing</span>
       <h2>Daily life and the <span>Simple Present</span>.</h2>
-      <p>Practice affirmative and negative Simple Present with classroom battles and speaking games.</p>
+      <p>Habits, verbs, and everyday life — in teaching order. Gray rows with <strong>Soon</strong> are next to build.</p>
     </section>
 
     <div class="group" aria-label="A1.2 activities">
-      <a class="row" href="./simple-present-battle/">
+      <a class="row tone-navy" href="./simple-present-battle/">
         <span class="glyph g-navy">SP</span>
         <div class="row-body">
           <h3>Simple Present Battle</h3>
@@ -186,22 +209,94 @@
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="row" href="./verbs-1/">
-        <span class="glyph g-sea">V1</span>
+      <div class="row soon tone-teal" aria-disabled="true">
+        <span class="glyph g-teal">Q?</span>
+        <div class="row-body">
+          <h3>Simple Present Questions <span class="soon-tag">Soon</span></h3>
+          <p>do / does, short answers, and real questions.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-gold" aria-disabled="true">
+        <span class="glyph g-gold">Fq</span>
+        <div class="row-body">
+          <h3>Adverbs of Frequency <span class="soon-tag">Soon</span></h3>
+          <p>always, usually, often, sometimes, never.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-navy" aria-disabled="true">
+        <span class="glyph g-navy">Day</span>
+        <div class="row-body">
+          <h3>Daily Routines <span class="soon-tag">Soon</span></h3>
+          <p>A typical day with Present Simple.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <a class="row tone-teal" href="./verbs-1/">
+        <span class="glyph g-teal">V1</span>
         <div class="row-body">
           <h3>Verbs 1</h3>
-          <p>Verb deck set 1</p>
+          <p>Verb deck set 1 — high-frequency verbs.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="row" href="./verbs-2/">
-        <span class="glyph g-teal">V2</span>
+      <a class="row tone-gold" href="./verbs-2/">
+        <span class="glyph g-gold">V2</span>
         <div class="row-body">
           <h3>Verbs 2</h3>
-          <p>Verb deck set 2</p>
+          <p>Verb deck set 2 — high-frequency verbs.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
+      <div class="row soon tone-navy" aria-disabled="true">
+        <span class="glyph g-navy">Me</span>
+        <div class="row-body">
+          <h3>Object Pronouns <span class="soon-tag">Soon</span></h3>
+          <p>me, you, him, her, it, us, them — with real verbs.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-teal" aria-disabled="true">
+        <span class="glyph g-teal">Lk</span>
+        <div class="row-body">
+          <h3>Likes &amp; Preferences <span class="soon-tag">Soon</span></h3>
+          <p>like / love / hate + noun or verb.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-gold" aria-disabled="true">
+        <span class="glyph g-gold">Can</span>
+        <div class="row-body">
+          <h3>Can / Can’t <span class="soon-tag">Soon</span></h3>
+          <p>Ability and light permission.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-navy" aria-disabled="true">
+        <span class="glyph g-navy">Ti</span>
+        <div class="row-body">
+          <h3>Time &amp; Calendar <span class="soon-tag">Soon</span></h3>
+          <p>o’clock, at 7, days and months.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-teal" aria-disabled="true">
+        <span class="glyph g-teal">Job</span>
+        <div class="row-body">
+          <h3>Jobs &amp; School Life <span class="soon-tag">Soon</span></h3>
+          <p>Present Simple in work and school contexts.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row soon tone-gold" aria-disabled="true">
+        <span class="glyph g-gold">A2</span>
+        <div class="row-body">
+          <h3>A1.2 English Studio <span class="soon-tag">Soon</span></h3>
+          <p>Bring the level together — Structure, Reading, Listening, Writing.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
     </div>
 
     <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.2</footer>
