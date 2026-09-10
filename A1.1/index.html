@@ -147,6 +147,27 @@
     }
     .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
     .footer strong { color: var(--navy); }
+
+    .row.soon {
+      opacity: 0.72;
+      cursor: default;
+      background: rgba(30, 45, 90, 0.02);
+    }
+    .row.soon .glyph { opacity: 0.85; }
+    .soon-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      background: rgba(91, 184, 176, 0.16);
+      color: var(--teal-dark);
+    }
+    .row.soon .chev { opacity: 0.35; }
     @media (min-width: 900px) {
       .row { padding: 14px 18px; min-height: 72px; }
     }
@@ -176,7 +197,7 @@
     <section class="hero">
       <span class="eyebrow">A1.1 · Level landing</span>
       <h2>Who I am, what I <span>see</span>.</h2>
-      <p>Say who you are. Name things around you. Say what is in a place. Close the stage by pointing: this, that, these, those.</p>
+      <p>Identity, description, space, and pointing — in that order. Gray rows with <strong>Soon</strong> mark topics still to build.</p>
     </section>
 
     <div class="group" aria-label="A1.1 activities">
@@ -188,11 +209,59 @@
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="row tone-teal" href="./around-the-house/">
-        <span class="glyph g-teal">Ho</span>
+      <div class="row soon tone-teal" aria-disabled="true">
+        <span class="glyph g-teal">A/</span>
+        <div class="row-body">
+          <h3>Articles &amp; Plurals <span class="soon-tag">Soon</span></h3>
+          <p>a / an and regular plurals — before you name things.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <a class="row tone-gold" href="./adjectives/">
+        <span class="glyph g-gold">Ad</span>
+        <div class="row-body">
+          <h3>Adjectives</h3>
+          <p>Photo cards, audio, and games for how things feel and look.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <a class="row tone-navy" href="./possessive-adjectives/">
+        <span class="glyph g-navy">My</span>
+        <div class="row-body">
+          <h3>Possessives</h3>
+          <p>My brother, Emma’s brother, my parents’ house.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <div class="row soon tone-teal" aria-disabled="true">
+        <span class="glyph g-teal">Hv</span>
+        <div class="row-body">
+          <h3>Have / Has <span class="soon-tag">Soon</span></h3>
+          <p>I have… / She has… — possession with a verb.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <a class="row tone-gold" href="./around-the-house/">
+        <span class="glyph g-gold">Ho</span>
         <div class="row-body">
           <h3>Around the House</h3>
           <p>Rooms, furniture, and things you can point to.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <div class="row soon tone-navy" aria-disabled="true">
+        <span class="glyph g-navy">In</span>
+        <div class="row-body">
+          <h3>Prepositions of Place <span class="soon-tag">Soon</span></h3>
+          <p>in, on, under, next to, between, behind…</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <a class="row tone-teal" href="./there-is-there-are/">
+        <span class="glyph g-teal">Is</span>
+        <div class="row-body">
+          <h3>There is / There are</h3>
+          <p>What exists in a place — around the house.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
@@ -201,30 +270,6 @@
         <div class="row-body">
           <h3>In the City</h3>
           <p>Places, directions, and getting around town.</p>
-        </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-      <a class="row tone-navy" href="./adjectives/">
-        <span class="glyph g-navy">Ad</span>
-        <div class="row-body">
-          <h3>Adjectives</h3>
-          <p>Photo cards, audio, and games for how things feel and look.</p>
-        </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-      <a class="row tone-teal" href="./possessive-adjectives/">
-        <span class="glyph g-teal">My</span>
-        <div class="row-body">
-          <h3>Possessives</h3>
-          <p>My brother, Emma’s brother, my parents’ house.</p>
-        </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-      <a class="row tone-gold" href="./there-is-there-are/">
-        <span class="glyph g-gold">Is</span>
-        <div class="row-body">
-          <h3>There is / There are</h3>
-          <p>What exists in a place — around the house.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
