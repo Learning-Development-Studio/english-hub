@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="../assets/logo.png">
   <link rel="apple-touch-icon" href="../assets/logo.png">
   <title>A2.1 · English Hub | Learning &amp; Development Studio</title>
@@ -17,23 +17,34 @@
       --gold: #d4a843;
       --ink: #172033;
       --muted: #6b7fa3;
-      --line: #e8ecf4;
+      --secondary: #6b7a94;
+      --line: rgba(30, 45, 90, 0.08);
+      --fill: rgba(30, 45, 90, 0.045);
       --paper: #fff;
       --wash: #f0faf9;
-      --soft: #f8fafc;
-      --shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
+      --shadow: 0 1px 2px rgba(30, 45, 90, 0.04), 0 12px 32px rgba(30, 45, 90, 0.06);
+      --radius: 20px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
-      margin: 0;
       font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
       color: var(--ink);
       background:
         radial-gradient(circle at top right, rgba(91, 184, 176, 0.16), transparent 34rem),
         linear-gradient(180deg, #f7fafc 0%, #eef4f7 100%);
       min-height: 100vh;
+      min-height: 100dvh;
+      line-height: 1.45;
     }
-    .shell { max-width: 960px; margin: 0 auto; padding: 24px; }
+    a { color: inherit; }
+    .shell {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: calc(24px + var(--safe-top)) 24px calc(32px + var(--safe-bottom));
+    }
     .topbar {
       position: sticky; top: 16px; z-index: 20;
       display: flex; align-items: center; justify-content: space-between; gap: 18px;
@@ -67,46 +78,86 @@
     .hero {
       border-radius: 20px; background: #f4fbfa; color: var(--navy);
       border: 1px solid rgba(30, 45, 90, 0.08); box-shadow: var(--shadow);
-      padding: clamp(24px, 5vw, 40px); margin-bottom: 22px;
+      padding: clamp(20px, 4vw, 32px); margin-bottom: 18px;
     }
     .eyebrow {
       color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.12em;
       font-size: 0.75rem; font-weight: 800;
     }
     .hero h2 {
-      margin: 10px 0 0; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05;
+      margin: 10px 0 0; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.08;
       letter-spacing: -0.03em; font-weight: 800;
     }
     .hero h2 span { color: var(--teal); }
-    .hero p { color: var(--muted); margin: 14px 0 0; line-height: 1.65; max-width: 56ch; }
-    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .card {
-      display: block; text-decoration: none; color: inherit;
-      background: var(--paper); border: 1px solid rgba(30, 45, 90, 0.08);
-      border-radius: 16px; padding: 18px; box-shadow: var(--shadow);
-      transition: transform .15s, border-color .15s;
+    .hero p { color: var(--muted); margin: 12px 0 0; line-height: 1.6; max-width: 52ch; font-size: 0.98rem; }
+    .group {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(30, 45, 90, 0.06);
     }
-    .card:hover { transform: translateY(-2px); border-color: rgba(91, 184, 176, 0.55); }
-    .card .label {
-      font-size: 0.7rem; letter-spacing: 0.08em; color: var(--teal-dark);
-      font-weight: 800; text-transform: uppercase;
+    .row {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      min-height: 64px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
     }
-    .card h3 { margin: 8px 0 6px; color: var(--navy); font-size: 1.05rem; }
-    .card p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-    .card.soon {
-      opacity: 0.72; background: var(--soft); box-shadow: none; cursor: default;
+    .row + .row::before {
+      content: "";
+      position: absolute;
+      left: 66px;
+      right: 0;
+      top: 0;
+      height: 1px;
+      background: var(--line);
     }
-    .card.soon:hover { transform: none; border-color: rgba(30, 45, 90, 0.08); }
-    .badge {
-      display: inline-block; margin-top: 12px; padding: 5px 10px; border-radius: 999px;
-      background: var(--wash); color: var(--teal-dark); font-size: 0.72rem; font-weight: 800;
+    a.row { cursor: pointer; }
+    a.row:hover { background: var(--fill); }
+    a.row:active { background: rgba(30, 45, 90, 0.06); }
+    a.row:focus-visible { outline: 3px solid rgba(91, 184, 176, 0.55); outline-offset: -3px; }
+    .row.is-soon { opacity: 0.72; cursor: default; }
+    .glyph {
+      width: 40px; height: 40px; border-radius: 11px;
+      display: grid; place-items: center;
+      font-size: 13px; font-weight: 800; letter-spacing: -0.04em;
+      color: #fff; flex-shrink: 0;
     }
-    .badge.muted { background: #eef1f6; color: var(--muted); }
-    .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px; }
+    .g-navy { background: var(--navy); }
+    .g-teal { background: var(--teal); }
+    .g-gold { background: var(--gold); color: var(--navy); }
+    .g-mute { background: #c5cedb; color: var(--navy); }
+    .row-body { min-width: 0; }
+    .row-body h3 {
+      font-size: 16px; font-weight: 600; letter-spacing: -0.02em;
+      color: var(--navy); line-height: 1.2;
+    }
+    .row-body p {
+      margin-top: 2px; font-size: 13px; color: var(--secondary); line-height: 1.35;
+    }
+    .chev {
+      width: 18px; height: 18px; color: #c2cad6; flex-shrink: 0;
+    }
+    .badge-soon {
+      font-size: 12px; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--secondary); background: var(--fill);
+      border-radius: 999px; padding: 4px 9px; white-space: nowrap;
+    }
+    .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
     .footer strong { color: var(--navy); }
+    @media (min-width: 900px) {
+      .row { padding: 14px 18px; min-height: 72px; }
+    }
     @media (max-width: 720px) {
-      .shell { padding: 12px; }
+      .shell { padding-left: 12px; padding-right: 12px; }
       .brand p { display: none; }
+      .chev { display: none; }
     }
   </style>
 </head>
@@ -129,23 +180,25 @@
     <section class="hero">
       <span class="eyebrow">A2.1 · Level landing</span>
       <h2>Review and <span>build</span>.</h2>
-      <p>
-        Start with Present Simple vs Present Continuous. More A2.1 lessons will appear here as the hub grows.
-      </p>
+      <p>Start with Present Simple vs Present Continuous. More A2.1 lessons will appear here as the hub grows.</p>
     </section>
 
-    <div class="grid">
-      <a class="card" href="./present-simple-vs-continuous/">
-        <div class="label">Lesson 1 · Review</div>
-        <h3>Present Simple vs Present Continuous</h3>
-        <p>Habits and facts vs actions happening now or for a short time. Signal words, practice, reading, speaking, writing.</p>
-        <span class="badge">Open lesson</span>
+    <div class="group" aria-label="A2.1 activities">
+      <a class="row" href="./present-simple-vs-continuous/">
+        <span class="glyph g-navy">PC</span>
+        <div class="row-body">
+          <h3>Present Simple vs Present Continuous</h3>
+          <p>Lesson 1 · Habits vs actions happening now</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <div class="card soon" aria-disabled="true">
-        <div class="label">Coming soon</div>
-        <h3>More A2.1 lessons</h3>
-        <p>Additional review and skill lessons will be added to this level folder.</p>
-        <span class="badge muted">Scaffold</span>
+      <div class="row is-soon" aria-disabled="true">
+        <span class="glyph g-mute">+</span>
+        <div class="row-body">
+          <h3>More A2.1 lessons</h3>
+          <p>Coming soon · Additional review and skill lessons</p>
+        </div>
+        <span class="badge-soon">Soon</span>
       </div>
     </div>
 
