@@ -1,3 +1,3 @@
 # A1.1
 
-Scaffold only. Who I am, what I see — starter + practice modules.
+Who I am, what I see — practice platforms for Verb to Be, house/city vocabulary, adjectives, possessives, there is/are, demonstratives, and the A1.1 Studio.
