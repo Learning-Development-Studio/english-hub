@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#dfe9f2">
-  <meta name="description" content="English Hub — Learning & Development Studio. Elige tu nivel.">
+  <meta name="description" content="English Hub — Learning & Development Studio. Enter your name and choose your level.">
   <title>English Hub · L&amp;D Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,21 +170,20 @@
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Entrada al English Hub">
+  <main class="card" aria-label="English Hub entry">
     <aside class="brand">
       <img class="logo" src="./assets/logo.png" width="280" height="280" alt="Learning &amp; Development Studio">
     </aside>
     <section class="panel">
-      <div class="kicker">Espacio de alumnos</div>
-      <h1>Escribe tu nombre y elige tu nivel.</h1>
-      <p class="lead">Entras solo al material de tu nivel. Cada nivel tiene su propio PIN.</p>
+      <div class="kicker">Student space</div>
+      <h1>Enter your name and choose your level.</h1>
       <form id="entry-form" novalidate>
-        <label>Tu nombre
-          <input id="student-name" name="name" type="text" autocomplete="nickname" placeholder="Ej. Sofía" required maxlength="40">
+        <label>Your name
+          <input id="student-name" name="name" type="text" autocomplete="nickname" placeholder="e.g. Sofia" required maxlength="40">
         </label>
-        <label>Nivel
+        <label>Level
           <select id="level" name="level" required>
-            <option value="" disabled selected>Selecciona tu nivel</option>
+            <option value="" disabled selected>Select your level</option>
             <option value="PreA1">PreA1</option>
             <option value="A1.1">A1.1</option>
             <option value="A1.2">A1.2</option>
@@ -195,14 +194,13 @@
             <option value="B1+">B1+</option>
           </select>
         </label>
-        <label>PIN del nivel
+        <label>Level PIN
           <span class="pin-wrap">
             <input id="pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="••••" required maxlength="8" autocomplete="off">
           </span>
-          <span class="hint">Te lo da tu teacher. Úsalo solo para tu nivel.</span>
         </label>
         <div id="error" class="error" role="alert"></div>
-        <button type="submit">Entrar <span class="arrow" aria-hidden="true">→</span></button>
+        <button type="submit">Enter <span class="arrow" aria-hidden="true">→</span></button>
       </form>
       <div class="foot"><span>English Hub</span><span>2026–2027</span></div>
     </section>
@@ -228,9 +226,9 @@
         const name = (nameInput.value || "").trim();
         const level = levelSelect.value;
         const pin = (pinInput.value || "").trim();
-        if (!name) { showError("Escribe tu nombre."); nameInput.focus(); return; }
-        if (!level || !PINS[level]) { showError("Elige tu nivel."); levelSelect.focus(); return; }
-        if (pin !== PINS[level]) { showError("PIN incorrecto para ese nivel. Pídeselo a tu teacher."); pinInput.focus(); pinInput.select(); return; }
+        if (!name) { showError("Enter your name."); nameInput.focus(); return; }
+        if (!level || !PINS[level]) { showError("Choose your level."); levelSelect.focus(); return; }
+        if (pin !== PINS[level]) { showError("Incorrect PIN for that level."); pinInput.focus(); pinInput.select(); return; }
         try { localStorage.setItem("ld-english-hub", JSON.stringify({ name: name, level: level, at: Date.now() })); } catch (_) {}
         const folder = encodeURIComponent(level);
         window.location.href = "./" + folder + "/";
