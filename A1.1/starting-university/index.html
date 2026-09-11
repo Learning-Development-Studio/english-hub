@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Starting University · A1.1 · English Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843;
+      --ink:#172033; --muted:#6b7fa3; --line:rgba(30,45,90,.08);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background: #eef3f6;
+      min-height: 100vh;
+    }
+    .bar {
+      position: sticky; top: 10px; z-index: 10;
+      max-width: 880px; margin: calc(12px + var(--safe-top)) auto 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--navy); color: #fff; border-radius: 16px;
+      padding: 10px 14px;
+    }
+    .bar strong { font-size: .95rem; }
+    .bar small { display: block; color: #d7ecea; font-size: .72rem; }
+    .home {
+      color: #fff !important; text-decoration: none !important;
+      background: rgba(91,184,176,.32); border-radius: 999px;
+      padding: 7px 12px; font-size: .78rem; font-weight: 800;
+    }
+    .issue { max-width: 880px; margin: 0 auto; padding: 0 14px calc(36px + var(--safe-bottom)); }
+    .page {
+      background: #fff; border-radius: 18px; overflow: hidden;
+      box-shadow: 0 12px 32px rgba(30,45,90,.06);
+      margin-bottom: 18px; border: 1px solid var(--line);
+    }
+    .kicker { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; }
+    .mast {
+      display: grid; grid-template-columns: .9fr 1.1fr; gap: 0; min-height: 420px;
+    }
+    .mast img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 280px; }
+    .mast-copy { padding: 28px 26px 24px; }
+    .mast h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.05; letter-spacing: -.03em;
+      color: var(--navy); margin: 10px 0 14px;
+    }
+    .lead { color: #3d4d66; font-size: 1.05rem; line-height: 1.55; max-width: 36ch; }
+    .quote {
+      margin-top: 22px; padding: 14px 16px;
+      border-left: 4px solid var(--gold); background: #f7fafc;
+    }
+    .quote p { font-weight: 700; color: var(--navy); line-height: 1.45; }
+    .quote cite { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .story { display: grid; grid-template-columns: 1.15fr .85fr; }
+    .story-copy { padding: 28px 26px 24px; }
+    .story h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.55rem; color: var(--navy); margin: 8px 0 14px;
+    }
+    .story-copy p { color: #3d4d66; line-height: 1.6; margin-bottom: 12px; max-width: 48ch; }
+    .story img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 240px; }
+    .boxrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 22px 22px; }
+    .box { background: #f4fbfa; border-radius: 14px; padding: 16px 16px 14px; border: 1px solid var(--line); }
+    .box h3 { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 8px; }
+    .box p, .box li { font-size: .92rem; color: #3d4d66; line-height: 1.5; }
+    .box ol { padding-left: 1.1em; }
+    .box li + li { margin-top: 6px; }
+    .foot { text-align: center; color: var(--muted); font-size: .78rem; padding: 8px; }
+    @media (max-width: 740px) {
+      .mast, .story, .boxrow { grid-template-columns: 1fr; }
+      .mast img, .story img { max-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <div>
+      <strong>Campus Life</strong>
+      <small>A1.1 · first reading</small>
+    </div>
+    <a class="home" href="../">A1.1</a>
+  </header>
+  <main class="issue">
+    <article class="page">
+      <div class="mast">
+        <img src="cover.jpg" alt="A student on campus with a backpack">
+        <div class="mast-copy">
+          <div class="kicker">Cover story · September</div>
+          <h1>Starting University</h1>
+          <p class="lead">It is the first day. I am a new student. I am at the university. I am nervous, and I am happy too.</p>
+          <blockquote class="quote">
+            <p>“I am new. The classes are not easy. I am okay.”</p>
+            <cite>María · a student</cite>
+          </blockquote>
+        </div>
+      </div>
+    </article>
+    <article class="page">
+      <div class="story">
+        <div class="story-copy">
+          <div class="kicker">The story</div>
+          <h2>This is María.</h2>
+          <p>She is 19. She is a new student. The university is big. Her classes are new. She is not from this city.</p>
+          <p>At nine, she is in class. The teacher is nice. Two students are in her group. They are friendly.</p>
+          <p>María is nervous, but she is not alone. This is her first day. It is a good day.</p>
+        </div>
+        <img src="story.jpg" alt="A student writing at a desk">
+      </div>
+      <div class="boxrow">
+        <div class="box">
+          <h3>Notice</h3>
+          <p><strong>I am / She is / They are / It is</strong><br>Words: university · class · nervous · friendly</p>
+        </div>
+        <div class="box">
+          <h3>Think</h3>
+          <ol>
+            <li>Is María a new student? How do you know?</li>
+            <li>Is she alone in the class?</li>
+            <li>How is her first day — only bad, or good too?</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+    <p class="foot">Learning &amp; Development Studio · A1.1</p>
+  </main>
+</body>
+</html>
