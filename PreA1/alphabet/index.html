@@ -54,15 +54,11 @@
     .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
     .alpha-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px}
     .alpha-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
-    .letter{border:0;border-radius:14px;padding:10px 6px 8px;text-align:center;min-height:88px;color:#fff}
+    .letter{border:0;border-radius:14px;padding:10px 6px 8px;text-align:center;min-height:88px;color:#fff;background:var(--navy)}
     .letter .ch{font-size:1.45rem;font-weight:800;display:block;line-height:1.1}
     .letter .ipa{display:block;margin-top:4px;font-size:.68rem;font-weight:700;white-space:nowrap;opacity:.88}
     .letter .say{display:block;font-size:.68rem;font-weight:600;opacity:.78}
-    .letter.tone-navy{background:var(--navy)}
-    .letter.tone-teal{background:var(--teal)}
-    .letter.tone-gold{background:var(--gold);color:var(--navy)}
-    .letter.tone-gold .ipa,.letter.tone-gold .say{opacity:.75}
-    .letter.playing{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--navy)}
+    .letter.playing{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--teal)}
     .btn,.opt{border:0;border-radius:10px;padding:10px 14px;font-weight:800}
     .btn{background:var(--navy);color:#fff}
     .btn.secondary{background:var(--teal)}
@@ -310,9 +306,8 @@ function highlightLetter(ch) {
   });
 }
 
-function letterTile(item, i) {
-  const tone = ['tone-navy','tone-teal','tone-gold'][i % 3];
-  return `<button type="button" class="letter ${tone}" data-ch="${item.ch}" data-kind="${item.kind}" data-tricky="${item.tricky ? '1' : ''}" onclick="tapLetter('${item.ch}')">
+function letterTile(item) {
+  return `<button type="button" class="letter" data-ch="${item.ch}" data-kind="${item.kind}" data-tricky="${item.tricky ? '1' : ''}" onclick="tapLetter('${item.ch}')">
     <span class="ch">${item.ch}${item.ch.toLowerCase()}</span>
     <span class="ipa">${item.ipa}</span>
     <span class="say">${item.say}</span>
