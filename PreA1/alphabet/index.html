@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#0B1F3A;--teal:#168C8C;--gold:#C8A96A;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--white:#fff;--good:#e8f7ef;--bad:#fff0f0;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
+    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--white:#fff;--good:#e8f7ef;--bad:#fff0f0;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--navy);background:linear-gradient(180deg,#f8fbfc,#edf4f5);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}
     .shell{max-width:1080px;margin:auto;padding:24px}
     .topbar{position:sticky;top:14px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}
@@ -54,14 +54,15 @@
     .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
     .alpha-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px}
     .alpha-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
-    .letter{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 6px 8px;text-align:center;min-height:88px}
+    .letter{border:0;border-radius:14px;padding:10px 6px 8px;text-align:center;min-height:88px;color:#fff}
     .letter .ch{font-size:1.45rem;font-weight:800;display:block;line-height:1.1}
-    .letter .ipa{display:block;margin-top:4px;font-size:.68rem;color:var(--teal);font-weight:700;white-space:nowrap}
-    .letter .say{display:block;font-size:.68rem;color:var(--slate);font-weight:600}
-    .letter.vowel{background:var(--mint);border-color:#9ad4cf}
-    .letter.tricky{box-shadow:inset 0 0 0 2px var(--gold)}
-    .letter.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
-    .letter.playing .ipa,.letter.playing .say{color:#d7e7e8}
+    .letter .ipa{display:block;margin-top:4px;font-size:.68rem;font-weight:700;white-space:nowrap;opacity:.88}
+    .letter .say{display:block;font-size:.68rem;font-weight:600;opacity:.78}
+    .letter.tone-navy{background:var(--navy)}
+    .letter.tone-teal{background:var(--teal)}
+    .letter.tone-gold{background:var(--gold);color:var(--navy)}
+    .letter.tone-gold .ipa,.letter.tone-gold .say{opacity:.75}
+    .letter.playing{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--navy)}
     .btn,.opt{border:0;border-radius:10px;padding:10px 14px;font-weight:800}
     .btn{background:var(--navy);color:#fff}
     .btn.secondary{background:var(--teal)}
@@ -309,12 +310,9 @@ function highlightLetter(ch) {
   });
 }
 
-function letterTile(item) {
-  const extra = [
-    item.kind === 'vowel' ? 'vowel' : '',
-    item.tricky ? 'tricky' : ''
-  ].filter(Boolean).join(' ');
-  return `<button type="button" class="letter ${extra}" data-ch="${item.ch}" data-kind="${item.kind}" data-tricky="${item.tricky ? '1' : ''}" onclick="tapLetter('${item.ch}')">
+function letterTile(item, i) {
+  const tone = ['tone-navy','tone-teal','tone-gold'][i % 3];
+  return `<button type="button" class="letter ${tone}" data-ch="${item.ch}" data-kind="${item.kind}" data-tricky="${item.tricky ? '1' : ''}" onclick="tapLetter('${item.ch}')">
     <span class="ch">${item.ch}${item.ch.toLowerCase()}</span>
     <span class="ipa">${item.ipa}</span>
     <span class="say">${item.say}</span>
