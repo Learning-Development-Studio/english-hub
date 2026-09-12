@@ -5,40 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="apple-touch-icon" href="../../assets/logo.png">
-  <title>Starting University · A1.1 · English Hub</title>
+  <title>Starting University | A1.1 | Learning &amp; Development Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843;
-      --ink:#1a2740; --muted:#6b7fa3; --line:#e4ebf0;
+      --ink:#172033; --muted:#6b7fa3; --line:#e8ecf4;
+      --shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
+      --brand-logo: url("../../assets/logo.png");
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
     body {
       font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-      color: var(--ink); background: #dfe6ed;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(91, 184, 176, 0.16), transparent 34rem),
+        linear-gradient(180deg, #f7fafc 0%, #eef4f7 100%);
       min-height: 100dvh;
     }
-    .bar {
-      max-width: 1100px; margin: calc(8px + var(--safe-top)) auto 8px;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 12px;
+    .shell { max-width: 1100px; margin: 0 auto; padding: 24px 24px calc(24px + var(--safe-bottom)); }
+    .topbar {
+      position: sticky; top: calc(16px + var(--safe-top)); z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      margin-bottom: 18px; padding: 12px 16px;
+      background: var(--navy); color: #fff; border-radius: 18px;
+      box-shadow: 0 16px 34px rgba(30, 45, 90, 0.22);
     }
-    .bar strong { color: var(--navy); font-size: .9rem; }
-    .bar em { font-style: normal; color: var(--muted); font-size: .72rem; font-weight: 700; margin-left: 8px; }
-    .home {
-      color: #fff !important; text-decoration: none !important;
-      background: var(--navy); border-radius: 999px; padding: 7px 12px; font-size: .76rem; font-weight: 800;
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 999px;
+      display: grid; place-items: center; background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); overflow: hidden; padding: 3px; flex: 0 0 auto;
     }
-    .stage { max-width: 1100px; margin: 0 auto; padding: 0 10px calc(10px + var(--safe-bottom)); }
-    .hint { text-align: center; color: var(--muted); font-size: .74rem; font-weight: 700; margin: 6px 0 0; }
+    .brand-mark img { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block; }
+    .brand h1 { margin: 0; color: #fff; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.05; }
+    .brand p { margin: 3px 0 0; color: #d7ecea; font-size: 0.84rem; }
+    .topbar-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .mode-pill {
+      border: 1px solid rgba(255, 255, 255, 0.18); color: #fff;
+      background: rgba(255, 255, 255, 0.10); border-radius: 999px;
+      padding: 8px 12px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;
+    }
+    .home-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.28); color: #fff !important;
+      background: rgba(91, 184, 176, 0.28); border-radius: 999px;
+      padding: 8px 14px; font-size: 0.82rem; font-weight: 800;
+      text-decoration: none !important; white-space: nowrap;
+    }
+    .home-btn:hover { background: rgba(91, 184, 176, 0.48); }
+    .hero {
+      position: relative; overflow: hidden; border-radius: 20px;
+      background: #f4fbfa; color: var(--navy);
+      border: 1px solid rgba(30, 45, 90, 0.08); box-shadow: var(--shadow); margin-bottom: 22px;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: clamp(0.75rem, 3vw, 1.75rem); top: 50%;
+      transform: translateY(-50%); width: clamp(140px, 20vw, 240px); max-width: 30%;
+      aspect-ratio: 1 / 1; border-radius: 999px; background-image: var(--brand-logo);
+      background-repeat: no-repeat; background-position: center; background-size: contain;
+      opacity: 0.14; pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1; padding: clamp(24px, 5vw, 42px);
+      max-width: min(720px, calc(100% - clamp(100px, 22vw, 230px)));
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+      color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.12em;
+      font-size: 0.75rem; font-weight: 900;
+    }
+    .hero h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; font-weight: 900; }
+    .hero h2 span { color: var(--teal); }
+    .hero-copy { color: var(--muted); margin: 14px 0 0; max-width: 640px; line-height: 1.6; font-size: 1.02rem; }
+    .cast { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .cast span {
+      padding: 6px 11px; border-radius: 999px; background: #fff;
+      border: 1px solid rgba(30, 45, 90, 0.1); font-size: 0.78rem; font-weight: 800; color: var(--navy);
+    }
+    .hint { text-align: center; color: var(--muted); font-size: .78rem; font-weight: 700; margin: 10px 0 0; }
+    .footer { text-align: center; color: var(--muted); font-size: 0.78rem; padding: 26px 0 8px; }
     .book { cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .face {
-      background: #fff; border-radius: 8px;
-      box-shadow: 0 14px 32px rgba(20,35,60,.14);
+      background: #fff; border-radius: 18px;
+      border: 1px solid rgba(30, 45, 90, 0.08);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
     .back { display: none; }
@@ -47,10 +102,10 @@
     .spread {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: calc(100dvh - 78px);
+      min-height: 520px;
     }
     .pic-wrap {
-      background: #0B1F3A;
+      background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,11 +115,11 @@
       display: block;
       width: 100%;
       height: 100%;
-      max-height: calc(100dvh - 78px);
+      max-height: 640px;
       object-fit: contain;
     }
     .copy {
-      padding: 16px 18px 14px;
+      padding: 18px 20px 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -73,8 +128,8 @@
     .brandline b { letter-spacing: .14em; font-size: .7rem; color: var(--navy); }
     .brandline span { font-size: .66rem; color: var(--muted); font-weight: 800; }
     .kicker { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; }
-    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.35rem, 3.4vw, 2.15rem); line-height: 1.05; letter-spacing: -.03em; color: var(--navy); margin: 4px 0 10px; }
-    h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.2rem, 2.8vw, 1.5rem); color: var(--navy); margin: 4px 0 8px; }
+    .mag-title { font-family: Fraunces, Georgia, serif; font-size: clamp(1.35rem, 3.2vw, 2.1rem); line-height: 1.05; letter-spacing: -.03em; color: var(--navy); margin: 4px 0 10px; }
+    .mag-sub { font-family: Fraunces, Georgia, serif; font-size: clamp(1.2rem, 2.6vw, 1.5rem); color: var(--navy); margin: 4px 0 8px; }
     .lead, .copy > p { font-size: .95rem; line-height: 1.42; color: #33425c; margin-bottom: 8px; }
     .fill {
       display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
@@ -92,108 +147,139 @@
     .box p, .box li { font-size: .82rem; line-height: 1.35; color: #33425c; }
     .box ol { padding-left: 1.15em; }
     @media (max-width: 720px) {
-      .spread { min-height: calc(100dvh - 72px); }
-      .pic { max-height: calc(100dvh - 72px); }
+      .shell { padding: 14px 14px calc(14px + var(--safe-bottom)); }
+      .topbar { top: calc(8px + var(--safe-top)); border-radius: 14px; }
+      .brand p { display: none; }
+      .hero-inner { max-width: 100%; padding: 20px 18px; }
+      .hero::after { opacity: 0.1; width: 120px; }
+      .spread { min-height: 0; }
+      .pic { max-height: 52dvh; }
       .copy { padding: 10px 10px 8px; }
       .lead, .copy > p { font-size: .82rem; line-height: 1.35; margin-bottom: 6px; }
       .fill { padding: 8px; gap: 6px; margin: 8px 0; }
       .fill li, .box p, .box li { font-size: .74rem; }
-      h1 { font-size: 1.2rem; margin: 2px 0 6px; }
-      h2 { font-size: 1.05rem; }
+      .mag-title { font-size: 1.2rem; margin: 2px 0 6px; }
+      .mag-sub { font-size: 1.05rem; }
     }
   </style>
 </head>
 <body>
-  <header class="bar">
-    <div><strong>Campus Life</strong><em>A1.1 · tap the magazine</em></div>
-    <a class="home" href="../">A1.1</a>
-  </header>
-  <main class="stage">
-    <div class="book" id="book" role="button" tabindex="0" aria-label="Tap to turn the magazine page">
-      <section class="face front">
-        <div class="spread">
-          <div class="pic-wrap">
-            <img class="pic" src="cover.jpg" alt="A student on campus with a backpack">
-          </div>
-          <div class="copy">
-            <div class="brandline"><b>CAMPUS LIFE</b><span>ISSUE 01</span></div>
-            <div class="kicker">Cover story</div>
-            <h1>Starting University</h1>
-            <div class="lead">
-              <p>It is the first day. I am a new student. I am at the university.</p>
-              <p>It is Monday. I am nervous, and I am happy too. My backpack is with me. This is a big day.</p>
-            </div>
-            <div class="fill">
-              <div>
-                <h3>In this issue</h3>
-                <ul>
-                  <li>A new student</li>
-                  <li>A big university</li>
-                  <li>A first class</li>
-                </ul>
-              </div>
-              <div>
-                <h3>In the photo</h3>
-                <ul>
-                  <li>This is a student.</li>
-                  <li>This is a backpack.</li>
-                  <li>This is a university.</li>
-                </ul>
-              </div>
-            </div>
-            <blockquote class="quote">
-              <p>“I am new. The classes are not easy. I am okay.”</p>
-              <cite>María · a student</cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-      <section class="face back">
-        <div class="spread">
-          <div class="pic-wrap">
-            <img class="pic" src="story.jpg" alt="A student writing at a desk">
-          </div>
-          <div class="copy">
-            <div class="kicker">The story</div>
-            <h2>This is María.</h2>
-            <p>Her name is María. She is 19. She is a new student. She is not from this city.</p>
-            <p>The university is big. Her classroom is big too. Her classes are new. Her backpack is black.</p>
-            <p>At nine, she is in class. The teacher is nice. Two students are in her group. The group is small. They are friendly.</p>
-            <p>María is nervous, but she is not alone. This is her first day. It is a good day.</p>
-            <div class="boxes">
-              <div class="box wide">
-                <h3>Look at the photo</h3>
-                <ol>
-                  <li>Who is in the photo?</li>
-                  <li>Is the book open or closed?</li>
-                  <li>What is on the table?</li>
-                </ol>
-              </div>
-              <div class="box">
-                <h3>Notice</h3>
-                <p><strong>I am / She is / They are / It is</strong><br>university · class · nervous · friendly</p>
-              </div>
-              <div class="box">
-                <h3>Think</h3>
-                <ol>
-                  <li>Is María a new student? How do you know?</li>
-                  <li>Is she alone in the class?</li>
-                  <li>How is her first day — only bad, or good too?</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div>
+      <div>
+        <h1>Starting University</h1>
+        <p>Campus Life · a first-day story</p>
+      </div>
     </div>
-    <p class="hint">Tap the page to turn it · tap again to go back</p>
-  </main>
-  <script>
-    const book = document.getElementById('book');
-    book.addEventListener('click', (e) => { if (!e.target.closest('a')) book.classList.toggle('is-back'); });
-    book.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); book.classList.toggle('is-back'); }
-    });
-  </script>
+    <div class="topbar-actions">
+      <a class="home-btn" href="../">Home</a>
+      <span class="mode-pill">A1.1</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Reading · Campus Life</span>
+      <h2>First day. I am a <span>new student</span>.</h2>
+      <p class="hero-copy">
+        A short magazine after <em>verb to be</em>. Meet <strong>María</strong> on her first day.
+        Tap the page to turn it.
+      </p>
+      <div class="cast" aria-label="Characters">
+        <span>María · new student</span>
+        <span>Campus Life · Issue 01</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="book" id="book" role="button" tabindex="0" aria-label="Tap to turn the magazine page">
+    <section class="face front">
+      <div class="spread">
+        <div class="pic-wrap">
+          <img class="pic" src="cover.jpg" alt="A student on campus with a backpack">
+        </div>
+        <div class="copy">
+          <div class="brandline"><b>CAMPUS LIFE</b><span>ISSUE 01</span></div>
+          <div class="kicker">Cover story</div>
+          <p class="mag-title">Starting University</p>
+          <div class="lead">
+            <p>It is the first day. I am a new student. I am at the university.</p>
+            <p>It is Monday. I am nervous, and I am happy too. My backpack is with me. This is a big day.</p>
+          </div>
+          <div class="fill">
+            <div>
+              <h3>In this issue</h3>
+              <ul>
+                <li>A new student</li>
+                <li>A big university</li>
+                <li>A first class</li>
+              </ul>
+            </div>
+            <div>
+              <h3>In the photo</h3>
+              <ul>
+                <li>This is a student.</li>
+                <li>This is a backpack.</li>
+                <li>This is a university.</li>
+              </ul>
+            </div>
+          </div>
+          <blockquote class="quote">
+            <p>“I am new. The classes are not easy. I am okay.”</p>
+            <cite>María · a student</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    <section class="face back">
+      <div class="spread">
+        <div class="pic-wrap">
+          <img class="pic" src="story.jpg" alt="A student writing at a desk">
+        </div>
+        <div class="copy">
+          <div class="kicker">The story</div>
+          <p class="mag-sub">This is María.</p>
+          <p>Her name is María. She is 19. She is a new student. She is not from this city.</p>
+          <p>The university is big. Her classroom is big too. Her classes are new. Her backpack is black.</p>
+          <p>At nine, she is in class. The teacher is nice. Two students are in her group. The group is small. They are friendly.</p>
+          <p>María is nervous, but she is not alone. This is her first day. It is a good day.</p>
+          <div class="boxes">
+            <div class="box wide">
+              <h3>Look at the photo</h3>
+              <ol>
+                <li>Who is in the photo?</li>
+                <li>Is the book open or closed?</li>
+                <li>What is on the table?</li>
+              </ol>
+            </div>
+            <div class="box">
+              <h3>Notice</h3>
+              <p><strong>I am / She is / They are / It is</strong><br>university · class · nervous · friendly</p>
+            </div>
+            <div class="box">
+              <h3>Think</h3>
+              <ol>
+                <li>Is María a new student? How do you know?</li>
+                <li>Is she alone in the class?</li>
+                <li>How is her first day — only bad, or good too?</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <p class="hint">Tap the page to turn it · tap again to go back</p>
+  <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.1 · Starting University</footer>
+</div>
+<script>
+  const book = document.getElementById('book');
+  book.addEventListener('click', (e) => { if (!e.target.closest('a')) book.classList.toggle('is-back'); });
+  book.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); book.classList.toggle('is-back'); }
+  });
+</script>
 </body>
 </html>
