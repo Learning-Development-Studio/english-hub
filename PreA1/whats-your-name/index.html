@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <title>What’s your name? · PreA1 · English Hub</title>
+  <meta name="description" content="PreA1: What’s your name? My name is… How do you spell that?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--white:#fff;--good:#e8f7ef;--bad:#fff0f0;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--navy);background:linear-gradient(180deg,#f8fbfc,#edf4f5);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}
+    .shell{max-width:1080px;margin:auto;padding:24px}
+    .topbar{position:sticky;top:14px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+    .brand h1{font-size:1.1rem;margin:0}.brand p{font-size:.8rem;color:#d6e7e7;margin:3px 0 0}
+    .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .home,.pill{border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800}
+    .home{color:#fff;text-decoration:none;background:rgba(22,140,140,.35)}
+    .pill{border:1px solid rgba(255,255,255,.2)}
+    .hero{position:relative;overflow:hidden;background:#f4fbfa;border:1px solid rgba(11,31,58,.08);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,5vw,48px);margin-bottom:22px}
+    .hero:after{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:230px;height:230px;background:url('../../assets/logo.png') center/contain no-repeat;opacity:.07}
+    .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:800}
+    .hero h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:12px 0;color:var(--navy);max-width:740px}
+    .hero h2 span{color:var(--teal)}
+    .hero p{color:var(--slate);line-height:1.7;max-width:640px;margin:0}
+    .path{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+    .path span{padding:6px 10px;border-radius:999px;background:var(--mint);font-size:.72rem;font-weight:800;color:var(--teal)}
+    .lesson{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .lesson-head{background:var(--navy);color:#fff;padding:22px 24px}
+    .lesson-head h3{margin:0}.lesson-head p{color:#d7e7e8;line-height:1.55;margin:6px 0 0}
+    .tabs{display:flex;overflow-x:auto;gap:5px;padding:12px 14px;border-bottom:1px solid var(--line);scrollbar-width:thin}
+    .tab{border:0;background:transparent;color:var(--slate);font-size:.76rem;font-weight:800;padding:10px 12px;border-radius:10px;white-space:nowrap}
+    .tab.active,.tab:hover{background:var(--mint);color:var(--navy)}
+    .panel{display:none;padding:26px}.panel.active{display:block}
+    .panel h4{font-size:1.15rem;margin:0 0 10px}
+    .panel h5{font-size:.95rem;margin:18px 0 8px}
+    .intro{color:var(--slate);line-height:1.65;margin:0 0 18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;text-align:left}
+    .card.tint{background:var(--gray)}.card.mint{background:var(--mint)}
+    .label{font-size:.7rem;letter-spacing:.08em;color:var(--teal);font-weight:800;text-transform:uppercase}
+    .big-rule{font-size:1.2rem;font-weight:800;margin:10px 0}
+    .teal{color:var(--teal)}
+    .example{padding:10px 12px;border-left:3px solid var(--gold);background:var(--gray);margin-top:10px;font-weight:700}
+    .note{background:var(--warn);border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;line-height:1.55;margin-top:14px}
+    .tip{background:var(--mint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;line-height:1.55;margin:12px 0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+    .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800;color:var(--navy)}
+    .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+    .phrase{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 12px;text-align:left;min-height:78px}
+    .phrase .line{display:block;font-size:1.05rem;font-weight:800;line-height:1.25}
+    .phrase .meta{display:block;margin-top:6px;font-size:.72rem;color:var(--slate);font-weight:600}
+    .phrase.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .phrase.playing .meta{color:#d7e7e8}
+    .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
+    .btn.secondary{background:var(--teal)}
+    .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .feedback{display:none;margin-top:12px;padding:12px;border-radius:10px;line-height:1.55}
+    .feedback.show{display:block}.feedback.good{background:var(--good)}.feedback.warn{background:var(--warn)}
+    .hear-play{width:100px;height:100px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:10px auto 0}
+    .choice-row{display:grid;gap:10px;margin-top:16px}
+    .choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 14px;font-size:1.02rem;font-weight:800;line-height:1.35;text-align:left}
+    .choice:disabled{cursor:default}
+    .choice.correct{background:var(--good);border-color:#72b98c}
+    .choice.wrong{background:var(--bad);border-color:#d98989}
+    .name-card{background:var(--navy);color:#fff;border-radius:16px;padding:20px;text-align:center}
+    .name-card .who{font-size:1.6rem;font-weight:800;letter-spacing:.03em}
+    .name-card p{margin:6px 0 0;color:#d7e7e8;font-size:.9rem}
+    .slots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+    .slot{min-width:42px;height:48px;border-radius:10px;border:2px dashed rgba(255,255,255,.4);display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+    .slot.filled{border-style:solid;border-color:var(--gold);background:rgba(255,255,255,.08)}
+    .pad{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:7px}
+    .pad button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 0;font-weight:800}
+    .game-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .score{font-weight:800;color:var(--teal)}
+    .cando{display:grid;gap:10px}
+    .cando label{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--gray);cursor:pointer}
+    .cando input{width:18px;height:18px}
+    .cando .lvl{font-size:.72rem;font-weight:800;color:var(--teal)}
+    .progress-mini{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+    .progress-mini span{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+    input[type=text]{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px;line-height:1.65}
+    .footer{text-align:center;color:var(--slate);font-size:.78rem;padding:24px}
+    a.inline{color:var(--teal);font-weight:800;text-decoration:none}
+    @media(max-width:760px){
+      .shell{padding:12px}.brand p{display:none}.panel{padding:18px}
+      .grid2{grid-template-columns:1fr}.hero:after{opacity:.04}
+      .cando label{grid-template-columns:auto 1fr}
+      .cando .lvl{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <img src="../../assets/logo.png" alt="">
+      <div>
+        <h1>What’s your name?</h1>
+        <p>First English Flow · Lesson 5 of 12</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="home" href="../classroom/">Lesson 4</a>
+      <a class="home" href="../">Home</a>
+      <span class="pill">PreA1</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">General English · Starter</span>
+    <h2>Ask the name. Say your name. <span>Spell it.</span></h2>
+    <p><strong>What’s your name?</strong> then <strong>My name is…</strong> or <strong>I’m…</strong> Then the classroom follow-up: <strong>How do you spell that?</strong></p>
+    <div class="path">
+      <span>1 Hear</span><span>2 Spell</span><span>3 Watch out</span><span>4 Play</span><span>5 Check</span>
+    </div>
+  </section>
+
+  <article class="lesson">
+    <header class="lesson-head">
+      <h3>Name first, then the letters</h3>
+      <p>Tap a line to hear it. Spelling uses the same letter audio as Lesson 1. Tapping while it dictates does not stop the audio.</p>
+    </header>
+    <nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
+    <div id="panels"></div>
+  </article>
+
+  <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
+</div>
+
+<script>
+const sections = ['1 Hear', '2 Spell', '3 Watch out', '4 Play', '5 Check'];
+const KEY = 'whatsYourNamePreA1v1';
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch { return {}; }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch { /* ignore */ }
+}
+const state = loadState();
+
+function pickVoice() {
+  const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  return voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
+    || voices.find(x => /^en/i.test(x.lang))
+    || null;
+}
+function speakPhrase(text) {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  const v = pickVoice();
+  if (v) { u.voice = v; u.lang = v.lang; }
+  speechSynthesis.speak(u);
+}
+if (window.speechSynthesis) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+function shuffle(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+const letterPlayer = new Audio();
+let letterPlayId = 0;
+function letterFile(ch) {
+  return `../alphabet/assets/audio/${String(ch).toLowerCase()}.mp3`;
+}
+function stopLetterAudio() {
+  letterPlayId += 1;
+  letterPlayer.onended = null;
+  letterPlayer.onerror = null;
+  letterPlayer.pause();
+  letterPlayer.removeAttribute('src');
+  try { letterPlayer.load(); } catch { /* ignore */ }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+function speakLetter(ch, onend) {
+  const id = ++letterPlayId;
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  letterPlayer.pause();
+  const done = () => { if (id !== letterPlayId) return; if (onend) onend(); };
+  letterPlayer.onended = done;
+  letterPlayer.onerror = () => {
+    if (id !== letterPlayId) return;
+    speakPhrase(ch);
+    setTimeout(done, 500);
+  };
+  letterPlayer.src = letterFile(ch);
+  letterPlayer.play().catch(() => {
+    if (id !== letterPlayId) return;
+    speakPhrase(ch);
+    setTimeout(done, 500);
+  });
+}
+function playLetterSequence(chars, gap, onend) {
+  const list = chars.map(c => String(c).toUpperCase());
+  let i = 0;
+  function next() {
+    if (i >= list.length) { if (onend) onend(); return; }
+    speakLetter(list[i], () => { i += 1; setTimeout(next, gap || 180); });
+  }
+  next();
+}
+
+const phrases = {
+  ask: [
+    { line:"What's your name?", meta:'The question' },
+    { line:'And you?', meta:'Return the question' },
+    { line:'How do you spell that?', meta:'Classroom follow-up' },
+    { line:"Who's this?", meta:'About a third person' }
+  ],
+  say: [
+    { line:"I'm Ana.", meta:'Short' },
+    { line:'My name is Luis.', meta:'Full line' },
+    { line:'This is Maya.', meta:'Introduce someone' },
+    { line:'Nice to meet you.', meta:'First meeting' },
+    { line:'Nice to meet you too.', meta:'The answer' }
+  ]
+};
+let phraseFilter = 'ask';
+function phraseCard(item) {
+  return `<button type="button" class="phrase" data-line="${encodeURIComponent(item.line)}" onclick="tapPhrase(this)">
+    <span class="line">${item.line}</span>
+    <span class="meta">${item.meta}</span>
+  </button>`;
+}
+function drawPhrases() {
+  const box = document.getElementById('phraseGrid');
+  if (!box) return;
+  box.innerHTML = phrases[phraseFilter].map(phraseCard).join('');
+  document.querySelectorAll('#phraseFilters .chip').forEach(c => c.classList.toggle('on', c.dataset.filter === phraseFilter));
+}
+function setPhraseFilter(id) { phraseFilter = id; drawPhrases(); }
+function tapPhrase(btn) {
+  document.querySelectorAll('.phrase.playing').forEach(el => el.classList.remove('playing'));
+  btn.classList.add('playing');
+  speakPhrase(decodeURIComponent(btn.dataset.line));
+}
+
+const hearHTML = `
+<section class="panel">
+  <h4>1 · Hear the lines</h4>
+  <p class="intro">Ask, then answer. Both <strong>I’m Ana</strong> and <strong>My name is Ana</strong> are good.</p>
+  <div class="filters" id="phraseFilters">
+    <button type="button" class="chip on" data-filter="ask" onclick="setPhraseFilter('ask')">Ask</button>
+    <button type="button" class="chip" data-filter="say" onclick="setPhraseFilter('say')">Say</button>
+  </div>
+  <div class="phrase-grid" id="phraseGrid"></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card mint">
+      <span class="label">The exchange</span>
+      <div class="example">What’s your name?<br>I’m Ana. And you?<br>Luis. Nice to meet you.</div>
+    </div>
+    <div class="card tint">
+      <span class="label">Then spell</span>
+      <p style="margin:8px 0 0;color:var(--slate)"><strong>How do you spell that?</strong> A-N-A. You already know the letter names.</p>
+    </div>
+  </div>
+</section>`;
+
+const spellNames = [
+  { name:'Ana', hint:'Three letters' },
+  { name:'Luis', hint:'L is “el”' },
+  { name:'Maya', hint:'Y is “why”' },
+  { name:'Sofia', hint:'F, not PH' },
+  { name:'Carlos', hint:'C is “see”' },
+  { name:'Pedro', hint:'P is “pee”' }
+];
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+let hearIndex = 0;
+let hearProgress = [];
+
+function setupHear() {
+  stopLetterAudio();
+  hearProgress = [];
+  const target = spellNames[hearIndex].name.toUpperCase().split('');
+  const slots = document.getElementById('hearSlots');
+  const pad = document.getElementById('hearPad');
+  const score = document.getElementById('hearScore');
+  if (!slots) return;
+  slots.innerHTML = target.map((_, i) => `<div class="slot" id="hslot-${i}"></div>`).join('');
+  pad.innerHTML = shuffle([...LETTERS]).map(ch =>
+    `<button type="button" onclick="tapHear('${ch}')">${ch}</button>`
+  ).join('');
+  if (score) score.textContent = `Name ${hearIndex + 1} / ${spellNames.length}`;
+  const hint = document.getElementById('spellHint');
+  if (hint) hint.textContent = spellNames[hearIndex].hint + ' · tap while you listen.';
+  const fb = document.getElementById('hearFb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+function playDictation() {
+  playLetterSequence(spellNames[hearIndex].name.toUpperCase().split(''), 200);
+}
+function tapHear(ch) {
+  const target = spellNames[hearIndex].name.toUpperCase().split('');
+  const need = target[hearProgress.length];
+  if (ch !== need) {
+    const fb = document.getElementById('hearFb');
+    fb.className = 'feedback show warn';
+    fb.textContent = 'Not that letter.';
+    return;
+  }
+  const slot = document.getElementById('hslot-' + hearProgress.length);
+  if (slot) { slot.textContent = ch; slot.classList.add('filled'); }
+  hearProgress.push(ch);
+  if (hearProgress.length === target.length) {
+    const fb = document.getElementById('hearFb');
+    fb.className = 'feedback show good';
+    fb.textContent = `Yes — ${spellNames[hearIndex].name}.`;
+    speakPhrase(spellNames[hearIndex].name);
+    if (hearIndex < spellNames.length - 1) {
+      setTimeout(() => { hearIndex += 1; setupHear(); }, 1100);
+    }
+  }
+}
+
+const spellHTML = `
+<section class="panel">
+  <h4>2 · Spell</h4>
+  <p class="intro"><strong>How do you spell that?</strong> Hear the letters (your voice from Lesson 1). Tap them in order. Tapping does <strong>not</strong> stop the dictation.</p>
+  <div class="name-card">
+    <p id="spellHint">Tap while you listen.</p>
+    <div class="who">?</div>
+    <button type="button" class="hear-play" onclick="playDictation()">Play</button>
+    <div class="slots" id="hearSlots"></div>
+  </div>
+  <div class="pad" id="hearPad"></div>
+  <div class="game-nav">
+    <div class="score" id="hearScore">Name 1 / ${spellNames.length}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" class="btn ghost" onclick="playDictation()">Hear again</button>
+      <button type="button" class="btn ghost" onclick="setupHear()">Clear</button>
+    </div>
+  </div>
+  <div class="feedback" id="hearFb"></div>
+  <div class="tip">Frame: “How do you spell that?” · “It’s M-A-Y-A.”</div>
+</section>`;
+
+const watchHTML = `
+<section class="panel">
+  <h4>3 · Watch out · Spanish speakers</h4>
+  <p class="intro">Four mix-ups from <em>me llamo</em>. Tap a card to hear the English.</p>
+  <div class="grid2">
+    <button type="button" class="card" onclick="speakPhrase('My name is Ana. I am Ana.')">
+      <span class="label">Me llamo</span>
+      <div class="big-rule">My name is Ana. / <span class="teal">I’m Ana.</span></div>
+      <p style="margin:0">Both are good. Not “I am called Ana” in class.</p>
+      <div class="example">✗ I call Ana. &nbsp;·&nbsp; ✓ I’m Ana.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('What is your name?')">
+      <span class="label">The question</span>
+      <div class="big-rule">What’s <span class="teal">your name</span>?</div>
+      <p style="margin:0">Not “How you call?” or “How is your name?”</p>
+      <div class="example">✗ How you call? &nbsp;·&nbsp; ✓ What’s your name?</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('How do you spell that?')">
+      <span class="label">Spell</span>
+      <div class="big-rule">How do you <span class="teal">spell</span> that?</div>
+      <p style="margin:0">Not “How you write?” You want the <em>letters</em>.</p>
+      <div class="example">A-N-A. Not “Ana with one n” in Spanish.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('This is Maya.')">
+      <span class="label">This is</span>
+      <div class="big-rule">This is Maya.</div>
+      <p style="margin:0">To introduce a classmate. Then: Nice to meet you.</p>
+      <div class="example">This is Luis. Nice to meet you.</div>
+    </button>
+  </div>
+  <div class="note"><strong>Keep this list:</strong> What’s your name? · I’m … / My name is … · How do you spell that? · This is …</div>
+</section>`;
+
+const situations = [
+  { scene:'You meet a new classmate.', say:"What's your name?", opts:["What's your name?",'Open your book.','Good night.'], why:'First meeting → <strong>What’s your name?</strong>' },
+  { scene:'Someone asks: What’s your name?', say:"I'm Ana.", opts:["I'm Ana.",'Sit down.','How do you spell that?'], why:'Answer with <strong>I’m …</strong> or My name is …' },
+  { scene:'You did not catch the letters.', say:'How do you spell that?', opts:['How do you spell that?','Be quiet.','Good morning.'], why:'You need letters → <strong>How do you spell that?</strong>' },
+  { scene:'You introduce Maya to Luis.', say:'This is Maya.', opts:['This is Maya.','I am called Maya.','Raise your hand.'], why:'A third person → <strong>This is Maya.</strong>' },
+  { scene:'Someone says: Nice to meet you.', say:'Nice to meet you too.', opts:['Nice to meet you too.','Bye.','Listen.'], why:'The pair is <strong>Nice to meet you too.</strong>' },
+  { scene:'They said their name. You want to continue.', say:'And you?', opts:['And you?','Work in pairs.','Good evening.'], why:'Return it → <strong>And you?</strong>' }
+];
+const WHICH_ROUNDS = 6;
+let whichRound = 0;
+let whichScore = 0;
+let whichLocked = false;
+let whichItem = situations[0];
+let playMode = 'which';
+
+function setPlayMode(mode) {
+  playMode = mode;
+  document.querySelectorAll('#playModes .chip').forEach(c => c.classList.toggle('on', c.dataset.mode === mode));
+  document.getElementById('whichGame').style.display = mode === 'which' ? '' : 'none';
+  document.getElementById('pairGame').style.display = mode === 'pair' ? '' : 'none';
+}
+function setupWhich() {
+  whichLocked = false;
+  whichItem = situations[whichRound % situations.length];
+  const box = document.getElementById('whichChoices');
+  const scene = document.getElementById('whichScene');
+  if (!box) return;
+  scene.textContent = whichItem.scene;
+  box.innerHTML = shuffle([...whichItem.opts]).map(o =>
+    `<button type="button" class="choice" onclick="pickWhich(this)">${o}</button>`
+  ).join('');
+  const score = document.getElementById('whichScore');
+  if (score) score.textContent = `Round ${whichRound + 1} / ${WHICH_ROUNDS} · ${whichScore} correct`;
+  const fb = document.getElementById('whichFb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+function playWhich() { speakPhrase(whichItem.scene); }
+function pickWhich(btn) {
+  if (whichLocked) return;
+  whichLocked = true;
+  const ok = btn.textContent === whichItem.say;
+  document.querySelectorAll('#whichChoices .choice').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === whichItem.say) b.classList.add('correct');
+    if (b === btn && !ok) b.classList.add('wrong');
+  });
+  if (ok) whichScore += 1;
+  const fb = document.getElementById('whichFb');
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.innerHTML = (ok ? 'Yes. ' : `It was <strong>${whichItem.say}</strong>. `) + whichItem.why;
+  const score = document.getElementById('whichScore');
+  if (score) score.textContent = `Round ${whichRound + 1} / ${WHICH_ROUNDS} · ${whichScore} correct`;
+  setTimeout(() => {
+    whichRound += 1;
+    if (whichRound >= WHICH_ROUNDS) {
+      const total = whichScore;
+      fb.className = 'feedback show good';
+      fb.innerHTML = `Done · ${total} / ${WHICH_ROUNDS}.`;
+      document.getElementById('whichChoices').innerHTML =
+        `<button type="button" class="btn secondary" onclick="restartWhich()">Play again</button>`;
+      whichRound = 0;
+      whichScore = 0;
+      return;
+    }
+    setupWhich();
+  }, 1200);
+}
+function restartWhich() {
+  whichRound = 0;
+  whichScore = 0;
+  setupWhich();
+}
+
+const playHTML = `
+<section class="panel">
+  <h4>4 · Play</h4>
+  <p class="intro">Pick the line, then use it with a partner. Tapping does not stop the audio.</p>
+  <div class="filters" id="playModes">
+    <button type="button" class="chip on" data-mode="which" onclick="setPlayMode('which')">1 · Which line?</button>
+    <button type="button" class="chip" data-mode="pair" onclick="setPlayMode('pair')">2 · Pair work</button>
+  </div>
+  <div id="whichGame">
+    <div class="name-card">
+      <p>What do you say?</p>
+      <div class="who" id="whichScene" style="font-size:1.15rem">You meet a new classmate.</div>
+      <button type="button" class="hear-play" onclick="playWhich()">Play</button>
+      <div class="choice-row" id="whichChoices"></div>
+    </div>
+    <div class="game-nav">
+      <div class="score" id="whichScore">Round 1 / ${WHICH_ROUNDS}</div>
+      <button type="button" class="btn ghost" onclick="playWhich()">Hear again</button>
+    </div>
+    <div class="feedback" id="whichFb"></div>
+  </div>
+  <div id="pairGame" style="display:none">
+    <div class="card mint">
+      <span class="label">Pair work · 2 minutes</span>
+      <p style="margin:8px 0 0;line-height:1.7">
+        <strong>A:</strong> What’s your name?<br>
+        <strong>B:</strong> I’m ______. And you?<br>
+        <strong>A:</strong> ______. How do you spell that?<br>
+        <strong>B:</strong> (letters) Nice to meet you.
+      </p>
+    </div>
+    <div class="tip">Then swap. Introduce a third person: “This is ______.”</div>
+  </div>
+</section>`;
+
+const candoItems = [
+  'I can ask What’s your name?',
+  'I can say I’m … / My name is …',
+  'I can ask How do you spell that?',
+  'I can introduce someone: This is …'
+];
+
+const checkHTML = `
+<section class="panel">
+  <h4>5 · Check</h4>
+  <p class="intro">Honest boxes, then write your name in letters.</p>
+  <div class="cando" id="candoBox"></div>
+  <div class="progress-mini"><span id="candoBar"></span></div>
+  <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
+  <h5>Write it</h5>
+  <p class="intro" style="margin-bottom:8px">My name is ______ . ______-______-______</p>
+  <input type="text" id="exitWrite" placeholder="My name is Sofia. S-O-F-I-A" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
+  <div class="feedback" id="exitFb"></div>
+  <div class="tip"><strong>Ready for Lesson 6?</strong> If you can ask, say, and spell a name, you are ready for age. <a class="inline" href="../classroom/">← Classroom</a></div>
+</section>`;
+
+function render() {
+  document.getElementById('tabs').innerHTML = sections.map((s, i) =>
+    `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
+  ).join('');
+  document.getElementById('panels').innerHTML = [hearHTML, spellHTML, watchHTML, playHTML, checkHTML].join('');
+  openTab(state.tab || 0);
+  drawPhrases();
+  setupHear();
+  setupWhich();
+  renderCando();
+}
+function openTab(i) {
+  state.tab = i;
+  save();
+  stopLetterAudio();
+  document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
+  document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
+  const lesson = document.querySelector('.lesson');
+  if (lesson) window.scrollTo({ top: lesson.offsetTop - 80, behavior: 'smooth' });
+}
+function renderCando() {
+  const box = document.getElementById('candoBox');
+  if (!box) return;
+  const saved = state.cando || [];
+  box.innerHTML = candoItems.map((t, i) => `
+    <label>
+      <input type="checkbox" data-cando="${i}" ${saved[i] ? 'checked' : ''} onchange="saveCando()">
+      <span>${t}</span>
+      <span class="lvl">PreA1</span>
+    </label>
+  `).join('');
+  updateCandoBar();
+}
+function saveCando() {
+  state.cando = [...document.querySelectorAll('[data-cando]')].map(el => el.checked);
+  save();
+  updateCandoBar();
+}
+function updateCandoBar() {
+  const n = (state.cando || []).filter(Boolean).length;
+  const bar = document.getElementById('candoBar');
+  const lab = document.getElementById('candoLabel');
+  if (bar) bar.style.width = `${(n / candoItems.length) * 100}%`;
+  if (lab) lab.textContent = `${n} / ${candoItems.length} can-do statements`;
+}
+function saveExit() {
+  const t = (document.getElementById('exitWrite').value || '').trim();
+  state.exitWrite = t;
+  save();
+  const fb = document.getElementById('exitFb');
+  const ok = /[a-z]/i.test(t) && /-/.test(t);
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.textContent = ok ? 'Saved. Lesson 5 exit is done.' : 'Write your name and the letters with hyphens: S-O-F-I-A.';
+}
+
+render();
+</script>
+</body>
+</html>
