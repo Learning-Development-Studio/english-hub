@@ -188,7 +188,7 @@ const phrases = {
     { line:'Can you repeat, please?', meta:'You didn’t hear' },
     { line:'How do you say this in English?', meta:'You need a word' },
     { line:"Sorry I'm late.", meta:'You arrive after the start' },
-    { line:'Can I go to the bathroom?', meta:'Ask first' }
+    { line:'May I go to the restroom?', meta:'Ask first · school' }
   ]
 };
 
@@ -336,7 +336,7 @@ const askBank = [
   { scene:'The activity is not clear.', say:"I don't understand.", opts:["I don't understand.",'Stand up.','See you.'], why:'You are lost → <strong>I don’t understand.</strong>' },
   { scene:'You need the English word for something.', say:'How do you say this in English?', opts:['How do you say this in English?','Raise your hand.','Good night.'], why:'You want a word → <strong>How do you say this in English?</strong>' },
   { scene:'Class started. You walk in late.', say:"Sorry I'm late.", opts:["Sorry I'm late.",'Excuse me, what?','Be quiet.'], why:'Late to class → <strong>Sorry I’m late.</strong>' },
-  { scene:'You need the bathroom.', say:'Can I go to the bathroom?', opts:['Can I go to the bathroom?','Sit down.','Work in pairs.'], why:'Ask first → <strong>Can I go to the bathroom?</strong>' },
+  { scene:'You need the restroom.', say:'May I go to the restroom?', opts:['May I go to the restroom?','Can I go to the bathroom?','Sit down.'], why:'At school: <strong>May I</strong> (permission) and <strong>restroom</strong>.' },
   { scene:'You want to speak. The teacher is talking.', say:'Raise your hand.', opts:['Hey, teacher!','Raise your hand.','Be quiet.'], why:'Wait your turn → <strong>Raise your hand.</strong>' }
 ];
 const ASK_ROUNDS = 6;
@@ -421,7 +421,7 @@ const askHTML = `
 const watchHTML = `
 <section class="panel">
   <h4>4 · Watch out · Spanish speakers</h4>
-  <p class="intro">Four lines that come out in Spanish-English. Tap a card to hear the repair.</p>
+  <p class="intro">Lines that come out in Spanish-English. Tap a card to hear the repair.</p>
   <div class="grid2">
     <button type="button" class="card" onclick="speakPhrase('I don\\'t understand.')">
       <span class="label">Understand</span>
@@ -447,8 +447,14 @@ const watchHTML = `
       <p style="margin:0"><strong>Sorry</strong> = you did something (late). <strong>Excuse me</strong> = you want attention, or you need to pass.</p>
       <div class="example">Late → Sorry I’m late. Passing → Excuse me.</div>
     </button>
+    <button type="button" class="card" onclick="speakPhrase('May I go to the restroom?')">
+      <span class="label">Restroom</span>
+      <div class="big-rule">May I go to the <span class="teal">restroom</span>?</div>
+      <p style="margin:0">At school we say <strong>restroom</strong>, not bathroom. <strong>May I</strong> = permission. <em>Can I</em> is ability.</p>
+      <div class="example">✗ Can I go to the bathroom? &nbsp;·&nbsp; ✓ May I go to the restroom?</div>
+    </button>
   </div>
-  <div class="note"><strong>Keep this list:</strong> I don’t understand · Can you repeat, please? · How do you say …? · Sorry I’m late.</div>
+  <div class="note"><strong>Keep this list:</strong> I don’t understand · Can you repeat, please? · How do you say …? · Sorry I’m late · May I go to the restroom?</div>
 </section>`;
 
 const candoItems = [
