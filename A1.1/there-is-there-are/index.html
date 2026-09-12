@@ -26,7 +26,29 @@
     .cando{display:grid;gap:10px}.cando label{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--gray);cursor:pointer}.cando input{width:18px;height:18px}.cando .lvl{font-size:.72rem;font-weight:800;color:var(--teal)}.progress-mini{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}.progress-mini span{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
     .footer{text-align:center;color:var(--slate);font-size:.78rem;padding:24px}
     @media(max-width:760px){.shell{padding:12px}.brand p{display:none}.panel{padding:18px}.grid2,.grid3,.wheel-wrap,.scene,.bridge-item{grid-template-columns:1fr}.wheel-wrap{justify-items:center}.house{grid-template-columns:1fr}.hero:after{opacity:.04}.checklist{grid-template-columns:repeat(2,1fr)}.cando label{grid-template-columns:auto 1fr}.token{width:92px}.token img{width:72px;height:72px}}
-  </style>
+  
+    /* A1.1 header actions — Home teal, level navy, nothing else */
+    .topbar-actions .home-btn,
+    .actions a.home,
+    .top-actions .home-btn {
+      background: #5bb8b0 !important;
+      color: #fff !important;
+      border: 0 !important;
+    }
+    .topbar-actions .home-btn:hover,
+    .actions a.home:hover,
+    .top-actions .home-btn:hover {
+      background: #238d85 !important;
+    }
+    .topbar-actions .mode-pill,
+    .topbar-actions .level-pill,
+    .actions .pill,
+    .top-actions .level-pill {
+      background: #0B1F3A !important;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,.45) !important;
+    }
+</style>
 </head>
 <body><div class="shell">
   <header class="topbar">

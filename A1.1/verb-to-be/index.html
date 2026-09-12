@@ -336,7 +336,29 @@
       .panel { padding: 18px; }
       .home-btn { padding: 8px 12px; }
     }
-  </style>
+  
+    /* A1.1 header actions — Home teal, level navy, nothing else */
+    .topbar-actions .home-btn,
+    .actions a.home,
+    .top-actions .home-btn {
+      background: #5bb8b0 !important;
+      color: #fff !important;
+      border: 0 !important;
+    }
+    .topbar-actions .home-btn:hover,
+    .actions a.home:hover,
+    .top-actions .home-btn:hover {
+      background: #238d85 !important;
+    }
+    .topbar-actions .mode-pill,
+    .topbar-actions .level-pill,
+    .actions .pill,
+    .top-actions .level-pill {
+      background: #0B1F3A !important;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,.45) !important;
+    }
+</style>
 </head>
 <body>
 <div class="shell">
