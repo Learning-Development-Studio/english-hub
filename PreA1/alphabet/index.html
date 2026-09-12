@@ -808,6 +808,7 @@ function replayName() { speak(spellNames[spellIndex].name, 0.85); }
 let hearIndex = 0;
 let hearProgress = [];
 function setupHear() {
+  stopLetterAudio();
   hearProgress = [];
   const target = spellNames[hearIndex].name.toUpperCase().split('');
   const slots = document.getElementById('hearSlots');
@@ -828,11 +829,10 @@ function playDictation() {
 function tapHear(ch) {
   const target = spellNames[hearIndex].name.toUpperCase().split('');
   const need = target[hearProgress.length];
-  speakLetter(ch);
   if (ch !== need) {
     const fb = document.getElementById('hearFb');
     fb.className = 'feedback show warn';
-    fb.textContent = 'Not that letter. Play the spelling again.';
+    fb.textContent = 'Not that letter.';
     return;
   }
   const slot = document.getElementById('hslot-' + hearProgress.length);
