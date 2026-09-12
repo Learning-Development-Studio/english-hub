@@ -124,12 +124,12 @@
       flex-direction: column;
       justify-content: center;
     }
-    .brandline { display: flex; justify-content: space-between; border-bottom: 2px solid var(--navy); padding-bottom: 7px; margin-bottom: 10px; }
-    .brandline b { letter-spacing: .14em; font-size: .7rem; color: var(--navy); }
-    .brandline span { font-size: .66rem; color: var(--muted); font-weight: 800; }
-    .kicker { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; }
-    .mag-title { font-family: Fraunces, Georgia, serif; font-size: clamp(1.35rem, 3.2vw, 2.1rem); line-height: 1.05; letter-spacing: -.03em; color: var(--navy); margin: 4px 0 10px; }
-    .mag-sub { font-family: Fraunces, Georgia, serif; font-size: clamp(1.2rem, 2.6vw, 1.5rem); color: var(--navy); margin: 4px 0 8px; }
+    .brandline { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 3px solid var(--navy); padding-bottom: 8px; margin-bottom: 12px; }
+    .brandline b { letter-spacing: .12em; font-size: clamp(1.05rem, 2.6vw, 1.5rem); font-weight: 900; color: var(--navy); }
+    .brandline span { font-size: clamp(.78rem, 1.6vw, .95rem); color: var(--muted); font-weight: 800; }
+    .kicker { font-size: clamp(.82rem, 1.8vw, 1.05rem); letter-spacing: .16em; text-transform: uppercase; color: var(--teal-dark); font-weight: 900; }
+    .mag-title { font-family: Fraunces, Georgia, serif; font-size: clamp(2.15rem, 6.4vw, 4.1rem); line-height: .95; letter-spacing: -.04em; color: var(--navy); margin: 6px 0 14px; font-weight: 800; }
+    .mag-sub { font-family: Fraunces, Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.4rem); color: var(--navy); margin: 4px 0 10px; font-weight: 800; }
     .lead, .copy > p { font-size: .95rem; line-height: 1.42; color: #33425c; margin-bottom: 8px; }
     .fill {
       display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
@@ -158,8 +158,10 @@
       .lead, .copy > p { font-size: .82rem; line-height: 1.35; margin-bottom: 6px; }
       .fill { padding: 8px; gap: 6px; margin: 8px 0; }
       .fill li, .box p, .box li { font-size: .74rem; }
-      .mag-title { font-size: 1.2rem; margin: 2px 0 6px; }
-      .mag-sub { font-size: 1.05rem; }
+      .mag-title { font-size: clamp(1.7rem, 8vw, 2.35rem); margin: 4px 0 10px; }
+      .mag-sub { font-size: clamp(1.35rem, 5vw, 1.7rem); }
+      .brandline b { font-size: 1.05rem; }
+      .kicker { font-size: .8rem; }
     }
   </style>
 </head>
