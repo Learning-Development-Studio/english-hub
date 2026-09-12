@@ -12,105 +12,72 @@
   <style>
     :root {
       --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843;
-      --ink:#1a2740; --muted:#6b7fa3;
+      --ink:#1a2740; --muted:#6b7fa3; --line:#e4ebf0;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
     body {
       font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-      color: var(--ink);
-      background: #dfe6ed;
-      min-height: 100dvh;
+      color: var(--ink); background: #dfe6ed; min-height: 100dvh;
     }
     .bar {
       max-width: 920px; margin: calc(10px + var(--safe-top)) auto 10px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 14px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 14px;
     }
     .bar strong { color: var(--navy); font-size: .92rem; }
     .bar em { font-style: normal; color: var(--muted); font-size: .75rem; font-weight: 700; margin-left: 8px; }
     .home {
       color: #fff !important; text-decoration: none !important;
-      background: var(--navy); border-radius: 999px;
-      padding: 7px 12px; font-size: .76rem; font-weight: 800;
+      background: var(--navy); border-radius: 999px; padding: 7px 12px; font-size: .76rem; font-weight: 800;
     }
     .stage { max-width: 920px; margin: 0 auto; padding: 0 12px calc(16px + var(--safe-bottom)); }
     .hint { text-align: center; color: var(--muted); font-size: .78rem; font-weight: 700; margin: 8px 0 0; }
-    .book {
-      width: 100%;
-      height: min(760px, calc(100dvh - 88px));
-      perspective: 1800px;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .flip {
-      position: relative; width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      transition: transform .7s cubic-bezier(.2,.8,.2,1);
-    }
-    .book.is-back .flip { transform: rotateY(180deg); }
+    .book { cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .face {
-      position: absolute; inset: 0;
-      backface-visibility: hidden; -webkit-backface-visibility: hidden;
-      background: #fff; border-radius: 6px;
-      box-shadow: 0 18px 40px rgba(20,35,60,.16);
+      background: #fff; border-radius: 8px;
+      box-shadow: 0 14px 32px rgba(20,35,60,.14);
       overflow: hidden;
     }
-    .back { transform: rotateY(180deg); }
-    .cover {
-      display: grid; grid-template-columns: 46% 54%; height: 100%;
+    .back { display: none; }
+    .book.is-back .front { display: none; }
+    .book.is-back .back { display: block; }
+    .cover { display: grid; grid-template-columns: 42% 1fr; }
+    .pic { display: block; width: 100%; height: auto; object-fit: cover; }
+    .cover .pic { min-height: 280px; height: 100%; }
+    .inside .pic { min-height: 280px; height: 100%; }
+    .copy { padding: 16px 16px 14px; }
+    .brandline { display: flex; justify-content: space-between; border-bottom: 2px solid var(--navy); padding-bottom: 7px; margin-bottom: 10px; }
+    .brandline b { letter-spacing: .14em; font-size: .7rem; color: var(--navy); }
+    .brandline span { font-size: .66rem; color: var(--muted); font-weight: 800; }
+    .kicker { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.6rem, 5vw, 2.3rem); line-height: 1.05; letter-spacing: -.03em; color: var(--navy); margin: 4px 0 10px; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: 1.35rem; color: var(--navy); margin: 4px 0 8px; }
+    .lead, .copy > p { font-size: .98rem; line-height: 1.45; color: #33425c; margin-bottom: 8px; }
+    .fill {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      margin: 12px 0; background: #f3faf8; border-top: 3px solid var(--teal); padding: 10px;
     }
-    .cover img { width: 100%; height: 100%; object-fit: cover; }
-    .cover-copy {
-      padding: 22px 24px 18px;
-      display: flex; flex-direction: column;
-      background:
-        linear-gradient(#fff, #fff);
-    }
-    .brandline {
-      display: flex; justify-content: space-between; align-items: baseline;
-      border-bottom: 2px solid var(--navy); padding-bottom: 8px; margin-bottom: 16px;
-    }
-    .brandline b { letter-spacing: .14em; font-size: .72rem; color: var(--navy); }
-    .brandline span { font-size: .68rem; color: var(--muted); font-weight: 800; }
-    .kicker { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; }
-    h1 {
-      font-family: Fraunces, Georgia, serif;
-      font-size: clamp(1.9rem, 4.4vw, 2.7rem);
-      line-height: 1.02; letter-spacing: -.03em;
-      color: var(--navy); margin: 8px 0 12px;
-    }
-    .lead { font-size: 1.02rem; line-height: 1.5; color: #33425c; }
-    .lead p + p { margin-top: 10px; }
-    .quote {
-      margin-top: auto; padding-top: 14px;
-      border-top: 1px solid #e4ebf0;
-    }
-    .quote p { font-weight: 800; color: var(--navy); line-height: 1.4; }
-    .quote cite { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: .78rem; font-weight: 700; }
-    .inside {
-      display: grid; grid-template-columns: 1.15fr .85fr; height: 100%;
-    }
-    .inside-copy { padding: 20px 22px 16px; overflow: auto; }
-    .inside img { width: 100%; height: 100%; object-fit: cover; }
-    h2 {
-      font-family: Fraunces, Georgia, serif;
-      font-size: 1.45rem; color: var(--navy); margin: 6px 0 10px;
-    }
-    .inside-copy p { font-size: .98rem; line-height: 1.5; color: #33425c; margin-bottom: 9px; }
-    .boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-    .box { background: #f3faf8; border-left: 3px solid var(--teal); padding: 10px 10px 8px; }
-    .box h3 { font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 5px; }
-    .box p, .box li { font-size: .82rem; line-height: 1.4; color: #33425c; }
-    .box ol { padding-left: 1.1em; }
+    .fill h3, .box h3 { font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 5px; }
+    .fill li { list-style: none; font-size: .86rem; line-height: 1.35; color: #33425c; }
+    .fill li + li { margin-top: 3px; }
+    .quote { padding-top: 8px; border-top: 1px solid var(--line); }
+    .quote p { font-weight: 800; color: var(--navy); line-height: 1.35; }
+    .quote cite { display: block; margin-top: 4px; font-style: normal; color: var(--muted); font-size: .75rem; font-weight: 700; }
+    .inside { display: grid; grid-template-columns: 1.15fr .85fr; }
+    .boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .box { background: #f3faf8; border-left: 3px solid var(--teal); padding: 8px 10px; }
+    .box.wide { grid-column: 1 / -1; }
+    .box p, .box li { font-size: .82rem; line-height: 1.35; color: #33425c; }
+    .box ol { padding-left: 1.15em; }
     @media (max-width: 720px) {
-      .book { height: min(820px, calc(100dvh - 80px)); }
-      .cover, .inside { grid-template-columns: 1fr; }
-      .cover img { height: 38%; min-height: 180px; }
-      .inside img { height: 180px; }
-      .boxes { grid-template-columns: 1fr; }
+      .cover, .inside, .fill, .boxes { grid-template-columns: 1fr; }
+      .cover .pic, .inside .pic {
+        width: 100%;
+        height: 220px;
+        min-height: 220px;
+        object-fit: cover;
+      }
     }
   </style>
 </head>
@@ -121,63 +88,79 @@
   </header>
   <main class="stage">
     <div class="book" id="book" role="button" tabindex="0" aria-label="Tap to turn the magazine page">
-      <div class="flip">
-        <section class="face front">
-          <div class="cover">
-            <img src="cover.jpg" alt="A student on campus with a backpack">
-            <div class="cover-copy">
-              <div class="brandline"><b>CAMPUS LIFE</b><span>ISSUE 01</span></div>
-              <div class="kicker">Cover story</div>
-              <h1>Starting University</h1>
-              <div class="lead">
-                <p>It is the first day. I am a new student. I am at the university.</p>
-                <p>It is Monday. I am nervous, and I am happy too. My backpack is with me. This is a big day.</p>
-              </div>
-              <blockquote class="quote">
-                <p>“I am new. The classes are not easy. I am okay.”</p>
-                <cite>María · a student</cite>
-              </blockquote>
+      <section class="face front">
+        <div class="cover">
+          <img class="pic" src="cover.jpg" alt="A student on campus with a backpack">
+          <div class="copy">
+            <div class="brandline"><b>CAMPUS LIFE</b><span>ISSUE 01</span></div>
+            <div class="kicker">Cover story</div>
+            <h1>Starting University</h1>
+            <div class="lead">
+              <p>It is the first day. I am a new student. I am at the university.</p>
+              <p>It is Monday. I am nervous, and I am happy too. My backpack is with me. This is a big day.</p>
             </div>
-          </div>
-        </section>
-        <section class="face back">
-          <div class="inside">
-            <div class="inside-copy">
-              <div class="kicker">The story</div>
-              <h2>This is María.</h2>
-              <p>Her name is María. She is 19. She is a new student. She is not from this city.</p>
-              <p>The university is big. Her classroom is big too. Her classes are new. Her backpack is black.</p>
-              <p>At nine, she is in class. The teacher is nice. Two students are in her group. The group is small. They are friendly.</p>
-              <p>María is nervous, but she is not alone. This is her first day. It is a good day.</p>
-              <div class="boxes">
-                <div class="box">
-                  <h3>Notice</h3>
-                  <p><strong>I am / She is / They are / It is</strong><br>university · class · nervous · friendly</p>
-                </div>
-                <div class="box">
-                  <h3>Think</h3>
-                  <ol>
-                    <li>Is María a new student? How do you know?</li>
-                    <li>Is she alone in the class?</li>
-                    <li>How is her first day — only bad, or good too?</li>
-                  </ol>
-                </div>
+            <div class="fill">
+              <div>
+                <h3>In this issue</h3>
+                <ul>
+                  <li>A new student</li>
+                  <li>A big university</li>
+                  <li>A first class</li>
+                </ul>
+              </div>
+              <div>
+                <h3>In the photo</h3>
+                <ul>
+                  <li>This is a student.</li>
+                  <li>This is a backpack.</li>
+                  <li>This is a university.</li>
+                </ul>
               </div>
             </div>
-            <img src="story.jpg" alt="A student writing at a desk">
+            <blockquote class="quote">
+              <p>“I am new. The classes are not easy. I am okay.”</p>
+              <cite>María · a student</cite>
+            </blockquote>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section class="face back">
+        <div class="inside">
+          <div class="copy">
+            <div class="kicker">The story</div>
+            <h2>This is María.</h2>
+            <p>Her name is María. She is 19. She is a new student. She is not from this city.</p>
+            <p>The university is big. Her classroom is big too. Her classes are new. Her backpack is black.</p>
+            <p>At nine, she is in class. The teacher is nice. Two students are in her group. The group is small. They are friendly.</p>
+            <p>María is nervous, but she is not alone. This is her first day. It is a good day.</p>
+            <div class="boxes">
+              <div class="box wide">
+                <h3>Look at the photo</h3>
+                <p>What is black? What is big? Who is in the photo?</p>
+              </div>
+              <div class="box">
+                <h3>Notice</h3>
+                <p><strong>I am / She is / They are / It is</strong><br>university · class · nervous · friendly</p>
+              </div>
+              <div class="box">
+                <h3>Think</h3>
+                <ol>
+                  <li>Is María a new student? How do you know?</li>
+                  <li>Is she alone in the class?</li>
+                  <li>How is her first day — only bad, or good too?</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <img class="pic" src="story.jpg" alt="A student writing at a desk">
+        </div>
+      </section>
     </div>
     <p class="hint">Tap the page to turn it · tap again to go back</p>
   </main>
   <script>
     const book = document.getElementById('book');
-    function flip(e) {
-      if (e.target.closest('a')) return;
-      book.classList.toggle('is-back');
-    }
-    book.addEventListener('click', flip);
+    book.addEventListener('click', (e) => { if (!e.target.closest('a')) book.classList.toggle('is-back'); });
     book.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); book.classList.toggle('is-back'); }
     });
