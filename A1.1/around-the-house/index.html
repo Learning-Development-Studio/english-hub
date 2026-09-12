@@ -14,8 +14,9 @@
 <style>
     :root {
         --navy: #0B1F3A;
-        --teal: #008080;
-        --gold: #D29A2E;
+        --teal: #5bb8b0;
+        --teal-dark: #238d85;
+        --gold: #d4a843;
         --light-navy: #102C63;
         --light-teal: #E5F6F5;
         --light-gold: #FFF4DD;
@@ -26,23 +27,10 @@
     
     body {
         position: relative;
-        background-color: #f9fafb;
-    }
-    body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url('../../assets/logo.png');
-        background-repeat: no-repeat;
-        background-position: center 58%;
-        background-size: min(68vw, 720px);
-        opacity: 0.60;
-        pointer-events: none;
-        z-index: 0;
-    }
-    body > * {
-        position: relative;
-        z-index: 1;
+        background:
+          radial-gradient(circle at top right, rgba(91, 184, 176, 0.16), transparent 34rem),
+          linear-gradient(180deg, #f7fafc 0%, #eef4f7 100%);
+        min-height: 100vh;
     }
     .brand-gradient {
     background: var(--navy);
@@ -268,6 +256,73 @@
             opacity: 0.16;
         }
     }
+
+    .topbar {
+      position: sticky; top: 16px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      margin-bottom: 18px; padding: 12px 16px;
+      background: var(--navy); color: #fff; border-radius: 18px;
+      box-shadow: 0 16px 34px rgba(30, 45, 90, 0.22);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 999px;
+      display: grid; place-items: center; background: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); overflow: hidden; padding: 3px; flex: 0 0 auto;
+    }
+    .brand-mark img { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block; }
+    .brand h1 { margin: 0; color: #fff; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.05; }
+    .brand p { margin: 3px 0 0; color: #d7ecea; font-size: 0.84rem; }
+    .topbar-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .home-btn {
+      display: inline-flex; align-items: center;
+      background: #5bb8b0; color: #fff !important; border: 0;
+      border-radius: 999px; padding: 8px 14px; font-size: 0.82rem; font-weight: 800;
+      text-decoration: none !important; white-space: nowrap;
+    }
+    .home-btn:hover { background: #238d85; }
+    .level-pill {
+      background: #0B1F3A; color: #fff;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px; padding: 8px 12px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;
+    }
+    .hero {
+      position: relative; overflow: hidden; border-radius: 20px;
+      background: #f4fbfa; color: var(--navy);
+      border: 1px solid rgba(30, 45, 90, 0.08);
+      box-shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
+      margin-bottom: 22px;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: clamp(0.75rem, 3vw, 1.75rem); top: 50%;
+      transform: translateY(-50%); width: clamp(140px, 20vw, 240px); max-width: 30%;
+      aspect-ratio: 1 / 1; border-radius: 999px;
+      background-image: url("../../assets/logo.png");
+      background-repeat: no-repeat; background-position: center; background-size: contain;
+      opacity: 0.14; pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1; padding: clamp(24px, 5vw, 42px);
+      max-width: min(720px, calc(100% - clamp(100px, 22vw, 230px)));
+    }
+    .eyebrow {
+      display: inline-flex; color: var(--teal-dark); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.75rem; font-weight: 900; margin-bottom: 12px;
+    }
+    .hero h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; font-weight: 900; }
+    .hero h2 span { color: var(--teal); }
+    .hero-copy { color: #6b7fa3; margin: 14px 0 0; max-width: 640px; line-height: 1.6; font-size: 1.02rem; }
+    .cast { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .cast span {
+      padding: 6px 11px; border-radius: 999px; background: #fff;
+      border: 1px solid rgba(30, 45, 90, 0.1); font-size: 0.78rem; font-weight: 800; color: var(--navy);
+    }
+    .hero-progress { margin-top: 16px; max-width: 280px; }
+    @media (max-width: 720px) {
+      .brand p { display: none; }
+      .hero-inner { max-width: 100%; }
+      .hero::after { opacity: 0.1; width: 120px; }
+    }
 </style>
 </head>
 <body class="text-gray-800">
@@ -275,63 +330,47 @@
     <img id="logoAsset" src="../../assets/logo.png" hidden>
     <div class="page-shell">
     <!-- Header -->
-    <header class="brand-gradient text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <img src="../../assets/logo.png" alt="Learning &amp; Development Studio" class="h-11 sm:h-14 w-11 sm:w-14 object-contain logo-clean">
-                    <div>
-                        <h1 class="text-lg sm:text-2xl font-bold tracking-tight">Around the House</h1>
-                        <p class="text-xs sm:text-sm text-teal-100 hidden sm:block">Learning &amp; Development Studio · Israel Ventura</p>
-                    </div>
-                </div>
-                <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <nav id="desktopNav" class="hidden md:flex gap-2 items-center">
-                    <a href="../" class="px-4 py-2 rounded-full text-sm font-bold transition" style="background:#5bb8b0;color:#fff;">Home</a>
-                    <span class="px-4 py-2 rounded-full text-sm font-bold" style="background:#0B1F3A;color:#fff;border:1px solid rgba(255,255,255,.45);">A1.1</span>
-                </nav>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div>
+            <div>
+                <h1>Around the House</h1>
+                <p>Rooms · furniture · things you can point to</p>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <nav id="mobileNav" class="hidden md:hidden border-t border-white/20">
-            <a href="../" class="block w-full text-left px-6 py-3 text-sm font-bold" style="color:#5bb8b0;">Home</a>
-            <div class="px-6 py-3 text-sm font-bold" style="color:#fff;">A1.1</div>
-        </nav>
+        <div class="topbar-actions">
+            <a class="home-btn" href="../">Home</a>
+            <span class="level-pill">A1.1</span>
+        </div>
     </header>
 
-    <!-- Hero Intro -->
-    <section id="intro" class="hero-brand text-gray-900 py-12 sm:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-content">
-            <div class="max-w-3xl">
-                <div class="mb-6">
-                    <div class="inline-flex items-center px-4 py-1 bg-white border border-teal-100 rounded-full text-sm font-semibold shadow-sm" style="color: var(--teal);">
-                        <i class="fas fa-home mr-2"></i>Lesson Topic: Around the House
-                    </div>
+    <section id="intro" class="hero">
+        <div class="hero-inner">
+            <span class="eyebrow">Vocabulary · home</span>
+            <h2>Rooms, furniture, things you can <span>point to</span></h2>
+            <p class="hero-copy">
+                Follow <strong>Lina</strong>, <strong>Mateo</strong>, and <strong>Rosa</strong> around the house.
+                Rooms, furniture, and things you can point to.
+            </p>
+            <div class="cast" aria-label="Characters">
+                <span>Lina</span>
+                <span>Mateo</span>
+                <span>Rosa</span>
+            </div>
+            <div class="hero-progress">
+                <div class="flex items-center justify-between gap-4 mb-2">
+                    <span class="text-sm font-bold" style="color: var(--navy);">Accuracy</span>
+                    <span id="heroProgressText" class="text-sm font-bold" style="color: var(--teal);">—</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight"><span style="color: var(--navy);">Welcome to Your</span> <span style="color: var(--teal);">Digital Classroom</span></h2>
-                <p class="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">Today we'll explore vocabulary about homes, furniture, and daily routines. Work through each interactive activity to practice nouns, verbs, and adjectives related to life "Around the House".</p>
-                <div class="flex flex-wrap gap-3">
-                    <button onclick="scrollToSection('activities')" class="gold-gradient text-gray-900 px-6 py-3 rounded-lg font-bold shadow-sm hover:shadow-md transition">
-                        Start Activities <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                    <div class="progress-widget bg-white border border-gray-200 rounded-lg shadow-sm px-4 py-3 min-w-[240px] sm:min-w-[280px]">
-                        <div class="flex items-center justify-between gap-4 mb-2">
-                            <span class="text-sm font-bold" style="color: var(--navy);">Accuracy</span>
-                            <span id="heroProgressText" class="text-sm font-bold" style="color: var(--teal);">—</span>
-                        </div>
-                        <div class="h-2 rounded-full bg-gray-100 overflow-hidden">
-                            <div id="heroProgressBar" class="h-full rounded-full transition-all duration-500" style="width: 0%; background: var(--teal);"></div>
-                        </div>
-                        <div id="heroAccuracyDetails" class="mt-2 text-xs text-gray-500">Answer a graded activity to begin.</div>
-                    </div>
+                <div class="h-2 rounded-full bg-gray-100 overflow-hidden">
+                    <div id="heroProgressBar" class="h-full rounded-full transition-all duration-500" style="width: 0%; background: var(--teal);"></div>
                 </div>
+                <div id="heroAccuracyDetails" class="mt-2 text-xs text-gray-500">Answer a graded activity to begin.</div>
             </div>
         </div>
     </section>
 
-    <!-- Main Activities Section with Accordion -->
+    <!-- Main Activities Section     <!-- Main Activities Section with Accordion -->
     <section id="activities" class="py-8 sm:py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8">
@@ -818,7 +857,7 @@
                     <p class="text-sm text-teal-100">Around the House - Interactive Lesson</p>
                 </div>
                 <div class="text-sm text-teal-100">
-                    © 2024 English Classroom. All rights reserved.
+                    Learning &amp; Development Studio · Israel Ventura · A1.1 · Around the House
                 </div>
             </div>
         </div>
@@ -829,9 +868,11 @@
         // Mobile menu toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileNav = document.getElementById('mobileNav');
-        menuBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
-        });
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+        }
 
         // Smooth scroll
         const scrollToSection = (id) => {
