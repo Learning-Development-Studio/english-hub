@@ -75,7 +75,7 @@ function noticeHTML() {
         </div>
       </div>
     </div>
-    <div class="tip"><strong>American English:</strong> I have / I don’t have / Do you have. Not <em>have got</em>.</div>
+    <div class="tip">Tap a food to see a sentence.</div>
   `;
 }
 
@@ -106,16 +106,15 @@ function grammarHTML() {
       <b>many / a few</b><div class="cell">countable<small>How many limes? a few tortillas</small></div>
       <b>much / a little</b><div class="cell">uncountable<small>How much milk? a little salsa</small></div>
     </div>
-    <div class="note"><strong>American English:</strong> I <em>have</em> some milk. I <em>don’t have</em> any eggs. <em>Do you have</em> any cash?</div>
     <h5>Watch out</h5>
     <div class="grid2">
       <div class="card" style="background:var(--bad)">
         <div class="label">Common mix-up</div>
-        <p style="margin:8px 0 0;font-weight:800">✗ I have many informations.<br>✗ She bought two breads.<br>✗ Have you got any tomatoes?</p>
+        <p style="margin:8px 0 0;font-weight:800">✗ I have many informations.<br>✗ She bought two breads.<br>✗ How many milk do we have?</p>
       </div>
       <div class="card mint">
         <div class="label">Say this</div>
-        <p style="margin:8px 0 0;font-weight:800">✓ I have a lot of information.<br>✓ She bought some bread. / two loaves.<br>✓ Do you have any tomatoes?</p>
+        <p style="margin:8px 0 0;font-weight:800">✓ I have a lot of information.<br>✓ She bought some bread. / two loaves.<br>✓ How much milk do we have?</p>
       </div>
     </div>
     <div class="tip"><strong>To count the uncountable:</strong> a bottle of water · a piece of bread · a cup of coffee · a bag of rice.</div>
@@ -159,8 +158,8 @@ function accBlock(letter, title, blurb, inner) {
 function practiceHTML() {
   const saved = state.practice || {};
   return `
-    <h4>Open one activity at a time.</h4>
-    <p class="intro">Choose, then check. The note under each item explains why.</p>
+    <h4>Practice</h4>
+    <p class="intro">Open an activity. Choose an answer, then check.</p>
     ${accBlock('A', 'Countable or uncountable?', 'Tap the type for each noun.',
       mcGroup('A', [
         { q: 'apples', opts: ['Countable', 'Uncountable'], a: 'Countable', why: 'You can say one apple, two apples.' },
@@ -181,12 +180,12 @@ function practiceHTML() {
         { q: 'We have _____ salsa.', opts: ['a few', 'a little'], a: 'a little', why: 'Salsa is uncountable → a little.' }
       ], saved)
     )}
-    ${accBlock('C', 'Fix the sentence', 'Choose the best American English repair.',
+    ${accBlock('C', 'Fix the sentence', 'Choose the correct sentence.',
       mcGroup('C', [
         { q: 'I have many informations.', opts: ['I have a lot of information.', 'I have many information.', 'I have a lot of informations.'], a: 'I have a lot of information.', why: 'Information is uncountable. No -s.' },
         { q: 'How many milks do we have?', opts: ['How much milk do we have?', 'How many milk do we have?', 'How much milks do we have?'], a: 'How much milk do we have?', why: 'Milk is uncountable → how much milk.' },
         { q: 'She bought two breads.', opts: ['She bought some bread.', 'She bought two bread.', 'She bought many bread.'], a: 'She bought some bread.', why: 'Bread is uncountable. Or: two loaves of bread.' },
-        { q: 'Have you got any tomatoes?', opts: ['Do you have any tomatoes?', 'Have you any tomatoes?', 'Do you got any tomatoes?'], a: 'Do you have any tomatoes?', why: 'This course uses American Do you have…?' }
+        { q: 'We have a few cheese.', opts: ['We have a little cheese.', 'We have a few cheeses.', 'We have many cheese.'], a: 'We have a little cheese.', why: 'Cheese is uncountable → a little / some cheese.' }
       ], saved)
     )}
     ${accBlock('D', 'A bottle of…', 'To count an uncountable noun, use a container.',
@@ -208,7 +207,7 @@ function practiceHTML() {
 function readingHTML() {
   return `
     <h4>A message from the store</h4>
-    <p class="intro">Read the whole note. Then tap only the quantity words: <strong>some, any, much, many, a few, a little, a lot of, how many, how much</strong>. The words are not marked. Then answer the questions.</p>
+    <p class="intro">Read the message. Tap the quantity words (<strong>some, any, much, many, a few, a little, a lot of, how many, how much</strong>). Then answer the questions.</p>
     <div class="reading" id="reading">
       <p>Hey,</p>
       <p>I’m still at the <span class="hit">store</span> after work. The line is <span class="hit">long</span>, so I have <span class="hit" data-ok="1">a little</span> time to write this.</p>
@@ -352,7 +351,7 @@ function listeningHTML() {
   const picked = state.listenQ || {};
   return `
     <h4>Listening · After work, tacos</h4>
-    <p class="intro">Listen once for the main idea. Listen again for details and what people mean, not only the words they say. These questions train the same moves as a mini TOEFL listening.</p>
+    <p class="intro">Listen to the conversation. Then answer the questions.</p>
     <div class="listen-player">
       <audio id="listenAudio" src="./audio/fridge-check.mp3" controls preload="metadata"></audio>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
@@ -383,11 +382,11 @@ const MYSTERY_PROMPTS = [
   { icon: '🍚', text: 'I have some…' },
   { icon: '🛒', text: 'I don’t have any…' },
   { icon: '🧀', text: 'Do you have any…?' },
-  { icon: '🍼', text: 'Say a container: a bottle of / a piece of / a cup of…' },
-  { icon: '🍅', text: 'We need to buy… (mix countable and uncountable).' },
+  { icon: '🍼', text: 'a bottle of / a piece of / a cup of…' },
+  { icon: '🍅', text: 'We need to buy…' },
   { icon: '⏰', text: 'We don’t have much time. What do you have a lot of?' },
   { icon: '🛠️', text: 'Fix this: I have many informations.' },
-  { icon: '🍞', text: 'Fix this: She bought two breads. / Have you got any tomatoes?' }
+  { icon: '🍞', text: 'Fix this: She bought two breads.' }
 ];
 
 function speakingHTML() {
@@ -402,7 +401,7 @@ function speakingHTML() {
   }).join('');
   return `
     <h4>Mystery Box · the fridge</h4>
-    <p class="intro">Tap a closed box. Say the prompt to a partner. Use <strong>have / don’t have / do you have</strong>. Opened boxes stay open.</p>
+    <p class="intro">Tap a box. Say the sentence to a partner.</p>
     <div class="mystery-wrap">
       <div class="mystery-grid" id="mysteryGrid">${boxes}</div>
       <div class="mystery-reveal empty" id="mysteryReveal">Tap a box to open a speaking prompt.</div>
@@ -427,7 +426,7 @@ function speakingHTML() {
 function writingHTML() {
   return `
     <h4>Write 6 sentences about your kitchen tonight.</h4>
-    <p class="intro">Use the stems. Mix countable and uncountable. Use American <strong>have / don’t have</strong>.</p>
+    <p class="intro">Use the stems. Mix countable and uncountable nouns.</p>
     <div class="stems">
       <button type="button" class="stem">I have…</button>
       <button type="button" class="stem">I don’t have any…</button>
@@ -440,7 +439,7 @@ function writingHTML() {
     <div class="cando" style="margin-top:12px">
       <label><input type="checkbox" data-writechk="count"> I used a countable noun (eggs, tortillas…).</label>
       <label><input type="checkbox" data-writechk="uncount"> I used an uncountable noun (rice, milk…).</label>
-      <label><input type="checkbox" data-writechk="ame"> I used have / don’t have — not have got.</label>
+      <label><input type="checkbox" data-writechk="quant"> I used some / any / a few / a little / much / many.</label>
     </div>
   `;
 }
@@ -452,11 +451,11 @@ function candoHTML() {
     ['uncount', 'I can name uncountable things: rice, milk, cheese, time.'],
     ['quant', 'I can use some / any / a lot of / much / many / a few / a little.'],
     ['ask', 'I can ask Do you have…? How many…? How much…?'],
-    ['fix', 'I can fix informations, two breads, and have got.']
+    ['fix', 'I can fix informations and two breads.']
   ];
   return `
     <h4>Can-do · the fridge test</h4>
-    <p class="intro">Check only what you can really do in class tonight.</p>
+    <p class="intro">Check what you can do.</p>
     <div class="play-row" style="margin:0 0 14px">
       <a href="../fridge-battle/">Play Fridge Battle →</a>
     </div>
@@ -637,8 +636,8 @@ function bindListening() {
     const fb = document.getElementById('listenFb');
     fb.className = 'feedback show ' + (right === total ? 'good' : 'warn');
     fb.textContent = right === total
-      ? `All ${total} correct. You used the recording, not only the words on the page.`
-      : `${right} / ${total}. Listen again for what they mean, not only what they say.`;
+      ? `All ${total} correct.`
+      : `${right} / ${total}. Listen again.`;
   });
 }
 
