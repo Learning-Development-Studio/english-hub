@@ -147,17 +147,114 @@ function save() {
 }
 const state = loadState();
 
-function speakPhrase(text) {
-  if (!window.speechSynthesis) return;
-  speechSynthesis.cancel();
+function pickVoice() {
+  const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  return voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
+    || voices.find(x => /^en/i.test(x.lang))
+    || null;
+}
+function speakTts(text, onend) {
+  if (!window.speechSynthesis) { if (onend) onend(); return; }
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US';
   u.rate = 0.9;
-  const voices = speechSynthesis.getVoices();
-  const v = voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
-    || voices.find(x => /^en/i.test(x.lang));
+  const v = pickVoice();
   if (v) { u.voice = v; u.lang = v.lang; }
+  u.onend = onend || null;
   speechSynthesis.speak(u);
+}
+const LINE_STEM = {
+  'hello': 'hello',
+  'hi': 'hi',
+  'hey': 'hey',
+  'good morning': 'good-morning',
+  'good afternoon': 'good-afternoon',
+  'good evening': 'good-evening',
+  'how are you': 'how-are-you',
+  'hows it going': 'hows-it-going',
+  'im fine thank you and you': 'im-fine-thank-you-and-you',
+  'im fine thank you': 'im-fine-thank-you-and-you',
+  'i am fine thank you and you': 'im-fine-thank-you-and-you',
+  'i am fine thank you': 'im-fine-thank-you-and-you',
+  'im good thanks you': 'im-good-thanks-you',
+  'im good thanks': 'im-good-thanks-you',
+  'im good thanks and you': 'im-good-thanks-you',
+  'i am good thanks': 'im-good-thanks-you',
+  'not bad': 'not-bad',
+  'whats your name': 'whats-your-name',
+  'what is your name': 'whats-your-name',
+  'im ana': 'im-ana',
+  'i am ana': 'im-ana',
+  'nice to meet you': 'nice-to-meet-you',
+  'nice to meet you too': 'nice-to-meet-you-too',
+  'goodbye': 'goodbye',
+  'bye': 'bye',
+  'see you': 'see-you',
+  'see you later': 'see-you',
+  'see you tomorrow': 'see-you-tomorrow',
+  'take care': 'take-care',
+  'good night': 'good-night'
+};
+const LINE_SEQ = {
+  'hi how is it going i am good thanks see you': ['hi','hows-it-going','im-good-thanks-you','see-you'],
+  'good morning how are you i am fine thank you': ['good-morning','how-are-you','im-fine-thank-you-and-you'],
+  'good evening good night': ['good-evening','good-night'],
+  'how are you i am fine thank you': ['how-are-you','im-fine-thank-you-and-you'],
+  'hello good morning': ['hello','good-morning'],
+  'hi ana': ['hi','im-ana'],
+  'hi how are you': ['hi','how-are-you']
+};
+function normLine(text) {
+  return String(text).toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function stemsForText(text) {
+  const n = normLine(text);
+  if (LINE_SEQ[n]) return LINE_SEQ[n];
+  if (LINE_STEM[n]) return [LINE_STEM[n]];
+  return null;
+}
+const phrasePlayer = new Audio();
+let phrasePlayId = 0;
+function stopPhraseAudio() {
+  phrasePlayId += 1;
+  phrasePlayer.onended = null;
+  phrasePlayer.onerror = null;
+  phrasePlayer.pause();
+  phrasePlayer.removeAttribute('src');
+  try { phrasePlayer.load(); } catch { /* ignore */ }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+function playStem(stem, onend) {
+  const id = ++phrasePlayId;
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  phrasePlayer.pause();
+  const done = () => { if (id !== phrasePlayId) return; if (onend) onend(); };
+  const tts = () => {
+    if (id !== phrasePlayId) return;
+    speakTts(stem.replace(/-/g, ' '), done);
+  };
+  phrasePlayer.onended = done;
+  phrasePlayer.onerror = tts;
+  phrasePlayer.src = `assets/audio/${stem}.mp3`;
+  phrasePlayer.play().catch(tts);
+}
+function speakPhrase(text, onend) {
+  const stems = stemsForText(text);
+  if (!stems) {
+    stopPhraseAudio();
+    speakTts(text, onend);
+    return;
+  }
+  let i = 0;
+  function next() {
+    if (i >= stems.length) { if (onend) onend(); return; }
+    playStem(stems[i], () => { i += 1; setTimeout(next, 120); });
+  }
+  next();
 }
 if (window.speechSynthesis) {
   speechSynthesis.getVoices();
@@ -543,7 +640,7 @@ function render() {
 function openTab(i) {
   state.tab = i;
   save();
-  if (window.speechSynthesis) speechSynthesis.cancel();
+  stopPhraseAudio();
   document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
   document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
   const lesson = document.querySelector('.lesson');
