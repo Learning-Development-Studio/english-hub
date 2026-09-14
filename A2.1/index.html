@@ -159,6 +159,19 @@
       .brand p { display: none; }
       .chev { display: none; }
     }
+  
+    .row.tone-navy .row-body h3 { color: var(--navy); }
+    .row.tone-teal .row-body h3 { color: var(--teal-dark); }
+    .row.tone-gold .row-body h3 { color: #b8892a; }
+    .glyph.g-teal { background: rgba(91,184,176,.18); color: var(--teal-dark); }
+    .glyph.g-gold { background: rgba(212,168,67,.18); color: #b8892a; }
+    .soon-tag {
+      display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px;
+      font-size: 0.68rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+      background: #e8ecf4; color: var(--muted);
+    }
+    .row.is-soon, .row.soon { opacity: 0.78; cursor: default; }
+
   </style>
 </head>
 <body>
@@ -180,25 +193,145 @@
     <section class="hero">
       <span class="eyebrow">A2.1 · Level landing</span>
       <h2>Review and <span>build</span>.</h2>
-      <p>Start with Present Simple vs Present Continuous. More A2.1 lessons will appear here as the hub grows.</p>
+      <p>Continuous before the contrast. Was/were before Past Simple. Gray rows with <strong>Soon</strong> are next to build.</p>
     </section>
 
-    <div class="group" aria-label="A2.1 activities">
-      <a class="row" href="./present-simple-vs-continuous/">
+        <div class="group" aria-label="A2.1 activities">
+      <div class="row tone-navy is-soon" aria-disabled="true">
         <span class="glyph g-navy">PC</span>
         <div class="row-body">
-          <h3>Present Simple vs Present Continuous</h3>
-          <p>Lesson 1 · Habits vs actions happening now</p>
+          <h3>Present Continuous <span class="soon-tag">Soon</span></h3>
+          <p>Actions happening now.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <a class="row tone-teal" href="./present-simple-vs-continuous/">
+        <span class="glyph g-teal">vs</span>
+        <div class="row-body">
+          <h3>Simple vs Continuous</h3>
+          <p>Habits vs now.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <div class="row is-soon" aria-disabled="true">
-        <span class="glyph g-mute">+</span>
+      <div class="row tone-gold is-soon" aria-disabled="true">
+        <span class="glyph g-gold">Was</span>
         <div class="row-body">
-          <h3>More A2.1 lessons</h3>
-          <p>Coming soon · Additional review and skill lessons</p>
+          <h3>Past of Be <span class="soon-tag">Soon</span></h3>
+          <p>was / were.</p>
         </div>
-        <span class="badge-soon">Soon</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-navy is-soon" aria-disabled="true">
+        <span class="glyph g-navy">There</span>
+        <div class="row-body">
+          <h3>There was / There were <span class="soon-tag">Soon</span></h3>
+          <p>What existed in the past.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-teal is-soon" aria-disabled="true">
+        <span class="glyph g-teal">-ed</span>
+        <div class="row-body">
+          <h3>Past Simple regular <span class="soon-tag">Soon</span></h3>
+          <p>Yesterday with regular verbs.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-gold is-soon" aria-disabled="true">
+        <span class="glyph g-gold">?</span>
+        <div class="row-body">
+          <h3>Past questions &amp; negatives <span class="soon-tag">Soon</span></h3>
+          <p>did / didn’t.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-navy is-soon" aria-disabled="true">
+        <span class="glyph g-navy">At</span>
+        <div class="row-body">
+          <h3>Prepositions of Time <span class="soon-tag">Soon</span></h3>
+          <p>in / on / at.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-teal is-soon" aria-disabled="true">
+        <span class="glyph g-teal">Qty</span>
+        <div class="row-body">
+          <h3>Some / any / a lot of <span class="soon-tag">Soon</span></h3>
+          <p>Countable and uncountable.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-gold is-soon" aria-disabled="true">
+        <span class="glyph g-gold">Want</span>
+        <div class="row-body">
+          <h3>Want to / need to / would like to <span class="soon-tag">Soon</span></h3>
+          <p>Simple plans and needs.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-navy is-soon" aria-disabled="true">
+        <span class="glyph g-navy">Adv</span>
+        <div class="row-body">
+          <h3>Adverbs of manner <span class="soon-tag">Soon</span></h3>
+          <p>slowly, carefully — with continuous.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-teal is-soon" aria-disabled="true">
+        <span class="glyph g-teal">Too</span>
+        <div class="row-body">
+          <h3>Too / enough / very <span class="soon-tag">Soon</span></h3>
+          <p>Degree with adjectives.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-gold is-soon" aria-disabled="true">
+        <span class="glyph g-gold">Fd</span>
+        <div class="row-body">
+          <h3>Food &amp; shopping <span class="soon-tag">Soon</span></h3>
+          <p>Shops and what you buy.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-navy is-soon" aria-disabled="true">
+        <span class="glyph g-navy">Rest</span>
+        <div class="row-body">
+          <h3>At the restaurant <span class="soon-tag">Soon</span></h3>
+          <p>Order, ask, and pay.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-teal is-soon" aria-disabled="true">
+        <span class="glyph g-teal">Go</span>
+        <div class="row-body">
+          <h3>Transport &amp; places <span class="soon-tag">Soon</span></h3>
+          <p>How you get there; where you are going.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-gold is-soon" aria-disabled="true">
+        <span class="glyph g-gold">Feel</span>
+        <div class="row-body">
+          <h3>Health &amp; feelings <span class="soon-tag">Soon</span></h3>
+          <p>How people feel and what they are doing.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-navy is-soon" aria-disabled="true">
+        <span class="glyph g-navy">Wx</span>
+        <div class="row-body">
+          <h3>Clothes &amp; weather <span class="soon-tag">Soon</span></h3>
+          <p>What people are wearing; what the weather is like.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+      <div class="row tone-teal is-soon" aria-disabled="true">
+        <span class="glyph g-teal">St</span>
+        <div class="row-body">
+          <h3>A2.1 English Studio <span class="soon-tag">Soon</span></h3>
+          <p>Bring the level together.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </div>
     </div>
 
