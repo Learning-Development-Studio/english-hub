@@ -317,31 +317,51 @@ function listeningHTML() {
   `;
 }
 
+const MYSTERY_PROMPTS = [
+  { icon: '🥚', text: 'How many eggs do you have at home?' },
+  { icon: '🥛', text: 'How much milk do you have?' },
+  { icon: '🌮', text: 'I have a few…' },
+  { icon: '🌶️', text: 'We have a little…' },
+  { icon: '🍚', text: 'I have some…' },
+  { icon: '🛒', text: 'I don’t have any…' },
+  { icon: '🧀', text: 'Do you have any…?' },
+  { icon: '🍼', text: 'Say a container: a bottle of / a piece of / a cup of…' },
+  { icon: '🍅', text: 'We need to buy… (mix countable and uncountable).' },
+  { icon: '⏰', text: 'We don’t have much time. What do you have a lot of?' },
+  { icon: '🛠️', text: 'Fix this: I have many informations.' },
+  { icon: '🍞', text: 'Fix this: She bought two breads. / Have you got any tomatoes?' }
+];
+
 function speakingHTML() {
-  const prompts = [
-    { t: 'Fridge', p: 'Look at your kitchen (or imagine it). Say: I have… I don’t have any… We have a few… / a little…' },
-    { t: 'Ask', p: 'Ask a partner: Do you have any _____? How many _____? How much _____?' },
-    { t: 'Store', p: 'You have 8 minutes before the store closes. Make a short list: 3 countable things and 2 uncountable things.' },
-    { t: 'Repair', p: 'Fix this out loud: “I have many informations” and “Have you got any milks?”' }
-  ];
-  const i = state.speakIndex || 0;
+  const opened = new Set(state.mysteryOpened || []);
+  const boxes = MYSTERY_PROMPTS.map((p, i) => {
+    const isOpen = opened.has(String(i));
+    return `
+      <button type="button" class="mbox ${isOpen ? 'open' : ''}" data-box="${i}" ${isOpen ? 'disabled' : ''} aria-label="Mystery box ${i + 1}">
+        <span class="lid">${isOpen ? '📭' : '🎁'}</span>
+        <span class="tag">${isOpen ? 'Opened' : 'Box ' + (i + 1)}</span>
+      </button>`;
+  }).join('');
   return `
-    <h4>Say it. Don’t write an essay.</h4>
-    <p class="intro">Teacher or a partner gives the prompt. You speak. Then swap. Use <strong>have / don’t have / do you have</strong>.</p>
-    <div class="card" style="padding:16px;margin-bottom:12px">
-      <div class="label">${prompts[i].t}</div>
-      <p class="prompt" style="margin:8px 0 0">${prompts[i].p}</p>
+    <h4>Mystery Box · the fridge</h4>
+    <p class="intro">Tap a closed box. Say the prompt to a partner. Use <strong>have / don’t have / do you have</strong>. Opened boxes stay open.</p>
+    <div class="mystery-wrap">
+      <div class="mystery-grid" id="mysteryGrid">${boxes}</div>
+      <div class="mystery-reveal empty" id="mysteryReveal">Tap a box to open a speaking prompt.</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="btn ghost" id="resetBoxes">Reset boxes</button>
+        <button type="button" class="btn ghost" id="showModel">Show a model</button>
+      </div>
+      <div class="card soft" id="speakModel" hidden style="margin-top:12px">
+        <div class="label">Models</div>
+        <div class="example">I have some rice. I don’t have any tomatoes.</div>
+        <div class="example">How many eggs? How much milk?</div>
+        <div class="example">We have a few tortillas and a little salsa.</div>
+        <div class="example">I have a lot of information. Do you have any bread?</div>
+      </div>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button type="button" class="btn" id="nextSpeak">Next prompt</button>
-      <button type="button" class="btn ghost" id="showModel">Show a model</button>
-    </div>
-    <div class="card soft" id="speakModel" hidden style="margin-top:12px">
-      <div class="label">Models</div>
-      <div class="example">I have some rice. I don’t have any tomatoes.</div>
-      <div class="example">Do you have any salsa? How many eggs? How much milk?</div>
-      <div class="example">We need chicken, limes, and a little cheese.</div>
-      <div class="example">I have a lot of information. Do you have any milk?</div>
+    <div class="play-row">
+      <a href="../fridge-battle/">Play Fridge Battle →</a>
     </div>
   `;
 }
@@ -379,6 +399,9 @@ function candoHTML() {
   return `
     <h4>Can-do · the fridge test</h4>
     <p class="intro">Check only what you can really do in class tonight.</p>
+    <div class="play-row" style="margin:0 0 14px">
+      <a href="../fridge-battle/">Play Fridge Battle →</a>
+    </div>
     <div class="cando">
       ${items.map(([id, label]) => `
         <label>
@@ -586,11 +609,46 @@ function bindListening() {
 }
 
 function bindSpeaking() {
-  document.getElementById('nextSpeak').addEventListener('click', () => {
-    state.speakIndex = ((state.speakIndex || 0) + 1) % 4;
+  const opened = new Set((state.mysteryOpened || []).map(String));
+  const reveal = document.getElementById('mysteryReveal');
+  const grid = document.getElementById('mysteryGrid');
+
+  function persist() {
+    state.mysteryOpened = Array.from(opened);
     save();
-    openTab(5);
+  }
+
+  function openBox(i, btn) {
+    const key = String(i);
+    if (opened.has(key)) return;
+    opened.add(key);
+    persist();
+    const p = MYSTERY_PROMPTS[i];
+    btn.classList.add('open');
+    btn.disabled = true;
+    btn.querySelector('.lid').textContent = '📭';
+    btn.querySelector('.tag').textContent = 'Opened';
+    reveal.classList.remove('empty');
+    reveal.innerHTML = `<span aria-hidden="true">${p.icon}</span> ${p.text}`;
+  }
+
+  grid.querySelectorAll('.mbox').forEach((btn) => {
+    btn.addEventListener('click', () => openBox(Number(btn.dataset.box), btn));
   });
+
+  document.getElementById('resetBoxes').addEventListener('click', () => {
+    opened.clear();
+    persist();
+    reveal.classList.add('empty');
+    reveal.textContent = 'Tap a box to open a speaking prompt.';
+    grid.querySelectorAll('.mbox').forEach((btn, i) => {
+      btn.classList.remove('open');
+      btn.disabled = false;
+      btn.querySelector('.lid').textContent = '🎁';
+      btn.querySelector('.tag').textContent = 'Box ' + (i + 1);
+    });
+  });
+
   document.getElementById('showModel').addEventListener('click', () => {
     const box = document.getElementById('speakModel');
     box.hidden = !box.hidden;
