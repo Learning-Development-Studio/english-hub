@@ -88,8 +88,8 @@
     const rounds=[
       {title:'Count or measure?',instruction:'Say Countable or Uncountable, then one sentence with have / don’t have.',tip:'Award the point only if they name the type AND say a correct sentence.'},
       {title:'Catch the Mistake',instruction:'Decide: Correct or Incorrect? Then fix the sentence.',tip:'Watch for informations, two breads, how many milk, and have got.'},
-      {title:'Build the fridge',instruction:'Build a correct sentence from the cards.',tip:'some = yes-sentences. any = no / questions. many/a few = countable. much/a little = uncountable.'},
-      {title:'Fridge lie',instruction:'Three sentences about your kitchen. One is a lie.',tip:'Partners guess the lie. Grammar must use some / any / a few / a little / much / many.'},
+      {title:'Build the fridge',instruction:'The cards are mixed. Put them in order and say the sentence.',tip:'some = yes-sentences. any = no / questions. many/a few = countable. much/a little = uncountable.'},
+      {title:'Taco night',instruction:'Look at the recipe and the fridge. Say what you HAVE, what you DON’T HAVE, and what you NEED.',tip:'Award the point for a full have / don’t have / need list. American English only.'},
       {title:'Final Boss',instruction:'How many or How much — in five seconds.',tip:'Boss timer is 5 seconds. Countable → how many. Uncountable → how much.'}
     ];
 
@@ -138,6 +138,13 @@
       ['We','need','a bottle of','water','We need a bottle of water.']
     ];
 
+    const recipes=[
+      {title:'Chicken tacos',need:'tortillas, chicken, salsa, onion, limes',fridge:'a few tortillas · some cheese · a little salsa · some onions · no chicken · no limes',model:'We have a few tortillas, some onions, and a little salsa. We don’t have any chicken or limes. We need chicken and limes.'},
+      {title:'Coffee in the morning',need:'coffee, milk, sugar, cups',fridge:'a lot of coffee · a little milk · three cups · no sugar',model:'We have a lot of coffee, a little milk, and three cups. We don’t have any sugar. We need sugar — and maybe more milk.'},
+      {title:'Pasta tonight',need:'pasta, tomato sauce, cheese, water',fridge:'no pasta · some cheese · a lot of rice · a bottle of water',model:'We have some cheese and a bottle of water. We don’t have any pasta or tomato sauce. We need pasta and sauce. We don’t need rice tonight.'},
+      {title:'Breakfast eggs',need:'eggs, bread, butter, coffee',fridge:'two eggs · no bread · a little butter · a lot of coffee',model:'We have two eggs, a little butter, and a lot of coffee. We don’t have any bread. We need bread — and maybe more eggs.'}
+    ];
+
     const boss=[
       ['eggs','How many eggs?'],
       ['rice','How much rice?'],
@@ -162,7 +169,8 @@
     function moveRound(d){setRound(state.round+d)}
     function newChallenge(){state.index++;state.current=null;resetTimer();renderContent()}
     function render(){renderNav();const r=rounds[state.round];$('eyebrow').textContent=`Round ${state.round+1} of 5`;$('title').textContent=r.title;$('instruction').textContent=r.instruction;$('tip').textContent=r.tip;renderContent()}
-    function tokens(items){return items.map((x,i)=>`${i?'<span class="plus">+</span>':''}<span class="token">${x}</span>`).join('')}
+    function shuffle(arr){const copy=[...arr];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;}
+    function tokens(items,plus){return items.map((x,i)=>`${plus&&i?'<span class="plus">+</span>':''}<span class="token">${x}</span>`).join('')}
 
     function renderContent(){
       const p=$('prompt'),a=$('answer'),c=$('controls');
@@ -185,17 +193,22 @@
       }
 
       if(state.round===2){
-        const x=builds[state.index%builds.length];
-        p.innerHTML=tokens(x.slice(0,-1));
-        a.textContent=x[x.length-1];
+        if(!state.current){
+          const x=builds[state.index%builds.length];
+          let cards=shuffle(x.slice(0,-1));
+          if(cards.join('|')===x.slice(0,-1).join('|')) cards=shuffle(cards);
+          state.current={cards,answer:x[x.length-1]};
+        }
+        p.innerHTML=tokens(state.current.cards,false);
+        a.textContent=state.current.answer;
         c.innerHTML=baseButtons();
       }
 
       if(state.round===3){
-        p.innerHTML=`<div class="truth-box"><h2>Three sentences. One lie.</h2><ol><li>Two true sentences about your fridge or kitchen.</li><li>One believable lie.</li><li>Use some / any / a few / a little / much / many. Your partner guesses the lie.</li></ol></div>`;
-        a.textContent='Example: I have some rice. I don’t have any tomatoes. We have a few eggs. (Maybe the eggs are the lie.)';
-        c.innerHTML=`<button class="btn secondary" onclick="reveal()">Show example</button><button class="btn primary" onclick="newChallenge()">Next player</button>`;
-        $('counter').textContent=state.names[state.index%2?'B':'A'];
+        const x=recipes[state.index%recipes.length];
+        p.innerHTML=`<div class="truth-box"><h2>${x.title}</h2><p><strong>Recipe:</strong> ${x.need}</p><p><strong>Fridge:</strong> ${x.fridge}</p><p>Say what you HAVE, what you DON’T HAVE, and what you NEED.</p></div>`;
+        a.textContent=x.model;
+        c.innerHTML=`<button class="btn secondary" onclick="reveal()">Show a model</button><button class="btn good" onclick="feedback(true)">✓ Correct</button><button class="btn bad" onclick="feedback(false)">✕ Try again</button><button class="btn primary" onclick="newChallenge()">New recipe</button>`;
       }
 
       if(state.round===4){
@@ -212,7 +225,7 @@
     function reveal(){$('answer').classList.add('show')}
     function feedback(ok){showToast(ok?'Correct! Award the point.':'Try again — count it or measure it?',ok?'correct':'incorrect')}
     function judge(choice){const x=mistakes[state.index%mistakes.length],ok=choice===x[2];showToast(ok?'Great call!':'Look at countable vs uncountable.',ok?'correct':'incorrect');reveal()}
-    function updateName(player,value){state.names[player]=value.trim()||`Team ${player}`;if(state.round===3)$('counter').textContent=state.names[state.index%2?'B':'A']}
+    function updateName(player,value){state.names[player]=value.trim()||`Team ${player}`}
     function score(player,change){state.scores[player]=Math.max(0,state.scores[player]+change);$('score'+player).textContent=state.scores[player];showToast(`${state.names[player]}: ${state.scores[player]} point${state.scores[player]===1?'':'s'}`,'')}
     function toggleTimer(){state.running?pauseTimer():startTimer()}
     function setPromptVisibility(show){$('prompt').classList.toggle('concealed',!show);$('readyMessage').classList.toggle('show',!show)}
