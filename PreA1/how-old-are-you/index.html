@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <title>How old are you? · PreA1 · English Hub</title>
+  <meta name="description" content="PreA1: How old are you? I’m 15 years old — not I have 15 years.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--white:#fff;--good:#e8f7ef;--bad:#fff0f0;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--navy);background:linear-gradient(180deg,#f8fbfc,#edf4f5);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}
+    .shell{max-width:1080px;margin:auto;padding:24px}
+    .topbar{position:sticky;top:14px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+    .brand h1{font-size:1.1rem;margin:0}.brand p{font-size:.8rem;color:#d6e7e7;margin:3px 0 0}
+    .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .home,.pill{border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800}
+    .home{color:#fff;text-decoration:none;background:rgba(22,140,140,.35)}
+    .pill{border:1px solid rgba(255,255,255,.2)}
+    .hero{position:relative;overflow:hidden;background:#f4fbfa;border:1px solid rgba(11,31,58,.08);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,5vw,48px);margin-bottom:22px}
+    .hero:after{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:230px;height:230px;background:url('../../assets/logo.png') center/contain no-repeat;opacity:.07}
+    .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:800}
+    .hero h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:12px 0;color:var(--navy);max-width:740px}
+    .hero h2 span{color:var(--teal)}
+    .hero p{color:var(--slate);line-height:1.7;max-width:640px;margin:0}
+    .path{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+    .path span{padding:6px 10px;border-radius:999px;background:var(--mint);font-size:.72rem;font-weight:800;color:var(--teal)}
+    .lesson{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .lesson-head{background:var(--navy);color:#fff;padding:22px 24px}
+    .lesson-head h3{margin:0}.lesson-head p{color:#d7e7e8;line-height:1.55;margin:6px 0 0}
+    .tabs{display:flex;overflow-x:auto;gap:5px;padding:12px 14px;border-bottom:1px solid var(--line);scrollbar-width:thin}
+    .tab{border:0;background:transparent;color:var(--slate);font-size:.76rem;font-weight:800;padding:10px 12px;border-radius:10px;white-space:nowrap}
+    .tab.active,.tab:hover{background:var(--mint);color:var(--navy)}
+    .panel{display:none;padding:26px}.panel.active{display:block}
+    .panel h4{font-size:1.15rem;margin:0 0 10px}
+    .intro{color:var(--slate);line-height:1.65;margin:0 0 18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;text-align:left}
+    .card.tint{background:var(--gray)}.card.mint{background:var(--mint)}
+    .label{font-size:.7rem;letter-spacing:.08em;color:var(--teal);font-weight:800;text-transform:uppercase}
+    .big-rule{font-size:1.2rem;font-weight:800;margin:10px 0}
+    .teal{color:var(--teal)}
+    .example{padding:10px 12px;border-left:3px solid var(--gold);background:var(--gray);margin-top:10px;font-weight:700}
+    .note{background:var(--warn);border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;line-height:1.55;margin-top:14px}
+    .tip{background:var(--mint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;line-height:1.55;margin:12px 0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+    .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800;color:var(--navy)}
+    .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+    .phrase{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 12px;text-align:left;min-height:78px}
+    .phrase .line{display:block;font-size:1.05rem;font-weight:800;line-height:1.25}
+    .phrase .meta{display:block;margin-top:6px;font-size:.72rem;color:var(--slate);font-weight:600}
+    .phrase.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .phrase.playing .meta{color:#d7e7e8}
+    .num-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+    .num{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 6px 8px;text-align:center;min-height:88px}
+    .num .ch{font-size:1.45rem;font-weight:800;display:block}
+    .num .say{display:block;margin-top:4px;font-size:.68rem;color:var(--slate);font-weight:600}
+    .num.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .num.playing .say{color:#d7e7e8}
+    .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
+    .btn.secondary{background:var(--teal)}
+    .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .feedback{display:none;margin-top:12px;padding:12px;border-radius:10px;line-height:1.55}
+    .feedback.show{display:block}.feedback.good{background:var(--good)}.feedback.warn{background:var(--warn)}
+    .hear-play{width:100px;height:100px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:10px auto 0}
+    .choice-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+    .choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px 12px;font-size:1.05rem;font-weight:800;line-height:1.35}
+    .choice:disabled{cursor:default}
+    .choice.correct{background:var(--good);border-color:#72b98c}
+    .choice.wrong{background:var(--bad);border-color:#d98989}
+    .choice.line{grid-column:1/-1;text-align:left;font-size:1.02rem}
+    .name-card{background:var(--navy);color:#fff;border-radius:16px;padding:20px;text-align:center}
+    .name-card .who{font-size:1.35rem;font-weight:800;line-height:1.3}
+    .name-card p{margin:6px 0 0;color:#d7e7e8;font-size:.9rem}
+    .game-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .score{font-weight:800;color:var(--teal)}
+    .cando{display:grid;gap:10px}
+    .cando label{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--gray);cursor:pointer}
+    .cando input{width:18px;height:18px}
+    .cando .lvl{font-size:.72rem;font-weight:800;color:var(--teal)}
+    .progress-mini{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+    .progress-mini span{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+    input[type=text]{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px;line-height:1.65}
+    .footer{text-align:center;color:var(--slate);font-size:.78rem;padding:24px}
+    a.inline{color:var(--teal);font-weight:800;text-decoration:none}
+    @media(max-width:760px){
+      .shell{padding:12px}.brand p{display:none}.panel{padding:18px}
+      .grid2,.choice-row{grid-template-columns:1fr}.hero:after{opacity:.04}
+      .cando label{grid-template-columns:auto 1fr}
+      .cando .lvl{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <img src="../../assets/logo.png" alt="">
+      <div>
+        <h1>How old are you?</h1>
+        <p>First English Flow · Lesson 6 of 12</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="home" href="../whats-your-name/">Lesson 5</a>
+      <a class="home" href="../">Home</a>
+      <span class="pill">PreA1</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">General English · Starter</span>
+    <h2>Ask the age. <span>I’m 15 years old.</span></h2>
+    <p>English uses <strong>be</strong>, not <em>have</em>. The numbers are your recordings from Lesson 2. Watch 15 and 50.</p>
+    <div class="path">
+      <span>1 Hear</span><span>2 Ages</span><span>3 Watch out</span><span>4 Play</span><span>5 Check</span>
+    </div>
+  </section>
+
+  <article class="lesson">
+    <header class="lesson-head">
+      <h3>I am + number + years old</h3>
+      <p>Tap a line, then tap an age. Tapping an answer in the games does not stop the audio.</p>
+    </header>
+    <nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
+    <div id="panels"></div>
+  </article>
+
+  <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
+</div>
+
+<script>
+const sections = ['1 Hear', '2 Ages', '3 Watch out', '4 Play', '5 Check'];
+const KEY = 'howOldPreA1v1';
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch { return {}; }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch { /* ignore */ }
+}
+const state = loadState();
+
+const ONES = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+const TEENS = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const TENS = {20:'twenty',30:'thirty',40:'forty',50:'fifty',60:'sixty',70:'seventy',80:'eighty',90:'ninety'};
+function wordOf(n) {
+  n = Number(n);
+  if (n < 10) return ONES[n];
+  if (n < 20) return TEENS[n - 10];
+  const t = Math.floor(n / 10) * 10;
+  const u = n % 10;
+  if (u === 0) return TENS[t];
+  return TENS[t] + '-' + ONES[u];
+}
+function stemsForNumber(n) {
+  n = Number(n);
+  if (n <= 20 || n % 10 === 0) return [wordOf(n)];
+  const t = Math.floor(n / 10) * 10;
+  return [TENS[t], ONES[n % 10]];
+}
+
+function pickVoice() {
+  const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  return voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
+    || voices.find(x => /^en/i.test(x.lang))
+    || null;
+}
+function speakPhrase(text) {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  const v = pickVoice();
+  if (v) { u.voice = v; u.lang = v.lang; }
+  speechSynthesis.speak(u);
+}
+if (window.speechSynthesis) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+
+const numPlayer = new Audio();
+let numPlayId = 0;
+function fileForStem(stem) {
+  return `../numbers/assets/audio/${String(stem).toLowerCase().replace(/\s+/g, '-')}.mp3`;
+}
+function stopNumAudio() {
+  numPlayId += 1;
+  numPlayer.onended = null;
+  numPlayer.onerror = null;
+  numPlayer.pause();
+  numPlayer.removeAttribute('src');
+  try { numPlayer.load(); } catch { /* ignore */ }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+function playStem(stem, onend) {
+  const id = ++numPlayId;
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  numPlayer.pause();
+  const done = () => { if (id !== numPlayId) return; if (onend) onend(); };
+  const tts = () => {
+    if (id !== numPlayId) return;
+    if (!window.speechSynthesis) { done(); return; }
+    const u = new SpeechSynthesisUtterance(String(stem).replace(/-/g, ' '));
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    const v = pickVoice();
+    if (v) { u.voice = v; u.lang = v.lang; }
+    u.onend = done;
+    speechSynthesis.speak(u);
+  };
+  numPlayer.onended = done;
+  numPlayer.onerror = tts;
+  numPlayer.src = fileForStem(stem);
+  numPlayer.play().catch(tts);
+}
+function playStems(stems, gap, onend) {
+  let i = 0;
+  function next() {
+    if (i >= stems.length) { if (onend) onend(); return; }
+    playStem(stems[i], () => { i += 1; setTimeout(next, gap || 90); });
+  }
+  next();
+}
+function speakNumber(n, onend) { playStems(stemsForNumber(n), 80, onend); }
+
+function shuffle(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+const phrases = [
+  { line:'How old are you?', meta:'The question' },
+  { line:"I'm 10.", meta:'Short answer' },
+  { line:"I'm 10 years old.", meta:'Full answer' },
+  { line:'How old is she?', meta:'About a girl' },
+  { line:'How old is he?', meta:'About a boy' },
+  { line:"She's 8 years old.", meta:'Her age' },
+  { line:"He's 12 years old.", meta:'His age' }
+];
+function tapPhrase(btn) {
+  document.querySelectorAll('.phrase.playing').forEach(el => el.classList.remove('playing'));
+  btn.classList.add('playing');
+  speakPhrase(decodeURIComponent(btn.dataset.line));
+}
+
+const hearHTML = `
+<section class="panel">
+  <h4>1 · Hear the lines</h4>
+  <p class="intro">Ask, then answer with <strong>I’m</strong> + number + <strong>years old</strong>. Short form is OK: <em>I’m 10.</em></p>
+  <div class="phrase-grid">
+    ${phrases.map(p => `<button type="button" class="phrase" data-line="${encodeURIComponent(p.line)}" onclick="tapPhrase(this)">
+      <span class="line">${p.line}</span><span class="meta">${p.meta}</span>
+    </button>`).join('')}
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card mint">
+      <span class="label">The pattern</span>
+      <div class="big-rule">I’m <span class="teal">15</span> years old.</div>
+      <p style="margin:0;color:var(--slate)">be + number + years old. Not <em>have</em>.</p>
+    </div>
+    <div class="card tint">
+      <span class="label">The exchange</span>
+      <div class="example">How old are you?<br>I’m 14. And you?<br>I’m 15 years old.</div>
+    </div>
+  </div>
+</section>`;
+
+const ages = [7,8,9,10,11,12,13,14,15,16,17,18,20,25,30,40,50];
+function tapAge(n) {
+  stopNumAudio();
+  document.querySelectorAll('#ageGrid .num').forEach(el => el.classList.toggle('playing', Number(el.dataset.n) === n));
+  speakNumber(n);
+  const out = document.getElementById('ageOut');
+  if (out) out.innerHTML = `I’m <strong>${n}</strong> years old.`;
+}
+
+const agesHTML = `
+<section class="panel">
+  <h4>2 · Ages</h4>
+  <p class="intro">Tap an age. You hear the <strong>number</strong> (your voice from Lesson 2). Then say the full line: I’m ____ years old.</p>
+  <div class="card mint" style="margin-bottom:14px">
+    <span class="label">You say</span>
+    <div class="big-rule" id="ageOut">I’m <span class="teal">__</span> years old.</div>
+  </div>
+  <div class="num-grid" id="ageGrid">
+    ${ages.map(n => `<button type="button" class="num" data-n="${n}" onclick="tapAge(${n})">
+      <span class="ch">${n}</span><span class="say">${wordOf(n)}</span>
+    </button>`).join('')}
+  </div>
+</section>`;
+
+const watchHTML = `
+<section class="panel">
+  <h4>3 · Watch out · Spanish speakers</h4>
+  <p class="intro">The classic transfer from <em>tengo 15 años</em>. Tap a card to hear the English.</p>
+  <div class="grid2">
+    <button type="button" class="card" onclick="speakPhrase('I am 15 years old.')">
+      <span class="label">Have vs be</span>
+      <div class="big-rule">I <span class="teal">am</span> 15 years old</div>
+      <p style="margin:0">Not “I have 15 years”. English uses <em>be</em>.</p>
+      <div class="example">✗ I have 15 years. &nbsp;·&nbsp; ✓ I’m 15 years old.</div>
+    </button>
+    <button type="button" class="card" onclick="playStems(['fifteen','fifty'], 280)">
+      <span class="label">15 vs 50</span>
+      <div class="big-rule">fif<strong>TEEN</strong> / <strong>FIF</strong>ty</div>
+      <p style="margin:0">Same trap as numbers. Age 15 is not fifty.</p>
+      <div class="example">13 / 30 · 14 / 40 · 16 / 60</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('I am 15 years old.')">
+      <span class="label">years old</span>
+      <div class="big-rule">years <span class="teal">old</span></div>
+      <p style="margin:0">Keep <em>old</em>. Not “I am 15 years” in full form.</p>
+      <div class="example">Short: I’m 15. Full: I’m 15 years old.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('How old is she? She is 8 years old.')">
+      <span class="label">he / she</span>
+      <div class="big-rule">How old is <span class="teal">she</span>?</div>
+      <p style="margin:0">you → are. he / she → is.</p>
+      <div class="example">How old is he? He’s 12.</div>
+    </button>
+  </div>
+  <div class="note"><strong>Keep this list:</strong> How old are you? · I’m … years old · not I have · 15 ≠ 50.</div>
+</section>`;
+
+const confusable = [
+  [15,50,16],[13,30,14],[14,40,4],[16,60,17],[18,80,19],
+  [12,20,21],[10,2,20],[8,18,80],[7,17,70],[11,20,10]
+];
+const WHICH_AGE = 8;
+let ageRound = 0;
+let ageScore = 0;
+let ageAnswer = 15;
+let ageLocked = false;
+let playMode = 'age';
+
+const situations = [
+  { scene:'Someone asks: How old are you?', say:"I'm 14 years old.", opts:["I'm 14 years old.",'I have 14 years.','My name is 14.'], why:'be + number + years old.' },
+  { scene:'You want a classmate’s age.', say:'How old are you?', opts:['How old are you?','How old is she?','What’s your name?'], why:'You → <strong>How old are you?</strong>' },
+  { scene:'You ask about Ana (a girl).', say:'How old is she?', opts:['How old is she?','How old are you?','How old is he?'], why:'Ana → <strong>she</strong>.' },
+  { scene:'You ask about Luis (a boy).', say:'How old is he?', opts:['How old is he?','How old is she?','I have 12 years.'], why:'Luis → <strong>he</strong>.' }
+];
+const WHICH_LINE = 4;
+let lineRound = 0;
+let lineScore = 0;
+let lineItem = situations[0];
+let lineLocked = false;
+
+function setPlayMode(mode) {
+  playMode = mode;
+  document.querySelectorAll('#playModes .chip').forEach(c => c.classList.toggle('on', c.dataset.mode === mode));
+  document.getElementById('ageGame').style.display = mode === 'age' ? '' : 'none';
+  document.getElementById('lineGame').style.display = mode === 'line' ? '' : 'none';
+  document.getElementById('pairGame').style.display = mode === 'pair' ? '' : 'none';
+}
+function setupAgeGame() {
+  ageLocked = false;
+  const set = confusable[ageRound % confusable.length];
+  ageAnswer = set[Math.floor(Math.random() * set.length)];
+  const box = document.getElementById('ageChoices');
+  if (!box) return;
+  box.innerHTML = shuffle([...set]).map(n =>
+    `<button type="button" class="choice" data-n="${n}" onclick="pickAge(${n})">${n}</button>`
+  ).join('');
+  const score = document.getElementById('ageScore');
+  if (score) score.textContent = `Round ${ageRound + 1} / ${WHICH_AGE} · ${ageScore} correct`;
+  const fb = document.getElementById('ageFb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+function playAge() { speakNumber(ageAnswer); }
+function pickAge(n) {
+  if (ageLocked) return;
+  ageLocked = true;
+  const ok = n === ageAnswer;
+  document.querySelectorAll('#ageChoices .choice').forEach(b => {
+    b.disabled = true;
+    if (Number(b.dataset.n) === ageAnswer) b.classList.add('correct');
+    if (Number(b.dataset.n) === n && !ok) b.classList.add('wrong');
+  });
+  if (ok) ageScore += 1;
+  const fb = document.getElementById('ageFb');
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.innerHTML = ok
+    ? `Yes — I’m ${ageAnswer} years old.`
+    : `It was <strong>${ageAnswer}</strong> (${wordOf(ageAnswer)}).`;
+  const score = document.getElementById('ageScore');
+  if (score) score.textContent = `Round ${ageRound + 1} / ${WHICH_AGE} · ${ageScore} correct`;
+  setTimeout(() => {
+    ageRound += 1;
+    if (ageRound >= WHICH_AGE) {
+      const total = ageScore;
+      fb.className = 'feedback show good';
+      fb.innerHTML = `Done · ${total} / ${WHICH_AGE}.`;
+      document.getElementById('ageChoices').innerHTML =
+        `<button type="button" class="btn secondary" style="grid-column:1/-1" onclick="restartAge()">Play again</button>`;
+      ageRound = 0;
+      ageScore = 0;
+      return;
+    }
+    setupAgeGame();
+    playAge();
+  }, 1100);
+}
+function restartAge() {
+  ageRound = 0;
+  ageScore = 0;
+  setupAgeGame();
+  playAge();
+}
+
+function setupLine() {
+  lineLocked = false;
+  lineItem = situations[lineRound % situations.length];
+  const box = document.getElementById('lineChoices');
+  const scene = document.getElementById('lineScene');
+  if (!box) return;
+  scene.textContent = lineItem.scene;
+  box.innerHTML = shuffle([...lineItem.opts]).map(o =>
+    `<button type="button" class="choice line" onclick="pickLine(this)">${o}</button>`
+  ).join('');
+  const score = document.getElementById('lineScore');
+  if (score) score.textContent = `Round ${lineRound + 1} / ${WHICH_LINE} · ${lineScore} correct`;
+  const fb = document.getElementById('lineFb');
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+function playLine() { speakPhrase(lineItem.scene); }
+function pickLine(btn) {
+  if (lineLocked) return;
+  lineLocked = true;
+  const ok = btn.textContent === lineItem.say;
+  document.querySelectorAll('#lineChoices .choice').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === lineItem.say) b.classList.add('correct');
+    if (b === btn && !ok) b.classList.add('wrong');
+  });
+  if (ok) lineScore += 1;
+  const fb = document.getElementById('lineFb');
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.innerHTML = (ok ? 'Yes. ' : `It was <strong>${lineItem.say}</strong>. `) + lineItem.why;
+  setTimeout(() => {
+    lineRound += 1;
+    if (lineRound >= WHICH_LINE) {
+      fb.className = 'feedback show good';
+      fb.innerHTML = `Done · ${lineScore} / ${WHICH_LINE}.`;
+      document.getElementById('lineChoices').innerHTML =
+        `<button type="button" class="btn secondary" onclick="restartLine()">Play again</button>`;
+      lineRound = 0;
+      lineScore = 0;
+      return;
+    }
+    setupLine();
+  }, 1200);
+}
+function restartLine() {
+  lineRound = 0;
+  lineScore = 0;
+  setupLine();
+}
+
+const playHTML = `
+<section class="panel">
+  <h4>4 · Play</h4>
+  <p class="intro">Hear an age (your number audio). Tap the number — the tap does <strong>not</strong> stop the audio. Then pick the line.</p>
+  <div class="filters" id="playModes">
+    <button type="button" class="chip on" data-mode="age" onclick="setPlayMode('age')">1 · Which age?</button>
+    <button type="button" class="chip" data-mode="line" onclick="setPlayMode('line')">2 · Which line?</button>
+    <button type="button" class="chip" data-mode="pair" onclick="setPlayMode('pair')">3 · Pair work</button>
+  </div>
+  <div id="ageGame">
+    <div class="name-card">
+      <p>Listen. Tap the age you heard.</p>
+      <button type="button" class="hear-play" onclick="playAge()">Play</button>
+      <div class="choice-row" id="ageChoices"></div>
+    </div>
+    <div class="game-nav">
+      <div class="score" id="ageScore">Round 1 / ${WHICH_AGE}</div>
+      <button type="button" class="btn ghost" onclick="playAge()">Hear again</button>
+    </div>
+    <div class="feedback" id="ageFb"></div>
+  </div>
+  <div id="lineGame" style="display:none">
+    <div class="name-card">
+      <p>What do you say?</p>
+      <div class="who" id="lineScene">Someone asks: How old are you?</div>
+      <button type="button" class="hear-play" onclick="playLine()">Play</button>
+      <div class="choice-row" id="lineChoices"></div>
+    </div>
+    <div class="game-nav">
+      <div class="score" id="lineScore">Round 1 / ${WHICH_LINE}</div>
+    </div>
+    <div class="feedback" id="lineFb"></div>
+  </div>
+  <div id="pairGame" style="display:none">
+    <div class="card mint">
+      <span class="label">Pair work · 2 minutes</span>
+      <p style="margin:8px 0 0;line-height:1.7">
+        <strong>A:</strong> How old are you?<br>
+        <strong>B:</strong> I’m ______. And you?<br>
+        <strong>A:</strong> I’m ______ years old.
+      </p>
+    </div>
+    <div class="tip">Then: How old is she/he? about a classmate.</div>
+  </div>
+</section>`;
+
+const candoItems = [
+  'I can ask How old are you?',
+  'I can say I’m … years old.',
+  'I can hear 15 and 50 as different ages.',
+  'I can ask How old is he / she?'
+];
+
+const checkHTML = `
+<section class="panel">
+  <h4>5 · Check</h4>
+  <p class="intro">Honest boxes, then write your age in words.</p>
+  <div class="cando" id="candoBox"></div>
+  <div class="progress-mini"><span id="candoBar"></span></div>
+  <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
+  <h5>Write it</h5>
+  <p class="intro" style="margin-bottom:8px">Example: <strong>I’m fifteen years old.</strong></p>
+  <input type="text" id="exitWrite" placeholder="I’m … years old." value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
+  <div class="feedback" id="exitFb"></div>
+  <div class="tip"><strong>Ready for Lesson 7?</strong> If you can ask and say an age without <em>have</em>, you are ready for Where are you from? <a class="inline" href="../whats-your-name/">← Name</a></div>
+</section>`;
+
+function render() {
+  document.getElementById('tabs').innerHTML = sections.map((s, i) =>
+    `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
+  ).join('');
+  document.getElementById('panels').innerHTML = [hearHTML, agesHTML, watchHTML, playHTML, checkHTML].join('');
+  openTab(state.tab || 0);
+  setupAgeGame();
+  setupLine();
+  renderCando();
+}
+function openTab(i) {
+  state.tab = i;
+  save();
+  stopNumAudio();
+  document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
+  document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
+  const lesson = document.querySelector('.lesson');
+  if (lesson) window.scrollTo({ top: lesson.offsetTop - 80, behavior: 'smooth' });
+}
+function renderCando() {
+  const box = document.getElementById('candoBox');
+  if (!box) return;
+  const saved = state.cando || [];
+  box.innerHTML = candoItems.map((t, i) => `
+    <label>
+      <input type="checkbox" data-cando="${i}" ${saved[i] ? 'checked' : ''} onchange="saveCando()">
+      <span>${t}</span>
+      <span class="lvl">PreA1</span>
+    </label>
+  `).join('');
+  updateCandoBar();
+}
+function saveCando() {
+  state.cando = [...document.querySelectorAll('[data-cando]')].map(el => el.checked);
+  save();
+  updateCandoBar();
+}
+function updateCandoBar() {
+  const n = (state.cando || []).filter(Boolean).length;
+  const bar = document.getElementById('candoBar');
+  const lab = document.getElementById('candoLabel');
+  if (bar) bar.style.width = `${(n / candoItems.length) * 100}%`;
+  if (lab) lab.textContent = `${n} / ${candoItems.length} can-do statements`;
+}
+function saveExit() {
+  const t = (document.getElementById('exitWrite').value || '').trim();
+  state.exitWrite = t;
+  save();
+  const fb = document.getElementById('exitFb');
+  const badHave = /\bhave\b/i.test(t);
+  const ok = /I['’]?m|I am/i.test(t) && /year/i.test(t) && !badHave;
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.textContent = ok ? 'Saved. Lesson 6 exit is done.' : (badHave ? 'Not “have”. Use I’m … years old.' : 'Write: I’m … years old.');
+}
+
+render();
+</script>
+</body>
+</html>
