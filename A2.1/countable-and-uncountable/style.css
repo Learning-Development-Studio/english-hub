@@ -145,6 +145,18 @@
   border-radius: 14px; padding: 14px;
   }
   .zone h5 { margin: 0 0 10px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); }
+  .zone.far { background: #eef2f8; }
+  .things { display: flex; flex-wrap: wrap; gap: 8px; }
+  .thing {
+    border: 0; background: #fff; border-radius: 12px; padding: 10px 8px;
+    width: calc(50% - 4px); min-width: 110px; text-align: center;
+    box-shadow: 0 1px 0 var(--line); font-weight: 800; font-size: 0.82rem;
+  }
+  .thing .ico { display: block; font-size: 1.7rem; line-height: 1.2; margin-bottom: 4px; }
+  .thing .sent { display: none; margin-top: 6px; font-size: 0.75rem; font-weight: 700; color: var(--teal-dark); }
+  .thing.on { background: var(--wash); box-shadow: 0 0 0 2px var(--teal); }
+  .thing.on .sent { display: block; }
+  .notice-bar { margin-top: 12px; font-weight: 800; color: var(--teal-dark); }
   .who { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .avatar {
   width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center;
@@ -238,6 +250,7 @@
   .panel { padding: 18px; }
   .grid2, .grid4, .scene { grid-template-columns: 1fr; }
   .hero::after { opacity: 0.08; width: 120px; }
+  .thing { width: calc(50% - 4px); }
   }
 
   /* Notice: 4 cards as 2×2 on desktop (scene already 2-col) */
