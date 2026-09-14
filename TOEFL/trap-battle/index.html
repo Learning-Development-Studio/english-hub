@@ -1,0 +1,3078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TOEFL Trap Battle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --teal: #5bb8b0;
+    --teal-deep: #238d85;
+    --gold: #d4a843;
+    --gold-light: #f0d78c;
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --ink: #0B1F3A;
+    --muted: #5a6b7d;
+    --danger: #e05a5a;
+    --success: #2db87a;
+    --shadow: 0 10px 30px rgba(11, 31, 58, 0.12);
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.45;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* —— Topbar —— */
+  .topbar {
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 24px rgba(30, 45, 90, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    background: #fff;
+    overflow: hidden;
+    padding: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .brand-mark img {
+    width: 44px !important;
+    height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    border-radius: 999px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: #fff;
+  }
+
+  .title-block { flex: 1; min-width: 160px; }
+  .title-block h1 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .title-block p {
+    font-size: 0.82rem;
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  .home-link {
+    color: #fff !important;
+    font-weight: 800;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #5bb8b0;
+    border: 0;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .home-link:hover { background: #238d85; }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 16px 80px;
+  }
+
+  /* —— Scoreboard —— */
+  .scoreboard {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: stretch;
+    margin-bottom: 22px;
+  }
+
+  .score-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 16px;
+    text-align: center;
+    border: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .score-card.you { border-color: var(--teal); }
+  .score-card.exam { border-color: var(--gold); }
+  .score-card.pulse-win { animation: pop 0.45s ease; }
+
+  @keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+
+  .name-input {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-bottom: 2px dashed transparent;
+    background: transparent;
+    color: var(--ink);
+    width: 100%;
+    max-width: 180px;
+    padding: 2px 4px;
+  }
+  .name-input:hover, .name-input:focus {
+    border-bottom-color: var(--muted);
+    outline: none;
+  }
+
+  .score-pop {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .score-pop.show {
+    animation: scorePop 1.1s ease-out forwards;
+  }
+  .score-pop.good { color: #2db87a; }
+  .score-pop.bad { color: #e05a5a; }
+  @keyframes scorePop {
+    0% { opacity: 0; transform: translateY(8px) scale(0.8); }
+    20% { opacity: 1; transform: translateY(0) scale(1.15); }
+    100% { opacity: 0; transform: translateY(-28px) scale(1); }
+  }
+  .player-card { position: relative; }
+  .big-score {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 8px 0;
+    color: var(--navy);
+  }
+  .score-card.exam .big-score { color: #8a6a1f; }
+  .score-card.you .big-score { color: var(--teal-deep); }
+
+  .score-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .score-btns button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .score-btns button:active { transform: scale(0.92); }
+  .btn-plus { background: var(--teal-deep); }
+  .btn-minus { background: var(--muted); }
+
+  .vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* —— Round tabs —— */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    flex: 1;
+    min-width: 108px;
+    padding: 14px 12px;
+    border-radius: 14px;
+    background: #e8eef5;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .tab span {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  .tab.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--teal);
+    box-shadow: 0 6px 18px rgba(11, 31, 58, 0.25);
+  }
+  .tab:hover:not(.active) { background: #dce6f0; }
+
+  /* —— Stage layout —— */
+  .stage-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .stage {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 22px;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stage.flash-green { animation: flashG 0.55s ease; }
+  .stage.flash-red { animation: flashR 0.55s ease; }
+
+  @keyframes flashG {
+    0%, 100% { box-shadow: var(--shadow); }
+    40% { box-shadow: 0 0 0 4px var(--success), 0 10px 40px rgba(45, 184, 122, 0.35); background: #f0faf5; }
+  }
+  @keyframes flashR {
+    0%, 100% { box-shadow: var(--shadow); }
+    40% { box-shadow: 0 0 0 4px var(--danger), 0 10px 40px rgba(224, 90, 90, 0.3); background: #fdf2f2; }
+  }
+
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .panel {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+  }
+
+  .panel h3 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .challenge-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(91, 184, 176, 0.15);
+    color: var(--teal-deep);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  .prompt {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  /* Word chips */
+  .ready-message {
+    margin: 28px 0 12px;
+    padding: 22px 18px;
+    border-radius: 16px;
+    background: var(--paper, #f0f4f8);
+    border: 2px dashed rgba(11,31,58,.2);
+    text-align: center;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 1.05rem;
+  }
+  .ready-message.hidden { display: none; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 20px;
+    justify-content: center;
+  }
+  .chip {
+    background: #eef3f8;
+    border: 2px solid #d5e0ec;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    transition: all 0.15s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .chip:hover:not(:disabled) {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    background: #e6f5f3;
+  }
+  .chip:active:not(:disabled) { transform: scale(0.96); }
+  .chip.correct-trap {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+  }
+  .chip.wrong-pick {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+    opacity: 0.85;
+  }
+  .chip:disabled { cursor: default; }
+
+  .fix-box {
+    background: linear-gradient(135deg, #e8f7f5, #f5f0e0);
+    border-left: 4px solid var(--gold);
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    display: none;
+  }
+  .fix-box.show { display: block; animation: fadeUp 0.35s ease; }
+  .fix-box strong { color: var(--teal-deep); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .action-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--navy);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(11, 31, 58, 0.25);
+  }
+  .btn-primary:hover { background: #143056; }
+  .btn-teal {
+    background: var(--teal-deep);
+    color: #fff;
+  }
+  .btn-teal:hover { background: #1c756e; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .btn-ghost {
+    background: #e8eef5;
+    color: var(--navy);
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Timer */
+  .timer-display {
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--navy);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .timer-display.urgent { color: var(--danger); animation: blink 0.6s infinite; }
+  @keyframes blink {
+    50% { opacity: 0.5; }
+  }
+  .timer-btns {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .timer-btns .btn { flex: 1; padding: 10px; font-size: 0.85rem; }
+
+  .tip-card {
+    background: linear-gradient(160deg, var(--navy), #163458);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 16px;
+    font-size: 0.88rem;
+  }
+  .tip-card h3 {
+    color: var(--gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .tip-card p { opacity: 0.9; line-height: 1.5; }
+
+  /* —— Bingo —— */
+  .bingo-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 420px;
+    margin: 0 auto 20px;
+  }
+  .bingo-cell {
+    aspect-ratio: 1;
+    background: #eef3f8;
+    border: 3px solid #d5e0ec;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--navy);
+    transition: all 0.2s;
+    position: relative;
+    line-height: 1.25;
+  }
+  .bingo-cell:hover:not(.marked) {
+    border-color: var(--teal);
+    background: #e6f5f3;
+  }
+  .bingo-cell.missed {
+    border-color: var(--danger, #e05a5a);
+    background: #fde8e8;
+    color: #9c2837;
+    opacity: 0.95;
+  }
+  .bingo-cell.locked { pointer-events: none; }
+  .bingo-cell.marked {
+    background: var(--teal-deep);
+    border-color: var(--teal);
+    color: #fff;
+  }
+  .bingo-cell.marked::after {
+    content: "✓";
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  .bingo-cell.free {
+    background: var(--gold);
+    border-color: var(--gold-light);
+    color: var(--navy);
+    font-size: 0.95rem;
+  }
+  .bingo-cell.free.marked { background: var(--gold); color: var(--navy); }
+
+  .bingo-celebrate {
+    text-align: center;
+    padding: 16px;
+    display: none;
+  }
+  .bingo-celebrate.show {
+    display: block;
+    animation: bingoPulse 0.8s ease infinite alternate;
+  }
+  @keyframes bingoPulse {
+    from { transform: scale(1); filter: brightness(1); }
+    to { transform: scale(1.04); filter: brightness(1.15); }
+  }
+  .bingo-celebrate h2 {
+    font-size: 2rem;
+    color: var(--gold);
+    text-shadow: 0 2px 0 var(--navy);
+  }
+
+  .confetti-burst {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+  }
+  .confetti-burst.go { animation: confettiFade 1.8s ease forwards; }
+  @keyframes confettiFade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    top: 40%;
+    left: 50%;
+    animation: confettiFly 1.5s ease-out forwards;
+  }
+  @keyframes confettiFly {
+    to {
+      transform: translate(var(--dx), var(--dy)) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  .script-box {
+    background: #f0f4f8;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 12px;
+    display: none;
+    max-height: 180px;
+    overflow-y: auto;
+    line-height: 1.55;
+  }
+  .script-box.show { display: block; }
+
+  .gist-q {
+    background: #eef3f8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .gist-q:hover { border-color: var(--teal); }
+  .gist-q .q { font-weight: 700; margin-bottom: 6px; }
+  .gist-q .a {
+    display: none;
+    color: var(--teal-deep);
+    font-weight: 600;
+    padding-top: 6px;
+    border-top: 1px dashed #c5d3e0;
+    margin-top: 8px;
+  }
+  .gist-q.revealed .a { display: block; animation: fadeUp 0.3s ease; }
+  .gist-q .hint { font-size: 0.78rem; color: var(--muted); }
+
+  /* —— Round done / boss —— */
+  .round-done {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .round-done h2 { font-size: 1.8rem; margin-bottom: 10px; }
+  .round-done p { color: var(--muted); margin-bottom: 20px; }
+
+  .hidden { display: none !important; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 8px 28px rgba(11, 31, 58, 0.4);
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .toast.good { background: var(--success); }
+  .toast.bad { background: var(--danger); }
+  .toast.gold { background: var(--gold); color: var(--navy); }
+
+  .footer-reset {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid #d5e0ec;
+  }
+  .footer-reset button {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .footer-reset button:hover { color: var(--danger); }
+
+  .boss-banner {
+    background: linear-gradient(90deg, var(--navy), #3a2a0a);
+    color: var(--gold);
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+  }
+
+
+  /* —— Lie Detector —— */
+  .lie-grid {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0 12px;
+  }
+  .lie-card {
+    text-align: left;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #eef3f8;
+    border: 3px solid #d5e0ec;
+    font-size: 1.02rem;
+    font-weight: 650;
+    color: var(--navy);
+    line-height: 1.4;
+    transition: all 0.18s;
+  }
+  .lie-card:hover:not(:disabled) {
+    border-color: var(--teal);
+    background: #e6f5f3;
+    transform: translateY(-2px);
+  }
+  .lie-card.selected { border-color: var(--gold); }
+  .lie-card.is-lie {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+  }
+  .lie-card.is-truth-wrong {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+    opacity: 0.9;
+  }
+  .lie-card:disabled { cursor: default; }
+
+  /* —— Distractor Detective —— */
+  .passage-box {
+    background: #f0f4f8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 12px 0 14px;
+    border-left: 4px solid var(--teal);
+  }
+  .q-line {
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .answer-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 520px) {
+    .answer-chips { grid-template-columns: 1fr; }
+  }
+  .ans-chip {
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #eef3f8;
+    border: 2px solid #d5e0ec;
+    font-weight: 650;
+    font-size: 0.92rem;
+    color: var(--navy);
+    transition: all 0.15s;
+  }
+  .ans-chip:hover:not(:disabled) {
+    border-color: var(--teal);
+    background: #e6f5f3;
+  }
+  .ans-chip.correct {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+  }
+  .ans-chip.wrong {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+  }
+  .ans-chip.trap-mark {
+    box-shadow: 0 0 0 3px var(--gold);
+  }
+  .ans-chip:disabled { cursor: default; }
+  .trap-why {
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }
+  .trap-why .tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-right: 6px;
+    letter-spacing: 0.03em;
+  }
+
+
+  /* —— Paraphrase / Attitude / Vocab —— */
+  .sentence-box {
+    background: #f0f4f8;
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin: 12px 0 14px;
+    border-left: 4px solid var(--gold);
+    font-weight: 650;
+    color: var(--navy);
+  }
+  .dialogue-box {
+    background: #f0f4f8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin: 12px 0 14px;
+    border-left: 4px solid var(--teal);
+    display: grid;
+    gap: 8px;
+  }
+  .dialogue-box .line {
+    font-size: 0.98rem;
+    line-height: 1.45;
+    color: var(--navy);
+  }
+  .dialogue-box .who {
+    font-weight: 800;
+    color: var(--teal-deep);
+    margin-right: 6px;
+  }
+  .vocab-word {
+    background: var(--gold-light);
+    color: var(--navy);
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.35);
+  }
+
+  /* —— Signal Match —— */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  @media (max-width: 560px) {
+    .match-grid { grid-template-columns: 1fr; }
+  }
+  .match-col h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .match-list { display: flex; flex-direction: column; gap: 8px; }
+  .match-item {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #eef3f8;
+    border: 2px solid #d5e0ec;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: left;
+    color: var(--navy);
+    transition: all 0.15s;
+  }
+  .match-item:hover:not(:disabled):not(.locked) {
+    border-color: var(--teal);
+  }
+  .match-item.picked {
+    border-color: var(--gold);
+    background: #faf3e0;
+    box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.35);
+  }
+  .match-item.locked {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+    cursor: default;
+  }
+  .match-item.flash-wrong {
+    animation: matchFlash 0.45s ease;
+  }
+  @keyframes matchFlash {
+    0%, 100% { background: #eef3f8; border-color: #d5e0ec; }
+    40% { background: #fde8e8; border-color: var(--danger); color: var(--danger); }
+  }
+  .match-celebrate {
+    text-align: center;
+    padding: 12px;
+    display: none;
+    font-weight: 800;
+    color: var(--teal-deep);
+    font-size: 1.15rem;
+  }
+  .match-celebrate.show { display: block; animation: fadeUp 0.35s ease; }
+
+  @media (max-width: 700px) {
+    .stage-grid { grid-template-columns: 1fr; }
+    .scoreboard { grid-template-columns: 1fr; }
+    .vs { padding: 4px 0; }
+    .score-pop {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .score-pop.show {
+    animation: scorePop 1.1s ease-out forwards;
+  }
+  .score-pop.good { color: #2db87a; }
+  .score-pop.bad { color: #e05a5a; }
+  @keyframes scorePop {
+    0% { opacity: 0; transform: translateY(8px) scale(0.8); }
+    20% { opacity: 1; transform: translateY(0) scale(1.15); }
+    100% { opacity: 0; transform: translateY(-28px) scale(1); }
+  }
+  .player-card { position: relative; }
+  .big-score { font-size: 2.6rem; }
+    .chip { font-size: 1rem; padding: 8px 12px; }
+    .bingo-cell { font-size: 0.72rem; }
+    .title-block h1 { font-size: 1.15rem; }
+    .tabs { flex-direction: column; }
+    .tab { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../" aria-label="TOEFL ITP Boost home">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="../../assets/logo.png" alt="" width="44" height="44">
+    </span>
+    <div class="title-block">
+      <h1>TOEFL Trap Battle <span class="pill">ITP</span></h1>
+      <p>Structure · Listening · light mode</p>
+    </div>
+  </a>
+  <a class="home-link" href="../../catalog/#tracks">Teacher map</a>
+</header>
+
+<div class="wrap">
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="player-card score-card you" id="cardYou">
+      <input class="name-input" id="nameYou" value="You" maxlength="18" aria-label="Your name" />
+      <div class="big-score" id="scoreYou">0</div>
+      <div class="score-btns">
+        <button class="btn-minus" type="button" data-who="you" data-delta="-1" aria-label="Minus You">−</button>
+        <button class="btn-plus" type="button" data-who="you" data-delta="1" aria-label="Plus You">+</button>
+      </div>
+    </div>
+    <div class="vs">VS</div>
+    <div class="player-card score-card exam" id="cardExam">
+      <input class="name-input" id="nameExam" value="The Exam" maxlength="18" aria-label="Opponent name" />
+      <div class="big-score" id="scoreExam">0</div>
+      <div class="score-btns">
+        <button class="btn-minus" type="button" data-who="exam" data-delta="-1" aria-label="Minus Exam">−</button>
+        <button class="btn-plus" type="button" data-who="exam" data-delta="1" aria-label="Plus Exam">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-round="1" type="button" role="tab">
+      Trap Hunt
+      <span>Structure · find the trap</span>
+    </button>
+    <button class="tab" data-round="2" type="button" role="tab">
+      Signal Bingo
+      <span>Listening markers</span>
+    </button>
+    <button class="tab" data-round="3" type="button" role="tab">
+      Boss
+      <span>Rapid mix · no mercy</span>
+    </button>
+    <button class="tab" data-round="4" type="button" role="tab">
+      Lie Detector
+      <span>Mindset · spot the lie</span>
+    </button>
+    <button class="tab" data-round="5" type="button" role="tab">
+      Distractor
+      <span>Reading · trap options</span>
+    </button>
+    <button class="tab" data-round="6" type="button" role="tab">
+      Signal Match
+      <span>Marker meanings</span>
+    </button>
+    <button class="tab" data-round="7" type="button" role="tab">
+      Speed
+      <span>Bonus traps · one shot</span>
+    </button>
+    <button class="tab" data-round="8" type="button" role="tab">
+      Paraphrase
+      <span>Reading · same meaning</span>
+    </button>
+    <button class="tab" data-round="9" type="button" role="tab">
+      Attitude
+      <span>Pragmatic · purpose</span>
+    </button>
+    <button class="tab" data-round="10" type="button" role="tab">
+      Vocab Strike
+      <span>Word in context</span>
+    </button>
+  </nav>
+
+  <!-- ========== ROUND 1 ========== -->
+  <div id="round1" class="round-panel">
+    <div class="stage-grid">
+      <div class="stage" id="stage1">
+        <div class="challenge-label" id="trapCounter">Trap 1/10</div>
+        <p class="prompt">Tap the <strong>WRONG</strong> word — the grammar trap hiding in the sentence.</p>
+        <div class="ready-message" id="ready1">Press <strong>Start</strong> to reveal the trap · 15 seconds</div>
+        <div class="chips hidden" id="chips1"></div>
+        <div class="fix-box" id="fix1"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextTrapBtn" type="button">Next challenge →</button>
+        </div>
+        <div class="round-done hidden" id="round1Done">
+          <h2>🎯 Trap Hunt cleared!</h2>
+          <p>Nice eye for Structure traps. Ready for listening signals?</p>
+          <button class="btn btn-teal" type="button" data-goto="2">Go to Signal Bingo →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="panel">
+          <h3>Timer · 15s</h3>
+          <div class="timer-display" id="timer1">15</div>
+          <div class="timer-btns">
+            <button class="btn btn-teal" id="startTimer1" type="button">Start</button>
+            <button class="btn btn-ghost" id="resetTimer1" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Let them hunt first. Award extra +1 with the scoreboard if they explain <em>why</em> the trap is wrong. Keep energy high — this is a battle, not a worksheet!</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 2 ========== -->
+  <div id="round2" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage2">
+        <div class="confetti-burst" id="confetti"></div>
+        <div class="challenge-label">Signal Bingo</div>
+        <p class="prompt">Hit <strong>Play lecture</strong> and tap each marker when you hear it. When the audio ends, the board locks: each missed marker = <strong>Exam +1</strong>. Bingo (3 in a row) = <strong>You +3</strong>. All eight = <strong>You +2</strong> extra.</p>
+        <div class="bingo-board" id="bingoBoard"></div>
+        <div class="bingo-celebrate" id="bingoWin">
+          <h2>🎉 BINGO!</h2>
+          <p style="color:var(--muted);margin:8px 0 12px">You +3 for the line. Missed markers already went to The Exam.</p>
+        </div>
+        <div class="action-row">
+          <audio id="lectureAudio" src="./audio/signal-bingo-lecture.mp3" preload="auto"></audio>
+          <button class="btn btn-teal" id="playLecture" type="button">▶ Play lecture</button>
+          <button class="btn btn-ghost" id="playAgain" type="button">Play again</button>
+          <button class="btn btn-ghost" id="toggleScript" type="button">Show script</button>
+          <button class="btn btn-primary hidden" id="gradeBingoBtn" type="button">Score this listening</button>
+          <button class="btn btn-gold hidden" id="resetBingo" type="button">Reset board</button>
+        </div>
+        <div class="script-box" id="scriptBox"></div>
+        <div id="gistArea" class="hidden" style="margin-top:18px">
+          <p class="prompt" style="margin-bottom:8px">Gist check — tap to reveal</p>
+          <div class="gist-q" data-gist>
+            <div class="q">1. What is the speaker’s main complaint about campus pigeons?</div>
+            <div class="hint">tap to reveal</div>
+            <div class="a">They steal fries, leave “souvenirs,” and somehow still get treated like VIPs.</div>
+          </div>
+          <div class="gist-q" data-gist>
+            <div class="q">2. What does the speaker suggest as a result of the pigeon problem?</div>
+            <div class="hint">tap to reveal</div>
+            <div class="a">A “Pigeon Peace Treaty” — or at least fewer outdoor snack breaks.</div>
+          </div>
+        </div>
+        <div class="action-row" style="margin-top:16px">
+          <button class="btn btn-primary" type="button" data-goto="3">Boss Round →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>No script until after grading. When the audio ends, missed markers feed The Exam automatically. Keep the energy: “Did you catch it?”</p>
+        </div>
+        <div class="panel">
+          <h3>Markers to catch</h3>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6">however / but · for example · the main point · in contrast · as a result · in other words · first / next / finally · on the other hand</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 3 ========== -->
+  <div id="round3" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage3">
+        <div class="boss-banner">⚡ BOSS ROUND — 15 seconds · one shot</div>
+        <div class="challenge-label" id="bossCounter">Boss 1/5</div>
+        <p class="prompt">Same rules — tap the trap. Miss or timeout = The Exam scores. No second chance!</p>
+        <div class="ready-message" id="ready3">Press <strong>Start</strong> to reveal the boss · 15 seconds</div>
+        <div class="chips hidden" id="chips3"></div>
+        <div class="fix-box" id="fix3"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextBossBtn" type="button">Next boss →</button>
+        </div>
+        <div class="round-done hidden" id="round3Done">
+          <h2>🏆 Boss defeated!</h2>
+          <p id="finalMsg">Check the scoreboard — who won the battle?</p>
+          <button class="btn btn-gold" type="button" id="playAgainAll">Play entire game again</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="panel">
+          <h3>Boss timer · 15s</h3>
+          <div class="timer-display" id="timer3">15</div>
+          <div class="timer-btns">
+            <button class="btn btn-teal" id="startTimer3" type="button">Start</button>
+            <button class="btn btn-ghost" id="resetTimer3" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Press Start when they are ready — the sentence appears and the 15s countdown begins. Count down out loud for extra pressure!</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <!-- ========== ROUND 4 Lie Detector ========== -->
+  <div id="round4" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage4">
+        <div class="challenge-label" id="lieCounter">Lie Detector 1/5</div>
+        <p class="prompt">Tap the <strong>LIE</strong> — one statement about TOEFL strategy is false. Find it!</p>
+        <div class="lie-grid" id="lieGrid"></div>
+        <div class="fix-box" id="fix4"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextLieBtn" type="button">Next set →</button>
+        </div>
+        <div class="round-done hidden" id="round4Done">
+          <h2>🕵️ Lie Detector cleared!</h2>
+          <p>Sharp instincts. Ready to catch Reading distractors?</p>
+          <button class="btn btn-teal" type="button" data-goto="5">Go to Distractor →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Ask why the lie is dangerous on test day. Award a bonus +1 if they rephrase the true strategy in their own words.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 5 Distractor Detective ========== -->
+  <div id="round5" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage5">
+        <div class="challenge-label" id="distCounter">Distractor 1/5</div>
+        <p class="prompt">Read the mini-passage, answer the question — then learn which option was the <strong>trap distractor</strong>.</p>
+        <div class="passage-box" id="distPassage"></div>
+        <div class="q-line" id="distQuestion"></div>
+        <div class="answer-chips" id="distAnswers"></div>
+        <div class="fix-box" id="fix5"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextDistBtn" type="button">Next item →</button>
+        </div>
+        <div class="round-done hidden" id="round5Done">
+          <h2>🔍 Distractor Detective done!</h2>
+          <p>You can smell a trap option from a mile away.</p>
+          <button class="btn btn-teal" type="button" data-goto="6">Go to Signal Match →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>After each reveal, name the trap type out loud: outside knowledge, too absolute, or not in the passage. Pattern recognition beats guessing.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 6 Signal Match ========== -->
+  <div id="round6" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage6">
+        <div class="challenge-label">Signal Match</div>
+        <p class="prompt">Tap a <strong>marker</strong>, then its <strong>meaning</strong> (or reverse). Correct pairs lock green. Match all 6!</p>
+        <div class="match-grid">
+          <div class="match-col">
+            <h4>Markers</h4>
+            <div class="match-list" id="matchMarkers"></div>
+          </div>
+          <div class="match-col">
+            <h4>Meanings</h4>
+            <div class="match-list" id="matchMeanings"></div>
+          </div>
+        </div>
+        <div class="match-celebrate" id="matchWin">🎉 All matched! You +3</div>
+        <div class="action-row">
+          <button class="btn btn-ghost" id="resetMatch" type="button">Reset</button>
+          <button class="btn btn-primary" type="button" data-goto="7">Speed Structure →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>These markers are Listening gold. Have students invent one silly sentence using each marker before they leave the round.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 7 Speed Structure ========== -->
+  <div id="round7" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage7">
+        <div class="boss-banner">⚡ SPEED STRUCTURE — 15 seconds · one shot</div>
+        <div class="challenge-label" id="speedCounter">Speed 1/8</div>
+        <p class="prompt">Tap the <strong>WRONG</strong> word. Miss or timeout = The Exam scores. No second chance!</p>
+        <div class="ready-message" id="ready7">Press <strong>Start</strong> to reveal the trap · 15 seconds</div>
+        <div class="chips hidden" id="chips7"></div>
+        <div class="fix-box" id="fix7"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextSpeedBtn" type="button">Next challenge →</button>
+        </div>
+        <div class="round-done hidden" id="round7Done">
+          <h2>🚀 Speed Structure cleared!</h2>
+          <p id="speedFinalMsg">Bonus traps conquered. Ready for paraphrase duels?</p>
+          <button class="btn btn-teal" type="button" data-goto="8">Go to Paraphrase →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="panel">
+          <h3>Timer · 15s</h3>
+          <div class="timer-display" id="timer7">15</div>
+          <div class="timer-btns">
+            <button class="btn btn-teal" id="startTimer7" type="button">Start</button>
+            <button class="btn btn-ghost" id="resetTimer7" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Same energy as Trap Hunt, but one shot only. Celebrate clean catches — and pause briefly after each reveal so the fix sticks.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <!-- ========== ROUND 8 Paraphrase Duel ========== -->
+  <div id="round8" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage8">
+        <div class="challenge-label" id="paraCounter">Paraphrase Duel 1/5</div>
+        <p class="prompt">Tap the option that means the <strong>SAME</strong> thing as the sentence.</p>
+        <div class="sentence-box" id="paraSentence"></div>
+        <div class="answer-chips" id="paraAnswers"></div>
+        <div class="fix-box" id="fix8"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextParaBtn" type="button">Next duel →</button>
+        </div>
+        <div class="round-done hidden" id="round8Done">
+          <h2>💬 Paraphrase Duel cleared!</h2>
+          <p>Same-meaning radar unlocked. Ready to read the room?</p>
+          <button class="btn btn-teal" type="button" data-goto="9">Go to Attitude →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Wrong options often swap cause/effect or add extra detail. Celebrate when students can say <em>why</em> the trap sounded close.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 9 Attitude Check ========== -->
+  <div id="round9" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage9">
+        <div class="challenge-label" id="attCounter">Attitude Check 1/5</div>
+        <p class="prompt">Read the tiny dialogue. What is the speaker’s <strong>attitude / purpose</strong>?</p>
+        <div class="dialogue-box" id="attDialogue"></div>
+        <div class="q-line" id="attQuestion"></div>
+        <div class="answer-chips" id="attAnswers"></div>
+        <div class="fix-box" id="fix9"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextAttBtn" type="button">Next check →</button>
+        </div>
+        <div class="round-done hidden" id="round9Done">
+          <h2>🎭 Attitude Check cleared!</h2>
+          <p>Pragmatic ears online. One more round — vocab in context!</p>
+          <button class="btn btn-teal" type="button" data-goto="10">Go to Vocab Strike →</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Tone beats dictionary meaning here. Ask: Is the speaker helping, warning, joking, or annoyed? One word can flip the whole vibe.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== ROUND 10 Vocab Strike ========== -->
+  <div id="round10" class="round-panel hidden">
+    <div class="stage-grid">
+      <div class="stage" id="stage10">
+        <div class="challenge-label" id="vocabCounter">Vocab Strike 1/5</div>
+        <p class="prompt">Tap the meaning that fits the <strong>highlighted</strong> word in context.</p>
+        <div class="sentence-box" id="vocabSentence"></div>
+        <div class="answer-chips" id="vocabAnswers"></div>
+        <div class="fix-box" id="fix10"></div>
+        <div class="action-row">
+          <button class="btn btn-primary hidden" id="nextVocabBtn" type="button">Next word →</button>
+        </div>
+        <div class="round-done hidden" id="round10Done">
+          <h2>⚔️ Vocab Strike cleared!</h2>
+          <p id="battleFinalMsg">Battle complete — check the scoreboard!</p>
+          <button class="btn btn-gold" type="button" id="playAgainFromVocab">Play entire game again</button>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="tip-card">
+          <h3>Teacher tip</h3>
+          <p>Context first, synonym second. If a chip sounds fancy but breaks the sentence logic, it’s probably The Exam fishing.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="footer-reset">
+    <button type="button" id="resetGame">Reset entire game</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ========== DATA ========== */
+  const TRAPS = [
+    {
+      sentence: "Everybody in the class know the answer already.",
+      trap: "know",
+      fix: "Everybody is singular → <strong>knows</strong> the answer already."
+    },
+    {
+      sentence: "There is many books on the library table.",
+      trap: "is",
+      fix: "Books (plural) → <strong>There are</strong> many books…"
+    },
+    {
+      sentence: "The teacher suggested that he studies harder before the exam.",
+      trap: "studies",
+      fix: "Suggest + that-clause → subjunctive: <strong>study</strong> (not studies)."
+    },
+    {
+      sentence: "After finish the homework, she went to the café.",
+      trap: "finish",
+      fix: "After + gerund → <strong>After finishing</strong> the homework…"
+    },
+    {
+      sentence: "She explained me the problem very clearly.",
+      trap: "explained",
+      fix: "Explain needs <strong>to</strong>: She <strong>explained the problem to me</strong>."
+    },
+    {
+      sentence: "Neither the students nor the teacher were ready for the quiz.",
+      trap: "were",
+      fix: "With neither…nor, the verb agrees with the nearer subject → teacher <strong>was</strong> ready."
+    },
+    {
+      sentence: "I am very interested on learning academic vocabulary.",
+      trap: "on",
+      fix: "interested <strong>in</strong> + gerund → interested <strong>in</strong> learning…"
+    },
+    {
+      sentence: "If it will rain tomorrow, we will cancel the picnic.",
+      trap: "will",
+      fix: "1st conditional: If + present → If it <strong>rains</strong> tomorrow…"
+    },
+    {
+      sentence: "You have finished the practice test, isn't it?",
+      trap: "isn't",
+      fix: "Tag matches the main verb → You have finished…, <strong>haven't you</strong>?"
+    },
+    {
+      sentence: "This secret is just between you and I.",
+      trap: "I",
+      fix: "Object of a preposition → between you and <strong>me</strong>."
+    }
+  ];
+
+  const BOSS = [
+    {
+      sentence: "Not only the dean but also the professors was at the meeting.",
+      trap: "was",
+      fix: "Not only A but also B → verb agrees with B → professors <strong>were</strong>."
+    },
+    {
+      sentence: "She looks forward to meet the exchange students next week.",
+      trap: "meet",
+      fix: "look forward to + gerund → look forward to <strong>meeting</strong>…"
+    },
+    {
+      sentence: "Despite of the noise, he managed to concentrate.",
+      trap: "of",
+      fix: "Despite + noun (no of) → <strong>Despite</strong> the noise… (or In spite of)."
+    },
+    {
+      sentence: "The number of applicants have increased this semester.",
+      trap: "have",
+      fix: "The number of + plural noun → singular verb → <strong>has</strong> increased."
+    },
+    {
+      sentence: "He asked me that where the registrar's office was.",
+      trap: "that",
+      fix: "Wh-clause as object: no <em>that</em> → He asked me <strong>where</strong> the office was."
+    }
+  ];
+
+  const BINGO_CELLS = [
+    "however / but",
+    "for example",
+    "the main point",
+    "in contrast",
+    "FREE",
+    "as a result",
+    "in other words",
+    "first / next / finally",
+    "on the other hand"
+  ];
+
+  const LECTURE = `Good morning, everyone. Today I want to talk about a serious campus issue: pigeons.
+First, let me say that pigeons are everywhere near the cafeteria. Next, they have learned our snack schedule better than most freshmen. Finally, they wait by the benches like tiny feathered managers.
+However, not everyone sees them as a problem, but I disagree. For example, last Tuesday a pigeon stole my fries in under three seconds. In contrast, squirrels at least look cute while they commit crimes.
+The main point is this: pigeons have become the unofficial rulers of the quad. In other words, we are living in a bird dictatorship with free Wi-Fi.
+On the other hand, some students feed them on purpose, which only makes things worse. As a result, I propose a Pigeon Peace Treaty — or at least fewer outdoor snack breaks.
+Thank you, and watch your sandwich.`;
+
+  const LIES = [
+    {
+      statements: [
+        { text: "Examples are always the main idea of a lecture.", lie: true },
+        { text: "Discourse markers like \"however\" signal a shift or contrast.", lie: false },
+        { text: "In Structure, eliminate answers that break subject–verb agreement.", lie: false }
+      ],
+      reveal: "Examples support ideas — they are rarely the main point. Listen for the claim, not the story."
+    },
+    {
+      statements: [
+        { text: "Read all four options before you even look at the Structure sentence.", lie: true },
+        { text: "Spot the error in the sentence first, then match it to an option.", lie: false },
+        { text: "Absolute words like \"always\" and \"never\" are often traps in Reading.", lie: false }
+      ],
+      reveal: "Hunting options first invites distractors. Diagnose the sentence, then choose."
+    },
+    {
+      statements: [
+        { text: "If you don't know a vocab word, guess from outside world knowledge.", lie: true },
+        { text: "Use context clues in the passage — the answer is usually on the page.", lie: false },
+        { text: "Wrong answers often sound smart but aren't supported by the text.", lie: false }
+      ],
+      reveal: "TOEFL rewards the passage, not your Wikipedia brain. Stick to what's written."
+    },
+    {
+      statements: [
+        { text: "You should translate every Listening sentence into your L1 before answering.", lie: true },
+        { text: "Track the speaker's purpose and attitude with signal words.", lie: false },
+        { text: "Note-taking keywords beat full-sentence transcripts.", lie: false }
+      ],
+      reveal: "Full translation is too slow. Catch signals and gist in English."
+    },
+    {
+      statements: [
+        { text: "The longest answer is usually correct on TOEFL Structure.", lie: true },
+        { text: "Shorter options can be right if they fix the grammar cleanly.", lie: false },
+        { text: "Watch for double negatives and awkward word order.", lie: false }
+      ],
+      reveal: "Length ≠ correctness. Grammar fit wins — not word count."
+    }
+  ];
+
+  const DISTRACTORS = [
+    {
+      passage: "Campus pigeons have learned the cafeteria schedule. Students who eat outdoors often lose fries within seconds. The facilities office posted a sign asking people not to feed the birds.",
+      question: "What did the facilities office ask students to do?",
+      options: [
+        "Stop feeding the pigeons",
+        "Move the cafeteria indoors",
+        "Adopt a campus pigeon mascot",
+        "Always finish fries in under three seconds"
+      ],
+      correct: 0,
+      trap: 2,
+      why: "Outside knowledge / cute invention — a mascot sounds fun but is not in the passage.",
+      tag: "not in passage"
+    },
+    {
+      passage: "The library extended weekend hours during finals week. Many students reserved group rooms online. Quiet floors still required phones to be silenced.",
+      question: "According to the passage, what stayed required on quiet floors?",
+      options: [
+        "Silencing phones",
+        "Booking rooms only on weekdays",
+        "Leaving laptops at home",
+        "Studying only in groups"
+      ],
+      correct: 0,
+      trap: 1,
+      why: "Too absolute / twisted — weekend hours changed, but the text never bans weekday bookings.",
+      tag: "too absolute"
+    },
+    {
+      passage: "A campus survey found that coffee sales peak between 9 and 11 a.m. The student union added a second espresso machine. Lines shortened, but prices stayed the same.",
+      question: "What happened after the second espresso machine was added?",
+      options: [
+        "Lines became shorter",
+        "Coffee became free for freshmen",
+        "Sales peaked only after midnight",
+        "The union closed the café"
+      ],
+      correct: 0,
+      trap: 1,
+      why: "Outside knowledge / wishful thinking — free coffee for freshmen is not stated.",
+      tag: "outside knowledge"
+    },
+    {
+      passage: "Professor Kim argued that short daily review beats long cramming sessions. Her students kept a five-minute vocabulary log. Midterm scores in her section improved slightly.",
+      question: "What study habit did Professor Kim's students use?",
+      options: [
+        "A short daily vocabulary log",
+        "All-night cramming before every quiz",
+        "Never reviewing academic words",
+        "Skipping midterms entirely"
+      ],
+      correct: 0,
+      trap: 1,
+      why: "Opposite of the passage — she argued against long cramming, not for it.",
+      tag: "not in passage"
+    },
+    {
+      passage: "The new bike racks near the science building filled up by 8:30 a.m. Security suggested arriving earlier or using the gym lot. Overnight parking for bikes was still not allowed.",
+      question: "What was still not allowed?",
+      options: [
+        "Leaving bikes overnight",
+        "Using the gym lot ever",
+        "Riding bikes on campus roads",
+        "Arriving before 8:30 a.m."
+      ],
+      correct: 0,
+      trap: 1,
+      why: "Too absolute — security suggested the gym lot; it did not ban using it.",
+      tag: "too absolute"
+    }
+  ];
+
+  const SIGNAL_PAIRS = [
+    { marker: "However", meaning: "Shows contrast / opposite idea", id: "however" },
+    { marker: "For example", meaning: "Gives a specific illustration", id: "example" },
+    { marker: "As a result", meaning: "Shows cause → effect", id: "result" },
+    { marker: "In other words", meaning: "Restates the idea more simply", id: "other" },
+    { marker: "On the other hand", meaning: "Presents an alternative view", id: "hand" },
+    { marker: "The main point", meaning: "Signals the central idea", id: "main" }
+  ];
+
+  const SPEED_TRAPS = [
+    {
+      sentence: "Each of the applicants have submitted a personal statement.",
+      trap: "have",
+      fix: "Each of + plural noun → singular verb → <strong>has</strong> submitted."
+    },
+    {
+      sentence: "She congratulated him for winning the scholarship.",
+      trap: "for",
+      fix: "Congratulate someone <strong>on</strong> + gerund → congratulated him <strong>on</strong> winning…"
+    },
+    {
+      sentence: "The committee are deciding the final schedule tomorrow.",
+      trap: "are",
+      fix: "In American academic English, committee (unit) → singular → <strong>is</strong> deciding."
+    },
+    {
+      sentence: "Hardly he had entered the room when the phone rang.",
+      trap: "he",
+      fix: "Negative inversion: Hardly <strong>had he</strong> entered… (auxiliary before subject)."
+    },
+    {
+      sentence: "I prefer coffee than tea in the morning.",
+      trap: "than",
+      fix: "Prefer A <strong>to</strong> B → prefer coffee <strong>to</strong> tea."
+    },
+    {
+      sentence: "One of my classmates are presenting at the conference.",
+      trap: "are",
+      fix: "One of + plural → singular verb → <strong>is</strong> presenting."
+    },
+    {
+      sentence: "They discussed about the new dorm policy for an hour.",
+      trap: "about",
+      fix: "Discuss takes a direct object (no about) → They <strong>discussed</strong> the new dorm policy…"
+    },
+    {
+      sentence: "No sooner the bell rang than students rushed out.",
+      trap: "the",
+      fix: "No sooner <strong>had</strong> + subject + past participle → No sooner <strong>had the bell rung</strong>…"
+    }
+  ];
+
+
+
+
+  const PARAPHRASE = [
+    {
+      sentence: "Although the library was crowded, Maya still found a quiet corner to finish her essay.",
+      options: [
+        "The library was busy, but Maya managed to locate a peaceful spot for her paper.",
+        "Maya left the library because it was too crowded to write.",
+        "Maya preferred noisy cafés when she needed to finish essays.",
+        "The library closed early, so Maya wrote her essay at home."
+      ],
+      correct: 0,
+      why: "Same idea: crowded place + still found a quiet spot to finish the essay.",
+      trapWhy: "Trap flips the outcome — she didn’t leave; she stayed and wrote."
+    },
+    {
+      sentence: "The professor postponed the quiz so students could review the chapter one more time.",
+      options: [
+        "Students asked to cancel the quiz forever.",
+        "The quiz was delayed to give everyone extra review time.",
+        "The professor moved the quiz earlier to save class time.",
+        "Reviewing the chapter was optional and unrelated to the quiz."
+      ],
+      correct: 1,
+      why: "Postponed = delayed, and the purpose was extra review.",
+      trapWhy: "Tempting traps change timing (earlier) or erase the review purpose."
+    },
+    {
+      sentence: "Campus Wi-Fi slowed down whenever too many students streamed videos at once.",
+      options: [
+        "Streaming videos always made the Wi-Fi faster.",
+        "Only professors could use campus Wi-Fi during peak hours.",
+        "Heavy video streaming by many students caused the network to lag.",
+        "The Wi-Fi never worked near the dorms."
+      ],
+      correct: 2,
+      why: "Cause–effect stays: many streams → slower Wi-Fi.",
+      trapWhy: "Opposite-effect options sound punchy but reverse the science."
+    },
+    {
+      sentence: "Rather than buying a new laptop, Jamal repaired his old one before midterms.",
+      options: [
+        "Jamal bought the newest laptop the week before midterms.",
+        "Jamal ignored his laptop problems until after finals.",
+        "Jamal sold his laptop and borrowed a tablet instead.",
+        "Instead of purchasing a new computer, Jamal fixed the one he already had."
+      ],
+      correct: 3,
+      why: "Rather than buying = instead of purchasing; repaired = fixed.",
+      trapWhy: "Buying-new traps look busy but contradict “rather than.”"
+    },
+    {
+      sentence: "The student union expanded café hours to reduce long lines during morning rush.",
+      options: [
+        "Café hours were lengthened so morning lines would be shorter.",
+        "The café closed during morning rush to avoid crowds.",
+        "Students were banned from buying coffee before 10 a.m.",
+        "Long lines disappeared because the café stopped serving espresso."
+      ],
+      correct: 0,
+      why: "Expanded hours = lengthened schedule; goal = shorter lines.",
+      trapWhy: "Closing / banning options invent a different policy."
+    }
+  ];
+
+  const ATTITUDE = [
+    {
+      lines: [
+        { who: "Sam", text: "Ugh, the printer jammed again right before my deadline." },
+        { who: "Sam", text: "I’ve restarted it three times. This is ridiculous." }
+      ],
+      question: "What is Sam’s attitude?",
+      options: ["annoyed", "encouraging", "joking", "uncertain"],
+      correct: 0,
+      why: "“Ugh,” “again,” and “ridiculous” show frustration, not humor or doubt."
+    },
+    {
+      lines: [
+        { who: "Tutor", text: "You’re closer than you think." },
+        { who: "Tutor", text: "Keep the daily vocab log — next week will feel easier." }
+      ],
+      question: "What is the tutor’s purpose?",
+      options: ["warning", "encouraging", "disagreeing", "apologizing"],
+      correct: 1,
+      why: "Supportive praise + a helpful next step = encouragement."
+    },
+    {
+      lines: [
+        { who: "Lia", text: "Wait… is the review session in Hall B or Hall D?" },
+        { who: "Lia", text: "My email says one thing, the flyer says another." }
+      ],
+      question: "What is Lia’s attitude?",
+      options: ["joking", "annoyed", "uncertain", "agreeing"],
+      correct: 2,
+      why: "Conflicting info + “Wait…” signals uncertainty, not anger."
+    },
+    {
+      lines: [
+        { who: "Coach", text: "If you skip warm-ups again, you’re sitting out the scrimmage." },
+        { who: "Coach", text: "No exceptions this time." }
+      ],
+      question: "What is the coach’s purpose?",
+      options: ["joking", "agreeing", "warning", "uncertain"],
+      correct: 2,
+      why: "Clear consequence + “no exceptions” = a serious warning."
+    },
+    {
+      lines: [
+        { who: "Mina", text: "So we meet at 6, bring snacks, and pretend we’re studying?" },
+        { who: "Rico", text: "Exactly. Operation ‘group project’ begins." },
+        { who: "Mina", text: "Perfect. I’ll bring the fake sticky notes." }
+      ],
+      question: "What is the speakers’ attitude?",
+      options: ["warning", "annoyed", "joking", "uncertain"],
+      correct: 2,
+      why: "Playful plan and “Operation…” show joking, not a real threat."
+    }
+  ];
+
+  const VOCAB = [
+    {
+      sentence: "The lecture was long; <span class=\"vocab-word\">nonetheless</span>, students stayed focused until the end.",
+      options: ["however / even so", "because of that", "for example", "in the beginning"],
+      correct: 0,
+      why: "Nonetheless signals contrast: long lecture, but they stayed focused.",
+      trapWhy: "“Because of that” flips contrast into cause — a classic trap."
+    },
+    {
+      sentence: "The department will <span class=\"vocab-word\">allocate</span> extra tutors to the writing center before finals.",
+      options: ["cancel permanently", "assign / set aside", "complain about", "ignore on purpose"],
+      correct: 1,
+      why: "Allocate = distribute or assign resources for a purpose.",
+      trapWhy: "Cancel/ignore sound campus-dramatic but break the helpful context."
+    },
+    {
+      sentence: "Weekend buses to the lab were <span class=\"vocab-word\">sparse</span>, so riders checked the schedule carefully.",
+      options: ["crowded and noisy", "free for students", "few / not many", "always on time"],
+      correct: 2,
+      why: "Sparse = few and spread out — that’s why they checked carefully.",
+      trapWhy: "“Crowded” is the opposite vibe and doesn’t fit “checked carefully.”"
+    },
+    {
+      sentence: "Her smile seemed to <span class=\"vocab-word\">imply</span> that the quiz would be easier than expected.",
+      options: ["prove with data", "suggest without saying directly", "refuse politely", "schedule officially"],
+      correct: 1,
+      why: "Imply = hint or suggest without stating it outright.",
+      trapWhy: "“Prove with data” is too strong — implying isn’t proving."
+    },
+    {
+      sentence: "Omar was <span class=\"vocab-word\">reluctant</span> to present first, but he volunteered after a deep breath.",
+      options: ["eager and excited", "unwilling / hesitant", "fully prepared", "accidentally late"],
+      correct: 1,
+      why: "Reluctant = not eager; hesitant — then he pushed through anyway.",
+      trapWhy: "“Eager” is the antonym; context shows hesitation first."
+    }
+  ];
+
+
+  /* ========== STATE ========== */
+  let scoreYou = 0;
+  let scoreExam = 0;
+  let trapIndex = 0;
+  let bossIndex = 0;
+  let attemptsLeft = 2; // round 1: one retry
+  let trapResolved = false;
+  let bossResolved = false;
+  let bingoWon = false;
+  let timer1Id = null;
+  let timer3Id = null;
+  let t1 = 15;
+  let t3 = 15;
+  let lieIndex = 0;
+  let lieResolved = false;
+  let distIndex = 0;
+  let distResolved = false;
+  let matchSelected = null; // { side, id, el }
+  let matchLocked = new Set();
+  let matchComplete = false;
+  let speedIndex = 0;
+  let speedResolved = false;
+  let timer7Id = null;
+  let t7 = 15;
+  let paraIndex = 0;
+  let paraResolved = false;
+  let attIndex = 0;
+  let attResolved = false;
+  let vocabIndex = 0;
+  let vocabResolved = false;
+
+  const $ = (sel, el = document) => el.querySelector(sel);
+  const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
+
+  /* ========== SCORE ========== */
+  function renderScores() {
+    $("#scoreYou").textContent = scoreYou;
+    $("#scoreExam").textContent = scoreExam;
+  }
+
+  function popScore(cardSel, delta, kind) {
+    const card = $(cardSel);
+    if (!card) return;
+    let pop = card.querySelector(".score-pop");
+    if (!pop) {
+      pop = document.createElement("div");
+      pop.className = "score-pop";
+      card.appendChild(pop);
+    }
+    pop.textContent = (delta > 0 ? "+" : "") + delta;
+    pop.className = "score-pop show " + (kind || (delta >= 0 ? "good" : "bad"));
+    void pop.offsetWidth;
+    pop.classList.add("show");
+    setTimeout(() => pop.classList.remove("show"), 1100);
+  }
+
+  function addScore(who, delta, pulse) {
+    if (!delta) return;
+    if (who === "you") {
+      scoreYou = Math.max(0, scoreYou + delta);
+      if (pulse) {
+        $("#cardYou").classList.remove("pulse-win");
+        void $("#cardYou").offsetWidth;
+        $("#cardYou").classList.add("pulse-win");
+        popScore("#cardYou", delta, delta > 0 ? "good" : "bad");
+      }
+    } else {
+      scoreExam = Math.max(0, scoreExam + delta);
+      if (pulse) {
+        $("#cardExam").classList.remove("pulse-win");
+        void $("#cardExam").offsetWidth;
+        $("#cardExam").classList.add("pulse-win");
+        popScore("#cardExam", delta, delta > 0 ? "bad" : "good");
+      }
+    }
+    renderScores();
+  }
+
+  $$(".score-btns button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      addScore(btn.dataset.who, Number(btn.dataset.delta), true);
+    });
+  });
+
+  /* ========== TOAST ========== */
+  let toastTimer;
+  function toast(msg, kind) {
+    const el = $("#toast");
+    el.textContent = msg;
+    el.className = "toast show" + (kind ? " " + kind : "");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+  }
+
+  /* ========== FLASH ========== */
+  function flash(stageId, kind) {
+    const s = $(stageId);
+    s.classList.remove("flash-green", "flash-red");
+    void s.offsetWidth;
+    s.classList.add(kind === "green" ? "flash-green" : "flash-red");
+  }
+
+  /* ========== WORD CHIPS ========== */
+  function splitWords(sentence) {
+    return sentence.trim().split(/\s+/);
+  }
+
+  function buildChips(container, item, onPick) {
+    container.innerHTML = "";
+    splitWords(item.sentence).forEach((word) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.textContent = word;
+      // Match trap: strip trailing punctuation for comparison, but keep display
+      const core = word.replace(/[.,!?;:]+$/g, "");
+      chip.dataset.core = core;
+      chip.addEventListener("click", () => onPick(chip, core, word));
+      container.appendChild(chip);
+    });
+  }
+
+  function disableChips(container) {
+    $$(".chip", container).forEach((c) => { c.disabled = true; });
+  }
+
+  /* ========== ROUND 1 ========== */
+  function showTrap(i) {
+    trapResolved = false;
+    attemptsLeft = 2;
+    $("#nextTrapBtn").classList.add("hidden");
+    $("#fix1").classList.remove("show");
+    $("#fix1").innerHTML = "";
+    $("#round1Done").classList.add("hidden");
+    $("#chips1").classList.remove("hidden");
+    $(".prompt", $("#stage1")).classList.remove("hidden");
+
+    if (i >= TRAPS.length) {
+      $("#chips1").classList.add("hidden");
+      $("#ready1").classList.add("hidden");
+      $(".prompt", $("#stage1")).classList.add("hidden");
+      $("#trapCounter").textContent = "Trap 10/10";
+      $("#round1Done").classList.remove("hidden");
+      stopTimer1();
+      return;
+    }
+
+    $("#trapCounter").textContent = `Trap ${i + 1}/10`;
+    const item = TRAPS[i];
+    buildChips($("#chips1"), item, (chip, core) => {
+      if (trapResolved) return;
+      const isTrap = core.toLowerCase() === item.trap.toLowerCase();
+      if (isTrap) {
+        chip.classList.add("correct-trap");
+        trapResolved = true;
+        disableChips($("#chips1"));
+        flash("#stage1", "green");
+        toast("Trap cleared!", "good");
+        $("#fix1").innerHTML = "✓ Fix: " + item.fix;
+        $("#fix1").classList.add("show");
+        addScore("you", 1, true);
+        $("#nextTrapBtn").classList.remove("hidden");
+        stopTimer1();
+      } else {
+        chip.classList.add("wrong-pick");
+        chip.disabled = true;
+        flash("#stage1", "red");
+        attemptsLeft -= 1;
+        if (attemptsLeft <= 0) {
+          toast("Not that one — revealing…", "bad");
+          addScore("exam", 1, true);
+          trapResolved = true;
+          // highlight real trap
+          $$(".chip", $("#chips1")).forEach((c) => {
+            if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+              c.classList.add("correct-trap");
+            }
+            c.disabled = true;
+          });
+          $("#fix1").innerHTML = "✓ Fix: " + item.fix;
+          $("#fix1").classList.add("show");
+          $("#nextTrapBtn").classList.remove("hidden");
+          stopTimer1();
+        } else {
+          toast("Not that one", "bad");
+          addScore("exam", 1, true);
+        }
+      }
+    });
+    // Hide sentence until Start
+    $("#chips1").classList.add("hidden");
+    $("#ready1").classList.remove("hidden");
+    disableChips($("#chips1"));
+    resetTimer1Display();
+  }
+
+  $("#nextTrapBtn").addEventListener("click", () => {
+    trapIndex += 1;
+    showTrap(trapIndex);
+  });
+
+  /* Timer 1 */
+  function resetTimer1Display() {
+    stopTimer1();
+    t1 = 15;
+    $("#timer1").textContent = t1;
+    $("#timer1").classList.remove("urgent");
+  }
+  function stopTimer1() {
+    if (timer1Id) { clearInterval(timer1Id); timer1Id = null; }
+  }
+  function revealTrapSentence() {
+    $("#ready1").classList.add("hidden");
+    $("#chips1").classList.remove("hidden");
+    if (!trapResolved) {
+      $$(".chip", $("#chips1")).forEach((c) => {
+        if (!c.classList.contains("wrong-pick")) c.disabled = false;
+      });
+    }
+  }
+  function hideTrapSentence() {
+    if (trapResolved || trapIndex >= TRAPS.length) return;
+    $("#chips1").classList.add("hidden");
+    $("#ready1").classList.remove("hidden");
+    disableChips($("#chips1"));
+  }
+  $("#startTimer1").addEventListener("click", () => {
+    if (trapResolved || trapIndex >= TRAPS.length) return;
+    revealTrapSentence();
+    stopTimer1();
+    t1 = 15;
+    $("#timer1").textContent = t1;
+    $("#timer1").classList.remove("urgent");
+    timer1Id = setInterval(() => {
+      t1 -= 1;
+      $("#timer1").textContent = t1;
+      if (t1 <= 5) $("#timer1").classList.add("urgent");
+      if (t1 <= 0) {
+        stopTimer1();
+        if (!trapResolved) {
+          toast("Time's up — The Exam scores!", "bad");
+          addScore("exam", 1, true);
+          trapResolved = true;
+          const item = TRAPS[trapIndex];
+          $$(".chip", $("#chips1")).forEach((c) => {
+            if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+              c.classList.add("correct-trap");
+            }
+            c.disabled = true;
+          });
+          $("#fix1").innerHTML = "✓ Fix: " + item.fix;
+          $("#fix1").classList.add("show");
+          $("#nextTrapBtn").classList.remove("hidden");
+          flash("#stage1", "red");
+        }
+      }
+    }, 1000);
+  });
+  $("#resetTimer1").addEventListener("click", () => {
+    resetTimer1Display();
+    hideTrapSentence();
+  });
+
+  /* ========== ROUND 2 BINGO ========== */
+  const WIN_LINES = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+
+  let bingoLocked = false;
+  let bingoGraded = false;
+  let bingoListenLive = false;
+
+  function buildBingo() {
+    const board = $("#bingoBoard");
+    board.innerHTML = "";
+    bingoWon = false;
+    bingoLocked = false;
+    bingoGraded = false;
+    bingoListenLive = false;
+    $("#bingoWin").classList.remove("show");
+    $("#resetBingo").classList.add("hidden");
+    if ($("#gradeBingoBtn")) $("#gradeBingoBtn").classList.add("hidden");
+    $("#gistArea").classList.add("hidden");
+    BINGO_CELLS.forEach((label, i) => {
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "bingo-cell" + (label === "FREE" ? " free marked" : "");
+      cell.textContent = label;
+      cell.dataset.index = i;
+      if (label === "FREE") cell.dataset.free = "1";
+      if (label !== "FREE") {
+        cell.addEventListener("click", () => {
+          if (bingoLocked || bingoGraded) return;
+          if (!bingoListenLive) {
+            toast("Press Play lecture first — then tap as you hear it", "bad");
+            return;
+          }
+          cell.classList.toggle("marked");
+          // visual only during audio; score on audio end
+          const marked = $$(".bingo-cell", $("#bingoBoard")).map((c) => c.classList.contains("marked"));
+          if (!bingoWon && WIN_LINES.some((line) => line.every((i) => marked[i]))) {
+            bingoWon = true;
+            toast("Line! Keep listening — score lands when audio ends", "gold");
+          }
+        });
+      }
+      board.appendChild(cell);
+    });
+  }
+
+  function hasBingoLine() {
+    const marked = $$(".bingo-cell", $("#bingoBoard")).map((c) => c.classList.contains("marked"));
+    return WIN_LINES.some((line) => line.every((i) => marked[i]));
+  }
+
+  function gradeBingoListening() {
+    if (bingoGraded) return;
+    bingoGraded = true;
+    bingoLocked = true;
+    bingoListenLive = false;
+    const gradeBtn = $("#gradeBingoBtn");
+    if (gradeBtn) gradeBtn.classList.add("hidden");
+    const cells = $$(".bingo-cell", $("#bingoBoard"));
+    let missed = 0;
+    cells.forEach((c) => {
+      c.classList.add("locked");
+      if (c.dataset.free === "1") return;
+      if (!c.classList.contains("marked")) {
+        missed += 1;
+        c.classList.add("missed");
+      }
+    });
+    if (missed > 0) {
+      addScore("exam", missed, true);
+      toast(`Missed ${missed} marker${missed > 1 ? "s" : ""} → Exam +${missed}`, "bad");
+    }
+    const allMarked = cells.every((c) => c.classList.contains("marked"));
+    if (hasBingoLine()) {
+      bingoWon = true;
+      $("#bingoWin").classList.add("show");
+      addScore("you", 3, true);
+      toast("BINGO! You +3", "gold");
+      launchConfetti();
+    } else if (missed === 0) {
+      toast("All marked, but no line — still solid listening", "good");
+    }
+    if (allMarked) {
+      addScore("you", 2, true);
+      toast("Perfect ear! You +2", "gold");
+    }
+    $("#resetBingo").classList.remove("hidden");
+    $("#gistArea").classList.remove("hidden");
+  }
+
+  function launchConfetti() {
+    const box = $("#confetti");
+    box.innerHTML = "";
+    box.classList.remove("go");
+    void box.offsetWidth;
+    const colors = ["#5bb8b0", "#d4a843", "#238d85", "#0B1F3A", "#e05a5a", "#2db87a"];
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement("div");
+      p.className = "confetti-piece";
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty("--dx", (Math.random() * 400 - 200) + "px");
+      p.style.setProperty("--dy", (Math.random() * -280 - 40) + "px");
+      p.style.left = 20 + Math.random() * 60 + "%";
+      p.style.animationDelay = Math.random() * 0.3 + "s";
+      box.appendChild(p);
+    }
+    box.classList.add("go");
+  }
+
+  $("#resetBingo").addEventListener("click", buildBingo);
+
+  /* Real lecture audio (teacher recording) */
+  const lectureAudio = $("#lectureAudio");
+  function stopLectureAudio() {
+    if (!lectureAudio) return;
+    lectureAudio.pause();
+    lectureAudio.currentTime = 0;
+  }
+  function playLectureAudio() {
+    if (!lectureAudio) {
+      toast("Audio missing — use Show script", "bad");
+      return;
+    }
+    if (bingoGraded) {
+      toast("Hit Reset board for a new listening round", "bad");
+      return;
+    }
+    // Fresh listen attempt: clear marks except FREE
+    $$(".bingo-cell", $("#bingoBoard")).forEach((c) => {
+      if (c.dataset.free === "1") return;
+      c.classList.remove("marked", "missed", "locked");
+    });
+    bingoWon = false;
+    bingoLocked = false;
+    bingoListenLive = true;
+    $("#bingoWin").classList.remove("show");
+    if ($("#gradeBingoBtn")) $("#gradeBingoBtn").classList.remove("hidden");
+    stopLectureAudio();
+    const p = lectureAudio.play();
+    if (p && typeof p.then === "function") {
+      p.then(() => toast("Listening live — tap markers as you hear them!", "good"))
+       .catch(() => { bingoListenLive = false; toast("Tap Play again to allow audio", "bad"); });
+    } else {
+      toast("Listening live — tap markers as you hear them!", "good");
+    }
+  }
+
+  if (lectureAudio) {
+    lectureAudio.addEventListener("ended", () => {
+      bingoListenLive = false;
+      gradeBingoListening();
+    });
+    // Fallback if "ended" is flaky: last half-second of audio
+    lectureAudio.addEventListener("timeupdate", () => {
+      if (bingoGraded || !bingoListenLive) return;
+      if (lectureAudio.duration && lectureAudio.currentTime >= lectureAudio.duration - 0.35) {
+        bingoListenLive = false;
+        gradeBingoListening();
+      }
+    });
+  }
+
+  const gradeBingoBtn = $("#gradeBingoBtn");
+  if (gradeBingoBtn) {
+    gradeBingoBtn.addEventListener("click", () => {
+      stopLectureAudio();
+      bingoListenLive = false;
+      gradeBingoListening();
+    });
+  }
+
+  $("#playLecture").addEventListener("click", playLectureAudio);
+  $("#playAgain").addEventListener("click", playLectureAudio);
+
+  $("#toggleScript").addEventListener("click", () => {
+    const box = $("#scriptBox");
+    const showing = box.classList.toggle("show");
+    if (showing) {
+      box.textContent = LECTURE;
+      $("#toggleScript").textContent = "Hide script";
+    } else {
+      $("#toggleScript").textContent = "Show script";
+    }
+  });
+
+  $$("[data-gist]").forEach((el) => {
+    el.addEventListener("click", () => {
+      el.classList.add("revealed");
+      const hint = $(".hint", el);
+      if (hint) hint.style.display = "none";
+    });
+  });
+
+  /* ========== ROUND 3 BOSS ========== */
+  function showBoss(i) {
+    bossResolved = false;
+    $("#nextBossBtn").classList.add("hidden");
+    $("#fix3").classList.remove("show");
+    $("#fix3").innerHTML = "";
+    $("#round3Done").classList.add("hidden");
+    $("#chips3").classList.remove("hidden");
+    $(".prompt", $("#stage3")).classList.remove("hidden");
+    $(".boss-banner").classList.remove("hidden");
+
+    if (i >= BOSS.length) {
+      $("#chips3").classList.add("hidden");
+      $("#ready3").classList.add("hidden");
+      $(".prompt", $("#stage3")).classList.add("hidden");
+      $(".boss-banner").classList.add("hidden");
+      $("#bossCounter").textContent = "Boss 5/5";
+      const youName = $("#nameYou").value || "You";
+      const examName = $("#nameExam").value || "The Exam";
+      let msg;
+      if (scoreYou > scoreExam) msg = `${youName} wins ${scoreYou}–${scoreExam}! The Exam blinked first.`;
+      else if (scoreExam > scoreYou) msg = `${examName} leads ${scoreExam}–${scoreYou}. Rematch?`;
+      else msg = `Dead heat ${scoreYou}–${scoreExam}. Legendary.`;
+      $("#finalMsg").textContent = msg;
+      $("#round3Done").classList.remove("hidden");
+      stopTimer3();
+      return;
+    }
+
+    $("#bossCounter").textContent = `Boss ${i + 1}/5`;
+    const item = BOSS[i];
+    buildChips($("#chips3"), item, (chip, core) => {
+      if (bossResolved) return;
+      const isTrap = core.toLowerCase() === item.trap.toLowerCase();
+      stopTimer3();
+      if (isTrap) {
+        chip.classList.add("correct-trap");
+        bossResolved = true;
+        disableChips($("#chips3"));
+        flash("#stage3", "green");
+        toast("Trap cleared!", "good");
+        $("#fix3").innerHTML = "✓ Fix: " + item.fix;
+        $("#fix3").classList.add("show");
+        addScore("you", 1, true);
+        $("#nextBossBtn").classList.remove("hidden");
+      } else {
+        chip.classList.add("wrong-pick");
+        bossResolved = true;
+        flash("#stage3", "red");
+        toast("Miss! The Exam scores", "bad");
+        addScore("exam", 1, true);
+        $$(".chip", $("#chips3")).forEach((c) => {
+          if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+            c.classList.add("correct-trap");
+          }
+          c.disabled = true;
+        });
+        $("#fix3").innerHTML = "✓ Fix: " + item.fix;
+        $("#fix3").classList.add("show");
+        $("#nextBossBtn").classList.remove("hidden");
+      }
+    });
+    $("#chips3").classList.add("hidden");
+    $("#ready3").classList.remove("hidden");
+    disableChips($("#chips3"));
+    stopTimer3();
+    t3 = 15;
+    $("#timer3").textContent = t3;
+    $("#timer3").classList.remove("urgent");
+  }
+
+  $("#nextBossBtn").addEventListener("click", () => {
+    bossIndex += 1;
+    showBoss(bossIndex);
+  });
+
+  function stopTimer3() {
+    if (timer3Id) { clearInterval(timer3Id); timer3Id = null; }
+  }
+  function revealBossSentence() {
+    $("#ready3").classList.add("hidden");
+    $("#chips3").classList.remove("hidden");
+    if (!bossResolved) {
+      $$(".chip", $("#chips3")).forEach((c) => { c.disabled = false; });
+    }
+  }
+  function hideBossSentence() {
+    if (bossResolved || bossIndex >= BOSS.length) return;
+    $("#chips3").classList.add("hidden");
+    $("#ready3").classList.remove("hidden");
+    disableChips($("#chips3"));
+  }
+  function startBossTimer() {
+    stopTimer3();
+    revealBossSentence();
+    t3 = 15;
+    $("#timer3").textContent = t3;
+    $("#timer3").classList.remove("urgent");
+    timer3Id = setInterval(() => {
+      t3 -= 1;
+      $("#timer3").textContent = t3;
+      if (t3 <= 5) $("#timer3").classList.add("urgent");
+      if (t3 <= 0) {
+        stopTimer3();
+        if (!bossResolved && bossIndex < BOSS.length) {
+          bossResolved = true;
+          toast("Too slow — Exam point!", "bad");
+          addScore("exam", 1, true);
+          flash("#stage3", "red");
+          const item = BOSS[bossIndex];
+          $$(".chip", $("#chips3")).forEach((c) => {
+            if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+              c.classList.add("correct-trap");
+            }
+            c.disabled = true;
+          });
+          $("#fix3").innerHTML = "✓ Fix: " + item.fix;
+          $("#fix3").classList.add("show");
+          $("#nextBossBtn").classList.remove("hidden");
+        }
+      }
+    }, 1000);
+  }
+  $("#startTimer3").addEventListener("click", () => {
+    if (!bossResolved && bossIndex < BOSS.length) startBossTimer();
+  });
+  $("#resetTimer3").addEventListener("click", () => {
+    stopTimer3();
+    t3 = 15;
+    $("#timer3").textContent = t3;
+    $("#timer3").classList.remove("urgent");
+    hideBossSentence();
+  });
+
+
+  /* ========== ROUND 4 LIE DETECTOR ========== */
+  function showLie(i) {
+    lieResolved = false;
+    $("#nextLieBtn").classList.add("hidden");
+    $("#fix4").classList.remove("show");
+    $("#fix4").innerHTML = "";
+    $("#round4Done").classList.add("hidden");
+    $(".prompt", $("#stage4")).classList.remove("hidden");
+    $("#lieGrid").classList.remove("hidden");
+
+    if (i >= LIES.length) {
+      $("#lieGrid").classList.add("hidden");
+      $(".prompt", $("#stage4")).classList.add("hidden");
+      $("#lieCounter").textContent = "Lie Detector 5/5";
+      $("#round4Done").classList.remove("hidden");
+      return;
+    }
+
+    $("#lieCounter").textContent = `Lie Detector ${i + 1}/5`;
+    const set = LIES[i];
+    const grid = $("#lieGrid");
+    grid.innerHTML = "";
+    set.statements.forEach((s, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lie-card";
+      btn.textContent = s.text;
+      btn.addEventListener("click", () => {
+        if (lieResolved) return;
+        lieResolved = true;
+        $$(".lie-card", grid).forEach((c) => { c.disabled = true; });
+        if (s.lie) {
+          btn.classList.add("is-lie");
+          flash("#stage4", "green");
+          toast("Lie spotted! You +1", "good");
+          addScore("you", 1, true);
+        } else {
+          btn.classList.add("is-truth-wrong");
+          // highlight the real lie
+          $$(".lie-card", grid).forEach((c, j) => {
+            if (set.statements[j].lie) c.classList.add("is-lie");
+          });
+          flash("#stage4", "red");
+          toast("That one was true — Exam +1", "bad");
+          addScore("exam", 1, true);
+        }
+        $("#fix4").innerHTML = "✓ " + set.reveal;
+        $("#fix4").classList.add("show");
+        $("#nextLieBtn").classList.remove("hidden");
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  $("#nextLieBtn").addEventListener("click", () => {
+    lieIndex += 1;
+    showLie(lieIndex);
+  });
+
+  /* ========== ROUND 5 DISTRACTOR ========== */
+  function showDist(i) {
+    distResolved = false;
+    $("#nextDistBtn").classList.add("hidden");
+    $("#fix5").classList.remove("show");
+    $("#fix5").innerHTML = "";
+    $("#round5Done").classList.add("hidden");
+    $(".prompt", $("#stage5")).classList.remove("hidden");
+    $("#distPassage").classList.remove("hidden");
+    $("#distQuestion").classList.remove("hidden");
+    $("#distAnswers").classList.remove("hidden");
+
+    if (i >= DISTRACTORS.length) {
+      $("#distPassage").classList.add("hidden");
+      $("#distQuestion").classList.add("hidden");
+      $("#distAnswers").classList.add("hidden");
+      $(".prompt", $("#stage5")).classList.add("hidden");
+      $("#distCounter").textContent = "Distractor 5/5";
+      $("#round5Done").classList.remove("hidden");
+      return;
+    }
+
+    const item = DISTRACTORS[i];
+    $("#distCounter").textContent = `Distractor ${i + 1}/5`;
+    $("#distPassage").textContent = item.passage;
+    $("#distQuestion").textContent = item.question;
+    const box = $("#distAnswers");
+    box.innerHTML = "";
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ans-chip";
+      btn.textContent = String.fromCharCode(65 + idx) + ". " + opt;
+      btn.addEventListener("click", () => {
+        if (distResolved) return;
+        distResolved = true;
+        $$(".ans-chip", box).forEach((c) => { c.disabled = true; });
+        const correctBtn = $$(".ans-chip", box)[item.correct];
+        const trapBtn = $$(".ans-chip", box)[item.trap];
+        if (idx === item.correct) {
+          btn.classList.add("correct");
+          flash("#stage5", "green");
+          toast("Correct! You +1", "good");
+          addScore("you", 1, true);
+        } else {
+          btn.classList.add("wrong");
+          correctBtn.classList.add("correct");
+          flash("#stage5", "red");
+          toast("Miss — Exam +1", "bad");
+          addScore("exam", 1, true);
+        }
+        trapBtn.classList.add("trap-mark");
+        $("#fix5").innerHTML =
+          `<div class="trap-why"><span class="tag">TRAP</span><strong>${item.options[item.trap]}</strong><br>${item.why} <em>(${item.tag})</em></div>`;
+        $("#fix5").classList.add("show");
+        $("#nextDistBtn").classList.remove("hidden");
+      });
+      box.appendChild(btn);
+    });
+  }
+
+  $("#nextDistBtn").addEventListener("click", () => {
+    distIndex += 1;
+    showDist(distIndex);
+  });
+
+  /* ========== ROUND 6 SIGNAL MATCH ========== */
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function buildMatch() {
+    matchSelected = null;
+    matchLocked = new Set();
+    matchComplete = false;
+    $("#matchWin").classList.remove("show");
+    const mBox = $("#matchMarkers");
+    const nBox = $("#matchMeanings");
+    mBox.innerHTML = "";
+    nBox.innerHTML = "";
+    const markers = shuffle(SIGNAL_PAIRS);
+    const meanings = shuffle(SIGNAL_PAIRS);
+
+    function clearPicked() {
+      $$(".match-item").forEach((el) => el.classList.remove("picked"));
+    }
+
+    function onPick(side, id, el) {
+      if (matchComplete || matchLocked.has(id) && side === "marker") return;
+      if (el.classList.contains("locked")) return;
+
+      if (!matchSelected) {
+        clearPicked();
+        matchSelected = { side, id, el };
+        el.classList.add("picked");
+        return;
+      }
+
+      // second pick
+      if (matchSelected.side === side) {
+        clearPicked();
+        matchSelected = { side, id, el };
+        el.classList.add("picked");
+        return;
+      }
+
+      const idA = matchSelected.id;
+      const idB = id;
+      const elA = matchSelected.el;
+      const elB = el;
+      clearPicked();
+      matchSelected = null;
+
+      if (idA === idB) {
+        elA.classList.add("locked");
+        elB.classList.add("locked");
+        elA.disabled = true;
+        elB.disabled = true;
+        matchLocked.add(idA);
+        toast("Pair locked!", "good");
+        if (matchLocked.size >= SIGNAL_PAIRS.length) {
+          matchComplete = true;
+          addScore("you", 3, true);
+          $("#matchWin").classList.add("show");
+          toast("All matched! You +3", "gold");
+          flash("#stage6", "green");
+          launchConfetti();
+        }
+      } else {
+        elA.classList.add("flash-wrong");
+        elB.classList.add("flash-wrong");
+        setTimeout(() => {
+          elA.classList.remove("flash-wrong");
+          elB.classList.remove("flash-wrong");
+        }, 450);
+        toast("Not a match", "bad");
+      }
+    }
+
+    markers.forEach((p) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "match-item";
+      btn.textContent = p.marker;
+      btn.dataset.id = p.id;
+      btn.addEventListener("click", () => onPick("marker", p.id, btn));
+      mBox.appendChild(btn);
+    });
+    meanings.forEach((p) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "match-item";
+      btn.textContent = p.meaning;
+      btn.dataset.id = p.id;
+      btn.addEventListener("click", () => onPick("meaning", p.id, btn));
+      nBox.appendChild(btn);
+    });
+  }
+
+  $("#resetMatch").addEventListener("click", () => {
+    buildMatch();
+    toast("Board reset", "good");
+  });
+
+  /* ========== ROUND 7 SPEED STRUCTURE ========== */
+  function showSpeed(i) {
+    speedResolved = false;
+    $("#nextSpeedBtn").classList.add("hidden");
+    $("#fix7").classList.remove("show");
+    $("#fix7").innerHTML = "";
+    $("#round7Done").classList.add("hidden");
+    $("#chips7").classList.remove("hidden");
+    $(".prompt", $("#stage7")).classList.remove("hidden");
+    const banner = $(".boss-banner", $("#stage7"));
+    if (banner) banner.classList.remove("hidden");
+
+    if (i >= SPEED_TRAPS.length) {
+      $("#chips7").classList.add("hidden");
+      $("#ready7").classList.add("hidden");
+      $(".prompt", $("#stage7")).classList.add("hidden");
+      if (banner) banner.classList.add("hidden");
+      $("#speedCounter").textContent = "Speed 8/8";
+      const youName = $("#nameYou").value || "You";
+      const examName = $("#nameExam").value || "The Exam";
+      let msg;
+      if (scoreYou > scoreExam) msg = `${youName} leads ${scoreYou}–${scoreExam}! Speed traps conquered.`;
+      else if (scoreExam > scoreYou) msg = `${examName} leads ${scoreExam}–${scoreYou}. Rematch?`;
+      else msg = `Tied ${scoreYou}–${scoreExam}. Legendary stamina.`;
+      $("#speedFinalMsg").textContent = msg;
+      $("#round7Done").classList.remove("hidden");
+      stopTimer7();
+      return;
+    }
+
+    $("#speedCounter").textContent = `Speed ${i + 1}/8`;
+    const item = SPEED_TRAPS[i];
+    buildChips($("#chips7"), item, (chip, core) => {
+      if (speedResolved) return;
+      const isTrap = core.toLowerCase() === item.trap.toLowerCase();
+      stopTimer7();
+      if (isTrap) {
+        chip.classList.add("correct-trap");
+        speedResolved = true;
+        disableChips($("#chips7"));
+        flash("#stage7", "green");
+        toast("Trap cleared!", "good");
+        $("#fix7").innerHTML = "✓ Fix: " + item.fix;
+        $("#fix7").classList.add("show");
+        addScore("you", 1, true);
+        $("#nextSpeedBtn").classList.remove("hidden");
+      } else {
+        chip.classList.add("wrong-pick");
+        speedResolved = true;
+        flash("#stage7", "red");
+        toast("Miss! The Exam scores", "bad");
+        addScore("exam", 1, true);
+        $$(".chip", $("#chips7")).forEach((c) => {
+          if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+            c.classList.add("correct-trap");
+          }
+          c.disabled = true;
+        });
+        $("#fix7").innerHTML = "✓ Fix: " + item.fix;
+        $("#fix7").classList.add("show");
+        $("#nextSpeedBtn").classList.remove("hidden");
+      }
+    });
+    $("#chips7").classList.add("hidden");
+    $("#ready7").classList.remove("hidden");
+    disableChips($("#chips7"));
+    stopTimer7();
+    t7 = 15;
+    $("#timer7").textContent = t7;
+    $("#timer7").classList.remove("urgent");
+  }
+
+  $("#nextSpeedBtn").addEventListener("click", () => {
+    speedIndex += 1;
+    showSpeed(speedIndex);
+  });
+
+  function stopTimer7() {
+    if (timer7Id) { clearInterval(timer7Id); timer7Id = null; }
+  }
+  function revealSpeedSentence() {
+    $("#ready7").classList.add("hidden");
+    $("#chips7").classList.remove("hidden");
+    if (!speedResolved) {
+      $$(".chip", $("#chips7")).forEach((c) => { c.disabled = false; });
+    }
+  }
+  function hideSpeedSentence() {
+    if (speedResolved || speedIndex >= SPEED_TRAPS.length) return;
+    $("#chips7").classList.add("hidden");
+    $("#ready7").classList.remove("hidden");
+    disableChips($("#chips7"));
+  }
+  function startSpeedTimer() {
+    stopTimer7();
+    revealSpeedSentence();
+    t7 = 15;
+    $("#timer7").textContent = t7;
+    $("#timer7").classList.remove("urgent");
+    timer7Id = setInterval(() => {
+      t7 -= 1;
+      $("#timer7").textContent = t7;
+      if (t7 <= 5) $("#timer7").classList.add("urgent");
+      if (t7 <= 0) {
+        stopTimer7();
+        if (!speedResolved && speedIndex < SPEED_TRAPS.length) {
+          speedResolved = true;
+          toast("Too slow — Exam point!", "bad");
+          addScore("exam", 1, true);
+          flash("#stage7", "red");
+          const item = SPEED_TRAPS[speedIndex];
+          $$(".chip", $("#chips7")).forEach((c) => {
+            if (c.dataset.core.toLowerCase() === item.trap.toLowerCase()) {
+              c.classList.add("correct-trap");
+            }
+            c.disabled = true;
+          });
+          $("#fix7").innerHTML = "✓ Fix: " + item.fix;
+          $("#fix7").classList.add("show");
+          $("#nextSpeedBtn").classList.remove("hidden");
+        }
+      }
+    }, 1000);
+  }
+  $("#startTimer7").addEventListener("click", () => {
+    if (!speedResolved && speedIndex < SPEED_TRAPS.length) startSpeedTimer();
+  });
+  $("#resetTimer7").addEventListener("click", () => {
+    stopTimer7();
+    t7 = 15;
+    $("#timer7").textContent = t7;
+    $("#timer7").classList.remove("urgent");
+    hideSpeedSentence();
+  });
+
+
+  /* ========== ROUND 8 PARAPHRASE DUEL ========== */
+  function showPara(i) {
+    paraResolved = false;
+    $("#nextParaBtn").classList.add("hidden");
+    $("#fix8").classList.remove("show");
+    $("#fix8").innerHTML = "";
+    $("#round8Done").classList.add("hidden");
+    $(".prompt", $("#stage8")).classList.remove("hidden");
+    $("#paraSentence").classList.remove("hidden");
+    $("#paraAnswers").classList.remove("hidden");
+
+    if (i >= PARAPHRASE.length) {
+      $("#paraSentence").classList.add("hidden");
+      $("#paraAnswers").classList.add("hidden");
+      $(".prompt", $("#stage8")).classList.add("hidden");
+      $("#paraCounter").textContent = "Paraphrase Duel 5/5";
+      $("#round8Done").classList.remove("hidden");
+      return;
+    }
+
+    const item = PARAPHRASE[i];
+    $("#paraCounter").textContent = `Paraphrase Duel ${i + 1}/5`;
+    $("#paraSentence").textContent = item.sentence;
+    const box = $("#paraAnswers");
+    box.innerHTML = "";
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ans-chip";
+      btn.textContent = String.fromCharCode(65 + idx) + ". " + opt;
+      btn.addEventListener("click", () => {
+        if (paraResolved) return;
+        paraResolved = true;
+        $$(".ans-chip", box).forEach((c) => { c.disabled = true; });
+        const correctBtn = $$(".ans-chip", box)[item.correct];
+        if (idx === item.correct) {
+          btn.classList.add("correct");
+          flash("#stage8", "green");
+          toast("Same meaning! You +1", "good");
+          addScore("you", 1, true);
+          $("#fix8").innerHTML = "✓ " + item.why;
+        } else {
+          btn.classList.add("wrong");
+          correctBtn.classList.add("correct");
+          flash("#stage8", "red");
+          toast("Close — Exam +1", "bad");
+          addScore("exam", 1, true);
+          $("#fix8").innerHTML =
+            "✓ Correct: " + item.options[item.correct] + "<br>" + item.why +
+            `<div class="trap-why" style="margin-top:8px"><span class="tag">TRAP</span>${item.trapWhy}</div>`;
+        }
+        $("#fix8").classList.add("show");
+        $("#nextParaBtn").classList.remove("hidden");
+      });
+      box.appendChild(btn);
+    });
+  }
+
+  $("#nextParaBtn").addEventListener("click", () => {
+    paraIndex += 1;
+    showPara(paraIndex);
+  });
+
+  /* ========== ROUND 9 ATTITUDE CHECK ========== */
+  function showAtt(i) {
+    attResolved = false;
+    $("#nextAttBtn").classList.add("hidden");
+    $("#fix9").classList.remove("show");
+    $("#fix9").innerHTML = "";
+    $("#round9Done").classList.add("hidden");
+    $(".prompt", $("#stage9")).classList.remove("hidden");
+    $("#attDialogue").classList.remove("hidden");
+    $("#attQuestion").classList.remove("hidden");
+    $("#attAnswers").classList.remove("hidden");
+
+    if (i >= ATTITUDE.length) {
+      $("#attDialogue").classList.add("hidden");
+      $("#attQuestion").classList.add("hidden");
+      $("#attAnswers").classList.add("hidden");
+      $(".prompt", $("#stage9")).classList.add("hidden");
+      $("#attCounter").textContent = "Attitude Check 5/5";
+      $("#round9Done").classList.remove("hidden");
+      return;
+    }
+
+    const item = ATTITUDE[i];
+    $("#attCounter").textContent = `Attitude Check ${i + 1}/5`;
+    const dlg = $("#attDialogue");
+    dlg.innerHTML = item.lines.map((ln) =>
+      `<div class="line"><span class="who">${ln.who}:</span>${ln.text}</div>`
+    ).join("");
+    $("#attQuestion").textContent = item.question;
+    const box = $("#attAnswers");
+    box.innerHTML = "";
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ans-chip";
+      btn.textContent = opt;
+      btn.addEventListener("click", () => {
+        if (attResolved) return;
+        attResolved = true;
+        $$(".ans-chip", box).forEach((c) => { c.disabled = true; });
+        const correctBtn = $$(".ans-chip", box)[item.correct];
+        if (idx === item.correct) {
+          btn.classList.add("correct");
+          flash("#stage9", "green");
+          toast("Attitude locked! You +1", "good");
+          addScore("you", 1, true);
+          $("#fix9").innerHTML = "✓ " + item.why;
+        } else {
+          btn.classList.add("wrong");
+          correctBtn.classList.add("correct");
+          flash("#stage9", "red");
+          toast("Missed the vibe — Exam +1", "bad");
+          addScore("exam", 1, true);
+          $("#fix9").innerHTML =
+            "✓ Answer: <strong>" + item.options[item.correct] + "</strong><br>" + item.why;
+        }
+        $("#fix9").classList.add("show");
+        $("#nextAttBtn").classList.remove("hidden");
+      });
+      box.appendChild(btn);
+    });
+  }
+
+  $("#nextAttBtn").addEventListener("click", () => {
+    attIndex += 1;
+    showAtt(attIndex);
+  });
+
+  /* ========== ROUND 10 VOCAB STRIKE ========== */
+  function showVocab(i) {
+    vocabResolved = false;
+    $("#nextVocabBtn").classList.add("hidden");
+    $("#fix10").classList.remove("show");
+    $("#fix10").innerHTML = "";
+    $("#round10Done").classList.add("hidden");
+    $(".prompt", $("#stage10")).classList.remove("hidden");
+    $("#vocabSentence").classList.remove("hidden");
+    $("#vocabAnswers").classList.remove("hidden");
+
+    if (i >= VOCAB.length) {
+      $("#vocabSentence").classList.add("hidden");
+      $("#vocabAnswers").classList.add("hidden");
+      $(".prompt", $("#stage10")).classList.add("hidden");
+      $("#vocabCounter").textContent = "Vocab Strike 5/5";
+      const youName = $("#nameYou").value || "You";
+      const examName = $("#nameExam").value || "The Exam";
+      let msg;
+      if (scoreYou > scoreExam) msg = `Battle complete! ${youName} wins ${scoreYou}–${scoreExam}.`;
+      else if (scoreExam > scoreYou) msg = `Battle complete! ${examName} leads ${scoreExam}–${scoreYou}. Rematch?`;
+      else msg = `Battle complete! Tied ${scoreYou}–${scoreExam}. Epic duel.`;
+      $("#battleFinalMsg").textContent = msg;
+      $("#round10Done").classList.remove("hidden");
+      return;
+    }
+
+    const item = VOCAB[i];
+    $("#vocabCounter").textContent = `Vocab Strike ${i + 1}/5`;
+    $("#vocabSentence").innerHTML = item.sentence;
+    const box = $("#vocabAnswers");
+    box.innerHTML = "";
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ans-chip";
+      btn.textContent = String.fromCharCode(65 + idx) + ". " + opt;
+      btn.addEventListener("click", () => {
+        if (vocabResolved) return;
+        vocabResolved = true;
+        $$(".ans-chip", box).forEach((c) => { c.disabled = true; });
+        const correctBtn = $$(".ans-chip", box)[item.correct];
+        if (idx === item.correct) {
+          btn.classList.add("correct");
+          flash("#stage10", "green");
+          toast("Vocab strike! You +1", "good");
+          addScore("you", 1, true);
+          $("#fix10").innerHTML = "✓ " + item.why;
+        } else {
+          btn.classList.add("wrong");
+          correctBtn.classList.add("correct");
+          flash("#stage10", "red");
+          toast("Trap meaning — Exam +1", "bad");
+          addScore("exam", 1, true);
+          $("#fix10").innerHTML =
+            "✓ " + item.why +
+            `<div class="trap-why" style="margin-top:8px"><span class="tag">TRAP</span>${item.trapWhy}</div>`;
+        }
+        $("#fix10").classList.add("show");
+        $("#nextVocabBtn").classList.remove("hidden");
+      });
+      box.appendChild(btn);
+    });
+  }
+
+  $("#nextVocabBtn").addEventListener("click", () => {
+    vocabIndex += 1;
+    showVocab(vocabIndex);
+  });
+
+  /* ========== NAV ========== */
+  function goRound(n) {
+    stopLectureAudio();
+    stopTimer1();
+    stopTimer3();
+    stopTimer7();
+    $$(".tab").forEach((t) => t.classList.toggle("active", Number(t.dataset.round) === n));
+    $$(".round-panel").forEach((p) => p.classList.add("hidden"));
+    $(`#round${n}`).classList.remove("hidden");
+    if (n === 3 && bossIndex === 0 && !bossResolved) {
+      // fresh visit — show first boss (timer will auto-start)
+      if ($("#chips3").children.length === 0 || $("#round3Done").classList.contains("hidden")) {
+        showBoss(bossIndex);
+      }
+    }
+    if (n === 4 && $("#lieGrid").children.length === 0) showLie(lieIndex);
+    if (n === 5 && $("#distAnswers").children.length === 0) showDist(distIndex);
+    if (n === 6 && $("#matchMarkers").children.length === 0) buildMatch();
+    if (n === 7 && speedIndex === 0 && !speedResolved) {
+      if ($("#chips7").children.length === 0 || $("#round7Done").classList.contains("hidden")) {
+        showSpeed(speedIndex);
+      }
+    }
+    if (n === 8 && $("#paraAnswers").children.length === 0) showPara(paraIndex);
+    if (n === 9 && $("#attAnswers").children.length === 0) showAtt(attIndex);
+    if (n === 10 && $("#vocabAnswers").children.length === 0) showVocab(vocabIndex);
+  }
+
+  $$(".tab").forEach((tab) => {
+    tab.addEventListener("click", () => goRound(Number(tab.dataset.round)));
+  });
+  $$("[data-goto]").forEach((btn) => {
+    btn.addEventListener("click", () => goRound(Number(btn.dataset.goto)));
+  });
+
+  /* ========== RESET ========== */
+  function resetEntireGame() {
+    stopLectureAudio();
+    stopTimer1();
+    stopTimer3();
+    stopTimer7();
+    scoreYou = 0;
+    scoreExam = 0;
+    trapIndex = 0;
+    bossIndex = 0;
+    attemptsLeft = 2;
+    trapResolved = false;
+    bossResolved = false;
+    bingoWon = false;
+    lieIndex = 0;
+    lieResolved = false;
+    distIndex = 0;
+    distResolved = false;
+    matchSelected = null;
+    matchLocked = new Set();
+    matchComplete = false;
+    speedIndex = 0;
+    speedResolved = false;
+    paraIndex = 0;
+    paraResolved = false;
+    attIndex = 0;
+    attResolved = false;
+    vocabIndex = 0;
+    vocabResolved = false;
+    renderScores();
+    buildBingo();
+    $("#scriptBox").classList.remove("show");
+    $("#toggleScript").textContent = "Show script";
+    $$("[data-gist]").forEach((el) => {
+      el.classList.remove("revealed");
+      const hint = $(".hint", el);
+      if (hint) hint.style.display = "";
+    });
+    showTrap(0);
+    // clear boss stage for fresh start
+    $("#chips3").innerHTML = "";
+    $("#fix3").classList.remove("show");
+    $("#nextBossBtn").classList.add("hidden");
+    $("#round3Done").classList.add("hidden");
+    $("#timer3").textContent = "10";
+    // reset new rounds
+    $("#lieGrid").innerHTML = "";
+    $("#fix4").classList.remove("show");
+    $("#nextLieBtn").classList.add("hidden");
+    $("#round4Done").classList.add("hidden");
+    $("#distAnswers").innerHTML = "";
+    $("#fix5").classList.remove("show");
+    $("#nextDistBtn").classList.add("hidden");
+    $("#round5Done").classList.add("hidden");
+    buildMatch();
+    $("#chips7").innerHTML = "";
+    $("#fix7").classList.remove("show");
+    $("#nextSpeedBtn").classList.add("hidden");
+    $("#round7Done").classList.add("hidden");
+    $("#ready7").classList.remove("hidden");
+    $("#timer7").textContent = "15";
+    $("#timer7").classList.remove("urgent");
+    $("#paraAnswers").innerHTML = "";
+    $("#fix8").classList.remove("show");
+    $("#nextParaBtn").classList.add("hidden");
+    $("#round8Done").classList.add("hidden");
+    $("#attAnswers").innerHTML = "";
+    $("#fix9").classList.remove("show");
+    $("#nextAttBtn").classList.add("hidden");
+    $("#round9Done").classList.add("hidden");
+    $("#vocabAnswers").innerHTML = "";
+    $("#fix10").classList.remove("show");
+    $("#nextVocabBtn").classList.add("hidden");
+    $("#round10Done").classList.add("hidden");
+    goRound(1);
+    toast("Game reset — fight!", "good");
+  }
+
+  $("#resetGame").addEventListener("click", resetEntireGame);
+  $("#playAgainAll").addEventListener("click", resetEntireGame);
+  $("#playAgainFromVocab").addEventListener("click", resetEntireGame);
+
+  // Chrome voices load async
+  /* lecture uses real MP3 */
+
+  /* Init */
+  buildBingo();
+  showTrap(0);
+  renderScores();
+})();
+</script>
+</body>
+</html>
