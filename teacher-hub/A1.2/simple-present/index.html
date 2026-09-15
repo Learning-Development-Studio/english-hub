@@ -44,7 +44,25 @@
     .col h4 { font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); margin-bottom:6px; }
     .score { display:inline-block; background:#fff7e6; color:#8a6a1d; font-weight:800; font-size:.78rem; border-radius:8px; padding:4px 8px; margin-top:6px; }
     footer { text-align:center; color:var(--muted); font-size:.78rem; padding:18px 0 8px; }
-    @media print { .topbar .actions .btn.teal { display:none; } body{background:#fff;} .card{break-inside:avoid;box-shadow:none;} }
+
+    .print-hint { color:var(--muted); font-size:.72rem; margin-top:8px; font-weight:600; }
+    .print-pin-backdrop { display:none; position:fixed; inset:0; background:rgba(11,31,58,.45); z-index:9998; align-items:center; justify-content:center; padding:16px; }
+    .print-pin-backdrop.open { display:flex; }
+    .print-pin-modal { background:#fff; border-radius:16px; padding:20px 22px; max-width:340px; width:100%; box-shadow:0 20px 50px rgba(11,31,58,.28); border:1px solid rgba(11,31,58,.08); }
+    .print-pin-modal h4 { color:var(--navy); font-size:1rem; margin:0 0 6px; }
+    .print-pin-modal p { color:var(--muted); font-size:.82rem; margin:0 0 12px; }
+    .print-pin-modal input { width:100%; border:1.5px solid rgba(11,31,58,.18); border-radius:10px; padding:10px 12px; font-size:1rem; font-weight:700; letter-spacing:.12em; text-align:center; color:var(--navy); outline:none; }
+    .print-pin-modal input:focus { border-color:var(--teal); }
+    .print-pin-actions { display:flex; gap:8px; margin-top:14px; justify-content:flex-end; }
+    .print-pin-actions button { border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; cursor:pointer; }
+    .print-pin-actions .cancel { background:rgba(11,31,58,.08); color:var(--navy); }
+    .print-pin-actions .ok { background:var(--teal); color:#fff; }
+    .print-pin-actions .ok:hover { background:var(--teal-dark); }
+    @media print {
+      .topbar .actions, .print-pin-backdrop, .print-hint { display:none !important; }
+      body{background:#fff;}
+      .card{break-inside:avoid;box-shadow:none;}
+    }
   </style>
 </head>
 <body>
@@ -61,6 +79,7 @@
       <a class="btn teal" href="../../../A1.2/simple-present-verbs/" target="_blank" rel="noopener">Student page</a>
       <a class="btn navy" href="../../">Teacher Hub</a>
       <span class="btn navy" style="cursor:default">A1.2</span>
+      <button type="button" class="btn teal" id="printBtn">Imprimir / PDF</button>
     </div>
   </header>
 
@@ -84,6 +103,7 @@
       <li><strong>Materials:</strong> Student page + phone/laptop; optional board for races.</li>
       <li><strong>Optional battle (game, not the plan):</strong> <a href="../../../A1.2/simple-present-battle/">Simple Present Battle</a> as cool-down / energy high option.</li>
     </ul>
+    <p class="print-hint">Imprimir pide el PIN del nivel (ciclo 26).</p>
   </section>
 
   <section class="card">
@@ -198,8 +218,67 @@
 
   <footer>Learning &amp; Development Studio · Teacher Hub · A1.2 Simple Present Affirmative &amp; Negative</footer>
 </div>
+<div class="print-pin-backdrop" id="printPinBackdrop" aria-hidden="true">
+  <div class="print-pin-modal" role="dialog" aria-labelledby="printPinTitle">
+    <h4 id="printPinTitle">PIN para imprimir</h4>
+    <p>Escribe el PIN del nivel (ciclo 26) para generar PDF.</p>
+    <input id="printPinInput" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+    <div class="print-pin-actions">
+      <button type="button" class="cancel" id="printPinCancel">Cancelar</button>
+      <button type="button" class="ok" id="printPinOk">Imprimir</button>
+    </div>
+  </div>
+</div>
 <script>
-  // print helper via keyboard optional — button in top via browser print
+(function () {
+  var UNLOCK = 'th-print-unlock-a12';
+  var PIN = '2612';
+  var backdrop = document.getElementById("printPinBackdrop");
+  var input = document.getElementById("printPinInput");
+  var btn = document.getElementById("printBtn");
+  if (!btn || !backdrop || !input) return;
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK) === "1"; } catch (e) { return false; }
+  }
+  function setUnlocked() {
+    try { sessionStorage.setItem(UNLOCK, "1"); } catch (e) {}
+  }
+  function openModal() {
+    backdrop.classList.add("open");
+    input.value = "";
+    setTimeout(function () { input.focus(); }, 30);
+  }
+  function closeModal() {
+    backdrop.classList.remove("open");
+    input.value = "";
+  }
+  function tryPrint() {
+    if (unlocked()) { window.print(); return; }
+    openModal();
+  }
+  function submitPin() {
+    var v = (input.value || "").trim();
+    if (v === PIN) {
+      setUnlocked();
+      closeModal();
+      window.print();
+    } else {
+      alert("PIN incorrecto. Pídeselo al teacher.");
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  btn.addEventListener("click", tryPrint);
+  document.getElementById("printPinCancel").addEventListener("click", closeModal);
+  document.getElementById("printPinOk").addEventListener("click", submitPin);
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitPin();
+    if (e.key === "Escape") closeModal();
+  });
+})();
 </script>
 </body>
 </html>
