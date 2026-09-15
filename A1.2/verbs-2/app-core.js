@@ -130,11 +130,15 @@ document.getElementById('btnReset').addEventListener('click', () => {
 });
 show();
 
-function runMc(prefix, bank, renderStem, doneText, waitNext) {
+function goBtn(prefix) {
+  return document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
+}
+function runMc(prefix, bank, renderStem, doneText) {
   let set = [];
   let q = 0;
   let score = 0;
   let locked = false;
+  const go = goBtn(prefix);
   function start() {
     set = shuffle(bank.slice()).slice(0, Math.min(10, bank.length));
     q = 0;
@@ -143,10 +147,7 @@ function runMc(prefix, bank, renderStem, doneText, waitNext) {
     document.getElementById(prefix + 'Play').hidden = false;
     document.getElementById(prefix + 'Done').hidden = true;
     document.getElementById(prefix + 'Score').textContent = '0';
-    if (waitNext) {
-      const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
-      if (go) go.hidden = true;
-    }
+    if (go) go.hidden = true;
     paint();
   }
   function paint() {
@@ -160,7 +161,6 @@ function runMc(prefix, bank, renderStem, doneText, waitNext) {
     const item = set[q];
     document.getElementById(prefix + 'Round').textContent = (q + 1) + ' / ' + set.length;
     document.getElementById(prefix + 'Fb').textContent = '';
-    const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
     if (go) go.hidden = true;
     renderStem(item);
     const opts = shuffle(item.opts.slice());
@@ -183,23 +183,18 @@ function runMc(prefix, bank, renderStem, doneText, waitNext) {
           document.getElementById(prefix + 'Fb').textContent = item.why || ('Use ' + item.a + '.');
         }
         document.getElementById(prefix + 'Score').textContent = String(score);
-        if (waitNext && go) {
+        if (go) {
           go.hidden = false;
           go.focus();
-        } else {
-          setTimeout(() => { q += 1; paint(); }, 900);
         }
       });
     });
   }
-  if (waitNext) {
-    const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
-    if (go) {
-      go.addEventListener('click', () => {
-        q += 1;
-        paint();
-      });
-    }
+  if (go) {
+    go.addEventListener('click', () => {
+      q += 1;
+      paint();
+    });
   }
   return start;
 }
@@ -221,7 +216,7 @@ const RIGHT = [
 ];
 const startRight = runMc('right', RIGHT, (item) => {
   document.getElementById('rightStem').textContent = item.stem;
-}, '', true);
+});
 document.getElementById('btnRightNew').addEventListener('click', startRight);
 
 /* ----- 03 Snap ----- */
@@ -266,6 +261,7 @@ function startJobs() {
   document.getElementById('jobsPlay').hidden = false;
   document.getElementById('jobsDone').hidden = true;
   document.getElementById('jobsScore').textContent = '0';
+  document.getElementById('btnJobsGo').hidden = true;
   showJobs();
 }
 function showJobs() {
@@ -282,6 +278,7 @@ function showJobs() {
   document.getElementById('jobsS1').textContent = item.s1;
   document.getElementById('jobsS2').textContent = item.s2;
   document.getElementById('jobsFb').textContent = '';
+  document.getElementById('btnJobsGo').hidden = true;
   document.getElementById('jobsOpts').innerHTML =
     '<button type="button" class="opt" data-v="same">Same meaning</button>' +
     '<button type="button" class="opt" data-v="diff">Two different jobs</button>';
@@ -297,10 +294,16 @@ function showJobs() {
       if (btn.dataset.v === want) jobsScore += 1;
       document.getElementById('jobsScore').textContent = String(jobsScore);
       document.getElementById('jobsFb').textContent = item.why;
-      setTimeout(() => { jobsQ += 1; showJobs(); }, 1400);
+      const go = document.getElementById('btnJobsGo');
+      go.hidden = false;
+      go.focus();
     });
   });
 }
+document.getElementById('btnJobsGo').addEventListener('click', () => {
+  jobsQ += 1;
+  showJobs();
+});
 document.getElementById('btnJobsNew').addEventListener('click', startJobs);
 
 /* ----- 05 Ask me ----- */
