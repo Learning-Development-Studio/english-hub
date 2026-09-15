@@ -130,7 +130,7 @@ document.getElementById('btnReset').addEventListener('click', () => {
 });
 show();
 
-function runMc(prefix, bank, renderStem, doneText) {
+function runMc(prefix, bank, renderStem, doneText, waitNext) {
   let set = [];
   let q = 0;
   let score = 0;
@@ -143,6 +143,10 @@ function runMc(prefix, bank, renderStem, doneText) {
     document.getElementById(prefix + 'Play').hidden = false;
     document.getElementById(prefix + 'Done').hidden = true;
     document.getElementById(prefix + 'Score').textContent = '0';
+    if (waitNext) {
+      const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
+      if (go) go.hidden = true;
+    }
     paint();
   }
   function paint() {
@@ -156,6 +160,8 @@ function runMc(prefix, bank, renderStem, doneText) {
     const item = set[q];
     document.getElementById(prefix + 'Round').textContent = (q + 1) + ' / ' + set.length;
     document.getElementById(prefix + 'Fb').textContent = '';
+    const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
+    if (go) go.hidden = true;
     renderStem(item);
     const opts = shuffle(item.opts.slice());
     document.getElementById(prefix + 'Opts').innerHTML = opts.map((o) =>
@@ -177,31 +183,45 @@ function runMc(prefix, bank, renderStem, doneText) {
           document.getElementById(prefix + 'Fb').textContent = item.why || ('Use ' + item.a + '.');
         }
         document.getElementById(prefix + 'Score').textContent = String(score);
-        setTimeout(() => { q += 1; paint(); }, 900);
+        if (waitNext && go) {
+          go.hidden = false;
+          go.focus();
+        } else {
+          setTimeout(() => { q += 1; paint(); }, 900);
+        }
       });
     });
+  }
+  if (waitNext) {
+    const go = document.getElementById('btn' + prefix.charAt(0).toUpperCase() + prefix.slice(1) + 'Go');
+    if (go) {
+      go.addEventListener('click', () => {
+        q += 1;
+        paint();
+      });
+    }
   }
   return start;
 }
 
 /* ----- 02 Right verb ----- */
 const RIGHT = [
-  { stem: 'She _____ hello to everyone.', opts: ['says', 'tells', 'asks'], a: 'says', why: 'say hello.' },
-  { stem: 'Please _____ me your name.', opts: ['tell', 'say', 'ask'], a: 'tell', why: 'tell + me.' },
-  { stem: 'Can I _____ you a question?', opts: ['ask', 'tell', 'say'], a: 'ask', why: 'ask a question.' },
-  { stem: 'I _____ a present on my birthday.', opts: ['get', 'bring', 'find'], a: 'get', why: 'get = receive.' },
-  { stem: 'Please _____ your book to class.', opts: ['bring', 'get', 'leave'], a: 'bring', why: 'bring = take it with you.' },
-  { stem: 'I _____ breakfast every morning.', opts: ['make', 'do', 'get'], a: 'make', why: 'make breakfast.' },
-  { stem: 'I _____ the answer.', opts: ['know', 'think', 'seem'], a: 'know', why: 'know = I have the answer.' },
-  { stem: 'I _____ she is at home, but I’m not sure.', opts: ['think', 'know', 'mean'], a: 'think', why: 'think = not 100% sure.' },
-  { stem: 'She _____ tired today.', opts: ['seems', 'feels', 'knows'], a: 'seems', why: 'seem = she looks tired (I see her).' },
-  { stem: 'I _____ tired today.', opts: ['feel', 'seem', 'mean'], a: 'feel', why: 'feel = it is my body.' },
-  { stem: 'What does this word _____?', opts: ['mean', 'think', 'know'], a: 'mean', why: 'What does it mean?' },
-  { stem: '_____ the book on the table.', opts: ['Put', 'Keep', 'Bring'], a: 'Put', why: 'put = place it there.' }
+  { stem: 'She _____ hello to everyone.', opts: ['says', 'tells', 'asks'], a: 'says', why: 'We say hello. We tell someone a story.' },
+  { stem: 'Please _____ me your name.', opts: ['tell', 'say', 'ask'], a: 'tell', why: 'Tell + me: tell me your name. Not say me.' },
+  { stem: 'Can I _____ you a question?', opts: ['ask', 'tell', 'say'], a: 'ask', why: 'Ask a question. Ask you a question.' },
+  { stem: 'I _____ a present on my birthday.', opts: ['get', 'bring', 'find'], a: 'get', why: 'Get a present = someone gives it to you.' },
+  { stem: 'Please _____ your book to class.', opts: ['bring', 'get', 'leave'], a: 'bring', why: 'Bring = take it with you to that place.' },
+  { stem: 'I _____ breakfast every morning.', opts: ['make', 'do', 'get'], a: 'make', why: 'We make breakfast. We don’t do breakfast.' },
+  { stem: 'I _____ the answer.', opts: ['know', 'think', 'seem'], a: 'know', why: 'Know = I have the answer. I am sure.' },
+  { stem: 'I _____ she is at home, but I’m not sure.', opts: ['think', 'know', 'mean'], a: 'think', why: 'Think = I am not 100% sure.' },
+  { stem: 'She _____ tired today.', opts: ['seems', 'feels', 'knows'], a: 'seems', why: 'Seem = she looks tired. I see her.' },
+  { stem: 'I _____ tired today.', opts: ['feel', 'seem', 'mean'], a: 'feel', why: 'Feel = it is my body. I feel tired.' },
+  { stem: 'What does this word _____?', opts: ['mean', 'think', 'know'], a: 'mean', why: 'What does this word mean?' },
+  { stem: '_____ the book on the table.', opts: ['Put', 'Keep', 'Bring'], a: 'Put', why: 'Put = place it there. Put the book on the table.' }
 ];
 const startRight = runMc('right', RIGHT, (item) => {
   document.getElementById('rightStem').textContent = item.stem;
-});
+}, '', true);
 document.getElementById('btnRightNew').addEventListener('click', startRight);
 
 /* ----- 03 Snap ----- */
