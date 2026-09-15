@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../../../assets/logo.png">
+  <title>Teacher plan · Verbs 1 · A1.2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843; --ink:#172033; --muted:#6b7fa3; --soft:#f4fbfa; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); background: linear-gradient(180deg,#f7fafc,#eef4f7); line-height: 1.45; }
+    .shell { max-width: 920px; margin: 0 auto; padding: 20px 14px 48px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--navy); color:#fff; border-radius:18px; padding:12px 16px; margin-bottom:16px; box-shadow:0 16px 34px rgba(11,31,58,.22); }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark { width:48px; height:48px; border-radius:999px; background:#fff; padding:3px; overflow:hidden; flex:0 0 auto; }
+    .brand-mark img { width:100%; height:100%; border-radius:999px; object-fit:cover; display:block; }
+    .brand h1 { font-size:1.05rem; line-height:1.1; }
+    .brand p { color:#d7ecea; font-size:.78rem; margin-top:3px; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; text-decoration:none; cursor:pointer; color:#fff; }
+    .btn.teal { background:#5bb8b0; } .btn.teal:hover { background:#238d85; }
+    .btn.navy { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); }
+    .hero { background:#f4fbfa; border-radius:18px; padding:22px 20px; margin-bottom:14px; border:1px solid rgba(11,31,58,.08); }
+    .eyebrow { color:var(--teal-dark); font-size:.72rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .hero h2 { font-size:clamp(1.4rem,4vw,2rem); color:var(--navy); margin:8px 0; letter-spacing:-.02em; }
+    .hero h2 span { color:var(--teal); }
+    .hero p { color:var(--muted); max-width:640px; }
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .pill { background:#fff; border:1px solid rgba(11,31,58,.1); border-radius:999px; padding:6px 11px; font-size:.75rem; font-weight:800; color:var(--navy); }
+    .card { background:#fff; border-radius:16px; padding:16px 18px; margin-bottom:12px; box-shadow:0 12px 28px rgba(20,35,60,.06); border:1px solid rgba(11,31,58,.06); }
+    .card h3 { color:var(--navy); font-size:1.05rem; margin-bottom:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .time { font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--teal-dark); background:var(--soft); border-radius:999px; padding:4px 8px; }
+    .tag { font-size:.68rem; font-weight:800; color:#8a6a1d; background:#fff7e6; border-radius:999px; padding:4px 8px; }
+    .game { font-size:.68rem; font-weight:800; color:#fff; background:var(--navy); border-radius:999px; padding:4px 8px; }
+    .aim { color:var(--muted); font-size:.9rem; margin-bottom:10px; }
+    ol, ul { padding-left:1.2em; }
+    li { margin:0 0 6px; }
+    .say { background:var(--soft); border-left:4px solid var(--teal); padding:10px 12px; border-radius:0 12px 12px 0; margin:10px 0; font-size:.92rem; }
+    .board { border:2px dashed rgba(11,31,58,.2); border-radius:12px; padding:12px; background:#fafbfc; margin-top:8px; font-size:.9rem; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media(max-width:700px){ .grid2{grid-template-columns:1fr;} .brand p{display:none;} }
+    .col { background:var(--soft); border-radius:12px; padding:12px; }
+    .col h4 { font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); margin-bottom:6px; }
+    .score { display:inline-block; background:#fff7e6; color:#8a6a1d; font-weight:800; font-size:.78rem; border-radius:8px; padding:4px 8px; margin-top:6px; }
+    footer { text-align:center; color:var(--muted); font-size:.78rem; padding:18px 0 8px; }
+
+    .print-hint { color:var(--muted); font-size:.72rem; margin-top:8px; font-weight:600; }
+    .print-pin-backdrop { display:none; position:fixed; inset:0; background:rgba(11,31,58,.45); z-index:9998; align-items:center; justify-content:center; padding:16px; }
+    .print-pin-backdrop.open { display:flex; }
+    .print-pin-modal { background:#fff; border-radius:16px; padding:20px 22px; max-width:340px; width:100%; box-shadow:0 20px 50px rgba(11,31,58,.28); border:1px solid rgba(11,31,58,.08); }
+    .print-pin-modal h4 { color:var(--navy); font-size:1rem; margin:0 0 6px; }
+    .print-pin-modal p { color:var(--muted); font-size:.82rem; margin:0 0 12px; }
+    .print-pin-modal input { width:100%; border:1.5px solid rgba(11,31,58,.18); border-radius:10px; padding:10px 12px; font-size:1rem; font-weight:700; letter-spacing:.12em; text-align:center; color:var(--navy); outline:none; }
+    .print-pin-modal input:focus { border-color:var(--teal); }
+    .print-pin-actions { display:flex; gap:8px; margin-top:14px; justify-content:flex-end; }
+    .print-pin-actions button { border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; cursor:pointer; }
+    .print-pin-actions .cancel { background:rgba(11,31,58,.08); color:var(--navy); }
+    .print-pin-actions .ok { background:var(--teal); color:#fff; }
+    .print-pin-actions .ok:hover { background:var(--teal-dark); }
+    @media print {
+      .topbar .actions, .print-pin-backdrop, .print-hint { display:none !important; }
+      body{background:#fff;}
+      .card{break-inside:avoid;box-shadow:none;}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><img src="../../../assets/logo.png" alt=""></div>
+      <div>
+        <h1>Verbs 1 · High-frequency deck</h1>
+        <p>Teacher Hub · dynamic class plan</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn teal" href="../../../A1.2/verbs-1/" target="_blank" rel="noopener">Student page</a>
+      <a class="btn navy" href="../../">Teacher Hub</a>
+      <span class="btn navy" style="cursor:default">A1.2</span>
+      <button type="button" class="btn teal" id="printBtn">Imprimir / PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Teacher plan · games first</div>
+    <h2>Own the verbs. <span>Flip, steal, mime.</span></h2>
+    <p>Memorization day — not deep analysis. Verb Sprint, Flip Race, Steal a Verb, classroom Name race, You vs Class Speed — then drill stations that drive the deck. These 30 words feed Simple Present later.</p>
+    <div class="pills">
+      <span class="pill">≈ 55 min</span>
+      <span class="pill">1:1 or small group</span>
+      <span class="pill">Deck → Race → Stations</span>
+      <span class="pill">30 high-frequency verbs</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Aim</h3>
+    <p class="aim">Lock in <strong>30 high-frequency daily verbs</strong> (photo → word → sound) so students can name, group, write, and mime them fast — ready for Simple Present next.</p>
+    <ul>
+      <li><strong>Can-do:</strong> Recognize and produce these verbs from a photo; start using them in simple sentences.</li>
+      <li><strong>Materials:</strong> Student page (Verb deck + games) on phone/laptop; optional board for Steal / races.</li>
+      <li><strong>Focus:</strong> memorization &amp; approach — keep grammar light (one short hit only).</li>
+    </ul>
+    <p class="print-hint">Imprimir pide el PIN del nivel (ciclo 26).</p>
+  </section>
+
+  <section class="card">
+    <h3>0 · Warm-up <span class="time">5–7 min</span> <span class="game">Game</span></h3>
+    <p class="aim"><strong>Verb Sprint + Mime warm-up</strong> — body and voice before the deck.</p>
+    <ol>
+      <li><strong>Verb Sprint (40s):</strong> <em>“Name verbs you do every day — GO.”</em> Messy list on the board (eat, walk, study…).</li>
+      <li><strong>Mime warm-up:</strong> you mime 4–5 from the set (<em>drink · run · open · write · sleep</em>). They shout the verb — no Spanish.</li>
+      <li>Circle 6 verbs from their list that match the deck. Tease: <em>“Today we own thirty of these.”</em></li>
+    </ol>
+    <div class="say"><strong>Line:</strong> “No essays today. Photo → verb → yours. Flip it, steal it, mime it.”</div>
+    <div class="score">Optional: +1 You per clean mime guess in under 3 seconds</div>
+  </section>
+
+  <section class="card">
+    <h3>1 · Vocabulary <span class="time">8–10 min</span> <span class="tag">Notice</span> <span class="game">Flip Race</span></h3>
+    <p class="aim">Open the <strong>Verb deck</strong> — choral + flip race through a chunk of the 30.</p>
+    <div class="grid2">
+      <div class="col">
+        <h4>Core slice (examples)</h4>
+        <p>have · do · go · come · eat · drink · sleep · wake up · get up · walk · run · sit · stand · read · write</p>
+      </div>
+      <div class="col">
+        <h4>Also in the deck</h4>
+        <p>listen · speak · watch · look · work · study · cook · buy · pay · open · close · give · take · help · wait</p>
+      </div>
+    </div>
+    <ol>
+      <li>Open <strong>Verb deck</strong>. Photo first — they guess; then flip for word + audio.</li>
+      <li><strong>Choral:</strong> they say the verb with the audio (2× each card for the first 10–12).</li>
+      <li><strong>Flip Race:</strong> you show photo only; race to say the verb before the flip. Wrong = teacher flips and they echo once.</li>
+    </ol>
+    <div class="board"><strong>Teacher cue:</strong> Space = flip · arrows = next/prev · keep the same side when racing through cards.</div>
+  </section>
+
+  <section class="card">
+    <h3>2 · Vocab activity <span class="time">10–12 min</span> <span class="tag">Notice</span> <span class="game">Game</span></h3>
+    <p class="aim"><strong>Steal a Verb</strong> + <strong>Name the verb</strong> as a classroom race + <strong>Speed round You vs Class</strong>.</p>
+    <ol>
+      <li><strong>Steal a Verb:</strong> board three columns (Move / Food / School). Call verbs from the deck (<em>go · eat · read · cook · walk · study…</em>). They “steal” by placing the verb in a column. Argue once, then move on.</li>
+      <li><strong>Name race:</strong> open <strong>Name the verb</strong> on the student page. Classroom mode: they shout / tap — first correct answer scores. Run 1 full set of 10.</li>
+      <li><strong>Speed round · You vs Class:</strong> open <strong>Speed round</strong> (45s). Track Class score from the page; you play a parallel mental count of “teacher wins” on misses. Announce the final: You vs Class.</li>
+    </ol>
+    <div class="say"><strong>Energy line:</strong> “Steal it, name it, beat the clock. Same 30 verbs — different weapons.”</div>
+    <div class="score">Keep a sticky score: Steal placements · Name hits · Speed Class total</div>
+  </section>
+
+  <section class="card">
+    <h3>3 · Grammar hit <span class="time">4–5 min</span> <span class="tag">Grammar</span></h3>
+    <p class="aim"><strong>One short bridge</strong> — these verbs will feed Simple Present later. Do not unpack -s / don’t today.</p>
+    <ol>
+      <li>Board two model lines only: <em>I eat breakfast.</em> · <em>She walks to school.</em></li>
+      <li>Students pick any 3 deck verbs and say one I-sentence each (base form is fine).</li>
+      <li>Tease next lessons: Affirmative &amp; Negative / Questions will use this same set.</li>
+    </ol>
+    <div class="board"><strong>Keep it tiny:</strong> verb ownership now → habit sentences soon. No trap hunt, no -s duel today.</div>
+  </section>
+
+  <section class="card">
+    <h3>4 · Drill stations <span class="time">14–16 min</span> <span class="tag">Practice</span> <span class="game">Stations</span></h3>
+    <p class="aim">Platform drills as timed mini-games — map to student activities (don’t rename the lesson after them).</p>
+    <ul>
+      <li><strong>Name the verb</strong> — 3 min sprint (second pass if time)</li>
+      <li><strong>Speed round</strong> — 1–2 runs · chase a personal best</li>
+      <li><strong>Verb groups</strong> — Move / Food / School · check &amp; fix misses aloud</li>
+      <li><strong>Write the verb</strong> — 45s typing race · spelling counts</li>
+      <li><strong>Mime it</strong> — 4–6 photos · act first, reveal after</li>
+    </ul>
+    <ol>
+      <li>Rotate: ~3 min per station (skip Write or a second Speed if short).</li>
+      <li>After Groups: they read one wrong placement and fix it out loud.</li>
+      <li>End with <strong>Can-do</strong> checkboxes — honest ticks only.</li>
+    </ol>
+    <div class="say"><strong>Teacher stay-out:</strong> don’t lecture meanings. Photo + audio + repetition does the work.</div>
+  </section>
+
+  <section class="card">
+    <h3>Exit ticket <span class="time">3–4 min</span></h3>
+    <ol>
+      <li>They choose <strong>5 verbs they own</strong> from the deck.</li>
+      <li>One simple sentence each (Simple Present ok): <em>I wake up at 7. · I help my sister.</em></li>
+      <li>You only mark ownership + clarity — celebrate verbs they can say without looking.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>Timing</h3>
+    <p class="aim">Warm-up 5–7 · Deck / Flip Race 8–10 · Steal + Name + Speed 10–12 · Grammar hit 4–5 · Stations 14–16 · Exit 3–4 → <strong>~55 min</strong>. Cut a station or second Speed run if short.</p>
+  </section>
+
+  <footer>Israel Ventura · Teacher Hub · A1.2 Verbs 1</footer>
+</div>
+<div class="print-pin-backdrop" id="printPinBackdrop" aria-hidden="true">
+  <div class="print-pin-modal" role="dialog" aria-labelledby="printPinTitle">
+    <h4 id="printPinTitle">PIN para imprimir</h4>
+    <p>Escribe el PIN del nivel (ciclo 26) para generar PDF.</p>
+    <input id="printPinInput" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+    <div class="print-pin-actions">
+      <button type="button" class="cancel" id="printPinCancel">Cancelar</button>
+      <button type="button" class="ok" id="printPinOk">Imprimir</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var UNLOCK = 'th-print-unlock-a12';
+  var PIN = '2612';
+  var backdrop = document.getElementById("printPinBackdrop");
+  var input = document.getElementById("printPinInput");
+  var btn = document.getElementById("printBtn");
+  if (!btn || !backdrop || !input) return;
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK) === "1"; } catch (e) { return false; }
+  }
+  function setUnlocked() {
+    try { sessionStorage.setItem(UNLOCK, "1"); } catch (e) {}
+  }
+  function openModal() {
+    backdrop.classList.add("open");
+    input.value = "";
+    setTimeout(function () { input.focus(); }, 30);
+  }
+  function closeModal() {
+    backdrop.classList.remove("open");
+    input.value = "";
+  }
+  function tryPrint() {
+    if (unlocked()) { window.print(); return; }
+    openModal();
+  }
+  function submitPin() {
+    var v = (input.value || "").trim();
+    if (v === PIN) {
+      setUnlocked();
+      closeModal();
+      window.print();
+    } else {
+      alert("PIN incorrecto. Pídeselo al teacher.");
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  btn.addEventListener("click", tryPrint);
+  document.getElementById("printPinCancel").addEventListener("click", closeModal);
+  document.getElementById("printPinOk").addEventListener("click", submitPin);
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitPin();
+    if (e.key === "Escape") closeModal();
+  });
+})();
+</script>
+</body>
+</html>
