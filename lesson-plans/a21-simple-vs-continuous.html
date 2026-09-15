@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson plan · Present Simple vs Continuous · A2.1</title>
+  <style>
+    :root { --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843; --ink:#172033; --muted:#6b7fa3; --line:#e4ebf0; --soft:#f4fbfa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); background: #eef3f7; line-height: 1.45; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 22px 14px 48px; }
+    header { background: var(--navy); color: #fff; border-radius: 16px; padding: 20px 22px; margin-bottom: 14px; }
+    header h1 { margin: 0 0 6px; font-size: 1.35rem; }
+    header p { margin: 0; color: #d7ecea; font-size: .92rem; }
+    header a { color: #9fe0d8; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .pill { background: rgba(91,184,176,.35); border-radius: 999px; padding: 5px 10px; font-size: .75rem; font-weight: 800; }
+    .toolbar { display: flex; gap: 8px; margin-bottom: 14px; }
+    .toolbar button { border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 800; background: var(--teal); color: #fff; cursor: pointer; }
+    .card { background: #fff; border: 1px solid rgba(11,31,58,.08); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px; box-shadow: 0 8px 22px rgba(20,35,60,.05); }
+    .card h2 { margin: 0 0 8px; color: var(--navy); font-size: 1.08rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+    .time { font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--teal-dark); background: var(--soft); border-radius: 999px; padding: 4px 8px; }
+    .page { font-size: .78rem; font-weight: 800; color: #8a6a1d; background: #fff7e6; border-radius: 999px; padding: 4px 8px; }
+    .aim { color: var(--muted); margin: 0 0 10px; font-size: .92rem; }
+    ol, ul { margin: 0; padding-left: 1.2em; }
+    li { margin: 0 0 6px; }
+    .say { background: var(--soft); border-left: 4px solid var(--teal); padding: 10px 12px; border-radius: 0 10px 10px 0; margin: 10px 0; }
+    .board { border: 1px dashed rgba(11,31,58,.25); border-radius: 12px; padding: 12px; background: #fafbfc; margin-top: 8px; }
+    .board strong { color: var(--navy); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+    .col { background: var(--soft); border-radius: 10px; padding: 10px 12px; }
+    .col h3 { margin: 0 0 6px; font-size: .85rem; color: var(--teal-dark); text-transform: uppercase; letter-spacing: .06em; }
+    footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 16px; }
+
+    .print-hint { color: var(--muted); font-size: .72rem; margin-top: 8px; font-weight: 600; }
+    .print-pin-backdrop { display: none; position: fixed; inset: 0; background: rgba(11,31,58,.45); z-index: 9998; align-items: center; justify-content: center; padding: 16px; }
+    .print-pin-backdrop.open { display: flex; }
+    .print-pin-modal { background: #fff; border-radius: 16px; padding: 20px 22px; max-width: 340px; width: 100%; box-shadow: 0 20px 50px rgba(11,31,58,.28); border: 1px solid rgba(11,31,58,.08); }
+    .print-pin-modal h4 { color: var(--navy); font-size: 1rem; margin: 0 0 6px; }
+    .print-pin-modal p { color: var(--muted); font-size: .82rem; margin: 0 0 12px; }
+    .print-pin-modal input { width: 100%; border: 1.5px solid rgba(11,31,58,.18); border-radius: 10px; padding: 10px 12px; font-size: 1rem; font-weight: 700; letter-spacing: .12em; text-align: center; color: var(--navy); outline: none; box-sizing: border-box; }
+    .print-pin-modal input:focus { border-color: var(--teal); }
+    .print-pin-actions { display: flex; gap: 8px; margin-top: 14px; justify-content: flex-end; }
+    .print-pin-actions button { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 800; font-size: .82rem; cursor: pointer; }
+    .print-pin-actions .cancel { background: rgba(11,31,58,.08); color: var(--navy); }
+    .print-pin-actions .ok { background: var(--teal); color: #fff; }
+    @media print {
+      body { background: #fff; }
+      .toolbar, .print-pin-backdrop, .print-hint { display: none !important; }
+      .card { break-inside: avoid; box-shadow: none; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Lesson plan · Present Simple vs Continuous</h1>
+      <p>A2.1 · habits vs now · uses the live hub lesson</p>
+      <p style="margin-top:8px"><a href="https://learning-development-studio.github.io/english-hub/A2.1/present-simple-vs-continuous/" target="_blank" rel="noopener">Open student page</a></p>
+      <div class="meta">
+        <span class="pill">≈ 55–60 min</span>
+        <span class="pill">1:1 or small group</span>
+        <span class="pill">Platform: Notice → Grammar → Analyse → Listening</span>
+      </div>
+    </header>
+
+    <div class="toolbar"><button type="button" id="printBtn">Imprimir / PDF</button></div>
+
+    <section class="card">
+      <h2>Lesson aim</h2>
+      <p class="aim">Students can contrast <strong>Present Simple</strong> (habits · facts · permanent) with <strong>Present Continuous</strong> (now · temporary · in progress) and <em>justify</em> the form with signal words — not only choose answers.</p>
+      <ul>
+        <li><strong>Can-do:</strong> Speak and write routines vs what’s happening now / this week without stative traps.</li>
+        <li><strong>Materials:</strong> Hub page (phone/laptop), board or chat for warm-up and trap hunt.</li>
+      </ul>
+      <p class="print-hint">Imprimir pide el PIN del nivel (ciclo 26).</p>
+    </section>
+
+    <section class="card">
+      <h2>0 · Warm-up <span class="time">5–7 min</span></h2>
+      <p class="aim"><strong>Habit Sprint</strong> — activate routines before opening the page.</p>
+      <ol>
+        <li>40s: <em>“Name things you usually do every week — GO.”</em></li>
+        <li>30s: <em>“What’s happening right now?”</em></li>
+        <li>Sort shout: point at a line — <em>HABIT!</em> or <em>NOW!</em></li>
+      </ol>
+      <div class="say"><strong>Teacher line:</strong> “Two presents, two jobs. Simple = what’s normal. Continuous = now or for a short time.”</div>
+    </section>
+
+    <section class="card">
+      <h2>1 · Vocabulary <span class="time">6 min</span> <span class="page">Page · Notice</span></h2>
+      <p class="aim">Meet contrast pairs + signal words.</p>
+      <div class="grid2">
+        <div class="col">
+          <h3>Simple signals</h3>
+          <ul>
+            <li>usually · every day</li>
+            <li>on Mondays · always</li>
+            <li>sometimes · never</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>Continuous signals</h3>
+          <ul>
+            <li>now · look! · listen!</li>
+            <li>at the moment · today</li>
+            <li>this week / this month</li>
+          </ul>
+        </div>
+      </div>
+      <ol>
+        <li>Open <strong>1 Notice</strong>. Chorus bold verbs in Pairs A–D.</li>
+        <li>Signal flash: you say a signal — they fire Simple or Continuous.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>2 · Vocab activity <span class="time">8–10 min</span> <span class="page">Page · Notice</span></h2>
+      <p class="aim"><strong>Why Race</strong> + <strong>Contrast Memory</strong>.</p>
+      <ol>
+        <li>Students answer the thinking prompts under pairs a–d.</li>
+        <li>Why Race: you read a bubble; first clean “Because…” wins.</li>
+        <li>Contrast Memory (60s): hide page; rewrite 2 full contrasts; reopen and check.</li>
+      </ol>
+      <div class="board">
+        <strong>Page pairs:</strong><br>
+        takes / is taking · lives / is living · usually cook / is cooking · works / is working
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3 · Grammar presentation 1 <span class="time">7 min</span> <span class="page">Page · Grammar</span></h2>
+      <p class="aim">Habits vs now — two big cards.</p>
+      <div class="grid2">
+        <div class="col">
+          <h3>Present Simple</h3>
+          <p><strong>habits · routines · facts · permanent</strong></p>
+          <p>I/you/we/they + verb · he/she/it + -s/-es</p>
+        </div>
+        <div class="col">
+          <h3>Present Continuous</h3>
+          <p><strong>now · temporary · in progress</strong></p>
+          <p>am / is / are + verb-ing</p>
+        </div>
+      </div>
+      <div class="say"><strong>Concept check:</strong> “Look! She takes a taxi today — fix it. He is living in Celaya — forever fact or temporary?”</div>
+    </section>
+
+    <section class="card">
+      <h2>4 · Grammar presentation 2 <span class="time">7–8 min</span> <span class="page">Page · Grammar</span></h2>
+      <p class="aim">Signals + stative verbs.</p>
+      <ul>
+        <li><strong>usually / every day</strong> → Simple</li>
+        <li><strong>now / look! / at the moment</strong> → Continuous</li>
+        <li><strong>today / this week</strong> → often Continuous (temporary)</li>
+        <li><strong>know, like, want, believe, understand</strong> → usually Simple</li>
+      </ul>
+      <div class="say"><strong>Micro-drill:</strong> Fire round with cues (usually / look! / this week / know). Then skim Grammar analysis Q1–3.</div>
+    </section>
+
+    <section class="card">
+      <h2>5 · Grammar presentation 3 <span class="time">5–6 min</span> <span class="page">Trap hunt</span></h2>
+      <p class="aim">Form traps + stative repairs.</p>
+      <ol>
+        <li><strong>Trap hunt:</strong> you read a wrong sentence; they repair it aloud.</li>
+        <li>Repair race: 5 wrong → 5 clean lines.</li>
+      </ol>
+      <div class="board">
+        <strong>Model traps:</strong><br>
+        I am go to school. · She usually going home by bus. · Look! He take a taxi.<br>
+        I am knowing the answer. · I am wanting a sandwich. · Water is boiling at 100°C. → boils
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>6 · Drill <span class="time">12–15 min</span> <span class="page">Analyse · Listening A–D</span></h2>
+      <p class="aim">Controlled practice on the platform (fast rounds).</p>
+      <ol>
+        <li>Open student tabs as timed stations:</li>
+      </ol>
+      <ul>
+        <li><strong>3 Analyse</strong> — 4 of 6 sentences; justify tense + signal — 4–5 min</li>
+        <li><strong>4 Listening · After class</strong> — play audio; A Who said it → B Habit or now → C T/F + evidence → D Word in context — 6–7 min</li>
+        <li><strong>5 Reading</strong> (stretch) — inference 1–2 — 3 min</li>
+        <li><strong>6 Speaking</strong> (stretch) — Contrast or Repair prompt — 2–3 min</li>
+      </ul>
+      <ol start="2">
+        <li>After each block: one miss → student explains the <em>why</em>.</li>
+        <li>Optional score: 1 point per first-try correct.</li>
+      </ol>
+      <div class="say"><strong>Listening tip:</strong> Play the page audio (<code>after-class.mp3</code>). Script button stays under the audio bar — keep it closed until Part A is done. Never “teacher will read” the script.</div>
+      <div class="say"><strong>If time left:</strong> <strong>7 Writing · Two timelines</strong> starter (3 sentences) or one more Speaking prompt.</div>
+    </section>
+
+    <section class="card">
+      <h2>Exit ticket <span class="time">2 min</span></h2>
+      <ol>
+        <li>3 lines: 1 Simple habit + 1 Continuous now/this week + 1 contrast (<em>usually… but today…</em>).</li>
+        <li>You only correct tense / signal errors.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Timing snapshot</h2>
+      <ul>
+        <li>Warm-up 5–7 · Notice 6 · Why Race / Memory 8–10</li>
+        <li>Grammar 1 + 2 + 3 ≈ 20 · Drill 12–15 · Exit 2</li>
+        <li><strong>Total ≈ 55–60 min</strong> (cut Reading stretch or repair race if short; keep Listening A–B)</li>
+      </ul>
+    </section>
+
+    <footer>Israel Ventura · A2.1 Simple vs Continuous · teacher lesson plan</footer>
+  </div>
+<div class="print-pin-backdrop" id="printPinBackdrop" aria-hidden="true">
+  <div class="print-pin-modal" role="dialog" aria-labelledby="printPinTitle">
+    <h4 id="printPinTitle">PIN para imprimir</h4>
+    <p>Escribe el PIN del nivel (ciclo 26) para generar PDF.</p>
+    <input id="printPinInput" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+    <div class="print-pin-actions">
+      <button type="button" class="cancel" id="printPinCancel">Cancelar</button>
+      <button type="button" class="ok" id="printPinOk">Imprimir</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var UNLOCK = 'th-print-unlock-a21';
+  var PIN = '2621';
+  var backdrop = document.getElementById("printPinBackdrop");
+  var input = document.getElementById("printPinInput");
+  var btn = document.getElementById("printBtn");
+  if (!btn || !backdrop || !input) return;
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK) === "1"; } catch (e) { return false; }
+  }
+  function setUnlocked() {
+    try { sessionStorage.setItem(UNLOCK, "1"); } catch (e) {}
+  }
+  function openModal() {
+    backdrop.classList.add("open");
+    input.value = "";
+    setTimeout(function () { input.focus(); }, 30);
+  }
+  function closeModal() {
+    backdrop.classList.remove("open");
+    input.value = "";
+  }
+  function tryPrint() {
+    if (unlocked()) { window.print(); return; }
+    openModal();
+  }
+  function submitPin() {
+    var v = (input.value || "").trim();
+    if (v === PIN) {
+      setUnlocked();
+      closeModal();
+      window.print();
+    } else {
+      alert("PIN incorrecto. Pídeselo al teacher.");
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  btn.addEventListener("click", tryPrint);
+  document.getElementById("printPinCancel").addEventListener("click", closeModal);
+  document.getElementById("printPinOk").addEventListener("click", submitPin);
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitPin();
+    if (e.key === "Escape") closeModal();
+  });
+})();
+</script>
+</body>
+</html>
