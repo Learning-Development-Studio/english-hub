@@ -1,1 +1,314 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../../assets/logo.png"><link rel="apple-touch-icon" href="../../assets/logo.png"><title>Verbs 2 | A1.2 | Learning &amp; Development Studio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><div class="shell"><header class="topbar"><div class="brand"><div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div><div><h1>Verbs 2</h1><p>A1.2 · Verb set 2</p></div></div><div class="topbar-actions"><a class="home-btn" href="../">Home</a><span class="mode-pill">A1.2</span></div></header><section class="hero"><div class="hero-inner"><span class="eyebrow">A1.2 · Verb set 2</span><h2>Next thirty <span>verbs</span></h2><p>Thirty more high-frequency verbs. Photo first, then flip the card for the verb and an example.</p></div></section><p class="activities-label">Activities</p><div class="activities" id="activities"><details class="activity" id="act-deck" open><summary><span class="activity-num n1">01</span><div class="activity-meta"><h3>Verb <span>deck</span></h3><p>30 verbs. Flip the card for the word and an example.</p></div><span class="activity-chevron" aria-hidden="true">▾</span></summary><div class="activity-body"><div class="activity-body-inner"><p class="intro">The back shows the verb and an example. Today just learn the word.</p><div class="stage"><div class="card-shell"><div class="flip" id="flipCard" role="button" tabindex="0" aria-label="Flip verb card"><div class="flip-inner"><div class="face front"><img id="frontImg" alt="" src="assets/front/01.png"></div><div class="face back"><img id="backImg" alt="" src="assets/back/01.png"><button type="button" class="audio-btn" id="btnAudio" title="Play pronunciation" aria-label="Play verb audio"><svg id="iconPlay" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3.5L12 19V5L7.5 9H4z" fill="currentColor"/><path d="M15.5 8.5a4.5 4.5 0 010 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17.8 6a7.5 7.5 0 010 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button></div></div></div></div><div class="verb-name" id="verbName">MAKE</div><div class="controls"><div class="nav-row"><button type="button" class="nav-btn" id="btnPrev" aria-label="Previous">←</button><div class="counter" id="counter">1 / 30</div><button type="button" class="nav-btn" id="btnNext" aria-label="Next">→</button></div><div class="nav-row"><button type="button" class="action-btn" id="btnFlip">Flip card</button><button type="button" class="action-btn" id="btnShuffle">Shuffle</button><button type="button" class="action-btn" id="btnReset">Reset order</button></div><p class="hint"><strong>Space</strong> to flip · <strong>← →</strong> on the keyboard keeps the same side</p></div></div></div></div></details></div><footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.2</footer></div><script src="app-core.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/logo.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Verbs 2 | A1.2 | Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div>
+        <div>
+          <h1>Verbs 2</h1>
+          <p>A1.2 · Verb set 2</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="home-btn" href="../">Home</a>
+        <span class="mode-pill">A1.2</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">A1.2 · Verb set 2</span>
+        <h2>Next thirty <span>verbs</span></h2>
+        <p>Learn the cards. Then practise: the right verb, collocations, two meanings, questions, and a short game with <strong>put / keep / leave / bring</strong>.</p>
+      </div>
+    </section>
+
+    <p class="activities-label">Activities</p>
+    <div class="activities" id="activities">
+
+      <details class="activity" id="act-deck" open>
+        <summary>
+          <span class="activity-num n1">01</span>
+          <div class="activity-meta">
+            <h3>Verb <span>deck</span></h3>
+            <p>30 verbs. Flip the card for the word and an example.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <p class="intro">The back shows the verb and an example.</p>
+            <div class="stage">
+              <div class="card-shell">
+                <div class="flip" id="flipCard" role="button" tabindex="0" aria-label="Flip verb card">
+                  <div class="flip-inner">
+                    <div class="face front"><img id="frontImg" alt="" src="assets/front/01.png"></div>
+                    <div class="face back">
+                      <img id="backImg" alt="" src="assets/back/01.png">
+                      <button type="button" class="audio-btn" id="btnAudio" title="Play pronunciation" aria-label="Play verb audio">
+                        <svg id="iconPlay" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 9v6h3.5L12 19V5L7.5 9H4z" fill="currentColor"/>
+                          <path d="M15.5 8.5a4.5 4.5 0 010 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                          <path d="M17.8 6a7.5 7.5 0 010 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                        <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+                          <rect x="6" y="5" width="4" height="14" rx="1"/>
+                          <rect x="14" y="5" width="4" height="14" rx="1"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="verb-name" id="verbName">MAKE</div>
+              <div class="controls">
+                <div class="nav-row">
+                  <button type="button" class="nav-btn" id="btnPrev" aria-label="Previous">←</button>
+                  <div class="counter" id="counter">1 / 30</div>
+                  <button type="button" class="nav-btn" id="btnNext" aria-label="Next">→</button>
+                </div>
+                <div class="nav-row">
+                  <button type="button" class="action-btn" id="btnFlip">Flip card</button>
+                  <button type="button" class="action-btn" id="btnShuffle">Shuffle</button>
+                  <button type="button" class="action-btn" id="btnReset">Reset order</button>
+                </div>
+                <p class="hint"><strong>Space</strong> to flip · <strong>← →</strong> to change card</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-right">
+        <summary>
+          <span class="activity-num n2">02</span>
+          <div class="activity-meta">
+            <h3>Right <span>verb</span></h3>
+            <p>Three close verbs. Choose the one that fits.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="rightRound">1 / 10</em></span>
+              <span class="stat">Score <em id="rightScore">0</em></span>
+            </div>
+            <div id="rightPlay">
+              <p class="stem" id="rightStem"></p>
+              <div class="opts" id="rightOpts"></div>
+              <p class="fb" id="rightFb"></p>
+            </div>
+            <div id="rightDone" hidden>
+              <p class="stem" id="rightFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnRightNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-snap">
+        <summary>
+          <span class="activity-num n3">03</span>
+          <div class="activity-meta">
+            <h3>Collocation <span>snap</span></h3>
+            <p>The verb is ready. Tap what goes with it.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="snapRound">1 / 10</em></span>
+              <span class="stat">Score <em id="snapScore">0</em></span>
+            </div>
+            <div id="snapPlay">
+              <p class="big-verb" id="snapVerb"></p>
+              <div class="opts" id="snapOpts"></div>
+              <p class="fb" id="snapFb"></p>
+            </div>
+            <div id="snapDone" hidden>
+              <p class="stem" id="snapFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnSnapNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-jobs">
+        <summary>
+          <span class="activity-num n4">04</span>
+          <div class="activity-meta">
+            <h3>Two <span>jobs</span></h3>
+            <p>Same verb. Same meaning, or two different jobs?</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="jobsRound">1 / 6</em></span>
+              <span class="stat">Score <em id="jobsScore">0</em></span>
+            </div>
+            <div id="jobsPlay">
+              <p class="big-verb" id="jobsVerb"></p>
+              <div class="pair-sents">
+                <p id="jobsS1"></p>
+                <p id="jobsS2"></p>
+              </div>
+              <div class="opts" id="jobsOpts"></div>
+              <p class="fb" id="jobsFb"></p>
+            </div>
+            <div id="jobsDone" hidden>
+              <p class="stem" id="jobsFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnJobsNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-ask">
+        <summary>
+          <span class="activity-num n5">05</span>
+          <div class="activity-meta">
+            <h3>Ask <span>me</span></h3>
+            <p>10 seconds. Make a question with the verb.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Verb <em id="askRound">1 / 10</em></span>
+              <span class="stat" id="askTimeStat">Time <em id="askTime">0:10</em></span>
+            </div>
+            <p class="big-verb" id="askVerb"></p>
+            <p class="hint">Say a question out loud. Then show a model.</p>
+            <p class="model-box" id="askModel" hidden></p>
+            <div class="btn-row">
+              <button type="button" class="btn" id="btnAskStart">Start 10s</button>
+              <button type="button" class="btn ghost" id="btnAskModel">Show a model</button>
+              <button type="button" class="btn ghost" id="btnAskNext">Next verb</button>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-next">
+        <summary>
+          <span class="activity-num n6">06</span>
+          <div class="activity-meta">
+            <h3>What happens <span>next?</span></h3>
+            <p>Read the situation. Choose the verb that continues it.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="nextRound">1 / 10</em></span>
+              <span class="stat">Score <em id="nextScore">0</em></span>
+            </div>
+            <div id="nextPlay">
+              <div class="sit-card" id="nextSit"></div>
+              <div class="opts" id="nextOpts"></div>
+              <p class="fb" id="nextFb"></p>
+            </div>
+            <div id="nextDone" hidden>
+              <p class="stem" id="nextFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnNextNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-cando">
+        <summary>
+          <span class="activity-num n7">07</span>
+          <div class="activity-meta">
+            <h3>Can you…?</h3>
+            <p>Check, then write one short example.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="cando" id="candoList"></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-hot">
+        <summary>
+          <span class="activity-num n8">08</span>
+          <div class="activity-meta">
+            <h3>Hot <span>seat</span></h3>
+            <p>Three yes/no clues. Guess the verb.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="hotRound">1 / 8</em></span>
+              <span class="stat">Score <em id="hotScore">0</em></span>
+            </div>
+            <div id="hotPlay">
+              <ol class="clues" id="hotClues"></ol>
+              <div class="opts" id="hotOpts"></div>
+              <p class="fb" id="hotFb"></p>
+            </div>
+            <div id="hotDone" hidden>
+              <p class="stem" id="hotFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnHotNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity" id="act-keys">
+        <summary>
+          <span class="activity-num n9">09</span>
+          <div class="activity-meta">
+            <h3>Put · keep · leave · <span>bring</span></h3>
+            <p>Keys, bags, cake. What do you do with it?</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body">
+          <div class="activity-body-inner">
+            <div class="score-row">
+              <span class="stat">Item <em id="keysRound">1 / 8</em></span>
+              <span class="stat">Score <em id="keysScore">0</em></span>
+            </div>
+            <div id="keysPlay">
+              <div class="sit-card" id="keysSit"></div>
+              <div class="opts" id="keysOpts"></div>
+              <p class="fb" id="keysFb"></p>
+            </div>
+            <div id="keysDone" hidden>
+              <p class="stem" id="keysFinal"></p>
+              <div class="btn-row"><button type="button" class="btn" id="btnKeysNew">New set</button></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+    <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.2</footer>
+  </div>
+  <script src="app-core.js"></script>
+</body>
+</html>
