@@ -154,15 +154,82 @@ function pickVoice() {
     || voices.find(x => /^en/i.test(x.lang))
     || null;
 }
-function speakPhrase(text) {
-  if (!window.speechSynthesis) return;
-  speechSynthesis.cancel();
+function speakTts(text, onend) {
+  if (!window.speechSynthesis) { if (onend) onend(); return; }
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US';
   u.rate = 0.9;
   const v = pickVoice();
   if (v) { u.voice = v; u.lang = v.lang; }
+  u.onend = onend || null;
   speechSynthesis.speak(u);
+}
+const LINE_STEM = {
+  'whats your name': 'whats-your-name',
+  'what is your name': 'whats-your-name',
+  'and you': 'and-you',
+  'how do you spell that': 'how-do-you-spell-that',
+  'whos this': 'whos-this',
+  'who is this': 'whos-this',
+  'im ana': 'im-ana',
+  'i am ana': 'im-ana',
+  'my name is luis': 'my-name-is-luis',
+  'my name is ana': 'im-ana',
+  'this is maya': 'this-is-maya',
+  'nice to meet you': 'nice-to-meet-you',
+  'nice to meet you too': 'nice-to-meet-you-too'
+};
+function normLine(text) {
+  return String(text).toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function stemsForText(text) {
+  const n = normLine(text);
+  if (LINE_STEM[n]) return [LINE_STEM[n]];
+  if (n === 'my name is ana i am ana') return ['im-ana'];
+  return null;
+}
+const phrasePlayer = new Audio();
+let phrasePlayId = 0;
+function stopPhraseAudio() {
+  phrasePlayId += 1;
+  phrasePlayer.onended = null;
+  phrasePlayer.onerror = null;
+  phrasePlayer.pause();
+  phrasePlayer.removeAttribute('src');
+  try { phrasePlayer.load(); } catch { /* ignore */ }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+function playStem(stem, onend) {
+  const id = ++phrasePlayId;
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  phrasePlayer.pause();
+  const done = () => { if (id !== phrasePlayId) return; if (onend) onend(); };
+  const tts = () => {
+    if (id !== phrasePlayId) return;
+    speakTts(stem.replace(/-/g, ' '), done);
+  };
+  phrasePlayer.onended = done;
+  phrasePlayer.onerror = tts;
+  phrasePlayer.src = `assets/audio/${stem}.mp3`;
+  phrasePlayer.play().catch(tts);
+}
+function speakPhrase(text, onend) {
+  const stems = stemsForText(text);
+  if (!stems) {
+    stopPhraseAudio();
+    speakTts(text, onend);
+    return;
+  }
+  let i = 0;
+  function next() {
+    if (i >= stems.length) { if (onend) onend(); return; }
+    playStem(stems[i], () => { i += 1; setTimeout(next, 120); });
+  }
+  next();
 }
 if (window.speechSynthesis) {
   speechSynthesis.getVoices();
@@ -531,6 +598,7 @@ function openTab(i) {
   state.tab = i;
   save();
   stopLetterAudio();
+  stopPhraseAudio();
   document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
   document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
   const lesson = document.querySelector('.lesson');

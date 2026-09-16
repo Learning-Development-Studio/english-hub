@@ -143,17 +143,93 @@ function save() {
 }
 const state = loadState();
 
-function speakPhrase(text) {
-  if (!window.speechSynthesis) return;
-  speechSynthesis.cancel();
+function pickVoice() {
+  const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  return voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
+    || voices.find(x => /^en/i.test(x.lang))
+    || null;
+}
+function speakTts(text, onend) {
+  if (!window.speechSynthesis) { if (onend) onend(); return; }
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US';
   u.rate = 0.9;
-  const voices = speechSynthesis.getVoices();
-  const v = voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
-    || voices.find(x => /^en/i.test(x.lang));
+  const v = pickVoice();
   if (v) { u.voice = v; u.lang = v.lang; }
+  u.onend = onend || null;
   speechSynthesis.speak(u);
+}
+const LINE_STEM = {
+  'open your book': 'open-your-book',
+  'close your book': 'close-your-book',
+  'look at the board': 'look-at-the-board',
+  'listen': 'listen',
+  'repeat': 'repeat',
+  'read': 'read',
+  'write': 'write',
+  'raise your hand': 'raise-your-hand',
+  'sit down': 'sit-down',
+  'stand up': 'stand-up',
+  'work in pairs': 'work-in-pairs',
+  'be quiet': 'be-quiet',
+  'i dont understand': 'i-dont-understand',
+  'can you repeat please': 'can-you-repeat-please',
+  'how do you say this in english': 'how-do-you-say-this-in-english',
+  'sorry im late': 'sorry-im-late',
+  'sorry i am late': 'sorry-im-late',
+  'may i go to the restroom': 'may-i-go-to-the-restroom'
+};
+function normLine(text) {
+  return String(text).toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function stemsForText(text) {
+  const n = normLine(text);
+  if (LINE_STEM[n]) return [LINE_STEM[n]];
+  if (n.indexOf('sorry') === 0 && n.indexOf('late') >= 0) return ['sorry-im-late'];
+  return null;
+}
+const phrasePlayer = new Audio();
+let phrasePlayId = 0;
+function stopPhraseAudio() {
+  phrasePlayId += 1;
+  phrasePlayer.onended = null;
+  phrasePlayer.onerror = null;
+  phrasePlayer.pause();
+  phrasePlayer.removeAttribute('src');
+  try { phrasePlayer.load(); } catch { /* ignore */ }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+}
+function playStem(stem, onend) {
+  const id = ++phrasePlayId;
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  phrasePlayer.pause();
+  const done = () => { if (id !== phrasePlayId) return; if (onend) onend(); };
+  const tts = () => {
+    if (id !== phrasePlayId) return;
+    speakTts(stem.replace(/-/g, ' '), done);
+  };
+  phrasePlayer.onended = done;
+  phrasePlayer.onerror = tts;
+  phrasePlayer.src = `assets/audio/${stem}.mp3`;
+  phrasePlayer.play().catch(tts);
+}
+function speakPhrase(text, onend) {
+  const stems = stemsForText(text);
+  if (!stems) {
+    stopPhraseAudio();
+    speakTts(text, onend);
+    return;
+  }
+  let i = 0;
+  function next() {
+    if (i >= stems.length) { if (onend) onend(); return; }
+    playStem(stems[i], () => { i += 1; setTimeout(next, 120); });
+  }
+  next();
 }
 if (window.speechSynthesis) {
   speechSynthesis.getVoices();
@@ -493,7 +569,7 @@ function render() {
 function openTab(i) {
   state.tab = i;
   save();
-  if (window.speechSynthesis) speechSynthesis.cancel();
+  stopPhraseAudio();
   document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
   document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
   const lesson = document.querySelector('.lesson');
