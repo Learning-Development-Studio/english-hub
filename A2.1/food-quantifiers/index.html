@@ -14,7 +14,7 @@
       --navy: #0B1F3A; --teal: #5bb8b0; --teal-dark: #238d85; --gold: #d4a843;
       --ink: #172033; --muted: #6b7fa3; --line: #e8ecf4; --paper: #fff;
       --wash: #f0faf9; --soft: #f8fafc; --good: #e9f8ef; --bad: #fff0f0;
-      --warn: #fff8e8; --shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
+      --shadow: 0 18px 45px rgba(30, 45, 90, 0.10);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
@@ -42,10 +42,7 @@
       box-shadow: 0 16px 34px rgba(11, 31, 58, 0.22);
     }
     .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .brand-mark {
-      width: 52px; height: 52px; border-radius: 999px; background: #fff;
-      overflow: hidden; padding: 3px; flex: 0 0 auto;
-    }
+    .brand-mark { width: 52px; height: 52px; border-radius: 999px; background: #fff; overflow: hidden; padding: 3px; flex: 0 0 auto; }
     .brand-mark img { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block; }
     .brand h1 { margin: 0; color: #fff; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.1; font-weight: 800; }
     .brand p { margin: 3px 0 0; color: #d7ecea; font-size: 0.82rem; }
@@ -74,7 +71,7 @@
       width: 200px; height: 200px; border-radius: 999px;
       background: url("../../assets/logo.png") center / contain no-repeat; opacity: 0.12; pointer-events: none;
     }
-    .hero-inner { position: relative; z-index: 1; padding: clamp(24px, 5vw, 42px); max-width: 680px; }
+    .hero-inner { position: relative; z-index: 1; padding: clamp(24px, 5vw, 42px); max-width: 720px; }
     .eyebrow { color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; font-weight: 800; }
     .hero h2 { margin: 10px 0 0; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1; letter-spacing: -0.03em; font-weight: 800; }
     .hero h2 span { color: var(--teal); }
@@ -107,6 +104,7 @@
     .n3 { background: var(--gold); color: var(--navy); } .n4 { background: var(--teal-dark); }
     .n5 { background: var(--navy); } .n6 { background: #168c8c; }
     .n7 { background: var(--gold); color: var(--navy); } .n8 { background: #3d5a80; }
+    .n9 { background: #c47a3a; }
     .activity-meta { flex: 1; min-width: 0; }
     .activity-meta h3 { margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--navy); }
     .activity-meta h3 span { color: var(--teal); }
@@ -129,7 +127,6 @@
     .btn.teal { background: var(--teal); color: var(--navy); }
     .btn.gold { background: var(--gold); color: var(--navy); }
     .btn.ghost { background: #fff; color: var(--navy); border: 1px solid var(--line); }
-    .btn:disabled { opacity: .5; cursor: not-allowed; }
     .stat {
       border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
       font-weight: 800; font-size: 0.82rem; color: var(--navy); background: #fff;
@@ -137,7 +134,6 @@
     .fb { margin-top: 10px; font-weight: 700; color: var(--navy); text-align: center; min-height: 1.4em; }
     .fb.ok { color: #1f7a4d; } .fb.no { color: #b42318; }
 
-    /* Presenter */
     .stage { display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .card-shell { width: min(520px, 100%); perspective: 1400px; }
     .flip {
@@ -158,7 +154,7 @@
       transform: rotateY(180deg); background: var(--navy); color: #fff;
       display: grid; place-items: center; padding: 24px; text-align: center;
     }
-    .face.back .word { font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; }
+    .face.back .word { font-size: clamp(1.45rem, 5vw, 2.35rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
     .face.back .tag {
       margin-top: 10px; display: inline-block; border-radius: 999px;
       padding: 6px 12px; font-size: 0.82rem; font-weight: 800;
@@ -182,57 +178,54 @@
     }
     .chip.on { background: var(--navy); color: #fff; }
 
-    /* Wall */
-    .wall {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px;
-    }
+    .wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
     .tile {
       border: 0; background: #fff; border-radius: 14px; overflow: hidden; padding: 0;
       box-shadow: 0 6px 16px rgba(30, 45, 90, 0.08); text-align: left; color: inherit;
     }
     .tile img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
-    .tile span {
-      display: block; padding: 8px 10px 10px; font-weight: 800; font-size: 0.88rem; color: var(--navy);
-    }
-    .tile .mini { color: var(--muted); font-size: 0.72rem; font-weight: 700; display: block; margin-top: 2px; }
-    .tile.measure span { color: var(--teal-dark); }
+    .tile span { display: block; padding: 8px 10px 10px; font-weight: 800; font-size: 0.86rem; color: var(--navy); line-height: 1.25; }
+    .tile.box span { color: var(--teal-dark); }
 
-    /* Sort */
     .bank, .placed { display: flex; flex-wrap: wrap; gap: 8px; min-height: 52px; }
     .token {
-      width: 104px; border: 1px solid var(--line); background: #fff; border-radius: 12px;
-      padding: 6px; font-size: 0.75rem; font-weight: 800; color: var(--navy);
+      width: 118px; border: 1px solid var(--line); background: #fff; border-radius: 12px;
+      padding: 6px; font-size: 0.72rem; font-weight: 800; color: var(--navy); line-height: 1.2;
       display: flex; flex-direction: column; align-items: center; gap: 4px;
-      user-select: none; touch-action: none;
+      user-select: none; touch-action: none; text-align: center;
     }
-    .token img { width: 88px; height: 88px; object-fit: cover; border-radius: 8px; pointer-events: none; }
+    .token img { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; pointer-events: none; }
     .token.selected { outline: 3px solid var(--teal); }
     .token.ok { background: var(--good); border-color: #72b98c; }
     .token.bad { background: var(--bad); border-color: #d98989; }
-    .bins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .bins { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
     .bin {
       border: 2px dashed var(--line); border-radius: 16px; padding: 12px; min-height: 180px; background: var(--wash);
     }
     .bin.hot { border-color: var(--teal); background: #eefaf8; }
-    .bin h5 { margin: 0 0 8px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-dark); }
+    .bin h5 { margin: 0 0 8px; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-dark); line-height: 1.3; }
 
-    /* Memory */
-    .mem {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+    .snap { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .snap-slot {
+      border: 2px dashed var(--line); border-radius: 14px; padding: 8px; background: var(--wash); min-height: 170px;
     }
+    .snap-slot.hot { border-color: var(--teal); background: #eefaf8; }
+    .snap-slot img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; display: block; }
+    .snap-slot .drop { min-height: 36px; margin-top: 8px; }
+
+    .mem { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
     .mem-card {
       aspect-ratio: 1; border: 0; border-radius: 12px; background: var(--navy); color: #fff;
       font-weight: 800; position: relative; overflow: hidden; padding: 0;
     }
     .mem-card img { width: 100%; height: 100%; object-fit: cover; display: none; }
-    .mem-card .lab { display: none; padding: 8px; font-size: 0.82rem; }
+    .mem-card .lab { display: none; padding: 8px; font-size: 0.78rem; line-height: 1.25; }
     .mem-card.open, .mem-card.matched { background: #fff; color: var(--navy); border: 1px solid var(--line); }
     .mem-card.open img, .mem-card.matched img { display: block; }
     .mem-card.word.open .lab, .mem-card.word.matched .lab { display: grid; place-items: center; height: 100%; }
     .mem-card.matched { background: var(--good); }
     .mem-card .back-mark { font-size: 1.4rem; color: var(--gold); }
 
-    /* Quantity / race */
     .q-photo { width: min(100%, 420px); border-radius: 16px; display: block; margin: 0 auto 14px; }
     .opts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
     .opt {
@@ -241,22 +234,23 @@
     }
     .opt.correct { background: var(--good); border-color: #72b98c; }
     .opt.wrong { background: var(--bad); border-color: #d98989; }
-    .race-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 520px; margin: 0 auto; }
-    .race-btns .opt { padding: 18px; font-size: 1.05rem; }
+    .opt.selected { background: #eefaf8; border-color: var(--teal); }
 
-    /* Fridge */
     .fridge-wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
     .fridge-wrap img { width: 100%; border-radius: 16px; display: block; }
-    .hunt-opts { display: flex; flex-wrap: wrap; gap: 8px; }
-    .hunt-opts .opt.selected { background: #eefaf8; border-color: var(--teal); }
-    .hunt-opts .opt.found { background: var(--good); border-color: #72b98c; }
-    .hunt-opts .opt.miss { background: var(--bad); border-color: #d98989; }
+    .shop-row {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+    }
+    .shop-row strong { color: var(--navy); }
+    .shop-row .opts { justify-content: flex-end; }
+    .shop-row.ok { background: var(--good); border-radius: 10px; padding-left: 8px; padding-right: 8px; }
+    .shop-row.no { background: var(--bad); border-radius: 10px; padding-left: 8px; padding-right: 8px; }
 
-    /* Bingo / spin */
-    .bingo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 480px; margin: 0 auto; }
+    .bingo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 520px; margin: 0 auto; }
     .bingo-cell {
       border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 6px;
-      font-weight: 800; font-size: 0.8rem; color: var(--navy);
+      font-weight: 800; font-size: 0.76rem; color: var(--navy); line-height: 1.2;
     }
     .bingo-cell img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; margin-bottom: 6px; }
     .bingo-cell.stamped { background: var(--good); border-color: #72b98c; position: relative; }
@@ -264,36 +258,36 @@
       content: "✓"; position: absolute; inset: 0; display: grid; place-items: center;
       font-size: 2.4rem; color: rgba(35, 141, 133, 0.72); pointer-events: none;
     }
-    .spin-card {
-      width: min(100%, 360px); margin: 0 auto; background: var(--navy); color: #fff;
-      border-radius: 18px; padding: 18px; text-align: center;
-    }
-    .spin-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; display: block; margin-bottom: 12px; }
     .who { display: grid; gap: 8px; }
     .who label {
-      display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center;
+      display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
       border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--soft); cursor: pointer;
     }
     .speak-prompt {
       background: var(--wash); border-radius: 14px; padding: 16px; text-align: center;
-      font-weight: 800; color: var(--navy); font-size: 1.15rem; line-height: 1.4;
+      font-weight: 800; color: var(--navy); font-size: 1.12rem; line-height: 1.4;
     }
     .model { margin-top: 10px; color: var(--muted); font-weight: 700; font-size: 0.92rem; }
+
+    .battle-frame {
+      width: 100%; height: min(88vh, 980px); border: 0; border-radius: 16px;
+      background: #edf6f6; box-shadow: inset 0 0 0 1px rgba(11, 31, 58, 0.08);
+    }
+    .battle-bar { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
 
     .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
     .footer strong { color: var(--navy); }
     .later { margin-top: 18px; text-align: center; font-size: 0.85rem; color: var(--muted); }
     .later a { color: var(--teal-dark); font-weight: 800; }
 
-    /* Present overlay */
     .present {
       display: none; position: fixed; inset: 0; z-index: 80; background: #0B1F3A;
       color: #fff; padding: 16px; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
     }
     body.is-presenting .present { display: flex; }
     body.is-presenting { overflow: hidden; }
-    .present img { width: min(92vw, 72vh); height: min(92vw, 72vh); object-fit: cover; border-radius: 18px; }
-    .present .p-word { font-size: clamp(1.6rem, 5vw, 2.6rem); font-weight: 800; min-height: 1.2em; }
+    .present img { width: min(92vw, 68vh); height: min(92vw, 68vh); object-fit: cover; border-radius: 18px; }
+    .present .p-word { font-size: clamp(1.4rem, 4.5vw, 2.4rem); font-weight: 800; min-height: 1.2em; text-align: center; }
     .present .p-word.hid { opacity: 0; }
     .present-bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .present .btn { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
@@ -302,9 +296,9 @@
       .shell { padding-left: 12px; padding-right: 12px; }
       .brand p { display: none; }
       .hero::after { opacity: 0.08; width: 120px; }
-      .bins, .fridge-wrap, .race-btns { grid-template-columns: 1fr; }
+      .bins, .fridge-wrap { grid-template-columns: 1fr; }
       .mem { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .token { width: 92px; } .token img { width: 76px; height: 76px; }
+      .battle-frame { height: 78vh; }
     }
   </style>
 </head>
@@ -319,7 +313,7 @@
         </div>
       </div>
       <div class="topbar-actions">
-        <a class="home-btn" href="../fridge-battle/">Battle</a>
+        <a class="home-btn" href="#act-battle">Battle</a>
         <a class="home-btn" href="../">Home</a>
         <span class="mode-pill">A2.1</span>
       </div>
@@ -327,12 +321,15 @@
 
     <section class="hero">
       <div class="hero-inner">
-        <span class="eyebrow">A2.1 · Vocabulary only</span>
-        <h2>Count it or <span>measure it.</span></h2>
-        <p>Pictures, games, and class play. Name the food. Say how much. No grammar today.</p>
+        <span class="eyebrow">A2.1 · Vocabulary · Fridge Battle</span>
+        <h2>Say the whole <span>phrase.</span></h2>
+        <p>
+          Not just <em>milk</em> — <strong>a carton of milk</strong>. Not just <em>cookies</em> — <strong>too many cookies</strong>.
+          Pictures first. Then Fridge Battle.
+        </p>
         <div class="path">
-          <span>1 Present</span><span>2 Wall</span><span>3 Sort</span><span>4 Memory</span>
-          <span>5 Quantities</span><span>6 Fridge</span><span>7 Play</span><span>8 Speak</span>
+          <span>1 Phrases</span><span>2 Wall</span><span>3 Snap</span><span>4 Memory</span>
+          <span>5 Close call</span><span>6 Shopping</span><span>7 Play</span><span>8 Speak</span><span>9 Battle</span>
         </div>
       </div>
     </section>
@@ -344,39 +341,37 @@
         <summary>
           <span class="activity-num n1">01</span>
           <div class="activity-meta">
-            <h3>Picture <span>deck</span></h3>
-            <p>Show a photo. Students say the word. Tap to flip.</p>
+            <h3>Phrase <span>deck</span></h3>
+            <p>Photo → the whole chunk. Students say it before you flip.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <p class="intro">Use this on the projector. Filter the set, then flip. The speaker button says the word.</p>
+          <p class="intro">On the projector: show the photo, wait, then flip. 🔊 says the phrase.</p>
           <div class="filters" id="deckFilters"></div>
           <div class="stage" style="margin-top:16px">
             <div class="card-shell">
               <div class="flip" id="flipCard" role="button" tabindex="0" aria-label="Flip card">
                 <div class="flip-inner">
-                  <div class="face front"><img id="frontImg" alt="" src="assets/apples.jpg"></div>
+                  <div class="face front"><img id="frontImg" alt="" src="assets/a-carton-of-milk.jpg"></div>
                   <div class="face back">
                     <div>
-                      <div class="word" id="backWord">apples</div>
-                      <div class="tag" id="backTag">we count these</div>
+                      <div class="word" id="backWord">a carton of milk</div>
+                      <div class="tag" id="backTag">container</div>
                     </div>
                   </div>
                 </div>
-                <button type="button" class="say-btn" id="sayBtn" aria-label="Say the word">🔊</button>
+                <button type="button" class="say-btn" id="sayBtn" aria-label="Say the phrase">🔊</button>
               </div>
             </div>
-            <div class="controls">
-              <div class="nav-row">
-                <button type="button" class="nav-btn" id="btnPrev" aria-label="Previous">←</button>
-                <div class="counter" id="deckCount">1 / 24</div>
-                <button type="button" class="nav-btn" id="btnNext" aria-label="Next">→</button>
-              </div>
-              <div class="btn-row">
-                <button type="button" class="btn ghost" id="btnShuffle">Shuffle</button>
-                <button type="button" class="btn teal" id="btnPresent">Present full screen</button>
-              </div>
+            <div class="nav-row">
+              <button type="button" class="nav-btn" id="btnPrev" aria-label="Previous">←</button>
+              <div class="counter" id="deckCount">1 / 28</div>
+              <button type="button" class="nav-btn" id="btnNext" aria-label="Next">→</button>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn ghost" id="btnShuffle">Shuffle</button>
+              <button type="button" class="btn teal" id="btnPresent">Present full screen</button>
             </div>
           </div>
         </div></div>
@@ -386,46 +381,37 @@
         <summary>
           <span class="activity-num n2">02</span>
           <div class="activity-meta">
-            <h3>Picture <span>wall</span></h3>
-            <p>All the words in one look. Tap a photo to hear it.</p>
+            <h3>Phrase <span>wall</span></h3>
+            <p>The whole set. Tap a photo to hear the chunk.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <p class="intro">Navy names: we count them. Teal names: we measure them.</p>
+          <p class="intro">Teal cards are <strong>a ___ of</strong> containers. Navy cards are quantity phrases.</p>
           <div class="filters" id="wallFilters"></div>
           <div class="wall" id="wall" style="margin-top:14px"></div>
         </div></div>
       </details>
 
-      <details class="activity" id="act-sort">
+      <details class="activity" id="act-snap">
         <summary>
           <span class="activity-num n3">03</span>
           <div class="activity-meta">
-            <h3>Two <span>baskets</span></h3>
-            <p>Drag — or tap then tap a basket. Count or measure?</p>
+            <h3>Container <span>snap</span></h3>
+            <p>Drop the phrase on the photo. A carton of… a bunch of… a bar of…</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <p class="intro">Put each photo in a basket. On a phone: tap the food, then tap the basket.</p>
-          <div class="bank" id="sortBank"></div>
-          <div class="bins">
-            <div class="bin" data-bin="count" id="binCount">
-              <h5>We count these</h5>
-              <div class="placed" id="placedCount"></div>
-            </div>
-            <div class="bin" data-bin="measure" id="binMeasure">
-              <h5>We measure this</h5>
-              <div class="placed" id="placedMeasure"></div>
-            </div>
-          </div>
+          <p class="intro">Tap a phrase, then tap the photo. Or drag. These go together in real kitchens.</p>
+          <div class="bank" id="snapBank"></div>
+          <div class="snap" id="snapBoard" style="margin-top:12px"></div>
           <div class="btn-row">
-            <button type="button" class="btn" id="sortCheck">Check</button>
-            <button type="button" class="btn ghost" id="sortReset">New round</button>
-            <span class="stat" id="sortStat">0 / 12</span>
+            <button type="button" class="btn" id="snapCheck">Check</button>
+            <button type="button" class="btn ghost" id="snapReset">New round</button>
+            <span class="stat" id="snapStat">0 / 8</span>
           </div>
-          <div class="fb" id="sortFb"></div>
+          <div class="fb" id="snapFb"></div>
         </div></div>
       </details>
 
@@ -434,7 +420,7 @@
           <span class="activity-num n4">04</span>
           <div class="activity-meta">
             <h3>Memory</h3>
-            <p>Match the photo to the word.</p>
+            <p>Photo ↔ full phrase. 8 pairs.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
@@ -451,43 +437,43 @@
         <summary>
           <span class="activity-num n5">05</span>
           <div class="activity-meta">
-            <h3>Quantity <span>pictures</span></h3>
-            <p>Look at the photo. Tap the phrase.</p>
+            <h3>Close <span>call</span></h3>
+            <p>Four phrases that almost fit. Tap the one that matches the photo.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <p class="intro">These are ready-made bits: <strong>a few apples</strong>, <strong>a little milk</strong>, <strong>a lot of rice</strong>, <strong>a bottle of water</strong>…</p>
+          <p class="intro">All four sound possible. Look at the amount in the picture.</p>
           <img class="q-photo" id="qtyImg" alt="">
           <div class="opts" id="qtyOpts"></div>
           <div class="fb" id="qtyFb"></div>
           <div class="btn-row">
             <button type="button" class="btn" id="qtyNext">Next picture</button>
-            <span class="stat" id="qtyStat">0 / 10</span>
+            <span class="stat" id="qtyStat">0 / 12</span>
           </div>
         </div></div>
       </details>
 
-      <details class="activity" id="act-fridge">
+      <details class="activity" id="act-shop">
         <summary>
           <span class="activity-num n6">06</span>
           <div class="activity-meta">
-            <h3>Fridge <span>hunt</span></h3>
-            <p>Look inside. Tap every food you can see.</p>
+            <h3>Taco night <span>list</span></h3>
+            <p>Recipe vs fridge. Have / don’t have / need — with a quantity phrase.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
           <div class="fridge-wrap">
-            <img src="assets/fridge.jpg" alt="Open fridge full of food">
+            <img src="assets/fridge.jpg" alt="Open fridge">
             <div>
-              <p class="intro">Tap the words that are in this fridge. Leave the others.</p>
-              <div class="hunt-opts" id="huntOpts"></div>
+              <p class="intro"><strong>Recipe:</strong> chicken tacos. Look, then tap for each item.</p>
+              <div id="shopList"></div>
               <div class="btn-row" style="justify-content:flex-start">
-                <button type="button" class="btn" id="huntCheck">Check</button>
-                <button type="button" class="btn ghost" id="huntReset">Reset</button>
+                <button type="button" class="btn" id="shopCheck">Check</button>
+                <button type="button" class="btn ghost" id="shopReset">Reset</button>
               </div>
-              <div class="fb" id="huntFb" style="text-align:left"></div>
+              <div class="fb" id="shopFb" style="text-align:left"></div>
             </div>
           </div>
         </div></div>
@@ -498,38 +484,25 @@
           <span class="activity-num n7">07</span>
           <div class="activity-meta">
             <h3>Class <span>play</span></h3>
-            <p>Bingo, spin, and a fast count-or-measure race.</p>
+            <p>Bingo with phrases. Spin: say the chunk in 3 seconds.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <h4 style="margin:0 0 8px;color:var(--navy)">Bingo</h4>
-          <p class="intro">Students stamp when you say the word. First full card wins. Call from the deck — or tap a cell to stamp.</p>
+          <h4 style="margin:0 0 8px;color:var(--navy)">Phrase bingo</h4>
+          <p class="intro">You call a phrase from the deck. They stamp. First full card wins.</p>
           <div class="bingo" id="bingo"></div>
           <div class="btn-row"><button type="button" class="btn ghost" id="bingoNew">New card</button></div>
 
           <h4 style="margin:22px 0 8px;color:var(--navy)">Spin</h4>
-          <p class="intro">Teams: say the word in 3 seconds. Extra point: make a quantity phrase with it.</p>
-          <div class="spin-card">
-            <img id="spinImg" alt="" src="assets/eggs.jpg">
-            <div id="spinWord" style="font-size:1.6rem;font-weight:800">?</div>
+          <p class="intro">Team says the <strong>whole phrase</strong>. Extra point: one more sentence with that chunk.</p>
+          <div style="max-width:360px;margin:0 auto;background:var(--navy);color:#fff;border-radius:18px;padding:18px;text-align:center">
+            <img id="spinImg" alt="" src="assets/a-carton-of-milk.jpg" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block;margin-bottom:12px">
+            <div id="spinWord" style="font-size:1.35rem;font-weight:800;min-height:2.4em">?</div>
             <div class="btn-row">
               <button type="button" class="btn gold" id="spinGo">Spin</button>
               <button type="button" class="btn ghost" id="spinSay">Say it</button>
             </div>
-          </div>
-
-          <h4 style="margin:22px 0 8px;color:var(--navy)">Race</h4>
-          <p class="intro">Photo up. Tap <strong>We count these</strong> or <strong>We measure this</strong>. Fast and loud.</p>
-          <img class="q-photo" id="raceImg" alt="">
-          <div class="race-btns">
-            <button type="button" class="opt" data-race="count">We count these</button>
-            <button type="button" class="opt" data-race="measure">We measure this</button>
-          </div>
-          <div class="fb" id="raceFb"></div>
-          <div class="btn-row">
-            <span class="stat" id="raceStat">Score 0</span>
-            <button type="button" class="btn ghost" id="raceNext">Next</button>
           </div>
         </div></div>
       </details>
@@ -539,12 +512,12 @@
           <span class="activity-num n8">08</span>
           <div class="activity-meta">
             <h3>Speak</h3>
-            <p>Picture prompts and Find someone who.</p>
+            <p>Picture prompts. Then Find someone who… with quantity chunks.</p>
           </div>
           <span class="activity-chevron" aria-hidden="true">▾</span>
         </summary>
         <div class="activity-body"><div class="activity-body-inner">
-          <p class="intro">Pairs. Look at the photo. Say what you see. Then walk and ask.</p>
+          <p class="intro">Pairs. 20 seconds. Partner answers with a full phrase, not one word.</p>
           <img class="q-photo" id="speakImg" alt="">
           <div class="speak-prompt" id="speakPrompt"></div>
           <div class="model" id="speakModel"></div>
@@ -552,15 +525,31 @@
             <button type="button" class="btn" id="speakNext">New prompt</button>
             <button type="button" class="btn ghost" id="speakSay">Hear a model</button>
           </div>
-
           <h4 style="margin:22px 0 8px;color:var(--navy)">Find someone who…</h4>
-          <p class="intro">Walk. Ask. Write a name. Use the photo words.</p>
           <div class="who" id="who"></div>
+        </div></div>
+      </details>
+
+      <details class="activity" id="act-battle">
+        <summary>
+          <span class="activity-num n9">09</span>
+          <div class="activity-meta">
+            <h3>Fridge <span>Battle</span></h3>
+            <p>The class game. Two teams, five rounds, timer on.</p>
+          </div>
+          <span class="activity-chevron" aria-hidden="true">▾</span>
+        </summary>
+        <div class="activity-body"><div class="activity-body-inner">
+          <div class="battle-bar">
+            <p class="intro" style="margin:0;max-width:52ch">Play it here. Names, scores, and rounds stay in the game. Open full screen if the projector feels tight.</p>
+            <a class="btn ghost" href="../fridge-battle/" target="_blank" rel="noopener">Open full screen</a>
+          </div>
+          <iframe class="battle-frame" title="Fridge Battle" src="../fridge-battle/?embed=1" loading="lazy"></iframe>
         </div></div>
       </details>
     </div>
 
-    <p class="later">Later, if you want the grammar lesson: <a href="../countable-and-uncountable/">Countable and uncountable</a> · <a href="../fridge-battle/">Fridge Battle</a></p>
+    <p class="later">Grammar lesson (optional, another day): <a href="../countable-and-uncountable/">Countable and uncountable</a></p>
     <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A2.1 · Educational use</footer>
   </div>
 
@@ -569,7 +558,7 @@
     <div class="p-word hid" id="pWord"></div>
     <div class="present-bar">
       <button type="button" class="btn" id="pPrev">←</button>
-      <button type="button" class="btn gold" id="pFlip">Show word</button>
+      <button type="button" class="btn gold" id="pFlip">Show phrase</button>
       <button type="button" class="btn" id="pNext">→</button>
       <button type="button" class="btn" id="pSay">🔊</button>
       <button type="button" class="btn" id="pClose">Close</button>
@@ -577,70 +566,96 @@
   </div>
 
   <script>
-    const FOODS = [
-      { id: "eggs", word: "eggs", kind: "count", img: "eggs.jpg" },
-      { id: "apples", word: "apples", kind: "count", img: "apples.jpg" },
-      { id: "tomatoes", word: "tomatoes", kind: "count", img: "tomatoes.jpg" },
-      { id: "bananas", word: "bananas", kind: "count", img: "bananas.jpg" },
-      { id: "oranges", word: "oranges", kind: "count", img: "oranges.jpg" },
-      { id: "potatoes", word: "potatoes", kind: "count", img: "potatoes.jpg" },
-      { id: "onions", word: "onions", kind: "count", img: "onions.jpg" },
-      { id: "carrots", word: "carrots", kind: "count", img: "carrots.jpg" },
-      { id: "cookies", word: "cookies", kind: "count", img: "cookies.jpg" },
-      { id: "sandwiches", word: "sandwiches", kind: "count", img: "sandwiches.jpg" },
-      { id: "bottles", word: "bottles", kind: "count", img: "bottles.jpg" },
-      { id: "tortillas", word: "tortillas", kind: "count", img: "tortillas.jpg" },
-      { id: "rice", word: "rice", kind: "measure", img: "rice.jpg" },
-      { id: "milk", word: "milk", kind: "measure", img: "milk.jpg" },
-      { id: "water", word: "water", kind: "measure", img: "water.jpg" },
-      { id: "bread", word: "bread", kind: "measure", img: "bread.jpg" },
-      { id: "cheese", word: "cheese", kind: "measure", img: "cheese.jpg" },
-      { id: "coffee", word: "coffee", kind: "measure", img: "coffee.jpg" },
-      { id: "sugar", word: "sugar", kind: "measure", img: "sugar.jpg" },
-      { id: "oil", word: "oil", kind: "measure", img: "oil.jpg" },
-      { id: "butter", word: "butter", kind: "measure", img: "butter.jpg" },
-      { id: "pasta", word: "pasta", kind: "measure", img: "pasta.jpg" },
-      { id: "soup", word: "soup", kind: "measure", img: "soup.jpg" },
-      { id: "salsa", word: "salsa", kind: "measure", img: "salsa.jpg" }
+    const ITEMS = [
+      { id: "carton-milk", phrase: "a carton of milk", kind: "box", img: "a-carton-of-milk.jpg" },
+      { id: "bottle-water", phrase: "a bottle of water", kind: "box", img: "a-bottle-of-water.jpg" },
+      { id: "cup-coffee", phrase: "a cup of coffee", kind: "box", img: "coffee.jpg" },
+      { id: "slice-bread", phrase: "a slice of bread", kind: "box", img: "a-slice-of-bread.jpg" },
+      { id: "loaf-bread", phrase: "a loaf of bread", kind: "box", img: "bread.jpg" },
+      { id: "bag-rice", phrase: "a bag of rice", kind: "box", img: "a-bag-of-rice.jpg" },
+      { id: "piece-cheese", phrase: "a piece of cheese", kind: "box", img: "cheese.jpg" },
+      { id: "jar-salsa", phrase: "a jar of salsa", kind: "box", img: "a-jar-of-salsa.jpg" },
+      { id: "can-tomatoes", phrase: "a can of tomatoes", kind: "box", img: "a-can-of-tomatoes.jpg" },
+      { id: "bar-choco", phrase: "a bar of chocolate", kind: "box", img: "a-bar-of-chocolate.jpg" },
+      { id: "bunch-grapes", phrase: "a bunch of grapes", kind: "box", img: "a-bunch-of-grapes.jpg" },
+      { id: "bunch-bananas", phrase: "a bunch of bananas", kind: "box", img: "bananas.jpg" },
+      { id: "pack-tortillas", phrase: "a pack of tortillas", kind: "box", img: "tortillas.jpg" },
+      { id: "bowl-soup", phrase: "a bowl of soup", kind: "box", img: "soup.jpg" },
+      { id: "few-apples", phrase: "a few apples", kind: "qty", img: "a-few-apples.jpg" },
+      { id: "many-tomatoes", phrase: "many tomatoes", kind: "qty", img: "many-tomatoes.jpg" },
+      { id: "little-milk", phrase: "a little milk", kind: "qty", img: "a-little-milk.jpg" },
+      { id: "lot-rice", phrase: "a lot of rice", kind: "qty", img: "a-lot-of-rice.jpg" },
+      { id: "some-cheese", phrase: "some cheese", kind: "qty", img: "cheese.jpg" },
+      { id: "any-eggs", phrase: "any eggs?", kind: "qty", img: "any-eggs.jpg" },
+      { id: "too-many", phrase: "too many cookies", kind: "qty", img: "too-many-cookies.jpg" },
+      { id: "too-much", phrase: "too much sugar", kind: "qty", img: "too-much-sugar.jpg" },
+      { id: "some-eggs", phrase: "some eggs", kind: "qty", img: "eggs.jpg" },
+      { id: "little-salsa", phrase: "a little salsa", kind: "qty", img: "salsa.jpg" },
+      { id: "three-bottles", phrase: "three bottles", kind: "qty", img: "bottles.jpg" },
+      { id: "some-oil", phrase: "some oil", kind: "qty", img: "oil.jpg" },
+      { id: "some-pasta", phrase: "some pasta", kind: "qty", img: "pasta.jpg" },
+      { id: "few-onions", phrase: "a few onions", kind: "qty", img: "onions.jpg" }
     ];
 
-    const CHUNKS = [
-      { phrase: "a few apples", img: "a-few-apples.jpg", opts: ["a few apples", "a little apples", "many milk"] },
-      { phrase: "many tomatoes", img: "many-tomatoes.jpg", opts: ["many tomatoes", "a little tomatoes", "a few milk"] },
-      { phrase: "a little milk", img: "a-little-milk.jpg", opts: ["a little milk", "a few milk", "many milks"] },
-      { phrase: "a lot of rice", img: "a-lot-of-rice.jpg", opts: ["a lot of rice", "a few rice", "many rices"] },
-      { phrase: "some cheese", img: "cheese.jpg", opts: ["some cheese", "a few cheese", "many cheeses"] },
-      { phrase: "a bottle of water", img: "a-bottle-of-water.jpg", opts: ["a bottle of water", "many water", "a few waters"] },
-      { phrase: "a cup of coffee", img: "coffee.jpg", opts: ["a cup of coffee", "a few coffee", "many coffees"] },
-      { phrase: "a slice of bread", img: "a-slice-of-bread.jpg", opts: ["a slice of bread", "a few bread", "many breads"] },
-      { phrase: "a bag of rice", img: "a-bag-of-rice.jpg", opts: ["a bag of rice", "a few rice", "many rices"] },
-      { phrase: "a loaf of bread", img: "bread.jpg", opts: ["a loaf of bread", "a few bread", "two breads"] },
-      { phrase: "any eggs?", img: "any-eggs.jpg", opts: ["any eggs?", "many milks", "a little apples"] }
+    const CLOSE = [
+      { img: "a-few-apples.jpg", a: "a few apples", opts: ["a few apples", "a lot of apples", "many apples", "a little apples"] },
+      { img: "many-tomatoes.jpg", a: "many tomatoes", opts: ["many tomatoes", "a few tomatoes", "a little tomatoes", "a carton of tomatoes"] },
+      { img: "a-little-milk.jpg", a: "a little milk", opts: ["a little milk", "a lot of milk", "a few milk", "too many milk"] },
+      { img: "a-lot-of-rice.jpg", a: "a lot of rice", opts: ["a lot of rice", "a few rice", "a little rice", "too many rice"] },
+      { img: "too-many-cookies.jpg", a: "too many cookies", opts: ["too many cookies", "a few cookies", "too much cookies", "a little cookies"] },
+      { img: "too-much-sugar.jpg", a: "too much sugar", opts: ["too much sugar", "too many sugar", "a few sugar", "a bunch of sugar"] },
+      { img: "a-carton-of-milk.jpg", a: "a carton of milk", opts: ["a carton of milk", "a bottle of milk", "a bunch of milk", "a bar of milk"] },
+      { img: "a-bunch-of-grapes.jpg", a: "a bunch of grapes", opts: ["a bunch of grapes", "a carton of grapes", "a loaf of grapes", "a jar of grapes"] },
+      { img: "a-bar-of-chocolate.jpg", a: "a bar of chocolate", opts: ["a bar of chocolate", "a carton of chocolate", "a bunch of chocolate", "too many chocolate"] },
+      { img: "a-can-of-tomatoes.jpg", a: "a can of tomatoes", opts: ["a can of tomatoes", "a bunch of tomatoes", "a loaf of tomatoes", "a cup of tomatoes"] },
+      { img: "a-jar-of-salsa.jpg", a: "a jar of salsa", opts: ["a jar of salsa", "a bag of salsa", "a bunch of salsa", "a loaf of salsa"] },
+      { img: "any-eggs.jpg", a: "any eggs?", opts: ["any eggs?", "a lot of eggs", "too many eggs", "a carton of eggs"] }
     ];
 
-    const FRIDGE_IN = ["eggs", "apples", "tomatoes", "cheese", "rice", "milk", "bread", "tortillas", "salsa"];
-    const FRIDGE_BANK = ["eggs", "apples", "tomatoes", "cheese", "rice", "milk", "bread", "tortillas", "salsa", "bananas", "coffee", "cookies", "pasta", "oil"];
+    const SNAP = [
+      { id: "carton-milk", img: "a-carton-of-milk.jpg", phrase: "a carton of milk" },
+      { id: "bunch-bananas", img: "bananas.jpg", phrase: "a bunch of bananas" },
+      { id: "loaf-bread", img: "bread.jpg", phrase: "a loaf of bread" },
+      { id: "bottle-water", img: "a-bottle-of-water.jpg", phrase: "a bottle of water" },
+      { id: "cup-coffee", img: "coffee.jpg", phrase: "a cup of coffee" },
+      { id: "bag-rice", img: "a-bag-of-rice.jpg", phrase: "a bag of rice" },
+      { id: "piece-cheese", img: "cheese.jpg", phrase: "a piece of cheese" },
+      { id: "bunch-grapes", img: "a-bunch-of-grapes.jpg", phrase: "a bunch of grapes" },
+      { id: "jar-salsa", img: "a-jar-of-salsa.jpg", phrase: "a jar of salsa" },
+      { id: "bar-choco", img: "a-bar-of-chocolate.jpg", phrase: "a bar of chocolate" },
+      { id: "can-tomatoes", img: "a-can-of-tomatoes.jpg", phrase: "a can of tomatoes" },
+      { id: "pack-tortillas", img: "tortillas.jpg", phrase: "a pack of tortillas" }
+    ];
 
-    const WHO = [
-      "has eggs at home",
-      "drinks coffee every day",
-      "cooks rice",
-      "buys tortillas",
-      "likes salsa",
-      "has milk in the fridge",
-      "eats a lot of bread",
-      "has a bottle of water now"
+    const SHOP = [
+      { item: "tortillas", phrase: "a pack of tortillas", a: "have" },
+      { item: "cheese", phrase: "some cheese", a: "have" },
+      { item: "salsa", phrase: "a little salsa / a jar of salsa", a: "have" },
+      { item: "chicken", phrase: "any chicken?", a: "need" },
+      { item: "limes", phrase: "any limes?", a: "need" },
+      { item: "onions", phrase: "a few onions", a: "need" }
     ];
 
     const SPEAK = [
-      { img: "a-few-apples.jpg", prompt: "What’s this?", model: "A few apples." },
-      { img: "a-little-milk.jpg", prompt: "What’s this?", model: "A little milk." },
-      { img: "a-lot-of-rice.jpg", prompt: "What’s this?", model: "A lot of rice." },
-      { img: "fridge.jpg", prompt: "What’s in the fridge?", model: "There are some eggs, some apples, and a lot of rice." },
-      { img: "any-eggs.jpg", prompt: "Look. Eggs?", model: "We don’t have any eggs." },
-      { img: "coffee.jpg", prompt: "What can you say?", model: "A cup of coffee." },
-      { img: "tortillas.jpg", prompt: "What’s in your kitchen?", model: "We have some tortillas." },
-      { img: "cheese.jpg", prompt: "How much cheese?", model: "Some cheese. / A piece of cheese." }
+      { img: "too-many-cookies.jpg", prompt: "Look. Cookies?", model: "There are too many cookies." },
+      { img: "too-much-sugar.jpg", prompt: "How much sugar is that?", model: "That’s too much sugar." },
+      { img: "a-little-milk.jpg", prompt: "Do we have enough milk?", model: "We only have a little milk. We need more." },
+      { img: "any-eggs.jpg", prompt: "Eggs for breakfast?", model: "We don’t have any eggs. We need a carton." },
+      { img: "fridge.jpg", prompt: "What’s in the fridge? Say four phrases.", model: "Some eggs, a loaf of bread, a pack of tortillas, and a lot of rice." },
+      { img: "a-carton-of-milk.jpg", prompt: "Shopping. What do you pick up?", model: "A carton of milk." },
+      { img: "a-bunch-of-grapes.jpg", prompt: "What’s this — the whole phrase.", model: "A bunch of grapes." },
+      { img: "a-bar-of-chocolate.jpg", prompt: "One thing from the store.", model: "A bar of chocolate." }
+    ];
+
+    const WHO = [
+      "buys a carton of milk every week",
+      "drinks a lot of coffee",
+      "never has any eggs at home",
+      "eats a bunch of grapes",
+      "cooks with a little oil",
+      "has a loaf of bread at home now",
+      "eats too many cookies",
+      "always has some rice in the kitchen"
     ];
 
     function src(file) { return "assets/" + file; }
@@ -656,27 +671,18 @@
       if (!window.speechSynthesis) return;
       const u = new SpeechSynthesisUtterance(text);
       u.lang = "en-US";
-      u.rate = 0.92;
+      u.rate = 0.9;
       speechSynthesis.cancel();
       speechSynthesis.speak(u);
     }
-    function foodById(id) { return FOODS.find((f) => f.id === id); }
-    function kindLabel(kind) { return kind === "count" ? "we count these" : "we measure this"; }
-
-    /* ===== DECK ===== */
-    let deckFilter = "all";
-    let deck = FOODS.slice();
-    let deckI = 0;
-    let flipped = false;
-
-    function filteredFoods() {
-      if (deckFilter === "count") return FOODS.filter((f) => f.kind === "count");
-      if (deckFilter === "measure") return FOODS.filter((f) => f.kind === "measure");
-      return FOODS.slice();
+    function kindLabel(kind) { return kind === "box" ? "a ___ of" : "quantity"; }
+    function filtered(kind) {
+      if (kind === "box" || kind === "qty") return ITEMS.filter((x) => x.kind === kind);
+      return ITEMS.slice();
     }
     function renderFilters(el, current, onPick) {
       el.innerHTML = "";
-      [["all", "All 24"], ["count", "We count these"], ["measure", "We measure this"]].forEach(([v, lab]) => {
+      [["all", "All phrases"], ["box", "a ___ of"], ["qty", "some / a few / too much"]].forEach(([v, lab]) => {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "chip" + (current === v ? " on" : "");
@@ -685,19 +691,25 @@
         el.appendChild(b);
       });
     }
+
+    /* DECK */
+    let deckFilter = "all";
+    let deck = ITEMS.slice();
+    let deckI = 0;
+    let flipped = false;
     function showDeck() {
       const item = deck[deckI];
       if (!item) return;
       document.getElementById("frontImg").src = src(item.img);
-      document.getElementById("frontImg").alt = item.word;
-      document.getElementById("backWord").textContent = item.word;
+      document.getElementById("frontImg").alt = item.phrase;
+      document.getElementById("backWord").textContent = item.phrase;
       document.getElementById("backTag").textContent = kindLabel(item.kind);
       document.getElementById("flipCard").classList.toggle("is-flipped", flipped);
       document.getElementById("deckCount").textContent = (deckI + 1) + " / " + deck.length;
     }
     function setDeckFilter(v) {
       deckFilter = v;
-      deck = filteredFoods();
+      deck = filtered(v);
       deckI = 0;
       flipped = false;
       renderFilters(document.getElementById("deckFilters"), deckFilter, setDeckFilter);
@@ -708,45 +720,29 @@
       flipped = !flipped;
       showDeck();
     });
-    document.getElementById("flipCard").addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipped = !flipped; showDeck(); }
-    });
     document.getElementById("sayBtn").addEventListener("click", (e) => {
       e.stopPropagation();
-      speak(deck[deckI].word);
+      speak(deck[deckI].phrase);
     });
     document.getElementById("btnPrev").addEventListener("click", () => {
-      deckI = (deckI - 1 + deck.length) % deck.length;
-      flipped = false;
-      showDeck();
+      deckI = (deckI - 1 + deck.length) % deck.length; flipped = false; showDeck();
     });
     document.getElementById("btnNext").addEventListener("click", () => {
-      deckI = (deckI + 1) % deck.length;
-      flipped = false;
-      showDeck();
+      deckI = (deckI + 1) % deck.length; flipped = false; showDeck();
     });
     document.getElementById("btnShuffle").addEventListener("click", () => {
-      deck = shuffle(filteredFoods());
-      deckI = 0;
-      flipped = false;
-      showDeck();
+      deck = shuffle(filtered(deckFilter)); deckI = 0; flipped = false; showDeck();
     });
 
-    /* ===== PRESENT ===== */
-    const present = document.getElementById("present");
-    function openPresent() {
-      document.body.classList.add("is-presenting");
-      drawPresent();
-    }
+    function openPresent() { document.body.classList.add("is-presenting"); drawPresent(); }
     function closePresent() { document.body.classList.remove("is-presenting"); }
     function drawPresent() {
       const item = deck[deckI];
       document.getElementById("pImg").src = src(item.img);
-      document.getElementById("pImg").alt = item.word;
       const w = document.getElementById("pWord");
-      w.textContent = item.word + " · " + kindLabel(item.kind);
+      w.textContent = item.phrase;
       w.classList.toggle("hid", !flipped);
-      document.getElementById("pFlip").textContent = flipped ? "Hide word" : "Show word";
+      document.getElementById("pFlip").textContent = flipped ? "Hide phrase" : "Show phrase";
     }
     document.getElementById("btnPresent").addEventListener("click", openPresent);
     document.getElementById("pClose").addEventListener("click", closePresent);
@@ -757,7 +753,7 @@
     document.getElementById("pNext").addEventListener("click", () => {
       deckI = (deckI + 1) % deck.length; flipped = false; drawPresent(); showDeck();
     });
-    document.getElementById("pSay").addEventListener("click", () => speak(deck[deckI].word));
+    document.getElementById("pSay").addEventListener("click", () => speak(deck[deckI].phrase));
     document.getElementById("pImg").addEventListener("click", () => { flipped = !flipped; drawPresent(); showDeck(); });
     document.addEventListener("keydown", (e) => {
       if (!document.body.classList.contains("is-presenting")) return;
@@ -767,117 +763,116 @@
       if (e.key === " ") { e.preventDefault(); flipped = !flipped; drawPresent(); showDeck(); }
     });
 
-    /* ===== WALL ===== */
+    /* WALL */
     let wallFilter = "all";
     function renderWall() {
       renderFilters(document.getElementById("wallFilters"), wallFilter, (v) => { wallFilter = v; renderWall(); });
-      const list = wallFilter === "all" ? FOODS : FOODS.filter((f) => f.kind === wallFilter);
+      const list = filtered(wallFilter);
       const wall = document.getElementById("wall");
       wall.innerHTML = "";
       list.forEach((f) => {
         const b = document.createElement("button");
         b.type = "button";
-        b.className = "tile" + (f.kind === "measure" ? " measure" : "");
-        b.innerHTML = `<img src="${src(f.img)}" alt="${f.word}"><span>${f.word}<span class="mini">${kindLabel(f.kind)}</span></span>`;
-        b.addEventListener("click", () => speak(f.word));
+        b.className = "tile" + (f.kind === "box" ? " box" : "");
+        b.innerHTML = `<img src="${src(f.img)}" alt="${f.phrase}"><span>${f.phrase}</span>`;
+        b.addEventListener("click", () => speak(f.phrase));
         wall.appendChild(b);
       });
     }
 
-    /* ===== SORT ===== */
-    let sortItems = [];
-    let selectedToken = null;
-    function newSort() {
-      const c = shuffle(FOODS.filter((f) => f.kind === "count")).slice(0, 6);
-      const m = shuffle(FOODS.filter((f) => f.kind === "measure")).slice(0, 6);
-      sortItems = shuffle(c.concat(m));
-      selectedToken = null;
-      document.getElementById("placedCount").innerHTML = "";
-      document.getElementById("placedMeasure").innerHTML = "";
-      document.getElementById("sortFb").textContent = "";
-      document.getElementById("sortStat").textContent = "0 / 12";
-      const bank = document.getElementById("sortBank");
-      bank.innerHTML = "";
-      sortItems.forEach((f) => bank.appendChild(makeToken(f)));
-    }
-    function makeToken(f) {
+    /* SNAP */
+    let snapPick = null;
+    let snapRound = [];
+    function phraseChip(phrase, id) {
       const el = document.createElement("button");
       el.type = "button";
       el.className = "token";
       el.draggable = true;
-      el.dataset.id = f.id;
-      el.innerHTML = `<img src="${src(f.img)}" alt=""><span>${f.word}</span>`;
+      el.dataset.id = id;
+      el.dataset.phrase = phrase;
+      el.textContent = phrase;
       el.addEventListener("click", () => {
-        document.querySelectorAll(".token.selected").forEach((t) => t.classList.remove("selected"));
-        selectedToken = el;
+        document.querySelectorAll("#snapBank .token, .drop .token").forEach((t) => t.classList.remove("selected"));
+        snapPick = el;
         el.classList.add("selected");
       });
       el.addEventListener("dragstart", (e) => {
-        e.dataTransfer.setData("text/plain", f.id);
-        selectedToken = el;
+        e.dataTransfer.setData("text/plain", id);
+        snapPick = el;
       });
       return el;
     }
-    function dropIn(binKind) {
-      if (!selectedToken) return;
-      const box = binKind === "count" ? document.getElementById("placedCount") : document.getElementById("placedMeasure");
-      selectedToken.classList.remove("selected", "ok", "bad");
-      box.appendChild(selectedToken);
-      selectedToken = null;
-    }
-    ["binCount", "binMeasure"].forEach((id) => {
-      const bin = document.getElementById(id);
-      bin.addEventListener("dragover", (e) => { e.preventDefault(); bin.classList.add("hot"); });
-      bin.addEventListener("dragleave", () => bin.classList.remove("hot"));
-      bin.addEventListener("drop", (e) => {
-        e.preventDefault();
-        bin.classList.remove("hot");
-        const fid = e.dataTransfer.getData("text/plain");
-        selectedToken = document.querySelector('.token[data-id="' + fid + '"]');
-        dropIn(bin.dataset.bin);
-      });
-      bin.addEventListener("click", () => dropIn(bin.dataset.bin));
-    });
-    document.getElementById("sortCheck").addEventListener("click", () => {
-      let ok = 0, n = 0;
-      [["placedCount", "count"], ["placedMeasure", "measure"]].forEach(([pid, kind]) => {
-        [...document.getElementById(pid).querySelectorAll(".token")].forEach((t) => {
-          n += 1;
-          const f = foodById(t.dataset.id);
-          const good = f.kind === kind;
-          t.classList.toggle("ok", good);
-          t.classList.toggle("bad", !good);
-          if (good) ok += 1;
+    function newSnap() {
+      snapPick = null;
+      snapRound = shuffle(SNAP).slice(0, 8);
+      const bank = document.getElementById("snapBank");
+      const board = document.getElementById("snapBoard");
+      bank.innerHTML = "";
+      board.innerHTML = "";
+      document.getElementById("snapFb").textContent = "";
+      document.getElementById("snapStat").textContent = "0 / 8";
+      shuffle(snapRound).forEach((s) => bank.appendChild(phraseChip(s.phrase, s.id)));
+      snapRound.forEach((s) => {
+        const slot = document.createElement("div");
+        slot.className = "snap-slot";
+        slot.dataset.id = s.id;
+        slot.innerHTML = `<img src="${src(s.img)}" alt=""><div class="drop"></div>`;
+        const drop = slot.querySelector(".drop");
+        const place = () => {
+          if (!snapPick) return;
+          drop.querySelectorAll(".token").forEach((t) => document.getElementById("snapBank").appendChild(t));
+          snapPick.classList.remove("selected", "ok", "bad");
+          drop.appendChild(snapPick);
+          snapPick = null;
+        };
+        slot.addEventListener("click", place);
+        slot.addEventListener("dragover", (e) => { e.preventDefault(); slot.classList.add("hot"); });
+        slot.addEventListener("dragleave", () => slot.classList.remove("hot"));
+        slot.addEventListener("drop", (e) => {
+          e.preventDefault();
+          slot.classList.remove("hot");
+          const id = e.dataTransfer.getData("text/plain");
+          snapPick = document.querySelector('.token[data-id="' + id + '"]');
+          place();
         });
+        board.appendChild(slot);
       });
-      document.getElementById("sortStat").textContent = ok + " / 12";
-      document.getElementById("sortFb").textContent = n < 12 ? "Put every photo in a basket first." : (ok === 12 ? "Yes — all in the right basket." : ok + " right. Try again.");
-      document.getElementById("sortFb").className = "fb" + (ok === 12 ? " ok" : " no");
+    }
+    document.getElementById("snapCheck").addEventListener("click", () => {
+      let ok = 0;
+      document.querySelectorAll(".snap-slot").forEach((slot) => {
+        const t = slot.querySelector(".token");
+        if (!t) return;
+        const good = t.dataset.id === slot.dataset.id;
+        t.classList.toggle("ok", good);
+        t.classList.toggle("bad", !good);
+        if (good) ok += 1;
+      });
+      document.getElementById("snapStat").textContent = ok + " / 8";
+      document.getElementById("snapFb").textContent = ok === 8 ? "All pairs snap." : ok + " right. Move the others.";
+      document.getElementById("snapFb").className = "fb" + (ok === 8 ? " ok" : " no");
     });
-    document.getElementById("sortReset").addEventListener("click", newSort);
+    document.getElementById("snapReset").addEventListener("click", newSnap);
 
-    /* ===== MEMORY ===== */
-    let memLock = false;
-    let memOpen = [];
-    let memPairs = 0;
+    /* MEMORY */
+    let memLock = false, memOpen = [], memPairs = 0;
     function newMem() {
       memLock = false; memOpen = []; memPairs = 0;
-      const pick = shuffle(FOODS).slice(0, 8);
+      const pick = shuffle(ITEMS).slice(0, 8);
       const cards = shuffle(pick.flatMap((f) => ([
-        { id: f.id, type: "pic", img: f.img, word: f.word },
-        { id: f.id, type: "word", word: f.word }
+        { id: f.id, type: "pic", img: f.img, phrase: f.phrase },
+        { id: f.id, type: "word", phrase: f.phrase }
       ])));
       const grid = document.getElementById("memGrid");
       grid.innerHTML = "";
-      cards.forEach((c, i) => {
+      cards.forEach((c) => {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "mem-card" + (c.type === "word" ? " word" : "");
         b.dataset.id = c.id;
-        b.dataset.i = String(i);
         b.innerHTML = c.type === "pic"
           ? `<span class="back-mark">?</span><img src="${src(c.img)}" alt="">`
-          : `<span class="back-mark">?</span><span class="lab">${c.word}</span>`;
+          : `<span class="back-mark">?</span><span class="lab">${c.phrase}</span>`;
         b.addEventListener("click", () => flipMem(b));
         grid.appendChild(b);
       });
@@ -894,26 +889,24 @@
           a.classList.add("matched"); c.classList.add("matched");
           memPairs += 1;
           document.getElementById("memStat").textContent = "Pairs " + memPairs + " / 8";
-          speak(foodById(a.dataset.id).word);
+          const it = ITEMS.find((x) => x.id === a.dataset.id);
+          if (it) speak(it.phrase);
           memOpen = []; memLock = false;
         } else {
           setTimeout(() => {
             a.classList.remove("open"); c.classList.remove("open");
             memOpen = []; memLock = false;
-          }, 800);
+          }, 850);
         }
       }
     }
     document.getElementById("memReset").addEventListener("click", newMem);
 
-    /* ===== QUANTITY ===== */
-    let qtyOrder = [];
-    let qtyI = 0;
-    let qtyScore = 0;
+    /* CLOSE CALL */
+    let qtyOrder = [], qtyI = 0, qtyScore = 0;
     function showQty() {
       const item = qtyOrder[qtyI];
       document.getElementById("qtyImg").src = src(item.img);
-      document.getElementById("qtyImg").alt = item.phrase;
       const box = document.getElementById("qtyOpts");
       box.innerHTML = "";
       box.dataset.lock = "0";
@@ -925,17 +918,17 @@
         b.textContent = o;
         b.addEventListener("click", () => {
           if (box.dataset.lock === "1") return;
-          const good = o === item.phrase;
+          const good = o === item.a;
           b.classList.add(good ? "correct" : "wrong");
           if (good) {
             box.dataset.lock = "1";
             qtyScore += 1;
-            speak(item.phrase);
-            document.getElementById("qtyFb").textContent = item.phrase;
+            speak(item.a);
+            document.getElementById("qtyFb").textContent = item.a;
             document.getElementById("qtyFb").className = "fb ok";
             document.getElementById("qtyStat").textContent = qtyScore + " / " + qtyOrder.length;
           } else {
-            document.getElementById("qtyFb").textContent = "Try another.";
+            document.getElementById("qtyFb").textContent = "Close — look at the amount.";
             document.getElementById("qtyFb").className = "fb no";
           }
         });
@@ -948,106 +941,76 @@
       showQty();
     });
 
-    /* ===== FRIDGE ===== */
-    function renderHunt() {
-      const box = document.getElementById("huntOpts");
+    /* SHOPPING */
+    function renderShop() {
+      const box = document.getElementById("shopList");
       box.innerHTML = "";
-      document.getElementById("huntFb").textContent = "";
-      shuffle(FRIDGE_BANK).forEach((id) => {
-        const f = foodById(id);
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "opt";
-        b.dataset.id = id;
-        b.textContent = f.word;
-        b.addEventListener("click", () => b.classList.toggle("selected"));
-        box.appendChild(b);
+      document.getElementById("shopFb").textContent = "";
+      SHOP.forEach((row, i) => {
+        const el = document.createElement("div");
+        el.className = "shop-row";
+        el.dataset.i = String(i);
+        el.innerHTML = `<div><strong>${row.item}</strong><div class="model" style="margin:0">${row.phrase}</div></div>
+          <div class="opts">
+            <button type="button" class="opt" data-v="have">have</button>
+            <button type="button" class="opt" data-v="need">need</button>
+          </div>`;
+        el.querySelectorAll(".opt").forEach((b) => {
+          b.addEventListener("click", () => {
+            el.querySelectorAll(".opt").forEach((x) => x.classList.remove("selected"));
+            b.classList.add("selected");
+            el.dataset.pick = b.dataset.v;
+          });
+        });
+        box.appendChild(el);
       });
     }
-    document.getElementById("huntCheck").addEventListener("click", () => {
-      let hits = 0, falsePos = 0;
-      document.querySelectorAll("#huntOpts .opt").forEach((b) => {
-        const inFridge = FRIDGE_IN.includes(b.dataset.id);
-        const picked = b.classList.contains("selected");
-        b.classList.remove("miss", "found");
-        if (picked && inFridge) { hits += 1; b.classList.add("found"); }
-        if (picked && !inFridge) { falsePos += 1; b.classList.add("miss"); }
-        if (!picked && inFridge) b.classList.add("miss");
+    document.getElementById("shopCheck").addEventListener("click", () => {
+      let ok = 0;
+      document.querySelectorAll("#shopList .shop-row").forEach((el) => {
+        const row = SHOP[Number(el.dataset.i)];
+        const good = el.dataset.pick === row.a;
+        el.classList.toggle("ok", good);
+        el.classList.toggle("no", !good && !!el.dataset.pick);
+        if (good) ok += 1;
       });
-      const msg = hits === FRIDGE_IN.length && falsePos === 0
-        ? "All of them. Eggs, apples, tomatoes, cheese, rice, milk, bread, tortillas, salsa."
-        : hits + " in the fridge. " + falsePos + " extra. Look again.";
-      document.getElementById("huntFb").textContent = msg;
-      document.getElementById("huntFb").className = "fb" + (hits === FRIDGE_IN.length && falsePos === 0 ? " ok" : " no");
+      const msg = ok === SHOP.length
+        ? "We have a pack of tortillas, some cheese, and a little salsa. We need chicken, limes, and a few onions."
+        : ok + " / 6. Look at the fridge again.";
+      document.getElementById("shopFb").textContent = msg;
+      document.getElementById("shopFb").className = "fb" + (ok === SHOP.length ? " ok" : " no");
     });
-    document.getElementById("huntReset").addEventListener("click", renderHunt);
+    document.getElementById("shopReset").addEventListener("click", renderShop);
 
-    /* ===== BINGO / SPIN / RACE ===== */
+    /* BINGO / SPIN */
     function newBingo() {
-      const pick = shuffle(FOODS).slice(0, 9);
+      const pick = shuffle(ITEMS).slice(0, 9);
       const box = document.getElementById("bingo");
       box.innerHTML = "";
       pick.forEach((f) => {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "bingo-cell";
-        b.innerHTML = `<img src="${src(f.img)}" alt=""><span>${f.word}</span>`;
+        b.innerHTML = `<img src="${src(f.img)}" alt=""><span>${f.phrase}</span>`;
         b.addEventListener("click", () => b.classList.toggle("stamped"));
         box.appendChild(b);
       });
     }
     document.getElementById("bingoNew").addEventListener("click", newBingo);
 
-    let spinHidden = true;
-    function spin() {
-      const f = shuffle(FOODS)[0];
-      spinHidden = true;
+    document.getElementById("spinGo").addEventListener("click", () => {
+      const f = shuffle(ITEMS)[0];
       document.getElementById("spinImg").src = src(f.img);
-      document.getElementById("spinWord").textContent = "Say it!";
-      document.getElementById("spinWord").dataset.word = f.word;
-      setTimeout(() => {
-        document.getElementById("spinWord").textContent = f.word;
-        spinHidden = false;
-      }, 2800);
-    }
-    document.getElementById("spinGo").addEventListener("click", spin);
+      document.getElementById("spinWord").textContent = "Say the phrase!";
+      document.getElementById("spinWord").dataset.phrase = f.phrase;
+      setTimeout(() => { document.getElementById("spinWord").textContent = f.phrase; }, 2800);
+    });
     document.getElementById("spinSay").addEventListener("click", () => {
-      const w = document.getElementById("spinWord").dataset.word;
+      const w = document.getElementById("spinWord").dataset.phrase;
       if (w) speak(w);
     });
 
-    let raceScore = 0;
-    let raceItem = FOODS[0];
-    let raceLock = false;
-    function nextRace() {
-      raceLock = false;
-      raceItem = shuffle(FOODS)[0];
-      document.getElementById("raceImg").src = src(raceItem.img);
-      document.getElementById("raceImg").alt = "";
-      document.getElementById("raceFb").textContent = "";
-      document.querySelectorAll("[data-race]").forEach((b) => b.classList.remove("correct", "wrong"));
-    }
-    document.querySelectorAll("[data-race]").forEach((b) => {
-      b.addEventListener("click", () => {
-        if (raceLock) return;
-        raceLock = true;
-        const good = b.dataset.race === raceItem.kind;
-        b.classList.add(good ? "correct" : "wrong");
-        if (good) {
-          raceScore += 1;
-          speak(raceItem.word);
-          document.getElementById("raceFb").textContent = raceItem.word + " — " + kindLabel(raceItem.kind);
-          document.getElementById("raceFb").className = "fb ok";
-        } else {
-          document.getElementById("raceFb").textContent = raceItem.word + " — " + kindLabel(raceItem.kind);
-          document.getElementById("raceFb").className = "fb no";
-        }
-        document.getElementById("raceStat").textContent = "Score " + raceScore;
-      });
-    });
-    document.getElementById("raceNext").addEventListener("click", nextRace);
-
-    /* ===== SPEAK ===== */
+    /* SPEAK */
     let speakI = 0;
     function showSpeak() {
       const s = SPEAK[speakI];
@@ -1061,20 +1024,18 @@
     });
     document.getElementById("speakSay").addEventListener("click", () => speak(SPEAK[speakI].model));
     document.getElementById("who").innerHTML = WHO.map((line) =>
-      `<label><input type="checkbox"><span>Find someone who ${line} — name: <input type="text" placeholder="________"></span></label>`
+      `<label><input type="checkbox"><span>Find someone who ${line}<br>name: <input type="text" placeholder="________"></span></label>`
     ).join("");
 
-    /* init */
     renderFilters(document.getElementById("deckFilters"), deckFilter, setDeckFilter);
     showDeck();
     renderWall();
-    newSort();
+    newSnap();
     newMem();
-    qtyOrder = shuffle(CHUNKS);
+    qtyOrder = shuffle(CLOSE);
     showQty();
-    renderHunt();
+    renderShop();
     newBingo();
-    nextRace();
     showSpeak();
   </script>
 </body>

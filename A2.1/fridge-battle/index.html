@@ -46,7 +46,11 @@
     @keyframes pulse{to{transform:scale(1.06)}}
     @media(max-width:820px){.arena{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.round-nav{grid-template-columns:repeat(3,1fr)}.timer{font-size:3.5rem}}
     @media(max-width:560px){.topbar{align-items:flex-start}.offline{display:none}.scoreboard{grid-template-columns:1fr 1fr}.versus{display:none}.player{display:block;text-align:center}.score-actions{justify-content:center;margin-top:10px}.round-nav{grid-template-columns:1fr 1fr}.stage-head{padding:20px;display:block}.round-chip{display:inline-block;margin-top:12px}.challenge{padding:24px 18px}.controls{padding:0 18px 22px}.side{grid-template-columns:1fr}.footer-actions{align-items:center}.brand small{font-size:.72rem}}
+    html.embed body{min-height:0}
+    html.embed .topbar{display:none}
+    html.embed .shell{width:min(1180px,100%);margin:8px auto 12px}
   </style>
+  <script>if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('embed');</script>
 </head>
 <body>
   <header class="topbar">
