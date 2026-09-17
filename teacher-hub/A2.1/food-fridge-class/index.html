@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../../../assets/logo.png">
+  <title>Teacher plan · Food Fridge Class · A2.1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843; --ink:#172033; --muted:#6b7fa3; --soft:#f4fbfa; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); background: linear-gradient(180deg,#f7fafc,#eef4f7); line-height: 1.45; }
+    .shell { max-width: 920px; margin: 0 auto; padding: 20px 14px 48px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--navy); color:#fff; border-radius:18px; padding:12px 16px; margin-bottom:16px; box-shadow:0 16px 34px rgba(11,31,58,.22); }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark { width:48px; height:48px; border-radius:999px; background:#fff; padding:3px; overflow:hidden; flex:0 0 auto; }
+    .brand-mark img { width:100%; height:100%; border-radius:999px; object-fit:cover; display:block; }
+    .brand h1 { font-size:1.05rem; line-height:1.1; }
+    .brand p { color:#d7ecea; font-size:.78rem; margin-top:3px; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; text-decoration:none; cursor:pointer; color:#fff; }
+    .btn.teal { background:#5bb8b0; } .btn.teal:hover { background:#238d85; }
+    .btn.navy { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); }
+    .btn.gold { background:var(--gold); color:#1a1408; }
+    .hero { background:#f4fbfa; border-radius:18px; padding:22px 20px; margin-bottom:14px; border:1px solid rgba(11,31,58,.08); }
+    .eyebrow { color:var(--teal-dark); font-size:.72rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .hero h2 { font-size:clamp(1.4rem,4vw,2rem); color:var(--navy); margin:8px 0; letter-spacing:-.02em; }
+    .hero h2 span { color:var(--teal); }
+    .hero p { color:var(--muted); max-width:680px; }
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .pill { background:#fff; border:1px solid rgba(11,31,58,.1); border-radius:999px; padding:6px 11px; font-size:.75rem; font-weight:800; color:var(--navy); }
+    .card { background:#fff; border-radius:16px; padding:16px 18px; margin-bottom:12px; box-shadow:0 12px 28px rgba(20,35,60,.06); border:1px solid rgba(11,31,58,.06); }
+    .card h3 { color:var(--navy); font-size:1.05rem; margin-bottom:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .time { font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--teal-dark); background:var(--soft); border-radius:999px; padding:4px 8px; }
+    .tag { font-size:.68rem; font-weight:800; color:#8a6a1d; background:#fff7e6; border-radius:999px; padding:4px 8px; }
+    .game { font-size:.68rem; font-weight:800; color:#fff; background:var(--navy); border-radius:999px; padding:4px 8px; }
+    .block { font-size:.68rem; font-weight:800; color:#fff; background:var(--teal-dark); border-radius:999px; padding:4px 8px; }
+    .cut { font-size:.68rem; font-weight:800; color:#fff; background:#b8892a; border-radius:999px; padding:4px 8px; }
+    .aim { color:var(--muted); font-size:.9rem; margin-bottom:10px; }
+    ol, ul { padding-left:1.2em; }
+    li { margin:0 0 6px; }
+    a { color:var(--teal-dark); font-weight:700; }
+    .say { background:var(--soft); border-left:4px solid var(--teal); padding:10px 12px; border-radius:0 12px 12px 0; margin:10px 0; font-size:.92rem; }
+    .board { border:2px dashed rgba(11,31,58,.2); border-radius:12px; padding:12px; background:#fafbfc; margin-top:8px; font-size:.9rem; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+    @media(max-width:700px){ .grid2,.grid3{grid-template-columns:1fr;} .brand p{display:none;} }
+    .col { background:var(--soft); border-radius:12px; padding:12px; }
+    .col h4 { font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); margin-bottom:6px; }
+    .score { display:inline-block; background:#fff7e6; color:#8a6a1d; font-weight:800; font-size:.78rem; border-radius:8px; padding:4px 8px; margin-top:6px; }
+    .map { font-size:.82rem; background:#eef6f5; border-radius:10px; padding:8px 10px; margin:8px 0; }
+    .map strong { color:var(--navy); }
+    .links { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    footer { text-align:center; color:var(--muted); font-size:.78rem; padding:18px 0 8px; }
+    .print-hint { color:var(--muted); font-size:.72rem; margin-top:8px; font-weight:600; }
+    .print-pin-backdrop { display:none; position:fixed; inset:0; background:rgba(11,31,58,.45); z-index:9998; align-items:center; justify-content:center; padding:16px; }
+    .print-pin-backdrop.open { display:flex; }
+    .print-pin-modal { background:#fff; border-radius:16px; padding:20px 22px; max-width:340px; width:100%; box-shadow:0 20px 50px rgba(11,31,58,.28); border:1px solid rgba(11,31,58,.08); }
+    .print-pin-modal h4 { color:var(--navy); font-size:1rem; margin:0 0 6px; }
+    .print-pin-modal p { color:var(--muted); font-size:.82rem; margin:0 0 12px; }
+    .print-pin-modal input { width:100%; border:1.5px solid rgba(11,31,58,.18); border-radius:10px; padding:10px 12px; font-size:1rem; font-weight:700; letter-spacing:.12em; text-align:center; color:var(--navy); outline:none; }
+    .print-pin-modal input:focus { border-color:var(--teal); }
+    .print-pin-actions { display:flex; gap:8px; margin-top:14px; justify-content:flex-end; }
+    .print-pin-actions button { border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; cursor:pointer; }
+    .print-pin-actions .cancel { background:rgba(11,31,58,.08); color:var(--navy); }
+    .print-pin-actions .ok { background:var(--teal); color:#fff; }
+    .print-pin-actions .ok:hover { background:var(--teal-dark); }
+    @media print {
+      .topbar .actions, .print-pin-backdrop, .print-hint { display:none !important; }
+      body{background:#fff;}
+      .card{break-inside:avoid;box-shadow:none;}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><img src="../../../assets/logo.png" alt=""></div>
+      <div>
+        <h1>Food Fridge Class</h1>
+        <p>Teacher Hub · combined class plan</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn teal" href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Countable page</a>
+      <a class="btn teal" href="../../../A2.1/food-quantifiers/" target="_blank" rel="noopener">Quantifiers</a>
+      <a class="btn gold" href="../../../A2.1/food-quantifiers/#act-battle" target="_blank" rel="noopener">Fridge Battle</a>
+      <a class="btn navy" href="../../">Teacher Hub</a>
+      <span class="btn navy" style="cursor:default">A2.1</span>
+      <button type="button" class="btn teal" id="printBtn">Imprimir / PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Teacher plan · full kitchen day</div>
+    <h2>Count it. Chunk it. <span>Battle it.</span></h2>
+    <p>One combined class: countable / uncountable core + kitchen quantity phrases + full Fridge Battle. Click the map links — every step names the exact student tab or accordion.</p>
+    <div class="pills">
+      <span class="pill">≈ 90–100 min full</span>
+      <span class="pill">Short path ≈ 60 min</span>
+      <span class="pill">Countable + Quantifiers + Battle</span>
+      <span class="pill">1:1 or small group</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Aim</h3>
+    <p class="aim">Sort fridge nouns into countable / uncountable, use <strong>some / any / much / many / a few / a little / a lot of</strong>, then say full kitchen chunks (<em>a carton of milk</em>) and finish with <strong>Fridge Battle</strong>.</p>
+    <ul>
+      <li><strong>Can-do:</strong> Talk about food at home with the right quantity words <em>and</em> natural container phrases.</li>
+      <li><strong>Materials:</strong> Two student pages open in new tabs + projector/phone; optional board.</li>
+      <li><strong>Keep the countable-only plan</strong> at <a href="../countable-and-uncountable/">Teacher Hub · Countable &amp; Uncountable</a> for shorter days.</li>
+    </ul>
+    <div class="links">
+      <a class="btn teal" href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Open Countable &amp; Uncountable</a>
+      <a class="btn teal" href="../../../A2.1/food-quantifiers/" target="_blank" rel="noopener">Open Food Quantifiers / Kitchen words</a>
+      <a class="btn gold" href="../../../A2.1/food-quantifiers/#act-battle" target="_blank" rel="noopener">Jump to Fridge Battle (#act-battle)</a>
+    </div>
+    <p class="print-hint">Imprimir pide el PIN del nivel (ciclo 26).</p>
+  </section>
+
+  <section class="card">
+    <h3>Student map · click &amp; go</h3>
+    <div class="grid2">
+      <div class="col">
+        <h4>Page 1 · Countable &amp; Uncountable</h4>
+        <p>Tabs in order:<br>
+        <strong>1 Notice → 2 Grammar → 3 Practice → 4 Reading → 5 Listening → 6 Speaking → 7 Writing → 8 Can-do</strong></p>
+        <p style="margin-top:8px"><a href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Open page ↗</a></p>
+      </div>
+      <div class="col">
+        <h4>Page 2 · Food Quantifiers</h4>
+        <p>Accordions:<br>
+        <strong>01 Phrase deck · 02 Phrase wall · 03 Container snap · 04 Memory · 05 Close call · 06 Taco night list · 07 Class play · 08 Speak · 09 Fridge Battle</strong></p>
+        <p style="margin-top:8px"><a href="../../../A2.1/food-quantifiers/" target="_blank" rel="noopener">Open page ↗</a> · <a href="../../../A2.1/food-quantifiers/#act-battle" target="_blank" rel="noopener">#act-battle ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOCK A ========== -->
+  <section class="card">
+    <h3><span class="block">Block A</span> Countable / Uncountable <span class="time">~45–50 min</span></h3>
+    <p class="aim">Core grammar day on the countable page — then a short Reading + Listening hit before chunks.</p>
+  </section>
+
+  <section class="card">
+    <h3>A0 · Warm-up <span class="time">5–6 min</span> <span class="game">Odd food out</span></h3>
+    <p class="aim"><strong>Odd food out</strong> — not a fridge sprint. Activate countable vs uncountable with judgment, not listing.</p>
+    <ol>
+      <li>Board (or say aloud): <strong>apple · rice · milk · banana</strong>.</li>
+      <li>Students pick the odd one(s) out and <em>must say why</em> using countable / uncountable language.</li>
+      <li>Accept strong answers: <em>rice</em> and <em>milk</em> are uncountable; <em>apple</em> and <em>banana</em> are countable. Push: “How many apples?” vs “How much rice?”</li>
+      <li>Fast round 2 (oral only): eggs / cheese / tortillas / salsa — same job.</li>
+    </ol>
+    <div class="say"><strong>Line:</strong> “Don’t list your fridge today. Make the words fight: which ones you count, which ones you measure.”</div>
+    <div class="score">+1 You for each clear why (countable / uncountable), not just the word pick</div>
+  </section>
+
+  <section class="card">
+    <h3>A1 · Notice <span class="time">6–7 min</span> <span class="tag">Page 1 · 1 Notice</span></h3>
+    <div class="map"><strong>Open:</strong> <a href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Countable &amp; Uncountable</a> → tab <strong>1 Notice</strong></div>
+    <p class="aim">Meet the fridge set — choral + flash sentences.</p>
+    <div class="grid2">
+      <div class="col"><h4>Countable</h4><p>eggs · tortillas · tomatoes · bottles</p></div>
+      <div class="col"><h4>Uncountable</h4><p>rice · milk · salsa · cheese</p></div>
+    </div>
+    <ol>
+      <li>You point; they chorus each food + the page sentence (radio-ad voice OK).</li>
+      <li>Hide page 20s: they recall 2 countable + 2 uncountable sentences.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>A2 · Grammar hits <span class="time">12–14 min</span> <span class="tag">Page 1 · 2 Grammar</span> <span class="game">Fire + traps</span></h3>
+    <div class="map"><strong>Open:</strong> same page → tab <strong>2 Grammar</strong></div>
+    <p class="aim">Countable / uncountable cards + quantifiers: some / any / much / many / a few / a little (+ a lot of).</p>
+    <ol>
+      <li><strong>Hit 1 (4 min):</strong> two big cards — countable = a/an · -s · how many; uncountable = no plural · how much. Wrong-phrase duel: <em>two rices / a milk / how many cheese</em> → they fix.</li>
+      <li><strong>Hit 2 (5 min):</strong> contrast pairs — some (yes) · any (Q/neg) · many / a few (C) · much / a little (U) · a lot of (both). Fire round: you throw a noun → only <em>How many?</em> or <em>How much?</em></li>
+      <li><strong>Hit 3 (3–4 min):</strong> traps + containers on the page (informations / two breads / How many milk) → slap-table repair; quick bottle / loaf / cup / bag / piece phrases.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>A3 · Practice stations <span class="time">12–14 min</span> <span class="tag">Page 1 · 3 Practice</span> <span class="game">Stations</span></h3>
+    <div class="map"><strong>Open:</strong> tab <strong>3 Practice</strong> · accordions <strong>A–D</strong></div>
+    <ul>
+      <li><strong>A</strong> Countable or uncountable? — 3 min sprint</li>
+      <li><strong>B</strong> Choose the word (some/any/much/many/a few/a little) — 4 min</li>
+      <li><strong>C</strong> Fix the sentence — 4 min</li>
+      <li><strong>D</strong> A bottle of… — 3 min</li>
+    </ul>
+    <ol>
+      <li>After each block: one miss → they read the <em>why</em> out loud (you don’t lecture).</li>
+      <li>First-try correct = points for You.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>A4 · Reading <span class="time">5–6 min</span> <span class="tag">Page 1 · 4 Reading</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> tab <strong>4 Reading</strong></div>
+    <ol>
+      <li>Silent skim once; then tap/check the highlighted quantity words together.</li>
+      <li>One oral: “Find one some/any and one how much / how many idea in the text.”</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>A5 · Listening <span class="time">5–6 min</span> <span class="tag">Page 1 · 5 Listening</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> tab <strong>5 Listening</strong> · <em>After work, tacos</em></div>
+    <ol>
+      <li>Play once for gist (who / what food).</li>
+      <li>Play again for quantity details; check on-page answers.</li>
+      <li>Bridge line: “Next we stop saying just <em>milk</em> — we say the whole chunk.”</li>
+    </ol>
+  </section>
+
+  <!-- ========== BLOCK B ========== -->
+  <section class="card">
+    <h3><span class="block">Block B</span> Food quantity chunks <span class="time">~25–30 min</span></h3>
+    <p class="aim">Switch to Kitchen words / Food Quantifiers — whole phrases, not single nouns.</p>
+  </section>
+
+  <section class="card">
+    <h3>B1 · Phrase deck <span class="time">5 min</span> <span class="tag">Page 2 · 01 Phrase deck</span> <span class="game">Present</span></h3>
+    <div class="map"><strong>Open:</strong> <a href="../../../A2.1/food-quantifiers/" target="_blank" rel="noopener">Food Quantifiers</a> → accordion <strong>01 Phrase deck</strong> (<code>#act-present</code>)</div>
+    <ol>
+      <li>Projector: show photo → wait → students say the chunk → flip.</li>
+      <li>Run ~8–10 cards; 🔊 for model when they stall.</li>
+      <li>Rule: full phrase only (<em>a carton of milk</em>, not <em>milk</em>).</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B2 · Phrase wall <span class="time">3–4 min</span> <span class="tag">Page 2 · 02 Phrase wall</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>02 Phrase wall</strong> (<code>#act-wall</code>)</div>
+    <ol>
+      <li>Quick gallery: teal = a ___ of containers; navy = quantity phrases.</li>
+      <li>Tap 4–6 photos; students echo before audio if possible.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B3 · Container snap <span class="time">5 min</span> <span class="tag">Page 2 · 03 Container snap</span> <span class="game">Snap</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>03 Container snap</strong> (<code>#act-snap</code>)</div>
+    <ol>
+      <li>Tap phrase → tap photo (or drag). Aim for a clean round (0→8).</li>
+      <li>Miss → say the correct chunk aloud before next try.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B4 · Memory <span class="time">4–5 min</span> <span class="tag">Page 2 · 04 Memory</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>04 Memory</strong> (<code>#act-mem</code>) · 8 pairs</div>
+    <ol>
+      <li>Photo ↔ full phrase. Timed pairs race if energy is high.</li>
+      <li>On match: student uses the chunk in one new sentence.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B5 · Close call <span class="time">4–5 min</span> <span class="tag">Page 2 · 05 Close call</span> <span class="game">Trap</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>05 Close call</strong> (<code>#act-qty</code>)</div>
+    <ol>
+      <li>Four almost-right phrases; tap the one that matches the photo amount.</li>
+      <li>Run ~6–8 pictures; force a why when they hesitate.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B6 · Taco night list <span class="time">5 min</span> <span class="tag">Page 2 · 06 Taco night list</span> <span class="cut">Optional short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>06 Taco night list</strong> (<code>#act-shop</code>)</div>
+    <ol>
+      <li>Recipe vs fridge: have / don’t have / need + quantity phrase.</li>
+      <li>Check together; celebrate full chunks.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>B7 · Class play <span class="time">4 min</span> <span class="tag">Page 2 · 07 Class play</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>07 Class play</strong> (<code>#act-play</code>) · Phrase bingo + Spin</div>
+    <ol>
+      <li>Fast path: use <strong>Spin</strong> — team says the whole phrase in 3 seconds (+ optional extra sentence).</li>
+      <li>If group is large: one bingo card stamp round instead.</li>
+    </ol>
+  </section>
+
+  <!-- ========== BLOCK C ========== -->
+  <section class="card">
+    <h3><span class="block">Block C</span> Output + Battle <span class="time">~20–25 min</span></h3>
+    <p class="aim">Speaking output, quick writing, full Fridge Battle, then can-do exit.</p>
+  </section>
+
+  <section class="card">
+    <h3>C1 · Speak <span class="time">6–7 min</span> <span class="tag">Page 2 · 08 Speak</span> <span class="game">Find someone who…</span></h3>
+    <div class="map"><strong>Open:</strong> accordion <strong>08 Speak</strong> (<code>#act-speak</code>) · Picture prompts + Find someone who…</div>
+    <ol>
+      <li>Pairs: 20-second picture prompts — partner answers with a <em>full phrase</em>.</li>
+      <li>Then <strong>Find someone who…</strong> with quantity chunks (mingling or teacher-as-partner in 1:1).</li>
+      <li>Optional bridge from countable page tab <strong>6 Speaking</strong> if you want one more prompt set — keep it under 2 min.</li>
+    </ol>
+    <div class="map" style="margin-top:8px"><strong>Also available:</strong> <a href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Countable</a> → tab <strong>6 Speaking</strong> (use only if time)</div>
+  </section>
+
+  <section class="card">
+    <h3>C2 · Writing flash <span class="time">3–4 min</span> <span class="tag">Page 1 · 7 Writing</span> <span class="cut">Short-path cut</span></h3>
+    <div class="map"><strong>Open:</strong> <a href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Countable</a> → tab <strong>7 Writing</strong></div>
+    <ol>
+      <li>3–4 lines about THEIR fridge: some/any + a few OR a little + one container chunk from today.</li>
+      <li>You mark quantity-word wins only — celebrate.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>C3 · Fridge Battle <span class="time">12–14 min</span> <span class="tag">Page 2 · 09 Fridge Battle</span> <span class="game">Full #act-battle</span></h3>
+    <div class="map"><strong>Open direct:</strong> <a href="../../../A2.1/food-quantifiers/#act-battle" target="_blank" rel="noopener">food-quantifiers/#act-battle</a> · accordion <strong>09 Fridge Battle</strong></div>
+    <ol>
+      <li>Full class game: two teams, five rounds, timer on. Use the page UI for names/scores.</li>
+      <li>Open full screen if the projector feels tight.</li>
+      <li>Teacher cue: demand whole phrases; block one-word answers.</li>
+      <li>Keep energy high — this is the payoff for the whole kitchen day.</li>
+    </ol>
+    <div class="say"><strong>Line:</strong> “Battle rules: full chunk or no point. The fridge is listening.”</div>
+  </section>
+
+  <section class="card">
+    <h3>C4 · Exit / Can-do <span class="time">2–3 min</span> <span class="tag">Page 1 · 8 Can-do</span></h3>
+    <div class="map"><strong>Open:</strong> <a href="../../../A2.1/countable-and-uncountable/" target="_blank" rel="noopener">Countable</a> → tab <strong>8 Can-do</strong> · <em>the fridge test</em></div>
+    <ol>
+      <li>Tick can-dos together (name countable things; use some/any; how much/many; container phrases).</li>
+      <li>One exit sentence out loud: fridge + quantity word + one chunk from Battle.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>Timing · full run ≈ 90–100 min</h3>
+    <div class="grid3">
+      <div class="col"><h4>Block A ~45–50</h4><p>Odd food out 5–6 · Notice 6–7 · Grammar 12–14 · Practice 12–14 · Reading 5–6 · Listening 5–6</p></div>
+      <div class="col"><h4>Block B ~25–30</h4><p>Phrase deck 5 · Wall 3–4 · Snap 5 · Memory 4–5 · Close call 4–5 · Taco list 5 · Class play 4</p></div>
+      <div class="col"><h4>Block C ~20–25</h4><p>Speak 6–7 · Writing 3–4 · Fridge Battle 12–14 · Can-do exit 2–3</p></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Short path ≈ 60 min <span class="cut">Cut list</span></h3>
+    <p class="aim">Still hits countable core + a few quantifier games + Battle. Do <strong>not</strong> skip Odd food out, Grammar hits, Practice A–B, Phrase deck, Container snap, Close call (or Memory), Speak brief, Fridge Battle, Exit.</p>
+    <ul>
+      <li><strong>Cut:</strong> Reading · Listening · Writing · Phrase wall · Memory <em>or</em> Close call (keep one) · Taco night list · Class play · Practice C–D if tight · Can-do tab (fold one spoken exit line instead)</li>
+      <li><strong>Keep order:</strong> Odd food out → Notice → Grammar (condense hit 3) → Practice A+B (+C if time) → Phrase deck → Container snap → Close call → Speak (picture prompts only, skip Find someone who) → <strong>Fridge Battle full</strong> → 1 exit sentence</li>
+      <li><strong>~60 math:</strong> warm-up 4 · Notice 5 · Grammar 8 · Practice 8 · Deck 4 · Snap 4 · Close call 4 · Speak 4 · Battle 12–14 · Exit 2 ≈ 55–60</li>
+    </ul>
+  </section>
+
+  <footer>Israel Ventura · Teacher Hub · A2.1 Food Fridge Class · Countable + Quantifiers + Battle</footer>
+</div>
+<div class="print-pin-backdrop" id="printPinBackdrop" aria-hidden="true">
+  <div class="print-pin-modal" role="dialog" aria-labelledby="printPinTitle">
+    <h4 id="printPinTitle">PIN para imprimir</h4>
+    <p>Escribe el PIN del nivel (ciclo 26) para generar PDF.</p>
+    <input id="printPinInput" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+    <div class="print-pin-actions">
+      <button type="button" class="cancel" id="printPinCancel">Cancelar</button>
+      <button type="button" class="ok" id="printPinOk">Imprimir</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var UNLOCK = 'th-print-unlock-a21';
+  var PIN = '2621';
+  var backdrop = document.getElementById("printPinBackdrop");
+  var input = document.getElementById("printPinInput");
+  var btn = document.getElementById("printBtn");
+  if (!btn || !backdrop || !input) return;
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK) === "1"; } catch (e) { return false; }
+  }
+  function setUnlocked() {
+    try { sessionStorage.setItem(UNLOCK, "1"); } catch (e) {}
+  }
+  function openModal() {
+    backdrop.classList.add("open");
+    input.value = "";
+    setTimeout(function () { input.focus(); }, 30);
+  }
+  function closeModal() {
+    backdrop.classList.remove("open");
+    input.value = "";
+  }
+  function tryPrint() {
+    if (unlocked()) { window.print(); return; }
+    openModal();
+  }
+  function submitPin() {
+    var v = (input.value || "").trim();
+    if (v === PIN) {
+      setUnlocked();
+      closeModal();
+      window.print();
+    } else {
+      alert("PIN incorrecto. Pídeselo al teacher.");
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  btn.addEventListener("click", tryPrint);
+  document.getElementById("printPinCancel").addEventListener("click", closeModal);
+  document.getElementById("printPinOk").addEventListener("click", submitPin);
+  backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeModal(); });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitPin();
+    if (e.key === "Escape") closeModal();
+  });
+})();
+</script>
+</body>
+</html>
