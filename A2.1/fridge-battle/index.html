@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#081f3d">
-  <link rel="icon" type="image/png" href="../../assets/logo.png">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="apple-touch-icon" href="../../assets/logo.png">
   <title>Fridge Battle | Learning &amp; Development Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#081f3d;--navy2:#10345d;--teal:#00a6a6;--teal2:#087f83;--white:#fff;--paper:#f4f7fa;--gold:#e6b84a;--ink:#13243a;--muted:#607187;--green:#198754;--red:#c83c4b;--shadow:0 14px 40px rgba(8,31,61,.16)}
+    :root{--navy:#0B1F3A;--navy2:#10345d;--teal:#5bb8b0;--teal2:#238d85;--white:#fff;--paper:#f4f7fa;--gold:#d4a843;--ink:#13243a;--muted:#607187;--green:#198754;--red:#c83c4b;--shadow:0 14px 40px rgba(8,31,61,.16)}
     *{box-sizing:border-box} body{margin:0;background:linear-gradient(145deg,#edf6f6 0,#f7f9fc 55%,#fff8e6 100%);color:var(--ink);font-family:"Plus Jakarta Sans",Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
     button{font:inherit} button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
     a{color:inherit}
@@ -242,5 +242,7 @@
     function resetGame(){if(!confirm('Reset scores, timer, and rounds?'))return;state.scores={A:0,B:0};$('scoreA').textContent=0;$('scoreB').textContent=0;setRound(0);showToast('Game reset. Ready!','')}
     render();
   </script>
+
+<footer style="text-align:center;color:var(--muted);font-size:.78rem;padding:18px 8px 10px"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · Fridge Battle</footer>
 </body>
 </html>
