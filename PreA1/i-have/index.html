@@ -5,42 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="apple-touch-icon" href="../../assets/logo.png">
-  <title>Family · PreA1 · English Hub</title>
-  <meta name="description" content="PreA1: a family tree. Tap the person. This is my mother. Who’s this?">
+  <title>I have · PreA1 · English Hub</title>
+  <meta name="description" content="PreA1: I have a book. I have an apple. Pack the bag — tap what you hear.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--good:#e8f7ef;--bad:#fff0f0;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
+    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--good:#e8f7ef;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--navy);background:linear-gradient(180deg,#f8fbfc,#edf4f5);min-height:100vh}button,input{font:inherit}button{cursor:pointer}
     .shell{max-width:1080px;margin:auto;padding:24px}
     .topbar{position:sticky;top:14px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}
     .brand{display:flex;align-items:center;gap:12px;min-width:0}
     .brand img{width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
     .brand h1{font-size:1.1rem;margin:0}.brand p{font-size:.8rem;color:#d6e7e7;margin:3px 0 0}
-    .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
     .home,.pill{border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800}
     .home{color:#fff;text-decoration:none;background:rgba(22,140,140,.35)}
     .pill{border:1px solid rgba(255,255,255,.2)}
     .hero{position:relative;overflow:hidden;background:#f4fbfa;border:1px solid rgba(11,31,58,.08);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,5vw,48px);margin-bottom:22px}
     .hero:after{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:230px;height:230px;background:url('../../assets/logo.png') center/contain no-repeat;opacity:.07}
     .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:800}
-    .hero h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:12px 0;color:var(--navy);max-width:720px}
+    .hero h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:12px 0;max-width:720px}
     .hero h2 span{color:var(--teal)}
     .hero p{color:var(--slate);line-height:1.7;max-width:640px;margin:0}
     .path{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
     .path span{padding:6px 10px;border-radius:999px;background:var(--mint);font-size:.72rem;font-weight:800;color:var(--teal)}
     .lesson{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
     .lesson-head{background:var(--navy);color:#fff;padding:22px 24px}
-    .lesson-head h3{margin:0}.lesson-head p{color:#d7e7e8;line-height:1.55;margin:6px 0 0}
-    .tabs{display:flex;overflow-x:auto;gap:5px;padding:12px 14px;border-bottom:1px solid var(--line);scrollbar-width:thin}
+    .lesson-head h3{margin:0}.lesson-head p{color:#d7e7e8;margin:6px 0 0;line-height:1.55}
+    .tabs{display:flex;overflow-x:auto;gap:5px;padding:12px 14px;border-bottom:1px solid var(--line)}
     .tab{border:0;background:transparent;color:var(--slate);font-size:.76rem;font-weight:800;padding:10px 12px;border-radius:10px;white-space:nowrap}
     .tab.active,.tab:hover{background:var(--mint);color:var(--navy)}
     .panel{display:none;padding:26px}.panel.active{display:block}
     .panel h4{font-size:1.15rem;margin:0 0 10px}
     .intro{color:var(--slate);line-height:1.65;margin:0 0 18px}
     .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;text-align:left}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left;background:#fff}
     .card.mint{background:var(--mint)}
     .label{font-size:.7rem;letter-spacing:.08em;color:var(--teal);font-weight:800;text-transform:uppercase}
     .big-rule{font-size:1.15rem;font-weight:800;margin:10px 0}
@@ -48,19 +48,19 @@
     .example{padding:10px 12px;border-left:3px solid var(--gold);background:var(--gray);margin-top:10px;font-weight:700}
     .note{background:var(--warn);border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;line-height:1.55;margin-top:14px}
     .tip{background:var(--mint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;line-height:1.55;margin:12px 0}
-    .caption{min-height:52px;text-align:center;margin:0 0 16px;font-weight:800;font-size:1.15rem;color:var(--navy)}
+    .caption{min-height:48px;text-align:center;margin:0 0 14px;font-weight:800;font-size:1.15rem}
     .caption span{color:var(--teal)}
-    .tree-wrap{background:linear-gradient(180deg,#f7fbfb,#fff);border:1px solid var(--line);border-radius:22px;padding:22px 12px 16px}
-    .tree{display:flex;flex-direction:column;align-items:center;gap:8px}
-    .gen{display:flex;justify-content:center;align-items:flex-start;gap:clamp(12px,4vw,36px);flex-wrap:wrap;position:relative;width:100%;padding:8px 0}
-    .person{width:118px;border:0;background:transparent;padding:0;text-align:center}
-    .person img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;border:4px solid #fff;box-shadow:0 10px 22px rgba(11,31,58,.14);background:#f4f0e8;display:block;margin:0 auto 8px}
-    .person .name{display:block;font-weight:800;font-size:.9rem}
-    .person .rel{display:block;font-size:.68rem;color:var(--slate);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-    .person.me img{border-color:var(--teal);box-shadow:0 0 0 4px var(--mint),0 10px 22px rgba(11,31,58,.14)}
-    .person.on img{border-color:var(--navy);transform:scale(1.04)}
-    .person.good img{border-color:#3d9a68;box-shadow:0 0 0 4px #e8f7ef}
-    .person.bad img{border-color:#c45c5c}
+    .bag{background:linear-gradient(180deg,#eef7f6,#fff);border:1px solid var(--line);border-radius:22px;padding:18px 14px 12px}
+    .bag-title{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;font-weight:800}
+    .bag-title img{width:52px;height:52px;object-fit:contain}
+    .things{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+    .thing{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 8px 12px;text-align:center}
+    .thing img{width:88px;height:88px;object-fit:contain;display:block;margin:0 auto 8px}
+    .thing .name{display:block;font-weight:800;font-size:.88rem}
+    .thing .art{display:block;font-size:.72rem;color:var(--slate);font-weight:700}
+    .thing.on{border-color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+    .thing.good{border-color:#3d9a68;background:#e8f7ef}
+    .thing.bad{border-color:#c45c5c;background:#fff0f0}
     .hear-play{width:88px;height:88px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:8px auto}
     .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
     .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
@@ -73,15 +73,14 @@
     .cando input{width:18px;height:18px}
     .cando .lvl{font-size:.72rem;font-weight:800;color:var(--teal)}
     .progress-mini{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
-    .progress-mini span{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
-    input[type=text]{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px;line-height:1.65}
+    .progress-mini span{display:block;height:100%;background:var(--teal);width:0}
+    input[type=text]{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px}
     .footer{text-align:center;color:var(--slate);font-size:.78rem;padding:24px}
     a.inline{color:var(--teal);font-weight:800;text-decoration:none}
     @media(max-width:760px){
       .shell{padding:12px}.brand p{display:none}.panel{padding:16px}
       .grid2{grid-template-columns:1fr}.hero:after{opacity:.04}
-      .person{width:96px}
-      .person img{width:78px;height:78px}
+      .thing img{width:72px;height:72px}
       .cando label{grid-template-columns:auto 1fr}
       .cando .lvl{display:none}
     }
@@ -93,40 +92,37 @@
     <div class="brand">
       <img src="../../assets/logo.png" alt="">
       <div>
-        <h1>Family</h1>
-        <p>First English Flow · Lesson 9 of 12</p>
+        <h1>I have</h1>
+        <p>First English Flow · Lesson 10 of 12</p>
       </div>
     </div>
     <div class="actions">
-      <a class="home" href="../verb-to-be/">Lesson 8</a>
+      <a class="home" href="../family/">Lesson 9</a>
       <a class="home" href="../">Home</a>
       <span class="pill">PreA1</span>
     </div>
   </header>
-
   <section class="hero">
     <span class="eyebrow">General English · Starter</span>
-    <h2>Tap the person. <span>This is my mother.</span></h2>
-    <p>A family tree, not a list. You hear a line and you <strong>touch the face</strong>. That’s the class.</p>
+    <h2>Pack the bag. <span>I have a pencil.</span></h2>
+    <p>Hear the line. Tap the thing. The job is <strong>I have + a/an + thing</strong> — not a list of nouns.</p>
     <div class="path">
-      <span>1 The tree</span><span>2 Who’s this?</span><span>3 Watch out</span><span>4 Check</span>
+      <span>1 In my bag</span><span>2 Pack it</span><span>3 Watch out</span><span>4 Check</span>
     </div>
   </section>
-
   <article class="lesson">
     <header class="lesson-head">
-      <h3>One family. Your words: my mother, my father, me.</h3>
-      <p>Meet them first. Then the audio plays and you find who it is — without stopping the sound.</p>
+      <h3>What’s in the bag?</h3>
+      <p>Tap to hear. Then the audio plays and you find the object — without stopping the sound.</p>
     </header>
     <nav class="tabs" id="tabs"></nav>
     <div id="panels"></div>
   </article>
   <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
 </div>
-
 <script>
-const sections = ['1 The tree', "2 Who's this?", '3 Watch out', '4 Check'];
-const KEY = 'familyPreA1v1';
+const sections = ['1 In my bag', '2 Pack it', '3 Watch out', '4 Check'];
+const KEY = 'iHavePreA1v1';
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
   catch { return {}; }
@@ -136,7 +132,6 @@ function save() {
   catch { /* ignore */ }
 }
 const state = loadState();
-
 function speakPhrase(text) {
   if (!window.speechSynthesis) return;
   speechSynthesis.cancel();
@@ -154,81 +149,71 @@ if (window.speechSynthesis) {
   speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 }
 
-const people = {
-  grandma: { id:'grandma', name:'Rosa', rel:'grandmother', img:'assets/grandma.jpg', line:"This is my grandmother. Her name is Rosa.", she:true },
-  grandpa: { id:'grandpa', name:'Miguel', rel:'grandfather', img:'assets/grandpa.jpg', line:"This is my grandfather. His name is Miguel.", she:false },
-  mom: { id:'mom', name:'Ana', rel:'mother', img:'assets/mom.jpg', line:"This is my mother. Her name is Ana.", she:true },
-  dad: { id:'dad', name:'Carlos', rel:'father', img:'assets/dad.jpg', line:"This is my father. His name is Carlos.", she:false },
-  brother: { id:'brother', name:'Pedro', rel:'brother', img:'assets/brother.jpg', line:"This is my brother. His name is Pedro.", she:false },
-  me: { id:'me', name:'You', rel:'me', img:'assets/me.jpg', line:'This is me.', she:false },
-  sister: { id:'sister', name:'Sofia', rel:'sister', img:'assets/sister.jpg', line:"This is my sister. Her name is Sofia.", she:true }
-};
+const things = [
+  { id:'book', word:'book', art:'a', img:'assets/book.jpg', line:'I have a book.' },
+  { id:'pencil', word:'pencil', art:'a', img:'assets/pencil.jpg', line:'I have a pencil.' },
+  { id:'pen', word:'pen', art:'a', img:'assets/pen.jpg', line:'I have a pen.' },
+  { id:'eraser', word:'eraser', art:'an', img:'assets/eraser.jpg', line:'I have an eraser.' },
+  { id:'apple', word:'apple', art:'an', img:'assets/apple.jpg', line:'I have an apple.' },
+  { id:'notebook', word:'notebook', art:'a', img:'assets/notebook.jpg', line:'I have a notebook.' },
+  { id:'ruler', word:'ruler', art:'a', img:'assets/ruler.jpg', line:'I have a ruler.' },
+  { id:'bag', word:'bag', art:'a', img:'assets/bag.jpg', line:'I have a bag.' },
+  { id:'phone', word:'phone', art:'a', img:'assets/phone.jpg', line:'I have a phone.' },
+  { id:'bottle', word:'bottle', art:'a', img:'assets/bottle.jpg', line:'I have a bottle.' }
+];
+const byId = Object.fromEntries(things.map(t => [t.id, t]));
 
-function personBtn(id, extra) {
-  const p = people[id];
-  const me = id === 'me' ? ' me' : '';
-  return `<button type="button" class="person${me}" data-id="${id}" onclick="onPerson('${id}')">
-    <img src="${p.img}" alt="${p.rel}">
-    <span class="name">${p.name}</span>
-    <span class="rel">${p.rel}</span>
-  </button>`;
-}
-function treeHTML() {
-  return `<div class="tree-wrap"><div class="tree">
-    <div class="gen">${personBtn('grandma')}${personBtn('grandpa')}</div>
-    <div class="gen">${personBtn('mom')}${personBtn('dad')}</div>
-    <div class="gen">${personBtn('brother')}${personBtn('me')}${personBtn('sister')}</div>
-  </div></div>`;
+function bagHTML(prefix) {
+  return `<div class="bag">
+    <div class="bag-title"><img src="assets/bag.jpg" alt=""> My bag</div>
+    <div class="things" id="${prefix}Things">
+      ${things.map(t => `<button type="button" class="thing" data-id="${t.id}" onclick="onThing('${t.id}')">
+        <img src="${t.img}" alt="${t.word}">
+        <span class="name">${t.word}</span>
+        <span class="art">${t.art} ${t.word}</span>
+      </button>`).join('')}
+    </div>
+  </div>`;
 }
 
 let mode = 'learn';
-let caption = 'Tap a person.';
-
 const meetHTML = `
 <section class="panel">
-  <h4>1 · The tree</h4>
-  <p class="intro">This is <strong>your</strong> family in the lesson. Tap a face. Hear <em>This is my …</em></p>
-  <p class="caption" id="meetCap">Tap a person.</p>
-  <div id="meetTree"></div>
+  <h4>1 · In my bag</h4>
+  <p class="intro">Tap a thing. Hear <strong>I have a …</strong> or <strong>I have an …</strong></p>
+  <p class="caption" id="meetCap">Tap something in the bag.</p>
+  <div id="meetBag"></div>
   <div class="grid2" style="margin-top:16px">
     <div class="card mint">
       <span class="label">The frame</span>
-      <div class="example">This is my mother.<br>Her name is Ana.</div>
+      <div class="example">I have a pencil.<br>I have an apple.</div>
     </div>
     <div class="card">
-      <span class="label">Informal</span>
-      <p style="margin:8px 0 0;color:var(--slate)"><strong>mom</strong> = mother. <strong>dad</strong> = father. In class we start with mother / father.</p>
+      <span class="label">a / an</span>
+      <p style="margin:8px 0 0;color:var(--slate)"><strong>a</strong> + consonant sound: a book. <strong>an</strong> + vowel sound: an eraser, an apple.</p>
     </div>
   </div>
 </section>`;
 
-const rounds = [
-  { say:'This is my mother.', targets:['mom'] },
-  { say:'This is my father.', targets:['dad'] },
-  { say:'This is my sister.', targets:['sister'] },
-  { say:'This is my brother.', targets:['brother'] },
-  { say:'This is my grandmother.', targets:['grandma'] },
-  { say:'This is my grandfather.', targets:['grandpa'] },
-  { say:'This is me.', targets:['me'] },
-  { say:'Her name is Sofia.', targets:['sister'] },
-  { say:'His name is Carlos.', targets:['dad'] },
-  { say:'Her name is Ana.', targets:['mom'] },
-  { say:'These are my parents.', targets:['mom','dad'] },
-  { say:'These are my grandparents.', targets:['grandma','grandpa'] }
+const rounds = things.map(t => ({ say: t.line, target: t.id }));
+const extra = [
+  { say:'I have an eraser.', target:'eraser' },
+  { say:'I have an apple.', target:'apple' },
+  { say:'I have a book.', target:'book' }
 ];
-const TOTAL = rounds.length;
+const playRounds = [...rounds, ...extra];
+const TOTAL = playRounds.length;
 let round = 0;
 let score = 0;
 let locked = false;
-let found = [];
 
 const playHTML = `
 <section class="panel">
-  <h4>2 · Who’s this?</h4>
-  <p class="intro">Play. Then tap the face — or two faces, if you hear <em>parents</em> or <em>grandparents</em>. Tapping does <strong>not</strong> stop the audio.</p>
-  <p class="caption" id="playCap">Listen. Tap the person.</p>
+  <h4>2 · Pack it</h4>
+  <p class="intro">Play. Tap the thing you hear. Tapping does <strong>not</strong> stop the audio.</p>
+  <p class="caption" id="playCap">Listen. Tap the thing.</p>
   <button type="button" class="hear-play" onclick="playRound()">Play</button>
-  <div id="playTree"></div>
+  <div id="playBag"></div>
   <div class="game-nav">
     <div class="score" id="playScore">1 / ${TOTAL}</div>
     <button type="button" class="btn ghost" onclick="playRound()">Hear again</button>
@@ -236,7 +221,7 @@ const playHTML = `
   <div class="feedback" id="playFb"></div>
   <div class="card mint" style="margin-top:16px">
     <span class="label">Then say it · pairs</span>
-    <p style="margin:8px 0 0;line-height:1.65"><strong>A</strong> points at a face. <strong>B</strong> says: “This is my ______. His/Her name is ______.” Then swap.</p>
+    <p style="margin:8px 0 0;line-height:1.65"><strong>A</strong> points at a thing. <strong>B</strong> says “I have a/an ______.” Then swap. Use real things on the desk if you can.</p>
   </div>
 </section>`;
 
@@ -245,53 +230,53 @@ const watchHTML = `
   <h4>3 · Watch out</h4>
   <p class="intro">Three traps. Tap a card to hear the English.</p>
   <div class="grid2">
-    <button type="button" class="card" onclick="speakPhrase('This is my mother.')">
-      <span class="label">my</span>
-      <div class="big-rule">This is <span class="teal">my</span> mother</div>
-      <p style="margin:0">When it is your family, use <strong>my</strong>. Not “the mother”.</p>
-      <div class="example">✗ This is the mother. &nbsp;·&nbsp; ✓ This is my mother.</div>
+    <button type="button" class="card" onclick="speakPhrase('I have a book.')">
+      <span class="label">a</span>
+      <div class="big-rule">I have <span class="teal">a</span> book</div>
+      <p style="margin:0">Not “I have book”. English wants <strong>a</strong> / <strong>an</strong> with one thing.</p>
+      <div class="example">✗ I have pencil. &nbsp;·&nbsp; ✓ I have a pencil.</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('He is my father.')">
-      <span class="label">be + my</span>
-      <div class="big-rule">He is my father</div>
-      <p style="margin:0">Keep <em>is</em> and <em>my</em>. Not “He is father”.</p>
-      <div class="example">✗ He is father. &nbsp;·&nbsp; ✓ He’s my father.</div>
+    <button type="button" class="card" onclick="speakPhrase('I have an apple. I have an eraser.')">
+      <span class="label">an</span>
+      <div class="big-rule">an apple · an eraser</div>
+      <p style="margin:0">Vowel <em>sound</em>: a, e, i, o, u. Apple and eraser start with a vowel sound.</p>
+      <div class="example">✗ a apple · a eraser &nbsp;·&nbsp; ✓ an apple · an eraser</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('These are my parents.')">
-      <span class="label">parents</span>
-      <div class="big-rule">parents = mother + father</div>
-      <p style="margin:0"><strong>These are</strong> for two people. Tap both faces.</p>
-      <div class="example">These are my grandparents. Rosa and Miguel.</div>
+    <button type="button" class="card" onclick="speakPhrase('I have a bag.')">
+      <span class="label">have</span>
+      <div class="big-rule">I <span class="teal">have</span> a bag</div>
+      <p style="margin:0">Things you own or carry: <strong>have</strong>. Age is still <em>I am 15</em> — not I have 15 years.</p>
+      <div class="example">I have a phone. I’m 15 years old.</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('Her name is Ana. His name is Carlos.')">
-      <span class="label">his / her</span>
-      <div class="big-rule">her name · his name</div>
-      <p style="margin:0">Ana, Rosa, Sofia → <strong>her</strong>. Carlos, Miguel, Pedro → <strong>his</strong>.</p>
-      <div class="example">Her name is Sofia. His name is Pedro.</div>
+    <button type="button" class="card" onclick="speakPhrase('I have a pen.')">
+      <span class="label">pen / pencil</span>
+      <div class="big-rule">pen ≠ pencil</div>
+      <p style="margin:0">Pen = ink. Pencil = wood + lead. Two different words.</p>
+      <div class="example">I have a pen. I have a pencil.</div>
     </button>
   </div>
-  <div class="note"><strong>Keep this:</strong> This is my … · His/Her name is … · These are my parents.</div>
+  <div class="note"><strong>Keep this:</strong> I have a … · I have an … · not I have book.</div>
 </section>`;
 
 const candoItems = [
-  'I can say This is my mother / father / sister / brother.',
-  'I can say grandmother and grandfather.',
-  'I can say His name is … / Her name is …',
-  'I can find the person on the tree when I hear the line.'
+  'I can say I have a book / a pencil / a bag.',
+  'I can say I have an apple / an eraser.',
+  'I can hear the thing and tap it in the bag.',
+  'I do not say I have book.'
 ];
 const checkHTML = `
 <section class="panel">
   <h4>4 · Check</h4>
-  <p class="intro">Honest boxes, then write two lines about your real family.</p>
+  <p class="intro">Honest boxes, then write two lines about things you really have.</p>
   <div class="cando" id="candoBox"></div>
   <div class="progress-mini"><span id="candoBar"></span></div>
   <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
   <h5 style="margin:18px 0 8px">Write it</h5>
-  <p class="intro" style="margin-bottom:8px">Example: <strong>This is my mother. Her name is Ana.</strong></p>
-  <input type="text" id="exitWrite" placeholder="This is my … His/Her name is …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <p class="intro" style="margin-bottom:8px">Example: <strong>I have a phone. I have an apple.</strong></p>
+  <input type="text" id="exitWrite" placeholder="I have a … I have an …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
   <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
   <div class="feedback" id="exitFb"></div>
-  <div class="tip"><strong>Ready for Lesson 10?</strong> If you can point and say <em>This is my …</em>, go to <a class="inline" href="../i-have/">I have</a>.</div>
+  <div class="tip"><strong>Ready for Lesson 11?</strong> If a/an is automatic, you are ready for descriptions. <a class="inline" href="../family/">← Family</a></div>
 </section>`;
 
 function render() {
@@ -299,8 +284,8 @@ function render() {
     `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
   ).join('');
   document.getElementById('panels').innerHTML = [meetHTML, playHTML, watchHTML, checkHTML].join('');
-  document.getElementById('meetTree').innerHTML = treeHTML();
-  document.getElementById('playTree').innerHTML = treeHTML();
+  document.getElementById('meetBag').innerHTML = bagHTML('meet');
+  document.getElementById('playBag').innerHTML = bagHTML('play');
   openTab(state.tab || 0);
   resetRound(false);
   renderCando();
@@ -316,66 +301,60 @@ function openTab(i) {
   if (lesson) window.scrollTo({ top: lesson.offsetTop - 80, behavior: 'smooth' });
 }
 function clearMarks(root) {
-  (root || document).querySelectorAll('.person').forEach(el => el.classList.remove('on','good','bad'));
+  (root || document).querySelectorAll('.thing').forEach(el => el.classList.remove('on','good','bad'));
 }
-function onPerson(id) {
+function onThing(id) {
+  const t = byId[id];
   if (mode === 'learn') {
-    clearMarks(document.getElementById('meetTree'));
-    document.querySelectorAll(`#meetTree .person[data-id="${id}"]`).forEach(el => el.classList.add('on'));
+    clearMarks(document.getElementById('meetBag'));
+    document.querySelectorAll(`#meetBag .thing[data-id="${id}"]`).forEach(el => el.classList.add('on'));
     const cap = document.getElementById('meetCap');
-    if (cap) cap.innerHTML = people[id].line.replace(people[id].rel, `<span>${people[id].rel}</span>`);
-    speakPhrase(people[id].line);
+    if (cap) cap.innerHTML = t.line.replace(t.art + ' ' + t.word, `<span>${t.art} ${t.word}</span>`);
+    speakPhrase(t.line);
     return;
   }
   if (locked) return;
-  const need = rounds[round].targets;
-  if (found.includes(id)) return;
-  if (!need.includes(id)) {
-    document.querySelectorAll(`#playTree .person[data-id="${id}"]`).forEach(el => el.classList.add('bad'));
-    setTimeout(() => document.querySelectorAll(`#playTree .person[data-id="${id}"]`).forEach(el => el.classList.remove('bad')), 450);
+  const need = playRounds[round].target;
+  if (id !== need) {
+    document.querySelectorAll(`#playBag .thing[data-id="${id}"]`).forEach(el => el.classList.add('bad'));
+    setTimeout(() => document.querySelectorAll(`#playBag .thing[data-id="${id}"]`).forEach(el => el.classList.remove('bad')), 450);
     const fb = document.getElementById('playFb');
     fb.className = 'feedback show warn';
-    fb.textContent = 'Not that person.';
+    fb.textContent = 'Not that thing.';
     return;
   }
-  found.push(id);
-  document.querySelectorAll(`#playTree .person[data-id="${id}"]`).forEach(el => el.classList.add('good'));
-  if (found.length >= need.length && need.every(t => found.includes(t))) {
-    locked = true;
-    score += 1;
-    const fb = document.getElementById('playFb');
-    fb.className = 'feedback show good';
-    fb.textContent = rounds[round].say;
-    document.getElementById('playScore').textContent = `${Math.min(round + 1, TOTAL)} / ${TOTAL} · ${score} correct`;
-    setTimeout(() => {
-      round += 1;
-      if (round >= TOTAL) {
-        fb.className = 'feedback show good';
-        fb.innerHTML = `Done · ${score} / ${TOTAL}. Now point at a face and say it.`;
-        round = 0;
-        score = 0;
-        resetRound(false);
-        return;
-      }
-      resetRound(true);
-    }, 900);
-  }
+  locked = true;
+  score += 1;
+  document.querySelectorAll(`#playBag .thing[data-id="${id}"]`).forEach(el => el.classList.add('good'));
+  const fb = document.getElementById('playFb');
+  fb.className = 'feedback show good';
+  fb.textContent = playRounds[round].say;
+  document.getElementById('playScore').textContent = `${Math.min(round + 1, TOTAL)} / ${TOTAL} · ${score} correct`;
+  setTimeout(() => {
+    round += 1;
+    if (round >= TOTAL) {
+      fb.className = 'feedback show good';
+      fb.innerHTML = `Done · ${score} / ${TOTAL}. Now point at a real thing and say I have a/an …`;
+      round = 0;
+      score = 0;
+      resetRound(false);
+      return;
+    }
+    resetRound(true);
+  }, 900);
 }
 function resetRound(autoPlay) {
   locked = false;
-  found = [];
-  clearMarks(document.getElementById('playTree'));
+  clearMarks(document.getElementById('playBag'));
   const cap = document.getElementById('playCap');
-  if (cap) cap.textContent = rounds[round].targets.length > 1 ? 'Tap both people.' : 'Listen. Tap the person.';
+  if (cap) cap.textContent = 'Listen. Tap the thing.';
   const fb = document.getElementById('playFb');
   if (fb && !autoPlay) { fb.className = 'feedback'; fb.textContent = ''; }
   const sc = document.getElementById('playScore');
   if (sc) sc.textContent = `${round + 1} / ${TOTAL} · ${score} correct`;
   if (autoPlay) playRound();
 }
-function playRound() {
-  speakPhrase(rounds[round].say);
-}
+function playRound() { speakPhrase(playRounds[round].say); }
 function renderCando() {
   const box = document.getElementById('candoBox');
   if (!box) return;
@@ -406,11 +385,10 @@ function saveExit() {
   state.exitWrite = t;
   save();
   const fb = document.getElementById('exitFb');
-  const ok = /my/i.test(t) && /name is|this is/i.test(t);
+  const ok = /I have/i.test(t) && /\ba\b|\ban\b/i.test(t);
   fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
-  fb.textContent = ok ? 'Saved. Lesson 9 exit is done.' : 'Write: This is my … His/Her name is …';
+  fb.textContent = ok ? 'Saved. Lesson 10 exit is done.' : 'Write I have a … and I have an …';
 }
-
 render();
 </script>
 </body>
