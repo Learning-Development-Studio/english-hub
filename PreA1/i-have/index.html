@@ -61,6 +61,24 @@
     .thing.on{border-color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
     .thing.good{border-color:#3d9a68;background:#e8f7ef}
     .thing.bad{border-color:#c45c5c;background:#fff0f0}
+    .pack .thing .name,.pack .thing .art{visibility:hidden}
+    .opts{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+    .opt{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:800}
+    .opt.correct{background:var(--good);border-color:#72b98c}
+    .opt.wrong{background:#fff0f0;border-color:#d98989}
+    .q{padding:12px 0;border-bottom:1px solid var(--line)}.q:last-child{border:0}
+    .error-card{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}
+    .error-card .wrong-line{font-weight:800;color:#a33;text-decoration:line-through;text-decoration-thickness:2px}
+    .error-card .explain{margin-top:8px;font-size:.84rem;color:var(--slate);display:none}
+    .error-card.solved .explain{display:block}
+    .error-card.solved.ok{background:#f3f7fb}
+    .error-card.solved.miss{background:var(--warn)}
+    .reading{line-height:1.85;background:var(--gray);padding:18px;border-radius:14px}
+    .form-hit{cursor:pointer;border-radius:6px;padding:1px 4px;border-bottom:2px dotted var(--teal);font-weight:800;color:var(--teal)}
+    .form-hit.found{background:var(--mint);border-bottom-color:var(--gold)}
+    .build-row{display:grid;grid-template-columns:88px 1fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+    .build-row img{width:72px;height:72px;object-fit:contain}
+    .btn.secondary{background:var(--teal);color:#fff}
     .hear-play{width:88px;height:88px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:8px auto}
     .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
     .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
@@ -103,17 +121,18 @@
     </div>
   </header>
   <section class="hero">
-    <span class="eyebrow">General English · Starter</span>
-    <h2>Pack the bag. <span>I have a pencil.</span></h2>
-    <p>Hear the line. Tap the thing. The job is <strong>I have + a/an + thing</strong> — not a list of nouns.</p>
+    <span class="eyebrow">General English · Grammar in context</span>
+    <h2>I have <span>a / an</span> + thing.</h2>
+    <p>Not a vocab list. The pattern is <strong>I have + a/an + noun</strong>. Notice it, build it, fix it, then find it in the bag.</p>
     <div class="path">
-      <span>1 In my bag</span><span>2 Pack it</span><span>3 Watch out</span><span>4 Check</span>
+      <span>1 Notice</span><span>2 Build</span><span>3 Fix</span><span>4 Read</span>
+      <span>5 Listen</span><span>6 Speak</span><span>7 Write</span><span>8 Can-do</span>
     </div>
   </section>
   <article class="lesson">
     <header class="lesson-head">
-      <h3>What’s in the bag?</h3>
-      <p>Tap to hear. Then the audio plays and you find the object — without stopping the sound.</p>
+      <h3>have + a/an + noun</h3>
+      <p>Eight moves, like the other grammar pages. Listening is shuffled: you find the picture, you don’t follow the row.</p>
     </header>
     <nav class="tabs" id="tabs"></nav>
     <div id="panels"></div>
@@ -121,8 +140,8 @@
   <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
 </div>
 <script>
-const sections = ['1 In my bag', '2 Pack it', '3 Watch out', '4 Check'];
-const KEY = 'iHavePreA1v1';
+const sections = ['1 Notice','2 Build','3 Fix','4 Read','5 Listen','6 Speak','7 Write','8 Can-do'];
+const KEY = 'iHavePreA1v2';
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
   catch { return {}; }
@@ -163,12 +182,21 @@ const things = [
 ];
 const byId = Object.fromEntries(things.map(t => [t.id, t]));
 
-function bagHTML(prefix) {
+function shuffle(a) {
+  const c = [...a];
+  for (let i = c.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [c[i], c[j]] = [c[j], c[i]];
+  }
+  return c;
+}
+function bagHTML(prefix, pack) {
+  const order = pack ? shuffle(things) : things;
   return `<div class="bag">
     <div class="bag-title"><img src="assets/bag.jpg" alt=""> My bag</div>
-    <div class="things" id="${prefix}Things">
-      ${things.map(t => `<button type="button" class="thing" data-id="${t.id}" onclick="onThing('${t.id}')">
-        <img src="${t.img}" alt="${t.word}">
+    <div class="things${pack ? ' pack' : ''}" id="${prefix}Things">
+      ${order.map(t => `<button type="button" class="thing" data-id="${t.id}" onclick="onThing('${t.id}')">
+        <img src="${t.img}" alt="">
         <span class="name">${t.word}</span>
         <span class="art">${t.art} ${t.word}</span>
       </button>`).join('')}
@@ -177,105 +205,117 @@ function bagHTML(prefix) {
 }
 
 let mode = 'learn';
+let playRounds = [];
+let TOTAL = 10;
+let round = 0;
+let score = 0;
+let locked = false;
 const meetHTML = `
 <section class="panel">
-  <h4>1 · In my bag</h4>
-  <p class="intro">Tap a thing. Hear <strong>I have a …</strong> or <strong>I have an …</strong></p>
+  <h4>1 · Notice</h4>
+  <p class="intro">Tap a thing. The grammar is always the same: <strong>I have</strong> + <strong>a/an</strong> + noun.</p>
   <p class="caption" id="meetCap">Tap something in the bag.</p>
   <div id="meetBag"></div>
   <div class="grid2" style="margin-top:16px">
     <div class="card mint">
-      <span class="label">The frame</span>
+      <span class="label">The pattern</span>
+      <div class="big-rule">I have + a/an + noun</div>
       <div class="example">I have a pencil.<br>I have an apple.</div>
     </div>
     <div class="card">
       <span class="label">a / an</span>
-      <p style="margin:8px 0 0;color:var(--slate)"><strong>a</strong> + consonant sound: a book. <strong>an</strong> + vowel sound: an eraser, an apple.</p>
+      <p style="margin:8px 0 0;color:var(--slate)"><strong>a</strong> before a consonant sound. <strong>an</strong> before a vowel sound (apple, eraser).</p>
     </div>
   </div>
 </section>`;
 
-const rounds = things.map(t => ({ say: t.line, target: t.id }));
-const extra = [
-  { say:'I have an eraser.', target:'eraser' },
-  { say:'I have an apple.', target:'apple' },
-  { say:'I have a book.', target:'book' }
+const buildHTML = `
+<section class="panel">
+  <h4>2 · Build</h4>
+  <p class="intro">Look at the thing. Tap <strong>a</strong> or <strong>an</strong>. That is the grammar move.</p>
+  <div id="buildBox"></div>
+  <div class="feedback" id="buildFb"></div>
+</section>`;
+
+const errors = [
+  { wrong:'I have book.', opts:['I have book.','I have a book.','I have an book.'], ans:1, why:'One thing needs <strong>a</strong> / <strong>an</strong>.' },
+  { wrong:'I have a apple.', opts:['I have a apple.','I have an apple.','I have apple.'], ans:1, why:'Apple starts with a vowel sound → <strong>an</strong>.' },
+  { wrong:'I have a eraser.', opts:['I have a eraser.','I have eraser.','I have an eraser.'], ans:2, why:'Eraser starts with a vowel sound → <strong>an</strong>.' },
+  { wrong:'I have 15 years.', opts:['I have 15 years.','I am 15 years old.','I have a 15 years.'], ans:1, why:'Age uses <strong>be</strong>, not have.' },
+  { wrong:'I have pencil.', opts:['I have a pencil.','I have pencil.','I have an pencil.'], ans:0, why:'<strong>a pencil</strong> — consonant sound.' }
 ];
-const playRounds = [...rounds, ...extra];
-const TOTAL = playRounds.length;
-let round = 0;
-let score = 0;
-let locked = false;
+const fixHTML = `
+<section class="panel">
+  <h4>3 · Fix</h4>
+  <p class="intro">Typical classroom mistakes. Pick the repair.</p>
+  <div id="errorBox"></div>
+  <div class="feedback" id="errorFb"></div>
+</section>`;
+
+const readHits = ['I have','a','an','a','an'];
+const readHTML = `
+<section class="panel">
+  <h4>4 · Read</h4>
+  <p class="intro">Tap every <strong>I have</strong>, <strong>a</strong> and <strong>an</strong> in the text.</p>
+  <div class="reading" id="reading">
+    In my bag <span class="form-hit" onclick="hitRead(this)">I have</span> <span class="form-hit" onclick="hitRead(this)">a</span> book, <span class="form-hit" onclick="hitRead(this)">a</span> pencil, and <span class="form-hit" onclick="hitRead(this)">an</span> apple.
+    I also have <span class="form-hit" onclick="hitRead(this)">a</span> phone and <span class="form-hit" onclick="hitRead(this)">an</span> eraser.
+  </div>
+  <p class="score" id="readScore" style="margin-top:12px">0 / 6 found</p>
+</section>`;
+
 
 const playHTML = `
 <section class="panel">
-  <h4>2 · Pack it</h4>
-  <p class="intro">Play. Tap the thing you hear. Tapping does <strong>not</strong> stop the audio.</p>
-  <p class="caption" id="playCap">Listen. Tap the thing.</p>
+  <h4>5 · Listen</h4>
+  <p class="intro">The pictures are mixed. The audio is mixed. Find the thing you hear — don’t follow the row. Words are hidden. Tapping does not stop the audio.</p>
+  <p class="caption" id="playCap">Listen. Tap the picture.</p>
   <button type="button" class="hear-play" onclick="playRound()">Play</button>
   <div id="playBag"></div>
   <div class="game-nav">
-    <div class="score" id="playScore">1 / ${TOTAL}</div>
+    <div class="score" id="playScore">1 / 10</div>
     <button type="button" class="btn ghost" onclick="playRound()">Hear again</button>
   </div>
   <div class="feedback" id="playFb"></div>
-  <div class="card mint" style="margin-top:16px">
-    <span class="label">Then say it · pairs</span>
-    <p style="margin:8px 0 0;line-height:1.65"><strong>A</strong> points at a thing. <strong>B</strong> says “I have a/an ______.” Then swap. Use real things on the desk if you can.</p>
-  </div>
 </section>`;
 
-const watchHTML = `
+const speakHTML = `
 <section class="panel">
-  <h4>3 · Watch out</h4>
-  <p class="intro">Three traps. Tap a card to hear the English.</p>
-  <div class="grid2">
-    <button type="button" class="card" onclick="speakPhrase('I have a book.')">
-      <span class="label">a</span>
-      <div class="big-rule">I have <span class="teal">a</span> book</div>
-      <p style="margin:0">Not “I have book”. English wants <strong>a</strong> / <strong>an</strong> with one thing.</p>
-      <div class="example">✗ I have pencil. &nbsp;·&nbsp; ✓ I have a pencil.</div>
-    </button>
-    <button type="button" class="card" onclick="speakPhrase('I have an apple. I have an eraser.')">
-      <span class="label">an</span>
-      <div class="big-rule">an apple · an eraser</div>
-      <p style="margin:0">Vowel <em>sound</em>: a, e, i, o, u. Apple and eraser start with a vowel sound.</p>
-      <div class="example">✗ a apple · a eraser &nbsp;·&nbsp; ✓ an apple · an eraser</div>
-    </button>
-    <button type="button" class="card" onclick="speakPhrase('I have a bag.')">
-      <span class="label">have</span>
-      <div class="big-rule">I <span class="teal">have</span> a bag</div>
-      <p style="margin:0">Things you own or carry: <strong>have</strong>. Age is still <em>I am 15</em> — not I have 15 years.</p>
-      <div class="example">I have a phone. I’m 15 years old.</div>
-    </button>
-    <button type="button" class="card" onclick="speakPhrase('I have a pen.')">
-      <span class="label">pen / pencil</span>
-      <div class="big-rule">pen ≠ pencil</div>
-      <p style="margin:0">Pen = ink. Pencil = wood + lead. Two different words.</p>
-      <div class="example">I have a pen. I have a pencil.</div>
-    </button>
+  <h4>6 · Speak</h4>
+  <p class="intro">Not a list. Three real things on the desk.</p>
+  <div class="card mint">
+    <span class="label">Pair work · 2 minutes</span>
+    <p style="margin:8px 0 0;line-height:1.7">
+      <strong>A</strong> puts three things on the desk.<br>
+      <strong>B</strong> says: “I have a ______, a ______, and an ______.”<br>
+      Then swap. If there is no <em>an</em>, add an apple or an eraser from the bag.
+    </p>
   </div>
-  <div class="note"><strong>Keep this:</strong> I have a … · I have an … · not I have book.</div>
+  <div class="tip">Frame: I have a … · I have an … · And you?</div>
+</section>`;
+
+const writeHTML = `
+<section class="panel">
+  <h4>7 · Write</h4>
+  <p class="intro">Three lines about things you really have. One must use <strong>an</strong>.</p>
+  <input type="text" id="exitWrite" placeholder="I have a phone. I have a bag. I have an apple." value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Check my writing</button>
+  <div class="feedback" id="exitFb"></div>
 </section>`;
 
 const candoItems = [
-  'I can say I have a book / a pencil / a bag.',
-  'I can say I have an apple / an eraser.',
-  'I can hear the thing and tap it in the bag.',
-  'I do not say I have book.'
+  'I can say I have a + noun.',
+  'I can say I have an + vowel sound (apple, eraser).',
+  'I can find the thing I hear, even if the pictures are mixed.',
+  'I do not say I have book / I have 15 years for age.'
 ];
 const checkHTML = `
 <section class="panel">
-  <h4>4 · Check</h4>
-  <p class="intro">Honest boxes, then write two lines about things you really have.</p>
+  <h4>8 · Can-do</h4>
+  <p class="intro">Honest boxes.</p>
   <div class="cando" id="candoBox"></div>
   <div class="progress-mini"><span id="candoBar"></span></div>
   <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
-  <h5 style="margin:18px 0 8px">Write it</h5>
-  <p class="intro" style="margin-bottom:8px">Example: <strong>I have a phone. I have an apple.</strong></p>
-  <input type="text" id="exitWrite" placeholder="I have a … I have an …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
-  <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
-  <div class="feedback" id="exitFb"></div>
   <div class="tip"><strong>Ready for Lesson 11?</strong> If a/an is automatic, you are ready for descriptions. <a class="inline" href="../family/">← Family</a></div>
 </section>`;
 
@@ -283,17 +323,81 @@ function render() {
   document.getElementById('tabs').innerHTML = sections.map((s, i) =>
     `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
   ).join('');
-  document.getElementById('panels').innerHTML = [meetHTML, playHTML, watchHTML, checkHTML].join('');
-  document.getElementById('meetBag').innerHTML = bagHTML('meet');
-  document.getElementById('playBag').innerHTML = bagHTML('play');
+  document.getElementById('panels').innerHTML = [meetHTML, buildHTML, fixHTML, readHTML, playHTML, speakHTML, writeHTML, checkHTML].join('');
+  document.getElementById('meetBag').innerHTML = bagHTML('meet', false);
+  playRounds = shuffle(things.map(t => ({ say: t.line, target: t.id })));
+  TOTAL = playRounds.length;
+  round = 0;
+  score = 0;
+  document.getElementById('playBag').innerHTML = bagHTML('play', true);
+  renderBuild();
+  renderErrors();
   openTab(state.tab || 0);
   resetRound(false);
   renderCando();
 }
+function renderBuild() {
+  const box = document.getElementById('buildBox');
+  if (!box) return;
+  box.innerHTML = things.map((t, i) => `
+    <div class="build-row">
+      <img src="${t.img}" alt="">
+      <div>
+        <strong>I have ___ ${t.word}.</strong>
+        <div class="opts">
+          <button type="button" class="opt" onclick="pickArt(${i},'a')">a</button>
+          <button type="button" class="opt" onclick="pickArt(${i},'an')">an</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function pickArt(i, art) {
+  const t = things[i];
+  const ok = art === t.art;
+  const row = document.querySelectorAll('.build-row')[i];
+  row.querySelectorAll('.opt').forEach(b => {
+    b.classList.remove('correct', 'wrong');
+    if (b.textContent === t.art) b.classList.add('correct');
+    if (b.textContent === art && !ok) b.classList.add('wrong');
+  });
+  speakPhrase(t.line);
+  const done = [...document.querySelectorAll('.build-row')].filter(r => r.querySelector('.opt.correct')).length;
+  const fb = document.getElementById('buildFb');
+  fb.className = 'feedback show ' + (done === things.length ? 'good' : 'warn');
+  fb.textContent = `${done} / ${things.length} articles`;
+}
+function renderErrors() {
+  const box = document.getElementById('errorBox');
+  if (!box) return;
+  box.innerHTML = errors.map((e, i) => `
+    <div class="error-card" id="err-${i}">
+      <div class="wrong-line">${i + 1}. ${e.wrong}</div>
+      <div class="opts">${e.opts.map((o, j) => `<button type="button" class="opt" onclick="answerError(${i},${j})">${o}</button>`).join('')}</div>
+      <div class="explain" id="err-why-${i}"></div>
+    </div>`).join('');
+}
+function answerError(i, j) {
+  const item = errors[i];
+  const card = document.getElementById('err-' + i);
+  const ok = j === item.ans;
+  card.querySelectorAll('.opt').forEach((b, idx) => {
+    b.classList.remove('correct', 'wrong');
+    if (idx === item.ans) b.classList.add('correct');
+    if (idx === j && !ok) b.classList.add('wrong');
+  });
+  card.classList.add('solved', ok ? 'ok' : 'miss');
+  document.getElementById('err-why-' + i).innerHTML = item.why;
+}
+function hitRead(el) {
+  if (el.classList.contains('found')) return;
+  el.classList.add('found');
+  const n = document.querySelectorAll('.form-hit.found').length;
+  document.getElementById('readScore').textContent = n + ' / 6 found';
+}
 function openTab(i) {
   state.tab = i;
   save();
-  mode = i === 1 ? 'play' : 'learn';
+  mode = i === 4 ? 'play' : 'learn';
   if (window.speechSynthesis) speechSynthesis.cancel();
   document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
   document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
@@ -385,9 +489,9 @@ function saveExit() {
   state.exitWrite = t;
   save();
   const fb = document.getElementById('exitFb');
-  const ok = /I have/i.test(t) && /\ba\b|\ban\b/i.test(t);
+  const ok = /I have/i.test(t) && /\ban\b/i.test(t) && /\ba\b/i.test(t);
   fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
-  fb.textContent = ok ? 'Saved. Lesson 10 exit is done.' : 'Write I have a … and I have an …';
+  fb.textContent = ok ? 'Saved. Use a and an — that’s the grammar.' : 'Write I have a … and I have an …';
 }
 render();
 </script>
