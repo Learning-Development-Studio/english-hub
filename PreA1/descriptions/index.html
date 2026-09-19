@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Descriptions · PreA1 · English Hub</title>
+  <meta name="description" content="PreA1 Guess who: He’s tall. She has long hair. Tap the face.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0B1F3A;--teal:#5bb8b0;--gold:#d4a843;--slate:#667085;--line:#D6DEE7;--mint:#DDF3F1;--gray:#F4F6F8;--good:#e8f7ef;--warn:#fff8e8;--shadow:0 18px 45px rgba(11,31,58,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;color:var(--navy);background:linear-gradient(180deg,#f8fbfc,#edf4f5);min-height:100vh}button,input{font:inherit}button{cursor:pointer}
+    .shell{max-width:1080px;margin:auto;padding:24px}
+    .topbar{position:sticky;top:14px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+    .brand h1{font-size:1.1rem;margin:0}.brand p{font-size:.8rem;color:#d6e7e7;margin:3px 0 0}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .home,.pill{border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800}
+    .home{color:#fff;text-decoration:none;background:rgba(22,140,140,.35)}
+    .pill{border:1px solid rgba(255,255,255,.2)}
+    .hero{position:relative;overflow:hidden;background:#f4fbfa;border:1px solid rgba(11,31,58,.08);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,5vw,48px);margin-bottom:22px}
+    .hero:after{content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);width:230px;height:230px;background:url('../../assets/logo.png') center/contain no-repeat;opacity:.07}
+    .eyebrow{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:800}
+    .hero h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:12px 0;max-width:740px}
+    .hero h2 span{color:var(--teal)}
+    .hero p{color:var(--slate);line-height:1.7;max-width:640px;margin:0}
+    .path{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+    .path span{padding:6px 10px;border-radius:999px;background:var(--mint);font-size:.72rem;font-weight:800;color:var(--teal)}
+    .lesson{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .lesson-head{background:var(--navy);color:#fff;padding:22px 24px}
+    .lesson-head h3{margin:0}.lesson-head p{color:#d7e7e8;margin:6px 0 0;line-height:1.55}
+    .tabs{display:flex;overflow-x:auto;gap:5px;padding:12px 14px;border-bottom:1px solid var(--line)}
+    .tab{border:0;background:transparent;color:var(--slate);font-size:.76rem;font-weight:800;padding:10px 12px;border-radius:10px;white-space:nowrap}
+    .tab.active,.tab:hover{background:var(--mint);color:var(--navy)}
+    .panel{display:none;padding:26px}.panel.active{display:block}
+    .panel h4{font-size:1.15rem;margin:0 0 10px}
+    .intro{color:var(--slate);line-height:1.65;margin:0 0 18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;text-align:left}
+    .card.mint{background:var(--mint)}
+    .label{font-size:.7rem;letter-spacing:.08em;color:var(--teal);font-weight:800;text-transform:uppercase}
+    .big-rule{font-size:1.15rem;font-weight:800;margin:10px 0}
+    .teal{color:var(--teal)}
+    .example{padding:10px 12px;border-left:3px solid var(--gold);background:var(--gray);margin-top:10px;font-weight:700}
+    .note{background:var(--warn);border-left:4px solid var(--gold);padding:12px 14px;border-radius:8px;line-height:1.55;margin-top:14px}
+    .tip{background:var(--mint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;line-height:1.55;margin:12px 0}
+    .caption{min-height:52px;text-align:center;margin:0 0 14px;font-weight:800;font-size:1.15rem}
+    .caption span{color:var(--teal)}
+    .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:linear-gradient(180deg,#eef7f6,#fff);border:1px solid var(--line);border-radius:22px;padding:16px}
+    .face{border:0;background:transparent;padding:0;text-align:center}
+    .face img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 10px 22px rgba(11,31,58,.12);display:block;background:#f4f0e8}
+    .face .name{display:block;margin-top:8px;font-weight:800}
+    .face .hint{display:block;font-size:.72rem;color:var(--slate);font-weight:700}
+    .guess .face .name,.guess .face .hint{visibility:hidden;height:0;margin:0}
+    .face.on img{border-color:var(--navy)}
+    .face.good img{border-color:#3d9a68;box-shadow:0 0 0 4px #e8f7ef}
+    .face.bad img{border-color:#c45c5c}
+    .hear-play{width:88px;height:88px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:8px auto}
+    .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
+    .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .game-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:12px}
+    .score{font-weight:800;color:var(--teal)}
+    .feedback{display:none;margin-top:12px;padding:12px;border-radius:10px;line-height:1.55}
+    .feedback.show{display:block}.feedback.good{background:var(--good)}.feedback.warn{background:var(--warn)}
+    .cando{display:grid;gap:10px}
+    .cando label{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--gray);cursor:pointer}
+    .cando input{width:18px;height:18px}
+    .cando .lvl{font-size:.72rem;font-weight:800;color:var(--teal)}
+    .progress-mini{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+    .progress-mini span{display:block;height:100%;background:var(--teal);width:0}
+    input[type=text]{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px}
+    .footer{text-align:center;color:var(--slate);font-size:.78rem;padding:24px}
+    a.inline{color:var(--teal);font-weight:800;text-decoration:none}
+    @media(max-width:760px){
+      .shell{padding:12px}.brand p{display:none}.panel{padding:16px}
+      .grid2,.board{grid-template-columns:repeat(2,minmax(0,1fr))}.hero:after{opacity:.04}
+      .cando label{grid-template-columns:auto 1fr}
+      .cando .lvl{display:none}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <img src="../../assets/logo.png" alt="">
+      <div>
+        <h1>Descriptions</h1>
+        <p>First English Flow · Lesson 11 of 12</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="home" href="../i-have/">Lesson 10</a>
+      <a class="home" href="../">Home</a>
+      <span class="pill">PreA1</span>
+    </div>
+  </header>
+  <section class="hero">
+    <span class="eyebrow">General English · Starter</span>
+    <h2>Guess who. <span>He has glasses.</span></h2>
+    <p><strong>be</strong> for tall/short. <strong>have</strong> for hair, glasses, a beard. Hear a clue. Tap the face.</p>
+    <div class="path">
+      <span>1 Meet them</span><span>2 Guess who</span><span>3 Watch out</span><span>4 Check</span>
+    </div>
+  </section>
+  <article class="lesson">
+    <header class="lesson-head">
+      <h3>Six people. One clue.</h3>
+      <p>Meet them with their names. Then the names hide and you find who it is.</p>
+    </header>
+    <nav class="tabs" id="tabs"></nav>
+    <div id="panels"></div>
+  </article>
+  <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
+</div>
+<script>
+const sections = ['1 Meet them', '2 Guess who', '3 Watch out', '4 Check'];
+const KEY = 'descriptionsPreA1v1';
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch { return {}; }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch { /* ignore */ }
+}
+const state = loadState();
+function speakPhrase(text) {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.92;
+  const voices = speechSynthesis.getVoices();
+  const v = voices.find(x => /en-US/i.test(x.lang) && /Google|Female|Samantha|Jenny|Aria|Zira/i.test(x.name))
+    || voices.find(x => /^en/i.test(x.lang));
+  if (v) { u.voice = v; u.lang = v.lang; }
+  speechSynthesis.speak(u);
+}
+if (window.speechSynthesis) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+function shuffle(a) {
+  const c = [...a];
+  for (let i = c.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [c[i], c[j]] = [c[j], c[i]];
+  }
+  return c;
+}
+
+const people = [
+  { id:'diego', name:'Diego', img:'assets/diego.jpg', line:"This is Diego. He's tall. He has short brown hair.", hint:'tall · short hair' },
+  { id:'elena', name:'Elena', img:'assets/elena.jpg', line:'This is Elena. She has blonde hair.', hint:'blonde hair' },
+  { id:'nico', name:'Nico', img:'assets/nico.jpg', line:"This is Nico. He's a boy. He has glasses.", hint:'glasses · a boy' },
+  { id:'maya', name:'Maya', img:'assets/maya.jpg', line:"This is Maya. She's a girl. She has long hair.", hint:'long hair · a girl' },
+  { id:'luis', name:'Luis', img:'assets/luis.jpg', line:'This is Luis. He has a beard.', hint:'a beard' },
+  { id:'lila', name:'Lila', img:'assets/lila.jpg', line:'This is Lila. She has curly hair.', hint:'curly hair' }
+];
+const byId = Object.fromEntries(people.map(p => [p.id, p]));
+
+function boardHTML(id, guess) {
+  const order = guess ? shuffle(people) : people;
+  return `<div class="board${guess ? ' guess' : ''}" id="${id}">
+    ${order.map(p => `<button type="button" class="face" data-id="${p.id}" onclick="onFace('${p.id}')">
+      <img src="${p.img}" alt="">
+      <span class="name">${p.name}</span>
+      <span class="hint">${p.hint}</span>
+    </button>`).join('')}
+  </div>`;
+}
+
+let mode = 'learn';
+const meetHTML = `
+<section class="panel">
+  <h4>1 · Meet them</h4>
+  <p class="intro">Tap a face. Hear <strong>be</strong> (tall / a boy) and <strong>have</strong> (hair, glasses, a beard).</p>
+  <p class="caption" id="meetCap">Tap a face.</p>
+  <div id="meetBoard"></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card mint">
+      <span class="label">be</span>
+      <div class="example">He’s tall.<br>She’s a girl.</div>
+    </div>
+    <div class="card">
+      <span class="label">have</span>
+      <div class="example">He has glasses.<br>She has long hair.<br>He has a beard.</div>
+    </div>
+  </div>
+</section>`;
+
+const clueRounds = [
+  { say:'He has glasses.', target:'nico' },
+  { say:'He has a beard.', target:'luis' },
+  { say:'She has blonde hair.', target:'elena' },
+  { say:'She has long hair.', target:'maya' },
+  { say:'She has curly hair.', target:'lila' },
+  { say:"He's a boy.", target:'nico' },
+  { say:"She's a girl.", target:'maya' },
+  { say:"He's tall. He doesn't have a beard.", target:'diego' }
+];
+let playRounds = [];
+let round = 0;
+let score = 0;
+let locked = false;
+let TOTAL = 8;
+
+const playHTML = `
+<section class="panel">
+  <h4>2 · Guess who</h4>
+  <p class="intro">Names are hidden. Faces are mixed. Hear the clue. Tap the person. Tapping does not stop the audio.</p>
+  <p class="caption" id="playCap">Listen. Tap the face.</p>
+  <button type="button" class="hear-play" onclick="playRound()">Play</button>
+  <div id="playBoard"></div>
+  <div class="game-nav">
+    <div class="score" id="playScore">1 / 8</div>
+    <button type="button" class="btn ghost" onclick="playRound()">Hear again</button>
+  </div>
+  <div class="feedback" id="playFb"></div>
+  <div class="card mint" style="margin-top:16px">
+    <span class="label">Then say it · pairs</span>
+    <p style="margin:8px 0 0;line-height:1.65"><strong>A</strong> looks at a face and says one clue (no name). <strong>B</strong> points. Then swap.</p>
+  </div>
+</section>`;
+
+const watchHTML = `
+<section class="panel">
+  <h4>3 · Watch out</h4>
+  <p class="intro">be vs have. Tap a card to hear the English.</p>
+  <div class="grid2">
+    <button type="button" class="card" onclick="speakPhrase('He is tall.')">
+      <span class="label">tall</span>
+      <div class="big-rule">He <span class="teal">is</span> tall</div>
+      <p style="margin:0">Size uses <strong>be</strong>. Not “He has tall”. Not “high” for a person.</p>
+      <div class="example">✗ He has tall. &nbsp;·&nbsp; ✓ He’s tall.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('She has long hair.')">
+      <span class="label">hair</span>
+      <div class="big-rule">She <span class="teal">has</span> long hair</div>
+      <p style="margin:0">Hair, glasses, a beard → <strong>have</strong>. And <em>hair</em>, not hairs.</p>
+      <div class="example">✗ She is long hair. / She has long hairs.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('He has glasses.')">
+      <span class="label">glasses</span>
+      <div class="big-rule">He has glasses</div>
+      <p style="margin:0">Always plural in English: <strong>glasses</strong>.</p>
+      <div class="example">✗ He has a glass. &nbsp;·&nbsp; ✓ He has glasses.</div>
+    </button>
+    <button type="button" class="card" onclick="speakPhrase('He has a beard.')">
+      <span class="label">a beard</span>
+      <div class="big-rule">He has <span class="teal">a</span> beard</div>
+      <p style="margin:0">Keep <strong>a</strong>. Same pattern as I have a bag.</p>
+      <div class="example">He has a beard. She has a phone.</div>
+    </button>
+  </div>
+  <div class="note"><strong>Keep this:</strong> He’s tall. She has long hair. He has glasses.</div>
+</section>`;
+
+const candoItems = [
+  'I can say He’s tall / She’s a girl (be).',
+  'I can say He has glasses / She has long hair (have).',
+  'I can guess who from one clue.',
+  'I do not say He has tall or She is long hair.'
+];
+const checkHTML = `
+<section class="panel">
+  <h4>4 · Check</h4>
+  <p class="intro">Honest boxes, then describe a real person in two lines: one with <em>be</em>, one with <em>have</em>.</p>
+  <div class="cando" id="candoBox"></div>
+  <div class="progress-mini"><span id="candoBar"></span></div>
+  <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
+  <h5 style="margin:18px 0 8px">Write it</h5>
+  <p class="intro" style="margin-bottom:8px">Example: <strong>She’s tall. She has long hair.</strong></p>
+  <input type="text" id="exitWrite" placeholder="He’s … He has …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
+  <div class="feedback" id="exitFb"></div>
+  <div class="tip"><strong>Ready for Lesson 12?</strong> If you can describe a person, you are ready to introduce yourself. <a class="inline" href="../i-have/">← I have</a></div>
+</section>`;
+
+function render() {
+  document.getElementById('tabs').innerHTML = sections.map((s, i) =>
+    `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
+  ).join('');
+  document.getElementById('panels').innerHTML = [meetHTML, playHTML, watchHTML, checkHTML].join('');
+  document.getElementById('meetBoard').innerHTML = boardHTML('meetFaces', false);
+  playRounds = shuffle(clueRounds);
+  TOTAL = playRounds.length;
+  round = 0;
+  score = 0;
+  document.getElementById('playBoard').innerHTML = boardHTML('playFaces', true);
+  openTab(state.tab || 0);
+  resetRound(false);
+  renderCando();
+}
+function openTab(i) {
+  state.tab = i;
+  save();
+  mode = i === 1 ? 'play' : 'learn';
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
+  document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
+  const lesson = document.querySelector('.lesson');
+  if (lesson) window.scrollTo({ top: lesson.offsetTop - 80, behavior: 'smooth' });
+}
+function clearMarks(root) {
+  (root || document).querySelectorAll('.face').forEach(el => el.classList.remove('on','good','bad'));
+}
+function onFace(id) {
+  const p = byId[id];
+  if (mode === 'learn') {
+    clearMarks(document.getElementById('meetBoard'));
+    document.querySelectorAll(`#meetBoard .face[data-id="${id}"]`).forEach(el => el.classList.add('on'));
+    const cap = document.getElementById('meetCap');
+    if (cap) cap.textContent = p.line;
+    speakPhrase(p.line);
+    return;
+  }
+  if (locked) return;
+  const need = playRounds[round].target;
+  if (id !== need) {
+    document.querySelectorAll(`#playBoard .face[data-id="${id}"]`).forEach(el => el.classList.add('bad'));
+    setTimeout(() => document.querySelectorAll(`#playBoard .face[data-id="${id}"]`).forEach(el => el.classList.remove('bad')), 450);
+    const fb = document.getElementById('playFb');
+    fb.className = 'feedback show warn';
+    fb.textContent = 'Not that person.';
+    return;
+  }
+  locked = true;
+  score += 1;
+  document.querySelectorAll(`#playBoard .face[data-id="${id}"]`).forEach(el => el.classList.add('good'));
+  const fb = document.getElementById('playFb');
+  fb.className = 'feedback show good';
+  fb.textContent = playRounds[round].say + ' — ' + p.name + '.';
+  document.getElementById('playScore').textContent = `${Math.min(round + 1, TOTAL)} / ${TOTAL} · ${score} correct`;
+  setTimeout(() => {
+    round += 1;
+    if (round >= TOTAL) {
+      fb.className = 'feedback show good';
+      fb.innerHTML = `Done · ${score} / ${TOTAL}. Now you give the clue.`;
+      round = 0;
+      score = 0;
+      resetRound(false);
+      return;
+    }
+    resetRound(true);
+  }, 1000);
+}
+function resetRound(autoPlay) {
+  locked = false;
+  clearMarks(document.getElementById('playBoard'));
+  const cap = document.getElementById('playCap');
+  if (cap) cap.textContent = 'Listen. Tap the face.';
+  const fb = document.getElementById('playFb');
+  if (fb && !autoPlay) { fb.className = 'feedback'; fb.textContent = ''; }
+  const sc = document.getElementById('playScore');
+  if (sc) sc.textContent = `${round + 1} / ${TOTAL} · ${score} correct`;
+  if (autoPlay) playRound();
+}
+function playRound() { speakPhrase(playRounds[round].say); }
+function renderCando() {
+  const box = document.getElementById('candoBox');
+  if (!box) return;
+  const saved = state.cando || [];
+  box.innerHTML = candoItems.map((t, i) => `
+    <label>
+      <input type="checkbox" data-cando="${i}" ${saved[i] ? 'checked' : ''} onchange="saveCando()">
+      <span>${t}</span>
+      <span class="lvl">PreA1</span>
+    </label>
+  `).join('');
+  updateCandoBar();
+}
+function saveCando() {
+  state.cando = [...document.querySelectorAll('[data-cando]')].map(el => el.checked);
+  save();
+  updateCandoBar();
+}
+function updateCandoBar() {
+  const n = (state.cando || []).filter(Boolean).length;
+  const bar = document.getElementById('candoBar');
+  const lab = document.getElementById('candoLabel');
+  if (bar) bar.style.width = `${(n / candoItems.length) * 100}%`;
+  if (lab) lab.textContent = `${n} / ${candoItems.length} can-do statements`;
+}
+function saveExit() {
+  const t = (document.getElementById('exitWrite').value || '').trim();
+  state.exitWrite = t;
+  save();
+  const fb = document.getElementById('exitFb');
+  const ok = /\b(is|'s|are)\b/i.test(t) && /\bhas\b/i.test(t);
+  fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
+  fb.textContent = ok ? 'Saved. be + have — that’s the description.' : 'One line with is/’s and one with has.';
+}
+render();
+</script>
+</body>
+</html>
