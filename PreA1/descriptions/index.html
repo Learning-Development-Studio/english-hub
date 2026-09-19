@@ -70,7 +70,7 @@
     .fc-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
     .fc-dots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);padding:0}
     .fc-dots button.on{background:var(--teal);transform:scale(1.25)}
-    .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:linear-gradient(180deg,#eef7f6,#fff);border:1px solid var(--line);border-radius:22px;padding:16px}
+    .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;background:linear-gradient(180deg,#eef7f6,#fff);border:1px solid var(--line);border-radius:22px;padding:16px}
     .face{border:0;background:transparent;padding:0;text-align:center}
     .face img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 10px 22px rgba(11,31,58,.12);display:block;background:#f4f0e8}
     .face .name{display:block;margin-top:8px;font-weight:800}
@@ -97,7 +97,7 @@
     a.inline{color:var(--teal);font-weight:800;text-decoration:none}
     @media(max-width:760px){
       .shell{padding:12px}.brand p{display:none}.panel{padding:16px}
-      .grid2,.board{grid-template-columns:repeat(2,minmax(0,1fr))}.hero:after{opacity:.04}
+      .grid2{grid-template-columns:1fr}.hero:after{opacity:.04}
       .cando label{grid-template-columns:auto 1fr}
       .cando .lvl{display:none}
     }
@@ -130,7 +130,7 @@
   <article class="lesson">
     <header class="lesson-head">
       <h3>Word first. Then the game.</h3>
-      <p>Photo, word, example, audio — like the adjective cards. Then Guess who.</p>
+      <p>Thirteen cards: photo, word, example, audio. Then eleven faces in Guess who.</p>
     </header>
     <nav class="tabs" id="tabs"></nav>
     <div id="panels"></div>
@@ -180,7 +180,12 @@ const people = [
   { id:'nico', name:'Nico', img:'assets/nico.jpg', line:"This is Nico. He's a boy. He has glasses.", hint:'glasses · a boy' },
   { id:'maya', name:'Maya', img:'assets/maya.jpg', line:"This is Maya. She's a girl. She has long hair.", hint:'long hair · a girl' },
   { id:'luis', name:'Luis', img:'assets/luis.jpg', line:'This is Luis. He has a beard.', hint:'a beard' },
-  { id:'lila', name:'Lila', img:'assets/lila.jpg', line:'This is Lila. She has curly hair.', hint:'curly hair' }
+  { id:'lila', name:'Lila', img:'assets/lila.jpg', line:'This is Lila. She has curly hair.', hint:'curly hair' },
+  { id:'carmen', name:'Carmen', img:'assets/carmen.jpg', line:'This is Carmen. She has gray hair.', hint:'gray hair' },
+  { id:'omar', name:'Omar', img:'assets/omar.jpg', line:'This is Omar. He has a hat.', hint:'a hat' },
+  { id:'pablo', name:'Pablo', img:'assets/pablo.jpg', line:'This is Pablo. He has a mustache.', hint:'a mustache' },
+  { id:'rita', name:'Rita', img:'assets/rita.jpg', line:'This is Rita. She has red hair.', hint:'red hair' },
+  { id:'kim', name:'Kim', img:'assets/kim.jpg', line:'This is Kim. She has short hair.', hint:'short hair' }
 ];
 const byId = Object.fromEntries(people.map(p => [p.id, p]));
 
@@ -204,7 +209,12 @@ const vocabCards = [
   { word:'long hair', kind:'have', img:'assets/maya.jpg', example:'She has long hair.', who:'Maya' },
   { word:'a girl', kind:'be', img:'assets/maya.jpg', example:"She's a girl.", who:'Maya' },
   { word:'a beard', kind:'have', img:'assets/luis.jpg', example:'He has a beard.', who:'Luis' },
-  { word:'curly hair', kind:'have', img:'assets/lila.jpg', example:'She has curly hair.', who:'Lila' }
+  { word:'curly hair', kind:'have', img:'assets/lila.jpg', example:'She has curly hair.', who:'Lila' },
+  { word:'gray hair', kind:'have', img:'assets/carmen.jpg', example:'She has gray hair.', who:'Carmen' },
+  { word:'a hat', kind:'have', img:'assets/omar.jpg', example:'He has a hat.', who:'Omar' },
+  { word:'a mustache', kind:'have', img:'assets/pablo.jpg', example:'He has a mustache.', who:'Pablo' },
+  { word:'red hair', kind:'have', img:'assets/rita.jpg', example:'She has red hair.', who:'Rita' },
+  { word:'short hair', kind:'have', img:'assets/kim.jpg', example:'She has short hair.', who:'Kim' }
 ];
 let vocabI = 0;
 let vocabFlipped = false;
@@ -234,7 +244,7 @@ const vocabHTML = `
       <button type="button" class="btn" onclick="event.stopPropagation();flipVocab()">Flip</button>
       <button type="button" class="btn ghost" onclick="event.stopPropagation();vocabNav(1)">→</button>
     </div>
-    <p class="score" id="vocabCount">1 / 8</p>
+    <p class="score" id="vocabCount">1 / 13</p>
   </div>
   <div class="note"><strong>Two patterns:</strong> <em>be</em> = tall, a boy, a girl. <em>have</em> = hair, glasses, a beard.</div>
 </section>`;
@@ -265,7 +275,12 @@ const clueRounds = [
   { say:'She has curly hair.', target:'lila' },
   { say:"He's a boy.", target:'nico' },
   { say:"She's a girl.", target:'maya' },
-  { say:"He's tall. He doesn't have a beard.", target:'diego' }
+  { say:"He's tall. He doesn't have a beard.", target:'diego' },
+  { say:'She has gray hair.', target:'carmen' },
+  { say:'He has a hat.', target:'omar' },
+  { say:'He has a mustache.', target:'pablo' },
+  { say:'She has red hair.', target:'rita' },
+  { say:'She has short hair.', target:'kim' }
 ];
 let playRounds = [];
 let round = 0;
@@ -276,12 +291,12 @@ let TOTAL = 8;
 const playHTML = `
 <section class="panel">
   <h4>2 · Guess who</h4>
-  <p class="intro">Names are hidden. Faces are mixed. Hear the clue. Tap the person. Tapping does not stop the audio.</p>
+  <p class="intro">Eleven faces, mixed. Names hidden. Hear the clue. Tap the person. Tapping does not stop the audio.</p>
   <p class="caption" id="playCap">Listen. Tap the face.</p>
   <button type="button" class="hear-play" onclick="playRound()">Play</button>
   <div id="playBoard"></div>
   <div class="game-nav">
-    <div class="score" id="playScore">1 / 8</div>
+    <div class="score" id="playScore">1 / 13</div>
     <button type="button" class="btn ghost" onclick="playRound()">Hear again</button>
   </div>
   <div class="feedback" id="playFb"></div>
