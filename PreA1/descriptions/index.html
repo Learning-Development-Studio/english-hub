@@ -50,6 +50,26 @@
     .tip{background:var(--mint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;line-height:1.55;margin:12px 0}
     .caption{min-height:52px;text-align:center;margin:0 0 14px;font-weight:800;font-size:1.15rem}
     .caption span{color:var(--teal)}
+    .fc-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+    .fc-shell{perspective:1400px;width:min(420px,calc(100vw - 64px))}
+    .fc{width:100%;aspect-ratio:1;cursor:pointer;position:relative;filter:drop-shadow(0 16px 32px rgba(11,31,58,.16))}
+    .fc-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,.2,.2,1)}
+    .fc.flipped .fc-inner{transform:rotateY(180deg)}
+    .fc-side{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;overflow:hidden}
+    .fc-front{background:#f4f0e8}
+    .fc-front img{width:100%;height:100%;object-fit:cover;display:block}
+    .fc-back{transform:rotateY(180deg);background:var(--navy);color:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+    .fc-back .kind{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+    .fc-back .word{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:800;line-height:1.1}
+    .fc-back .ex{color:#d7e7e8;font-weight:700;line-height:1.45;font-size:1.05rem}
+    .audio-btn{position:absolute;right:14px;top:14px;z-index:3;width:40px;height:40px;border:0;border-radius:999px;background:var(--teal);color:#fff;display:grid;place-items:center;cursor:pointer}
+    .audio-btn.playing{background:#238d85}
+    .audio-btn svg{width:18px;height:18px}
+    .fc-nav{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+    .fc-nav .btn{min-width:52px}
+    .fc-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+    .fc-dots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);padding:0}
+    .fc-dots button.on{background:var(--teal);transform:scale(1.25)}
     .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:linear-gradient(180deg,#eef7f6,#fff);border:1px solid var(--line);border-radius:22px;padding:16px}
     .face{border:0;background:transparent;padding:0;text-align:center}
     .face img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 10px 22px rgba(11,31,58,.12);display:block;background:#f4f0e8}
@@ -104,13 +124,13 @@
     <h2>Guess who. <span>He has glasses.</span></h2>
     <p><strong>be</strong> for tall/short. <strong>have</strong> for hair, glasses, a beard. Hear a clue. Tap the face.</p>
     <div class="path">
-      <span>1 Meet them</span><span>2 Guess who</span><span>3 Watch out</span><span>4 Check</span>
+      <span>1 Vocab</span><span>2 Meet them</span><span>3 Guess who</span><span>4 Watch out</span><span>5 Check</span>
     </div>
   </section>
   <article class="lesson">
     <header class="lesson-head">
-      <h3>Six people. One clue.</h3>
-      <p>Meet them with their names. Then the names hide and you find who it is.</p>
+      <h3>Word first. Then the game.</h3>
+      <p>Photo, word, example, audio — like the adjective cards. Then Guess who.</p>
     </header>
     <nav class="tabs" id="tabs"></nav>
     <div id="panels"></div>
@@ -118,7 +138,7 @@
   <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
 </div>
 <script>
-const sections = ['1 Meet them', '2 Guess who', '3 Watch out', '4 Check'];
+const sections = ['1 Vocab', '2 Meet them', '3 Guess who', '4 Watch out', '5 Check'];
 const KEY = 'descriptionsPreA1v1';
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
@@ -176,6 +196,49 @@ function boardHTML(id, guess) {
 }
 
 let mode = 'learn';
+const vocabCards = [
+  { word:'tall', kind:'be', img:'assets/diego.jpg', example:"He's tall.", who:'Diego' },
+  { word:'blonde hair', kind:'have', img:'assets/elena.jpg', example:'She has blonde hair.', who:'Elena' },
+  { word:'glasses', kind:'have', img:'assets/nico.jpg', example:'He has glasses.', who:'Nico' },
+  { word:'a boy', kind:'be', img:'assets/nico.jpg', example:"He's a boy.", who:'Nico' },
+  { word:'long hair', kind:'have', img:'assets/maya.jpg', example:'She has long hair.', who:'Maya' },
+  { word:'a girl', kind:'be', img:'assets/maya.jpg', example:"She's a girl.", who:'Maya' },
+  { word:'a beard', kind:'have', img:'assets/luis.jpg', example:'He has a beard.', who:'Luis' },
+  { word:'curly hair', kind:'have', img:'assets/lila.jpg', example:'She has curly hair.', who:'Lila' }
+];
+let vocabI = 0;
+let vocabFlipped = false;
+const vocabHTML = `
+<section class="panel">
+  <h4>1 · Vocab</h4>
+  <p class="intro">Tap the card to flip. Photo → word + example. The speaker plays the example.</p>
+  <div class="fc-wrap">
+    <div class="fc-shell">
+      <div class="fc" id="vocabCard" onclick="flipVocab()">
+        <div class="fc-inner">
+          <div class="fc-side fc-front"><img id="vocabImg" src="" alt=""></div>
+          <div class="fc-side fc-back">
+            <button type="button" class="audio-btn" id="vocabAudio" onclick="event.stopPropagation();playVocab()" aria-label="Play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+            </button>
+            <span class="kind" id="vocabKind"></span>
+            <span class="word" id="vocabWord"></span>
+            <span class="ex" id="vocabEx"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-dots" id="vocabDots"></div>
+    <div class="fc-nav">
+      <button type="button" class="btn ghost" onclick="event.stopPropagation();vocabNav(-1)">←</button>
+      <button type="button" class="btn" onclick="event.stopPropagation();flipVocab()">Flip</button>
+      <button type="button" class="btn ghost" onclick="event.stopPropagation();vocabNav(1)">→</button>
+    </div>
+    <p class="score" id="vocabCount">1 / 8</p>
+  </div>
+  <div class="note"><strong>Two patterns:</strong> <em>be</em> = tall, a boy, a girl. <em>have</em> = hair, glasses, a beard.</div>
+</section>`;
+
 const meetHTML = `
 <section class="panel">
   <h4>1 · Meet them</h4>
@@ -286,7 +349,8 @@ function render() {
   document.getElementById('tabs').innerHTML = sections.map((s, i) =>
     `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
   ).join('');
-  document.getElementById('panels').innerHTML = [meetHTML, playHTML, watchHTML, checkHTML].join('');
+  document.getElementById('panels').innerHTML = [vocabHTML, meetHTML, playHTML, watchHTML, checkHTML].join('');
+  showVocab();
   document.getElementById('meetBoard').innerHTML = boardHTML('meetFaces', false);
   playRounds = shuffle(clueRounds);
   TOTAL = playRounds.length;
@@ -300,12 +364,49 @@ function render() {
 function openTab(i) {
   state.tab = i;
   save();
-  mode = i === 1 ? 'play' : 'learn';
+  mode = i === 2 ? 'play' : 'learn';
   if (window.speechSynthesis) speechSynthesis.cancel();
   document.querySelectorAll('.tab').forEach((x, n) => x.classList.toggle('active', n === i));
   document.querySelectorAll('.panel').forEach((x, n) => x.classList.toggle('active', n === i));
   const lesson = document.querySelector('.lesson');
   if (lesson) window.scrollTo({ top: lesson.offsetTop - 80, behavior: 'smooth' });
+}
+function showVocab() {
+  const c = vocabCards[vocabI];
+  const img = document.getElementById('vocabImg');
+  if (!img) return;
+  img.src = c.img;
+  img.alt = c.word;
+  document.getElementById('vocabKind').textContent = c.kind === 'be' ? 'be  ·  is / ’s' : 'have  ·  has';
+  document.getElementById('vocabWord').textContent = c.word;
+  document.getElementById('vocabEx').textContent = c.example;
+  document.getElementById('vocabCount').textContent = `${vocabI + 1} / ${vocabCards.length}`;
+  document.getElementById('vocabCard').classList.toggle('flipped', vocabFlipped);
+  document.getElementById('vocabDots').innerHTML = vocabCards.map((_, i) =>
+    `<button type="button" class="${i === vocabI ? 'on' : ''}" onclick="event.stopPropagation();vocabGo(${i})"></button>`
+  ).join('');
+}
+function vocabGo(i) {
+  vocabI = i;
+  vocabFlipped = false;
+  showVocab();
+}
+function vocabNav(d) {
+  vocabI = (vocabI + d + vocabCards.length) % vocabCards.length;
+  vocabFlipped = false;
+  showVocab();
+}
+function flipVocab() {
+  vocabFlipped = !vocabFlipped;
+  document.getElementById('vocabCard').classList.toggle('flipped', vocabFlipped);
+}
+function playVocab() {
+  speakPhrase(vocabCards[vocabI].example);
+  const b = document.getElementById('vocabAudio');
+  if (b) {
+    b.classList.add('playing');
+    setTimeout(() => b.classList.remove('playing'), 800);
+  }
 }
 function clearMarks(root) {
   (root || document).querySelectorAll('.face').forEach(el => el.classList.remove('on','good','bad'));
