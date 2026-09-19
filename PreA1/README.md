@@ -1,5 +1,5 @@
 # PreA1
 
-Alphabet through verb to be live here (lessons 1–8).
+Alphabet through family live here (lessons 1–9).
 
 > Temporary starter (external app): [First English Flow](https://first-english-flow.base44.app/)
