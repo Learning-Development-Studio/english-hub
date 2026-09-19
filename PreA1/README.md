@@ -1,5 +1,5 @@
 # PreA1
 
-Alphabet, numbers, greetings, classroom, What’s your name?, How old are you?, and Where are you from? live here.
+Alphabet through verb to be live here (lessons 1–8).
 
 > Temporary starter (external app): [First English Flow](https://first-english-flow.base44.app/)

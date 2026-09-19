@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="apple-touch-icon" href="../../assets/logo.png">
-  <title>Where are you from? · PreA1 · English Hub</title>
-  <meta name="description" content="PreA1: Where are you from? I’m from Mexico. I’m Mexican.">
+  <title>Verb to be · PreA1 · English Hub</title>
+  <meta name="description" content="PreA1: am, is, are. I am, you are, he is — then I’m, you’re, he’s.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,6 +40,7 @@
     .panel h4{font-size:1.15rem;margin:0 0 10px}
     .intro{color:var(--slate);line-height:1.65;margin:0 0 18px}
     .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
     .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;text-align:left}
     .card.tint{background:var(--gray)}.card.mint{background:var(--mint)}
     .label{font-size:.7rem;letter-spacing:.08em;color:var(--teal);font-weight:800;text-transform:uppercase}
@@ -51,18 +52,18 @@
     .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
     .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:.78rem;font-weight:800;color:var(--navy)}
     .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-    .phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+    .phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
     .phrase{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 12px;text-align:left;min-height:78px}
     .phrase .line{display:block;font-size:1.05rem;font-weight:800;line-height:1.25}
     .phrase .meta{display:block;margin-top:6px;font-size:.72rem;color:var(--slate);font-weight:600}
     .phrase.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
     .phrase.playing .meta{color:#d7e7e8}
-    .place-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
-    .place{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 12px;text-align:left;min-height:86px}
-    .place .line{display:block;font-size:1.02rem;font-weight:800}
-    .place .meta{display:block;margin-top:6px;font-size:.72rem;color:var(--slate);font-weight:600}
-    .place.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
-    .place.playing .meta{color:#d7e7e8}
+    .form{border:1px solid var(--line);background:#fff;border-radius:14px;padding:16px 12px;text-align:center}
+    .form .who{font-size:.75rem;font-weight:800;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
+    .form .full{display:block;margin-top:8px;font-size:1.15rem;font-weight:800}
+    .form .short{display:block;margin-top:4px;color:var(--slate);font-weight:700}
+    .form.playing{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .form.playing .who,.form.playing .short{color:#d7e7e8}
     .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--navy);color:#fff}
     .btn.secondary{background:var(--teal)}
     .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
@@ -70,12 +71,13 @@
     .feedback.show{display:block}.feedback.good{background:var(--good)}.feedback.warn{background:var(--warn)}
     .hear-play{width:100px;height:100px;border:0;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:grid;place-items:center;margin:10px auto 0}
     .choice-row{display:grid;gap:10px;margin-top:16px}
-    .choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 14px;font-size:1.02rem;font-weight:800;line-height:1.35;text-align:left}
+    .choice-row.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 14px;font-size:1.05rem;font-weight:800;line-height:1.35;text-align:left}
     .choice:disabled{cursor:default}
     .choice.correct{background:var(--good);border-color:#72b98c}
     .choice.wrong{background:var(--bad);border-color:#d98989}
     .name-card{background:var(--navy);color:#fff;border-radius:16px;padding:20px;text-align:center}
-    .name-card .who{font-size:1.25rem;font-weight:800;line-height:1.35}
+    .name-card .who{font-size:1.35rem;font-weight:800;line-height:1.3}
     .name-card p{margin:6px 0 0;color:#d7e7e8;font-size:.9rem}
     .game-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .score{font-weight:800;color:var(--teal)}
@@ -90,7 +92,7 @@
     a.inline{color:var(--teal);font-weight:800;text-decoration:none}
     @media(max-width:760px){
       .shell{padding:12px}.brand p{display:none}.panel{padding:18px}
-      .grid2{grid-template-columns:1fr}.hero:after{opacity:.04}
+      .grid2,.grid3,.choice-row.three{grid-template-columns:1fr}.hero:after{opacity:.04}
       .cando label{grid-template-columns:auto 1fr}
       .cando .lvl{display:none}
     }
@@ -103,12 +105,12 @@
     <div class="brand">
       <img src="../../assets/logo.png" alt="">
       <div>
-        <h1>Where are you from?</h1>
-        <p>First English Flow · Lesson 7 of 12</p>
+        <h1>Verb to be</h1>
+        <p>First English Flow · Lesson 8 of 12</p>
       </div>
     </div>
     <div class="actions">
-      <a class="home" href="../how-old-are-you/">Lesson 6</a>
+      <a class="home" href="../where-are-you-from/">Lesson 7</a>
       <a class="home" href="../">Home</a>
       <span class="pill">PreA1</span>
     </div>
@@ -116,28 +118,28 @@
 
   <section class="hero">
     <span class="eyebrow">General English · Starter</span>
-    <h2>Country. City. <span>I’m Mexican.</span></h2>
-    <p><strong>I’m from Mexico</strong> is the place. <strong>I’m Mexican</strong> is the nationality. Both are true — they are not the same line.</p>
+    <h2>am · is · are. <span>Then I’m, he’s, we’re.</span></h2>
+    <p>This is the verb behind name, age, and origin. One verb in English for both <em>ser</em> and <em>estar</em>.</p>
     <div class="path">
-      <span>1 Hear</span><span>2 Places</span><span>3 Watch out</span><span>4 Play</span><span>5 Check</span>
+      <span>1 Hear</span><span>2 Forms</span><span>3 Watch out</span><span>4 Play</span><span>5 Check</span>
     </div>
   </section>
 
   <article class="lesson">
     <header class="lesson-head">
-      <h3>from + place · nationality as a person</h3>
-      <p>Tap a line to hear it. Then tap a country or a nationality. Tapping in the games does not stop the audio.</p>
+      <h3>Three forms. Then the short ones.</h3>
+      <p>Tap a line. Then tap a person to hear I am / I’m. Tapping in the games does not stop the audio.</p>
     </header>
     <nav class="tabs" id="tabs" aria-label="Lesson sections"></nav>
     <div id="panels"></div>
   </article>
 
-  <footer class="footer">Learning &amp; Development Studio · Israel Ventura · PreA1 · Progress stays in this browser</footer>
+  <footer class="footer">Learning &amp; Development Studio · PreA1 · Progress stays in this browser</footer>
 </div>
 
 <script>
-const sections = ['1 Hear', '2 Places', '3 Watch out', '4 Play', '5 Check'];
-const KEY = 'whereFromPreA1v1';
+const sections = ['1 Hear', '2 Forms', '3 Watch out', '4 Play', '5 Check'];
+const KEY = 'verbToBePreA1v1';
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
   catch { return {}; }
@@ -174,14 +176,14 @@ function shuffle(arr) {
 }
 
 const phrases = [
-  { line:'Where are you from?', meta:'The question' },
-  { line:"I'm from Mexico.", meta:'Place · country' },
-  { line:"I'm from Mexico City.", meta:'Place · city' },
-  { line:"I'm Mexican.", meta:'Nationality' },
-  { line:'Where is she from?', meta:'About a girl' },
-  { line:"She's from Spain.", meta:'Her place' },
-  { line:"She's Spanish.", meta:'Her nationality' },
-  { line:'Where is he from?', meta:'About a boy' }
+  { line:'I am Ana.', meta:'I → am' },
+  { line:"I'm 15 years old.", meta:'short: I’m' },
+  { line:'You are a student.', meta:'You → are' },
+  { line:'He is from Mexico.', meta:'He → is' },
+  { line:'She is Mexican.', meta:'She → is' },
+  { line:'It is a book.', meta:'It → is' },
+  { line:'We are friends.', meta:'We → are' },
+  { line:'They are students.', meta:'They → are' }
 ];
 function tapPhrase(btn) {
   document.querySelectorAll('.phrase.playing').forEach(el => el.classList.remove('playing'));
@@ -189,51 +191,25 @@ function tapPhrase(btn) {
   speakPhrase(decodeURIComponent(btn.dataset.line));
 }
 
-const places = [
-  { place:'Mexico', from:"I'm from Mexico.", nat:"I'm Mexican.", natWord:'Mexican' },
-  { place:'Mexico City', from:"I'm from Mexico City.", nat:"I'm Mexican.", natWord:'Mexican' },
-  { place:'Guadalajara', from:"I'm from Guadalajara.", nat:"I'm Mexican.", natWord:'Mexican' },
-  { place:'the United States', from:"I'm from the United States.", nat:"I'm American.", natWord:'American' },
-  { place:'Canada', from:"I'm from Canada.", nat:"I'm Canadian.", natWord:'Canadian' },
-  { place:'Spain', from:"I'm from Spain.", nat:"I'm Spanish.", natWord:'Spanish' },
-  { place:'Colombia', from:"I'm from Colombia.", nat:"I'm Colombian.", natWord:'Colombian' },
-  { place:'Brazil', from:"I'm from Brazil.", nat:"I'm Brazilian.", natWord:'Brazilian' },
-  { place:'China', from:"I'm from China.", nat:"I'm Chinese.", natWord:'Chinese' },
-  { place:'Japan', from:"I'm from Japan.", nat:"I'm Japanese.", natWord:'Japanese' },
-  { place:'England', from:"I'm from England.", nat:"I'm English.", natWord:'English' }
+const forms = [
+  { who:'I', full:'I am', short:"I'm", say:"I am. I'm." },
+  { who:'You', full:'You are', short:"You're", say:"You are. You're." },
+  { who:'He', full:'He is', short:"He's", say:"He is. He's." },
+  { who:'She', full:'She is', short:"She's", say:"She is. She's." },
+  { who:'It', full:'It is', short:"It's", say:"It is. It's." },
+  { who:'We', full:'We are', short:"We're", say:"We are. We're." },
+  { who:'They', full:'They are', short:"They're", say:"They are. They're." }
 ];
-
-let placeFilter = 'from';
-function drawPlaces() {
-  const box = document.getElementById('placeGrid');
-  if (!box) return;
-  box.innerHTML = places.map((p, i) => {
-    const line = placeFilter === 'from' ? p.from : p.nat;
-    const meta = placeFilter === 'from' ? p.place : p.natWord;
-    return `<button type="button" class="place" data-i="${i}" onclick="tapPlace(${i})">
-      <span class="line">${line}</span>
-      <span class="meta">${meta}</span>
-    </button>`;
-  }).join('');
-  document.querySelectorAll('#placeFilters .chip').forEach(c => c.classList.toggle('on', c.dataset.filter === placeFilter));
-}
-function setPlaceFilter(id) {
-  placeFilter = id;
-  drawPlaces();
-}
-function tapPlace(i) {
-  const p = places[i];
-  document.querySelectorAll('.place.playing').forEach(el => el.classList.remove('playing'));
-  document.querySelectorAll('.place')[i].classList.add('playing');
-  speakPhrase(placeFilter === 'from' ? p.from : p.nat);
-  const out = document.getElementById('placeOut');
-  if (out) out.innerHTML = `${p.from}<br>${p.nat}`;
+function tapForm(i) {
+  document.querySelectorAll('.form.playing').forEach(el => el.classList.remove('playing'));
+  document.querySelectorAll('.form')[i].classList.add('playing');
+  speakPhrase(forms[i].say);
 }
 
 const hearHTML = `
 <section class="panel">
-  <h4>1 · Hear the lines</h4>
-  <p class="intro">Two jobs: the <strong>place</strong> (<em>from Mexico</em>) and the <strong>person</strong> (<em>Mexican</em>).</p>
+  <h4>1 · Hear it in real lines</h4>
+  <p class="intro">You already say these. Today we name the verb: <strong>am / is / are</strong>.</p>
   <div class="phrase-grid">
     ${phrases.map(p => `<button type="button" class="phrase" data-line="${encodeURIComponent(p.line)}" onclick="tapPhrase(this)">
       <span class="line">${p.line}</span><span class="meta">${p.meta}</span>
@@ -241,87 +217,96 @@ const hearHTML = `
   </div>
   <div class="grid2" style="margin-top:16px">
     <div class="card mint">
-      <span class="label">The pair</span>
-      <div class="example">Where are you from?<br>I’m from Mexico. I’m Mexican.</div>
+      <span class="label">One English verb</span>
+      <div class="big-rule">ser <span class="teal">and</span> estar = <span class="teal">be</span></div>
+      <p style="margin:0;color:var(--slate)">I’m Mexican (ser). I’m in class (estar). Same verb.</p>
     </div>
     <div class="card tint">
-      <span class="label">City is OK</span>
-      <p style="margin:8px 0 0;color:var(--slate)">I’m from <strong>Mexico City</strong> / Guadalajara. Then you can still say I’m Mexican.</p>
+      <span class="label">Three forms</span>
+      <div class="example">I → am &nbsp;·&nbsp; he/she/it → is &nbsp;·&nbsp; you/we/they → are</div>
     </div>
   </div>
 </section>`;
 
-const placesHTML = `
+const formsHTML = `
 <section class="panel">
-  <h4>2 · Places</h4>
-  <p class="intro">Tap a card. Switch Country / Nationality. The box keeps both lines together.</p>
-  <div class="card mint" style="margin-bottom:14px">
-    <span class="label">You say</span>
-    <div class="big-rule" id="placeOut">I’m from <span class="teal">____</span>.<br>I’m <span class="teal">____</span>.</div>
+  <h4>2 · Forms</h4>
+  <p class="intro">Tap a person. Hear the full form, then the short form. In class we almost always say the short one.</p>
+  <div class="grid3" id="formGrid">
+    ${forms.map((f, i) => `<button type="button" class="form" onclick="tapForm(${i})">
+      <span class="who">${f.who}</span>
+      <span class="full">${f.full}</span>
+      <span class="short">${f.short}</span>
+    </button>`).join('')}
   </div>
-  <div class="filters" id="placeFilters">
-    <button type="button" class="chip on" data-filter="from" onclick="setPlaceFilter('from')">I’m from …</button>
-    <button type="button" class="chip" data-filter="nat" onclick="setPlaceFilter('nat')">I’m …</button>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card mint">
+      <span class="label">+</span>
+      <div class="example">I’m Ana. She’s 12. We’re friends.</div>
+    </div>
+    <div class="card tint">
+      <span class="label">−  and  ?</span>
+      <p style="margin:8px 0 0;color:var(--slate)"><strong>I’m not</strong> / he <strong>isn’t</strong> / they <strong>aren’t</strong>. Question: <strong>Are you</strong> Mexican? <strong>Is she</strong> 15?</p>
+    </div>
   </div>
-  <div class="place-grid" id="placeGrid"></div>
 </section>`;
 
 const watchHTML = `
 <section class="panel">
   <h4>3 · Watch out · Spanish speakers</h4>
-  <p class="intro">Four mix-ups from <em>soy de</em> / <em>soy mexicano</em>. Tap a card to hear the English.</p>
+  <p class="intro">The usual mix-ups. Tap a card to hear the repair.</p>
   <div class="grid2">
-    <button type="button" class="card" onclick="speakPhrase('I am from Mexico. I am Mexican.')">
-      <span class="label">from vs nationality</span>
-      <div class="big-rule">from Mexico · I’m <span class="teal">Mexican</span></div>
-      <p style="margin:0"><em>from</em> + country. Nationality is a person-word: Mexican, Spanish, American.</p>
-      <div class="example">✗ I am Mexico. &nbsp;·&nbsp; ✓ I’m from Mexico. / I’m Mexican.</div>
+    <button type="button" class="card" onclick="speakPhrase('I am a student. He is a student.')">
+      <span class="label">I is / he are</span>
+      <div class="big-rule">I <span class="teal">am</span> · he <span class="teal">is</span></div>
+      <p style="margin:0">Not “I is” or “he are”. Match the person to the form.</p>
+      <div class="example">✗ I is Ana. &nbsp;·&nbsp; ✓ I am Ana. / I’m Ana.</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('I am from Mexico.')">
-      <span class="label">of</span>
-      <div class="big-rule">I’m from Mexico — not <span class="teal">of</span></div>
-      <p style="margin:0">Not “I am of Mexico”. English uses <em>from</em>.</p>
-      <div class="example">✗ I am of Mexico. &nbsp;·&nbsp; ✓ I’m from Mexico.</div>
+    <button type="button" class="card" onclick="speakPhrase('You are Mexican.')">
+      <span class="label">you</span>
+      <div class="big-rule">You <span class="teal">are</span> — even for one person</div>
+      <p style="margin:0">English <em>you</em> is always <strong>are</strong>. Not “you is”.</p>
+      <div class="example">✗ You is a student. &nbsp;·&nbsp; ✓ You are a student.</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('I am from the United States. I am American.')">
-      <span class="label">the United States</span>
-      <div class="big-rule">the United States · <span class="teal">American</span></div>
-      <p style="margin:0">Keep <strong>the</strong>. Nationality is American, not United-States-ian.</p>
-      <div class="example">I’m from the United States. I’m American.</div>
+    <button type="button" class="card" onclick="speakPhrase('Are you from Mexico?')">
+      <span class="label">Questions</span>
+      <div class="big-rule"><span class="teal">Are you</span> from Mexico?</div>
+      <p style="margin:0">The verb goes first. Not “You are from Mexico?” as the question.</p>
+      <div class="example">Are you 15? Is she Mexican?</div>
     </button>
-    <button type="button" class="card" onclick="speakPhrase('She is from Spain. She is Spanish.')">
-      <span class="label">he / she</span>
-      <div class="big-rule">Where is <span class="teal">she</span> from?</div>
-      <p style="margin:0">you → are. he / she → is.</p>
-      <div class="example">Where is he from? He’s from Brazil. He’s Brazilian.</div>
+    <button type="button" class="card" onclick="speakPhrase('I am not. He is not. We are not.')">
+      <span class="label">not</span>
+      <div class="big-rule">I’m not · isn’t · aren’t</div>
+      <p style="margin:0">There is no “amn’t”. Negative of I am is <strong>I’m not</strong>.</p>
+      <div class="example">I’m not 50. She isn’t from Spain.</div>
     </button>
   </div>
-  <div class="note"><strong>Keep this list:</strong> Where are you from? · I’m from … · I’m Mexican · not I am of / I am Mexico.</div>
+  <div class="note"><strong>Keep this list:</strong> I am · you are · he/she/it is · we/they are · I’m / he’s / we’re.</div>
 </section>`;
 
-const matchBank = [
-  { say:"I'm from Mexico.", opts:['Mexican','Spanish','American'], ans:'Mexican', why:'Mexico → <strong>Mexican</strong>.' },
-  { say:"I'm from Spain.", opts:['Spanish','Mexican','English'], ans:'Spanish', why:'Spain → <strong>Spanish</strong>.' },
-  { say:"I'm from the United States.", opts:['American','English','Canadian'], ans:'American', why:'the United States → <strong>American</strong>.' },
-  { say:"I'm from Canada.", opts:['Canadian','American','Chinese'], ans:'Canadian', why:'Canada → <strong>Canadian</strong>.' },
-  { say:"I'm from Brazil.", opts:['Brazilian','Spanish','Mexican'], ans:'Brazilian', why:'Brazil → <strong>Brazilian</strong>.' },
-  { say:"I'm from Japan.", opts:['Japanese','Chinese','English'], ans:'Japanese', why:'Japan → <strong>Japanese</strong>.' },
-  { say:"I'm from China.", opts:['Chinese','Japanese','Canadian'], ans:'Chinese', why:'China → <strong>Chinese</strong>.' },
-  { say:"I'm from England.", opts:['English','American','Spanish'], ans:'English', why:'England → <strong>English</strong>.' }
+const formBank = [
+  { cue:'I', opts:['am','is','are'], ans:'am', why:'I → <strong>am</strong>.' },
+  { cue:'You', opts:['am','is','are'], ans:'are', why:'You → <strong>are</strong>.' },
+  { cue:'He', opts:['am','is','are'], ans:'is', why:'He → <strong>is</strong>.' },
+  { cue:'She', opts:['am','is','are'], ans:'is', why:'She → <strong>is</strong>.' },
+  { cue:'It', opts:['am','is','are'], ans:'is', why:'It → <strong>is</strong>.' },
+  { cue:'We', opts:['am','is','are'], ans:'are', why:'We → <strong>are</strong>.' },
+  { cue:'They', opts:['am','is','are'], ans:'are', why:'They → <strong>are</strong>.' },
+  { cue:'Ana (she)', opts:['am','is','are'], ans:'is', why:'Ana = she → <strong>is</strong>.' }
 ];
-const MATCH_ROUNDS = 8;
-let matchRound = 0;
-let matchScore = 0;
-let matchItem = matchBank[0];
-let matchLocked = false;
-let playMode = 'match';
+const FORM_ROUNDS = 8;
+let formRound = 0;
+let formScore = 0;
+let formItem = formBank[0];
+let formLocked = false;
+let playMode = 'form';
 
 const situations = [
-  { scene:'Someone asks: Where are you from?', say:"I'm from Mexico.", opts:["I'm from Mexico.",'I am of Mexico.','I am Mexico.'], why:'Place → <strong>I’m from …</strong>' },
-  { scene:'You want the nationality, not the country.', say:"I'm Mexican.", opts:["I'm Mexican.",'I am of Mexican.','I am Mexico.'], why:'Person-word → <strong>I’m Mexican.</strong>' },
-  { scene:'You ask Ana (a girl).', say:'Where is she from?', opts:['Where is she from?','Where are you from?','Where is he from?'], why:'Ana → <strong>she</strong>.' },
-  { scene:'You ask Luis (a boy).', say:'Where is he from?', opts:['Where is he from?','Where is she from?','I am of Brazil.'], why:'Luis → <strong>he</strong>.' },
-  { scene:'The place is the USA.', say:"I'm from the United States.", opts:["I'm from the United States.",'I am from United States.','I am United States.'], why:'Keep <strong>the</strong> United States.' }
+  { scene:'Talk about you.', say:"I'm Ana.", opts:["I'm Ana.",'I is Ana.','I are Ana.'], why:'I → <strong>am / I’m</strong>.' },
+  { scene:'Talk about Luis (a boy).', say:'He is from Mexico.', opts:['He is from Mexico.','He are from Mexico.','He am from Mexico.'], why:'He → <strong>is</strong>.' },
+  { scene:'Ask a classmate.', say:'Are you 15?', opts:['Are you 15?','You are 15?','Is you 15?'], why:'Question: <strong>Are you …?</strong>' },
+  { scene:'Talk about you and a friend.', say:"We're students.", opts:["We're students.",'We is students.','We am students.'], why:'We → <strong>are / we’re</strong>.' },
+  { scene:'Negative about you.', say:"I'm not 50.", opts:["I'm not 50.",'I amn’t 50.','I isn’t 50.'], why:'I negative = <strong>I’m not</strong>.' }
 ];
 const LINE_ROUNDS = 5;
 let lineRound = 0;
@@ -332,62 +317,62 @@ let lineLocked = false;
 function setPlayMode(mode) {
   playMode = mode;
   document.querySelectorAll('#playModes .chip').forEach(c => c.classList.toggle('on', c.dataset.mode === mode));
-  document.getElementById('matchGame').style.display = mode === 'match' ? '' : 'none';
+  document.getElementById('formGame').style.display = mode === 'form' ? '' : 'none';
   document.getElementById('lineGame').style.display = mode === 'line' ? '' : 'none';
   document.getElementById('pairGame').style.display = mode === 'pair' ? '' : 'none';
 }
-function setupMatch() {
-  matchLocked = false;
-  matchItem = matchBank[matchRound % matchBank.length];
-  const box = document.getElementById('matchChoices');
-  const scene = document.getElementById('matchScene');
+function setupFormGame() {
+  formLocked = false;
+  formItem = formBank[formRound % formBank.length];
+  const box = document.getElementById('formChoices');
+  const scene = document.getElementById('formScene');
   if (!box) return;
-  scene.textContent = 'Listen. Tap the nationality.';
-  box.innerHTML = shuffle([...matchItem.opts]).map(o =>
-    `<button type="button" class="choice" onclick="pickMatch(this)">${o}</button>`
+  scene.textContent = formItem.cue;
+  box.innerHTML = shuffle([...formItem.opts]).map(o =>
+    `<button type="button" class="choice" style="text-align:center" onclick="pickForm(this)">${o}</button>`
   ).join('');
-  const score = document.getElementById('matchScore');
-  if (score) score.textContent = `Round ${matchRound + 1} / ${MATCH_ROUNDS} · ${matchScore} correct`;
-  const fb = document.getElementById('matchFb');
+  const score = document.getElementById('formScore');
+  if (score) score.textContent = `Round ${formRound + 1} / ${FORM_ROUNDS} · ${formScore} correct`;
+  const fb = document.getElementById('formFb');
   if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
 }
-function playMatch() { speakPhrase(matchItem.say); }
-function pickMatch(btn) {
-  if (matchLocked) return;
-  matchLocked = true;
-  const ok = btn.textContent === matchItem.ans;
-  document.querySelectorAll('#matchChoices .choice').forEach(b => {
+function playForm() { speakPhrase(formItem.cue); }
+function pickForm(btn) {
+  if (formLocked) return;
+  formLocked = true;
+  const ok = btn.textContent === formItem.ans;
+  document.querySelectorAll('#formChoices .choice').forEach(b => {
     b.disabled = true;
-    if (b.textContent === matchItem.ans) b.classList.add('correct');
+    if (b.textContent === formItem.ans) b.classList.add('correct');
     if (b === btn && !ok) b.classList.add('wrong');
   });
-  if (ok) matchScore += 1;
-  const fb = document.getElementById('matchFb');
+  if (ok) formScore += 1;
+  const fb = document.getElementById('formFb');
   fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
-  fb.innerHTML = (ok ? 'Yes. ' : `It was <strong>${matchItem.ans}</strong>. `) + matchItem.why;
-  const score = document.getElementById('matchScore');
-  if (score) score.textContent = `Round ${matchRound + 1} / ${MATCH_ROUNDS} · ${matchScore} correct`;
+  fb.innerHTML = (ok ? 'Yes. ' : `It was <strong>${formItem.ans}</strong>. `) + formItem.why;
+  const score = document.getElementById('formScore');
+  if (score) score.textContent = `Round ${formRound + 1} / ${FORM_ROUNDS} · ${formScore} correct`;
   setTimeout(() => {
-    matchRound += 1;
-    if (matchRound >= MATCH_ROUNDS) {
-      const total = matchScore;
+    formRound += 1;
+    if (formRound >= FORM_ROUNDS) {
+      const total = formScore;
       fb.className = 'feedback show good';
-      fb.innerHTML = `Done · ${total} / ${MATCH_ROUNDS}.`;
-      document.getElementById('matchChoices').innerHTML =
-        `<button type="button" class="btn secondary" onclick="restartMatch()">Play again</button>`;
-      matchRound = 0;
-      matchScore = 0;
+      fb.innerHTML = `Done · ${total} / ${FORM_ROUNDS}.`;
+      document.getElementById('formChoices').innerHTML =
+        `<button type="button" class="btn secondary" onclick="restartForm()">Play again</button>`;
+      formRound = 0;
+      formScore = 0;
       return;
     }
-    setupMatch();
-    playMatch();
+    setupFormGame();
+    playForm();
   }, 1100);
 }
-function restartMatch() {
-  matchRound = 0;
-  matchScore = 0;
-  setupMatch();
-  playMatch();
+function restartForm() {
+  formRound = 0;
+  formScore = 0;
+  setupFormGame();
+  playForm();
 }
 
 function setupLine() {
@@ -442,28 +427,29 @@ function restartLine() {
 const playHTML = `
 <section class="panel">
   <h4>4 · Play</h4>
-  <p class="intro">Hear “I’m from …” and tap the nationality. Then pick the line. Tapping does <strong>not</strong> stop the audio.</p>
+  <p class="intro">Hear the person, tap <strong>am / is / are</strong>. Then pick the line. Tapping does <strong>not</strong> stop the audio.</p>
   <div class="filters" id="playModes">
-    <button type="button" class="chip on" data-mode="match" onclick="setPlayMode('match')">1 · Country → nationality</button>
+    <button type="button" class="chip on" data-mode="form" onclick="setPlayMode('form')">1 · am / is / are</button>
     <button type="button" class="chip" data-mode="line" onclick="setPlayMode('line')">2 · Which line?</button>
     <button type="button" class="chip" data-mode="pair" onclick="setPlayMode('pair')">3 · Pair work</button>
   </div>
-  <div id="matchGame">
+  <div id="formGame">
     <div class="name-card">
-      <p id="matchScene">Listen. Tap the nationality.</p>
-      <button type="button" class="hear-play" onclick="playMatch()">Play</button>
-      <div class="choice-row" id="matchChoices"></div>
+      <p>Hear the person. Tap the form.</p>
+      <div class="who" id="formScene">I</div>
+      <button type="button" class="hear-play" onclick="playForm()">Play</button>
+      <div class="choice-row three" id="formChoices"></div>
     </div>
     <div class="game-nav">
-      <div class="score" id="matchScore">Round 1 / ${MATCH_ROUNDS}</div>
-      <button type="button" class="btn ghost" onclick="playMatch()">Hear again</button>
+      <div class="score" id="formScore">Round 1 / ${FORM_ROUNDS}</div>
+      <button type="button" class="btn ghost" onclick="playForm()">Hear again</button>
     </div>
-    <div class="feedback" id="matchFb"></div>
+    <div class="feedback" id="formFb"></div>
   </div>
   <div id="lineGame" style="display:none">
     <div class="name-card">
       <p>What do you say?</p>
-      <div class="who" id="lineScene">Someone asks: Where are you from?</div>
+      <div class="who" id="lineScene" style="font-size:1.1rem">Talk about you.</div>
       <button type="button" class="hear-play" onclick="playLine()">Play</button>
       <div class="choice-row" id="lineChoices"></div>
     </div>
@@ -476,45 +462,45 @@ const playHTML = `
     <div class="card mint">
       <span class="label">Pair work · 2 minutes</span>
       <p style="margin:8px 0 0;line-height:1.7">
-        <strong>A:</strong> Where are you from?<br>
-        <strong>B:</strong> I’m from ______. I’m ______.<br>
-        <strong>A:</strong> And you? / Where is she from?
+        <strong>A:</strong> Are you a student?<br>
+        <strong>B:</strong> Yes, I am. / I’m a student.<br>
+        <strong>A:</strong> Is she from Mexico?<br>
+        <strong>B:</strong> Yes, she is. She’s Mexican.
       </p>
     </div>
-    <div class="tip">Use a city if you want: I’m from Guadalajara. I’m Mexican.</div>
+    <div class="tip">Then swap. Use I’m / he’s / we’re — the short forms.</div>
   </div>
 </section>`;
 
 const candoItems = [
-  'I can ask Where are you from?',
-  'I can say I’m from … (country or city).',
-  'I can say I’m Mexican / American / Spanish …',
-  'I can ask Where is he / she from?'
+  'I can say I am / I’m.',
+  'I can say he is / she is / it is.',
+  'I can say you / we / they are.',
+  'I can ask Are you …? / Is she …?'
 ];
 
 const checkHTML = `
 <section class="panel">
   <h4>5 · Check</h4>
-  <p class="intro">Honest boxes, then write your two lines.</p>
+  <p class="intro">Honest boxes, then write three lines: I, she, we.</p>
   <div class="cando" id="candoBox"></div>
   <div class="progress-mini"><span id="candoBar"></span></div>
   <p style="margin:0;font-size:.85rem;color:var(--slate)" id="candoLabel">0 / 4</p>
   <h5>Write it</h5>
-  <p class="intro" style="margin-bottom:8px">Example: <strong>I’m from Mexico. I’m Mexican.</strong></p>
-  <input type="text" id="exitWrite" placeholder="I’m from … I’m …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
+  <p class="intro" style="margin-bottom:8px">Example: <strong>I’m Ana. She’s 12. We’re students.</strong></p>
+  <input type="text" id="exitWrite" placeholder="I’m … She’s … We’re …" value="${(state.exitWrite || '').replace(/"/g, '&quot;')}">
   <button type="button" class="btn" style="margin-top:10px" onclick="saveExit()">Save exit ticket</button>
   <div class="feedback" id="exitFb"></div>
-  <div class="tip"><strong>Ready for Lesson 8?</strong> If you can say place and nationality, go to <a class="inline" href="../verb-to-be/">Verb to be</a>.</div>
+  <div class="tip"><strong>Ready for Lesson 9?</strong> If am / is / are is automatic, you are ready for family. <a class="inline" href="../where-are-you-from/">← From</a></div>
 </section>`;
 
 function render() {
   document.getElementById('tabs').innerHTML = sections.map((s, i) =>
     `<button type="button" class="tab ${i === (state.tab || 0) ? 'active' : ''}" onclick="openTab(${i})">${s}</button>`
   ).join('');
-  document.getElementById('panels').innerHTML = [hearHTML, placesHTML, watchHTML, playHTML, checkHTML].join('');
+  document.getElementById('panels').innerHTML = [hearHTML, formsHTML, watchHTML, playHTML, checkHTML].join('');
   openTab(state.tab || 0);
-  drawPlaces();
-  setupMatch();
+  setupFormGame();
   setupLine();
   renderCando();
 }
@@ -557,9 +543,9 @@ function saveExit() {
   state.exitWrite = t;
   save();
   const fb = document.getElementById('exitFb');
-  const ok = /from/i.test(t) && /I['’]?m|I am/i.test(t);
+  const ok = /I['’]?m|I am/i.test(t) && (/she|he|we|they/i.test(t));
   fb.className = 'feedback show ' + (ok ? 'good' : 'warn');
-  fb.textContent = ok ? 'Saved. Lesson 7 exit is done.' : 'Write I’m from … and I’m … (nationality).';
+  fb.textContent = ok ? 'Saved. Lesson 8 exit is done.' : 'Write a line with I’m and a line with she/he/we.';
 }
 
 render();
