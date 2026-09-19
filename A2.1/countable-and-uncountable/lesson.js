@@ -206,60 +206,60 @@ function practiceHTML() {
 
 function readingHTML() {
   return `
-    <h4>A message from the store</h4>
-    <p class="intro">Read the message. Tap the quantity words (<strong>some, any, much, many, a few, a little, a lot of, how many, how much</strong>). Then answer the questions.</p>
+    <h4>Planning dinner for friends</h4>
+    <p class="intro">Read Ana’s message to Leo. Tap the quantity words (<strong>some, any, much, many, a few, a little, a lot of, how many, how much</strong>). Then answer the questions.</p>
     <div class="reading" id="reading">
-      <p>Hey,</p>
-      <p>I’m still at the <span class="hit">store</span> after work. The line is <span class="hit">long</span>, so I have <span class="hit" data-ok="1">a little</span> time to write this.</p>
-      <p>This morning I checked the fridge. We have <span class="hit" data-ok="1">a few</span> tortillas — not a <span class="hit">full</span> pack. We don’t have <span class="hit" data-ok="1">any</span> chicken, so I’m in the meat section now. There’s <span class="hit" data-ok="1">some</span> cheese and <span class="hit" data-ok="1">a little</span> salsa at home. We have <span class="hit" data-ok="1">a lot of</span> rice, but we don’t need rice <span class="hit">tonight</span>. <span class="hit" data-ok="1">How many</span> limes do we have? I think <span class="hit">zero</span>. I’ll buy <span class="hit" data-ok="1">some</span>.</p>
-      <p>Do you have <span class="hit" data-ok="1">any</span> cash? I don’t have <span class="hit" data-ok="1">much</span> money on me. I can use my card. There’s a <span class="hit">bottle</span> of water in the door of the fridge, so we don’t need more water.</p>
-      <p>One more thing: please don’t buy <span class="hit">two</span> breads. We need <span class="hit" data-ok="1">some</span> bread, or one loaf. See you around 9:10.</p>
-      <p>— Diego</p>
+      <p>Leo,</p>
+      <p>I’m writing from the supermarket because I want to get this right before our guests arrive. Last weekend we ran out of a few things at the worst moment, so today I’m checking everything carefully.</p>
+      <p>At home we still have <span class="hit" data-ok="1">a few</span> eggs and <span class="hit" data-ok="1">some</span> cheese, but we don’t have <span class="hit" data-ok="1">any</span> tomatoes left. I’ll buy <span class="hit" data-ok="1">some</span> tomatoes and <span class="hit" data-ok="1">a few</span> avocados. We have <span class="hit" data-ok="1">a lot of</span> pasta, so we don’t need more pasta tonight.</p>
+      <p>For the salad, <span class="hit" data-ok="1">how much</span> olive oil do we have? I think only <span class="hit" data-ok="1">a little</span>. I’ll get one bottle. Also, <span class="hit" data-ok="1">how many</span> lemons are in the fridge? If there aren’t <span class="hit" data-ok="1">any</span>, I’ll buy three.</p>
+      <p>Please don’t buy bread without checking first. We need <span class="hit" data-ok="1">some</span> bread — maybe one loaf — not a huge pile. And if you pass the dairy section, grab <span class="hit" data-ok="1">a little</span> milk for coffee. See you at home around 7:30.</p>
+      <p>— Ana</p>
     </div>
-    <div class="notice-bar" id="readCount">Found 0 / 11</div>
+    <div class="notice-bar" id="readCount">Found 0 / 12</div>
     <div class="q">
       <span class="q-tag">Main idea</span>
-      <p>1. What is this message mainly about?</p>
+      <p>1. What is Ana mainly doing in this message?</p>
       <div class="opts" data-readq="main">
-        <button type="button" class="opt" data-v="shop">Diego is shopping for taco food and checking what they still need.</button>
-        <button type="button" class="opt" data-v="rice">Diego wants his roommate to buy rice.</button>
-        <button type="button" class="opt" data-v="job">Diego is explaining why he is late for work.</button>
-      </div>
-    </div>
-    <div class="q">
-      <span class="q-tag">Inference</span>
-      <p>2. Why is Diego standing in the meat section?</p>
-      <div class="opts" data-readq="meat">
-        <button type="button" class="opt" data-v="nochicken">They don’t have any chicken at home.</button>
-        <button type="button" class="opt" data-v="likes">He always buys meat after work.</button>
-        <button type="button" class="opt" data-v="rice2">He needs meat for the rice.</button>
-      </div>
-    </div>
-    <div class="q">
-      <span class="q-tag">Inference</span>
-      <p>3. Why doesn’t he buy water?</p>
-      <div class="opts" data-readq="water">
-        <button type="button" class="opt" data-v="fridge">There is already a bottle in the fridge.</button>
-        <button type="button" class="opt" data-v="expensive">Water is too expensive tonight.</button>
-        <button type="button" class="opt" data-v="none">They don’t drink water.</button>
+        <button type="button" class="opt" data-v="shop">She is shopping and planning what they still need for dinner with guests.</button>
+        <button type="button" class="opt" data-v="cancel">She wants to cancel dinner because they have no food.</button>
+        <button type="button" class="opt" data-v="recipe">She is sending Leo a full cooking recipe.</button>
       </div>
     </div>
     <div class="q">
       <span class="q-tag">Detail</span>
-      <p>4. What does he ask his roommate not to buy?</p>
+      <p>2. Why doesn’t she buy more pasta?</p>
+      <div class="opts" data-readq="pasta">
+        <button type="button" class="opt" data-v="alot">They already have a lot of pasta at home.</button>
+        <button type="button" class="opt" data-v="hate">Nobody in the house likes pasta.</button>
+        <button type="button" class="opt" data-v="expensive">Pasta is too expensive today.</button>
+      </div>
+    </div>
+    <div class="q">
+      <span class="q-tag">Inference</span>
+      <p>3. What can we infer about last weekend?</p>
+      <div class="opts" data-readq="weekend">
+        <button type="button" class="opt" data-v="ranout">They didn’t have enough of some things when they needed them.</button>
+        <button type="button" class="opt" data-v="party">They had a huge party with too much food.</button>
+        <button type="button" class="opt" data-v="leo">Leo forgot Ana’s birthday.</button>
+      </div>
+    </div>
+    <div class="q">
+      <span class="q-tag">Detail</span>
+      <p>4. What does she say about bread?</p>
       <div class="opts" data-readq="bread">
-        <button type="button" class="opt" data-v="twobreads">Two breads.</button>
-        <button type="button" class="opt" data-v="rice">A bag of rice.</button>
-        <button type="button" class="opt" data-v="limes">Limes.</button>
+        <button type="button" class="opt" data-v="check">Check first; they need some bread, maybe one loaf — not too much.</button>
+        <button type="button" class="opt" data-v="none">They should not buy any bread at all.</button>
+        <button type="button" class="opt" data-v="many">They should buy many breads for the guests.</button>
       </div>
     </div>
     <div class="q">
       <span class="q-tag">Vocabulary</span>
-      <p>5. In “I don’t have much money on me,” <em>on me</em> is closest to:</p>
-      <div class="opts" data-readq="cash">
-        <button type="button" class="opt" data-v="pocket">with me right now</button>
-        <button type="button" class="opt" data-v="bank">in the bank</button>
-        <button type="button" class="opt" data-v="never">I never have money</button>
+      <p>5. In the message, <em>run out of</em> is closest to:</p>
+      <div class="opts" data-readq="vocab">
+        <button type="button" class="opt" data-v="finish">to have no more of something</button>
+        <button type="button" class="opt" data-v="exercise">to go outside for a run</button>
+        <button type="button" class="opt" data-v="leave">to leave the house quickly</button>
       </div>
     </div>
     <button type="button" class="btn" id="checkReading" style="margin-top:8px">Check</button>
@@ -568,7 +568,7 @@ function bindReading() {
       document.getElementById('readCount').textContent = `Found ${found} / ${total}`;
     });
   });
-  const answers = { main: 'shop', meat: 'nochicken', water: 'fridge', bread: 'twobreads', cash: 'pocket' };
+  const answers = { main: 'shop', pasta: 'alot', weekend: 'ranout', bread: 'check', vocab: 'finish' };
   document.querySelectorAll('.opt[data-v]').forEach((btn) => {
     if (!btn.closest('[data-readq]')) return;
     btn.addEventListener('click', () => {
