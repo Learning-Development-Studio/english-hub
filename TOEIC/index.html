@@ -21,7 +21,6 @@
       --line: rgba(30, 45, 90, 0.08);
       --fill: rgba(30, 45, 90, 0.045);
       --paper: #fff;
-      --wash: #f0faf9;
       --shadow: 0 1px 2px rgba(30, 45, 90, 0.04), 0 12px 32px rgba(30, 45, 90, 0.06);
       --radius: 20px;
       --safe-top: env(safe-area-inset-top, 0px);
@@ -125,8 +124,9 @@
     .glyph {
       width: 40px; height: 40px; border-radius: 11px;
       display: grid; place-items: center;
-      font-size: 13px; font-weight: 800; letter-spacing: -0.04em;
+      font-size: 13px; font-weight: 800; letter-spacing: 0;
       color: #fff; flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
     }
     .g-navy { background: var(--navy); }
     .g-teal { background: var(--teal); }
@@ -147,27 +147,6 @@
     }
     .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
     .footer strong { color: var(--navy); }
-
-    .row.soon {
-      opacity: 0.72;
-      cursor: default;
-      background: rgba(30, 45, 90, 0.02);
-    }
-    .row.soon .glyph { opacity: 0.85; }
-    .soon-tag {
-      display: inline-block;
-      margin-left: 6px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      vertical-align: middle;
-      background: rgba(91, 184, 176, 0.16);
-      color: var(--teal-dark);
-    }
-    .row.soon .chev { opacity: 0.35; }
     @media (min-width: 900px) {
       .row { padding: 14px 18px; min-height: 72px; }
     }
@@ -176,31 +155,6 @@
       .brand p { display: none; }
       .chev { display: none; }
     }
-  
-    /* A1.1 header actions — Home teal, level navy, nothing else */
-    .topbar-actions .home-btn,
-    .actions a.home,
-    .top-actions .home-btn {
-      background: #5bb8b0 !important;
-      color: #fff !important;
-      border: 0 !important;
-    }
-    .topbar-actions .home-btn:hover,
-    .actions a.home:hover,
-    .top-actions .home-btn:hover {
-      background: #238d85 !important;
-    }
-    .topbar-actions .mode-pill,
-    .topbar-actions .level-pill,
-    .actions .pill,
-    .top-actions .level-pill {
-      background: #0B1F3A !important;
-      color: #fff !important;
-      border: 1px solid rgba(255,255,255,.45) !important;
-    }
-
-    /* numbered glyphs for exam track */
-    .glyph.num { font-variant-numeric: tabular-nums; letter-spacing: 0; }
   </style>
 </head>
 <body>
@@ -220,35 +174,49 @@
     </header>
 
     <section class="hero">
-      <span class="eyebrow">Exam track · Level landing</span>
-      <h2>Choose where to <span>start</span>.</h2>
-      <p>Same idea as your other levels: this page lists every TOEIC space. Open the full LMS for practice, or jump into one strategy class at a time.</p>
+      <span class="eyebrow">Exam track · Part 5 strategies</span>
+      <h2>Choose a <span>class</span>.</h2>
+      <p>One strategy at a time: teach, demo, then practice. These classes live here on English Hub — not on the LMS.</p>
     </section>
 
-    <div class="group" aria-label="TOEIC pages">
-      <a class="row tone-navy" href="https://israelventura104-afk.github.io/toeic-boost-lms/">
-        <span class="glyph g-navy num">1</span>
+    <div class="group" aria-label="TOEIC strategy classes">
+      <a class="row tone-teal" href="./word-forms/">
+        <span class="glyph g-teal">1</span>
         <div class="row-body">
-          <h3>TOEIC LMS</h3>
-          <p>Listening &amp; Reading platform — hubs, practice, guided sets, and mocks.</p>
+          <h3>Word Forms</h3>
+          <p>Noun, verb, adjective, or adverb — teach, 5 demos, 15 practice.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-
-      <a class="row tone-teal" href="https://israelventura104-afk.github.io/toeic-boost-lms/strategy-p5-01-word-forms.html">
-        <span class="glyph g-teal num">2</span>
+      <a class="row tone-navy" href="./verb-tenses/">
+        <span class="glyph g-navy">2</span>
         <div class="row-body">
-          <h3>Strategy · Part 5 · Word Forms</h3>
-          <p>Reading section · one strategy class (teach → 5 demos → 15 practice).</p>
+          <h3>Verb Tenses</h3>
+          <p>Time markers → timeline → form — teach, 10 demos, 20 practice.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-
-      <a class="row tone-gold" href="https://israelventura104-afk.github.io/toeic-boost-lms/strategy-p5-02-verb-tenses.html">
-        <span class="glyph g-gold num">3</span>
+      <a class="row tone-gold" href="./prepositions/">
+        <span class="glyph g-gold">3</span>
         <div class="row-body">
-          <h3>Strategy · Part 5 · Verb Tenses</h3>
-          <p>Reading section · time markers → timeline → verb form (teach → 5 demos → 15 practice).</p>
+          <h3>Prepositions</h3>
+          <p>in / on / at, by vs until, office chunks — teach, 10 demos, 20 practice.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <a class="row tone-teal" href="./conjunctions/">
+        <span class="glyph g-teal">4</span>
+        <div class="row-body">
+          <h3>Conjunctions</h3>
+          <p>although vs despite, however, therefore — teach, 10 demos, 20 practice.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <a class="row tone-navy" href="./pronouns/">
+        <span class="glyph g-navy">5</span>
+        <div class="row-body">
+          <h3>Pronouns</h3>
+          <p>who / whom / whose, reflexives, its vs it's — teach, 10 demos, 20 practice.</p>
         </div>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
