@@ -1,5 +1,5 @@
 const sections = ['1 Notice', '2 Grammar', '3 Analyse', '4 Reading', '5 Listening', '6 Speaking', '7 Writing', '8 Can-do'];
-const KEY = 'a21PastOfBev1';
+const KEY = 'a21PastOfBev2';
 
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
@@ -27,30 +27,45 @@ function escapeHtml(s) {
 }
 
 function noticeHTML() {
+  const picks = state.noticePick || {};
+  const items = [
+    { id: 'n1', subject: 'Nora', hint: 'one person', sentence: 'Nora ___ at the library yesterday.', answer: 'was' },
+    { id: 'n2', subject: 'She', hint: 'negative', sentence: 'She ___ at home last night.', answer: 'wasn\'t' },
+    { id: 'n3', subject: 'Hugo & Priya', hint: 'two people', sentence: 'Hugo and Priya ___ late for class.', answer: 'were' },
+    { id: 'n4', subject: 'They', hint: 'question', sentence: '___ they tired?', answer: 'Were' },
+    { id: 'n5', subject: 'You', hint: 'question', sentence: '___ you at the market last night?', answer: 'Were' },
+    { id: 'n6', subject: 'I', hint: 'one person', sentence: 'No — I ___ at home.', answer: 'was' }
+  ];
+  const cards = items.map((it) => {
+    const sel = picks[it.id] || '';
+    const opts = it.answer === 'was' || it.answer === "wasn't"
+      ? ['was', "wasn't", 'were', "weren't"]
+      : (it.answer === 'Were' ? ['Was', 'Were', 'Is', 'Are'] : ['was', 'were', "wasn't", "weren't"]);
+    // keep option sets simple and relevant
+    const optionSets = {
+      n1: ['was', 'were'],
+      n2: ['was', "wasn't", 'were', "weren't"],
+      n3: ['was', 'were'],
+      n4: ['Was', 'Were'],
+      n5: ['Was', 'Were'],
+      n6: ['was', 'were']
+    };
+    const buttons = (optionSets[it.id] || ['was', 'were']).map((o) => {
+      const cls = sel === o ? 'opt selected' : 'opt';
+      return `<button type="button" class="${cls}" data-notice-pick="${it.id}" data-val="${o.replace(/"/g, '&quot;')}">${o}</button>`;
+    }).join('');
+    return `<div class="zone" data-notice-item="${it.id}" data-answer="${it.answer.replace(/"/g, '&quot;')}">
+        <div class="who"><div class="avatar">${it.id.slice(1)}</div><div><strong>${it.subject}</strong><span>${it.hint}</span></div></div>
+        <div class="bubble on" style="cursor:default">${it.sentence.replace('___', '<strong>______</strong>')}</div>
+        <div class="opts" role="group" aria-label="Choose the form">${buttons}</div>
+        <p class="fb" data-fb="${it.id}" style="min-height:1.2em;margin:8px 0 0;font-size:.86rem;font-weight:700"></p>
+      </div>`;
+  }).join('');
   return `
     <h4>Yesterday snapshots</h4>
-    <p class="intro">Read each card. Do not rush to a rule yet — <strong>explain</strong> why the form is <em>was</em> or <em>were</em>. Write your thinking.</p>
-    <div class="scene" aria-label="Yesterday snapshots">
-      <div class="zone">
-        <div class="who"><div class="avatar">1</div><div><strong>Nora</strong><span>one person · past</span></div></div>
-        <div class="bubble on" style="cursor:default">Nora <strong>was</strong> at the library yesterday.<br>She <strong>wasn’t</strong> at home.</div>
-        <p class="intro" style="margin-top:8px"><em>Why <strong>was</strong> (not were)? What does <strong>wasn’t</strong> add?</em></p>
-        <textarea data-notice="a" placeholder="Because…">${escapeHtml((state.notice||{}).a||'')}</textarea>
-      </div>
-      <div class="zone">
-        <div class="who"><div class="avatar">2</div><div><strong>Hugo &amp; Priya</strong><span>more than one</span></div></div>
-        <div class="bubble on" style="cursor:default">Hugo and Priya <strong>were</strong> late for class.<br><strong>Were</strong> they tired? — Yes, they <strong>were</strong>.</div>
-        <p class="intro" style="margin-top:8px"><em>Why <strong>were</strong>? How is the question built?</em></p>
-        <textarea data-notice="b" placeholder="Because…">${escapeHtml((state.notice||{}).b||'')}</textarea>
-      </div>
-      <div class="zone">
-        <div class="who"><div class="avatar">3</div><div><strong>You</strong><span>you = were</span></div></div>
-        <div class="bubble on" style="cursor:default"><strong>Were</strong> you at the market last night?<br>No, I <strong>wasn’t</strong>. I <strong>was</strong> at home.</div>
-        <p class="intro" style="margin-top:8px"><em>Why is “you” with <strong>were</strong>, but “I” with <strong>was</strong>?</em></p>
-        <textarea data-notice="c" placeholder="Because…">${escapeHtml((state.notice||{}).c||'')}</textarea>
-      </div>
-    </div>
-    <div class="tip"><strong>First idea:</strong> I / he / she / it → <strong>was</strong>. You / we / they → <strong>were</strong>. Questions flip the order: Was she…? Were they…?</div>
+    <p class="intro">Look at each sentence. Tap <strong>was</strong> or <strong>were</strong> (or the negative / question form). Do <em>not</em> explain why yet — just notice the subject and choose.</p>
+    <div class="scene" aria-label="Yesterday snapshots">${cards}</div>
+    <div class="tip"><strong>Your job here:</strong> match the form to the subject. The clear rule comes next, in <strong>Grammar</strong>.</div>
   `;
 }
 
@@ -294,11 +309,26 @@ function openTab(i) {
 }
 
 function bindPanel(i) {
-  document.querySelectorAll('textarea[data-notice]').forEach((el) => {
-    el.addEventListener('input', () => {
-      state.notice = state.notice || {};
-      state.notice[el.dataset.notice] = el.value;
+  document.querySelectorAll('[data-notice-pick]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.noticePick;
+      const val = btn.dataset.val;
+      const zone = btn.closest('[data-notice-item]');
+      const answer = zone?.dataset.answer || '';
+      state.noticePick = state.noticePick || {};
+      state.noticePick[id] = val;
       save();
+      zone.querySelectorAll('[data-notice-pick]').forEach((b) => {
+        b.classList.remove('selected', 'correct', 'wrong');
+        if (b.dataset.val === val) b.classList.add('selected');
+      });
+      const fb = zone.querySelector('[data-fb="' + id + '"]');
+      const ok = val === answer;
+      btn.classList.add(ok ? 'correct' : 'wrong');
+      if (fb) {
+        fb.textContent = ok ? '✓ Nice — keep looking at the subject.' : 'Try again — look at who the sentence is about.';
+        fb.style.color = ok ? '#16865c' : '#c44b4b';
+      }
     });
   });
   document.querySelectorAll('textarea[data-gram]').forEach((el) => {
