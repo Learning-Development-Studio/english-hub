@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="apple-touch-icon" href="../../../assets/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png">
+  <title>Teacher plan · Past of Be · A2.1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0B1F3A; --teal:#5bb8b0; --teal-dark:#238d85; --gold:#d4a843; --ink:#172033; --muted:#6b7fa3; --soft:#f4fbfa; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); background: linear-gradient(180deg,#f7fafc,#eef4f7); line-height: 1.45; }
+    .shell { max-width: 920px; margin: 0 auto; padding: 20px 14px 48px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--navy); color:#fff; border-radius:18px; padding:12px 16px; margin-bottom:16px; box-shadow:0 16px 34px rgba(11,31,58,.22); }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark { width:48px; height:48px; border-radius:999px; background:#fff; padding:3px; overflow:hidden; flex:0 0 auto; }
+    .brand-mark img { width:100%; height:100%; border-radius:999px; object-fit:cover; display:block; }
+    .brand h1 { font-size:1.05rem; line-height:1.1; }
+    .brand p { color:#d7ecea; font-size:.78rem; margin-top:3px; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; text-decoration:none; cursor:pointer; color:#fff; }
+    .btn.teal { background:#5bb8b0; } .btn.teal:hover { background:#238d85; }
+    .btn.navy { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); }
+    .hero { background:#f4fbfa; border-radius:18px; padding:22px 20px; margin-bottom:14px; border:1px solid rgba(11,31,58,.08); }
+    .eyebrow { color:var(--teal-dark); font-size:.72rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .hero h2 { font-size:clamp(1.4rem,4vw,2rem); color:var(--navy); margin:8px 0; letter-spacing:-.02em; }
+    .hero h2 span { color:var(--teal); }
+    .hero p { color:var(--muted); max-width:640px; }
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .pill { background:#fff; border:1px solid rgba(11,31,58,.1); border-radius:999px; padding:6px 11px; font-size:.75rem; font-weight:800; color:var(--navy); }
+    .card { background:#fff; border-radius:16px; padding:16px 18px; margin-bottom:12px; box-shadow:0 12px 28px rgba(20,35,60,.06); border:1px solid rgba(11,31,58,.06); }
+    .card h3 { color:var(--navy); font-size:1.05rem; margin-bottom:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .time { font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--teal-dark); background:var(--soft); border-radius:999px; padding:4px 8px; }
+    .tag { font-size:.68rem; font-weight:800; color:#8a6a1d; background:#fff7e6; border-radius:999px; padding:4px 8px; }
+    .game { font-size:.68rem; font-weight:800; color:#fff; background:var(--navy); border-radius:999px; padding:4px 8px; }
+    .aim { color:var(--muted); font-size:.9rem; margin-bottom:10px; }
+    ol, ul { padding-left:1.2em; }
+    li { margin:0 0 6px; }
+    .say { background:var(--soft); border-left:4px solid var(--teal); padding:10px 12px; border-radius:0 12px 12px 0; margin:10px 0; font-size:.92rem; }
+    .board { border:2px dashed rgba(11,31,58,.2); border-radius:12px; padding:12px; background:#fafbfc; margin-top:8px; font-size:.9rem; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media(max-width:700px){ .grid2{grid-template-columns:1fr;} .brand p{display:none;} }
+    .col { background:var(--soft); border-radius:12px; padding:12px; }
+    .col h4 { font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); margin-bottom:6px; }
+    .score { display:inline-block; background:#fff7e6; color:#8a6a1d; font-weight:800; font-size:.78rem; border-radius:8px; padding:4px 8px; margin-top:6px; }
+    footer { text-align:center; color:var(--muted); font-size:.78rem; padding:18px 0 8px; }
+    .print-hint { color:var(--muted); font-size:.72rem; margin-top:8px; font-weight:600; }
+    .print-pin-backdrop { display:none; position:fixed; inset:0; background:rgba(11,31,58,.45); z-index:9998; align-items:center; justify-content:center; padding:16px; }
+    .print-pin-backdrop.open { display:flex; }
+    .print-pin-modal { background:#fff; border-radius:16px; padding:20px 22px; max-width:340px; width:100%; box-shadow:0 20px 50px rgba(11,31,58,.28); border:1px solid rgba(11,31,58,.08); }
+    .print-pin-modal h4 { color:var(--navy); font-size:1rem; margin:0 0 6px; }
+    .print-pin-modal p { color:var(--muted); font-size:.82rem; margin:0 0 12px; }
+    .print-pin-modal input { width:100%; border:1.5px solid rgba(11,31,58,.18); border-radius:10px; padding:10px 12px; font-size:1rem; font-weight:700; letter-spacing:.12em; text-align:center; color:var(--navy); outline:none; }
+    .print-pin-modal input:focus { border-color:var(--teal); }
+    .print-pin-actions { display:flex; gap:8px; margin-top:14px; justify-content:flex-end; }
+    .print-pin-actions button { border:0; border-radius:999px; padding:8px 14px; font-weight:800; font-size:.82rem; cursor:pointer; }
+    .print-pin-actions .cancel { background:rgba(11,31,58,.08); color:var(--navy); }
+    .print-pin-actions .ok { background:var(--teal); color:#fff; }
+    .print-pin-actions .ok:hover { background:var(--teal-dark); }
+    @media print {
+      .topbar .actions, .print-pin-backdrop, .print-hint { display:none !important; }
+      body{background:#fff;}
+      .card{break-inside:avoid;box-shadow:none;}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><img src="../../../assets/logo.png" alt=""></div>
+      <div>
+        <h1>Past of Be · was / were</h1>
+        <p>Teacher Hub · dynamic class plan</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn teal" href="../../../A2.1/past-of-be/" target="_blank" rel="noopener">Student page</a>
+      <a class="btn navy" href="../../">Teacher Hub</a>
+      <span class="btn navy" style="cursor:default">A2.1</span>
+      <button type="button" class="btn teal" id="printBtn">Imprimir / PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Teacher plan · games first</div>
+    <h2>Yesterday on trial. <span>Was or were?</span></h2>
+    <p>Odd-sentence traps, timeline stands, and short-answer duels — then the student page for Analyse, Reading, and Listening.</p>
+    <div class="pills">
+      <span class="pill">≈ 55–60 min</span>
+      <span class="pill">1:1 or small group</span>
+      <span class="pill">Notice → Grammar → Analyse</span>
+      <span class="pill">Trap hunt · short answers</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Aim</h3>
+    <p class="aim">Use <strong>was / were / wasn’t / weren’t</strong> in statements, questions, and short answers about yesterday — and repair classic traps (<em>He were</em>, <em>They was</em>, <em>Was you…?</em>).</p>
+    <ul>
+      <li><strong>Can-do:</strong> Talk about yesterday with clear was/were choices.</li>
+      <li><strong>Materials:</strong> Student page + phone/laptop; board or paper for odd-sentence sets.</li>
+    </ul>
+    <p class="print-hint">Imprimir pide el PIN del nivel (ciclo 26).</p>
+  </section>
+
+  <section class="card">
+    <h3>0 · Warm-up <span class="time">5–7 min</span> <span class="game">Game</span></h3>
+    <p class="aim"><strong>Odd Sentence Out (was / were)</strong> — activate the past of <em>be</em> before the page.</p>
+    <ol>
+      <li>Write / say three sentences. Two are correct; one is a trap.</li>
+      <li>Student spots the odd one, says why, and repairs it.</li>
+      <li>Run 4–5 rounds fast. Mix subjects: I / she / you / they.</li>
+    </ol>
+    <div class="board">
+      <strong>Starter sets:</strong><br>
+      A) She was tired. · He were late. · It was cold.<br>
+      B) They were at home. · We wasn’t hungry. · You were early.<br>
+      C) Was you at school? · Was Nora free? · Were they busy?<br>
+      D) I wasn’t there. · They was happy. · We weren’t late.
+    </div>
+    <div class="say"><strong>Line:</strong> “Yesterday is on trial. Find the sentence that breaks the was/were rule — then fix it.”</div>
+    <div class="score">Optional score: +1 You per clean repair</div>
+  </section>
+
+  <section class="card">
+    <h3>1 · Notice <span class="time">6–7 min</span> <span class="tag">Notice</span></h3>
+    <p class="aim">Open <strong>1 Notice</strong>. Thinking before rules.</p>
+    <ol>
+      <li>Student reads each snapshot (Nora / Hugo &amp; Priya / You).</li>
+      <li>They write why each form fits — you only coach with “subject?” prompts.</li>
+      <li><strong>Yesterday photo prompt (oral):</strong> they describe one real photo from last weekend in 3 was/were lines.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>2 · Grammar hit 1 <span class="time">7 min</span> <span class="tag">Grammar</span> <span class="game">Board split</span></h3>
+    <p class="aim">was vs were — board split.</p>
+    <div class="grid2">
+      <div class="col"><h4>was</h4><p><strong>I · he · she · it</strong><br>I was tired. · She wasn’t at home.</p></div>
+      <div class="col"><h4>were</h4><p><strong>you · we · they</strong><br>You were late. · They weren’t hungry.</p></div>
+    </div>
+    <div class="say"><strong>Fire round:</strong> You throw a subject pronoun; they answer only <em>was</em> or <em>were</em> — 12 flash subjects, no thinking time.</div>
+  </section>
+
+  <section class="card">
+    <h3>3 · Grammar hit 2 <span class="time">7–8 min</span> <span class="tag">Grammar</span> <span class="game">Short-answer duel</span></h3>
+    <p class="aim">Questions + short answers.</p>
+    <ul>
+      <li><strong>Was</strong> I / he / she / it …? → Yes, … was. / No, … wasn’t.</li>
+      <li><strong>Were</strong> you / we / they …? → Yes, … were. / No, … weren’t.</li>
+    </ul>
+    <ol>
+      <li>Model two questions from the Grammar tab.</li>
+      <li><strong>Short-answer duel:</strong> you ask 8 Was/Were questions about yesterday; answers must be short forms only.</li>
+    </ol>
+    <div class="say"><strong>Trap call-out:</strong> Slip in <em>Was you…?</em> once — they must reject it and rebuild with <em>Were you…?</em></div>
+  </section>
+
+  <section class="card">
+    <h3>4 · Grammar hit 3 <span class="time">5–6 min</span> <span class="tag">Grammar</span> <span class="game">Trap hunt</span></h3>
+    <p class="aim">Classic traps on the page.</p>
+    <ol>
+      <li>Show wrong/right cards: He were / They was / Was you…?</li>
+      <li>Student explains each repair in one sentence (subject → form).</li>
+      <li>Quick oral: they invent one trap for you to fix (role reversal).</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>5 · Analyse stations <span class="time">12–14 min</span> <span class="tag">Analyse</span> <span class="game">Stations</span></h3>
+    <p class="aim">Platform Analyse as timed thinking — not only MCQ.</p>
+    <ol>
+      <li>Open <strong>3 Analyse</strong>. Work items 1–6 as mini-stations (≈2 min each).</li>
+      <li>After each: student reads their repair aloud; you only mark subject + form.</li>
+      <li>If energy dips: jump to <strong>Timeline stand</strong> (Speaking tab) for 3 minutes — left/middle/right of the room = morning/afternoon/night.</li>
+    </ol>
+    <div class="say"><strong>Cool-down options:</strong> Reading (Elena’s note + hit taps) OR Listening (audio + Show script below the player).</div>
+  </section>
+
+  <section class="card">
+    <h3>6 · Produce <span class="time">8–10 min</span> <span class="tag">Speaking / Writing</span></h3>
+    <p class="aim">Get language out.</p>
+    <ol>
+      <li>Speaking prompt card (rotate once).</li>
+      <li>Writing: 6–8 lines about yesterday with mixed was/were + one question + one short answer — or finish for homework.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>Exit ticket <span class="time">2 min</span></h3>
+    <ol>
+      <li>Repair one trap on a sticky / chat: <em>They was busy.</em></li>
+      <li>Write one true was sentence and one true were sentence about yesterday.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>Timing</h3>
+    <p class="aim">Warm-up 5–7 · Notice 6–7 · Grammar 1–3 ≈ 20 · Analyse 12–14 · Produce 8–10 · Exit 2 → <strong>~55–60 min</strong>. Cut Grammar hit 3 oral invent if short.</p>
+  </section>
+
+  <footer><strong>Learning &amp; Development Studio</strong> · Israel Ventura · Teacher Hub · A2.1 Past of Be</footer>
+</div>
+<div class="print-pin-backdrop" id="printPinBackdrop" aria-hidden="true">
+  <div class="print-pin-modal" role="dialog" aria-labelledby="printPinTitle">
+    <h4 id="printPinTitle">PIN para imprimir</h4>
+    <p>Escribe el PIN del nivel (ciclo 26) para generar PDF.</p>
+    <input id="printPinInput" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••">
+    <div class="print-pin-actions">
+      <button type="button" class="cancel" id="printPinCancel">Cancelar</button>
+      <button type="button" class="ok" id="printPinOk">Imprimir</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var UNLOCK = 'th-print-unlock-a21';
+  var PIN = '2621';
+  var backdrop = document.getElementById("printPinBackdrop");
+  var input = document.getElementById("printPinInput");
+  var btn = document.getElementById("printBtn");
+  if (!btn || !backdrop || !input) return;
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK) === "1"; } catch (e) { return false; }
+  }
+  function setUnlocked() {
+    try { sessionStorage.setItem(UNLOCK, "1"); } catch (e) {}
+  }
+  function openModal() {
+    backdrop.classList.add("open");
+    backdrop.setAttribute("aria-hidden", "false");
+    input.value = "";
+    setTimeout(function () { input.focus(); }, 50);
+  }
+  function closeModal() {
+    backdrop.classList.remove("open");
+    backdrop.setAttribute("aria-hidden", "true");
+  }
+  function doPrint() { window.print(); }
+  function submitPin() {
+    var v = (input.value || "").trim();
+    if (v === PIN) {
+      setUnlocked();
+      closeModal();
+      doPrint();
+    } else {
+      alert("PIN incorrecto. Pídeselo al teacher.");
+      input.value = "";
+      input.focus();
+    }
+  }
+  btn.addEventListener("click", function () {
+    if (unlocked()) doPrint();
+    else openModal();
+  });
+  document.getElementById("printPinCancel").addEventListener("click", closeModal);
+  document.getElementById("printPinOk").addEventListener("click", submitPin);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitPin();
+  });
+  backdrop.addEventListener("click", function (e) {
+    if (e.target === backdrop) closeModal();
+  });
+})();
+</script>
+</body>
+</html>
