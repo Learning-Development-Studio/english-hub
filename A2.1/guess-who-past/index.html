@@ -401,7 +401,8 @@
       toRemove.forEach(id => state.eliminated.add(id));
       state.asking = false;
       renderBoard();
-      updatePreview();
+      // Keep short answer visible; only refresh Ask button state
+      btnAsk.disabled = !state.stem || !state.pred || !state.secret || state.gameOver || state.guessMode;
 
       const left = remaining();
       if (left.length === 1) {
