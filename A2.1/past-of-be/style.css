@@ -60,6 +60,11 @@
   text-decoration: none !important; white-space: nowrap;
   }
   .home-btn:hover { background: rgba(91, 184, 176, 0.48); }
+  .home-btn.gold-cta {
+    background: #D4A017; color: #0B1F3A !important; border-color: #c49212;
+    font-weight: 800;
+  }
+  .home-btn.gold-cta:hover { background: #E8B923; }
 
   .hero {
   position: relative; overflow: hidden; border-radius: 20px;
