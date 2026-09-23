@@ -48,6 +48,8 @@
     .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
     .chip.pred.on{background:var(--teal);border-color:var(--teal)}
     .chip:disabled{opacity:.4;cursor:not-allowed}
+    .chip.pulse{animation:stemPulse 1s ease-in-out infinite;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.35)}
+    @keyframes stemPulse{50%{transform:scale(1.06)}}
 
     .status-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
     .stat{background:var(--paper);border-radius:12px;padding:8px 12px;font-weight:800;color:var(--navy);font-size:.9rem}
@@ -84,6 +86,8 @@
     .answer-box.show{display:block}
     .answer-box.yes{background:#e6f5ed;color:var(--green)}
     .answer-box.no{background:#fdebed;color:var(--red)}
+    .answer-box.fix{background:#fff7df;color:#76560a;font-size:1rem;line-height:1.45}
+    .answer-box.fix .btn{margin-top:10px}
 
     .overlay{position:fixed;inset:0;background:rgba(11,31,58,.55);display:none;place-items:center;z-index:40;padding:16px}
     .overlay.show{display:grid}
@@ -391,7 +395,10 @@
 
   function setStem(stem) {
     state.stem = stem;
-    document.querySelectorAll('#stemRow .chip').forEach(b => b.classList.toggle('on', b.dataset.stem === stem));
+    document.querySelectorAll('#stemRow .chip').forEach(b => {
+      b.classList.toggle('on', b.dataset.stem === stem);
+      b.classList.remove('pulse');
+    });
     updatePreview();
   }
 
@@ -404,8 +411,23 @@
   function ask() {
     if (!state.secret || !state.stem || !state.pred || state.gameOver || state.asking || state.phase !== 'play') return;
     const secret = PEOPLE.find(p => p.id === state.secret);
-    const yes = matchesQuestion(secret, state.stem, state.pred);
-    // Short answer uses the stem the student chose (natural classroom reply to their question)
+    const other = state.stem === 'he' ? 'she' : 'he';
+
+    if (secret.gender !== state.stem) {
+      beep(false);
+      document.querySelectorAll('#stemRow .chip').forEach(b => {
+        b.classList.toggle('pulse', b.dataset.stem === other);
+      });
+      answerBox.className = 'answer-box show fix';
+      answerBox.innerHTML =
+        `<div>${shortAnswer(false, state.stem)} This person is not a <strong>${state.stem}</strong>.</div>` +
+        `<div style="margin-top:6px">Change the pronoun, then Ask again.</div>` +
+        `<button type="button" class="btn gold" id="btnFixStem">Use Was ${other}</button>`;
+      phaseLabel.textContent = `Tap Was ${other}, then Ask again`;
+      return;
+    }
+
+    const yes = matchesPred(secret, state.pred);
     const ans = shortAnswer(yes, state.stem);
     answerBox.textContent = ans;
     answerBox.className = 'answer-box show ' + (yes ? 'yes' : 'no');
@@ -578,6 +600,13 @@
   });
 
   btnAsk.addEventListener('click', ask);
+  answerBox.addEventListener('click', e => {
+    if (!e.target.closest('#btnFixStem')) return;
+    const secret = PEOPLE.find(p => p.id === state.secret);
+    if (!secret) return;
+    setStem(secret.gender);
+    phaseLabel.textContent = state.mode === 'duo' ? 'Guesser: ask Was he / Was she…?' : 'Ask Was he / Was she…?';
+  });
   document.getElementById('btnClearQ').addEventListener('click', () => {
     state.stem = null; state.pred = null;
     document.querySelectorAll('#stemRow .chip, #predRow .chip').forEach(b => b.classList.remove('on'));
