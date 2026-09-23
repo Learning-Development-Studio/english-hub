@@ -339,7 +339,7 @@ function listeningHTML() {
     <h4>Listening · After the party</h4>
     <p class="intro">Listen to Diego and Lucia. Then answer the questions.</p>
     <div class="listen-player">
-      <audio id="listenAudio" src="./audio/past-of-be.mp3" controls preload="metadata"></audio>
+      <audio id="listenAudio" src="./ElevenLabs_2026-09-23T09_20_12_Sarah%20-%20Approachable%20and%20Informative_pvc_sp111_s50_sb75_v3.mp3" controls preload="metadata"></audio>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
         <button type="button" class="btn" id="playListen">Play</button>
         <button type="button" class="btn ghost" id="stopListen">Stop</button>
