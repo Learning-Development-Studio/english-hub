@@ -60,12 +60,11 @@
     .btn:disabled{opacity:.45;cursor:not-allowed}
 
     .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px}
-    .card{position:relative;border:2px solid #dce6ed;border-radius:16px;background:#fff;padding:10px 8px 12px;text-align:center;cursor:default;transition:transform .15s,opacity .2s,border-color .15s;min-height:132px;user-select:none}
+    .card{position:relative;border:2px solid #dce6ed;border-radius:16px;background:#fff;padding:10px 8px 12px;text-align:center;cursor:default;transition:transform .22s ease,opacity .22s ease,border-color .15s,max-height .22s ease,margin .22s ease,padding .22s ease;min-height:132px;user-select:none}
     .card.alive{cursor:pointer}
     .card.alive:hover{transform:translateY(-2px);border-color:var(--teal-soft);box-shadow:0 8px 20px rgba(8,31,61,.1)}
     .card.guessable{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.25)}
-    .card.out{opacity:.42;filter:grayscale(.85);background:#eef1f4}
-    .card.out::after{content:"✕";position:absolute;inset:0;display:grid;place-items:center;font-size:2.4rem;font-weight:900;color:rgba(11,31,58,.45);pointer-events:none}
+    .card.vanishing{opacity:0;transform:scale(.72);pointer-events:none}
     .card.secret-pick{outline:3px dashed var(--gold);outline-offset:2px}
     .avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 8px;display:grid;place-items:center;font-size:1.55rem;color:#fff;font-weight:900;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
     .name{font-weight:800;font-size:.78rem;color:var(--navy);line-height:1.25;margin:0 0 4px}
@@ -131,7 +130,7 @@
     <section class="panel">
       <div class="eyebrow">A2.1 · Past of Be game</div>
       <h2>Guess Who · Famous people</h2>
-      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Eliminate cards — then guess!</p>
+      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Cards that don’t match <strong>disappear</strong> — then guess!</p>
 
       <div class="label">Mode</div>
       <div class="mode-row" id="modeRow">
@@ -278,6 +277,7 @@
     mode: localStorage.getItem('gw-mode') || 'solo',
     secret: null,
     eliminated: new Set(),
+    asking: false,
     stem: null,
     pred: null,
     guessMode: false,
@@ -333,16 +333,16 @@
   }
 
   function renderBoard() {
-    boardEl.innerHTML = PEOPLE.map(p => {
-      const out = state.eliminated.has(p.id);
-      const guessable = state.guessMode && !out && !state.gameOver;
-      return `<article class="card${out ? ' out' : ' alive'}${guessable ? ' guessable' : ''}" data-id="${p.id}" role="button" tabindex="${out || state.gameOver ? -1 : 0}" aria-label="${p.name}${out ? ' eliminated' : ''}">
+    const left = remaining();
+    boardEl.innerHTML = left.map(p => {
+      const guessable = state.guessMode && !state.gameOver;
+      return `<article class="card alive${guessable ? ' guessable' : ''}" data-id="${p.id}" role="button" tabindex="${state.gameOver ? -1 : 0}" aria-label="${p.name}">
         <div class="avatar" style="background:${p.color}" aria-hidden="true">${p.emoji}</div>
         <p class="name">${p.name}</p>
         <span class="badge">${p.category}</span>
       </article>`;
     }).join('');
-    remainCount.textContent = remaining().length;
+    remainCount.textContent = left.length;
   }
 
   function updatePreview() {
@@ -372,7 +372,7 @@
   }
 
   function ask() {
-    if (!state.secret || !state.stem || !state.pred || state.gameOver) return;
+    if (!state.secret || !state.stem || !state.pred || state.gameOver || state.asking) return;
     const secret = PEOPLE.find(p => p.id === state.secret);
     const yes = matchesQuestion(secret, state.stem, state.pred);
     // Short answer uses the stem the student chose (natural classroom reply to their question)
@@ -381,27 +381,38 @@
     answerBox.className = 'answer-box show ' + (yes ? 'yes' : 'no');
     beep(yes);
 
-    // Elimination
+    const toRemove = [];
     PEOPLE.forEach(p => {
       if (state.eliminated.has(p.id)) return;
       const match = matchesQuestion(p, state.stem, state.pred);
-      if (yes && !match) state.eliminated.add(p.id);
-      if (!yes && match) state.eliminated.add(p.id);
+      if ((yes && !match) || (!yes && match)) toRemove.push(p.id);
     });
 
     state.asked.push({ stem: state.stem, pred: state.pred.id, yes });
-    renderBoard();
+    state.asking = true;
+    btnAsk.disabled = true;
 
-    const left = remaining();
-    if (left.length === 1) {
-      phaseLabel.textContent = 'Only 1 left — Guess!';
-      setGuessMode(true);
-    } else if (left.length === 0) {
-      // shouldn't happen
-      endGame(false, null);
-    } else {
-      phaseLabel.textContent = 'Ask questions';
-    }
+    toRemove.forEach(id => {
+      const el = boardEl.querySelector('[data-id="' + id + '"]');
+      if (el) el.classList.add('vanishing');
+    });
+
+    setTimeout(() => {
+      toRemove.forEach(id => state.eliminated.add(id));
+      state.asking = false;
+      renderBoard();
+      updatePreview();
+
+      const left = remaining();
+      if (left.length === 1) {
+        phaseLabel.textContent = 'Only 1 left — Guess!';
+        setGuessMode(true);
+      } else if (left.length === 0) {
+        endGame(false, null);
+      } else {
+        phaseLabel.textContent = 'Ask questions';
+      }
+    }, 260);
   }
 
   function setGuessMode(on) {
@@ -458,6 +469,7 @@
 
   function newGame() {
     state.eliminated = new Set();
+    state.asking = false;
     state.stem = null;
     state.pred = null;
     state.guessMode = false;
@@ -532,7 +544,7 @@
 
   boardEl.addEventListener('click', e => {
     const card = e.target.closest('.card');
-    if (!card || card.classList.contains('out') || state.gameOver) return;
+    if (!card || card.classList.contains('vanishing') || state.gameOver) return;
     if (state.guessMode || remaining().length === 1) tryGuess(card.dataset.id);
   });
 
