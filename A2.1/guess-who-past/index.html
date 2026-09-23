@@ -60,10 +60,15 @@
     .btn:disabled{opacity:.45;cursor:not-allowed}
 
     .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px}
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 4px}
+    .how div{background:var(--paper);border-radius:12px;padding:10px 12px;font-size:.82rem;line-height:1.4;color:var(--navy)}
+    .how b{display:block;color:var(--teal);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+    @media(max-width:700px){.how{grid-template-columns:1fr}}
     .card{position:relative;border:2px solid #dce6ed;border-radius:16px;background:#fff;padding:10px 8px 12px;text-align:center;cursor:default;transition:transform .22s ease,opacity .22s ease,border-color .15s,max-height .22s ease,margin .22s ease,padding .22s ease;min-height:132px;user-select:none}
-    .card.alive{cursor:pointer}
-    .card.alive:hover{transform:translateY(-2px);border-color:var(--teal-soft);box-shadow:0 8px 20px rgba(8,31,61,.1)}
+    .card.pickable,.card.guessable{cursor:pointer}
+    .card.pickable:hover,.card.guessable:hover{transform:translateY(-2px);border-color:var(--teal-soft);box-shadow:0 8px 20px rgba(8,31,61,.1)}
     .card.guessable{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.25)}
+    .card.pickable{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,.2)}
     .card.vanishing{opacity:0;transform:scale(.72);pointer-events:none}
     .card.secret-pick{outline:3px dashed var(--gold);outline-offset:2px}
     .avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 8px;display:grid;place-items:center;font-size:1.55rem;color:#fff;font-weight:900;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
@@ -124,18 +129,23 @@
   <main class="shell">
     <div class="tip-strip" role="note">
       <span aria-hidden="true">🗣️</span>
-      <div><strong>Teacher tip:</strong> Students must say the full question aloud before tapping <em>Ask</em>.</div>
+      <div><strong>Say it, then tap Ask.</strong> Cards that don’t match <em>disappear by themselves</em> — don’t flip or move them. Tap a card only when you want to guess.</div>
     </div>
 
     <section class="panel">
       <div class="eyebrow">A2.1 · Past of Be game</div>
       <h2>Guess Who · Famous people</h2>
-      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Cards that don’t match <strong>disappear</strong>. Countries now come in groups of 3–5, so nationality alone won’t finish the game.</p>
+      <p class="muted">Practice <strong>Was he / Was she</strong> and short answers: <em>Yes, she was.</em> / <em>No, he wasn’t.</em></p>
+      <div class="how" id="howBox">
+        <div><b>1</b> Someone picks a secret person.</div>
+        <div><b>2</b> The other person asks <em>Was he / Was she…?</em></div>
+        <div><b>3</b> Wrong cards vanish. Then guess.</div>
+      </div>
 
       <div class="label">Mode</div>
       <div class="mode-row" id="modeRow">
-        <button type="button" class="chip on" data-mode="solo">Solo vs computer</button>
-        <button type="button" class="chip" data-mode="class">Class / 2 players</button>
+        <button type="button" class="chip on" data-mode="solo">Solo</button>
+        <button type="button" class="chip" data-mode="duo">2 students</button>
       </div>
 
       <div class="status-bar">
@@ -176,14 +186,12 @@
 
   <footer class="site"><strong>Learning &amp; Development Studio</strong> · Israel Ventura</footer>
 
-  <div class="overlay" id="pickOverlay" aria-modal="true" role="dialog">
+  <div class="overlay" id="coverOverlay" aria-modal="true" role="dialog">
     <div class="modal">
       <div class="big">🤫</div>
-      <h3>Pick the secret person</h3>
-      <p>Teacher / Player 1: tap one card. Keep it secret from the guesser. Or pick random.</p>
-      <div class="pick-grid" id="pickGrid"></div>
-      <button type="button" class="btn teal" id="btnRandomSecret">Random secret</button>
-      <button type="button" class="btn ghost" id="btnCancelPick" style="margin-top:8px">Cancel</button>
+      <h3>Student 2, look away</h3>
+      <p>Cover your eyes or turn around. Student 1 will tap <strong>one card</strong> on the board. Then Student 2 can look and ask questions.</p>
+      <button type="button" class="btn gold" id="btnReadyPick">Student 1 is ready to pick</button>
     </div>
   </div>
 
@@ -291,14 +299,15 @@
     { wrong: 'They was from Mexico.', right: 'They were from Mexico.', opts: ['They were from Mexico.', 'They was from Mexico.', 'They was Mexican.'] }
   ];
 
+  const savedMode = localStorage.getItem('gw-mode');
   const state = {
-    mode: localStorage.getItem('gw-mode') || 'solo',
+    mode: savedMode === 'class' ? 'duo' : (savedMode || 'solo'),
     secret: null,
     eliminated: new Set(),
     asking: false,
     stem: null,
     pred: null,
-    guessMode: false,
+    phase: 'play', // cover | picking | play | guess | over
     pendingGuess: null,
     asked: [],
     gameOver: false
@@ -353,8 +362,11 @@
   function renderBoard() {
     const left = remaining();
     boardEl.innerHTML = left.map(p => {
-      const guessable = state.guessMode && !state.gameOver;
-      return `<article class="card alive${guessable ? ' guessable' : ''}" data-id="${p.id}" role="button" tabindex="${state.gameOver ? -1 : 0}" aria-label="${p.name}">
+      const pickable = state.phase === 'picking';
+      const guessable = state.phase === 'guess' && !state.gameOver;
+      const extra = pickable ? ' pickable' : (guessable ? ' guessable' : '');
+      const tab = (pickable || guessable) ? 0 : -1;
+      return `<article class="card${extra}" data-id="${p.id}" role="button" tabindex="${tab}" aria-label="${p.name}">
         <div class="avatar" style="background:${p.color}" aria-hidden="true">${p.emoji}</div>
         <p class="name">${p.name}</p>
         <span class="badge">${p.category}</span>
@@ -369,7 +381,7 @@
     if (state.stem && state.pred) {
       preview.className = 'preview';
       preview.textContent = `Was ${state.stem} ${state.pred.label}`;
-      btnAsk.disabled = !state.secret || state.gameOver || state.guessMode;
+      btnAsk.disabled = !state.secret || state.gameOver || state.phase !== 'play';
     } else {
       preview.className = 'preview empty';
       preview.textContent = 'Tap a stem + a predicate to build your question.';
@@ -390,7 +402,7 @@
   }
 
   function ask() {
-    if (!state.secret || !state.stem || !state.pred || state.gameOver || state.asking) return;
+    if (!state.secret || !state.stem || !state.pred || state.gameOver || state.asking || state.phase !== 'play') return;
     const secret = PEOPLE.find(p => p.id === state.secret);
     const yes = matchesQuestion(secret, state.stem, state.pred);
     // Short answer uses the stem the student chose (natural classroom reply to their question)
@@ -420,24 +432,25 @@
       state.asking = false;
       renderBoard();
       // Keep short answer visible; only refresh Ask button state
-      btnAsk.disabled = !state.stem || !state.pred || !state.secret || state.gameOver || state.guessMode;
+      btnAsk.disabled = !state.stem || !state.pred || !state.secret || state.gameOver || state.phase !== 'play';
 
       const left = remaining();
       if (left.length === 1) {
-        phaseLabel.textContent = 'Only 1 left — Guess!';
         setGuessMode(true);
+        phaseLabel.textContent = 'Only 1 left — tap that card to guess';
       } else if (left.length === 0) {
         endGame(false, null);
       } else {
-        phaseLabel.textContent = 'Ask questions';
+        phaseLabel.textContent = state.mode === 'duo' ? 'Guesser: ask Was he / Was she…?' : 'Ask Was he / Was she…?';
       }
     }, 260);
   }
 
   function setGuessMode(on) {
-    state.guessMode = on;
-    phaseLabel.textContent = on ? 'Tap a remaining card to guess' : 'Ask questions';
-    document.getElementById('btnGuessMode').textContent = on ? 'Ask mode' : 'Guess';
+    if (state.phase === 'picking' || state.phase === 'cover') return;
+    state.phase = on ? 'guess' : 'play';
+    phaseLabel.textContent = on ? 'Tap a remaining card to guess' : (state.mode === 'duo' ? 'Guesser: ask Was he / Was she…?' : 'Ask Was he / Was she…?');
+    document.getElementById('btnGuessMode').textContent = on ? 'Back to questions' : 'I know who it is';
     document.getElementById('askPanel').style.opacity = on ? '0.55' : '1';
     btnAsk.disabled = on || !state.stem || !state.pred || !state.secret;
     renderBoard();
@@ -447,8 +460,7 @@
     if (state.gameOver) return;
     const person = PEOPLE.find(p => p.id === id);
     if (!person || state.eliminated.has(id)) return;
-    if (!state.guessMode && remaining().length > 1) {
-      // allow guess only in guess mode unless one left
+    if (state.phase !== 'guess' && remaining().length > 1) {
       setGuessMode(true);
     }
     state.pendingGuess = id;
@@ -491,41 +503,56 @@
     state.asking = false;
     state.stem = null;
     state.pred = null;
-    state.guessMode = false;
     state.pendingGuess = null;
     state.asked = [];
     state.gameOver = false;
     state.secret = null;
+    state.phase = 'play';
     document.getElementById('endOverlay').classList.remove('show');
     document.getElementById('confirmOverlay').classList.remove('show');
+    document.getElementById('coverOverlay').classList.remove('show');
     document.querySelectorAll('#stemRow .chip').forEach(b => b.classList.remove('on'));
-    setGuessMode(false);
+    document.getElementById('askPanel').style.opacity = '1';
+    document.getElementById('btnGuessMode').textContent = 'I know who it is';
     renderPreds();
     updatePreview();
     renderBoard();
-    phaseLabel.textContent = 'Ask questions';
+
+    const how = document.getElementById('howBox');
+    if (how) {
+      how.innerHTML = state.mode === 'solo'
+        ? '<div><b>1</b> The computer picks a secret person.</div><div><b>2</b> You ask <em>Was he / Was she…?</em></div><div><b>3</b> Wrong cards vanish. Then guess.</div>'
+        : '<div><b>1</b> Student 1 picks a secret card. Student 2 looks away.</div><div><b>2</b> Student 2 asks <em>Was he / Was she…?</em></div><div><b>3</b> Wrong cards vanish. Then Student 2 guesses.</div>';
+    }
 
     if (state.mode === 'solo') {
+      state.phase = 'play';
       state.secret = PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id;
-      phaseLabel.textContent = 'Computer picked — ask away!';
+      phaseLabel.textContent = 'The computer picked a secret. Ask Was he / Was she…?';
+      updatePreview();
     } else {
-      openPicker();
+      state.phase = 'cover';
+      phaseLabel.textContent = 'Student 2, look away';
+      document.getElementById('coverOverlay').classList.add('show');
     }
   }
 
-  function openPicker() {
-    const grid = document.getElementById('pickGrid');
-    grid.innerHTML = PEOPLE.map(p =>
-      `<button type="button" data-pick="${p.id}">${p.emoji}<br>${p.name.split(' ')[0]}</button>`
-    ).join('');
-    document.getElementById('pickOverlay').classList.add('show');
+  function startBoardPick() {
+    document.getElementById('coverOverlay').classList.remove('show');
+    state.phase = 'picking';
+    phaseLabel.textContent = 'Student 1: tap ONE card. Don’t say the name.';
+    document.getElementById('askPanel').style.opacity = '0.45';
+    btnAsk.disabled = true;
+    renderBoard();
   }
 
   function chooseSecret(id) {
     state.secret = id;
-    document.getElementById('pickOverlay').classList.remove('show');
-    phaseLabel.textContent = 'Secret set — guesser asks!';
+    state.phase = 'play';
+    document.getElementById('askPanel').style.opacity = '1';
+    phaseLabel.textContent = 'Secret saved. Student 2, you can look. Ask Was he / Was she…?';
     updatePreview();
+    renderBoard();
   }
 
   // Mode chips
@@ -557,31 +584,25 @@
     updatePreview();
   });
 
-  document.getElementById('btnGuessMode').addEventListener('click', () => setGuessMode(!state.guessMode));
+  document.getElementById('btnGuessMode').addEventListener('click', () => setGuessMode(state.phase !== 'guess'));
   document.getElementById('btnNew').addEventListener('click', newGame);
   document.getElementById('btnPlayAgain').addEventListener('click', newGame);
+  document.getElementById('btnReadyPick').addEventListener('click', startBoardPick);
 
   boardEl.addEventListener('click', e => {
     const card = e.target.closest('.card');
     if (!card || card.classList.contains('vanishing') || state.gameOver) return;
-    if (state.guessMode || remaining().length === 1) tryGuess(card.dataset.id);
+    if (state.phase === 'picking') {
+      chooseSecret(card.dataset.id);
+      return;
+    }
+    if (state.phase === 'guess' || remaining().length === 1) tryGuess(card.dataset.id);
   });
 
   document.getElementById('btnConfirmYes').addEventListener('click', () => confirmGuess(true));
   document.getElementById('btnConfirmNo').addEventListener('click', () => confirmGuess(false));
 
-  document.getElementById('pickGrid').addEventListener('click', e => {
-    const btn = e.target.closest('[data-pick]');
-    if (btn) chooseSecret(btn.dataset.pick);
-  });
-  document.getElementById('btnRandomSecret').addEventListener('click', () => {
-    chooseSecret(PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id);
-  });
-  document.getElementById('btnCancelPick').addEventListener('click', () => {
-    document.getElementById('pickOverlay').classList.remove('show');
-    // fall back to random so game is playable
-    if (!state.secret) chooseSecret(PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id);
-  });
+
 
   document.getElementById('trapQ').addEventListener('click', e => {
     const btn = e.target.closest('.trap-opt');
