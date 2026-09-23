@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0B1F3A">
+  <meta name="description" content="Guess Who · Famous people — practice was / were questions and short answers.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Guess Who · Past of Be | A2.1 | Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0B1F3A;--navy2:#10345d;--teal:#0D9488;--teal2:#14B8A6;--teal-soft:#5bb8b0;
+      --gold:#D4A017;--gold2:#E8B923;--white:#fff;--paper:#f4f7fa;--ink:#13243a;
+      --muted:#607187;--green:#198754;--red:#c83c4b;--shadow:0 14px 40px rgba(8,31,61,.16);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(145deg,#edf6f6 0,#f7f9fc 55%,#fff8e6 100%);color:var(--ink);font-family:"Plus Jakarta Sans",Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+    button{font:inherit} button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    a{color:inherit}
+
+    .topbar{background:var(--navy);color:#fff;padding:14px clamp(16px,4vw,54px);display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:5px solid var(--teal-soft);flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center;min-width:0}
+    .brand-mark{width:46px;height:46px;border-radius:999px;display:grid;place-items:center;background:#fff;overflow:hidden;padding:3px;flex:0 0 auto;box-shadow:0 0 0 2px rgba(230,184,74,.55)}
+    .brand-mark img{width:100%;height:100%;border-radius:999px;object-fit:cover;display:block}
+    .brand b{display:block;letter-spacing:.04em;font-size:.95rem}
+    .brand small{color:#b9e5e4;font-size:.78rem}
+    .topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .home-link{display:inline-flex;align-items:center;text-decoration:none;color:#fff;background:rgba(91,184,176,.28);border:1px solid rgba(255,255,255,.28);padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:800}
+    .home-link:hover{background:rgba(91,184,176,.48)}
+    .mode-pill{border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.10);border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:800}
+
+    .shell{width:min(1120px,94vw);margin:20px auto 36px}
+    .tip-strip{background:#fff7df;border:1px solid #f0d281;color:#76560a;border-radius:14px;padding:12px 16px;font-weight:700;font-size:.92rem;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start}
+    .tip-strip span{flex:0 0 auto;font-size:1.2rem}
+
+    .panel{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:18px 20px;margin-bottom:16px}
+    .panel h2{margin:0 0 6px;color:var(--navy);font-size:clamp(1.25rem,2.5vw,1.7rem)}
+    .eyebrow{color:var(--teal);font-size:.75rem;letter-spacing:.14em;font-weight:900;text-transform:uppercase}
+    .muted{color:var(--muted);margin:0 0 12px;line-height:1.45;font-size:.95rem}
+
+    .mode-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+    .chip{border:2px solid #d5e0ea;background:#f7fafc;color:var(--navy);border-radius:999px;padding:8px 14px;font-weight:800;font-size:.85rem;cursor:pointer}
+    .chip:hover{border-color:var(--teal-soft)}
+    .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .chip.pred.on{background:var(--teal);border-color:var(--teal)}
+    .chip:disabled{opacity:.4;cursor:not-allowed}
+
+    .status-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .stat{background:var(--paper);border-radius:12px;padding:8px 12px;font-weight:800;color:var(--navy);font-size:.9rem}
+    .stat em{color:var(--teal);font-style:normal}
+    .btn{border:0;border-radius:12px;padding:11px 16px;font-weight:850;cursor:pointer;font-size:.9rem}
+    .btn.gold{background:var(--gold);color:var(--navy)}.btn.gold:hover{background:var(--gold2)}
+    .btn.teal{background:var(--teal);color:#fff}.btn.teal:hover{filter:brightness(.95)}
+    .btn.navy{background:var(--navy);color:#fff}
+    .btn.ghost{background:#edf2f5;color:var(--navy)}
+    .btn:disabled{opacity:.45;cursor:not-allowed}
+
+    .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px}
+    .card{position:relative;border:2px solid #dce6ed;border-radius:16px;background:#fff;padding:10px 8px 12px;text-align:center;cursor:default;transition:transform .15s,opacity .2s,border-color .15s;min-height:132px;user-select:none}
+    .card.alive{cursor:pointer}
+    .card.alive:hover{transform:translateY(-2px);border-color:var(--teal-soft);box-shadow:0 8px 20px rgba(8,31,61,.1)}
+    .card.guessable{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.25)}
+    .card.out{opacity:.42;filter:grayscale(.85);background:#eef1f4}
+    .card.out::after{content:"✕";position:absolute;inset:0;display:grid;place-items:center;font-size:2.4rem;font-weight:900;color:rgba(11,31,58,.45);pointer-events:none}
+    .card.secret-pick{outline:3px dashed var(--gold);outline-offset:2px}
+    .avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 8px;display:grid;place-items:center;font-size:1.55rem;color:#fff;font-weight:900;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+    .name{font-weight:800;font-size:.78rem;color:var(--navy);line-height:1.25;margin:0 0 4px}
+    .badge{display:inline-block;font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:#e8f7f5;color:#0a6b63;border-radius:999px;padding:2px 7px}
+
+    .ask-box{display:grid;gap:12px}
+    .ask-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .label{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);width:100%}
+    .preview{background:var(--paper);border-left:5px solid var(--gold);border-radius:12px;padding:12px 14px;font-weight:800;color:var(--navy);min-height:48px;display:flex;align-items:center}
+    .preview.empty{color:var(--muted);font-weight:600}
+    .answer-box{margin-top:4px;padding:14px 16px;border-radius:14px;font-weight:850;font-size:1.15rem;text-align:center;display:none}
+    .answer-box.show{display:block}
+    .answer-box.yes{background:#e6f5ed;color:var(--green)}
+    .answer-box.no{background:#fdebed;color:var(--red)}
+
+    .overlay{position:fixed;inset:0;background:rgba(11,31,58,.55);display:none;place-items:center;z-index:40;padding:16px}
+    .overlay.show{display:grid}
+    .modal{background:#fff;border-radius:20px;padding:24px;max-width:420px;width:100%;text-align:center;box-shadow:var(--shadow)}
+    .modal h3{margin:0 0 8px;color:var(--navy);font-size:1.5rem}
+    .modal p{color:var(--muted);margin:0 0 16px;line-height:1.45}
+    .modal .big{font-size:2.5rem;margin-bottom:8px}
+    .trap{text-align:left;background:var(--paper);border-radius:12px;padding:12px;margin:12px 0;font-size:.9rem}
+    .trap button{margin-top:6px;margin-right:6px}
+
+    .pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;max-height:50vh;overflow:auto;margin:12px 0}
+    .pick-grid button{border:2px solid #dce6ed;border-radius:12px;padding:10px 6px;background:#fff;cursor:pointer;font-weight:700;font-size:.75rem;color:var(--navy)}
+    .pick-grid button:hover{border-color:var(--gold)}
+
+    footer.site{text-align:center;color:var(--muted);font-size:.8rem;padding:8px 0 28px}
+    footer.site strong{color:var(--navy)}
+
+    @media(max-width:560px){
+      .board{grid-template-columns:repeat(3,1fr);gap:8px}
+      .card{min-height:118px;padding:8px 6px 10px}
+      .avatar{width:44px;height:44px;font-size:1.3rem}
+      .name{font-size:.7rem}
+      .brand small{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><img src="../../assets/logo.png" alt=""></div>
+      <div>
+        <b>Learning &amp; Development Studio</b>
+        <small>Guess Who · Famous people · was / were</small>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <a class="home-link" href="../past-of-be/">Past of Be</a>
+      <a class="home-link" href="../">Home</a>
+      <span class="mode-pill">A2.1</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="tip-strip" role="note">
+      <span aria-hidden="true">🗣️</span>
+      <div><strong>Teacher tip:</strong> Students must say the full question aloud before tapping <em>Ask</em>.</div>
+    </div>
+
+    <section class="panel">
+      <div class="eyebrow">A2.1 · Past of Be game</div>
+      <h2>Guess Who · Famous people</h2>
+      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Eliminate cards — then guess!</p>
+
+      <div class="label">Mode</div>
+      <div class="mode-row" id="modeRow">
+        <button type="button" class="chip on" data-mode="solo">Solo vs computer</button>
+        <button type="button" class="chip" data-mode="class">Class / 2 players</button>
+      </div>
+
+      <div class="status-bar">
+        <div class="stat">Remaining: <em id="remainCount">18</em></div>
+        <div class="stat" id="phaseLabel">Ask questions</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn ghost" id="btnGuessMode">Guess</button>
+          <button type="button" class="btn navy" id="btnNew">New game</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel ask-box" id="askPanel">
+      <div>
+        <div class="label">1 · Stem</div>
+        <div class="ask-row" id="stemRow">
+          <button type="button" class="chip" data-stem="he">Was he</button>
+          <button type="button" class="chip" data-stem="she">Was she</button>
+        </div>
+      </div>
+      <div>
+        <div class="label">2 · Predicate</div>
+        <div class="ask-row" id="predRow"></div>
+      </div>
+      <div class="preview empty" id="preview">Tap a stem + a predicate to build your question.</div>
+      <div class="ask-row">
+        <button type="button" class="btn gold" id="btnAsk" disabled>Ask</button>
+        <button type="button" class="btn ghost" id="btnClearQ">Clear</button>
+      </div>
+      <div class="answer-box" id="answerBox" role="status"></div>
+    </section>
+
+    <section class="panel">
+      <div class="label" style="margin-bottom:10px">Board</div>
+      <div class="board" id="board" aria-label="Famous people board"></div>
+    </section>
+  </main>
+
+  <footer class="site"><strong>Learning &amp; Development Studio</strong> · Israel Ventura</footer>
+
+  <div class="overlay" id="pickOverlay" aria-modal="true" role="dialog">
+    <div class="modal">
+      <div class="big">🤫</div>
+      <h3>Pick the secret person</h3>
+      <p>Teacher / Player 1: tap one card. Keep it secret from the guesser. Or pick random.</p>
+      <div class="pick-grid" id="pickGrid"></div>
+      <button type="button" class="btn teal" id="btnRandomSecret">Random secret</button>
+      <button type="button" class="btn ghost" id="btnCancelPick" style="margin-top:8px">Cancel</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="endOverlay" aria-modal="true" role="dialog">
+    <div class="modal">
+      <div class="big" id="endEmoji">🎉</div>
+      <h3 id="endTitle">You got it!</h3>
+      <p id="endMsg"></p>
+      <div class="trap" id="trapBox" hidden>
+        <strong>Quick trap fix</strong> — tap the correct sentence:
+        <div id="trapQ" style="margin-top:8px"></div>
+      </div>
+      <button type="button" class="btn gold" id="btnPlayAgain">Play again</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="confirmOverlay" aria-modal="true" role="dialog">
+    <div class="modal">
+      <h3>Guess?</h3>
+      <p id="confirmMsg">Is the secret person…?</p>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <button type="button" class="btn gold" id="btnConfirmYes">Yes — guess!</button>
+        <button type="button" class="btn ghost" id="btnConfirmNo">Not yet</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const PEOPLE = [
+    { id:'frida', name:'Frida Kahlo', emoji:'🎨', color:'#c44536', gender:'she', category:'artist', country:'Mexico', era:'1900s', tags:['art','mexico'] },
+    { id:'messi', name:'Lionel Messi', emoji:'⚽', color:'#2471a3', gender:'he', category:'athlete', country:'Argentina', era:'1900s', tags:['sports','argentina'] },
+    { id:'shakira', name:'Shakira', emoji:'🎤', color:'#8e44ad', gender:'she', category:'singer', country:'Colombia', era:'1900s', tags:['music','colombia'] },
+    { id:'einstein', name:'Albert Einstein', emoji:'🧠', color:'#5d6d7e', gender:'he', category:'scientist', country:'Germany', era:'1800s', tags:['science','germany'] },
+    { id:'curie', name:'Marie Curie', emoji:'⚗️', color:'#1abc9c', gender:'she', category:'scientist', country:'France', era:'1800s', tags:['science','france'] },
+    { id:'jordan', name:'Michael Jordan', emoji:'🏀', color:'#e74c3c', gender:'he', category:'athlete', country:'USA', era:'1900s', tags:['sports','usa'] },
+    { id:'selena', name:'Selena', emoji:'💫', color:'#e91e8c', gender:'she', category:'singer', country:'USA', era:'1900s', tags:['music','usa','mexico'] },
+    { id:'cantinflas', name:'Cantinflas', emoji:'🎭', color:'#d35400', gender:'he', category:'actor', country:'Mexico', era:'1900s', tags:['movies','mexico'] },
+    { id:'beethoven', name:'Beethoven', emoji:'🎹', color:'#2c3e50', gender:'he', category:'composer', country:'Germany', era:'before1800', tags:['music','germany'] },
+    { id:'cleopatra', name:'Cleopatra', emoji:'👑', color:'#f39c12', gender:'she', category:'leader', country:'Egypt', era:'before1800', tags:['leader','egypt'] },
+    { id:'mandela', name:'Nelson Mandela', emoji:'✊', color:'#27ae60', gender:'he', category:'leader', country:'South Africa', era:'1900s', tags:['leader','southafrica'] },
+    { id:'earhart', name:'Amelia Earhart', emoji:'✈️', color:'#3498db', gender:'she', category:'explorer', country:'USA', era:'1900s', tags:['explorer','usa'] },
+    { id:'pele', name:'Pelé', emoji:'🏆', color:'#16a085', gender:'he', category:'athlete', country:'Brazil', era:'1900s', tags:['sports','brazil'] },
+    { id:'oprah', name:'Oprah Winfrey', emoji:'📺', color:'#9b59b6', gender:'she', category:'host', country:'USA', era:'1900s', tags:['tv','usa'] },
+    { id:'davinci', name:'Leonardo da Vinci', emoji:'🖼️', color:'#7f8c8d', gender:'he', category:'artist', country:'Italy', era:'before1800', tags:['art','italy','inventor'] },
+    { id:'malala', name:'Malala Yousafzai', emoji:'📚', color:'#1abc9c', gender:'she', category:'leader', country:'Pakistan', era:'1900s', tags:['leader','pakistan'] },
+    { id:'disney', name:'Walt Disney', emoji:'🏰', color:'#2980b9', gender:'he', category:'inventor', country:'USA', era:'1900s', tags:['movies','usa','art'] },
+    { id:'chanel', name:'Coco Chanel', emoji:'👗', color:'#34495e', gender:'she', category:'designer', country:'France', era:'1800s', tags:['fashion','france'] }
+  ];
+
+  const PREDICATES = [
+    { id:'singer', label:'a singer?', test: p => p.category === 'singer' },
+    { id:'athlete', label:'an athlete?', test: p => p.category === 'athlete' },
+    { id:'artist', label:'an artist?', test: p => p.category === 'artist' || p.tags.includes('art') },
+    { id:'scientist', label:'a scientist?', test: p => p.category === 'scientist' },
+    { id:'actor', label:'an actor?', test: p => p.category === 'actor' },
+    { id:'leader', label:'a leader?', test: p => p.category === 'leader' },
+    { id:'inventor', label:'an inventor?', test: p => p.category === 'inventor' || p.tags.includes('inventor') },
+    { id:'composer', label:'a composer?', test: p => p.category === 'composer' },
+    { id:'explorer', label:'an explorer?', test: p => p.category === 'explorer' },
+    { id:'designer', label:'a designer?', test: p => p.category === 'designer' },
+    { id:'host', label:'on TV / a host?', test: p => p.category === 'host' || p.tags.includes('tv') },
+    { id:'mexico', label:'from Mexico?', test: p => p.country === 'Mexico' || p.tags.includes('mexico') },
+    { id:'usa', label:'from the USA?', test: p => p.country === 'USA' },
+    { id:'brazil', label:'from Brazil?', test: p => p.country === 'Brazil' },
+    { id:'france', label:'from France?', test: p => p.country === 'France' },
+    { id:'germany', label:'from Germany?', test: p => p.country === 'Germany' },
+    { id:'safrica', label:'from South Africa?', test: p => p.country === 'South Africa' },
+    { id:'argentina', label:'from Argentina?', test: p => p.country === 'Argentina' },
+    { id:'colombia', label:'from Colombia?', test: p => p.country === 'Colombia' },
+    { id:'egypt', label:'from Egypt?', test: p => p.country === 'Egypt' },
+    { id:'italy', label:'from Italy?', test: p => p.country === 'Italy' },
+    { id:'pakistan', label:'from Pakistan?', test: p => p.country === 'Pakistan' },
+    { id:'era_old', label:'born before 1800?', test: p => p.era === 'before1800' },
+    { id:'era_1800', label:'born in the 1800s?', test: p => p.era === '1800s' },
+    { id:'era_1900', label:'born in the 1900s?', test: p => p.era === '1900s' },
+    { id:'art', label:'famous for art?', test: p => p.tags.includes('art') || p.category === 'artist' },
+    { id:'sports', label:'famous for sports?', test: p => p.tags.includes('sports') || p.category === 'athlete' },
+    { id:'science', label:'famous for science?', test: p => p.tags.includes('science') || p.category === 'scientist' },
+    { id:'music', label:'famous for music?', test: p => p.tags.includes('music') || p.category === 'singer' || p.category === 'composer' },
+    { id:'movies', label:'in movies?', test: p => p.tags.includes('movies') || p.category === 'actor' }
+  ];
+
+  const TRAPS = [
+    { wrong: 'He were a singer.', right: 'He was a singer.', opts: ['He was a singer.', 'He were a singer.', 'He was singers.'] },
+    { wrong: 'Was you famous?', right: 'Were you famous?', opts: ['Were you famous?', 'Was you famous?', 'Was they famous?'] },
+    { wrong: 'They was from Mexico.', right: 'They were from Mexico.', opts: ['They were from Mexico.', 'They was from Mexico.', 'They was Mexican.'] }
+  ];
+
+  const state = {
+    mode: localStorage.getItem('gw-mode') || 'solo',
+    secret: null,
+    eliminated: new Set(),
+    stem: null,
+    pred: null,
+    guessMode: false,
+    pendingGuess: null,
+    asked: [],
+    gameOver: false
+  };
+
+  const boardEl = document.getElementById('board');
+  const predRow = document.getElementById('predRow');
+  const preview = document.getElementById('preview');
+  const answerBox = document.getElementById('answerBox');
+  const remainCount = document.getElementById('remainCount');
+  const phaseLabel = document.getElementById('phaseLabel');
+  const btnAsk = document.getElementById('btnAsk');
+
+  function beep(ok) {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      const ctx = new Ctx();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = ok ? 660 : 220;
+      g.gain.value = 0.04;
+      o.start();
+      setTimeout(() => { o.stop(); ctx.close(); }, ok ? 120 : 180);
+    } catch (_) {}
+  }
+
+  function remaining() {
+    return PEOPLE.filter(p => !state.eliminated.has(p.id));
+  }
+
+  function matchesPred(person, pred) {
+    return !!pred && pred.test(person);
+  }
+
+  function matchesQuestion(person, stem, pred) {
+    return person.gender === stem && matchesPred(person, pred);
+  }
+
+  function shortAnswer(yes, gender) {
+    if (yes) return gender === 'he' ? 'Yes, he was.' : 'Yes, she was.';
+    return gender === 'he' ? 'No, he wasn’t.' : 'No, she wasn’t.';
+  }
+
+  function renderPreds() {
+    predRow.innerHTML = PREDICATES.map(pr =>
+      `<button type="button" class="chip pred${state.pred && state.pred.id === pr.id ? ' on' : ''}" data-pred="${pr.id}">${pr.label}</button>`
+    ).join('');
+  }
+
+  function renderBoard() {
+    boardEl.innerHTML = PEOPLE.map(p => {
+      const out = state.eliminated.has(p.id);
+      const guessable = state.guessMode && !out && !state.gameOver;
+      return `<article class="card${out ? ' out' : ' alive'}${guessable ? ' guessable' : ''}" data-id="${p.id}" role="button" tabindex="${out || state.gameOver ? -1 : 0}" aria-label="${p.name}${out ? ' eliminated' : ''}">
+        <div class="avatar" style="background:${p.color}" aria-hidden="true">${p.emoji}</div>
+        <p class="name">${p.name}</p>
+        <span class="badge">${p.category}</span>
+      </article>`;
+    }).join('');
+    remainCount.textContent = remaining().length;
+  }
+
+  function updatePreview() {
+    answerBox.className = 'answer-box';
+    answerBox.textContent = '';
+    if (state.stem && state.pred) {
+      preview.className = 'preview';
+      preview.textContent = `Was ${state.stem} ${state.pred.label}`;
+      btnAsk.disabled = !state.secret || state.gameOver || state.guessMode;
+    } else {
+      preview.className = 'preview empty';
+      preview.textContent = 'Tap a stem + a predicate to build your question.';
+      btnAsk.disabled = true;
+    }
+  }
+
+  function setStem(stem) {
+    state.stem = stem;
+    document.querySelectorAll('#stemRow .chip').forEach(b => b.classList.toggle('on', b.dataset.stem === stem));
+    updatePreview();
+  }
+
+  function setPred(id) {
+    state.pred = PREDICATES.find(p => p.id === id) || null;
+    document.querySelectorAll('#predRow .chip').forEach(b => b.classList.toggle('on', b.dataset.pred === id));
+    updatePreview();
+  }
+
+  function ask() {
+    if (!state.secret || !state.stem || !state.pred || state.gameOver) return;
+    const secret = PEOPLE.find(p => p.id === state.secret);
+    const yes = matchesQuestion(secret, state.stem, state.pred);
+    // Short answer uses the stem the student chose (natural classroom reply to their question)
+    const ans = shortAnswer(yes, state.stem);
+    answerBox.textContent = ans;
+    answerBox.className = 'answer-box show ' + (yes ? 'yes' : 'no');
+    beep(yes);
+
+    // Elimination
+    PEOPLE.forEach(p => {
+      if (state.eliminated.has(p.id)) return;
+      const match = matchesQuestion(p, state.stem, state.pred);
+      if (yes && !match) state.eliminated.add(p.id);
+      if (!yes && match) state.eliminated.add(p.id);
+    });
+
+    state.asked.push({ stem: state.stem, pred: state.pred.id, yes });
+    renderBoard();
+
+    const left = remaining();
+    if (left.length === 1) {
+      phaseLabel.textContent = 'Only 1 left — Guess!';
+      setGuessMode(true);
+    } else if (left.length === 0) {
+      // shouldn't happen
+      endGame(false, null);
+    } else {
+      phaseLabel.textContent = 'Ask questions';
+    }
+  }
+
+  function setGuessMode(on) {
+    state.guessMode = on;
+    phaseLabel.textContent = on ? 'Tap a remaining card to guess' : 'Ask questions';
+    document.getElementById('btnGuessMode').textContent = on ? 'Ask mode' : 'Guess';
+    document.getElementById('askPanel').style.opacity = on ? '0.55' : '1';
+    btnAsk.disabled = on || !state.stem || !state.pred || !state.secret;
+    renderBoard();
+  }
+
+  function tryGuess(id) {
+    if (state.gameOver) return;
+    const person = PEOPLE.find(p => p.id === id);
+    if (!person || state.eliminated.has(id)) return;
+    if (!state.guessMode && remaining().length > 1) {
+      // allow guess only in guess mode unless one left
+      setGuessMode(true);
+    }
+    state.pendingGuess = id;
+    document.getElementById('confirmMsg').textContent = `Is the secret person ${person.name}?`;
+    document.getElementById('confirmOverlay').classList.add('show');
+  }
+
+  function confirmGuess(yes) {
+    document.getElementById('confirmOverlay').classList.remove('show');
+    if (!yes) { state.pendingGuess = null; return; }
+    const id = state.pendingGuess;
+    state.pendingGuess = null;
+    const win = id === state.secret;
+    endGame(win, PEOPLE.find(p => p.id === id));
+  }
+
+  function endGame(win, guessed) {
+    state.gameOver = true;
+    const secret = PEOPLE.find(p => p.id === state.secret);
+    document.getElementById('endEmoji').textContent = win ? '🎉' : '😅';
+    document.getElementById('endTitle').textContent = win ? 'You got it!' : 'Not this time';
+    document.getElementById('endMsg').textContent = win
+      ? `Yes — it was ${secret.name}! Great was / were questions.`
+      : `You guessed ${guessed ? guessed.name : '…'}. The secret was ${secret.name}.`;
+    // optional trap round
+    const trap = TRAPS[Math.floor(Math.random() * TRAPS.length)];
+    const box = document.getElementById('trapBox');
+    const q = document.getElementById('trapQ');
+    box.hidden = !win;
+    if (win) {
+      q.innerHTML = `<div style="margin-bottom:6px;color:var(--muted)">Fix: <em>${trap.wrong}</em></div>` +
+        trap.opts.map(o => `<button type="button" class="btn ghost trap-opt" data-right="${o === trap.right ? '1' : '0'}">${o}</button>`).join('');
+    }
+    document.getElementById('endOverlay').classList.add('show');
+    beep(win);
+  }
+
+  function newGame() {
+    state.eliminated = new Set();
+    state.stem = null;
+    state.pred = null;
+    state.guessMode = false;
+    state.pendingGuess = null;
+    state.asked = [];
+    state.gameOver = false;
+    state.secret = null;
+    document.getElementById('endOverlay').classList.remove('show');
+    document.getElementById('confirmOverlay').classList.remove('show');
+    document.querySelectorAll('#stemRow .chip').forEach(b => b.classList.remove('on'));
+    setGuessMode(false);
+    renderPreds();
+    updatePreview();
+    renderBoard();
+    phaseLabel.textContent = 'Ask questions';
+
+    if (state.mode === 'solo') {
+      state.secret = PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id;
+      phaseLabel.textContent = 'Computer picked — ask away!';
+    } else {
+      openPicker();
+    }
+  }
+
+  function openPicker() {
+    const grid = document.getElementById('pickGrid');
+    grid.innerHTML = PEOPLE.map(p =>
+      `<button type="button" data-pick="${p.id}">${p.emoji}<br>${p.name.split(' ')[0]}</button>`
+    ).join('');
+    document.getElementById('pickOverlay').classList.add('show');
+  }
+
+  function chooseSecret(id) {
+    state.secret = id;
+    document.getElementById('pickOverlay').classList.remove('show');
+    phaseLabel.textContent = 'Secret set — guesser asks!';
+    updatePreview();
+  }
+
+  // Mode chips
+  document.getElementById('modeRow').addEventListener('click', e => {
+    const btn = e.target.closest('[data-mode]');
+    if (!btn) return;
+    state.mode = btn.dataset.mode;
+    localStorage.setItem('gw-mode', state.mode);
+    document.querySelectorAll('#modeRow .chip').forEach(b => b.classList.toggle('on', b.dataset.mode === state.mode));
+    newGame();
+  });
+
+  document.getElementById('stemRow').addEventListener('click', e => {
+    const btn = e.target.closest('[data-stem]');
+    if (!btn) return;
+    setStem(btn.dataset.stem);
+  });
+
+  predRow.addEventListener('click', e => {
+    const btn = e.target.closest('[data-pred]');
+    if (!btn) return;
+    setPred(btn.dataset.pred);
+  });
+
+  btnAsk.addEventListener('click', ask);
+  document.getElementById('btnClearQ').addEventListener('click', () => {
+    state.stem = null; state.pred = null;
+    document.querySelectorAll('#stemRow .chip, #predRow .chip').forEach(b => b.classList.remove('on'));
+    updatePreview();
+  });
+
+  document.getElementById('btnGuessMode').addEventListener('click', () => setGuessMode(!state.guessMode));
+  document.getElementById('btnNew').addEventListener('click', newGame);
+  document.getElementById('btnPlayAgain').addEventListener('click', newGame);
+
+  boardEl.addEventListener('click', e => {
+    const card = e.target.closest('.card');
+    if (!card || card.classList.contains('out') || state.gameOver) return;
+    if (state.guessMode || remaining().length === 1) tryGuess(card.dataset.id);
+  });
+
+  document.getElementById('btnConfirmYes').addEventListener('click', () => confirmGuess(true));
+  document.getElementById('btnConfirmNo').addEventListener('click', () => confirmGuess(false));
+
+  document.getElementById('pickGrid').addEventListener('click', e => {
+    const btn = e.target.closest('[data-pick]');
+    if (btn) chooseSecret(btn.dataset.pick);
+  });
+  document.getElementById('btnRandomSecret').addEventListener('click', () => {
+    chooseSecret(PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id);
+  });
+  document.getElementById('btnCancelPick').addEventListener('click', () => {
+    document.getElementById('pickOverlay').classList.remove('show');
+    // fall back to random so game is playable
+    if (!state.secret) chooseSecret(PEOPLE[Math.floor(Math.random() * PEOPLE.length)].id);
+  });
+
+  document.getElementById('trapQ').addEventListener('click', e => {
+    const btn = e.target.closest('.trap-opt');
+    if (!btn) return;
+    const ok = btn.dataset.right === '1';
+    btn.style.background = ok ? '#e6f5ed' : '#fdebed';
+    btn.style.color = ok ? 'var(--green)' : 'var(--red)';
+    if (ok) beep(true);
+  });
+
+  // Init mode UI
+  document.querySelectorAll('#modeRow .chip').forEach(b => b.classList.toggle('on', b.dataset.mode === state.mode));
+  renderPreds();
+  newGame();
+})();
+</script>
+</body>
+</html>
