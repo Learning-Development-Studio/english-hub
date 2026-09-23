@@ -130,7 +130,7 @@
     <section class="panel">
       <div class="eyebrow">A2.1 · Past of Be game</div>
       <h2>Guess Who · Famous people</h2>
-      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Cards that don’t match <strong>disappear</strong> — then guess!</p>
+      <p class="muted">Build Yes/No questions with <strong>Was he / Was she</strong> only. Hear short answers like <em>Yes, she was.</em> / <em>No, he wasn’t.</em> Cards that don’t match <strong>disappear</strong>. Countries now come in groups of 3–5, so nationality alone won’t finish the game.</p>
 
       <div class="label">Mode</div>
       <div class="mode-row" id="modeRow">
@@ -139,7 +139,7 @@
       </div>
 
       <div class="status-bar">
-        <div class="stat">Remaining: <em id="remainCount">18</em></div>
+        <div class="stat">Remaining: <em id="remainCount">28</em></div>
         <div class="stat" id="phaseLabel">Ask questions</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <button type="button" class="btn ghost" id="btnGuessMode">Guess</button>
@@ -214,24 +214,42 @@
 <script>
 (function () {
   const PEOPLE = [
+    // Mexico (5)
     { id:'frida', name:'Frida Kahlo', emoji:'🎨', color:'#c44536', gender:'she', category:'artist', country:'Mexico', era:'1900s', tags:['art','mexico'] },
-    { id:'messi', name:'Lionel Messi', emoji:'⚽', color:'#2471a3', gender:'he', category:'athlete', country:'Argentina', era:'1900s', tags:['sports','argentina'] },
-    { id:'shakira', name:'Shakira', emoji:'🎤', color:'#8e44ad', gender:'she', category:'singer', country:'Colombia', era:'1900s', tags:['music','colombia'] },
-    { id:'einstein', name:'Albert Einstein', emoji:'🧠', color:'#5d6d7e', gender:'he', category:'scientist', country:'Germany', era:'1800s', tags:['science','germany'] },
-    { id:'curie', name:'Marie Curie', emoji:'⚗️', color:'#1abc9c', gender:'she', category:'scientist', country:'France', era:'1800s', tags:['science','france'] },
+    { id:'cantinflas', name:'Cantinflas', emoji:'🎭', color:'#d35400', gender:'he', category:'actor', country:'Mexico', era:'1900s', tags:['movies','mexico'] },
+    { id:'diego', name:'Diego Rivera', emoji:'🖌️', color:'#a93226', gender:'he', category:'artist', country:'Mexico', era:'1900s', tags:['art','mexico'] },
+    { id:'sorjuana', name:'Sor Juana', emoji:'✍️', color:'#6c3483', gender:'she', category:'writer', country:'Mexico', era:'before1800', tags:['writing','mexico','leader'] },
+    { id:'vicente', name:'Vicente Fernández', emoji:'🤠', color:'#b9770e', gender:'he', category:'singer', country:'Mexico', era:'1900s', tags:['music','mexico'] },
+    // USA (5)
     { id:'jordan', name:'Michael Jordan', emoji:'🏀', color:'#e74c3c', gender:'he', category:'athlete', country:'USA', era:'1900s', tags:['sports','usa'] },
     { id:'selena', name:'Selena', emoji:'💫', color:'#e91e8c', gender:'she', category:'singer', country:'USA', era:'1900s', tags:['music','usa','mexico'] },
-    { id:'cantinflas', name:'Cantinflas', emoji:'🎭', color:'#d35400', gender:'he', category:'actor', country:'Mexico', era:'1900s', tags:['movies','mexico'] },
-    { id:'beethoven', name:'Beethoven', emoji:'🎹', color:'#2c3e50', gender:'he', category:'composer', country:'Germany', era:'before1800', tags:['music','germany'] },
-    { id:'cleopatra', name:'Cleopatra', emoji:'👑', color:'#f39c12', gender:'she', category:'leader', country:'Egypt', era:'before1800', tags:['leader','egypt'] },
-    { id:'mandela', name:'Nelson Mandela', emoji:'✊', color:'#27ae60', gender:'he', category:'leader', country:'South Africa', era:'1900s', tags:['leader','southafrica'] },
     { id:'earhart', name:'Amelia Earhart', emoji:'✈️', color:'#3498db', gender:'she', category:'explorer', country:'USA', era:'1900s', tags:['explorer','usa'] },
-    { id:'pele', name:'Pelé', emoji:'🏆', color:'#16a085', gender:'he', category:'athlete', country:'Brazil', era:'1900s', tags:['sports','brazil'] },
     { id:'oprah', name:'Oprah Winfrey', emoji:'📺', color:'#9b59b6', gender:'she', category:'host', country:'USA', era:'1900s', tags:['tv','usa'] },
-    { id:'davinci', name:'Leonardo da Vinci', emoji:'🖼️', color:'#7f8c8d', gender:'he', category:'artist', country:'Italy', era:'before1800', tags:['art','italy','inventor'] },
-    { id:'malala', name:'Malala Yousafzai', emoji:'📚', color:'#1abc9c', gender:'she', category:'leader', country:'Pakistan', era:'1900s', tags:['leader','pakistan'] },
     { id:'disney', name:'Walt Disney', emoji:'🏰', color:'#2980b9', gender:'he', category:'inventor', country:'USA', era:'1900s', tags:['movies','usa','art'] },
-    { id:'chanel', name:'Coco Chanel', emoji:'👗', color:'#34495e', gender:'she', category:'designer', country:'France', era:'1800s', tags:['fashion','france'] }
+    // Argentina (3)
+    { id:'messi', name:'Lionel Messi', emoji:'⚽', color:'#2471a3', gender:'he', category:'athlete', country:'Argentina', era:'1900s', tags:['sports','argentina'] },
+    { id:'maradona', name:'Diego Maradona', emoji:'🔟', color:'#1a5276', gender:'he', category:'athlete', country:'Argentina', era:'1900s', tags:['sports','argentina'] },
+    { id:'evita', name:'Eva Perón', emoji:'🌹', color:'#922b21', gender:'she', category:'leader', country:'Argentina', era:'1900s', tags:['leader','argentina'] },
+    // Brazil (3)
+    { id:'pele', name:'Pelé', emoji:'🏆', color:'#16a085', gender:'he', category:'athlete', country:'Brazil', era:'1900s', tags:['sports','brazil'] },
+    { id:'senna', name:'Ayrton Senna', emoji:'🏎️', color:'#117a65', gender:'he', category:'athlete', country:'Brazil', era:'1900s', tags:['sports','brazil'] },
+    { id:'carmen', name:'Carmen Miranda', emoji:'🍍', color:'#f4d03f', gender:'she', category:'singer', country:'Brazil', era:'1900s', tags:['music','brazil','movies'] },
+    // Colombia (3)
+    { id:'shakira', name:'Shakira', emoji:'🎤', color:'#8e44ad', gender:'she', category:'singer', country:'Colombia', era:'1900s', tags:['music','colombia'] },
+    { id:'gabo', name:'G. García Márquez', emoji:'📖', color:'#5b2c6f', gender:'he', category:'writer', country:'Colombia', era:'1900s', tags:['writing','colombia'] },
+    { id:'sofia', name:'Sofía Vergara', emoji:'🎬', color:'#af7ac5', gender:'she', category:'actor', country:'Colombia', era:'1900s', tags:['movies','colombia','tv'] },
+    // Germany (3)
+    { id:'einstein', name:'Albert Einstein', emoji:'🧠', color:'#5d6d7e', gender:'he', category:'scientist', country:'Germany', era:'1800s', tags:['science','germany'] },
+    { id:'beethoven', name:'Beethoven', emoji:'🎹', color:'#2c3e50', gender:'he', category:'composer', country:'Germany', era:'before1800', tags:['music','germany'] },
+    { id:'bach', name:'J.S. Bach', emoji:'🎼', color:'#1c2833', gender:'he', category:'composer', country:'Germany', era:'before1800', tags:['music','germany'] },
+    // France (3)
+    { id:'curie', name:'Marie Curie', emoji:'⚗️', color:'#1abc9c', gender:'she', category:'scientist', country:'France', era:'1800s', tags:['science','france'] },
+    { id:'chanel', name:'Coco Chanel', emoji:'👗', color:'#34495e', gender:'she', category:'designer', country:'France', era:'1800s', tags:['fashion','france'] },
+    { id:'monet', name:'Claude Monet', emoji:'🌸', color:'#5dade2', gender:'he', category:'artist', country:'France', era:'1800s', tags:['art','france'] },
+    // Italy (3)
+    { id:'davinci', name:'Leonardo da Vinci', emoji:'🖼️', color:'#7f8c8d', gender:'he', category:'artist', country:'Italy', era:'before1800', tags:['art','italy','inventor'] },
+    { id:'michelangelo', name:'Michelangelo', emoji:'🗿', color:'#566573', gender:'he', category:'artist', country:'Italy', era:'before1800', tags:['art','italy'] },
+    { id:'loren', name:'Sophia Loren', emoji:'🌟', color:'#cb4335', gender:'she', category:'actor', country:'Italy', era:'1900s', tags:['movies','italy'] }
   ];
 
   const PREDICATES = [
@@ -240,23 +258,22 @@
     { id:'artist', label:'an artist?', test: p => p.category === 'artist' || p.tags.includes('art') },
     { id:'scientist', label:'a scientist?', test: p => p.category === 'scientist' },
     { id:'actor', label:'an actor?', test: p => p.category === 'actor' },
-    { id:'leader', label:'a leader?', test: p => p.category === 'leader' },
+    { id:'leader', label:'a leader?', test: p => p.category === 'leader' || p.tags.includes('leader') },
+    { id:'writer', label:'a writer?', test: p => p.category === 'writer' || p.tags.includes('writing') },
     { id:'inventor', label:'an inventor?', test: p => p.category === 'inventor' || p.tags.includes('inventor') },
     { id:'composer', label:'a composer?', test: p => p.category === 'composer' },
     { id:'explorer', label:'an explorer?', test: p => p.category === 'explorer' },
     { id:'designer', label:'a designer?', test: p => p.category === 'designer' },
     { id:'host', label:'on TV / a host?', test: p => p.category === 'host' || p.tags.includes('tv') },
+    // Countries: each has 3–5 people so nationality is not an instant win
     { id:'mexico', label:'from Mexico?', test: p => p.country === 'Mexico' || p.tags.includes('mexico') },
     { id:'usa', label:'from the USA?', test: p => p.country === 'USA' },
-    { id:'brazil', label:'from Brazil?', test: p => p.country === 'Brazil' },
-    { id:'france', label:'from France?', test: p => p.country === 'France' },
-    { id:'germany', label:'from Germany?', test: p => p.country === 'Germany' },
-    { id:'safrica', label:'from South Africa?', test: p => p.country === 'South Africa' },
     { id:'argentina', label:'from Argentina?', test: p => p.country === 'Argentina' },
+    { id:'brazil', label:'from Brazil?', test: p => p.country === 'Brazil' },
     { id:'colombia', label:'from Colombia?', test: p => p.country === 'Colombia' },
-    { id:'egypt', label:'from Egypt?', test: p => p.country === 'Egypt' },
+    { id:'germany', label:'from Germany?', test: p => p.country === 'Germany' },
+    { id:'france', label:'from France?', test: p => p.country === 'France' },
     { id:'italy', label:'from Italy?', test: p => p.country === 'Italy' },
-    { id:'pakistan', label:'from Pakistan?', test: p => p.country === 'Pakistan' },
     { id:'era_old', label:'born before 1800?', test: p => p.era === 'before1800' },
     { id:'era_1800', label:'born in the 1800s?', test: p => p.era === '1800s' },
     { id:'era_1900', label:'born in the 1900s?', test: p => p.era === '1900s' },
@@ -264,7 +281,8 @@
     { id:'sports', label:'famous for sports?', test: p => p.tags.includes('sports') || p.category === 'athlete' },
     { id:'science', label:'famous for science?', test: p => p.tags.includes('science') || p.category === 'scientist' },
     { id:'music', label:'famous for music?', test: p => p.tags.includes('music') || p.category === 'singer' || p.category === 'composer' },
-    { id:'movies', label:'in movies?', test: p => p.tags.includes('movies') || p.category === 'actor' }
+    { id:'movies', label:'in movies?', test: p => p.tags.includes('movies') || p.category === 'actor' },
+    { id:'writing', label:'famous for writing?', test: p => p.tags.includes('writing') || p.category === 'writer' }
   ];
 
   const TRAPS = [
