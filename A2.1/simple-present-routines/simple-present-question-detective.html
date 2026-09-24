@@ -25,10 +25,11 @@
     .panel{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:#fff}
     .label{font-size:.75rem;letter-spacing:.08em;color:var(--teal);font-weight:800;margin-bottom:8px}
     .choices{display:flex;gap:7px;flex-wrap:wrap}
-    .said{margin:0 0 10px;padding:12px 14px;border-radius:10px;background:#e9f4f3;font-weight:800;color:var(--navy);min-height:3em}
-    .feedback{min-height:3.2em;margin:0 0 10px;padding:11px 13px;border-radius:10px;background:#fff7d9;font-weight:700;line-height:1.45}
+    .action-bar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:stretch;margin-bottom:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fbfcfa}
+    .said{margin:0 0 8px;padding:16px 18px;border-radius:12px;background:#e9f4f3;font-weight:800;color:var(--navy);font-size:1.2rem;line-height:1.35;min-height:3.2em}
+    .feedback{min-height:3.4em;margin:0;padding:16px 18px;border-radius:12px;background:#fff7d9;font-weight:700;font-size:1.08rem;line-height:1.45}
     .feedback.win{background:var(--good)}
-    .ask-row{display:flex;justify-content:flex-end}
+    .ask{font-size:1.15rem;padding:18px 28px;align-self:stretch;min-width:120px}
     .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
     .card{min-height:92px;text-align:left;background:#fff;border:1px solid #d9e5e4;padding:11px;cursor:pointer;transition:opacity .35s ease,transform .35s ease,max-height .35s ease,padding .35s ease,margin .35s ease,border-width .35s ease}
     .card .icon{font-size:1.5rem}
@@ -40,6 +41,8 @@
       main{padding:14px}
       .split{grid-template-columns:1fr}
       .ask-pane{position:static}
+      .action-bar{grid-template-columns:1fr}
+      .ask{width:100%}
       .board{grid-template-columns:repeat(2,1fr)}
     }
   </style>
@@ -57,6 +60,14 @@
       </div>
       <button id="new" type="button">New secret profile</button>
     </div>
+    <div class="action-bar">
+      <div>
+        <div class="label">SAY THIS</div>
+        <div class="said" id="said">Choose a subject and a question.</div>
+        <div class="feedback" id="fb">Say the question aloud, then press Ask. Tap a name when you know.</div>
+      </div>
+      <button class="ask" id="ask" type="button" disabled>Ask</button>
+    </div>
     <div class="split">
       <div class="ask-pane">
         <div class="label">Questions</div>
@@ -70,12 +81,6 @@
         <div class="panel">
           <div class="label">2 · QUESTION</div>
           <div class="choices" id="questions"></div>
-        </div>
-        <div class="label">SAY THIS</div>
-        <div class="said" id="said">Choose a subject and a question.</div>
-        <div class="feedback" id="fb">Say the question aloud, then press Ask. Tap a name when you know.</div>
-        <div class="ask-row">
-          <button class="ask" id="ask" type="button" disabled>Ask</button>
         </div>
       </div>
       <div class="board-pane">
@@ -93,16 +98,30 @@ const P = [
   { name: "Daniel", g: "m", job: "photographer", place: "at a studio", wake: "7:30", go: "car", hobby: "plays chess", pet: false, weekend: "takes photos", icon: "📷" },
   { name: "Emma", g: "f", job: "nurse", place: "at a clinic", wake: "5:00", go: "bus", hobby: "does yoga", pet: true, weekend: "goes to the park", icon: "👩‍⚕️" },
   { name: "Felix", g: "m", job: "engineer", place: "at an office", wake: "7:00", go: "train", hobby: "plays video games", pet: false, weekend: "cooks", icon: "👷" },
+  { name: "Grace", g: "f", job: "writer", place: "at home", wake: "8:00", go: "scooter", hobby: "writes stories", pet: true, weekend: "reads at a café", icon: "✍️" },
+  { name: "Hugo", g: "m", job: "musician", place: "at a music school", wake: "9:00", go: "bike", hobby: "draws", pet: true, weekend: "plays concerts", icon: "🎸" },
+  { name: "Iris", g: "f", job: "scientist", place: "in a laboratory", wake: "6:00", go: "subway", hobby: "gardens", pet: false, weekend: "visits museums", icon: "🔬" },
+  { name: "Jake", g: "m", job: "pilot", place: "at an airport", wake: "4:30", go: "car", hobby: "runs", pet: false, weekend: "relaxes at home", icon: "✈️" },
+  { name: "Karla", g: "f", job: "designer", place: "at a design studio", wake: "7:30", go: "bus", hobby: "takes photos", pet: true, weekend: "goes shopping", icon: "🎨" },
+  { name: "Leo", g: "m", job: "firefighter", place: "at a fire station", wake: "5:30", go: "motorcycle", hobby: "swims", pet: true, weekend: "visits friends", icon: "🚒" },
   { name: "Maya", g: "f", job: "vet", place: "at a clinic", wake: "6:30", go: "car", hobby: "cooks", pet: true, weekend: "walks her dog", icon: "🐾" },
   { name: "Noah", g: "m", job: "librarian", place: "at a library", wake: "7:00", go: "train", hobby: "reads comics", pet: false, weekend: "plays chess", icon: "📚" },
-  { name: "Sofia", g: "f", job: "baker", place: "at a bakery", wake: "5:00", go: "bike", hobby: "watches films", pet: false, weekend: "goes to the market", icon: "🥐" },
+  { name: "Olivia", g: "f", job: "journalist", place: "at a newspaper office", wake: "6:00", go: "subway", hobby: "dances", pet: false, weekend: "writes articles", icon: "📰" },
+  { name: "Pablo", g: "m", job: "artist", place: "at a gallery", wake: "8:30", go: "bike", hobby: "paints", pet: true, weekend: "visits galleries", icon: "🖼️" },
+  { name: "Quinn", g: "f", job: "programmer", place: "at a tech company", wake: "7:00", go: "bus", hobby: "plays tennis", pet: false, weekend: "learns languages", icon: "💻" },
+  { name: "Rafael", g: "m", job: "farmer", place: "on a farm", wake: "5:00", go: "truck", hobby: "gardens", pet: true, weekend: "cooks for friends", icon: "🚜" },
+  { name: "Sofia", g: "f", job: "baker", place: "at a bakery", wake: "4:30", go: "bike", hobby: "watches films", pet: false, weekend: "goes to the market", icon: "🥐" },
   { name: "Tom", g: "m", job: "student", place: "at a university", wake: "7:30", go: "subway", hobby: "plays basketball", pet: true, weekend: "studies English", icon: "🎓" },
+  { name: "Uma", g: "f", job: "architect", place: "at an office", wake: "6:30", go: "car", hobby: "draws", pet: false, weekend: "visits new places", icon: "📐" },
+  { name: "Victor", g: "m", job: "dentist", place: "at a dental clinic", wake: "6:00", go: "car", hobby: "plays the piano", pet: false, weekend: "goes cycling", icon: "🦷" },
   { name: "Wendy", g: "f", job: "shop assistant", place: "at a bookstore", wake: "8:00", go: "bus", hobby: "reads magazines", pet: true, weekend: "meets friends", icon: "🛍️" },
-  { name: "Bruno", g: "m", job: "doctor", place: "at a clinic", wake: "7:00", go: "bus", hobby: "runs", pet: true, weekend: "goes fishing", icon: "🩺" },
+  { name: "Xavier", g: "m", job: "taxi driver", place: "in a taxi", wake: "5:00", go: "car", hobby: "listens to podcasts", pet: false, weekend: "watches sports", icon: "🚕" },
+  { name: "Yara", g: "f", job: "dancer", place: "at a theater", wake: "9:00", go: "train", hobby: "does pilates", pet: true, weekend: "practices dance", icon: "💃" },
+  { name: "Zane", g: "m", job: "police officer", place: "at a police station", wake: "5:30", go: "motorcycle", hobby: "plays football", pet: true, weekend: "visits his parents", icon: "👮" },
   { name: "Aisha", g: "f", job: "barista", place: "at a café", wake: "6:30", go: "scooter", hobby: "sings", pet: false, weekend: "tries new cafés", icon: "☕" },
-  { name: "Leo", g: "m", job: "firefighter", place: "at a fire station", wake: "5:30", go: "motorcycle", hobby: "swims", pet: true, weekend: "visits friends", icon: "🚒" },
-  { name: "Iris", g: "f", job: "scientist", place: "in a laboratory", wake: "6:00", go: "subway", hobby: "gardens", pet: false, weekend: "visits museums", icon: "🔬" },
-  { name: "Hugo", g: "m", job: "musician", place: "at a music school", wake: "8:00", go: "bike", hobby: "draws", pet: true, weekend: "plays concerts", icon: "🎸" }
+  { name: "Bruno", g: "m", job: "doctor", place: "at a clinic", wake: "7:00", go: "bus", hobby: "runs", pet: true, weekend: "goes fishing", icon: "🩺" },
+  { name: "Celia", g: "f", job: "student", place: "at a university", wake: "8:30", go: "bike", hobby: "plays volleyball", pet: false, weekend: "does homework", icon: "🎒" },
+  { name: "Diego", g: "m", job: "writer", place: "at home", wake: "7:30", go: "subway", hobby: "cooks", pet: true, weekend: "writes stories", icon: "🖋️" }
 ];
 
 const Q = [
@@ -110,6 +129,8 @@ const Q = [
   { kind: "yn", key: "place", match: "at a school", tail: "work at a school?" },
   { kind: "yn", key: "place", match: "at a clinic", tail: "work at a clinic?" },
   { kind: "yn", key: "place", match: "at an office", tail: "work at an office?" },
+  { kind: "yn", key: "place", match: "at home", tail: "work at home?" },
+  { kind: "yn", key: "place", match: "at a restaurant", tail: "work at a restaurant?" },
   { kind: "yn", key: "go", match: "bus", tail: "take the bus?" },
   { kind: "yn", key: "go", match: "subway", tail: "take the subway?" },
   { kind: "yn", key: "go", match: "bike", tail: "go to work by bike?" },
