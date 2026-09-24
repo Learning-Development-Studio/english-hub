@@ -12,7 +12,7 @@
     .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.1em;font-size:.75rem}
     h1{margin:.25rem 0;color:var(--navy)}
     .intro{max-width:800px;line-height:1.5}
-    .game{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px #102a4312}
+    .game{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px #102a4312}
     .top{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:14px}
     .count{font-weight:800;color:var(--teal)}
     button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:9px 12px;background:#e9f4f3;color:var(--navy);font-weight:700}
@@ -28,15 +28,24 @@
     .action-bar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:stretch;margin-bottom:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fbfcfa}
     .said{margin:0 0 8px;padding:16px 18px;border-radius:12px;background:#e9f4f3;font-weight:800;color:var(--navy);font-size:1.2rem;line-height:1.35;min-height:3.2em}
     .feedback{min-height:3.4em;margin:0;padding:16px 18px;border-radius:12px;background:#fff7d9;font-weight:700;font-size:1.08rem;line-height:1.45}
-    .feedback.win{background:var(--good)}
+    .feedback.win{background:var(--good);animation:pop-in .45s ease}
     .ask{font-size:1.15rem;padding:18px 28px;align-self:stretch;min-width:120px}
+    .burst{pointer-events:none;position:absolute;inset:0;overflow:hidden;z-index:5}
+    .bit{position:absolute;top:18%;left:50%;width:10px;height:10px;border-radius:3px;animation:burst-fly .95s ease-out forwards}
+    .card.found{border-color:var(--gold);background:var(--good);animation:found-pop .7s ease;box-shadow:0 0 0 4px rgba(215,166,43,.35)}
+    @keyframes pop-in{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+    @keyframes found-pop{0%{transform:scale(.7)}45%{transform:scale(1.14)}100%{transform:scale(1)}}
+    @keyframes burst-fly{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+    @media (prefers-reduced-motion: reduce){
+      .bit,.feedback.win,.card.found{animation:none}
+    }
     .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
     .card{min-height:92px;text-align:left;background:#fff;border:1px solid #d9e5e4;padding:11px;cursor:pointer;transition:opacity .35s ease,transform .35s ease,max-height .35s ease,padding .35s ease,margin .35s ease,border-width .35s ease}
     .card .icon{font-size:1.5rem}
     .card b{display:block;margin-top:5px}
     .card:hover{border-color:var(--teal)}
     .card.out{opacity:0;transform:scale(.8);pointer-events:none;max-height:0;min-height:0;padding:0;margin:0;border-width:0;overflow:hidden}
-    .card.found{border-color:var(--teal);background:var(--good)}
+
     @media(max-width:900px){
       main{padding:14px}
       .split{grid-template-columns:1fr}
@@ -53,6 +62,7 @@
   <h1>Who Has This Routine?</h1>
   <p class="intro">A profile is secret. Say the full question, then press <b>Ask</b>. Wrong profiles disappear. When you know, tap the name.</p>
   <section class="game">
+    <div class="burst" id="burst" aria-hidden="true"></div>
     <div class="top">
       <div>
         <b>Routine detective board</b>
@@ -252,6 +262,25 @@ function ask() {
   sync();
 }
 
+function celebrate() {
+  const box = $("#burst");
+  box.innerHTML = "";
+  const colors = ["#147d85", "#d7a62b", "#102a43", "#7ec8c4", "#f0c14b"];
+  for (let n = 0; n < 28; n++) {
+    const bit = document.createElement("span");
+    bit.className = "bit";
+    const ang = (Math.PI * 2 * n) / 28;
+    const dist = 90 + Math.random() * 160;
+    bit.style.setProperty("--x", Math.cos(ang) * dist + "px");
+    bit.style.setProperty("--y", Math.sin(ang) * dist + 40 + "px");
+    bit.style.setProperty("--r", (Math.random() * 240 - 120) + "deg");
+    bit.style.background = colors[n % colors.length];
+    bit.style.animationDelay = (Math.random() * 0.12) + "s";
+    box.appendChild(bit);
+  }
+  setTimeout(() => { box.innerHTML = ""; }, 1200);
+}
+
 function guess(i) {
   if (won || !alive.has(i)) return;
   if (i === secret) {
@@ -260,6 +289,9 @@ function guess(i) {
     $("#fb").className = "feedback win";
     $("#fb").textContent = summary(P[secret]) + " You asked " + asked + " question" + (asked === 1 ? "" : "s") + ".";
     sync();
+    celebrate();
+    const card = document.querySelector('.card[data-card="' + secret + '"]');
+    if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
     return;
   }
   asked += 1;
