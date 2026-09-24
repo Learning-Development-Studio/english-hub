@@ -8,32 +8,40 @@
     :root{--navy:#102a43;--teal:#147d85;--gold:#d7a62b;--paper:#f7f3e9;--ink:#193042;--line:#dce6e5;--good:#e7f6ea}
     *{box-sizing:border-box}
     body{margin:0;background:var(--paper);font:16px system-ui,sans-serif;color:var(--ink)}
-    main{max-width:1180px;margin:auto;padding:26px}
+    main{max-width:1280px;margin:auto;padding:22px}
     .eyebrow{color:var(--teal);font-weight:800;letter-spacing:.1em;font-size:.75rem}
     h1{margin:.25rem 0;color:var(--navy)}
     .intro{max-width:800px;line-height:1.5}
-    .game{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px #102a4312}
-    .top{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .game{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px #102a4312}
+    .top{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:14px}
     .count{font-weight:800;color:var(--teal)}
     button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:9px 12px;background:#e9f4f3;color:var(--navy);font-weight:700}
     button:hover{filter:brightness(.96)}
     button.active,.ask{background:var(--teal);color:#fff}
     .ask:disabled{background:#b9c8c8;cursor:not-allowed}
-    .controls{display:grid;grid-template-columns:1fr 2fr;gap:14px;margin:20px 0}
-    .panel{border:1px solid var(--line);border-radius:12px;padding:13px}
+    .split{display:grid;grid-template-columns:minmax(300px,42%) minmax(0,1fr);gap:16px;align-items:start}
+    .ask-pane,.board-pane{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fbfcfa;min-height:0}
+    .ask-pane{position:sticky;top:12px}
+    .panel{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:#fff}
     .label{font-size:.75rem;letter-spacing:.08em;color:var(--teal);font-weight:800;margin-bottom:8px}
     .choices{display:flex;gap:7px;flex-wrap:wrap}
-    .said{margin:4px 0 10px;padding:12px 14px;border-radius:10px;background:#e9f4f3;font-weight:800;color:var(--navy);min-height:3em}
-    .feedback{min-height:3em;margin:8px 0 4px;padding:11px 13px;border-radius:10px;background:#fff7d9;font-weight:700;line-height:1.45}
+    .said{margin:0 0 10px;padding:12px 14px;border-radius:10px;background:#e9f4f3;font-weight:800;color:var(--navy);min-height:3em}
+    .feedback{min-height:3.2em;margin:0 0 10px;padding:11px 13px;border-radius:10px;background:#fff7d9;font-weight:700;line-height:1.45}
     .feedback.win{background:var(--good)}
-    .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:10px}
-    .card{min-height:96px;text-align:left;background:#fff;border:1px solid #d9e5e4;padding:11px;cursor:pointer;transition:opacity .35s ease,transform .35s ease,max-height .35s ease,padding .35s ease,margin .35s ease,border-width .35s ease}
+    .ask-row{display:flex;justify-content:flex-end}
+    .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+    .card{min-height:92px;text-align:left;background:#fff;border:1px solid #d9e5e4;padding:11px;cursor:pointer;transition:opacity .35s ease,transform .35s ease,max-height .35s ease,padding .35s ease,margin .35s ease,border-width .35s ease}
     .card .icon{font-size:1.5rem}
     .card b{display:block;margin-top:5px}
     .card:hover{border-color:var(--teal)}
     .card.out{opacity:0;transform:scale(.8);pointer-events:none;max-height:0;min-height:0;padding:0;margin:0;border-width:0;overflow:hidden}
     .card.found{border-color:var(--teal);background:var(--good)}
-    @media(max-width:720px){main{padding:14px}.controls{grid-template-columns:1fr}.board{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){
+      main{padding:14px}
+      .split{grid-template-columns:1fr}
+      .ask-pane{position:static}
+      .board{grid-template-columns:repeat(2,1fr)}
+    }
   </style>
 </head>
 <body>
@@ -49,27 +57,32 @@
       </div>
       <button id="new" type="button">New secret profile</button>
     </div>
-    <div class="controls">
-      <div class="panel">
-        <div class="label">1 · SUBJECT</div>
-        <div class="choices" id="stems">
-          <button type="button" data-g="m">Does he</button>
-          <button type="button" data-g="f">Does she</button>
+    <div class="split">
+      <div class="ask-pane">
+        <div class="label">Questions</div>
+        <div class="panel">
+          <div class="label">1 · SUBJECT</div>
+          <div class="choices" id="stems">
+            <button type="button" data-g="m">Does he</button>
+            <button type="button" data-g="f">Does she</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="label">2 · QUESTION</div>
+          <div class="choices" id="questions"></div>
+        </div>
+        <div class="label">SAY THIS</div>
+        <div class="said" id="said">Choose a subject and a question.</div>
+        <div class="feedback" id="fb">Say the question aloud, then press Ask. Tap a name when you know.</div>
+        <div class="ask-row">
+          <button class="ask" id="ask" type="button" disabled>Ask</button>
         </div>
       </div>
-      <div class="panel">
-        <div class="label">2 · QUESTION</div>
-        <div class="choices" id="questions"></div>
+      <div class="board-pane">
+        <div class="label">Profiles · tap a name to guess</div>
+        <div class="board" id="board"></div>
       </div>
     </div>
-    <div class="label">SAY THIS</div>
-    <div class="said" id="said">Choose a subject and a question.</div>
-    <div class="top">
-      <div class="feedback" id="fb">Say the question aloud, then press Ask. Tap a name when you know.</div>
-      <button class="ask" id="ask" type="button" disabled>Ask</button>
-    </div>
-    <div class="label" style="margin-top:20px">BOARD · tap a name to guess</div>
-    <div class="board" id="board"></div>
   </section>
 </main>
 <script>
