@@ -194,7 +194,7 @@ function fullQuestion() {
 }
 
 function canAsk() {
-  if (won || qi == null) return false;
+  if (won || alive.size <= 1 || qi == null) return false;
   if (Q[qi].kind === "yn") return !!stem;
   return true;
 }
@@ -235,30 +235,49 @@ function ask() {
   if (!canAsk()) return;
   const q = Q[qi];
   const secretP = P[secret];
+  const pronounMatches = !stem || secretP.g === stem;
   asked += 1;
 
   if (q.kind === "yn") {
-    const askedHe = stem === "m";
-    const secretIsThatGender = secretP.g === stem;
-    const secretHasTrait = secretP[q.key] === q.match;
-    const yes = secretIsThatGender && secretHasTrait;
     const pWord = pro(stem);
     $("#fb").className = "feedback";
-    $("#fb").textContent = "Does " + pWord + " " + q.tail + " — " + (yes ? "Yes, " + pWord + " does." : "No, " + pWord + " doesn’t.");
-    [...alive].forEach((i) => {
-      const row = P[i];
-      const matchAsked = row.g === stem && row[q.key] === q.match;
-      if (matchAsked !== yes) alive.delete(i);
-    });
+
+    if (!pronounMatches) {
+      $("#fb").textContent = "Does " + pWord + " " + q.tail + " — No. This person is " + pro(secretP.g) + ".";
+      [...alive].forEach((i) => {
+        if (P[i].g === stem) alive.delete(i);
+      });
+    } else {
+      const yes = secretP[q.key] === q.match;
+      $("#fb").textContent = "Does " + pWord + " " + q.tail + " — " + (yes ? "Yes, " + pWord + " does." : "No, " + pWord + " doesn’t.");
+      [...alive].forEach((i) => {
+        const row = P[i];
+        if (row.g !== stem || (row[q.key] === q.match) !== yes) alive.delete(i);
+      });
+    }
   } else {
-    const pWord = pro(secretP.g);
     const spoken = stem ? q.label.replace("this person", pro(stem)) : q.label;
     $("#fb").className = "feedback";
-    $("#fb").textContent = spoken + " — " + fact(secretP, q.key);
-    [...alive].forEach((i) => {
-      if (P[i][q.key] !== secretP[q.key]) alive.delete(i);
-    });
+
+    if (!pronounMatches) {
+      $("#fb").textContent = spoken + " — This person is " + pro(secretP.g) + ".";
+      [...alive].forEach((i) => {
+        if (P[i].g === stem) alive.delete(i);
+      });
+    } else {
+      $("#fb").textContent = spoken + " — " + fact(secretP, q.key);
+      [...alive].forEach((i) => {
+        const row = P[i];
+        if ((stem && row.g !== stem) || row[q.key] !== secretP[q.key]) alive.delete(i);
+      });
+    }
   }
+
+  if (alive.size === 1) {
+    const only = P[[...alive][0]];
+    $("#fb").textContent += " Only " + only.name + " remains — tap the name.";
+  }
+  qi = null;
   sync();
 }
 
