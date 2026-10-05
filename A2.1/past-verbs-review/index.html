@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Independent A2.1 review of simple past verb forms, meaning, structure, and pronunciation.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <title>Past Verbs Review | A2.1 | Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0b294b; --navy-2:#0b1f3a; --teal:#118b8f; --teal-light:#e5f6f4;
+      --gold:#d9af43; --cream:#f9f7f2; --paper:#fff; --ink:#172033; --muted:#697996;
+      --line:rgba(11,41,75,.11); --good:#177a57; --bad:#b14343;
+      --shadow:0 2px 4px rgba(11,31,58,.04),0 16px 42px rgba(11,31,58,.08);
+      --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);line-height:1.5;
+      background:radial-gradient(circle at 90% 0,rgba(17,139,143,.15),transparent 28rem),linear-gradient(180deg,#f7fafc,#eef4f7);min-height:100vh}
+    button,input{font:inherit} button{cursor:pointer} img{max-width:100%;display:block}
+    .shell{max-width:1000px;margin:auto;padding:calc(22px + var(--safe-top)) 20px calc(34px + var(--safe-bottom))}
+    .topbar{position:sticky;top:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:12px 16px;margin-bottom:18px;border-radius:18px;background:var(--navy-2);color:#fff;box-shadow:0 16px 34px rgba(11,31,58,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-mark{width:50px;height:50px;border-radius:50%;background:#fff;padding:3px;flex:0 0 auto}
+    .brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:50%}.brand h1{font-size:clamp(1rem,2vw,1.25rem);line-height:1.15;margin:0}.brand p{font-size:.8rem;color:#d7ecea;margin:2px 0 0}
+    .top-actions{display:flex;gap:8px;align-items:center}.pill,.home{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 12px;font-size:.8rem;font-weight:800;white-space:nowrap}
+    .home{color:#fff;text-decoration:none;background:rgba(17,139,143,.3)}.pill{background:rgba(255,255,255,.09)}
+    .hero{position:relative;overflow:hidden;padding:clamp(22px,5vw,42px);border:1px solid var(--line);border-radius:24px;background:var(--cream);box-shadow:var(--shadow);margin-bottom:20px}
+    .hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-80px;top:-90px;border:34px solid rgba(217,175,67,.12)}
+    .eyebrow{color:var(--teal);font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.hero h2{position:relative;z-index:1;margin:9px 0 8px;font-size:clamp(2rem,6vw,3.45rem);line-height:1.03;letter-spacing:-.045em;color:var(--navy)}
+    .hero h2 span{color:var(--teal)}.hero p{position:relative;z-index:1;max-width:58ch;margin:0;color:var(--muted)}
+    .review-note{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:700;color:var(--navy)}
+    .review-note:before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff}
+    .progress{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 20px}.progress div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center;box-shadow:0 4px 14px rgba(11,31,58,.035)}
+    .progress strong{display:block;color:var(--navy);font-size:1.05rem}.progress span{font-size:.7rem;color:var(--muted)}
+    .activities-label{margin:0 4px 8px;color:var(--navy);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+    .activities{display:grid;gap:12px}.activity{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+    .activity summary{list-style:none;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}.activity summary::-webkit-details-marker{display:none}
+    .activity summary:hover{background:#fbfcfd}.num{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800}.activity:nth-of-type(3n+2) .num{background:var(--teal)}.activity:nth-of-type(3n) .num{background:var(--gold);color:var(--navy)}
+    .sum h3{margin:0;color:var(--navy);font-size:1rem}.sum p{margin:2px 0 0;color:var(--muted);font-size:.8rem}.chev{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--teal-light);color:var(--navy);transition:.2s}.activity[open] .chev{transform:rotate(180deg)}
+    .panel{border-top:1px solid var(--line);padding:18px}.instruction{margin:0 0 14px;color:var(--muted);font-size:.88rem}
+    .card-wrap{max-width:620px;margin:auto}.flip-card{position:relative;aspect-ratio:1/1;perspective:1500px}.card-inner{position:absolute;inset:0;transition:transform .55s;transform-style:preserve-3d}.flip-card.flipped .card-inner{transform:rotateY(180deg)}
+    .face{position:absolute;inset:0;border-radius:22px;overflow:hidden;backface-visibility:hidden;background:var(--cream);box-shadow:0 18px 44px rgba(11,31,58,.16)}.face.back{transform:rotateY(180deg)}.face img{width:100%;height:100%;object-fit:cover}
+    .audio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.audio-btn,.btn{border:0;border-radius:12px;padding:11px 13px;font-weight:800;background:var(--navy);color:#fff}.audio-btn{background:#edf4f7;color:var(--navy);font-size:.78rem}.audio-btn:hover{background:var(--teal-light)}
+    .deck-controls{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-top:12px}.round-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--navy);font-size:1.2rem}.counter{text-align:center;font-weight:800;color:var(--navy)}
+    .deck-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:10px}.btn.secondary{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .game{max-width:720px;margin:auto}.prompt-card{min-height:150px;display:grid;place-items:center;text-align:center;padding:24px;border-radius:18px;background:var(--cream);border:1px solid var(--line)}.prompt-card h4{font-size:clamp(1.4rem,4vw,2rem);color:var(--navy);margin:0}.prompt-card p{margin:8px 0 0;color:var(--muted)}
+    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.choice{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;color:var(--navy);font-weight:800}.choice:hover{border-color:var(--teal);background:var(--teal-light)}.choice.correct{background:#e8f7f0;border-color:var(--good);color:var(--good)}.choice.wrong{background:#fff0ef;border-color:var(--bad);color:var(--bad)}
+    .feedback{min-height:28px;margin:10px 2px 0;text-align:center;font-weight:700;color:var(--muted)}.feedback.good{color:var(--good)}.feedback.bad{color:var(--bad)}
+    .game-actions{display:flex;justify-content:center;gap:8px;margin-top:10px}.score{font-size:.78rem;color:var(--muted);text-align:center;margin-top:8px}
+    .bins{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.bin{min-height:120px;border:2px dashed rgba(11,41,75,.2);border-radius:16px;padding:12px;text-align:center}.bin strong{color:var(--navy);font-size:1.1rem}.bin small{display:block;color:var(--muted)}
+    .word-pool{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}.word{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:#fff;color:var(--navy);font-weight:800}.word.selected{background:var(--navy);color:#fff}.word.placed{opacity:.35}
+    .structure-box{font-size:clamp(1rem,3vw,1.35rem);font-weight:800;color:var(--navy)}.tokens{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}.token{padding:10px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:700}.answer-line{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;min-height:58px;margin-top:12px;padding:10px;border-radius:14px;background:#edf4f7}
+    .cando{display:grid;gap:9px}.cando label{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:13px;background:#fff}.cando input{width:20px;height:20px;accent-color:var(--teal)}
+    .footer{text-align:center;padding:24px 8px 0;color:var(--muted);font-size:.8rem}.footer strong{color:var(--navy)}
+    @media(max-width:650px){.shell{padding-left:11px;padding-right:11px}.brand p,.pill{display:none}.progress{grid-template-columns:repeat(2,1fr)}.audio-grid{grid-template-columns:1fr}.choices{grid-template-columns:1fr}.bins{grid-template-columns:1fr}.bin{min-height:84px}.panel{padding:14px}.activity summary{padding:12px}.face{border-radius:16px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.card-inner{transition:none}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark"><img src="../../assets/logo.png" alt=""></div><div><h1>Past Verbs Review</h1><p>A2.1 · Independent practice</p></div></div>
+      <div class="top-actions"><a class="home" href="../">A2.1</a><span class="pill">Review lab</span></div>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">A2.1 · Past verb review</span>
+      <h2>See it. Hear it. <span>Use it.</span></h2>
+      <p>Review 30 familiar verbs in the Simple Past. Check the form, meaning, pronunciation, and basic sentence structure at your own pace.</p>
+      <span class="review-note">Practice and self-check — not a class</span>
+    </section>
+
+    <section class="progress" aria-label="Review targets">
+      <div><strong>30</strong><span>past verbs</span></div><div><strong>3</strong><span>-ed sounds</span></div><div><strong>15</strong><span>irregular forms</span></div><div><strong>7</strong><span>review activities</span></div>
+    </section>
+
+    <p class="activities-label">Activities</p>
+    <section class="activities">
+      <details class="activity" open>
+        <summary><span class="num">01</span><span class="sum"><h3>Verb deck</h3><p>Photo, past form, pronunciation, example, and conversation question.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel">
+          <p class="instruction">Look at the photo and name the past form. Flip the card to check. Use the three audio buttons separately.</p>
+          <div class="card-wrap">
+            <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-label="Flip verb card"><div class="card-inner"><div class="face front"><img id="frontImg" src="assets/front/01.jpg" alt="walked"></div><div class="face back"><img id="backImg" src="assets/back/01.jpg" alt="Walk, walked, example and question"></div></div></div>
+            <div class="audio-grid"><button class="audio-btn" id="playWord">🔊 Word</button><button class="audio-btn" id="playExample">🔊 Example</button><button class="audio-btn" id="playQuestion">🔊 Question</button></div>
+            <div class="deck-controls"><button class="round-btn" id="prevCard" aria-label="Previous card">←</button><span class="counter" id="deckCounter">1 / 30 · WALKED</span><button class="round-btn" id="nextCard" aria-label="Next card">→</button></div>
+            <div class="deck-actions"><button class="btn secondary" id="flipButton">Flip card</button><button class="btn secondary" id="shuffleDeck">Shuffle</button><button class="btn secondary" id="resetDeck">Reset order</button></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">02</span><span class="sum"><h3>Listen and choose</h3><p>Hear a past form. Choose the verb you hear.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><div class="game"><div class="prompt-card"><div><button class="btn" id="listenPlay">▶ Play the word</button><p>Listen once or twice, then choose.</p></div></div><div class="choices" id="listenChoices"></div><p class="feedback" id="listenFeedback"></p><div class="game-actions"><button class="btn secondary" id="listenNext">Next word</button></div><p class="score" id="listenScore">0 correct</p></div></div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">03</span><span class="sum"><h3>-ed sound sort</h3><p>Put regular verbs into /t/, /d/, or /ɪd/.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><p class="instruction">Tap a word, then tap its sound group.</p><div class="bins"><button class="bin" data-sound="t"><strong>/t/</strong><small>walked</small><div class="bin-items"></div></button><button class="bin" data-sound="d"><strong>/d/</strong><small>played</small><div class="bin-items"></div></button><button class="bin" data-sound="id"><strong>/ɪd/</strong><small>wanted</small><div class="bin-items"></div></button></div><div class="word-pool" id="soundPool"></div><p class="feedback" id="soundFeedback"></p><div class="game-actions"><button class="btn secondary" id="soundReset">New set</button></div></div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">04</span><span class="sum"><h3>Past form check</h3><p>Choose the correct Simple Past form.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><div class="game"><div class="prompt-card"><div><p>Past form of</p><h4 id="formBase">GO</h4></div></div><div class="choices" id="formChoices"></div><p class="feedback" id="formFeedback"></p><div class="game-actions"><button class="btn secondary" id="formNext">Next verb</button></div><p class="score" id="formScore">0 correct</p></div></div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">05</span><span class="sum"><h3>Meaning in context</h3><p>Choose the verb that completes the situation.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><div class="game"><div class="prompt-card"><h4 id="meaningPrompt"></h4></div><div class="choices" id="meaningChoices"></div><p class="feedback" id="meaningFeedback"></p><div class="game-actions"><button class="btn secondary" id="meaningNext">Next situation</button></div><p class="score" id="meaningScore">0 correct</p></div></div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">06</span><span class="sum"><h3>Build the sentence</h3><p>Statements, negatives, and questions with did.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><div class="game"><div class="prompt-card"><div><p>Tap the words in order.</p><h4 class="structure-box" id="structureHint"></h4></div></div><div class="answer-line" id="answerLine"></div><div class="tokens" id="tokenPool"></div><p class="feedback" id="structureFeedback"></p><div class="game-actions"><button class="btn" id="structureCheck">Check</button><button class="btn secondary" id="structureReset">Reset</button><button class="btn secondary" id="structureNext">Next</button></div></div></div>
+      </details>
+
+      <details class="activity">
+        <summary><span class="num">07</span><span class="sum"><h3>Can-do check</h3><p>Finish with a quick self-check.</p></span><span class="chev">⌄</span></summary>
+        <div class="panel"><div class="cando"><label><input type="checkbox">I can recognize these 30 past forms.</label><label><input type="checkbox">I can hear the difference between /t/, /d/, and /ɪd/.</label><label><input type="checkbox">I can use irregular past forms in short sentences.</label><label><input type="checkbox">I can make a negative sentence with <strong>didn’t + base verb</strong>.</label><label><input type="checkbox">I can make a question with <strong>Did + subject + base verb</strong>.</label><label><input type="checkbox">I can answer one conversation question from each card.</label></div></div>
+      </details>
+    </section>
+
+    <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A2.1</footer>
+  </main>
+
+  <script>
+    const verbs = [
+      {base:"walk",past:"walked",sound:"t",example:"I walked to the store yesterday.",question:"Where did you walk yesterday?"},
+      {base:"watch",past:"watched",sound:"t",example:"I watched a movie last night.",question:"What did you watch last night?"},
+      {base:"work",past:"worked",sound:"t",example:"I worked from home on Monday.",question:"Where did you work yesterday?"},
+      {base:"cook",past:"cooked",sound:"t",example:"I cooked pasta for dinner.",question:"What did you cook last weekend?"},
+      {base:"help",past:"helped",sound:"t",example:"I helped my friend move a table.",question:"Who did you help recently?"},
+      {base:"look",past:"looked",sound:"t",example:"I looked for my keys this morning.",question:"What did you look for today?"},
+      {base:"play",past:"played",sound:"d",example:"I played soccer after work.",question:"What did you play when you were younger?"},
+      {base:"live",past:"lived",sound:"d",example:"I lived near the city center.",question:"Where did you live as a child?"},
+      {base:"study",past:"studied",sound:"d",example:"I studied English last night.",question:"What did you study yesterday?"},
+      {base:"try",past:"tried",sound:"d",example:"I tried a new restaurant on Saturday.",question:"What new thing did you try recently?"},
+      {base:"call",past:"called",sound:"d",example:"I called my mother after dinner.",question:"Who did you call yesterday?"},
+      {base:"use",past:"used",sound:"d",example:"I used my phone to take a photo.",question:"What app did you use today?"},
+      {base:"want",past:"wanted",sound:"id",example:"I wanted a quiet weekend at home.",question:"What did you want to do last weekend?"},
+      {base:"need",past:"needed",sound:"id",example:"I needed help with my homework.",question:"When did you last need help?"},
+      {base:"wait",past:"waited",sound:"id",example:"I waited ten minutes for the bus.",question:"What did you wait for recently?"},
+      {base:"have",past:"had",example:"I had coffee before class.",question:"What did you have for breakfast?"},
+      {base:"do",past:"did",example:"I did my homework after dinner.",question:"What did you do yesterday evening?"},
+      {base:"go",past:"went",example:"I went to the park on Sunday.",question:"Where did you go last weekend?"},
+      {base:"come",past:"came",example:"My friend came to my house.",question:"Who came to visit you recently?"},
+      {base:"get up",past:"got up",example:"I got up at seven this morning.",question:"What time did you get up today?"},
+      {base:"eat",past:"ate",example:"I ate tacos for lunch.",question:"What did you eat yesterday?"},
+      {base:"drink",past:"drank",example:"I drank tea before bed.",question:"What did you drink this morning?"},
+      {base:"sleep",past:"slept",example:"I slept for eight hours last night.",question:"How many hours did you sleep?"},
+      {base:"wake up",past:"woke up",example:"I woke up early on Monday.",question:"What time did you wake up today?"},
+      {base:"run",past:"ran",example:"I ran in the park yesterday.",question:"Where did you run last time?"},
+      {base:"read",past:"read",example:"I read an interesting article yesterday.",question:"What did you read recently?",spoken:"red"},
+      {base:"write",past:"wrote",example:"I wrote an email to my teacher.",question:"Who did you write to yesterday?"},
+      {base:"buy",past:"bought",example:"I bought some fruit at the market.",question:"What did you buy last weekend?"},
+      {base:"take",past:"took",example:"I took a photo of the sunset.",question:"What photos did you take recently?"},
+      {base:"give",past:"gave",example:"I gave my friend a birthday gift.",question:"What gift did you give someone recently?"}
+    ];
+    const $=id=>document.getElementById(id), shuffle=a=>[...a].sort(()=>Math.random()-.5);
+    let deck=verbs.map((_,i)=>i),deckPos=0;
+    function asset(n){return String(n+1).padStart(2,"0")}
+    function current(){return verbs[deck[deckPos]]}
+    function renderDeck(){const i=deck[deckPos],v=verbs[i];$("frontImg").src=`assets/front/${asset(i)}.jpg`;$("frontImg").alt=v.past;$("backImg").src=`assets/back/${asset(i)}.jpg`;$("backImg").alt=`${v.base}, ${v.past}, example and question`;$("deckCounter").textContent=`${deckPos+1} / 30 · ${v.past.toUpperCase()}`;$("flipCard").classList.remove("flipped")}
+    function speak(text,rate=.9){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang==="en-US"&&/Google|Microsoft|Samantha|Alex/i.test(v.name))||voices.find(v=>v.lang==="en-US")||null;speechSynthesis.speak(u)}
+    $("flipCard").onclick=()=>$("flipCard").classList.toggle("flipped");$("flipCard").onkeydown=e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();$("flipCard").click()}};$("flipButton").onclick=()=>$("flipCard").click();
+    $("prevCard").onclick=()=>{deckPos=(deckPos+29)%30;renderDeck()};$("nextCard").onclick=()=>{deckPos=(deckPos+1)%30;renderDeck()};$("shuffleDeck").onclick=()=>{deck=shuffle(deck);deckPos=0;renderDeck()};$("resetDeck").onclick=()=>{deck=verbs.map((_,i)=>i);deckPos=0;renderDeck()};
+    $("playWord").onclick=()=>{const v=current();speak(`${v.base}. ${v.spoken||v.past}. ${v.spoken||v.past}.`,.82)};$("playExample").onclick=()=>speak(current().example);$("playQuestion").onclick=()=>speak(current().question);
+
+    function makeChoiceGame(prefix,getPrompt,getAnswer,getOptions,onPlay){let item=null,score=0,locked=false;const render=()=>{locked=false;item=getPrompt();getOptions(item).forEach(()=>{});const box=$(prefix+"Choices");box.innerHTML="";getOptions(item).forEach(text=>{const b=document.createElement("button");b.className="choice";b.textContent=text;b.onclick=()=>{if(locked)return;locked=true;const ok=text===getAnswer(item);b.classList.add(ok?"correct":"wrong");if(ok){score++;$(prefix+"Feedback").textContent="Correct.";$(prefix+"Feedback").className="feedback good"}else{$(prefix+"Feedback").textContent=`Answer: ${getAnswer(item)}`;$(prefix+"Feedback").className="feedback bad";[...box.children].find(x=>x.textContent===getAnswer(item))?.classList.add("correct")}$(prefix+"Score").textContent=`${score} correct`};box.appendChild(b)});$(prefix+"Feedback").textContent="";$(prefix+"Feedback").className="feedback";return item};$(prefix+"Next").onclick=render;const api={render,get item(){return item}};render();if(onPlay)onPlay(api);return api}
+    const listenGame=makeChoiceGame("listen",()=>verbs[Math.floor(Math.random()*verbs.length)],v=>v.past,v=>shuffle([v.past,...shuffle(verbs.filter(x=>x!==v)).slice(0,3).map(x=>x.past)]),api=>{$("listenPlay").onclick=()=>speak(api.item.spoken||api.item.past,.78)});
+    const formGame=makeChoiceGame("form",()=>verbs[Math.floor(Math.random()*verbs.length)],v=>v.past,v=>{ $("formBase").textContent=v.base.toUpperCase();const wrong=[v.base+"ed",v.base+"d",...shuffle(verbs).slice(0,3).map(x=>x.past)].filter((x,i,a)=>x!==v.past&&a.indexOf(x)===i).slice(0,3);return shuffle([v.past,...wrong])});
+
+    const meanings=[
+      ["Yesterday I prepared pasta for dinner.","cooked",["cooked","drank","wrote","ran"]],["The bus was late, so I stayed at the stop for ten minutes.","waited",["went","waited","came","slept"]],
+      ["I paid for a new jacket at the mall.","bought",["gave","took","bought","had"]],["My alarm rang at 6:30 and I opened my eyes.","woke up",["got up","woke up","slept","came"]],
+      ["I sent a message on paper with a pen.","wrote",["read","studied","wrote","called"]],["I moved quickly through the park for exercise.","ran",["walked","ran","went","worked"]],
+      ["My friend arrived at my apartment at eight.","came",["went","came","called","gave"]],["I put the camera in my hand and made a photo.","took",["looked","used","took","bought"]]
+    ];let meaningScore=0,meaningItem;
+    function renderMeaning(){meaningItem=meanings[Math.floor(Math.random()*meanings.length)];$("meaningPrompt").textContent=meaningItem[0];$("meaningFeedback").textContent="";const box=$("meaningChoices");box.innerHTML="";shuffle(meaningItem[2]).forEach(text=>{const b=document.createElement("button");b.className="choice";b.textContent=text;b.onclick=()=>{if([...box.children].some(x=>x.classList.contains("correct")))return;const ok=text===meaningItem[1];b.classList.add(ok?"correct":"wrong");if(ok)meaningScore++;else[...box.children].find(x=>x.textContent===meaningItem[1]).classList.add("correct");$("meaningFeedback").textContent=ok?"Correct.":`Answer: ${meaningItem[1]}`;$("meaningFeedback").className=`feedback ${ok?"good":"bad"}`;$("meaningScore").textContent=`${meaningScore} correct`};box.appendChild(b)})}$("meaningNext").onclick=renderMeaning;renderMeaning();
+
+    let soundSelected=null,soundSet=[];
+    function renderSounds(){soundSet=shuffle(verbs.filter(v=>v.sound)).slice(0,12);soundSelected=null;document.querySelectorAll(".bin-items").forEach(x=>x.innerHTML="");const pool=$("soundPool");pool.innerHTML="";soundSet.forEach(v=>{const b=document.createElement("button");b.className="word";b.textContent=v.past;b.dataset.sound=v.sound;b.onclick=()=>{document.querySelectorAll(".word").forEach(x=>x.classList.remove("selected"));soundSelected=b;b.classList.add("selected")};pool.appendChild(b)});$("soundFeedback").textContent=""}
+    document.querySelectorAll(".bin").forEach(bin=>bin.onclick=()=>{if(!soundSelected)return;const ok=bin.dataset.sound===soundSelected.dataset.sound;$("soundFeedback").textContent=ok?"Correct.":`Try again: ${soundSelected.textContent} is not ${bin.querySelector("strong").textContent}.`;$("soundFeedback").className=`feedback ${ok?"good":"bad"}`;if(ok){soundSelected.classList.add("placed");bin.querySelector(".bin-items").append(soundSelected.cloneNode(true));soundSelected.disabled=true;soundSelected=null;if(document.querySelectorAll("#soundPool .placed").length===soundSet.length)$("soundFeedback").textContent="Great — all 12 are correct."}});$("soundReset").onclick=renderSounds;renderSounds();
+
+    const structures=[
+      {hint:"Affirmative",words:["I","walked","to","the","store","yesterday."],answer:"I walked to the store yesterday."},
+      {hint:"Negative",words:["She","didn't","watch","TV","last","night."],answer:"She didn't watch TV last night."},
+      {hint:"Question",words:["Did","you","cook","dinner","yesterday?"],answer:"Did you cook dinner yesterday?"},
+      {hint:"Wh- question",words:["Where","did","they","go","on","Sunday?"],answer:"Where did they go on Sunday?"},
+      {hint:"Irregular affirmative",words:["We","ate","tacos","for","lunch."],answer:"We ate tacos for lunch."},
+      {hint:"Irregular negative",words:["He","didn't","take","the","bus."],answer:"He didn't take the bus."},
+      {hint:"Question",words:["What","did","you","buy","last","weekend?"],answer:"What did you buy last weekend?"}
+    ];let structureIndex=0,chosen=[];
+    function renderStructure(){chosen=[];const s=structures[structureIndex];$("structureHint").textContent=s.hint;$("answerLine").innerHTML="";$("tokenPool").innerHTML="";shuffle(s.words).forEach(word=>{const b=document.createElement("button");b.className="token";b.textContent=word;b.onclick=()=>{chosen.push(word);b.disabled=true;b.style.opacity=.35;const c=document.createElement("button");c.className="token";c.textContent=word;c.onclick=()=>renderStructure();$("answerLine").appendChild(c)};$("tokenPool").appendChild(b)});$("structureFeedback").textContent="";$("structureFeedback").className="feedback"}
+    $("structureCheck").onclick=()=>{const made=chosen.join(" ");const ok=made===structures[structureIndex].answer;$("structureFeedback").textContent=ok?"Correct sentence.":"Check the order and remember: after did/didn't, use the base verb.";$("structureFeedback").className=`feedback ${ok?"good":"bad"}`};$("structureReset").onclick=renderStructure;$("structureNext").onclick=()=>{structureIndex=(structureIndex+1)%structures.length;renderStructure()};renderStructure();renderDeck();
+  </script>
+</body>
+</html>
