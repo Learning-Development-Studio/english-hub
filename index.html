@@ -186,6 +186,7 @@
         <label>Level
           <select id="level" name="level" required>
             <option value="" disabled selected>Select your level</option>
+            <option value="Guest">Guest</option>
             <option value="PreA1">PreA1</option>
             <option value="A1.1">A1.1</option>
             <option value="A1.2">A1.2</option>
@@ -212,7 +213,7 @@
   </main>
   <script>
     (function () {
-      const PINS = {"PreA1":"2600","A1.1":"2611","A1.2":"2612","A2.1":"2621","A2.2":"2622","B1.1":"2631","B1.2":"2632","B1+":"2639","Business":"2641","TOEFL":"2642","TOEIC":"2643"};
+      const PINS = {"Guest":"2600","PreA1":"2600","A1.1":"2611","A1.2":"2612","A2.1":"2621","A2.2":"2622","B1.1":"2631","B1.2":"2632","B1+":"2639","Business":"2641","TOEFL":"2642","TOEIC":"2643"};
       const ROUTES = {
         "Business": "https://israelventura104-afk.github.io/business-english/"
       };
