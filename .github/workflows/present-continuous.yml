@@ -1,9 +1,6 @@
 name: Publish Present Continuous in A1.2
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/present-continuous.yml'
 permissions:
   contents: write
 concurrency:
