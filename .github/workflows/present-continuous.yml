@@ -1,0 +1,90 @@
+name: Publish Present Continuous in A1.2
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/present-continuous.yml'
+permissions:
+  contents: write
+concurrency:
+  group: publish-present-continuous
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: hub
+      - uses: actions/checkout@v4
+        with:
+          repository: Learning-Development-Studio/Present-Continuous
+          ref: 02b12c3163b37d28fa69be17ec6c63146c2b85fc
+          path: lesson
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare static paths and build dependencies
+        working-directory: lesson
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, shutil
+          p = Path('src/data/curriculumContent.ts')
+          s = p.read_text()
+          s = s.replace("'/assets/", "import.meta.env.BASE_URL + 'assets/")
+          s = s.replace("'/src/assets/images/", "import.meta.env.BASE_URL + 'images/")
+          s = s.replace("`/assets/", "import.meta.env.BASE_URL + `assets/")
+          p.write_text(s)
+          shutil.copytree('src/assets/images', 'public/images', dirs_exist_ok=True)
+          p = Path('index.html')
+          p.write_text(p.read_text().replace('href="/assets/', 'href="./assets/'))
+          package = {
+            "private": True, "type": "module",
+            "scripts": {"build": "vite build --base=./"},
+            "dependencies": {
+              "react": "19.0.0", "react-dom": "19.0.0",
+              "lucide-react": "0.468.0", "motion": "12.4.7",
+              "vite": "6.1.0", "@vitejs/plugin-react": "4.3.4",
+              "tailwindcss": "4.0.9", "@tailwindcss/vite": "4.0.9",
+              "typescript": "5.7.3", "@types/node": "22.13.5"
+            }
+          }
+          Path('package.json').write_text(json.dumps(package, indent=2))
+          PY
+      - name: Compile lesson
+        working-directory: lesson
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Verify assets and install lesson
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil, re
+          build = Path('lesson/dist')
+          assert (build / 'index.html').is_file()
+          assert len(list((build / 'images').glob('*.jpg'))) == 5
+          assert (build / 'assets/aistudio/logo-oficial-circular-transparente_17e956b8.png').is_file()
+          html = (build / 'index.html').read_text()
+          for asset in re.findall(r'(?:src|href)="(\./assets/[^"]+)"', html):
+              assert (build / asset).is_file(), asset
+          target = Path('hub/A1.2/present-continuous')
+          shutil.copytree(build, target, dirs_exist_ok=True)
+          p = Path('hub/A1.2/index.html')
+          s = p.read_text()
+          link = '<a class="row" href="./present-continuous/"><span class="glyph navy">PC</span><div><h3>Present Continuous</h3><p>Live updates · Actions happening now, vocabulary, and interactive practice.</p></div><span class="chev">›</span></a>'
+          if 'href="./present-continuous/"' not in s:
+              s = s.replace('  </div><footer', '    ' + link + '\n  </div><footer')
+          assert 'href="./present-continuous/"' in s
+          p.write_text(s)
+          PY
+      - name: Commit published lesson
+        working-directory: hub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add A1.2/present-continuous A1.2/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Present Continuous lesson to A1.2"
+          git push
