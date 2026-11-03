@@ -1316,9 +1316,12 @@
         const level = document.getElementById('activeLevelCode').value;
         const err = document.getElementById('modalError');
 
-        // COORDINATOR
+        // COORDINATOR (Israel Ventura)
+        const COORDINATOR_PINS = ['5726', '8826'];
+        const TEACHER_PINS = ['2680', '5726', '8826'];
+
         if (role === 'coordinator') {
-          if (pin === '2026' || pin === 'admin' || pin === '2600') {
+          if (COORDINATOR_PINS.includes(pin)) {
             try {
               sessionStorage.setItem("ld-coordinator-auth", "granted");
             } catch (_) {}
@@ -1333,7 +1336,7 @@
 
         // TEACHER
         if (role === 'teacher') {
-          if (pin === '2026' || pin === 'admin' || pin === '2600' || pin === PINS[level]) {
+          if (TEACHER_PINS.includes(pin) || pin === PINS[level]) {
             if (level === 'A1.2' || level === 'A2.1') {
               window.location.href = './teacher-hub/' + level + '/simple-present/';
             } else {
@@ -1355,7 +1358,7 @@
         }
 
         const validPin = PINS[level];
-        const isValid = (pin === validPin || pin === '2026' || pin === 'admin' || pin === '2600');
+        const isValid = (pin === validPin || COORDINATOR_PINS.includes(pin));
 
         if (!isValid) {
           err.innerText = 'Incorrect PIN for that level. Please check with your instructor.';
