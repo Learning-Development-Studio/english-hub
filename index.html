@@ -659,21 +659,125 @@
       background: rgba(212, 168, 67, 0.15) !important;
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE ENHANCEMENTS (TABLET & MOBILE) */
     @media (max-width: 860px) {
       .stage-row {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 20px;
+        padding: 22px 20px;
       }
       .top-nav {
         padding: 10px 18px;
       }
+    }
+
+    @media (max-width: 640px) {
+      /* TOP NAV MOBILE */
+      .top-nav {
+        padding: 8px 14px;
+        height: 62px;
+      }
       .brand-wrap {
-        height: 44px;
+        height: 40px;
       }
       .brand-lockup-img {
-        height: 80px;
-        margin: -18px 0;
+        height: 74px;
+        margin: -17px 0;
+      }
+      .nav-actions {
+        gap: 6px;
+      }
+      /* Hide redundant text link on tiny screens, keeping hero demo & teacher map */
+      .nav-actions .btn-ghost:not(.coordinator-link) {
+        display: none;
+      }
+      .coordinator-link {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+        border: 1px solid rgba(212, 168, 67, 0.45);
+        border-radius: 999px;
+      }
+      .btn-gold {
+        padding: 8px 14px !important;
+        font-size: 12px !important;
+      }
+
+      /* HERO SECTION ON MOBILE (OPTIMIZED CONTRAST & FRAMING) */
+      .hero-container {
+        min-height: 84vh;
+        padding: 40px 18px 70px;
+        background-position: 70% 30% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Multi-layer protective dark scrim so text never clashes with the bright sunset */
+      .hero-overlay {
+        background: 
+          radial-gradient(circle at 65% 28%, rgba(7, 21, 39, 0.35) 0%, rgba(7, 21, 39, 0.85) 55%, rgba(7, 21, 39, 0.95) 100%),
+          linear-gradient(180deg, rgba(7, 21, 39, 0.82) 0%, rgba(7, 21, 39, 0.60) 40%, rgba(7, 21, 39, 0.92) 80%, #f8fafc 100%) !important;
+      }
+      .hero-bottom-wash {
+        height: 90px !important; /* Shorter wash so it doesn't create a milky cloud */
+        background: linear-gradient(to bottom, transparent 0%, rgba(248, 250, 252, 0.5) 60%, #f8fafc 100%) !important;
+      }
+      .hero-content {
+        margin-left: 0 !important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-pill {
+        font-size: 10px !important;
+        padding: 7px 14px !important;
+        letter-spacing: 0.08em !important;
+        margin-bottom: 16px !important;
+        background: rgba(7, 21, 39, 0.82) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(212, 168, 67, 0.65) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      }
+      .hero-title {
+        font-size: 35px !important;
+        line-height: 1.12 !important;
+        margin-bottom: 14px !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+      }
+      .hero-subtitle {
+        font-size: 14.5px !important;
+        line-height: 1.55 !important;
+        max-width: 100% !important;
+        margin-bottom: 24px !important;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+        color: #e2e8f0 !important;
+      }
+      .hero-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .hero-actions .btn-gold,
+      .hero-actions .btn-secondary {
+        width: 100%;
+        max-width: 290px;
+        justify-content: center;
+        padding: 12px 18px !important;
+        font-size: 13.5px !important;
+      }
+
+      /* LEVEL PILLS ON MOBILE */
+      .level-pill {
+        min-width: 100%;
+      }
+      .main-wrapper {
+        padding: 0 16px;
+      }
+      .section-title {
+        font-size: 26px !important;
       }
     }
   </style>
