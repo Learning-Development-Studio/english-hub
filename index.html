@@ -83,11 +83,11 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .btn-ghost {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
       color: #cbd5e1;
       text-decoration: none;
@@ -100,27 +100,23 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* DEDICATED ACADEMIC COORDINATOR BUTTON */
-    .btn-coordinator {
-      font-size: 13px;
+    /* ACADEMIC COORDINATOR LINK IN SLEEK GOLD TEXT (NO EMOJI, NO BULKY BUTTON) */
+    .coordinator-link {
+      color: var(--gold) !important;
       font-weight: 700;
-      color: var(--gold);
-      background: rgba(212, 168, 67, 0.12);
-      border: 1px solid rgba(212, 168, 67, 0.4);
-      padding: 8px 18px;
+      font-size: 13.5px;
+      text-decoration: none;
+      padding: 8px 16px;
       border-radius: 999px;
+      transition: all .2s;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all .2s ease;
+      background: transparent;
+      border: 0;
       font-family: inherit;
     }
-    .btn-coordinator:hover {
-      background: rgba(212, 168, 67, 0.22);
-      border-color: var(--gold);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.25);
+    .coordinator-link:hover {
+      color: #ffffff !important;
+      background: rgba(212, 168, 67, 0.15) !important;
     }
 
     /* STUDENT ACCESS GOLD BUTTON */
@@ -130,7 +126,7 @@
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
       color: #071527;
       text-decoration: none;
-      padding: 9px 22px;
+      padding: 10px 24px;
       border-radius: 999px;
       box-shadow: 0 4px 14px rgba(212, 168, 67, 0.32);
       transition: all .2s;
@@ -360,20 +356,21 @@
       align-items: center;
     }
 
-    /* LEVEL PILL WITH DUAL STUDENT / TEACHER BUTTONS */
+    /* LEVEL PILLS (CLEAN, ELEGANT, UNCLUTTERED) */
     .level-pill {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 12px 16px;
-      display: flex;
+      border-radius: 14px;
+      padding: 13px 18px;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      cursor: pointer;
+      text-decoration: none;
       color: var(--ink);
       transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
       flex: 1 1 calc(33.333% - 12px);
-      min-width: 220px;
-      box-shadow: var(--shadow-sm);
+      min-width: 190px;
     }
     .level-pill:hover {
       background: #ffffff;
@@ -409,7 +406,7 @@
       text-overflow: ellipsis;
     }
     .pill-meta {
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--muted);
       font-weight: 500;
       white-space: nowrap;
@@ -417,40 +414,16 @@
       text-overflow: ellipsis;
     }
 
-    /* MINI ACTION BUTTONS FOR STUDENT & TEACHER */
-    .pill-actions {
-      display: flex;
-      gap: 4px;
+    .pill-arrow {
+      margin-left: auto;
+      font-size: 14px;
+      color: var(--muted);
+      transition: transform .2s, color .2s;
       flex-shrink: 0;
     }
-    .pill-btn {
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 8px;
-      padding: 5px 8px;
-      border: 0;
-      cursor: pointer;
-      transition: all .15s;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .pill-btn.student {
-      background: rgba(11, 31, 58, 0.08);
-      color: var(--navy-main);
-    }
-    .pill-btn.student:hover {
-      background: var(--navy-main);
-      color: #ffffff;
-    }
-    .pill-btn.teacher {
-      background: rgba(212, 168, 67, 0.16);
+    .level-pill:hover .pill-arrow {
+      transform: translateX(4px);
       color: var(--gold-dark);
-    }
-    .pill-btn.teacher:hover {
-      background: var(--gold);
-      color: #071527;
     }
 
     /* SPECIAL TRACKS */
@@ -462,6 +435,16 @@
       border-color: var(--teal);
     }
     .stage-row.special-track .stage-number {
+      color: var(--teal);
+    }
+
+    .level-pill.teal-pill:hover {
+      border-color: var(--teal);
+    }
+    .level-pill.teal-pill:hover .pill-code {
+      color: var(--teal);
+    }
+    .level-pill.teal-pill:hover .pill-arrow {
       color: var(--teal);
     }
 
@@ -566,7 +549,7 @@
       color: var(--ink);
     }
 
-    /* ROLE SWITCHER TABS INSIDE MODAL */
+    /* ROLE SWITCHER TABS INSIDE MODAL (STUDENT / TEACHER) */
     .role-tabs {
       display: flex;
       background: var(--paper);
@@ -578,11 +561,11 @@
     }
     .role-tab {
       flex: 1;
-      padding: 8px 10px;
+      padding: 9px 12px;
       border-radius: 8px;
       border: 0;
       font-family: inherit;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       background: transparent;
@@ -721,18 +704,18 @@
         margin: -16px 0;
       }
       .nav-actions {
-        gap: 6px;
+        gap: 8px;
       }
       .btn-ghost {
         display: none; /* Hide Guest Demo text in narrow mobile header */
       }
-      .btn-coordinator {
-        font-size: 11.5px;
-        padding: 6px 10px;
+      .coordinator-link {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
       }
       .btn-gold {
-        font-size: 12px;
-        padding: 7px 12px;
+        font-size: 12px !important;
+        padding: 7px 12px !important;
       }
 
       /* HERO MOBILE */
@@ -822,13 +805,13 @@
     <div class="nav-actions">
       <a href="./Guest/" class="btn-ghost">Guest Demo ↗</a>
       
-      <!-- DEDICATED ACADEMIC COORDINATOR BUTTON -->
-      <button class="btn-coordinator" onclick="openCoordinatorDirectModal()">
-        <span>🔒 Coordinator</span>
+      <!-- ACADEMIC COORDINATOR (SLEEK GOLD LETTERS, NO BULKY BUTTON, NO EMOJI) -->
+      <button type="button" class="coordinator-link" onclick="openCoordinatorModal()">
+        Academic Coordinator ↗
       </button>
 
-      <!-- STUDENT ACCESS BUTTON -->
-      <button class="btn-gold" onclick="openStudentModal('General', 'English Hub Student Workspace', 'PreA1', 'student')">
+      <!-- STUDENT ACCESS GOLD BUTTON -->
+      <button type="button" class="btn-gold" onclick="openStudentDirectModal()">
         Student Access &rarr;
       </button>
     </div>
@@ -883,42 +866,33 @@
         </div>
         <div class="pills-group">
           <!-- PRE-A1 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('PreA1', 'Pre-A1 · Absolute Beginners', 'PreA1')">
             <span class="pill-code">Pre-A1</span>
             <div class="pill-detail">
               <span class="pill-title">First Steps</span>
               <span class="pill-meta">Phonics &amp; Survival</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('PreA1', 'Pre-A1 · Absolute Beginners', 'PreA1', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('PreA1', 'Pre-A1 · Absolute Beginners', 'PreA1', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- A1.1 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('A1.1', 'A1.1 · Who I Am &amp; Surroundings', 'A1.1')">
             <span class="pill-code">A1.1</span>
             <div class="pill-detail">
               <span class="pill-title">Who I Am</span>
               <span class="pill-meta">Identity &amp; Spaces</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('A1.1', 'A1.1 · Who I Am &amp; Spaces', 'A1.1', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('A1.1', 'A1.1 · Who I Am &amp; Spaces', 'A1.1', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- A1.2 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('A1.2', 'A1.2 · Daily Life &amp; Actions', 'A1.2')">
             <span class="pill-code">A1.2</span>
             <div class="pill-detail">
               <span class="pill-title">Daily Life</span>
               <span class="pill-meta">Habits &amp; Continuous</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('A1.2', 'A1.2 · Daily Life &amp; Actions', 'A1.2', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('A1.2', 'A1.2 · Daily Life &amp; Actions', 'A1.2', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -932,29 +906,23 @@
         </div>
         <div class="pills-group">
           <!-- A2.1 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('A2.1', 'A2.1 · Past Events &amp; City', 'A2.1')">
             <span class="pill-code">A2.1</span>
             <div class="pill-detail">
               <span class="pill-title">Past Events</span>
               <span class="pill-meta">City &amp; Simple Past</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('A2.1', 'A2.1 · Past Events &amp; City', 'A2.1', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('A2.1', 'A2.1 · Past Events &amp; City', 'A2.1', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- A2.2 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('A2.2', 'A2.2 · Comparisons &amp; Experience', 'A2.2')">
             <span class="pill-code">A2.2</span>
             <div class="pill-detail">
               <span class="pill-title">Comparisons</span>
               <span class="pill-meta">Future &amp; Present Perfect</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('A2.2', 'A2.2 · Comparisons &amp; Future', 'A2.2', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('A2.2', 'A2.2 · Comparisons &amp; Future', 'A2.2', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -968,42 +936,33 @@
         </div>
         <div class="pills-group">
           <!-- B1.1 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('B1.1', 'B1.1 · Stories &amp; Trajectories', 'B1.1')">
             <span class="pill-code">B1.1</span>
             <div class="pill-detail">
               <span class="pill-title">Stories &amp; Goals</span>
               <span class="pill-meta">Narrative &amp; Gerunds</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('B1.1', 'B1.1 · Stories &amp; Trajectories', 'B1.1', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('B1.1', 'B1.1 · Stories &amp; Trajectories', 'B1.1', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- B1.2 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('B1.2', 'B1.2 · Complex Situations', 'B1.2')">
             <span class="pill-code">B1.2</span>
             <div class="pill-detail">
               <span class="pill-title">Disruptions</span>
               <span class="pill-meta">Passive &amp; 2nd Conditional</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('B1.2', 'B1.2 · Complex Situations', 'B1.2', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('B1.2', 'B1.2 · Complex Situations', 'B1.2', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- B1+ -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('B1+', 'B1+ · Professional Synthesis', 'B1+')">
             <span class="pill-code">B1+</span>
             <div class="pill-detail">
               <span class="pill-title">Synthesis</span>
               <span class="pill-meta">Mediation &amp; Pitching</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('B1+', 'B1+ · Professional Synthesis', 'B1+', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('B1+', 'B1+ · Professional Synthesis', 'B1+', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -1017,29 +976,23 @@
         </div>
         <div class="pills-group">
           <!-- B2 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('B2', 'B2 · Vantage &amp; Nuance', 'B1+')">
             <span class="pill-code">B2</span>
             <div class="pill-detail">
               <span class="pill-title">Nuance &amp; Vantage</span>
               <span class="pill-meta">3rd Cond. &amp; Argumentation</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('B2', 'B2 · Vantage &amp; Nuance', 'B1+', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('B2', 'B2 · Vantage &amp; Nuance', 'B1+', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- C1 -->
-          <div class="level-pill">
+          <div class="level-pill" onclick="openLevelModal('C1', 'C1 · Effective Operational', 'B1+')">
             <span class="pill-code">C1</span>
             <div class="pill-detail">
               <span class="pill-title">Executive Fluency</span>
               <span class="pill-meta">Inversion &amp; Oratory</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('C1', 'C1 · Effective Operational', 'B1+', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('C1', 'C1 · Effective Operational', 'B1+', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -1065,82 +1018,58 @@
           <p class="stage-summary">High-stakes corporate communication: crisis management, deal-making, diplomatic writing, and executive leadership (24 lessons across 6 tracks).</p>
         </div>
         <div class="pills-group">
-          <!-- Track 1 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 1', 'Business English · Operations, Crisis &amp; Time', 'Business')">
             <span class="pill-code">Track 1</span>
             <div class="pill-detail">
-              <span class="pill-title">Crisis &amp; Ops</span>
-              <span class="pill-meta">Bottlenecks &amp; Deadlines</span>
+              <span class="pill-title">Crisis &amp; Logistics</span>
+              <span class="pill-meta">Deadlines &amp; Bottlenecks</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 1', 'Business English · Crisis &amp; Operations', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 1', 'Business English · Crisis &amp; Operations', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
-          <!-- Track 2 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 2', 'Business English · High-Stakes Meetings &amp; Pitches', 'Business')">
             <span class="pill-code">Track 2</span>
             <div class="pill-detail">
-              <span class="pill-title">Meetings</span>
+              <span class="pill-title">High-Stakes Meetings</span>
               <span class="pill-meta">Debriefs &amp; Signposting</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 2', 'Business English · High-Stakes Meetings', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 2', 'Business English · High-Stakes Meetings', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
-          <!-- Track 3 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 3', 'Business English · Business Writing &amp; Diplomacy', 'Business')">
             <span class="pill-code">Track 3</span>
             <div class="pill-detail">
-              <span class="pill-title">Writing</span>
+              <span class="pill-title">Writing &amp; Diplomacy</span>
               <span class="pill-meta">Tact, Pushback &amp; Clarity</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 3', 'Business English · Writing &amp; Diplomacy', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 3', 'Business English · Writing &amp; Diplomacy', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
-          <!-- Track 4 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 4', 'Business English · Negotiations, Contracts &amp; Deals', 'Business')">
             <span class="pill-code">Track 4</span>
             <div class="pill-detail">
-              <span class="pill-title">Negotiations</span>
+              <span class="pill-title">Negotiations &amp; Deals</span>
               <span class="pill-meta">Quid Pro Quo &amp; Leverage</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 4', 'Business English · Deals &amp; Negotiations', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 4', 'Business English · Deals &amp; Negotiations', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
-          <!-- Track 5 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 5', 'Business English · Leadership, Talent &amp; Conflict', 'Business')">
             <span class="pill-code">Track 5</span>
             <div class="pill-detail">
-              <span class="pill-title">Leadership</span>
+              <span class="pill-title">Leadership &amp; Conflict</span>
               <span class="pill-meta">Tough Feedback &amp; Buy-in</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 5', 'Business English · Leadership &amp; Conflict', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 5', 'Business English · Leadership &amp; Conflict', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
-          <!-- Track 6 -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('Track 6', 'Business English · Strategy, Metrics &amp; High Finance', 'Business')">
             <span class="pill-code">Track 6</span>
             <div class="pill-detail">
-              <span class="pill-title">Strategy</span>
+              <span class="pill-title">Strategy &amp; Metrics</span>
               <span class="pill-meta">KPIs, OKRs &amp; Forecasts</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('Track 6', 'Business English · Strategy &amp; Metrics', 'Business', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('Track 6', 'Business English · Strategy &amp; Metrics', 'Business', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -1154,55 +1083,43 @@
         </div>
         <div class="pills-group">
           <!-- TOEIC LISTENING -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('TOEIC', 'TOEIC® Listening Strategy · Auditory Traps', 'TOEIC')">
             <span class="pill-code">TOEIC</span>
             <div class="pill-detail">
-              <span class="pill-title">Listening &amp; Traps</span>
-              <span class="pill-meta">Acoustic Distractors</span>
+              <span class="pill-title">Auditory Traps &amp; Listening</span>
+              <span class="pill-meta">Acoustic Distractors &amp; Global Accents</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('TOEIC', 'TOEIC® Listening Strategy', 'TOEIC', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('TOEIC', 'TOEIC® Listening Strategy', 'TOEIC', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- TOEIC READING -->
-          <div class="level-pill">
+          <div class="level-pill teal-pill" onclick="openLevelModal('TOEIC', 'TOEIC® Reading Architecture · Speed &amp; Parts 5-7', 'TOEIC')">
             <span class="pill-code">TOEIC</span>
             <div class="pill-detail">
-              <span class="pill-title">Reading &amp; Syntax</span>
-              <span class="pill-meta">Parts 5, 6 &amp; 7 Speed</span>
+              <span class="pill-title">Speed Reading &amp; Syntax</span>
+              <span class="pill-meta">Parts 5, 6 &amp; 7 Multi-Passage Cross-Ref</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('TOEIC', 'TOEIC® Reading Architecture', 'TOEIC', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('TOEIC', 'TOEIC® Reading Architecture', 'TOEIC', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- TOEFL ITP STRUCTURE -->
-          <div class="level-pill">
-            <span class="pill-code">TOEFL</span>
+          <div class="level-pill teal-pill" onclick="openLevelModal('TOEFL', 'TOEFL ITP® Section 2 · Structure &amp; Errors', 'TOEFL')">
+            <span class="pill-code">TOEFL ITP</span>
             <div class="pill-detail">
-              <span class="pill-title">Structure &amp; Errors</span>
-              <span class="pill-meta">Sentence Completion</span>
+              <span class="pill-title">Structure &amp; Error Detection</span>
+              <span class="pill-meta">Sentence Completion &amp; Underlined Traps</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('TOEFL', 'TOEFL ITP® Section 2', 'TOEFL', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('TOEFL', 'TOEFL ITP® Section 2', 'TOEFL', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
 
           <!-- TOEFL ITP ACADEMIC -->
-          <div class="level-pill">
-            <span class="pill-code">TOEFL</span>
+          <div class="level-pill teal-pill" onclick="openLevelModal('TOEFL', 'TOEFL ITP® Sections 1 &amp; 3 · Academic Listening &amp; Reading', 'TOEFL')">
+            <span class="pill-code">TOEFL ITP</span>
             <div class="pill-detail">
-              <span class="pill-title">Academic &amp; Reading</span>
-              <span class="pill-meta">Campus Inferences</span>
+              <span class="pill-title">Academic Listening &amp; Reading</span>
+              <span class="pill-meta">Campus Inferences &amp; Expository Passages</span>
             </div>
-            <div class="pill-actions">
-              <button class="pill-btn student" onclick="openStudentModal('TOEFL', 'TOEFL ITP® Sections 1 &amp; 3', 'TOEFL', 'student')">Student</button>
-              <button class="pill-btn teacher" onclick="openStudentModal('TOEFL', 'TOEFL ITP® Sections 1 &amp; 3', 'TOEFL', 'teacher')">Teacher</button>
-            </div>
+            <span class="pill-arrow">&rarr;</span>
           </div>
         </div>
       </div>
@@ -1226,27 +1143,24 @@
     </div>
   </footer>
 
-  <!-- ACCESS MODAL (STUDENT / TEACHER / COORDINATOR) -->
+  <!-- ACCESS MODAL -->
   <div class="modal-backdrop" id="accessModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeAccessModal()">&times;</button>
+      <button type="button" class="modal-close" onclick="closeAccessModal()">&times;</button>
       
-      <!-- ROLE SELECTOR TABS -->
-      <div class="role-tabs">
+      <!-- ROLE SELECTOR TABS (STUDENT & TEACHER INSIDE THE MODAL) -->
+      <div class="role-tabs" id="modalRoleTabs">
         <button type="button" class="role-tab active" id="tabStudent" onclick="switchRole('student')">
-          <span>🎓 Student</span>
+          <span>🎓 Student Workspace</span>
         </button>
         <button type="button" class="role-tab" id="tabTeacher" onclick="switchRole('teacher')">
-          <span>🍎 Teacher</span>
-        </button>
-        <button type="button" class="role-tab" id="tabCoordinator" onclick="switchRole('coordinator')">
-          <span>🔒 Coordinator</span>
+          <span>🍎 Teacher Resources</span>
         </button>
       </div>
 
       <span class="modal-kicker" id="modalRoleBadge">STUDENT ACCESS</span>
       <h3 class="modal-title" id="modalLevelTitle">Sign In</h3>
-      <p class="modal-desc" id="modalLevelDesc">Enter your credentials to continue.</p>
+      <p class="modal-desc" id="modalLevelDesc">Enter your student name and active PIN to access your workspace.</p>
 
       <form class="modal-form" onsubmit="handleAccessSubmit(event)">
         <input type="hidden" id="activeLevelCode" value="A1.1">
@@ -1295,14 +1209,14 @@
       };
 
       let currentBadge = 'A1.1';
-      let currentTitle = 'A1.1 · Who I Am & Spaces';
+      let currentTitle = 'A1.1 · Who I Am & Surroundings';
       let currentLevel = 'A1.1';
 
       window.switchRole = function(role) {
         document.getElementById('activeRole').value = role;
         const tabStudent = document.getElementById('tabStudent');
         const tabTeacher = document.getElementById('tabTeacher');
-        const tabCoord = document.getElementById('tabCoordinator');
+        const tabsContainer = document.getElementById('modalRoleTabs');
         const labelName = document.getElementById('labelName');
         const inputName = document.getElementById('inputName');
         const labelPin = document.getElementById('labelPin');
@@ -1313,20 +1227,20 @@
         const err = document.getElementById('modalError');
         err.classList.remove('show');
 
-        tabStudent.classList.toggle('active', role === 'student');
-        tabTeacher.classList.toggle('active', role === 'teacher');
-        tabCoord.classList.toggle('active', role === 'coordinator');
-
         if (role === 'coordinator') {
+          tabsContainer.style.display = 'none';
           badge.innerText = 'ACADEMIC COORDINATOR';
           title.innerText = "Master Teachers' Map";
-          desc.innerText = 'Full institutional access across all levels, lesson plans, and activities.';
+          desc.innerText = 'Institutional access for Israel Ventura to view and manage all level curricula and activities.';
           labelName.innerText = 'Coordinator User';
           inputName.value = 'Academic Coordinator (Israel Ventura)';
           inputName.readOnly = true;
           labelPin.innerText = 'Coordinator Access PIN';
           btn.innerHTML = "Open Teachers' Map &rarr;";
         } else if (role === 'teacher') {
+          tabsContainer.style.display = 'flex';
+          tabStudent.classList.remove('active');
+          tabTeacher.classList.add('active');
           badge.innerText = 'TEACHER RESOURCES · ' + currentBadge;
           title.innerText = currentTitle + ' (Teacher Hub)';
           desc.innerText = 'Enter teacher PIN to access lesson plans, warm-ups, and games for ' + currentBadge + '.';
@@ -1336,6 +1250,9 @@
           labelPin.innerText = 'Teacher PIN';
           btn.innerHTML = 'Open Teacher Hub &rarr;';
         } else {
+          tabsContainer.style.display = 'flex';
+          tabTeacher.classList.remove('active');
+          tabStudent.classList.add('active');
           badge.innerText = 'STUDENT ACCESS · ' + currentBadge;
           title.innerText = currentTitle;
           desc.innerText = 'Enter your student name and active PIN for ' + currentBadge + '.';
@@ -1354,20 +1271,29 @@
         pinEl.focus();
       };
 
-      window.openStudentModal = function(displayBadge, title, levelKey, role) {
+      // OPEN FROM LEVEL CARDS
+      window.openLevelModal = function(displayBadge, title, levelKey) {
         currentBadge = displayBadge;
         currentTitle = title;
         currentLevel = levelKey || 'A1.1';
         document.getElementById('activeLevelCode').value = currentLevel;
 
-        switchRole(role || 'student');
+        switchRole('student');
         document.getElementById('accessModal').classList.add('active');
       };
 
-      window.openCoordinatorDirectModal = function() {
+      // OPEN DIRECT STUDENT ACCESS BUTTON
+      window.openStudentDirectModal = function() {
+        openLevelModal('General', 'English Hub Student Workspace', 'PreA1');
+      };
+
+      // OPEN DIRECT ACADEMIC COORDINATOR
+      window.openCoordinatorModal = function() {
         currentBadge = 'All Levels';
         currentTitle = "Master Teachers' Map";
         currentLevel = 'All';
+        document.getElementById('activeLevelCode').value = 'All';
+
         switchRole('coordinator');
         document.getElementById('accessModal').classList.add('active');
       };
@@ -1408,7 +1334,6 @@
         // TEACHER
         if (role === 'teacher') {
           if (pin === '2026' || pin === 'admin' || pin === '2600' || pin === PINS[level]) {
-            // If level has teacher plans in teacher-hub
             if (level === 'A1.2' || level === 'A2.1') {
               window.location.href = './teacher-hub/' + level + '/simple-present/';
             } else {
