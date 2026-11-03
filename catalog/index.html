@@ -116,6 +116,24 @@
       .levels { top: 78px; }
     }
   </style>
+
+  <script>
+    (function() {
+      try {
+        const isAuthed = sessionStorage.getItem('ld-coordinator-auth') === 'granted';
+        if (!isAuthed) {
+          const pin = prompt('Academic Coordinator Access Required.\nEnter Coordinator PIN:');
+          if (pin === '2026' || pin === 'admin' || pin === '2600') {
+            sessionStorage.setItem('ld-coordinator-auth', 'granted');
+          } else {
+            alert('Access restricted to Academic Coordinator.');
+            window.location.href = '../';
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
+
 </head>
 <body>
   <div class="shell">
@@ -123,8 +141,8 @@
       <div class="brand">
         <div class="brand-mark" aria-hidden="true"><img src="../assets/logo.png" alt=""></div>
         <div>
-          <h1>Teacher map</h1>
-          <p>All levels · teaching order · no PIN</p>
+          <h1>Academic Coordinator &amp; Teacher Map</h1>
+          <p>Academic Coordinator: Israel Ventura &bull; Master Curriculum Map</p>
         </div>
       </div>
       <a class="home-btn" href="../">Student entry</a>
