@@ -1163,8 +1163,27 @@
       <p class="modal-desc" id="modalLevelDesc">Enter your student name and active PIN to access your workspace.</p>
 
       <form class="modal-form" onsubmit="handleAccessSubmit(event)">
-        <input type="hidden" id="activeLevelCode" value="A1.1">
+        <input type="hidden" id="activeLevelCode" value="auto">
         <input type="hidden" id="activeRole" value="student">
+
+        <div class="form-group" id="groupLevel">
+          <label id="labelLevel">Your Level</label>
+          <select class="form-input" id="selectLevel" onchange="onLevelSelectChange(this.value)">
+            <option value="auto">Auto-detect from PIN</option>
+            <option value="PreA1">Pre-A1 · Absolute Beginners</option>
+            <option value="A1.1">A1.1 · Who I Am &amp; Surroundings</option>
+            <option value="A1.2">A1.2 · Daily Life &amp; Actions</option>
+            <option value="A2.1">A2.1 · Past Events &amp; City</option>
+            <option value="A2.2">A2.2 · Comparisons &amp; Experience</option>
+            <option value="B1.1">B1.1 · Stories &amp; Trajectories</option>
+            <option value="B1.2">B1.2 · Complex Situations</option>
+            <option value="B1+">B1+ · Professional Synthesis</option>
+            <option value="Business">Business English (All Tracks)</option>
+            <option value="TOEFL">TOEFL Preparation</option>
+            <option value="TOEIC">TOEIC Preparation</option>
+            <option value="Guest">Guest Demo</option>
+          </select>
+        </div>
 
         <div class="form-group" id="groupName">
           <label id="labelName">Student Name</label>
@@ -1204,19 +1223,40 @@
         "TOEIC": "2643"
       };
 
+      const PIN_TO_LEVEL = {
+        "2600": "PreA1",
+        "2611": "A1.1",
+        "2612": "A1.2",
+        "2621": "A2.1",
+        "2622": "A2.2",
+        "2631": "B1.1",
+        "2632": "B1.2",
+        "2639": "B1+",
+        "2641": "Business",
+        "2642": "TOEFL",
+        "2643": "TOEIC"
+      };
+
       const ROUTES = {
         "Business": "https://israelventura104-afk.github.io/business-english/"
       };
 
-      let currentBadge = 'A1.1';
-      let currentTitle = 'A1.1 · Who I Am & Surroundings';
-      let currentLevel = 'A1.1';
+      let currentBadge = 'General';
+      let currentTitle = 'English Hub Student Workspace';
+      let currentLevel = 'auto';
+
+      window.onLevelSelectChange = function(val) {
+        currentLevel = val;
+        document.getElementById('activeLevelCode').value = val;
+      };
 
       window.switchRole = function(role) {
         document.getElementById('activeRole').value = role;
         const tabStudent = document.getElementById('tabStudent');
         const tabTeacher = document.getElementById('tabTeacher');
         const tabsContainer = document.getElementById('modalRoleTabs');
+        const groupLevel = document.getElementById('groupLevel');
+        const selectLevel = document.getElementById('selectLevel');
         const labelName = document.getElementById('labelName');
         const inputName = document.getElementById('inputName');
         const labelPin = document.getElementById('labelPin');
@@ -1229,6 +1269,7 @@
 
         if (role === 'coordinator') {
           tabsContainer.style.display = 'none';
+          groupLevel.style.display = 'none';
           badge.innerText = 'ACADEMIC COORDINATOR';
           title.innerText = "Master Teachers' Map";
           desc.innerText = 'Institutional access for Israel Ventura to view and manage all level curricula and activities.';
@@ -1239,11 +1280,12 @@
           btn.innerHTML = "Open Teachers' Map &rarr;";
         } else if (role === 'teacher') {
           tabsContainer.style.display = 'flex';
+          groupLevel.style.display = 'grid';
           tabStudent.classList.remove('active');
           tabTeacher.classList.add('active');
-          badge.innerText = 'TEACHER RESOURCES · ' + currentBadge;
-          title.innerText = currentTitle + ' (Teacher Hub)';
-          desc.innerText = 'Enter teacher PIN to access lesson plans, warm-ups, and games for ' + currentBadge + '.';
+          badge.innerText = 'TEACHER RESOURCES';
+          title.innerText = 'Teacher Hub & Lesson Plans';
+          desc.innerText = 'Enter teacher PIN (2680 or level PIN) to access lesson plans, warm-ups, and games.';
           labelName.innerText = 'Teacher Name';
           inputName.readOnly = false;
           inputName.value = 'Instructor';
@@ -1251,16 +1293,21 @@
           btn.innerHTML = 'Open Teacher Hub &rarr;';
         } else {
           tabsContainer.style.display = 'flex';
+          groupLevel.style.display = 'grid';
           tabTeacher.classList.remove('active');
           tabStudent.classList.add('active');
-          badge.innerText = 'STUDENT ACCESS · ' + currentBadge;
+          badge.innerText = 'STUDENT ACCESS · ' + (currentBadge === 'General' ? 'All Levels' : currentBadge);
           title.innerText = currentTitle;
-          desc.innerText = 'Enter your student name and active PIN for ' + currentBadge + '.';
+          desc.innerText = 'Enter your student name and level PIN to access your workspace.';
           labelName.innerText = 'Student Name';
           inputName.readOnly = false;
           try {
             const saved = JSON.parse(localStorage.getItem("ld-english-hub") || "null");
             inputName.value = (saved && saved.name) ? saved.name : '';
+            if (saved && saved.level && PINS[saved.level] && currentLevel === 'auto') {
+              selectLevel.value = saved.level;
+              currentLevel = saved.level;
+            }
           } catch (_) { inputName.value = ''; }
           labelPin.innerText = 'Level PIN';
           btn.innerHTML = 'Enter Student Workspace &rarr;';
@@ -1275,8 +1322,9 @@
       window.openLevelModal = function(displayBadge, title, levelKey) {
         currentBadge = displayBadge;
         currentTitle = title;
-        currentLevel = levelKey || 'A1.1';
+        currentLevel = levelKey || 'auto';
         document.getElementById('activeLevelCode').value = currentLevel;
+        document.getElementById('selectLevel').value = currentLevel;
 
         switchRole('student');
         document.getElementById('accessModal').classList.add('active');
@@ -1284,7 +1332,14 @@
 
       // OPEN DIRECT STUDENT ACCESS BUTTON
       window.openStudentDirectModal = function() {
-        openLevelModal('General', 'English Hub Student Workspace', 'PreA1');
+        currentBadge = 'General';
+        currentTitle = 'English Hub Student Workspace';
+        currentLevel = 'auto';
+        document.getElementById('activeLevelCode').value = 'auto';
+        document.getElementById('selectLevel').value = 'auto';
+
+        switchRole('student');
+        document.getElementById('accessModal').classList.add('active');
       };
 
       // OPEN DIRECT ACADEMIC COORDINATOR
@@ -1313,12 +1368,12 @@
         const role = document.getElementById('activeRole').value;
         const name = (document.getElementById('inputName').value || '').trim();
         const pin = (document.getElementById('inputPin').value || '').trim();
-        const level = document.getElementById('activeLevelCode').value;
+        let level = document.getElementById('selectLevel').value || document.getElementById('activeLevelCode').value;
         const err = document.getElementById('modalError');
 
         // COORDINATOR (Israel Ventura)
-        const COORDINATOR_PINS = ['5726', '8826'];
-        const TEACHER_PINS = ['2680', '5726', '8826'];
+        const COORDINATOR_PINS = ['5726', '8826', '2026', 'admin'];
+        const TEACHER_PINS = ['2680', '5726', '8826', '2026', 'admin'];
 
         if (role === 'coordinator') {
           if (COORDINATOR_PINS.includes(pin)) {
@@ -1336,15 +1391,16 @@
 
         // TEACHER
         if (role === 'teacher') {
-          if (TEACHER_PINS.includes(pin) || pin === PINS[level]) {
-            if (level === 'A1.2' || level === 'A2.1') {
-              window.location.href = './teacher-hub/' + level + '/simple-present/';
+          if (TEACHER_PINS.includes(pin) || pin === PINS[level] || PIN_TO_LEVEL[pin]) {
+            let targetTeacherLevel = (level && level !== 'auto') ? level : (PIN_TO_LEVEL[pin] || 'A1.2');
+            if (targetTeacherLevel === 'A1.2' || targetTeacherLevel === 'A2.1') {
+              window.location.href = './teacher-hub/' + targetTeacherLevel + '/simple-present/';
             } else {
               window.location.href = './teacher-hub/';
             }
             return;
           } else {
-            err.innerText = 'Incorrect Teacher PIN for this level.';
+            err.innerText = 'Incorrect Teacher PIN. Use 2680 or your assigned level PIN.';
             err.classList.add('show');
             return;
           }
@@ -1357,26 +1413,31 @@
           return;
         }
 
-        const validPin = PINS[level];
-        const isValid = (pin === validPin || COORDINATOR_PINS.includes(pin));
-
-        if (!isValid) {
-          err.innerText = 'Incorrect PIN for that level. Please check with your instructor.';
+        let targetLevel = level;
+        // Auto-detect level if user selected 'auto' OR if PIN matches known level
+        if (PIN_TO_LEVEL[pin]) {
+          targetLevel = PIN_TO_LEVEL[pin];
+        } else if (level && level !== 'auto' && PINS[level] && pin === PINS[level]) {
+          targetLevel = level;
+        } else if (COORDINATOR_PINS.includes(pin)) {
+          targetLevel = (level && level !== 'auto') ? level : 'A1.1';
+        } else {
+          err.innerText = 'Incorrect PIN. Please enter your valid 4-digit level PIN.';
           err.classList.add('show');
           document.getElementById('inputPin').select();
           return;
         }
 
         try {
-          localStorage.setItem("ld-english-hub", JSON.stringify({ name: name, level: level, at: Date.now() }));
+          localStorage.setItem("ld-english-hub", JSON.stringify({ name: name, level: targetLevel, at: Date.now() }));
         } catch (_) {}
 
-        if (ROUTES[level]) {
-          window.location.href = ROUTES[level];
+        if (ROUTES[targetLevel]) {
+          window.location.href = ROUTES[targetLevel];
           return;
         }
 
-        const folder = encodeURIComponent(level);
+        const folder = encodeURIComponent(targetLevel);
         window.location.href = './' + folder + '/';
       };
     })();
