@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1.1 Student Workspace - Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4A843;
+      --gold-dark: #b88a28;
+      --gold-light: #fef8eb;
+      --gold-border: rgba(212, 168, 67, 0.4);
+      --navy-deep: #071527;
+      --navy-main: #0B1F3A;
+      --navy-soft: #1e293b;
+      --teal: #14b8a6;
+      --teal-light: #f0fdfa;
+      --teal-dark: #0f766e;
+      --teal-border: rgba(20, 184, 166, 0.4);
+      --teal-hover: #0d9488;
+      --surface: #F8FAFC;
+      --paper: #ffffff;
+      --paper-card: #ffffff;
+      --line: #E2E8F0;
+      --line-subtle: #f1f5f9;
+      --muted: #475569;
+      --muted-light: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 999px;
+      --shadow-sm: 0 1px 3px rgba(11, 31, 58, 0.05);
+      --shadow-card: 0 4px 18px -2px rgba(11, 31, 58, 0.07), 0 2px 6px -1px rgba(11, 31, 58, 0.04);
+      --shadow-hover: 0 16px 36px -4px rgba(212, 168, 67, 0.22), 0 6px 12px -2px rgba(11, 31, 58, 0.08);
+      --shadow-hover-teal: 0 16px 36px -4px rgba(20, 184, 166, 0.25), 0 6px 12px -2px rgba(11, 31, 58, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--surface);
+      color: var(--navy-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .ambient-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background: linear-gradient(180deg, #071527 0%, #0B1F3A 65%, #F8FAFC 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 48px;
+      overflow: hidden;
+    }
+    .brand-logo-img {
+      height: 90px;
+      width: auto;
+      object-fit: contain;
+      margin: -21px 0;
+      display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
+    }
+
+    .nav-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .level-select-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      border-radius: 999px;
+      padding: 4px 12px;
+      transition: all .2s ease;
+    }
+    .level-select-wrap:hover {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.09);
+    }
+    .level-select-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .level-select-control {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      padding-right: 4px;
+    }
+    .level-select-control option {
+      background: #0B1F3A;
+      color: #ffffff;
+    }
+
+    .role-switch-btn {
+      background: transparent;
+      border: 1px dashed rgba(212, 168, 67, 0.45);
+      color: var(--gold);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s ease;
+      opacity: 0.85;
+    }
+    .role-switch-btn:hover {
+      opacity: 1;
+      background: rgba(212, 168, 67, 0.14);
+      border-style: solid;
+      color: #ffffff;
+    }
+    .role-switch-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+    .user-badge .user-icon {
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+    }
+    .user-badge strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .student-level-tag {
+      background: rgba(212, 168, 67, 0.18);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* UNIFIED SLEEK TEXT-ONLY GOLD NAV LINKS */
+    .coordinator-link,
+    .exit-link {
+      color: var(--gold) !important;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 999px;
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .coordinator-link:hover,
+    .exit-link:hover {
+      background: rgba(212, 168, 67, 0.14) !important;
+      color: #ffffff !important;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    .workspace-hero-banner {
+      position: relative;
+      border-radius: 24px;
+      padding: 44px 44px 36px;
+      margin-bottom: 34px;
+      background:
+        linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%),
+        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85') center right / cover no-repeat;
+      border: 1px solid rgba(212, 168, 67, 0.32);
+      box-shadow: 0 20px 45px -12px rgba(7, 21, 39, 0.35), 0 0 1px rgba(212, 168, 67, 0.4);
+      overflow: hidden;
+      color: #ffffff;
+      transition: background-image .4s ease-in-out;
+    }
+
+    .hero-banner-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .hero-banner-pill {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(212, 168, 67, 0.15);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      padding: 5px 14px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-banner-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .hero-banner-meta {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-banner-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      max-width: 780px;
+    }
+    .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-banner-desc {
+      color: #cbd5e1;
+      font-size: 15px;
+      max-width: 660px;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-stats-bar {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 12px 20px;
+      background: rgba(5, 16, 31, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      border-radius: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stat-number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-meta strong {
+      font-size: 12px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .stat-meta span {
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding: 0 4px;
+    }
+
+    .switch-wrapper {
+      background: #eef2f6;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: inset 0 2px 4px rgba(11, 31, 58, 0.04);
+    }
+
+    .switch-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: all .24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-btn svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s ease;
+    }
+    .switch-btn:hover {
+      color: var(--navy-main);
+    }
+
+    .switch-btn.active.gold-mode {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #071527;
+      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.35);
+    }
+
+    .switch-btn.active.teal-mode {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);
+    }
+
+    .switch-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .legend-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .legend-indicator span {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+    .legend-indicator.gold span { color: var(--gold-dark); }
+    .legend-indicator.teal span { color: var(--teal); }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      transition: opacity .2s ease;
+    }
+
+    .cinema-card {
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: all .28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      min-height: 415px;
+    }
+    .cinema-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
+    }
+    .teal-theme .cinema-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-hover-teal);
+    }
+
+    .card-visual {
+      position: relative;
+      height: 205px;
+      overflow: hidden;
+      background-color: #071527;
+    }
+    .card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s cubic-bezier(0.16, 1, 0.3, 1), filter .4s ease;
+      filter: brightness(0.92) contrast(1.05);
+    }
+    .cinema-card:hover .card-photo {
+      transform: scale(1.04);
+      filter: brightness(1) contrast(1.08);
+    }
+
+    .card-visual-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(7, 21, 39, 0.25) 0%,
+        rgba(7, 21, 39, 0) 45%,
+        rgba(7, 21, 39, 0.45) 100%
+      );
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .unit-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(7, 21, 39, 0.85);
+      border: 1px solid rgba(212, 168, 67, 0.5);
+      color: var(--gold);
+    }
+    .teal-theme .unit-tag {
+      border-color: rgba(91, 184, 176, 0.55);
+      color: var(--teal-light);
+    }
+
+    .track-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(7, 21, 39, 0.75);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* SOON BADGE - HIGH END MINIMALIST */
+    .badge-soon {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(212, 168, 67, 0.55);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-live {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(20, 184, 166, 0.2);
+      border: 1px solid rgba(20, 184, 166, 0.6);
+      color: #2dd4bf;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-body {
+      padding: 24px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background: var(--paper-card);
+    }
+
+    .card-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy-main);
+      margin-bottom: 8px;
+    }
+
+    .card-tagline {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .card-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .pill-chip {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--navy-soft);
+      border: 1px solid var(--line);
+      letter-spacing: 0.02em;
+    }
+    .pill-chip.highlight {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      border-color: var(--gold-border);
+    }
+    .teal-theme .pill-chip.highlight {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-color: var(--teal-border);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-subtle);
+    }
+    .card-duration {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .duration-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    .teal-theme .duration-dot {
+      background: var(--teal);
+    }
+
+    .btn-launch {
+      border: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #071527;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      padding: 9px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.28);
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-launch:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(212, 168, 67, 0.42);
+      filter: brightness(1.05);
+    }
+
+    .teal-theme .btn-launch {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.28);
+    }
+    .teal-theme .btn-launch:hover {
+      box-shadow: 0 6px 18px rgba(20, 184, 166, 0.42);
+    }
+
+    /* SOON BUTTON */
+    .btn-soon {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: #64748b;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s ease;
+    }
+    .btn-soon:hover {
+      background: #f1f5f9;
+      color: #334155;
+      border-color: var(--gold);
+    }
+    .btn-soon svg {
+      width: 12px;
+      height: 12px;
+      color: var(--gold-dark);
+    }
+
+    /* MODAL ROADMAP POPUP */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 21, 39, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      animation: modalSlide .25s ease-out;
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(12px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      background: var(--navy-deep);
+      color: #ffffff;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+    }
+    .modal-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .modal-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .modal-unit {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .modal-body {
+      padding: 24px 28px;
+    }
+    .modal-desc {
+      font-size: 14.5px;
+      color: var(--navy-soft);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .modal-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .spec-box {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .spec-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .spec-box strong {
+      font-size: 12.5px;
+      color: var(--navy-main);
+      display: block;
+      line-height: 1.3;
+    }
+    .roadmap-note {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+      padding: 12px 14px;
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 10px;
+    }
+    .modal-footer {
+      padding: 16px 28px 24px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn-modal-close {
+      background: var(--navy-main);
+      color: #ffffff;
+      border: 0;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-modal-close:hover {
+      background: var(--navy-deep);
+    }
+
+    @media (max-width: 900px) {
+      .classes-grid {
+        grid-template-columns: 1fr;
+      }
+      .workspace-hero-banner {
+        padding: 30px 22px;
+      }
+      .hero-stats-bar {
+        width: 100%;
+        gap: 14px;
+      }
+      .stat-divider {
+        display: none;
+      }
+      .top-nav {
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-backdrop"></div>
+
+  <!-- SLIM LUXURY TOP NAVIGATION -->
+  <nav class="top-nav">
+    <a href="./index.html" class="brand-wrap">
+      <img src="data:image/webp;base64,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x3FyGQXALWr+FMDTa7Z50NsWhapR+kyJFGWxYFUdM9pntM9pntM9pntM9pntM9prtcxth7TPaZ6VfJSGRgXmq7D4aQTG2HtM9pntM9pntM9pntM9pntM9pntM9pns3CqTpm3dm7aAZ+TfjI0iX5BMbYe0z2me0z2me0z2me0z2me0z2me0z2me1YiKY2w9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pZAAA/sxwAAAAAAAAAAAAAAAAAAAAAAAAAAAB1/Clww7iZVH1n4BMa9Wn9Myi2ngAAPH4x0K4CkZN2tgU+ylv0Cfa8b55qzochJh4DKVlPsn//B/PBWV2rZRH57oCkS5nOc2UGO8fxRLgFBdt5xyMprBPyrCe2DcP6eMAYtj+xSMDrN6VzOEwJduRuvxFHYQzay82piGXAvy6zFe/XgAACE/GPVKQrHZQx8Jrku/uHt5fwpQ7nBVjpPjFjwUdlRhYP5eaScTOvVKddgCZ5Fzv9nUBphrVAD2EMq9vThGGpX3cij02KbC+FO7ZqE1Fw0Be6/DF0W2jWOSvmtW4o6ZqkOfvJ5f6zQ9hLOSLAABybDMzf44jmhm0ceFuq63pn1SKrT8AZUJo+q6V1DxqlXdgoxrn12zTDE84nz5TLGMYGijKYZ7NBFmNTJr5Kdj9UhWj5EzoNyoyvqQfJkW8sSKpxCS3TXpStyl23er/MIpeC2eL//+B9AAFf73NmaeA67l2k5LTGXgMXnc+4OA8gIf1mtd3af/nrhBTsB8NXE218nQo/fIePM/W+7RTc5gXpMk5QD5EV1XENK/BwN8rXTuDZ7yUykMhH4Rh/52YtpOiOh4/skud4Y38xB3qCevLK1lp95DrSy21XFue3EIcYtaux8Aq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" alt="Learning &amp; Development Studio" class="brand-logo-img">
+    </a>
+
+    <div class="nav-meta">
+      <!-- TEACHER / FACULTY LEVEL SCOPE (VISIBLE ONLY IN TEACHER / EVALUATOR MODE) -->
+      <div class="level-select-wrap" id="teacherLevelWrap" style="display: none;">
+        <label for="levelSelect" class="level-select-label">Faculty Scope</label>
+        <select id="levelSelect" class="level-select-control" onchange="switchLevel(this.value)">
+          <optgroup label="General English Trajectory">
+            <option value="PreA1">Pre-A1 - Absolute Beginners</option>
+            <option value="A1.1" selected>A1.1 - Foundations</option>
+            <option value="A1.2">A1.2 - Actions in Motion</option>
+            <option value="A2.1">A2.1 - Expanding Reach</option>
+            <option value="A2.2">A2.2 - Choices &amp; Journeys</option>
+            <option value="B1.1">B1.1 - Intermediate Fluency</option>
+            <option value="B1.2">B1.2 - Confident Independence</option>
+            <option value="B1+">B1+ - Professional Synthesis</option>
+          </optgroup>
+          <optgroup label="Specialized &amp; Certifications">
+            <option value="Business">Business English - Executive Track</option>
+            <option value="TOEFL">TOEFL ITP - Academic Prep</option>
+            <option value="TOEIC">TOEIC - Corporate Benchmark</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- STUDENT / USER BADGE (LOCKED TO CURRENT ENROLLED LEVEL) -->
+      <div class="user-badge" id="userBadge">
+        <span class="user-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </span>
+        <span id="userRolePrefix">Student:</span> <strong id="userNameLabel">Sofia</strong>
+        <span class="student-level-tag" id="userLevelTag">A1.1</span>
+      </div>
+
+      <!-- DISCREET ROLE TOGGLE BUTTON (FOR EVALUATOR / TESTING MODE) -->
+      <button type="button" class="role-switch-btn" id="roleToggleBtn" onclick="toggleRoleMode()" title="Toggle Student / Faculty Scope">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span id="roleToggleLabel">Teacher View</span>
+      </button>
+
+      <a href="./index.html" class="exit-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Exit
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- CINEMATIC WORKSPACE HERO BANNER -->
+    <header class="workspace-hero-banner" id="heroBanner">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          A1.1 Trajectory · Stage 01 Foundations
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR A1.1 · General English
+        </div>
+      </div>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        Foundations & <span class="gold-accent">Social Identity</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        A structured communicative journey into personal identity, living spaces, and campus navigation. Experience real-world missions and precision language mechanics labs.
+      </p>
+
+      <!-- FROSTED METRICS STRIP -->
+      <div class="hero-stats-bar">
+        <div class="stat-item">
+          <div class="stat-number" id="stat1Num">04</div>
+          <div class="stat-meta">
+            <strong id="stat1Label">Communicative Quests</strong>
+            <span id="stat1Sub">Campus & home missions</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number" id="stat2Num">04</div>
+          <div class="stat-meta">
+            <strong id="stat2Label">Language Labs</strong>
+            <span id="stat2Sub">Structure & vocabulary</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number" id="stat3Num">A1-</div>
+          <div class="stat-meta">
+            <strong id="stat3Label">Target Profile</strong>
+            <span id="stat3Sub">Basic social exchanges</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- THE EDITORIAL SWITCHER -->
+    <div class="controls-bar">
+      <div class="switch-wrapper">
+        <button type="button" class="switch-btn active gold-mode" id="btnSwitchExp" onclick="setSwitchMode('experience')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+          Communicative Experiences
+        </button>
+
+        <button type="button" class="switch-btn" id="btnSwitchExpl" onclick="setSwitchMode('explore')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          Explore Labs
+        </button>
+      </div>
+
+      <div class="switch-legend" id="switchLegend">
+        <div class="legend-indicator gold">
+          <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC CLASSES CONTAINER -->
+    <main id="classesContainer" class="classes-grid">
+      <!-- Injected by JavaScript -->
+    </main>
+
+  </div>
+
+  <!-- MODAL FOR UPCOMING UNITS (CURRICULUM ROADMAP) -->
+  <div class="modal-backdrop" id="soonModal" onclick="closeSoonModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-kicker">Curriculum Roadmap &middot; Next in Queue</div>
+        <h3 class="modal-title" id="soonModalTitle"></h3>
+        <p class="modal-unit" id="soonModalUnit"></p>
+      </div>
+      <div class="modal-body">
+        <p id="soonModalDesc" class="modal-desc"></p>
+        <div class="modal-specs">
+          <div class="spec-box">
+            <span class="spec-label">Target Outcome</span>
+            <strong id="soonModalOutcome">Observable evidence</strong>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Methodology Track</span>
+            <strong id="soonModalTrack">CLT + TBLT Task</strong>
+          </div>
+        </div>
+        <div class="roadmap-note">
+          This unit is part of the approved L&amp;D Studio Academic Scope &amp; Sequence. Advancement occurs through observable evidence rather than elapsed seat time.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-close" onclick="document.getElementById('soonModal').classList.remove('active')">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CURRICULUM = {
+  "PreA1": {
+    "code": "Pre-A1",
+    "studentLevel": "Pre-A1",
+    "kicker": "Pre-A1 Trajectory · Stage 00 Absolute Beginners",
+    "meta": "CEFR Pre-A1 · General English",
+    "title": "First Words & <span class=\"gold-accent\">Foundations</span>",
+    "desc": "An accessible, step-by-step introduction to English sounds, personal identity, everyday objects, and essential classroom communication.",
+    "heroBg": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "05",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Authentic scenarios",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Phonics & mechanics",
+    "stat3Num": "A0",
+    "stat3Label": "Emergent Competency",
+    "stat3Sub": "Formulaic fluency",
+    "experiences": [
+      {
+        "unit": "PA-U01",
+        "tag": "Communicative Task",
+        "title": "First Contact &amp; Identity",
+        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Meet a peer, introduce yourself, and exchange contact names.",
+        "pill1": "Introductions",
+        "pill2": "Speaking &amp; Names",
+        "action": "Launch Quest",
+        "url": "./PreA1/greetings/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U02",
+        "tag": "Communicative Task",
+        "title": "Classroom Commands &amp; Objects",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify study items and borrow everyday classroom essentials.",
+        "pill1": "Classroom Objects",
+        "pill2": "Listen &amp; Repeat",
+        "action": "Launch Quest",
+        "url": "./PreA1/classroom/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U03",
+        "tag": "Communicative Task",
+        "title": "Practical Information: Numbers 1–20",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Verify phone digits, room badges, and check-in numbers 1–20.",
+        "pill1": "Numbers 1–20",
+        "pill2": "Badge Check-In",
+        "action": "Launch Quest",
+        "url": "./PreA1/numbers/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U04",
+        "tag": "Communicative Task",
+        "title": "Personal Details &amp; Name Spelling",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Spell your name letter by letter and confirm basic registration data.",
+        "pill1": "Alphabet &amp; Spelling",
+        "pill2": "Name Badges",
+        "action": "Launch Quest",
+        "url": "./PreA1/whats-your-name/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U05",
+        "tag": "Communicative Capstone",
+        "title": "Pre-A1 Capstone: First Day at the Studio",
+        "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Complete your full intake interview, room orientation, and badge pickup.",
+        "pill1": "Capstone Simulation",
+        "pill2": "Full Orientation",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "PA-L01",
+        "tag": "Phonics Lab",
+        "title": "English Alphabet &amp; Vowel Sounds",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Recognize sound patterns, spell names aloud, and master tricky vowel sounds.",
+        "pill1": "Phonics Gym",
+        "pill2": "Auditory Discrimination",
+        "action": "Open Lab",
+        "url": "./PreA1/alphabet/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L02",
+        "tag": "Grammar Mechanics",
+        "title": "Age &amp; Numbers: How Old Are You?",
+        "photo": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Say and understand ages accurately, preventing the 'I have' error fossilization.",
+        "pill1": "I am ... years old",
+        "pill2": "Number Accuracy",
+        "action": "Open Lab",
+        "url": "./PreA1/how-old-are-you/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L03",
+        "tag": "Interaction Lab",
+        "title": "Classroom Requests &amp; Survival Cues",
+        "photo": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Practice key survival phrases: 'Can you repeat?', 'I don't understand'.",
+        "pill1": "Survival Phrases",
+        "pill2": "Classroom Fluency",
+        "action": "Open Lab",
+        "url": "./PreA1/classroom/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L04",
+        "tag": "Writing Lab",
+        "title": "Emergency Form Filling Workshop",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Fill in first name, surname, phone digits, and emergency contact accurately.",
+        "pill1": "Form Literacy",
+        "pill2": "Print Clarity",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "A1.1": {
+    "code": "A1.1",
+    "studentLevel": "A1.1",
+    "kicker": "A1.1 Trajectory · Stage 01 Foundations",
+    "meta": "CEFR A1.1 · General English",
+    "title": "Foundations & <span class=\"gold-accent\">Social Identity</span>",
+    "desc": "A structured communicative journey into personal identity, living spaces, and campus navigation. Experience real-world missions and precision language mechanics labs.",
+    "heroBg": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Campus & home missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Structure & vocabulary",
+    "stat3Num": "A1-",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Basic social exchanges",
+    "experiences": [
+      {
+        "unit": "A11-U01",
+        "tag": "Campus Experience",
+        "title": "Starting University: First Day on Campus",
+        "photo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate orientation desks, register student profile, and introduce new peers.",
+        "pill1": "Campus Orientation",
+        "pill2": "Introductions",
+        "action": "Launch Quest",
+        "url": "./A1.1/starting-university/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U02",
+        "tag": "Social Task",
+        "title": "People, Family &amp; Personal Belongings",
+        "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe your family members, friends, and everyday possessions with clarity.",
+        "pill1": "Family &amp; Friends",
+        "pill2": "Possessions",
+        "action": "Launch Quest",
+        "url": "./A1.1/adjectives/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U03",
+        "tag": "Living Space Task",
+        "title": "My Living Space &amp; Everyday Objects",
+        "photo": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe your apartment layout, furniture placement, and household items.",
+        "pill1": "Living Spaces",
+        "pill2": "Furniture &amp; Rooms",
+        "action": "Launch Quest",
+        "url": "./A1.1/around-the-house/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U04",
+        "tag": "Communicative Capstone",
+        "title": "Welcome Bulletin &amp; Short Messages",
+        "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Draft a room notice board, welcoming notes, and short peer text updates.",
+        "pill1": "Message Board",
+        "pill2": "Written Notes",
+        "action": "Launch Quest",
+        "url": "./A1.1/a1-1-studio/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A11-L01",
+        "tag": "Grammar Gym",
+        "title": "Verb To Be Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Affirmative, negative, yes/no queries, and short answers with am, is, are.",
+        "pill1": "To Be Mastery",
+        "pill2": "Full Paradigm",
+        "action": "Open Lab",
+        "url": "./A1.1/verb-to-be/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L02",
+        "tag": "Syntax Gym",
+        "title": "Demonstratives: This, That, These, Those",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pointing near and far, singular and plural item identification without hesitation.",
+        "pill1": "Demonstratives",
+        "pill2": "Spatial Reference",
+        "action": "Open Lab",
+        "url": "./A1.1/this-that-these-those/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L03",
+        "tag": "Structure Lab",
+        "title": "Existential Structures: There is / There are",
+        "photo": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "State existence and quantity of items in immediate physical environments.",
+        "pill1": "There is / are",
+        "pill2": "Environment Inventory",
+        "action": "Open Lab",
+        "url": "./A1.1/there-is-there-are/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L04",
+        "tag": "Grammar Lab",
+        "title": "Plurals &amp; Articles: a / an &amp; Irregulars",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master vowel vs consonant sound rules for a/an and essential irregular plurals.",
+        "pill1": "Articles a/an",
+        "pill2": "Plural Morphology",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "A1.2": {
+    "code": "A1.2",
+    "studentLevel": "A1.2",
+    "kicker": "A1.2 Trajectory · Stage 02 Habits & Motion (R2 Validated)",
+    "meta": "CEFR A1.2 · General English (R2 Sequence)",
+    "title": "Daily Rhythms & <span class=\"gold-accent\">Actions in Motion</span>",
+    "desc": "Anchor Present Simple for habits and routines, integrate Present Continuous for actions occurring right now, and express skills and dining orders.",
+    "heroBg": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "05",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Routines & live actions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Present tense mechanics",
+    "stat3Num": "A1+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Spontaneous simple exchanges",
+    "experiences": [
+      {
+        "unit": "A12-U01",
+        "tag": "Digital Habit Experience (Gen 3)",
+        "title": "Always Online? Digital Habits Lab",
+        "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Analyze real daily screen time, compare tech habits, and debate routine rituals.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Screen Habits",
+        "action": "Launch Quest",
+        "url": "./A1.2/always-online-habits-lab/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-U02",
+        "tag": "Communicative Task",
+        "title": "Free Time, Hobbies &amp; Leisure",
+        "photo": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interview a partner about weekend downtime, favorite hobbies, and music preferences.",
+        "pill1": "Hobbies &amp; Interests",
+        "pill2": "Like / Love + -ing",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U03",
+        "tag": "Team Task",
+        "title": "Talents &amp; Skills: Team Project Role Call",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Form a collaborative project crew based on what each teammate can and cannot do.",
+        "pill1": "Can / Can't Abilities",
+        "pill2": "Crew Delegation",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U04",
+        "tag": "Everyday Service Task",
+        "title": "Counter Orders &amp; Prices (20–100)",
+        "photo": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Order food and drinks at a cafe counter, confirm prices, and request a receipt.",
+        "pill1": "Cafe Transactions",
+        "pill2": "Numbers 20–100",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U05",
+        "tag": "R2 Sequence Real-Time Task",
+        "title": "Actions Right Now: Live Stream Mission",
+        "photo": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Report on an active campus festival while it happens with Present Continuous.",
+        "pill1": "Present Continuous",
+        "pill2": "Real-Time Action",
+        "action": "Launch Quest",
+        "url": "./A1.2/present-continuous/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A12-L01",
+        "tag": "Grammar Gym",
+        "title": "Simple Present Verbs &amp; Third Person -s",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master third-person -s/-es rules and distinguish habitual actions clearly.",
+        "pill1": "Third Person -s",
+        "pill2": "Verb Conjugation",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-verbs/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L02",
+        "tag": "Syntax Gym",
+        "title": "Adverbs of Frequency Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Word order placement of always, usually, often, sometimes, never before main verbs.",
+        "pill1": "Frequency Scale",
+        "pill2": "Sentence Position",
+        "action": "Open Lab",
+        "url": "./A1.2/adverbs-of-frequency/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L03",
+        "tag": "Inquiry Lab",
+        "title": "Question Formulation: Do / Does &amp; Wh-",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Construct accurate yes/no queries and open information inquiries smoothly.",
+        "pill1": "Do / Does Auxiliary",
+        "pill2": "Wh- Questions",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-questions/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L04",
+        "tag": "Interactive Game",
+        "title": "Grammar Battle Arena (Speed Drills)",
+        "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Compete against time in Rapid-Fire Simple Present and verb-form challenges.",
+        "pill1": "Speed Mechanics",
+        "pill2": "Grammar Arena",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-battle/index.html",
+        "live": true
+      }
+    ]
+  },
+  "A2.1": {
+    "code": "A2.1",
+    "studentLevel": "A2.1",
+    "kicker": "A2.1 Trajectory · Stage 03 Expanding Reach (R2 Simple Past)",
+    "meta": "CEFR A2.1 · General English (Expanded Past)",
+    "title": "Expanding Reach & <span class=\"gold-accent\">Past Narratives</span>",
+    "desc": "Navigate urban hubs and commercial services, narrate completed events with expanded simple past, and organize group logistics with collaborative confidence.",
+    "heroBg": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "City & past missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Quantifiers & past verbs",
+    "stat3Num": "A2",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Connected routine exchanges",
+    "experiences": [
+      {
+        "unit": "A21-U01",
+        "tag": "Marketplace Task",
+        "title": "Marketplace Logistics &amp; Supplies",
+        "photo": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Purchase supplies with some/any, much/many, and precise food containers.",
+        "pill1": "Marketplace Quantifiers",
+        "pill2": "Shopping Dialogue",
+        "action": "Launch Quest",
+        "url": "./A2.1/food-quantifiers/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U02",
+        "tag": "City Navigation Task",
+        "title": "Getting Around Town &amp; Transit",
+        "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Ask for and give street directions, transit landmarks, and intersection cues.",
+        "pill1": "Directions &amp; Transit",
+        "pill2": "Urban Landmarks",
+        "action": "Launch Quest",
+        "url": "./A1.1/in-the-city/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U03",
+        "tag": "Historical Narrative Experience (Gen 3)",
+        "title": "The FOMO Museum: Past Event Memories",
+        "photo": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Walk through an interactive gallery and narrate completed experiences with simple past.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Past Narratives",
+        "action": "Launch Quest",
+        "url": "./A2.1/fomo-museum/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U04",
+        "tag": "Communicative Capstone",
+        "title": "Resolving an Outing: The Group Incident",
+        "photo": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Coordinate a meetup, resolve a scheduling delay, and agree on alternate plans.",
+        "pill1": "Incident Resolution",
+        "pill2": "Group Coordination",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A21-L01",
+        "tag": "Vocabulary Lab",
+        "title": "Countable &amp; Uncountable + Fridge Battle",
+        "photo": "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Categorize mass nouns vs countable units and compete in the interactive Fridge Arena.",
+        "pill1": "Countable vs Mass",
+        "pill2": "Quantifier Logic",
+        "action": "Open Lab",
+        "url": "./A2.1/countable-and-uncountable/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L02",
+        "tag": "Grammar Gym",
+        "title": "Past of To Be: Was / Were Historical Simulator",
+        "photo": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe past states, locations, and historical identities with was and were.",
+        "pill1": "Was / Were Paradigm",
+        "pill2": "Past Location",
+        "action": "Open Lab",
+        "url": "./A2.1/past-of-be/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L03",
+        "tag": "Phonics Studio",
+        "title": "-ed Ending Pronunciation (/t/, /d/, /ɪd/)",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master voice vs unvoiced ending sounds so regular past verbs sound 100% natural.",
+        "pill1": "Phonetic Endings",
+        "pill2": "/t/, /d/, /ɪd/ Rules",
+        "action": "Open Lab",
+        "url": "./A2.1/ed-pronunciation/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L04",
+        "tag": "Morphology Gym",
+        "title": "Simple Past Regular &amp; Irregular Verbs",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Spelling transformations, high-frequency irregular forms, and auxiliary did in questions.",
+        "pill1": "Irregular Verbs",
+        "pill2": "Did Auxiliary",
+        "action": "Open Lab",
+        "url": "./A2.1/simple-past-class/index.html",
+        "live": true
+      }
+    ]
+  },
+  "A2.2": {
+    "code": "A2.2",
+    "studentLevel": "A2.2",
+    "kicker": "A2.2 Trajectory · Stage 04 Choices & Journeys (R2 Present Perfect Intro)",
+    "meta": "CEFR A2.2 · General English (R2 Milestone)",
+    "title": "Choices, Comparisons & <span class=\"gold-accent\">Life Journeys</span>",
+    "desc": "Compare environments and products, introduce the Present Perfect for life experiences, make future arrangements, and offer practical advice.",
+    "heroBg": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Travel & advice tasks",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Comparatives & participles",
+    "stat3Num": "A2+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Extended everyday autonomy",
+    "experiences": [
+      {
+        "unit": "A22-U01",
+        "tag": "R2 Milestone Task",
+        "title": "Life Experiences &amp; Travel Log",
+        "photo": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interview fellow travelers: Have you ever visited, tasted, or tried extreme sports?",
+        "pill1": "Present Perfect",
+        "pill2": "Life Experiences",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U02",
+        "tag": "Decision Task",
+        "title": "Comparing Cities &amp; Lifestyle Choices",
+        "photo": "https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate cost of living, transit efficiency, and quality of life across two cities.",
+        "pill1": "Comparatives",
+        "pill2": "City Analysis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U03",
+        "tag": "Planning Task",
+        "title": "Future Plans, Trips &amp; Intentions",
+        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish spontaneous choices with will from confirmed flight itineraries with going to.",
+        "pill1": "Will vs Going to",
+        "pill2": "Itinerary Planning",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U04",
+        "tag": "Advisory Capstone",
+        "title": "Health, Wellness &amp; Practical Advice Clinic",
+        "photo": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Consult a peer experiencing stress or jetlag and recommend actionable remedies.",
+        "pill1": "Should / Must Advice",
+        "pill2": "Wellness Clinic",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A22-L01",
+        "tag": "Morphology Lab",
+        "title": "Irregular Past Participle Mastery Gym",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Anchor past participle forms (seen, been, written, spoken) for Present Perfect fluency.",
+        "pill1": "Past Participles",
+        "pill2": "Morphology Drills",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L02",
+        "tag": "Syntax Gym",
+        "title": "Comparative &amp; Superlative Precision",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Short vs long adjective rules, irregular modifiers (better, worse), and than clauses.",
+        "pill1": "-er vs More",
+        "pill2": "Superlatives",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L03",
+        "tag": "Contrast Gym",
+        "title": "Present Perfect vs Simple Past Contrast",
+        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish unstated past time (I have seen) from specific anchor dates (in 2022).",
+        "pill1": "Indefinite Time",
+        "pill2": "Anchor Clues",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L04",
+        "tag": "Modal Gym",
+        "title": "Obligation, Prohibition &amp; Advice",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Calibrate social force: have to for rules, mustn't for prohibition, should for advice.",
+        "pill1": "Modal Verbs",
+        "pill2": "Degrees of Force",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1.1": {
+    "code": "B1.1",
+    "studentLevel": "B1.1",
+    "kicker": "B1.1 Trajectory · Stage 05 Intermediate Fluency",
+    "meta": "CEFR B1.1 · General English",
+    "title": "Narrative Depth & <span class=\"gold-accent\">Social Nuance</span>",
+    "desc": "Maintain sustained conversations, express viewpoints on cultural and environmental issues, narrate complex memories, and handle unexpected service disruptions.",
+    "heroBg": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Nuanced debate tasks",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Conditionals & passives",
+    "stat3Num": "B1-",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Independent communication",
+    "experiences": [
+      {
+        "unit": "B11-U01",
+        "tag": "Discussion Task",
+        "title": "Media, News &amp; Current Affairs Forum",
+        "photo": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Analyze news reports, debate credibility, and articulate reasoned opinions on social trends.",
+        "pill1": "News Literacy",
+        "pill2": "Opinion Stance",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U02",
+        "tag": "Workplace Task",
+        "title": "Workplace Updates &amp; Project Check-Ins",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead a weekly stand-up, report blocker items, and propose collaborative solutions.",
+        "pill1": "Stand-Up Meeting",
+        "pill2": "Project Blockers",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U03",
+        "tag": "Narrative Task",
+        "title": "Storytelling &amp; Memorable Anecdotes",
+        "photo": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Narrate an eventful journey using past continuous background and past simple interruptions.",
+        "pill1": "Narrative Threads",
+        "pill2": "Anecdotal Detail",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U04",
+        "tag": "Problem Solving Capstone",
+        "title": "Service Disruption &amp; Formal Claims",
+        "photo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Resolve a delayed order with customer support, justifying compensation terms politely.",
+        "pill1": "Service Claims",
+        "pill2": "Polite Assertion",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B11-L01",
+        "tag": "Grammar Gym",
+        "title": "Narrative Tenses Integration Lab",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Coordinate Past Simple, Past Continuous, and Past Perfect to order chronological events.",
+        "pill1": "Narrative Weave",
+        "pill2": "Timeline Logic",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L02",
+        "tag": "Syntax Gym",
+        "title": "First &amp; Second Conditionals Lab",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish real possibilities (if it rains) from hypothetical reflections (if I had time).",
+        "pill1": "Conditionals 1 &amp; 2",
+        "pill2": "Hypothetical Stance",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L03",
+        "tag": "Register Lab",
+        "title": "Passive Voice in News &amp; Incident Reports",
+        "photo": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Focus sentence emphasis on the action or recipient rather than the agent.",
+        "pill1": "Passive Syntax",
+        "pill2": "Objective Tone",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L04",
+        "tag": "Lexicon Gym",
+        "title": "Collocations &amp; Phrasal Verbs in Context",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Natural word partnerships (make a decision) and separable vs inseparable phrasal verbs.",
+        "pill1": "Collocations",
+        "pill2": "Phrasal Mechanics",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1.2": {
+    "code": "B1.2",
+    "studentLevel": "B1.2",
+    "kicker": "B1.2 Trajectory · Stage 06 Confident Independence (Gen 3 Certified)",
+    "meta": "CEFR B1.2 · General English (Autonomous)",
+    "title": "Confident Independence & <span class=\"gold-accent\">Strategic Resolve</span>",
+    "desc": "Navigate workplace friction, lead structured negotiations, explain technical cause and effect, and present comparative recommendations.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "High-stakes missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Deduction & discourse",
+    "stat3Num": "B1",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Full CEFR B1 autonomy",
+    "experiences": [
+      {
+        "unit": "B12-U01",
+        "tag": "High-Stakes Travel Incident (Gen 3)",
+        "title": "The 8:45 Flight: Cancelled Gate Resolution",
+        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead a high-stakes airline counter negotiation after your connecting flight is cancelled.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Airport Counter",
+        "action": "Launch Quest",
+        "url": "./Guest/the-845-flight/index.html",
+        "live": true
+      },
+      {
+        "unit": "B12-U02",
+        "tag": "Workplace Task",
+        "title": "Managing Professional Disagreements",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Address conflicting project priorities, de-escalate tension, and agree on compromises.",
+        "pill1": "Conflict Resolution",
+        "pill2": "Negotiation Terms",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B12-U03",
+        "tag": "Analytical Task",
+        "title": "Hypothetical Scenarios &amp; Strategic Dilemmas",
+        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate corporate case studies: What would have happened if they hadn't pivoted?",
+        "pill1": "Third Conditional",
+        "pill2": "Case Analysis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B12-U04",
+        "tag": "Integrated B1 Capstone",
+        "title": "Product Pitch &amp; Stakeholder Q&amp;A",
+        "photo": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pitch a practical community project, justify budget items, and field spontaneous queries.",
+        "pill1": "Capstone Pitch",
+        "pill2": "Spontaneous Defense",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B12-L01",
+        "tag": "Grammar Gym",
+        "title": "Modals of Deduction: Must, Might, Can't",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Deduce facts with confidence markers: it must be, it could be, it can't be true.",
+        "pill1": "Deduction Modals",
+        "pill2": "Evidence Stance",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L02",
+        "tag": "Discourse Lab",
+        "title": "Reported Speech &amp; Summary Reporting",
+        "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Relay client feedback, interview responses, and boardroom statements accurately.",
+        "pill1": "Tense Backshift",
+        "pill2": "Reporting Verbs",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L03",
+        "tag": "Cohesion Gym",
+        "title": "Advanced Discourse Markers &amp; Linkers",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Weave complex arguments with however, on the other hand, furthermore, and therefore.",
+        "pill1": "Discourse Cohesion",
+        "pill2": "Argument Weave",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L04",
+        "tag": "Phonetics Lab",
+        "title": "Sentence Stress &amp; Intonation in Persuasion",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Shift focal emphasis in key arguments to sound authoritative without being aggressive.",
+        "pill1": "Contrastive Stress",
+        "pill2": "Persuasive Cadence",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1+": {
+    "code": "B1+",
+    "studentLevel": "B1+",
+    "kicker": "B1+ Trajectory · Stage 07 Professional Synthesis (Gateway to B2)",
+    "meta": "CEFR B1+ · Bridge to B2 Independence",
+    "title": "Executive Synthesis & <span class=\"gold-accent\">Bridge to B2</span>",
+    "desc": "Synthesize disparate viewpoints, author structured reports, defend complex proposals, and prepare for institutional certifications with professional polish.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Synthesis & policy",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Syntactic architecture",
+    "stat3Num": "B1+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Pre-advanced synthesis",
+    "experiences": [
+      {
+        "unit": "B1P-U01",
+        "tag": "Executive Task",
+        "title": "Cross-Functional Executive Briefings",
+        "photo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Synthesize marketing and engineering constraints into a 5-minute boardroom brief.",
+        "pill1": "Executive Briefing",
+        "pill2": "Synthesis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U02",
+        "tag": "Strategy Task",
+        "title": "Strategic Decision-Making Under Ambiguity",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate incomplete business analytics and justify choosing one risk mitigation plan.",
+        "pill1": "Ambiguity Logic",
+        "pill2": "Risk Assessment",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U03",
+        "tag": "Crisis Task",
+        "title": "Crisis Response &amp; Media Communications",
+        "photo": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Represent an enterprise during a service outage and deliver an empathetic media statement.",
+        "pill1": "Crisis Response",
+        "pill2": "Public Statement",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U04",
+        "tag": "Capstone Synthesis",
+        "title": "Institutional Research Defense (Capstone)",
+        "photo": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Present an integrated thesis proposal, counter methodological critiques, and defend findings.",
+        "pill1": "Thesis Defense",
+        "pill2": "Methodology Argument",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B1P-L01",
+        "tag": "Syntax Architecture",
+        "title": "Complex Sentence Architecture &amp; Inversion",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master non-defining relative clauses, cleft sentences (What we need is...), and emphasis.",
+        "pill1": "Cleft Sentences",
+        "pill2": "Subordination",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L02",
+        "tag": "Stylistics Gym",
+        "title": "Academic &amp; Professional Register Gym",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Elevate informal phrasing into formal institutional prose suitable for executive white papers.",
+        "pill1": "Register Elevation",
+        "pill2": "Lexical Variety",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L03",
+        "tag": "Pragmatics Lab",
+        "title": "Hedging, Stance &amp; Diplomatic Nuance",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Calibrate assertion strength with cautious language: tend to, it appears that, arguably.",
+        "pill1": "Academic Hedging",
+        "pill2": "Stance Markers",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L04",
+        "tag": "Vocabulary Gym",
+        "title": "Executive Phrasal Verbs &amp; Idiomatic Flow",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Integrate native business idioms (touch base, drill down, circle back) with exact precision.",
+        "pill1": "Business Idioms",
+        "pill2": "Executive Collocations",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "Business": {
+    "code": "Business",
+    "studentLevel": "Executive Track",
+    "kicker": "Professional Specialization · Executive Business English",
+    "meta": "Specialized Track · Corporate & Leadership Focus",
+    "title": "Executive Strategy & <span class=\"gold-accent\">Corporate Operations</span>",
+    "desc": "Master high-stakes contract negotiations, global supply chain incidents, cross-cultural team leadership, and C-suite boardroom presentations.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "06",
+    "stat1Label": "Executive Tracks",
+    "stat1Sub": "Corporate simulations",
+    "stat2Num": "04",
+    "stat2Label": "Executive Labs",
+    "stat2Sub": "Finance & syntax",
+    "stat3Num": "C1",
+    "stat3Label": "Strategic Horizon",
+    "stat3Sub": "Leadership fluency",
+    "experiences": [
+      {
+        "unit": "BUS-U01",
+        "tag": "Operational Incident",
+        "title": "Supply Chain Disruption &amp; Contingency",
+        "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate critical supply chain bottlenecks and lead incident mitigation calls.",
+        "pill1": "Crisis Logistics",
+        "pill2": "Vendor Management",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U02",
+        "tag": "Executive Reporting",
+        "title": "Quarterly Earnings &amp; Financial Synthesis",
+        "photo": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interpret fiscal trends, justify variances, and present metrics to shareholders.",
+        "pill1": "Financial Metrics",
+        "pill2": "Variance Reporting",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U03",
+        "tag": "High-Stakes Legal",
+        "title": "Cross-Border Contract Negotiations",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Negotiate service level agreements, liability caps, and payment milestone terms.",
+        "pill1": "SLA Terms",
+        "pill2": "Contract Compromise",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U04",
+        "tag": "Corporate PR",
+        "title": "Enterprise Crisis PR &amp; Media Handling",
+        "photo": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Deliver an authoritative press conference addressing a corporate compliance breach.",
+        "pill1": "Media Briefing",
+        "pill2": "Compliance Statement",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U05",
+        "tag": "Venture Pitch",
+        "title": "Global Expansion &amp; M&amp;A Pitch",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pitch market entry valuation, regulatory compliance, and post-merger synergy.",
+        "pill1": "M&amp;A Pitch",
+        "pill2": "Strategic Synergy",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U06",
+        "tag": "Executive Capstone",
+        "title": "Boardroom Strategic Capstone Simulation",
+        "photo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Chair an annual board review, resolve deadlock votes, and issue binding resolutions.",
+        "pill1": "Boardroom Chair",
+        "pill2": "Deadlock Resolution",
+        "action": "Launch Track",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "BUS-L01",
+        "tag": "Financial Gym",
+        "title": "Quantitative Lexicon &amp; Financial Modeling",
+        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Precision terminology for EBITDA, amortization, cash-flow burn, and valuation.",
+        "pill1": "Financial Lexicon",
+        "pill2": "Quantitative Terms",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L02",
+        "tag": "Executive Writing",
+        "title": "Executive Memo &amp; Board Resolution Drafting",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Author concise, persuasive executive summaries that drive decision-making.",
+        "pill1": "Executive Memos",
+        "pill2": "Actionable Brevity",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L03",
+        "tag": "Diplomatic Syntax",
+        "title": "Diplomatic Refusal &amp; Tactical Concession",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Decline commercial proposals gracefully while preserving long-term partner trust.",
+        "pill1": "Tactical Concession",
+        "pill2": "Diplomatic Rebuttal",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L04",
+        "tag": "Executive Speech",
+        "title": "Executive Cadence &amp; Voice Conditioning",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pacing, downward inflections, and vocal presence in high-stakes presentations.",
+        "pill1": "Vocal Authority",
+        "pill2": "Executive Presence",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "TOEFL": {
+    "code": "TOEFL",
+    "studentLevel": "Certification Lab",
+    "kicker": "Academic Certification · TOEFL ITP® & iBT Focus",
+    "meta": "Standardized Exam Prep · Score Band 550+ / 90+",
+    "title": "Academic Precision & <span class=\"gold-accent\">Test Architecture</span>",
+    "desc": "Master structural error detection, academic lecture synthesis, and high-speed passage navigation under authentic institutional testing conditions.",
+    "heroBg": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Exam Sections",
+    "stat1Sub": "Authentic test blocks",
+    "stat2Num": "04",
+    "stat2Label": "Strategic Labs",
+    "stat2Sub": "Traps & skimming",
+    "stat3Num": "550+",
+    "stat3Label": "Target Score",
+    "stat3Sub": "ITP Institutional cutoff",
+    "experiences": [
+      {
+        "unit": "SEC-01",
+        "tag": "Academic Listening",
+        "title": "Section 1: Academic Lecture &amp; Dialogue Synthesis",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Decode professor monologues, student dialogues, and implicit speaker attitudes.",
+        "pill1": "Lecture Audio",
+        "pill2": "Implicit Inference",
+        "action": "Launch Section",
+        "soon": true
+      },
+      {
+        "unit": "SEC-02",
+        "tag": "Structure Arena (Live Lab)",
+        "title": "Section 2: Structure &amp; Written Expression Trap Battle",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify subject-verb inversion traps, parallel syntax flaws, and connector errors.",
+        "pill1": "Trap Battle Arena",
+        "pill2": "Error Identification",
+        "action": "Launch Section",
+        "url": "./TOEFL/trap-battle/index.html",
+        "live": true
+      },
+      {
+        "unit": "SEC-03",
+        "tag": "Speed Reading",
+        "title": "Section 3: Academic Reading &amp; Speed Navigation",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate dense scientific and humanities passages with targeted skimming.",
+        "pill1": "Speed Skimming",
+        "pill2": "Main Idea Extraction",
+        "action": "Launch Section",
+        "soon": true
+      },
+      {
+        "unit": "SEC-04",
+        "tag": "Diagnostic Capstone",
+        "title": "Full-Length Diagnostic Simulation (ITP 140 Items)",
+        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Complete a full 115-minute simulated exam with computerized score projection.",
+        "pill1": "Diagnostic Benchmark",
+        "pill2": "Scaled Score Report",
+        "action": "Launch Section",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "TFL-L01",
+        "tag": "Trap Battle Arena",
+        "title": "Grammatical Error Spotting: Part B Traps",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify underlined error items within 25 seconds across 40 structural categories.",
+        "pill1": "Interactive Arena",
+        "pill2": "25-Second Drill",
+        "action": "Open Lab",
+        "url": "./TOEFL/trap-battle/index.html",
+        "live": true
+      },
+      {
+        "unit": "TFL-L02",
+        "tag": "Lexical Lab",
+        "title": "Academic Vocabulary Frequency Matrix (Tier 2/3)",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Condition high-yield academic verbs, affixes, and discourse connectives.",
+        "pill1": "Tier 2/3 Lexicon",
+        "pill2": "Context Clues",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TFL-L03",
+        "tag": "Inference Lab",
+        "title": "Negative Factual &amp; Purpose Question Drills",
+        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Dismantle 'Which of the following is NOT true' traps under strict time constraints.",
+        "pill1": "Negative Factual",
+        "pill2": "Distractor Elimination",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TFL-L04",
+        "tag": "Phonetics Lab",
+        "title": "Lecture Intonation &amp; Speaker Stance Decoding",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Hear subtle skepticism, sarcasm, and digression cues in academic discussions.",
+        "pill1": "Stance Decoding",
+        "pill2": "Acoustic Cues",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "TOEIC": {
+    "code": "TOEIC",
+    "studentLevel": "Corporate Benchmark",
+    "kicker": "Corporate Certification · TOEIC® Listening & Reading Focus",
+    "meta": "Workplace Benchmark · Score Target 800–900+ (Gold Certificate)",
+    "title": "Corporate Agility & <span class=\"gold-accent\">TOEIC® Benchmark</span>",
+    "desc": "Achieve speed mastery in Part 5 & 6 sentence completion and Part 7 workplace reading across international commerce, contracts, and logistics.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Exam Sections",
+    "stat1Sub": "Part 5 & 6 tracks",
+    "stat2Num": "04",
+    "stat2Label": "Speed Labs",
+    "stat2Sub": "Syntax & collocations",
+    "stat3Num": "850+",
+    "stat3Label": "Target Score",
+    "stat3Sub": "Gold Certificate benchmark",
+    "experiences": [
+      {
+        "unit": "PART-01",
+        "tag": "Morphology Track (Live Lab)",
+        "title": "Part 5: Word Form Matrix &amp; Morphological Triggers",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Instantly identify required parts of speech: noun suffixes vs adverb modifiers.",
+        "pill1": "Part 5 Speed",
+        "pill2": "Word Forms",
+        "action": "Launch Part",
+        "url": "./TOEIC/word-forms/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-02",
+        "tag": "Syntax Track (Live Lab)",
+        "title": "Part 5: Verb Tenses &amp; Timeline Consistency",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lock in temporal trigger words (since, recently, by the time) in under 15 seconds.",
+        "pill1": "Verb Timeline",
+        "pill2": "Temporal Triggers",
+        "action": "Launch Part",
+        "url": "./TOEIC/verb-tenses/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-03",
+        "tag": "Preposition Track (Live Lab)",
+        "title": "Part 5: Prepositions of Time, Space &amp; Business Idioms",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master prepositions in corporate usage: prior to, in accordance with, regarding.",
+        "pill1": "Prepositions",
+        "pill2": "Business Idioms",
+        "action": "Launch Part",
+        "url": "./TOEIC/prepositions/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-04",
+        "tag": "Conjunctions Track (Live Lab)",
+        "title": "Part 5: Conjunctions vs Prepositions (Because vs Due To)",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Detect clause connectors vs noun-phrase prepositions without hesitation.",
+        "pill1": "Connectors",
+        "pill2": "Syntax Speed",
+        "action": "Launch Part",
+        "url": "./TOEIC/conjunctions/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "TC-L01",
+        "tag": "Speed Drill (Live Lab)",
+        "title": "Subject-Verb Agreement Speed Drill",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Filter intervening prepositional phrases to lock subject and verb in 12 seconds.",
+        "pill1": "S-V Agreement",
+        "pill2": "12-Second Clock",
+        "action": "Open Lab",
+        "url": "./TOEIC/subject-verb-agreement/index.html",
+        "live": true
+      },
+      {
+        "unit": "TC-L02",
+        "tag": "Pronoun Gym (Live Lab)",
+        "title": "Pronoun Case &amp; Reflexive Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master possessive pronouns (hers, theirs) vs reflexives (by himself, itself).",
+        "pill1": "Pronoun Cases",
+        "pill2": "Reflexive Rules",
+        "action": "Open Lab",
+        "url": "./TOEIC/pronouns/index.html",
+        "live": true
+      },
+      {
+        "unit": "TC-L03",
+        "tag": "Collocation Gym",
+        "title": "Corporate Collocation Frequency Drills",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Recognize high-yield TOEIC pairings: mutually beneficial, reach an agreement.",
+        "pill1": "Business Collocations",
+        "pill2": "Pairing Recognition",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TC-L04",
+        "tag": "Diagnostic Arena",
+        "title": "Full 100-Item Reading Diagnostic (Part 5, 6, 7)",
+        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+        "tagline": "75-minute timed simulation across single, double, and triple passage sets.",
+        "pill1": "Reading Benchmark",
+        "pill2": "Scaled Diagnostic",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  }
+};
+
+    let activeLevelKey = "A1.1";
+    let currentMode = "experience";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryLevel = urlParams.get('level');
+    if (queryLevel && CURRICULUM[queryLevel]) {
+      activeLevelKey = queryLevel;
+      const sel = document.getElementById('levelSelect');
+      if (sel) sel.value = queryLevel;
+    }
+
+    function switchLevel(lvlKey) {
+      if (!CURRICULUM[lvlKey]) return;
+      activeLevelKey = lvlKey;
+
+      const lvl = CURRICULUM[lvlKey];
+
+      document.title = lvl.code + " Student Workspace - Learning & Development Studio";
+      document.getElementById('userLevelTag').textContent = lvl.studentLevel;
+
+      const hero = document.getElementById('heroBanner');
+      hero.style.backgroundImage = 'linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%), url(' + lvl.heroBg + ')';
+      document.getElementById('heroKicker').innerHTML = '<span class="hero-banner-pill-dot"></span>' + lvl.kicker;
+      document.getElementById('heroMeta').textContent = lvl.meta;
+      document.getElementById('heroTitle').innerHTML = lvl.title;
+      document.getElementById('heroDesc').innerHTML = lvl.desc;
+
+      document.getElementById('stat1Num').textContent = lvl.stat1Num;
+      document.getElementById('stat1Label').textContent = lvl.stat1Label;
+      document.getElementById('stat1Sub').textContent = lvl.stat1Sub;
+
+      document.getElementById('stat2Num').textContent = lvl.stat2Num;
+      document.getElementById('stat2Label').textContent = lvl.stat2Label;
+      document.getElementById('stat2Sub').textContent = lvl.stat2Sub;
+
+      document.getElementById('stat3Num').textContent = lvl.stat3Num;
+      document.getElementById('stat3Label').textContent = lvl.stat3Label;
+      document.getElementById('stat3Sub').textContent = lvl.stat3Sub;
+
+      setSwitchMode(currentMode, false);
+    }
+
+    function setSwitchMode(mode, animate = true) {
+      currentMode = mode;
+      const btnExp = document.getElementById('btnSwitchExp');
+      const btnExpl = document.getElementById('btnSwitchExpl');
+      const legend = document.getElementById('switchLegend');
+      const container = document.getElementById('classesContainer');
+
+      const lvl = CURRICULUM[activeLevelKey];
+
+      if (animate) {
+        container.style.opacity = '0.3';
+      }
+
+      setTimeout(() => {
+        if (mode === 'experience') {
+          btnExp.className = "switch-btn active gold-mode";
+          btnExpl.className = "switch-btn";
+          legend.innerHTML = `
+            <div class="legend-indicator gold">
+              <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
+            </div>
+          `;
+          container.className = "classes-grid";
+          renderCards(lvl.experiences, container, false);
+        } else {
+          btnExp.className = "switch-btn";
+          btnExpl.className = "switch-btn active teal-mode";
+          legend.innerHTML = `
+            <div class="legend-indicator teal">
+              <span>Mode:</span> Language Mechanics, Phonetics &amp; Precision Labs
+            </div>
+          `;
+          container.className = "classes-grid teal-theme";
+          renderCards(lvl.labs, container, true);
+        }
+        container.style.opacity = '1';
+      }, animate ? 120 : 0);
+    }
+
+    function renderCards(data, container, isTeal) {
+      container.innerHTML = data.map(item => {
+        const isSoon = !!item.soon;
+        const isLive = !!item.live && !!item.url;
+
+        let statusBadge = '';
+        if (isLive) {
+          statusBadge = '<span class="badge-live">Active</span>';
+        } else if (isSoon) {
+          statusBadge = '<span class="badge-soon">Soon</span>';
+        }
+
+        let ctaButton = '';
+        if (isLive) {
+          ctaButton = '<a href="' + item.url + '" class="btn-launch">Launch &rarr;</a>';
+        } else if (isSoon) {
+          ctaButton = '<button type="button" class="btn-soon" onclick="openSoonModal(\'' + item.title.replace(/'/g, "\\'") + '\', \'' + item.unit + '\', \'' + item.tagline.replace(/'/g, "\\'") + '\', \'' + item.pill1 + '\', \'' + item.pill2 + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Soon &middot; In Queue</button>';
+        } else {
+          ctaButton = '<button type="button" class="btn-launch" onclick="alert(\'Opening: ' + item.title.replace(/&amp;/g, '&').replace(/'/g, "\\'") + '\')">' + (item.action || 'Launch Quest') + ' &rarr;</button>';
+        }
+
+        return `
+        <article class="cinema-card">
+          <div class="card-visual">
+            <img src="${item.photo}" alt="${item.title}" class="card-photo" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"><rect width="800" height="400" fill="%23071527"/><text x="400" y="200" fill="%23d4a843" font-family="sans-serif" font-size="24" text-anchor="middle" font-weight="bold">Learning &amp; Development Studio</text></svg>'">
+            <div class="card-visual-gradient"></div>
+            
+            <div class="card-badges">
+              <span class="unit-tag">${item.unit}</span>
+              ${statusBadge}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h2 class="card-title">${item.title}</h2>
+            <p class="card-tagline">${item.tagline}</p>
+
+            <div class="card-pills-row">
+              <span class="pill-chip highlight">${item.pill1}</span>
+              <span class="pill-chip">${item.pill2}</span>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-duration">
+                <span class="duration-dot"></span>
+                ${isSoon ? 'Scheduled' : 'Interactive Focus'}
+              </div>
+              ${ctaButton}
+            </div>
+          </div>
+        </article>
+        `;
+      }).join('');
+    }
+
+    function openSoonModal(title, unit, desc, pill1, pill2) {
+      document.getElementById('soonModalTitle').innerHTML = title;
+      document.getElementById('soonModalUnit').textContent = 'Unit Code: ' + unit;
+      document.getElementById('soonModalDesc').innerHTML = desc;
+      document.getElementById('soonModalOutcome').textContent = pill1.replace(/&amp;/g, '&');
+      document.getElementById('soonModalTrack').textContent = pill2.replace(/&amp;/g, '&');
+      document.getElementById('soonModal').classList.add('active');
+    }
+
+    function closeSoonModal(e) {
+      if (e.target.id === 'soonModal') {
+        document.getElementById('soonModal').classList.remove('active');
+      }
+    }
+
+    let isTeacherView = false;
+    function checkRoleParams() {
+      const roleParam = urlParams.get('role');
+      if (roleParam === 'teacher' || roleParam === 'coordinator') {
+        setRoleMode(true);
+      } else {
+        setRoleMode(false);
+      }
+    }
+
+    function setRoleMode(teacherActive) {
+      isTeacherView = teacherActive;
+      const wrap = document.getElementById('teacherLevelWrap');
+      const toggleLabel = document.getElementById('roleToggleLabel');
+      const rolePrefix = document.getElementById('userRolePrefix');
+      const nameLabel = document.getElementById('userNameLabel');
+
+      if (isTeacherView) {
+        wrap.style.display = 'inline-flex';
+        toggleLabel.textContent = 'Student View';
+        rolePrefix.textContent = 'Faculty:';
+        nameLabel.textContent = 'Israel Ventura';
+      } else {
+        wrap.style.display = 'none';
+        toggleLabel.textContent = 'Teacher View';
+        rolePrefix.textContent = 'Student:';
+        nameLabel.textContent = 'Sofia';
+      }
+    }
+
+    function toggleRoleMode() {
+      setRoleMode(!isTeacherView);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkRoleParams();
+      setSwitchMode('experience', false);
+    });
+  </script>
+</body>
+</html>

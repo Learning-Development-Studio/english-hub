@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B1.2 Student Workspace - Learning &amp; Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4A843;
+      --gold-dark: #b88a28;
+      --gold-light: #fef8eb;
+      --gold-border: rgba(212, 168, 67, 0.4);
+      --navy-deep: #071527;
+      --navy-main: #0B1F3A;
+      --navy-soft: #1e293b;
+      --teal: #14b8a6;
+      --teal-light: #f0fdfa;
+      --teal-dark: #0f766e;
+      --teal-border: rgba(20, 184, 166, 0.4);
+      --teal-hover: #0d9488;
+      --surface: #F8FAFC;
+      --paper: #ffffff;
+      --paper-card: #ffffff;
+      --line: #E2E8F0;
+      --line-subtle: #f1f5f9;
+      --muted: #475569;
+      --muted-light: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 999px;
+      --shadow-sm: 0 1px 3px rgba(11, 31, 58, 0.05);
+      --shadow-card: 0 4px 18px -2px rgba(11, 31, 58, 0.07), 0 2px 6px -1px rgba(11, 31, 58, 0.04);
+      --shadow-hover: 0 16px 36px -4px rgba(212, 168, 67, 0.22), 0 6px 12px -2px rgba(11, 31, 58, 0.08);
+      --shadow-hover-teal: 0 16px 36px -4px rgba(20, 184, 166, 0.25), 0 6px 12px -2px rgba(11, 31, 58, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--surface);
+      color: var(--navy-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .ambient-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background: linear-gradient(180deg, #071527 0%, #0B1F3A 65%, #F8FAFC 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 48px;
+      overflow: hidden;
+    }
+    .brand-logo-img {
+      height: 90px;
+      width: auto;
+      object-fit: contain;
+      margin: -21px 0;
+      display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
+    }
+
+    .nav-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .level-select-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      border-radius: 999px;
+      padding: 4px 12px;
+      transition: all .2s ease;
+    }
+    .level-select-wrap:hover {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.09);
+    }
+    .level-select-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .level-select-control {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      padding-right: 4px;
+    }
+    .level-select-control option {
+      background: #0B1F3A;
+      color: #ffffff;
+    }
+
+    .role-switch-btn {
+      background: transparent;
+      border: 1px dashed rgba(212, 168, 67, 0.45);
+      color: var(--gold);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s ease;
+      opacity: 0.85;
+    }
+    .role-switch-btn:hover {
+      opacity: 1;
+      background: rgba(212, 168, 67, 0.14);
+      border-style: solid;
+      color: #ffffff;
+    }
+    .role-switch-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+    .user-badge .user-icon {
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+    }
+    .user-badge strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .student-level-tag {
+      background: rgba(212, 168, 67, 0.18);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* UNIFIED SLEEK TEXT-ONLY GOLD NAV LINKS */
+    .coordinator-link,
+    .exit-link {
+      color: var(--gold) !important;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 999px;
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .coordinator-link:hover,
+    .exit-link:hover {
+      background: rgba(212, 168, 67, 0.14) !important;
+      color: #ffffff !important;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    .workspace-hero-banner {
+      position: relative;
+      border-radius: 24px;
+      padding: 44px 44px 36px;
+      margin-bottom: 34px;
+      background:
+        linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85') center right / cover no-repeat;
+      border: 1px solid rgba(212, 168, 67, 0.32);
+      box-shadow: 0 20px 45px -12px rgba(7, 21, 39, 0.35), 0 0 1px rgba(212, 168, 67, 0.4);
+      overflow: hidden;
+      color: #ffffff;
+      transition: background-image .4s ease-in-out;
+    }
+
+    .hero-banner-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .hero-banner-pill {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(212, 168, 67, 0.15);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      padding: 5px 14px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-banner-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .hero-banner-meta {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-banner-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      max-width: 780px;
+    }
+    .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-banner-desc {
+      color: #cbd5e1;
+      font-size: 15px;
+      max-width: 660px;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-stats-bar {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 12px 20px;
+      background: rgba(5, 16, 31, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      border-radius: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stat-number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-meta strong {
+      font-size: 12px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .stat-meta span {
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding: 0 4px;
+    }
+
+    .switch-wrapper {
+      background: #eef2f6;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: inset 0 2px 4px rgba(11, 31, 58, 0.04);
+    }
+
+    .switch-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: all .24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-btn svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s ease;
+    }
+    .switch-btn:hover {
+      color: var(--navy-main);
+    }
+
+    .switch-btn.active.gold-mode {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #071527;
+      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.35);
+    }
+
+    .switch-btn.active.teal-mode {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);
+    }
+
+    .switch-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .legend-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .legend-indicator span {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+    .legend-indicator.gold span { color: var(--gold-dark); }
+    .legend-indicator.teal span { color: var(--teal); }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      transition: opacity .2s ease;
+    }
+
+    .cinema-card {
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: all .28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      min-height: 415px;
+    }
+    .cinema-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
+    }
+    .teal-theme .cinema-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-hover-teal);
+    }
+
+    .card-visual {
+      position: relative;
+      height: 205px;
+      overflow: hidden;
+      background-color: #071527;
+    }
+    .card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s cubic-bezier(0.16, 1, 0.3, 1), filter .4s ease;
+      filter: brightness(0.92) contrast(1.05);
+    }
+    .cinema-card:hover .card-photo {
+      transform: scale(1.04);
+      filter: brightness(1) contrast(1.08);
+    }
+
+    .card-visual-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(7, 21, 39, 0.25) 0%,
+        rgba(7, 21, 39, 0) 45%,
+        rgba(7, 21, 39, 0.45) 100%
+      );
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .unit-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(7, 21, 39, 0.85);
+      border: 1px solid rgba(212, 168, 67, 0.5);
+      color: var(--gold);
+    }
+    .teal-theme .unit-tag {
+      border-color: rgba(91, 184, 176, 0.55);
+      color: var(--teal-light);
+    }
+
+    .track-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(7, 21, 39, 0.75);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* SOON BADGE - HIGH END MINIMALIST */
+    .badge-soon {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(212, 168, 67, 0.55);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-live {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(20, 184, 166, 0.2);
+      border: 1px solid rgba(20, 184, 166, 0.6);
+      color: #2dd4bf;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-body {
+      padding: 24px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background: var(--paper-card);
+    }
+
+    .card-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy-main);
+      margin-bottom: 8px;
+    }
+
+    .card-tagline {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .card-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .pill-chip {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--navy-soft);
+      border: 1px solid var(--line);
+      letter-spacing: 0.02em;
+    }
+    .pill-chip.highlight {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      border-color: var(--gold-border);
+    }
+    .teal-theme .pill-chip.highlight {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-color: var(--teal-border);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-subtle);
+    }
+    .card-duration {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .duration-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    .teal-theme .duration-dot {
+      background: var(--teal);
+    }
+
+    .btn-launch {
+      border: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #071527;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      padding: 9px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.28);
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-launch:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(212, 168, 67, 0.42);
+      filter: brightness(1.05);
+    }
+
+    .teal-theme .btn-launch {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.28);
+    }
+    .teal-theme .btn-launch:hover {
+      box-shadow: 0 6px 18px rgba(20, 184, 166, 0.42);
+    }
+
+    /* SOON BUTTON */
+    .btn-soon {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: #64748b;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s ease;
+    }
+    .btn-soon:hover {
+      background: #f1f5f9;
+      color: #334155;
+      border-color: var(--gold);
+    }
+    .btn-soon svg {
+      width: 12px;
+      height: 12px;
+      color: var(--gold-dark);
+    }
+
+    /* MODAL ROADMAP POPUP */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 21, 39, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      animation: modalSlide .25s ease-out;
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(12px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      background: var(--navy-deep);
+      color: #ffffff;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+    }
+    .modal-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .modal-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .modal-unit {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .modal-body {
+      padding: 24px 28px;
+    }
+    .modal-desc {
+      font-size: 14.5px;
+      color: var(--navy-soft);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .modal-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .spec-box {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .spec-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .spec-box strong {
+      font-size: 12.5px;
+      color: var(--navy-main);
+      display: block;
+      line-height: 1.3;
+    }
+    .roadmap-note {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+      padding: 12px 14px;
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 10px;
+    }
+    .modal-footer {
+      padding: 16px 28px 24px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn-modal-close {
+      background: var(--navy-main);
+      color: #ffffff;
+      border: 0;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-modal-close:hover {
+      background: var(--navy-deep);
+    }
+
+    @media (max-width: 900px) {
+      .classes-grid {
+        grid-template-columns: 1fr;
+      }
+      .workspace-hero-banner {
+        padding: 30px 22px;
+      }
+      .hero-stats-bar {
+        width: 100%;
+        gap: 14px;
+      }
+      .stat-divider {
+        display: none;
+      }
+      .top-nav {
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-backdrop"></div>
+
+  <!-- SLIM LUXURY TOP NAVIGATION -->
+  <nav class="top-nav">
+    <a href="./index.html" class="brand-wrap">
+      <img src="./assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img">
+    </a>
+
+    <div class="nav-meta">
+      <!-- TEACHER / FACULTY LEVEL SCOPE (VISIBLE ONLY IN TEACHER / EVALUATOR MODE) -->
+      <div class="level-select-wrap" id="teacherLevelWrap" style="display: none;">
+        <label for="levelSelect" class="level-select-label">Faculty Scope</label>
+        <select id="levelSelect" class="level-select-control" onchange="switchLevel(this.value)">
+          <optgroup label="General English Trajectory">
+            <option value="PreA1">Pre-A1 - Absolute Beginners</option>
+            <option value="A1.1">A1.1 - Foundations</option>
+            <option value="A1.2">A1.2 - Actions in Motion</option>
+            <option value="A2.1">A2.1 - Expanding Reach</option>
+            <option value="A2.2">A2.2 - Choices &amp; Journeys</option>
+            <option value="B1.1">B1.1 - Intermediate Fluency</option>
+            <option value="B1.2" selected>B1.2 - Confident Independence</option>
+            <option value="B1+">B1+ - Professional Synthesis</option>
+          </optgroup>
+          <optgroup label="Specialized &amp; Certifications">
+            <option value="Business">Business English - Executive Track</option>
+            <option value="TOEFL">TOEFL ITP - Academic Prep</option>
+            <option value="TOEIC">TOEIC - Corporate Benchmark</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- STUDENT / USER BADGE (LOCKED TO CURRENT ENROLLED LEVEL) -->
+      <div class="user-badge" id="userBadge">
+        <span class="user-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </span>
+        <span id="userRolePrefix">Student:</span> <strong id="userNameLabel">Sofia</strong>
+        <span class="student-level-tag" id="userLevelTag">B1.2</span>
+      </div>
+
+      <!-- DISCREET ROLE TOGGLE BUTTON (FOR EVALUATOR / TESTING MODE) -->
+      <button type="button" class="role-switch-btn" id="roleToggleBtn" onclick="toggleRoleMode()" title="Toggle Student / Faculty Scope">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span id="roleToggleLabel">Teacher View</span>
+      </button>
+
+      <a href="./index.html" class="exit-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Exit
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- CINEMATIC WORKSPACE HERO BANNER -->
+    <header class="workspace-hero-banner" id="heroBanner">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          B1.2 Trajectory · Stage 06 Confident Independence (Gen 3 Certified)
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR B1.2 · General English (Autonomous)
+        </div>
+      </div>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        Confident Independence & <span class="gold-accent">Strategic Resolve</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        Navigate workplace friction, lead structured negotiations, explain technical cause and effect, and present comparative recommendations.
+      </p>
+
+      <!-- FROSTED METRICS STRIP -->
+      <div class="hero-stats-bar">
+        <div class="stat-item">
+          <div class="stat-number" id="stat1Num">04</div>
+          <div class="stat-meta">
+            <strong id="stat1Label">Communicative Quests</strong>
+            <span id="stat1Sub">High-stakes missions</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number" id="stat2Num">04</div>
+          <div class="stat-meta">
+            <strong id="stat2Label">Language Labs</strong>
+            <span id="stat2Sub">Deduction & discourse</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number" id="stat3Num">B1</div>
+          <div class="stat-meta">
+            <strong id="stat3Label">Target Profile</strong>
+            <span id="stat3Sub">Full CEFR B1 autonomy</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- THE EDITORIAL SWITCHER -->
+    <div class="controls-bar">
+      <div class="switch-wrapper">
+        <button type="button" class="switch-btn active gold-mode" id="btnSwitchExp" onclick="setSwitchMode('experience')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+          Communicative Experiences
+        </button>
+
+        <button type="button" class="switch-btn" id="btnSwitchExpl" onclick="setSwitchMode('explore')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          Explore Labs
+        </button>
+      </div>
+
+      <div class="switch-legend" id="switchLegend">
+        <div class="legend-indicator gold">
+          <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC CLASSES CONTAINER -->
+    <main id="classesContainer" class="classes-grid">
+      <!-- Injected by JavaScript -->
+    </main>
+
+  </div>
+
+  <!-- MODAL FOR UPCOMING UNITS (CURRICULUM ROADMAP) -->
+  <div class="modal-backdrop" id="soonModal" onclick="closeSoonModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-kicker">Curriculum Roadmap &middot; Next in Queue</div>
+        <h3 class="modal-title" id="soonModalTitle"></h3>
+        <p class="modal-unit" id="soonModalUnit"></p>
+      </div>
+      <div class="modal-body">
+        <p id="soonModalDesc" class="modal-desc"></p>
+        <div class="modal-specs">
+          <div class="spec-box">
+            <span class="spec-label">Target Outcome</span>
+            <strong id="soonModalOutcome">Observable evidence</strong>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Methodology Track</span>
+            <strong id="soonModalTrack">CLT + TBLT Task</strong>
+          </div>
+        </div>
+        <div class="roadmap-note">
+          This unit is part of the approved L&amp;D Studio Academic Scope &amp; Sequence. Advancement occurs through observable evidence rather than elapsed seat time.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-close" onclick="document.getElementById('soonModal').classList.remove('active')">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CURRICULUM = {
+  "PreA1": {
+    "code": "Pre-A1",
+    "studentLevel": "Pre-A1",
+    "kicker": "Pre-A1 Trajectory · Stage 00 Absolute Beginners",
+    "meta": "CEFR Pre-A1 · General English",
+    "title": "First Words & <span class=\"gold-accent\">Foundations</span>",
+    "desc": "An accessible, step-by-step introduction to English sounds, personal identity, everyday objects, and essential classroom communication.",
+    "heroBg": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "05",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Authentic scenarios",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Phonics & mechanics",
+    "stat3Num": "A0",
+    "stat3Label": "Emergent Competency",
+    "stat3Sub": "Formulaic fluency",
+    "experiences": [
+      {
+        "unit": "PA-U01",
+        "tag": "Communicative Task",
+        "title": "First Contact &amp; Identity",
+        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Meet a peer, introduce yourself, and exchange contact names.",
+        "pill1": "Introductions",
+        "pill2": "Speaking &amp; Names",
+        "action": "Launch Quest",
+        "url": "./PreA1/greetings/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U02",
+        "tag": "Communicative Task",
+        "title": "Classroom Commands &amp; Objects",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify study items and borrow everyday classroom essentials.",
+        "pill1": "Classroom Objects",
+        "pill2": "Listen &amp; Repeat",
+        "action": "Launch Quest",
+        "url": "./PreA1/classroom/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U03",
+        "tag": "Communicative Task",
+        "title": "Practical Information: Numbers 1–20",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Verify phone digits, room badges, and check-in numbers 1–20.",
+        "pill1": "Numbers 1–20",
+        "pill2": "Badge Check-In",
+        "action": "Launch Quest",
+        "url": "./PreA1/numbers/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U04",
+        "tag": "Communicative Task",
+        "title": "Personal Details &amp; Name Spelling",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Spell your name letter by letter and confirm basic registration data.",
+        "pill1": "Alphabet &amp; Spelling",
+        "pill2": "Name Badges",
+        "action": "Launch Quest",
+        "url": "./PreA1/whats-your-name/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-U05",
+        "tag": "Communicative Capstone",
+        "title": "Pre-A1 Capstone: First Day at the Studio",
+        "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Complete your full intake interview, room orientation, and badge pickup.",
+        "pill1": "Capstone Simulation",
+        "pill2": "Full Orientation",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "PA-L01",
+        "tag": "Phonics Lab",
+        "title": "English Alphabet &amp; Vowel Sounds",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Recognize sound patterns, spell names aloud, and master tricky vowel sounds.",
+        "pill1": "Phonics Gym",
+        "pill2": "Auditory Discrimination",
+        "action": "Open Lab",
+        "url": "./PreA1/alphabet/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L02",
+        "tag": "Grammar Mechanics",
+        "title": "Age &amp; Numbers: How Old Are You?",
+        "photo": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Say and understand ages accurately, preventing the 'I have' error fossilization.",
+        "pill1": "I am ... years old",
+        "pill2": "Number Accuracy",
+        "action": "Open Lab",
+        "url": "./PreA1/how-old-are-you/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L03",
+        "tag": "Interaction Lab",
+        "title": "Classroom Requests &amp; Survival Cues",
+        "photo": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Practice key survival phrases: 'Can you repeat?', 'I don't understand'.",
+        "pill1": "Survival Phrases",
+        "pill2": "Classroom Fluency",
+        "action": "Open Lab",
+        "url": "./PreA1/classroom/index.html",
+        "live": true
+      },
+      {
+        "unit": "PA-L04",
+        "tag": "Writing Lab",
+        "title": "Emergency Form Filling Workshop",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Fill in first name, surname, phone digits, and emergency contact accurately.",
+        "pill1": "Form Literacy",
+        "pill2": "Print Clarity",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "A1.1": {
+    "code": "A1.1",
+    "studentLevel": "A1.1",
+    "kicker": "A1.1 Trajectory · Stage 01 Foundations",
+    "meta": "CEFR A1.1 · General English",
+    "title": "Foundations & <span class=\"gold-accent\">Social Identity</span>",
+    "desc": "A structured communicative journey into personal identity, living spaces, and campus navigation. Experience real-world missions and precision language mechanics labs.",
+    "heroBg": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Campus & home missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Structure & vocabulary",
+    "stat3Num": "A1-",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Basic social exchanges",
+    "experiences": [
+      {
+        "unit": "A11-U01",
+        "tag": "Campus Experience",
+        "title": "Starting University: First Day on Campus",
+        "photo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate orientation desks, register student profile, and introduce new peers.",
+        "pill1": "Campus Orientation",
+        "pill2": "Introductions",
+        "action": "Launch Quest",
+        "url": "./A1.1/starting-university/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U02",
+        "tag": "Social Task",
+        "title": "People, Family &amp; Personal Belongings",
+        "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe your family members, friends, and everyday possessions with clarity.",
+        "pill1": "Family &amp; Friends",
+        "pill2": "Possessions",
+        "action": "Launch Quest",
+        "url": "./A1.1/adjectives/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U03",
+        "tag": "Living Space Task",
+        "title": "My Living Space &amp; Everyday Objects",
+        "photo": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe your apartment layout, furniture placement, and household items.",
+        "pill1": "Living Spaces",
+        "pill2": "Furniture &amp; Rooms",
+        "action": "Launch Quest",
+        "url": "./A1.1/around-the-house/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-U04",
+        "tag": "Communicative Capstone",
+        "title": "Welcome Bulletin &amp; Short Messages",
+        "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Draft a room notice board, welcoming notes, and short peer text updates.",
+        "pill1": "Message Board",
+        "pill2": "Written Notes",
+        "action": "Launch Quest",
+        "url": "./A1.1/a1-1-studio/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A11-L01",
+        "tag": "Grammar Gym",
+        "title": "Verb To Be Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Affirmative, negative, yes/no queries, and short answers with am, is, are.",
+        "pill1": "To Be Mastery",
+        "pill2": "Full Paradigm",
+        "action": "Open Lab",
+        "url": "./A1.1/verb-to-be/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L02",
+        "tag": "Syntax Gym",
+        "title": "Demonstratives: This, That, These, Those",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pointing near and far, singular and plural item identification without hesitation.",
+        "pill1": "Demonstratives",
+        "pill2": "Spatial Reference",
+        "action": "Open Lab",
+        "url": "./A1.1/this-that-these-those/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L03",
+        "tag": "Structure Lab",
+        "title": "Existential Structures: There is / There are",
+        "photo": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "State existence and quantity of items in immediate physical environments.",
+        "pill1": "There is / are",
+        "pill2": "Environment Inventory",
+        "action": "Open Lab",
+        "url": "./A1.1/there-is-there-are/index.html",
+        "live": true
+      },
+      {
+        "unit": "A11-L04",
+        "tag": "Grammar Lab",
+        "title": "Plurals &amp; Articles: a / an &amp; Irregulars",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master vowel vs consonant sound rules for a/an and essential irregular plurals.",
+        "pill1": "Articles a/an",
+        "pill2": "Plural Morphology",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "A1.2": {
+    "code": "A1.2",
+    "studentLevel": "A1.2",
+    "kicker": "A1.2 Trajectory · Stage 02 Habits & Motion (R2 Validated)",
+    "meta": "CEFR A1.2 · General English (R2 Sequence)",
+    "title": "Daily Rhythms & <span class=\"gold-accent\">Actions in Motion</span>",
+    "desc": "Anchor Present Simple for habits and routines, integrate Present Continuous for actions occurring right now, and express skills and dining orders.",
+    "heroBg": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "05",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Routines & live actions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Present tense mechanics",
+    "stat3Num": "A1+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Spontaneous simple exchanges",
+    "experiences": [
+      {
+        "unit": "A12-U01",
+        "tag": "Digital Habit Experience (Gen 3)",
+        "title": "Always Online? Digital Habits Lab",
+        "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Analyze real daily screen time, compare tech habits, and debate routine rituals.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Screen Habits",
+        "action": "Launch Quest",
+        "url": "./A1.2/always-online-habits-lab/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-U02",
+        "tag": "Communicative Task",
+        "title": "Free Time, Hobbies &amp; Leisure",
+        "photo": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interview a partner about weekend downtime, favorite hobbies, and music preferences.",
+        "pill1": "Hobbies &amp; Interests",
+        "pill2": "Like / Love + -ing",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U03",
+        "tag": "Team Task",
+        "title": "Talents &amp; Skills: Team Project Role Call",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Form a collaborative project crew based on what each teammate can and cannot do.",
+        "pill1": "Can / Can't Abilities",
+        "pill2": "Crew Delegation",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U04",
+        "tag": "Everyday Service Task",
+        "title": "Counter Orders &amp; Prices (20–100)",
+        "photo": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Order food and drinks at a cafe counter, confirm prices, and request a receipt.",
+        "pill1": "Cafe Transactions",
+        "pill2": "Numbers 20–100",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A12-U05",
+        "tag": "R2 Sequence Real-Time Task",
+        "title": "Actions Right Now: Live Stream Mission",
+        "photo": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Report on an active campus festival while it happens with Present Continuous.",
+        "pill1": "Present Continuous",
+        "pill2": "Real-Time Action",
+        "action": "Launch Quest",
+        "url": "./A1.2/present-continuous/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A12-L01",
+        "tag": "Grammar Gym",
+        "title": "Simple Present Verbs &amp; Third Person -s",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master third-person -s/-es rules and distinguish habitual actions clearly.",
+        "pill1": "Third Person -s",
+        "pill2": "Verb Conjugation",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-verbs/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L02",
+        "tag": "Syntax Gym",
+        "title": "Adverbs of Frequency Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Word order placement of always, usually, often, sometimes, never before main verbs.",
+        "pill1": "Frequency Scale",
+        "pill2": "Sentence Position",
+        "action": "Open Lab",
+        "url": "./A1.2/adverbs-of-frequency/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L03",
+        "tag": "Inquiry Lab",
+        "title": "Question Formulation: Do / Does &amp; Wh-",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Construct accurate yes/no queries and open information inquiries smoothly.",
+        "pill1": "Do / Does Auxiliary",
+        "pill2": "Wh- Questions",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-questions/index.html",
+        "live": true
+      },
+      {
+        "unit": "A12-L04",
+        "tag": "Interactive Game",
+        "title": "Grammar Battle Arena (Speed Drills)",
+        "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Compete against time in Rapid-Fire Simple Present and verb-form challenges.",
+        "pill1": "Speed Mechanics",
+        "pill2": "Grammar Arena",
+        "action": "Open Lab",
+        "url": "./A1.2/simple-present-battle/index.html",
+        "live": true
+      }
+    ]
+  },
+  "A2.1": {
+    "code": "A2.1",
+    "studentLevel": "A2.1",
+    "kicker": "A2.1 Trajectory · Stage 03 Expanding Reach (R2 Simple Past)",
+    "meta": "CEFR A2.1 · General English (Expanded Past)",
+    "title": "Expanding Reach & <span class=\"gold-accent\">Past Narratives</span>",
+    "desc": "Navigate urban hubs and commercial services, narrate completed events with expanded simple past, and organize group logistics with collaborative confidence.",
+    "heroBg": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "City & past missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Quantifiers & past verbs",
+    "stat3Num": "A2",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Connected routine exchanges",
+    "experiences": [
+      {
+        "unit": "A21-U01",
+        "tag": "Marketplace Task",
+        "title": "Marketplace Logistics &amp; Supplies",
+        "photo": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Purchase supplies with some/any, much/many, and precise food containers.",
+        "pill1": "Marketplace Quantifiers",
+        "pill2": "Shopping Dialogue",
+        "action": "Launch Quest",
+        "url": "./A2.1/food-quantifiers/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U02",
+        "tag": "City Navigation Task",
+        "title": "Getting Around Town &amp; Transit",
+        "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Ask for and give street directions, transit landmarks, and intersection cues.",
+        "pill1": "Directions &amp; Transit",
+        "pill2": "Urban Landmarks",
+        "action": "Launch Quest",
+        "url": "./A1.1/in-the-city/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U03",
+        "tag": "Historical Narrative Experience (Gen 3)",
+        "title": "The FOMO Museum: Past Event Memories",
+        "photo": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Walk through an interactive gallery and narrate completed experiences with simple past.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Past Narratives",
+        "action": "Launch Quest",
+        "url": "./A2.1/fomo-museum/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-U04",
+        "tag": "Communicative Capstone",
+        "title": "Resolving an Outing: The Group Incident",
+        "photo": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Coordinate a meetup, resolve a scheduling delay, and agree on alternate plans.",
+        "pill1": "Incident Resolution",
+        "pill2": "Group Coordination",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A21-L01",
+        "tag": "Vocabulary Lab",
+        "title": "Countable &amp; Uncountable + Fridge Battle",
+        "photo": "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Categorize mass nouns vs countable units and compete in the interactive Fridge Arena.",
+        "pill1": "Countable vs Mass",
+        "pill2": "Quantifier Logic",
+        "action": "Open Lab",
+        "url": "./A2.1/countable-and-uncountable/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L02",
+        "tag": "Grammar Gym",
+        "title": "Past of To Be: Was / Were Historical Simulator",
+        "photo": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Describe past states, locations, and historical identities with was and were.",
+        "pill1": "Was / Were Paradigm",
+        "pill2": "Past Location",
+        "action": "Open Lab",
+        "url": "./A2.1/past-of-be/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L03",
+        "tag": "Phonics Studio",
+        "title": "-ed Ending Pronunciation (/t/, /d/, /ɪd/)",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master voice vs unvoiced ending sounds so regular past verbs sound 100% natural.",
+        "pill1": "Phonetic Endings",
+        "pill2": "/t/, /d/, /ɪd/ Rules",
+        "action": "Open Lab",
+        "url": "./A2.1/ed-pronunciation/index.html",
+        "live": true
+      },
+      {
+        "unit": "A21-L04",
+        "tag": "Morphology Gym",
+        "title": "Simple Past Regular &amp; Irregular Verbs",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Spelling transformations, high-frequency irregular forms, and auxiliary did in questions.",
+        "pill1": "Irregular Verbs",
+        "pill2": "Did Auxiliary",
+        "action": "Open Lab",
+        "url": "./A2.1/simple-past-class/index.html",
+        "live": true
+      }
+    ]
+  },
+  "A2.2": {
+    "code": "A2.2",
+    "studentLevel": "A2.2",
+    "kicker": "A2.2 Trajectory · Stage 04 Choices & Journeys (R2 Present Perfect Intro)",
+    "meta": "CEFR A2.2 · General English (R2 Milestone)",
+    "title": "Choices, Comparisons & <span class=\"gold-accent\">Life Journeys</span>",
+    "desc": "Compare environments and products, introduce the Present Perfect for life experiences, make future arrangements, and offer practical advice.",
+    "heroBg": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Travel & advice tasks",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Comparatives & participles",
+    "stat3Num": "A2+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Extended everyday autonomy",
+    "experiences": [
+      {
+        "unit": "A22-U01",
+        "tag": "R2 Milestone Task",
+        "title": "Life Experiences &amp; Travel Log",
+        "photo": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interview fellow travelers: Have you ever visited, tasted, or tried extreme sports?",
+        "pill1": "Present Perfect",
+        "pill2": "Life Experiences",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U02",
+        "tag": "Decision Task",
+        "title": "Comparing Cities &amp; Lifestyle Choices",
+        "photo": "https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate cost of living, transit efficiency, and quality of life across two cities.",
+        "pill1": "Comparatives",
+        "pill2": "City Analysis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U03",
+        "tag": "Planning Task",
+        "title": "Future Plans, Trips &amp; Intentions",
+        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish spontaneous choices with will from confirmed flight itineraries with going to.",
+        "pill1": "Will vs Going to",
+        "pill2": "Itinerary Planning",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "A22-U04",
+        "tag": "Advisory Capstone",
+        "title": "Health, Wellness &amp; Practical Advice Clinic",
+        "photo": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Consult a peer experiencing stress or jetlag and recommend actionable remedies.",
+        "pill1": "Should / Must Advice",
+        "pill2": "Wellness Clinic",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "A22-L01",
+        "tag": "Morphology Lab",
+        "title": "Irregular Past Participle Mastery Gym",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Anchor past participle forms (seen, been, written, spoken) for Present Perfect fluency.",
+        "pill1": "Past Participles",
+        "pill2": "Morphology Drills",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L02",
+        "tag": "Syntax Gym",
+        "title": "Comparative &amp; Superlative Precision",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Short vs long adjective rules, irregular modifiers (better, worse), and than clauses.",
+        "pill1": "-er vs More",
+        "pill2": "Superlatives",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L03",
+        "tag": "Contrast Gym",
+        "title": "Present Perfect vs Simple Past Contrast",
+        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish unstated past time (I have seen) from specific anchor dates (in 2022).",
+        "pill1": "Indefinite Time",
+        "pill2": "Anchor Clues",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "A22-L04",
+        "tag": "Modal Gym",
+        "title": "Obligation, Prohibition &amp; Advice",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Calibrate social force: have to for rules, mustn't for prohibition, should for advice.",
+        "pill1": "Modal Verbs",
+        "pill2": "Degrees of Force",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1.1": {
+    "code": "B1.1",
+    "studentLevel": "B1.1",
+    "kicker": "B1.1 Trajectory · Stage 05 Intermediate Fluency",
+    "meta": "CEFR B1.1 · General English",
+    "title": "Narrative Depth & <span class=\"gold-accent\">Social Nuance</span>",
+    "desc": "Maintain sustained conversations, express viewpoints on cultural and environmental issues, narrate complex memories, and handle unexpected service disruptions.",
+    "heroBg": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Nuanced debate tasks",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Conditionals & passives",
+    "stat3Num": "B1-",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Independent communication",
+    "experiences": [
+      {
+        "unit": "B11-U01",
+        "tag": "Discussion Task",
+        "title": "Media, News &amp; Current Affairs Forum",
+        "photo": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Analyze news reports, debate credibility, and articulate reasoned opinions on social trends.",
+        "pill1": "News Literacy",
+        "pill2": "Opinion Stance",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U02",
+        "tag": "Workplace Task",
+        "title": "Workplace Updates &amp; Project Check-Ins",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead a weekly stand-up, report blocker items, and propose collaborative solutions.",
+        "pill1": "Stand-Up Meeting",
+        "pill2": "Project Blockers",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U03",
+        "tag": "Narrative Task",
+        "title": "Storytelling &amp; Memorable Anecdotes",
+        "photo": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Narrate an eventful journey using past continuous background and past simple interruptions.",
+        "pill1": "Narrative Threads",
+        "pill2": "Anecdotal Detail",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B11-U04",
+        "tag": "Problem Solving Capstone",
+        "title": "Service Disruption &amp; Formal Claims",
+        "photo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Resolve a delayed order with customer support, justifying compensation terms politely.",
+        "pill1": "Service Claims",
+        "pill2": "Polite Assertion",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B11-L01",
+        "tag": "Grammar Gym",
+        "title": "Narrative Tenses Integration Lab",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Coordinate Past Simple, Past Continuous, and Past Perfect to order chronological events.",
+        "pill1": "Narrative Weave",
+        "pill2": "Timeline Logic",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L02",
+        "tag": "Syntax Gym",
+        "title": "First &amp; Second Conditionals Lab",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Distinguish real possibilities (if it rains) from hypothetical reflections (if I had time).",
+        "pill1": "Conditionals 1 &amp; 2",
+        "pill2": "Hypothetical Stance",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L03",
+        "tag": "Register Lab",
+        "title": "Passive Voice in News &amp; Incident Reports",
+        "photo": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Focus sentence emphasis on the action or recipient rather than the agent.",
+        "pill1": "Passive Syntax",
+        "pill2": "Objective Tone",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B11-L04",
+        "tag": "Lexicon Gym",
+        "title": "Collocations &amp; Phrasal Verbs in Context",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Natural word partnerships (make a decision) and separable vs inseparable phrasal verbs.",
+        "pill1": "Collocations",
+        "pill2": "Phrasal Mechanics",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1.2": {
+    "code": "B1.2",
+    "studentLevel": "B1.2",
+    "kicker": "B1.2 Trajectory · Stage 06 Confident Independence (Gen 3 Certified)",
+    "meta": "CEFR B1.2 · General English (Autonomous)",
+    "title": "Confident Independence & <span class=\"gold-accent\">Strategic Resolve</span>",
+    "desc": "Navigate workplace friction, lead structured negotiations, explain technical cause and effect, and present comparative recommendations.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "High-stakes missions",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Deduction & discourse",
+    "stat3Num": "B1",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Full CEFR B1 autonomy",
+    "experiences": [
+      {
+        "unit": "B12-U01",
+        "tag": "High-Stakes Travel Incident (Gen 3)",
+        "title": "The 8:45 Flight: Cancelled Gate Resolution",
+        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead a high-stakes airline counter negotiation after your connecting flight is cancelled.",
+        "pill1": "Gen 3 Interactive",
+        "pill2": "Airport Counter",
+        "action": "Launch Quest",
+        "url": "./Guest/the-845-flight/index.html",
+        "live": true
+      },
+      {
+        "unit": "B12-U02",
+        "tag": "Workplace Task",
+        "title": "Managing Professional Disagreements",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Address conflicting project priorities, de-escalate tension, and agree on compromises.",
+        "pill1": "Conflict Resolution",
+        "pill2": "Negotiation Terms",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B12-U03",
+        "tag": "Analytical Task",
+        "title": "Hypothetical Scenarios &amp; Strategic Dilemmas",
+        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate corporate case studies: What would have happened if they hadn't pivoted?",
+        "pill1": "Third Conditional",
+        "pill2": "Case Analysis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B12-U04",
+        "tag": "Integrated B1 Capstone",
+        "title": "Product Pitch &amp; Stakeholder Q&amp;A",
+        "photo": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pitch a practical community project, justify budget items, and field spontaneous queries.",
+        "pill1": "Capstone Pitch",
+        "pill2": "Spontaneous Defense",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B12-L01",
+        "tag": "Grammar Gym",
+        "title": "Modals of Deduction: Must, Might, Can't",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Deduce facts with confidence markers: it must be, it could be, it can't be true.",
+        "pill1": "Deduction Modals",
+        "pill2": "Evidence Stance",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L02",
+        "tag": "Discourse Lab",
+        "title": "Reported Speech &amp; Summary Reporting",
+        "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Relay client feedback, interview responses, and boardroom statements accurately.",
+        "pill1": "Tense Backshift",
+        "pill2": "Reporting Verbs",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L03",
+        "tag": "Cohesion Gym",
+        "title": "Advanced Discourse Markers &amp; Linkers",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Weave complex arguments with however, on the other hand, furthermore, and therefore.",
+        "pill1": "Discourse Cohesion",
+        "pill2": "Argument Weave",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B12-L04",
+        "tag": "Phonetics Lab",
+        "title": "Sentence Stress &amp; Intonation in Persuasion",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Shift focal emphasis in key arguments to sound authoritative without being aggressive.",
+        "pill1": "Contrastive Stress",
+        "pill2": "Persuasive Cadence",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "B1+": {
+    "code": "B1+",
+    "studentLevel": "B1+",
+    "kicker": "B1+ Trajectory · Stage 07 Professional Synthesis (Gateway to B2)",
+    "meta": "CEFR B1+ · Bridge to B2 Independence",
+    "title": "Executive Synthesis & <span class=\"gold-accent\">Bridge to B2</span>",
+    "desc": "Synthesize disparate viewpoints, author structured reports, defend complex proposals, and prepare for institutional certifications with professional polish.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Communicative Quests",
+    "stat1Sub": "Synthesis & policy",
+    "stat2Num": "04",
+    "stat2Label": "Language Labs",
+    "stat2Sub": "Syntactic architecture",
+    "stat3Num": "B1+",
+    "stat3Label": "Target Profile",
+    "stat3Sub": "Pre-advanced synthesis",
+    "experiences": [
+      {
+        "unit": "B1P-U01",
+        "tag": "Executive Task",
+        "title": "Cross-Functional Executive Briefings",
+        "photo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Synthesize marketing and engineering constraints into a 5-minute boardroom brief.",
+        "pill1": "Executive Briefing",
+        "pill2": "Synthesis",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U02",
+        "tag": "Strategy Task",
+        "title": "Strategic Decision-Making Under Ambiguity",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Evaluate incomplete business analytics and justify choosing one risk mitigation plan.",
+        "pill1": "Ambiguity Logic",
+        "pill2": "Risk Assessment",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U03",
+        "tag": "Crisis Task",
+        "title": "Crisis Response &amp; Media Communications",
+        "photo": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Represent an enterprise during a service outage and deliver an empathetic media statement.",
+        "pill1": "Crisis Response",
+        "pill2": "Public Statement",
+        "action": "Launch Quest",
+        "soon": true
+      },
+      {
+        "unit": "B1P-U04",
+        "tag": "Capstone Synthesis",
+        "title": "Institutional Research Defense (Capstone)",
+        "photo": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Present an integrated thesis proposal, counter methodological critiques, and defend findings.",
+        "pill1": "Thesis Defense",
+        "pill2": "Methodology Argument",
+        "action": "Launch Quest",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "B1P-L01",
+        "tag": "Syntax Architecture",
+        "title": "Complex Sentence Architecture &amp; Inversion",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master non-defining relative clauses, cleft sentences (What we need is...), and emphasis.",
+        "pill1": "Cleft Sentences",
+        "pill2": "Subordination",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L02",
+        "tag": "Stylistics Gym",
+        "title": "Academic &amp; Professional Register Gym",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Elevate informal phrasing into formal institutional prose suitable for executive white papers.",
+        "pill1": "Register Elevation",
+        "pill2": "Lexical Variety",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L03",
+        "tag": "Pragmatics Lab",
+        "title": "Hedging, Stance &amp; Diplomatic Nuance",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Calibrate assertion strength with cautious language: tend to, it appears that, arguably.",
+        "pill1": "Academic Hedging",
+        "pill2": "Stance Markers",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "B1P-L04",
+        "tag": "Vocabulary Gym",
+        "title": "Executive Phrasal Verbs &amp; Idiomatic Flow",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Integrate native business idioms (touch base, drill down, circle back) with exact precision.",
+        "pill1": "Business Idioms",
+        "pill2": "Executive Collocations",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "Business": {
+    "code": "Business",
+    "studentLevel": "Executive Track",
+    "kicker": "Professional Specialization · Executive Business English",
+    "meta": "Specialized Track · Corporate & Leadership Focus",
+    "title": "Executive Strategy & <span class=\"gold-accent\">Corporate Operations</span>",
+    "desc": "Master high-stakes contract negotiations, global supply chain incidents, cross-cultural team leadership, and C-suite boardroom presentations.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "06",
+    "stat1Label": "Executive Tracks",
+    "stat1Sub": "Corporate simulations",
+    "stat2Num": "04",
+    "stat2Label": "Executive Labs",
+    "stat2Sub": "Finance & syntax",
+    "stat3Num": "C1",
+    "stat3Label": "Strategic Horizon",
+    "stat3Sub": "Leadership fluency",
+    "experiences": [
+      {
+        "unit": "BUS-U01",
+        "tag": "Operational Incident",
+        "title": "Supply Chain Disruption &amp; Contingency",
+        "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate critical supply chain bottlenecks and lead incident mitigation calls.",
+        "pill1": "Crisis Logistics",
+        "pill2": "Vendor Management",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U02",
+        "tag": "Executive Reporting",
+        "title": "Quarterly Earnings &amp; Financial Synthesis",
+        "photo": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Interpret fiscal trends, justify variances, and present metrics to shareholders.",
+        "pill1": "Financial Metrics",
+        "pill2": "Variance Reporting",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U03",
+        "tag": "High-Stakes Legal",
+        "title": "Cross-Border Contract Negotiations",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Negotiate service level agreements, liability caps, and payment milestone terms.",
+        "pill1": "SLA Terms",
+        "pill2": "Contract Compromise",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U04",
+        "tag": "Corporate PR",
+        "title": "Enterprise Crisis PR &amp; Media Handling",
+        "photo": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Deliver an authoritative press conference addressing a corporate compliance breach.",
+        "pill1": "Media Briefing",
+        "pill2": "Compliance Statement",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U05",
+        "tag": "Venture Pitch",
+        "title": "Global Expansion &amp; M&amp;A Pitch",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pitch market entry valuation, regulatory compliance, and post-merger synergy.",
+        "pill1": "M&amp;A Pitch",
+        "pill2": "Strategic Synergy",
+        "action": "Launch Track",
+        "soon": true
+      },
+      {
+        "unit": "BUS-U06",
+        "tag": "Executive Capstone",
+        "title": "Boardroom Strategic Capstone Simulation",
+        "photo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Chair an annual board review, resolve deadlock votes, and issue binding resolutions.",
+        "pill1": "Boardroom Chair",
+        "pill2": "Deadlock Resolution",
+        "action": "Launch Track",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "BUS-L01",
+        "tag": "Financial Gym",
+        "title": "Quantitative Lexicon &amp; Financial Modeling",
+        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Precision terminology for EBITDA, amortization, cash-flow burn, and valuation.",
+        "pill1": "Financial Lexicon",
+        "pill2": "Quantitative Terms",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L02",
+        "tag": "Executive Writing",
+        "title": "Executive Memo &amp; Board Resolution Drafting",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Author concise, persuasive executive summaries that drive decision-making.",
+        "pill1": "Executive Memos",
+        "pill2": "Actionable Brevity",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L03",
+        "tag": "Diplomatic Syntax",
+        "title": "Diplomatic Refusal &amp; Tactical Concession",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Decline commercial proposals gracefully while preserving long-term partner trust.",
+        "pill1": "Tactical Concession",
+        "pill2": "Diplomatic Rebuttal",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "BUS-L04",
+        "tag": "Executive Speech",
+        "title": "Executive Cadence &amp; Voice Conditioning",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Pacing, downward inflections, and vocal presence in high-stakes presentations.",
+        "pill1": "Vocal Authority",
+        "pill2": "Executive Presence",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "TOEFL": {
+    "code": "TOEFL",
+    "studentLevel": "Certification Lab",
+    "kicker": "Academic Certification · TOEFL ITP® & iBT Focus",
+    "meta": "Standardized Exam Prep · Score Band 550+ / 90+",
+    "title": "Academic Precision & <span class=\"gold-accent\">Test Architecture</span>",
+    "desc": "Master structural error detection, academic lecture synthesis, and high-speed passage navigation under authentic institutional testing conditions.",
+    "heroBg": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Exam Sections",
+    "stat1Sub": "Authentic test blocks",
+    "stat2Num": "04",
+    "stat2Label": "Strategic Labs",
+    "stat2Sub": "Traps & skimming",
+    "stat3Num": "550+",
+    "stat3Label": "Target Score",
+    "stat3Sub": "ITP Institutional cutoff",
+    "experiences": [
+      {
+        "unit": "SEC-01",
+        "tag": "Academic Listening",
+        "title": "Section 1: Academic Lecture &amp; Dialogue Synthesis",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Decode professor monologues, student dialogues, and implicit speaker attitudes.",
+        "pill1": "Lecture Audio",
+        "pill2": "Implicit Inference",
+        "action": "Launch Section",
+        "soon": true
+      },
+      {
+        "unit": "SEC-02",
+        "tag": "Structure Arena (Live Lab)",
+        "title": "Section 2: Structure &amp; Written Expression Trap Battle",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify subject-verb inversion traps, parallel syntax flaws, and connector errors.",
+        "pill1": "Trap Battle Arena",
+        "pill2": "Error Identification",
+        "action": "Launch Section",
+        "url": "./TOEFL/trap-battle/index.html",
+        "live": true
+      },
+      {
+        "unit": "SEC-03",
+        "tag": "Speed Reading",
+        "title": "Section 3: Academic Reading &amp; Speed Navigation",
+        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Navigate dense scientific and humanities passages with targeted skimming.",
+        "pill1": "Speed Skimming",
+        "pill2": "Main Idea Extraction",
+        "action": "Launch Section",
+        "soon": true
+      },
+      {
+        "unit": "SEC-04",
+        "tag": "Diagnostic Capstone",
+        "title": "Full-Length Diagnostic Simulation (ITP 140 Items)",
+        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Complete a full 115-minute simulated exam with computerized score projection.",
+        "pill1": "Diagnostic Benchmark",
+        "pill2": "Scaled Score Report",
+        "action": "Launch Section",
+        "soon": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "TFL-L01",
+        "tag": "Trap Battle Arena",
+        "title": "Grammatical Error Spotting: Part B Traps",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Identify underlined error items within 25 seconds across 40 structural categories.",
+        "pill1": "Interactive Arena",
+        "pill2": "25-Second Drill",
+        "action": "Open Lab",
+        "url": "./TOEFL/trap-battle/index.html",
+        "live": true
+      },
+      {
+        "unit": "TFL-L02",
+        "tag": "Lexical Lab",
+        "title": "Academic Vocabulary Frequency Matrix (Tier 2/3)",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Condition high-yield academic verbs, affixes, and discourse connectives.",
+        "pill1": "Tier 2/3 Lexicon",
+        "pill2": "Context Clues",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TFL-L03",
+        "tag": "Inference Lab",
+        "title": "Negative Factual &amp; Purpose Question Drills",
+        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Dismantle 'Which of the following is NOT true' traps under strict time constraints.",
+        "pill1": "Negative Factual",
+        "pill2": "Distractor Elimination",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TFL-L04",
+        "tag": "Phonetics Lab",
+        "title": "Lecture Intonation &amp; Speaker Stance Decoding",
+        "photo": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Hear subtle skepticism, sarcasm, and digression cues in academic discussions.",
+        "pill1": "Stance Decoding",
+        "pill2": "Acoustic Cues",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  },
+  "TOEIC": {
+    "code": "TOEIC",
+    "studentLevel": "Corporate Benchmark",
+    "kicker": "Corporate Certification · TOEIC® Listening & Reading Focus",
+    "meta": "Workplace Benchmark · Score Target 800–900+ (Gold Certificate)",
+    "title": "Corporate Agility & <span class=\"gold-accent\">TOEIC® Benchmark</span>",
+    "desc": "Achieve speed mastery in Part 5 & 6 sentence completion and Part 7 workplace reading across international commerce, contracts, and logistics.",
+    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    "stat1Num": "04",
+    "stat1Label": "Exam Sections",
+    "stat1Sub": "Part 5 & 6 tracks",
+    "stat2Num": "04",
+    "stat2Label": "Speed Labs",
+    "stat2Sub": "Syntax & collocations",
+    "stat3Num": "850+",
+    "stat3Label": "Target Score",
+    "stat3Sub": "Gold Certificate benchmark",
+    "experiences": [
+      {
+        "unit": "PART-01",
+        "tag": "Morphology Track (Live Lab)",
+        "title": "Part 5: Word Form Matrix &amp; Morphological Triggers",
+        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Instantly identify required parts of speech: noun suffixes vs adverb modifiers.",
+        "pill1": "Part 5 Speed",
+        "pill2": "Word Forms",
+        "action": "Launch Part",
+        "url": "./TOEIC/word-forms/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-02",
+        "tag": "Syntax Track (Live Lab)",
+        "title": "Part 5: Verb Tenses &amp; Timeline Consistency",
+        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lock in temporal trigger words (since, recently, by the time) in under 15 seconds.",
+        "pill1": "Verb Timeline",
+        "pill2": "Temporal Triggers",
+        "action": "Launch Part",
+        "url": "./TOEIC/verb-tenses/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-03",
+        "tag": "Preposition Track (Live Lab)",
+        "title": "Part 5: Prepositions of Time, Space &amp; Business Idioms",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master prepositions in corporate usage: prior to, in accordance with, regarding.",
+        "pill1": "Prepositions",
+        "pill2": "Business Idioms",
+        "action": "Launch Part",
+        "url": "./TOEIC/prepositions/index.html",
+        "live": true
+      },
+      {
+        "unit": "PART-04",
+        "tag": "Conjunctions Track (Live Lab)",
+        "title": "Part 5: Conjunctions vs Prepositions (Because vs Due To)",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Detect clause connectors vs noun-phrase prepositions without hesitation.",
+        "pill1": "Connectors",
+        "pill2": "Syntax Speed",
+        "action": "Launch Part",
+        "url": "./TOEIC/conjunctions/index.html",
+        "live": true
+      }
+    ],
+    "labs": [
+      {
+        "unit": "TC-L01",
+        "tag": "Speed Drill (Live Lab)",
+        "title": "Subject-Verb Agreement Speed Drill",
+        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Filter intervening prepositional phrases to lock subject and verb in 12 seconds.",
+        "pill1": "S-V Agreement",
+        "pill2": "12-Second Clock",
+        "action": "Open Lab",
+        "url": "./TOEIC/subject-verb-agreement/index.html",
+        "live": true
+      },
+      {
+        "unit": "TC-L02",
+        "tag": "Pronoun Gym (Live Lab)",
+        "title": "Pronoun Case &amp; Reflexive Precision Gym",
+        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master possessive pronouns (hers, theirs) vs reflexives (by himself, itself).",
+        "pill1": "Pronoun Cases",
+        "pill2": "Reflexive Rules",
+        "action": "Open Lab",
+        "url": "./TOEIC/pronouns/index.html",
+        "live": true
+      },
+      {
+        "unit": "TC-L03",
+        "tag": "Collocation Gym",
+        "title": "Corporate Collocation Frequency Drills",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Recognize high-yield TOEIC pairings: mutually beneficial, reach an agreement.",
+        "pill1": "Business Collocations",
+        "pill2": "Pairing Recognition",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "unit": "TC-L04",
+        "tag": "Diagnostic Arena",
+        "title": "Full 100-Item Reading Diagnostic (Part 5, 6, 7)",
+        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+        "tagline": "75-minute timed simulation across single, double, and triple passage sets.",
+        "pill1": "Reading Benchmark",
+        "pill2": "Scaled Diagnostic",
+        "action": "Open Lab",
+        "soon": true
+      }
+    ]
+  }
+};
+
+    let activeLevelKey = "B1.2";
+    let currentMode = "experience";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryLevel = urlParams.get('level');
+    if (queryLevel && CURRICULUM[queryLevel]) {
+      activeLevelKey = queryLevel;
+      const sel = document.getElementById('levelSelect');
+      if (sel) sel.value = queryLevel;
+    }
+
+    function switchLevel(lvlKey) {
+      if (!CURRICULUM[lvlKey]) return;
+      activeLevelKey = lvlKey;
+
+      const lvl = CURRICULUM[lvlKey];
+
+      document.title = lvl.code + " Student Workspace - Learning & Development Studio";
+      document.getElementById('userLevelTag').textContent = lvl.studentLevel;
+
+      const hero = document.getElementById('heroBanner');
+      hero.style.backgroundImage = 'linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%), url(' + lvl.heroBg + ')';
+      document.getElementById('heroKicker').innerHTML = '<span class="hero-banner-pill-dot"></span>' + lvl.kicker;
+      document.getElementById('heroMeta').textContent = lvl.meta;
+      document.getElementById('heroTitle').innerHTML = lvl.title;
+      document.getElementById('heroDesc').innerHTML = lvl.desc;
+
+      document.getElementById('stat1Num').textContent = lvl.stat1Num;
+      document.getElementById('stat1Label').textContent = lvl.stat1Label;
+      document.getElementById('stat1Sub').textContent = lvl.stat1Sub;
+
+      document.getElementById('stat2Num').textContent = lvl.stat2Num;
+      document.getElementById('stat2Label').textContent = lvl.stat2Label;
+      document.getElementById('stat2Sub').textContent = lvl.stat2Sub;
+
+      document.getElementById('stat3Num').textContent = lvl.stat3Num;
+      document.getElementById('stat3Label').textContent = lvl.stat3Label;
+      document.getElementById('stat3Sub').textContent = lvl.stat3Sub;
+
+      setSwitchMode(currentMode, false);
+    }
+
+    function setSwitchMode(mode, animate = true) {
+      currentMode = mode;
+      const btnExp = document.getElementById('btnSwitchExp');
+      const btnExpl = document.getElementById('btnSwitchExpl');
+      const legend = document.getElementById('switchLegend');
+      const container = document.getElementById('classesContainer');
+
+      const lvl = CURRICULUM[activeLevelKey];
+
+      if (animate) {
+        container.style.opacity = '0.3';
+      }
+
+      setTimeout(() => {
+        if (mode === 'experience') {
+          btnExp.className = "switch-btn active gold-mode";
+          btnExpl.className = "switch-btn";
+          legend.innerHTML = `
+            <div class="legend-indicator gold">
+              <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
+            </div>
+          `;
+          container.className = "classes-grid";
+          renderCards(lvl.experiences, container, false);
+        } else {
+          btnExp.className = "switch-btn";
+          btnExpl.className = "switch-btn active teal-mode";
+          legend.innerHTML = `
+            <div class="legend-indicator teal">
+              <span>Mode:</span> Language Mechanics, Phonetics &amp; Precision Labs
+            </div>
+          `;
+          container.className = "classes-grid teal-theme";
+          renderCards(lvl.labs, container, true);
+        }
+        container.style.opacity = '1';
+      }, animate ? 120 : 0);
+    }
+
+    function renderCards(data, container, isTeal) {
+      container.innerHTML = data.map(item => {
+        const isSoon = !!item.soon;
+        const isLive = !!item.live && !!item.url;
+
+        let statusBadge = '';
+        if (isLive) {
+          statusBadge = '<span class="badge-live">Active</span>';
+        } else if (isSoon) {
+          statusBadge = '<span class="badge-soon">Soon</span>';
+        }
+
+        let ctaButton = '';
+        if (isLive) {
+          ctaButton = '<a href="' + item.url + '" class="btn-launch">Launch &rarr;</a>';
+        } else if (isSoon) {
+          ctaButton = '<button type="button" class="btn-soon" onclick="openSoonModal(\'' + item.title.replace(/'/g, "\\'") + '\', \'' + item.unit + '\', \'' + item.tagline.replace(/'/g, "\\'") + '\', \'' + item.pill1 + '\', \'' + item.pill2 + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Soon &middot; In Queue</button>';
+        } else {
+          ctaButton = '<button type="button" class="btn-launch" onclick="alert(\'Opening: ' + item.title.replace(/&amp;/g, '&').replace(/'/g, "\\'") + '\')">' + (item.action || 'Launch Quest') + ' &rarr;</button>';
+        }
+
+        return `
+        <article class="cinema-card">
+          <div class="card-visual">
+            <img src="${item.photo}" alt="${item.title}" class="card-photo" loading="lazy" onerror="this.onerror=null; this.src='./assets/hero-clean.jpg'">
+            <div class="card-visual-gradient"></div>
+            
+            <div class="card-badges">
+              <span class="unit-tag">${item.unit}</span>
+              ${statusBadge}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h2 class="card-title">${item.title}</h2>
+            <p class="card-tagline">${item.tagline}</p>
+
+            <div class="card-pills-row">
+              <span class="pill-chip highlight">${item.pill1}</span>
+              <span class="pill-chip">${item.pill2}</span>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-duration">
+                <span class="duration-dot"></span>
+                ${isSoon ? 'Scheduled' : 'Interactive Focus'}
+              </div>
+              ${ctaButton}
+            </div>
+          </div>
+        </article>
+        `;
+      }).join('');
+    }
+
+    function openSoonModal(title, unit, desc, pill1, pill2) {
+      document.getElementById('soonModalTitle').innerHTML = title;
+      document.getElementById('soonModalUnit').textContent = 'Unit Code: ' + unit;
+      document.getElementById('soonModalDesc').innerHTML = desc;
+      document.getElementById('soonModalOutcome').textContent = pill1.replace(/&amp;/g, '&');
+      document.getElementById('soonModalTrack').textContent = pill2.replace(/&amp;/g, '&');
+      document.getElementById('soonModal').classList.add('active');
+    }
+
+    function closeSoonModal(e) {
+      if (e.target.id === 'soonModal') {
+        document.getElementById('soonModal').classList.remove('active');
+      }
+    }
+
+    let isTeacherView = false;
+    function checkRoleParams() {
+      const roleParam = urlParams.get('role');
+      if (roleParam === 'teacher' || roleParam === 'coordinator') {
+        setRoleMode(true);
+      } else {
+        setRoleMode(false);
+      }
+    }
+
+    function setRoleMode(teacherActive) {
+      isTeacherView = teacherActive;
+      const wrap = document.getElementById('teacherLevelWrap');
+      const toggleLabel = document.getElementById('roleToggleLabel');
+      const rolePrefix = document.getElementById('userRolePrefix');
+      const nameLabel = document.getElementById('userNameLabel');
+
+      if (isTeacherView) {
+        wrap.style.display = 'inline-flex';
+        toggleLabel.textContent = 'Student View';
+        rolePrefix.textContent = 'Faculty:';
+        nameLabel.textContent = 'Israel Ventura';
+      } else {
+        wrap.style.display = 'none';
+        toggleLabel.textContent = 'Teacher View';
+        rolePrefix.textContent = 'Student:';
+        nameLabel.textContent = 'Sofia';
+      }
+    }
+
+    function toggleRoleMode() {
+      setRoleMode(!isTeacherView);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkRoleParams();
+      setSwitchMode('experience', false);
+    });
+  </script>
+</body>
+</html>
