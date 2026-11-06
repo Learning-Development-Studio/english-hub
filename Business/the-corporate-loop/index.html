@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BE-00: The Corporate Loop &middot; Executive Masterclass</title>
+  <title>BE-00: The Corporate Loop &middot; Business English Masterclass</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -32,9 +32,9 @@
       --success-bg: rgba(16, 185, 129, 0.12);
       --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 22px;
+      --radius-lg: 20px;
       --radius-full: 999px;
-      --shadow-cinema: 0 20px 48px -8px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(212, 168, 67, 0.15);
+      --shadow-cinema: 0 16px 36px -6px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(212, 168, 67, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,9 +47,9 @@
       overflow-x: hidden;
     }
 
-    /* SLIM INSTITUTIONAL HEADER */
+    /* HEADER WITH OFFICIAL LOGO */
     .site-header {
-      background: rgba(7, 21, 39, 0.94);
+      background: rgba(7, 21, 39, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(212, 168, 67, 0.25);
       position: sticky;
@@ -57,7 +57,7 @@
       z-index: 200;
     }
     .header-inner {
-      max-width: 1320px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 10px 24px;
       display: flex;
@@ -84,12 +84,12 @@
       transform: scale(1.02);
       filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.4));
     }
-    .header-nav {
+    .header-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
-    .back-btn {
+    .btn-return {
       color: #cbd5e1;
       text-decoration: none;
       font-size: 0.82rem;
@@ -99,12 +99,12 @@
       border: 1px solid rgba(255, 255, 255, 0.16);
       transition: all 0.2s;
     }
-    .back-btn:hover {
+    .btn-return:hover {
       color: #fff;
       border-color: var(--gold);
       background: rgba(212, 168, 67, 0.12);
     }
-    .academic-ref-btn {
+    .btn-faculty {
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
       color: var(--navy-deep);
       border: none;
@@ -113,655 +113,358 @@
       font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.25);
       transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.25);
     }
-    .academic-ref-btn:hover {
+    .btn-faculty:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(212, 168, 67, 0.4);
+      box-shadow: 0 6px 16px rgba(212, 168, 67, 0.4);
     }
 
-    /* CINEMATIC HERO BANNER */
+    /* HERO STAGE */
     .hero-stage {
-      position: relative;
-      background: radial-gradient(circle at 75% 20%, rgba(212, 168, 67, 0.15) 0%, transparent 50%),
-                  radial-gradient(circle at 15% 80%, rgba(20, 184, 166, 0.12) 0%, transparent 45%),
+      background: radial-gradient(circle at 80% 20%, rgba(212, 168, 67, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 10% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 45%),
                   var(--navy-deep);
-      padding: 64px 24px 52px;
-      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
-      overflow: hidden;
+      padding: 48px 24px 36px;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.25);
     }
     .hero-container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    .hero-pill-badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 16px;
+      padding: 5px 14px;
       background: rgba(212, 168, 67, 0.12);
       border: 1px solid var(--gold-border);
       border-radius: var(--radius-full);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.4px;
       color: var(--gold);
       font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero-pill-badge .live-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--gold);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--gold);
-      animation: pulseDot 2s infinite;
-    }
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+      margin-bottom: 14px;
     }
     .hero-heading {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.6rem;
       line-height: 1.15;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 20px;
-      max-width: 950px;
+      margin-bottom: 12px;
     }
     .hero-heading .gold-text {
       color: var(--gold);
       font-style: italic;
     }
-    .hero-lead-text {
-      font-size: 1.15rem;
+    .hero-desc {
+      font-size: 1.05rem;
       color: #cbd5e1;
-      max-width: 820px;
-      line-height: 1.65;
-      margin-bottom: 32px;
+      max-width: 840px;
+      line-height: 1.55;
     }
 
-    /* AUTHOR BADGES BAR */
-    .scholars-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .scholar-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
-      padding: 10px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .scholar-name {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--gold);
-    }
-    .scholar-field {
-      font-size: 0.72rem;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    /* MAIN CONTAINER */
-    .masterclass-layout {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 44px 24px 100px;
-    }
-
-    /* SECTION 1: SIMULATED VIDEO/PODCAST KEYNOTE PLAYER */
-    .video-stage-card {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-card-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-cinema);
-      margin-bottom: 48px;
-    }
-    .video-top-bar {
-      background: rgba(7, 21, 39, 0.8);
-      padding: 14px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .video-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .video-channel-pill {
-      background: var(--gold);
-      color: var(--navy-deep);
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .video-title-text {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .video-screen-viewport {
-      position: relative;
-      background: linear-gradient(180deg, #061527 0%, #030a14 100%);
-      padding: 48px 32px;
-      min-height: 380px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .video-screen-viewport::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(212, 168, 67, 0.08), transparent 70%);
-      pointer-events: none;
-    }
-    .audio-visualizer-wave {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      height: 42px;
-      margin-bottom: 24px;
-    }
-    .wave-bar {
-      width: 4px;
-      height: 12px;
-      background: var(--gold);
-      border-radius: 4px;
-      transition: height 0.15s ease;
-    }
-    .wave-bar.animating {
-      animation: waveBeat 1.2s infinite ease-in-out;
-    }
-    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
-    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
-    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
-    .wave-bar:nth-child(5) { animation-delay: 0.6s; }
-    .wave-bar:nth-child(6) { animation-delay: 0.2s; }
-    .wave-bar:nth-child(7) { animation-delay: 0.5s; }
-    .wave-bar:nth-child(8) { animation-delay: 0.35s; }
-    @keyframes waveBeat {
-      0%, 100% { height: 10px; opacity: 0.4; }
-      50% { height: 38px; opacity: 1; }
-    }
-
-    .keynote-quote-box {
-      max-width: 760px;
-      margin: 0 auto 24px;
-    }
-    .keynote-quote-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.55rem;
-      font-style: italic;
-      color: #fff;
-      line-height: 1.45;
-      margin-bottom: 12px;
-      transition: opacity 0.3s ease;
-    }
-    .keynote-quote-author {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .keynote-quote-source {
-      font-size: 0.74rem;
-      color: #94a3b8;
-    }
-
-    /* VIDEO PLAYER CONTROLS */
-    .video-control-console {
-      background: rgba(7, 21, 39, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 16px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .video-scrubber-bar {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 4px;
-      position: relative;
-      cursor: pointer;
-    }
-    .video-scrubber-progress {
-      height: 100%;
-      width: 0%;
-      background: var(--gold);
-      border-radius: 4px;
-      transition: width 0.2s linear;
-    }
-    .video-btn-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .ctrl-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .play-master-btn {
-      background: var(--gold);
-      color: var(--navy-deep);
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      font-weight: 800;
-      transition: all 0.2s;
-    }
-    .play-master-btn:hover {
-      transform: scale(1.08);
-      background: var(--gold-dark);
-      color: #fff;
-    }
-    .playback-time {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: #cbd5e1;
-    }
-    .chapter-selector {
+    /* PROGRESS TRACKER / TBLT PHASES */
+    .phase-stepper {
       display: flex;
       gap: 8px;
+      max-width: 1200px;
+      margin: 28px auto 0;
+      overflow-x: auto;
+      padding-bottom: 4px;
     }
-    .chapter-chip {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+    .step-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-full);
-      padding: 6px 14px;
-      font-size: 0.74rem;
+      padding: 8px 16px;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #94a3b8;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
       transition: all 0.2s;
     }
-    .chapter-chip.active, .chapter-chip:hover {
-      background: rgba(212, 168, 67, 0.18);
+    .step-pill.active {
+      background: rgba(212, 168, 67, 0.2);
       border-color: var(--gold);
       color: #fff;
     }
+    .step-pill strong {
+      color: var(--gold);
+    }
 
-    /* SECTION 2: TEAMS AUDIO DISPATCH STATION */
-    .station-section {
-      margin-bottom: 56px;
+    /* MAIN CONTAINER */
+    .masterclass-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
     }
-    .station-header {
-      margin-bottom: 24px;
+
+    /* CARD CONTAINER */
+    .lesson-section {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-cinema);
     }
-    .station-kicker {
-      font-size: 0.74rem;
+    .section-header {
+      margin-bottom: 20px;
+    }
+    .section-kicker {
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.4px;
       color: var(--gold);
       font-weight: 700;
       margin-bottom: 4px;
     }
-    .station-title {
+    .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #fff;
+      font-size: 1.8rem;
+      color: #ffffff;
+      font-weight: 700;
     }
-    .station-desc {
+    .section-desc {
       color: #94a3b8;
-      font-size: 0.95rem;
-      max-width: 800px;
+      font-size: 0.92rem;
       margin-top: 4px;
+      max-width: 820px;
     }
 
-    .teams-console-frame {
-      background: #0b1a2e;
-      border: 1px solid rgba(212, 168, 67, 0.28);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-cinema);
-    }
-    .teams-top-status {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
-    }
-    .teams-channel-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .teams-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--danger);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--danger);
-    }
-    .teams-channel-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #fff;
-    }
-    .teams-call-duration {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--danger);
-      font-weight: 600;
-    }
-
-    /* VOICE MEMOS GRID */
-    .voice-memos-grid {
+    /* PHASE 1: ENGAGE INTERACTIVE POLL */
+    .poll-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
     }
-    .memo-card {
+    .poll-btn {
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 20px;
-      transition: all 0.25s ease;
+      padding: 16px 20px;
+      text-align: left;
+      font-family: inherit;
+      color: #cbd5e1;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    .memo-card:hover {
+    .poll-btn:hover {
+      background: rgba(212, 168, 67, 0.1);
       border-color: var(--gold);
-      background: rgba(212, 168, 67, 0.08);
-    }
-    .memo-card.playing {
-      border-color: var(--gold);
-      background: rgba(212, 168, 67, 0.12);
-      box-shadow: 0 0 16px rgba(212, 168, 67, 0.2);
-    }
-    .memo-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-    .speaker-avatar-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .speaker-initials {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--navy-soft);
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 0.82rem;
-      display: grid;
-      place-items: center;
-    }
-    .speaker-text-block strong {
-      display: block;
-      font-size: 0.88rem;
       color: #fff;
     }
-    .speaker-text-block span {
-      font-size: 0.72rem;
-      color: #94a3b8;
-    }
-    .memo-play-trigger {
-      background: rgba(212, 168, 67, 0.2);
-      color: var(--gold);
-      border: 1px solid var(--gold-border);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-    .memo-snippet {
-      font-size: 0.84rem;
-      color: #cbd5e1;
-      line-height: 1.45;
-      margin-bottom: 10px;
-      font-style: italic;
-    }
-    .memo-target-tag {
-      display: inline-block;
-      font-size: 0.68rem;
+    .poll-btn.selected {
+      background: rgba(212, 168, 67, 0.22);
+      border-color: var(--gold);
+      color: #fff;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(20, 184, 166, 0.15);
-      color: var(--teal);
-      border: 1px solid rgba(20, 184, 166, 0.3);
     }
-
-    /* LIVE TRANSCRIPT VIEWER */
-    .live-transcript-viewer {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: var(--radius-sm);
+    .poll-reveal-box {
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: rgba(7, 21, 39, 0.6);
       border-left: 3px solid var(--gold);
-      padding: 20px;
-      font-size: 0.95rem;
-      color: #f1f5f9;
-      min-height: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .transcript-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .transcript-body {
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      display: none;
+      font-size: 0.92rem;
+      color: #cbd5e1;
       line-height: 1.6;
     }
-    .transcript-body .focus-marker {
-      background: rgba(212, 168, 67, 0.25);
-      border-bottom: 2px solid var(--gold);
-      padding: 1px 4px;
-      border-radius: 3px;
-      font-weight: 700;
-      color: #fff;
-    }
 
-    /* SECTION 3: THE PRECISION SOUNDBOARD (GRAMMAR ANCHOR) */
-    .soundboard-grid {
+    /* PHASE 2: BIMODAL STIMULUS (SHORT AUDIO + SHORT EMAIL) */
+    .bimodal-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 48px;
+      gap: 24px;
+      margin-top: 20px;
     }
-    @media (max-width: 860px) {
-      .soundboard-grid { grid-template-columns: 1fr; }
+    @media (max-width: 820px) {
+      .bimodal-container { grid-template-columns: 1fr; }
     }
-    .sound-item {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-card-border);
+    .stimulus-card {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-md);
       padding: 22px;
+    }
+    .stimulus-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .audio-player-bar {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .sound-item.error-item {
-      border-top: 3px solid var(--danger);
-    }
-    .sound-item.correct-item {
-      border-top: 3px solid var(--success);
-    }
-    .sound-badge-row {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 16px;
+      border-radius: var(--radius-full);
+      margin: 12px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .sound-badge {
+    .play-audio-circle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy-deep);
+      border: none;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 800;
+      transition: all 0.2s;
+    }
+    .play-audio-circle-btn:hover {
+      background: var(--gold-dark);
+      color: #fff;
+    }
+    .audio-meta-text {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+    .audio-meta-text strong {
+      color: #fff;
+    }
+    .email-box {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      color: #cbd5e1;
+      border-left: 2px solid var(--teal);
+      line-height: 1.5;
+    }
+
+    /* PHASE 3: GUIDED DISCOVERY */
+    .discovery-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0;
+    }
+    @media (max-width: 820px) {
+      .discovery-comparison { grid-template-columns: 1fr; }
+    }
+    .version-card {
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .version-bad {
+      background: var(--danger-bg);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .version-good {
+      background: var(--success-bg);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .version-label {
       font-size: 0.7rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-    }
-    .badge-err { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
-    .badge-ok { background: var(--success-bg); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .speak-audio-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 0.74rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .speak-audio-btn:hover {
-      background: var(--gold);
-      color: var(--navy-deep);
-    }
-    .sound-phrase {
-      font-size: 1.1rem;
-      font-weight: 700;
       margin-bottom: 8px;
-      line-height: 1.4;
+      display: block;
     }
-    .sound-analysis {
-      font-size: 0.84rem;
-      color: #94a3b8;
-      line-height: 1.5;
-    }
+    .label-bad { color: #f87171; }
+    .label-good { color: #34d399; }
 
-    /* SECTION 4: INTERACTIVE EXECUTIVE CHALLENGE */
-    .challenge-panel {
-      background: linear-gradient(135deg, #0d233e 0%, var(--navy-deep) 100%);
-      border: 1.5px solid var(--gold);
-      border-radius: var(--radius-lg);
-      padding: 36px;
-      box-shadow: var(--shadow-cinema);
+    /* PHASE 4: PRACTICE EXERCISES */
+    .exercise-block {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 18px;
     }
-    .challenge-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .challenge-score-pill {
-      background: rgba(212, 168, 67, 0.15);
-      border: 1px solid var(--gold);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--gold);
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .interactive-question-box {
-      margin-bottom: 24px;
-    }
-    .question-prompt {
-      font-size: 1.15rem;
+    .exercise-prompt {
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    .question-sub {
-      font-size: 0.88rem;
-      color: #94a3b8;
-      margin-bottom: 18px;
-    }
-    .answers-stack {
+    .choice-group {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
-    .ans-choice-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .choice-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-sm);
-      padding: 16px 20px;
+      padding: 14px 18px;
       text-align: left;
       font-family: inherit;
-      font-size: 0.95rem;
-      color: #fff;
+      font-size: 0.92rem;
+      color: #cbd5e1;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .ans-choice-btn:hover {
-      background: rgba(212, 168, 67, 0.12);
+    .choice-item:hover {
+      background: rgba(212, 168, 67, 0.1);
       border-color: var(--gold);
     }
-    .ans-choice-btn.is-correct {
+    .choice-item.correct {
       background: var(--success-bg);
       border-color: var(--success);
       color: #34d399;
-      font-weight: 700;
+      font-weight: 600;
     }
-    .ans-choice-btn.is-wrong {
+    .choice-item.incorrect {
       background: var(--danger-bg);
       border-color: var(--danger);
       color: #f87171;
     }
-    .answer-feedback-box {
-      margin-top: 16px;
-      padding: 14px 18px;
+    .exercise-feedback {
+      margin-top: 14px;
+      padding: 12px 18px;
       border-radius: var(--radius-sm);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       display: none;
       line-height: 1.5;
     }
 
-    /* SIMULATION RESPONSE SCRIPT WRITER */
-    .briefing-writer-box {
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* PHASE 5: AUTHENTIC TASK SIMULATION */
+    .task-brief-box {
+      background: rgba(7, 21, 39, 0.7);
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 18px 0;
     }
-    .writer-title {
+    .task-brief-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--gold);
       margin-bottom: 8px;
     }
-    .writer-desc {
-      font-size: 0.86rem;
-      color: #94a3b8;
-      margin-bottom: 14px;
+    .task-brief-text {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.6;
     }
-    .exec-input-area {
+    .task-brief-text strong {
+      color: #fff;
+    }
+    .task-textarea {
       width: 100%;
       min-height: 110px;
       background: rgba(0, 0, 0, 0.4);
@@ -770,19 +473,15 @@
       padding: 14px 18px;
       color: #fff;
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       outline: none;
+      margin-top: 12px;
       transition: border 0.2s;
     }
-    .exec-input-area:focus {
+    .task-textarea:focus {
       border-color: var(--gold);
     }
-    .evaluate-btn-row {
-      margin-top: 12px;
-      display: flex;
-      gap: 12px;
-    }
-    .eval-btn {
+    .task-submit-btn {
       background: var(--gold);
       color: var(--navy-deep);
       border: none;
@@ -791,15 +490,16 @@
       font-weight: 700;
       font-size: 0.88rem;
       cursor: pointer;
+      margin-top: 12px;
       transition: all 0.2s;
     }
-    .eval-btn:hover {
+    .task-submit-btn:hover {
       background: var(--gold-dark);
       color: #fff;
     }
 
-    /* ACADEMIC MODAL */
-    .academic-modal {
+    /* FACULTY MODAL */
+    .faculty-modal {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -810,19 +510,19 @@
       justify-content: center;
       padding: 24px;
     }
-    .academic-modal.active { display: flex; }
-    .modal-paper {
+    .faculty-modal.active { display: flex; }
+    .faculty-paper {
       background: #0d223c;
       border: 1.5px solid var(--gold);
       border-radius: var(--radius-lg);
-      max-width: 780px;
+      max-width: 800px;
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
       padding: 36px;
       box-shadow: 0 24px 60px rgba(0,0,0,0.7);
     }
-    .modal-paper-header {
+    .faculty-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -830,9 +530,9 @@
       padding-bottom: 14px;
       margin-bottom: 20px;
     }
-    .modal-paper-title {
+    .faculty-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       color: var(--gold);
     }
     .modal-close-x {
@@ -846,9 +546,9 @@
     /* FOOTER */
     .masterclass-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 36px 24px;
+      padding: 32px 24px;
       text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #64748b;
     }
     .masterclass-footer strong { color: var(--gold); }
@@ -856,325 +556,268 @@
 </head>
 <body>
 
-  <!-- HEADER WITH OFFICIAL LOGO -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <a href="./business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
         <img src="data:image/webp;base64,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x3FyGQXALWr+FMDTa7Z50NsWhapR+kyJFGWxYFUdM9pntM9pntM9pntM9pntM9prtcxth7TPaZ6VfJSGRgXmq7D4aQTG2HtM9pntM9pntM9pntM9pntM9pntM9pns3CqTpm3dm7aAZ+TfjI0iX5BMbYe0z2me0z2me0z2me0z2me0z2me0z2me1YiKY2w9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pntM9pZAAA/sxwAAAAAAAAAAAAAAAAAAAAAAAAAAAB1/Clww7iZVH1n4BMa9Wn9Myi2ngAAPH4x0K4CkZN2tgU+ylv0Cfa8b55qzochJh4DKVlPsn//B/PBWV2rZRH57oCkS5nOc2UGO8fxRLgFBdt5xyMprBPyrCe2DcP6eMAYtj+xSMDrN6VzOEwJduRuvxFHYQzay82piGXAvy6zFe/XgAACE/GPVKQrHZQx8Jrku/uHt5fwpQ7nBVjpPjFjwUdlRhYP5eaScTOvVKddgCZ5Fzv9nUBphrVAD2EMq9vThGGpX3cij02KbC+FO7ZqE1Fw0Be6/DF0W2jWOSvmtW4o6ZqkOfvJ5f6zQ9hLOSLAABybDMzf44jmhm0ceFuq63pn1SKrT8AZUJo+q6V1DxqlXdgoxrn12zTDE84nz5TLGMYGijKYZ7NBFmNTJr5Kdj9UhWj5EzoNyoyvqQfJkW8sSKpxCS3TXpStyl23er/MIpeC2eL//+B9AAFf73NmaeA67l2k5LTGXgMXnc+4OA8gIf1mtd3af/nrhBTsB8NXE218nQo/fIePM/W+7RTc5gXpMk5QD5EV1XENK/BwN8rXTuDZ7yUykMhH4Rh/52YtpOiOh4/skud4Y38xB3qCevLK1lp95DrSy21XFue3EIcYtaux8Aq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" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo-white-lockup.webp';">
       </a>
-      <div class="header-nav">
-        <a href="./business_workspace.html" class="back-btn">&larr; Return to Workspace</a>
-        <button class="academic-ref-btn" onclick="openAcademicModal()">Faculty &amp; Author Notes</button>
+      <div class="header-actions">
+        <a href="./business_workspace.html" class="btn-return">&larr; Return to Workspace</a>
+        <button class="btn-faculty" onclick="openFacultyModal()">Faculty Guide (Sección 3)</button>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero-stage">
     <div class="hero-container">
-      <div class="hero-pill-badge">
-        <span class="live-dot"></span>
-        Foundational Masterclass &middot; Executive Specialization
-      </div>
-      <h1 class="hero-heading">The Corporate Loop: <span class="gold-text">Navigating Real-World Executive Friction</span></h1>
-      <p class="hero-lead-text">
-        Most language programs teach business English as polite small talk and artificial quarterly reviews. 
-        Organizational research reveals the reality: corporate life is an unending, reactive loop of operational bottlenecks, high-stakes interruptions, and intense negotiation. This masterclass trains you to master the language required inside that loop.
+      <div class="hero-badge">Course Orientation &middot; BE-00 Masterclass</div>
+      <h1 class="hero-heading">The Corporate Loop: <span class="gold-text">Why Real Business English Is Not What You Think</span></h1>
+      <p class="hero-desc">
+        Grounded in the research of Henry Mintzberg (<em>The Nature of Managerial Work</em>) and Peter Senge (<em>The Fifth Discipline</em>). 
+        A task-based masterclass in executive friction, cause-and-effect precision, and diplomatic accountability.
       </p>
 
-      <div class="scholars-strip">
-        <div class="scholar-tag">
-          <span class="scholar-name">Henry Mintzberg, Ph.D.</span>
-          <span class="scholar-field">The Nature of Managerial Work (MIT / McGill)</span>
-        </div>
-        <div class="scholar-tag">
-          <span class="scholar-name">Peter M. Senge, Ph.D.</span>
-          <span class="scholar-field">Systemic Firefighting Loops (MIT Sloan)</span>
-        </div>
-        <div class="scholar-tag">
-          <span class="scholar-name">Task-Based Language Teaching (TBLT)</span>
-          <span class="scholar-field">Rod Ellis &middot; Jane Willis &middot; Peter Skehan</span>
-        </div>
-      </div>
+      <!-- PROGRESS TRACKER -->
+      <nav class="phase-stepper">
+        <div class="step-pill active" onclick="scrollToSection('sec-engage')"><strong>01</strong> Engage: The Reality Check</div>
+        <div class="step-pill" onclick="scrollToSection('sec-notice')"><strong>02</strong> Notice: The Bimodal Case</div>
+        <div class="step-pill" onclick="scrollToSection('sec-understand')"><strong>03</strong> Understand: Discovery</div>
+        <div class="step-pill" onclick="scrollToSection('sec-practice')"><strong>04</strong> Practice: Precision Arena</div>
+        <div class="step-pill" onclick="scrollToSection('sec-perform')"><strong>05</strong> Perform: Executive Task</div>
+      </nav>
     </div>
   </section>
 
-  <!-- MAIN MASTERCLASS CONTENT -->
-  <main class="masterclass-layout">
+  <!-- CONTENT -->
+  <main class="masterclass-body">
 
-    <!-- 1. VIDEO/PODCAST KEYNOTE STAGE -->
-    <div class="video-stage-card">
-      <div class="video-top-bar">
-        <div class="video-title-wrap">
-          <span class="video-channel-pill">Keynote Masterclass</span>
-          <span class="video-title-text">Episode 00: The Myth of the Calm Executive</span>
-        </div>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: var(--gold);">4K &middot; Dolby Audio &middot; Interactive</span>
+    <!-- PHASE 1: ENGAGE & DISCOVER -->
+    <section class="lesson-section" id="sec-engage">
+      <div class="section-header">
+        <div class="section-kicker">Phase 01 &middot; Engage &amp; Discover</div>
+        <h2 class="section-title">The Mintzberg Reality Check</h2>
+        <p class="section-desc">
+          Textbooks portray business as calm planning and polite meetings. Which of these operational disruptions did you or your department face this week?
+        </p>
       </div>
 
-      <div class="video-screen-viewport">
-        <div class="audio-visualizer-wave" id="visualizerWave">
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-          <div class="wave-bar"></div>
-        </div>
-
-        <div class="keynote-quote-box">
-          <div class="keynote-quote-text" id="keynoteQuoteText">
-            &ldquo;The manager does not systematically plan or control in quiet isolation. Real managerial work is characterized by brevity, variety, and fragmentation, where action is reactive, verbal, and relentlessly iterative.&rdquo;
-          </div>
-          <div class="keynote-quote-author" id="keynoteAuthor">Dr. Henry Mintzberg</div>
-          <div class="keynote-quote-source" id="keynoteSource">Harvard Business Review &middot; The Nature of Managerial Work</div>
-        </div>
-
-        <button class="play-master-btn" id="masterPlayBtn" onclick="toggleKeynoteAudio()" title="Play / Pause Audio Lecture">
-          &#9658;
+      <div class="poll-grid">
+        <button class="poll-btn" onclick="selectPoll(this, 'Operations &amp; Logistics Bottleneck')">
+          <strong>A) Supply Chain Friction</strong><br>
+          <span style="font-size: 0.8rem; color: #94a3b8;">A delayed container, customs audit, or vendor failing a critical deadline.</span>
+        </button>
+        <button class="poll-btn" onclick="selectPoll(this, 'Financial &amp; Invoicing Discrepancy')">
+          <strong>B) Budget / Billing Dispute</strong><br>
+          <span style="font-size: 0.8rem; color: #94a3b8;">Unapproved surcharges, variance in margin, or payment terms friction.</span>
+        </button>
+        <button class="poll-btn" onclick="selectPoll(this, 'Client Stakes &amp; Escalation')">
+          <strong>C) Upset Enterprise Client</strong><br>
+          <span style="font-size: 0.8rem; color: #94a3b8;">An emergency call demanding immediate answers and threatening SLA penalties.</span>
         </button>
       </div>
 
-      <div class="video-control-console">
-        <div class="video-scrubber-bar" onclick="seekKeynote(event)">
-          <div class="video-scrubber-progress" id="keynoteProgress"></div>
-        </div>
-        <div class="video-btn-row">
-          <div class="ctrl-left">
-            <span class="playback-time" id="keynoteTimeDisplay">00:00 / 02:45</span>
-            <span style="font-size: 0.74rem; color: #94a3b8;">Click play to listen to Dr. Mintzberg &amp; Dr. Senge's core thesis</span>
-          </div>
-          <div class="chapter-selector">
-            <button class="chapter-chip active" onclick="switchKeynoteChapter(0)">1. Mintzberg's Reality</button>
-            <button class="chapter-chip" onclick="switchKeynoteChapter(1)">2. Senge's Loop</button>
-            <button class="chapter-chip" onclick="switchKeynoteChapter(2)">3. The 6 Tracks</button>
-          </div>
-        </div>
+      <div class="poll-reveal-box" id="pollReveal">
+        <strong style="color: var(--gold);">The Organizational Truth:</strong> You just described what <strong>Dr. Henry Mintzberg</strong> discovered in his landmark research: managerial life is never a calm, predictable sequence. It is a <em>relentless, fragmented loop</em> of brief interruptions and reactive negotiations. You cannot survive in global business with generic English; you need the exact language that destrabs the loop.
       </div>
-    </div>
+    </section>
 
-    <!-- 2. TEAMS CRISIS AUDIO DISPATCH STATION -->
-    <section class="station-section">
-      <div class="station-header">
-        <div class="station-kicker">Interactive Audio Station</div>
-        <h2 class="station-title">The Horizon Mobility Emergency Dispatch</h2>
-        <p class="station-desc">
-          Listen to the 3 incoming voice memos from our automotive battery operations in Monterrey and Detroit. Click each speaker to listen to authentic crisis communication and observe how cause and consequence are articulated.
+    <!-- PHASE 2: NOTICE & UNDERSTAND (BIMODAL CASE) -->
+    <section class="lesson-section" id="sec-notice">
+      <div class="section-header">
+        <div class="section-kicker">Phase 02 &middot; Notice &amp; Contextualize</div>
+        <h2 class="section-title">The Horizon Mobility Emergency</h2>
+        <p class="section-desc">
+          Horizon Mobility manufactures EV batteries in Monterrey for Detroit. 48 hours before assembly line launch, an unexpected crisis occurs. Examine the bimodal stimulus:
         </p>
       </div>
 
-      <div class="teams-console-frame">
-        <div class="teams-top-status">
-          <div class="teams-channel-info">
-            <span class="teams-dot"></span>
-            <span class="teams-channel-name">Emergency Bridge &middot; Battery Assembly SLA Defense</span>
+      <div class="bimodal-container">
+        <!-- 1. AUDIO STIMULUS (20 SECONDS) -->
+        <div class="stimulus-card">
+          <span class="stimulus-badge">Stimulus A &middot; Audio Voicemail (20s)</span>
+          <p style="font-size: 0.86rem; color: #cbd5e1; margin-bottom: 8px;">
+            Incoming Teams call from <strong>Megan Stone</strong> (Client Director, Detroit):
+          </p>
+          <div class="audio-player-bar">
+            <button class="play-audio-circle-btn" id="playMeganBtn" onclick="playMeganAudio()">&#9658;</button>
+            <div class="audio-meta-text">
+              <strong>Megan Stone (Detroit Client)</strong><br>
+              <span id="meganAudioStatus">Click play to listen (20s)</span>
+            </div>
           </div>
-          <div class="teams-call-duration">SEVERITY 1 &middot; 48H TO LAUNCH</div>
+          <p style="font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-top: 6px;">
+            &ldquo;Carlos, our Detroit line halts on Thursday if those modules do not arrive by Wednesday at 17:00. This triggers serious SLA late penalties. What happened?&rdquo;
+          </p>
         </div>
 
-        <div class="voice-memos-grid">
-          <!-- MEMO 1 -->
-          <div class="memo-card" id="memoCard1" onclick="playMemo(1)">
-            <div class="memo-top-row">
-              <div class="speaker-avatar-wrap">
-                <div class="speaker-initials">MS</div>
-                <div class="speaker-text-block">
-                  <strong>Megan Stone</strong>
-                  <span>Client Director &middot; Detroit</span>
-                </div>
-              </div>
-              <div class="memo-play-trigger" id="memoBtn1">&#9658;</div>
-            </div>
-            <div class="memo-snippet">
-              &ldquo;Carlos, our assembly line halts on Thursday morning if those battery modules do not arrive by Wednesday at 17:00...&rdquo;
-            </div>
-            <span class="memo-target-tag">SLA Threat &middot; Late Penalties</span>
-          </div>
-
-          <!-- MEMO 2 -->
-          <div class="memo-card" id="memoCard2" onclick="playMemo(2)">
-            <div class="memo-top-row">
-              <div class="speaker-avatar-wrap">
-                <div class="speaker-initials" style="border-color: var(--teal); color: var(--teal);">CG</div>
-                <div class="speaker-text-block">
-                  <strong>Carlos Garza</strong>
-                  <span>VP Supply Chain &middot; Monterrey</span>
-                </div>
-              </div>
-              <div class="memo-play-trigger" id="memoBtn2">&#9658;</div>
-            </div>
-            <div class="memo-snippet">
-              &ldquo;Due to a random secondary customs audit in Laredo, our road transport was held. Consequently, we have chartered a dedicated air cargo flight...&rdquo;
-            </div>
-            <span class="memo-target-tag">Due to &middot; Air Contingency</span>
-          </div>
-
-          <!-- MEMO 3 -->
-          <div class="memo-card" id="memoCard3" onclick="playMemo(3)">
-            <div class="memo-top-row">
-              <div class="speaker-avatar-wrap">
-                <div class="speaker-initials" style="border-color: #38bdf8; color: #38bdf8;">SM</div>
-                <div class="speaker-text-block">
-                  <strong>Sandra Morales</strong>
-                  <span>Finance Controller &middot; Horizon</span>
-                </div>
-              </div>
-              <div class="memo-play-trigger" id="memoBtn3">&#9658;</div>
-            </div>
-            <div class="memo-snippet">
-              &ldquo;Provided that the charter departs at 20:00 tonight, the buffer inventory will arrive on your factory floor by 08:30 tomorrow morning...&rdquo;
-            </div>
-            <span class="memo-target-tag">Provided that &middot; Zero Downtime</span>
-          </div>
-        </div>
-
-        <!-- TRANSCRIPT OUTPUT -->
-        <div class="live-transcript-viewer">
-          <div class="transcript-label" id="transcriptSpeaker">Active Dispatch Audio Transcript</div>
-          <div class="transcript-body" id="transcriptText">
-            Click any speaker memo above to play the authentic audio dispatch and analyze the grammatical stance in real time.
+        <!-- 2. WRITTEN STIMULUS (INTERNAL LOGISTICS MEMO) -->
+        <div class="stimulus-card">
+          <span class="stimulus-badge">Stimulus B &middot; Urgent Logistics Dispatch</span>
+          <p style="font-size: 0.86rem; color: #cbd5e1; margin-bottom: 8px;">
+            Teams message from <strong>Roberto</strong> (Laredo Customs Broker):
+          </p>
+          <div class="email-box">
+            <strong>FROM:</strong> r.garza@laredocustoms.com<br>
+            <strong>SUBJ:</strong> URGENT: Primary Freight Audit<br>
+            "Truck 402 was held for random physical verification by customs at 08:30. Road clearance delayed by at least 36 hours. Road transit to Detroit cannot arrive before Friday."
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. THE PRECISION SOUNDBOARD (GRAMMAR ANCHOR) -->
-    <section class="station-section">
-      <div class="station-header">
-        <div class="station-kicker">Linguistic Mechanics Clinic</div>
-        <h2 class="station-title">The Executive Precision Soundboard</h2>
-        <p class="station-desc">
-          Click the audio button next to each sentence to hear the striking difference between clumsy fossil errors and high-authority executive phrasing.
+    <!-- PHASE 3: GUIDED GRAMMAR DISCOVERY -->
+    <section class="lesson-section" id="sec-understand">
+      <div class="section-header">
+        <div class="section-kicker">Phase 03 &middot; Guided Discovery</div>
+        <h2 class="section-title">Linguistic Anchor: Causality &amp; Diplomatic Stance</h2>
+        <p class="section-desc">
+          Compare how two different Mexican executives responded to this exact crisis. Observe the grammatical structure and the impact on the partnership:
         </p>
       </div>
 
-      <div class="soundboard-grid">
-        <!-- ITEM 1 -->
-        <div class="sound-item error-item">
-          <div>
-            <div class="sound-badge-row">
-              <span class="sound-badge badge-err">Fossil Error 01</span>
-              <button class="speak-audio-btn" onclick="speakPhrase('Thanks to the customs delay, we missed the shipment.')">Hear Clumsy Audio</button>
-            </div>
-            <div class="sound-phrase" style="color: #f87171;">&ldquo;Thanks to the customs delay, we missed the shipment.&rdquo;</div>
-            <div class="sound-analysis">
-              In English, <em>thanks to</em> denotes positive gratitude. Using it for operational failures sounds bizarre or sarcastic.
-            </div>
-          </div>
+      <div class="discovery-comparison">
+        <div class="version-card version-bad">
+          <span class="version-label label-bad">Version A &middot; Clumsy &amp; Accusatory</span>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 8px;">
+            &ldquo;Thanks to the customs delay, the shipment is late. You made a strict schedule, so please explain me what we do.&rdquo;
+          </p>
+          <ul style="font-size: 0.82rem; color: #cbd5e1; margin-left: 18px; line-height: 1.5;">
+            <li><strong>Thanks to:</strong> Sounds sarcastic/inappropriate for negative operational failures.</li>
+            <li><strong>You made:</strong> Aggressive finger-pointing damages executive goodwill.</li>
+            <li><strong>Explain me:</strong> Serious fossil prepositional error (requires <em>explain to me</em>).</li>
+          </ul>
         </div>
 
-        <div class="sound-item correct-item">
-          <div>
-            <div class="sound-badge-row">
-              <span class="sound-badge badge-ok">Executive Standard 01</span>
-              <button class="speak-audio-btn" onclick="speakPhrase('Due to an unforeseen customs audit, the shipment was rescheduled.')">Hear Executive Audio</button>
-            </div>
-            <div class="sound-phrase" style="color: #34d399;">&ldquo;Due to an unforeseen customs audit, the shipment was rescheduled.&rdquo;</div>
-            <div class="sound-analysis">
-              <strong>Due to + [Noun Phrase]</strong> provides exact, objective causality while depersonalizing the disruption.
-            </div>
-          </div>
+        <div class="version-card version-good">
+          <span class="version-label label-good">Version B &middot; Executive Standard (Diplomatic &amp; Precise)</span>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 8px;">
+            &ldquo;Due to an unforeseen customs audit, road transit was halted. Consequently, an emergency air charter was arranged to protect your assembly timeline.&rdquo;
+          </p>
+          <ul style="font-size: 0.82rem; color: #cbd5e1; margin-left: 18px; line-height: 1.5;">
+            <li><strong>Due to + Noun Phrase:</strong> Objective, non-emotional causality.</li>
+            <li><strong>Depersonalized Passive Voice:</strong> (<em>was halted, was arranged</em>) focuses on the solution, not personal blame.</li>
+            <li><strong>Consequently:</strong> Executive discourse connector linking cause to immediate mitigation.</li>
+          </ul>
         </div>
+      </div>
 
-        <!-- ITEM 2 -->
-        <div class="sound-item error-item">
-          <div>
-            <div class="sound-badge-row">
-              <span class="sound-badge badge-err">Fossil Error 02</span>
-              <button class="speak-audio-btn" onclick="speakPhrase('You made a mistake in the invoice and you forgot the document.')">Hear Clumsy Audio</button>
-            </div>
-            <div class="sound-phrase" style="color: #f87171;">&ldquo;You made a mistake in the invoice and you forgot the document.&rdquo;</div>
-            <div class="sound-analysis">
-              Aggressive finger-pointing creates immediate defensiveness, destroying vendor cooperation during a crisis.
-            </div>
-          </div>
-        </div>
-
-        <div class="sound-item correct-item">
-          <div>
-            <div class="sound-badge-row">
-              <span class="sound-badge badge-ok">Executive Standard 02</span>
-              <button class="speak-audio-btn" onclick="speakPhrase('A discrepancy was identified on page 2, which appears to omit the standard tax documentation.')">Hear Executive Audio</button>
-            </div>
-            <div class="sound-phrase" style="color: #34d399;">&ldquo;A discrepancy was identified on page 2, which appears to omit the documentation.&rdquo;</div>
-            <div class="sound-analysis">
-              Uses <strong>depersonalized passive voice</strong> + <strong>hedging verbs</strong> (<em>appears to omit</em>) to fix the issue without personal hostility.
-            </div>
-          </div>
-        </div>
+      <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); padding: 16px 20px; font-size: 0.88rem; color: #cbd5e1; border-left: 3px solid var(--gold);">
+        <strong style="color: var(--gold);">Discovery Takeaway:</strong> In executive English, <strong>due to</strong> is followed by a nominalized noun phrase (<em>due to an unforeseen audit</em>), never a full clause. To preserve commercial trust, high-level executives use <strong>depersonalized passive structures</strong> to address operational failure without attacking the counterparty.
       </div>
     </section>
 
-    <!-- 4. INTERACTIVE EXECUTIVE CHALLENGE -->
-    <section class="challenge-panel">
-      <div class="challenge-top">
-        <div>
-          <div class="station-kicker" style="color: var(--gold);">Interactive Challenge</div>
-          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff;">Break the Corporate Loop</h3>
-        </div>
-        <div class="challenge-score-pill" id="scoreBadge">SCORE: 0 / 100 PTS</div>
-      </div>
-
-      <div class="interactive-question-box">
-        <div class="question-prompt" id="qPrompt">
-          Scenario: You must report a 4.2% budget deficit caused by container shipping inflation to the Executive Committee. Which option exhibits bulletproof executive precision?
-        </div>
-        <div class="question-sub">Select the response that avoids fossil prepositions and establishes professional authority:</div>
-
-        <div class="answers-stack">
-          <button class="ans-choice-btn" onclick="evalChoice(this, false, 'Incorrect. "Thanks to" cannot be used for deficits, and "explain me" is a serious grammatical error.')">
-            A) &ldquo;Thanks to the inflation in freight costs, we have a deficit, and we need to explain you the numbers.&rdquo;
-          </button>
-          <button class="ans-choice-btn" onclick="evalChoice(this, true, 'Correct! "Due to" correctly introduces the noun phrase "inflationary freight costs", and "clarify the breakdown to the committee" avoids the "explain me" trap.')">
-            B) &ldquo;Due to unforeseen inflationary freight costs, a budget variance of 4.2% was recorded; we will clarify the breakdown to the committee.&rdquo;
-          </button>
-          <button class="ans-choice-btn" onclick="evalChoice(this, false, 'Incorrect. "Inform to the committee" contains a faulty preposition (inform takes an immediate direct object).')">
-            C) &ldquo;The deficit happened because suppliers raised costs, and we will inform to the committee tomorrow.&rdquo;
-          </button>
-        </div>
-
-        <div class="answer-feedback-box" id="qFeedback"></div>
-      </div>
-
-      <!-- SCRIPT WRITER -->
-      <div class="briefing-writer-box">
-        <h4 class="writer-title">Interactive 90-Second Briefing Evaluator</h4>
-        <p class="writer-desc">
-          Draft a 2-to-3 sentence executive dispatch to Detroit. You must use <strong>due to</strong> or <strong>consequently</strong>, maintain a <strong>depersonalized stance</strong>, and propose an <strong>air charter or contingency buffer</strong>.
+    <!-- PHASE 4: PRACTICE & INTERACT -->
+    <section class="lesson-section" id="sec-practice">
+      <div class="section-header">
+        <div class="section-kicker">Phase 04 &middot; Practice &amp; Interact</div>
+        <h2 class="section-title">The Executive Precision Arena</h2>
+        <p class="section-desc">
+          Test your grasp of cause-and-effect linkers and diplomatic reframing with instant feedback.
         </p>
-        <textarea class="exec-input-area" id="briefingInput" placeholder="Type your executive dispatch in English... (e.g. Due to an unexpected customs delay in Laredo, road transport has stalled. In order to protect your assembly schedule, we have chartered an emergency air cargo flight...)"></textarea>
-        <div class="evaluate-btn-row">
-          <button class="eval-btn" onclick="evaluateBriefing()">Submit Executive Briefing</button>
-          <button class="speak-audio-btn" style="padding: 10px 18px;" onclick="speakStudentBriefing()">Listen to My Written Briefing</button>
-        </div>
-        <div class="answer-feedback-box" id="briefingFeedback"></div>
       </div>
+
+      <!-- CHALLENGE 1 -->
+      <div class="exercise-block">
+        <div class="exercise-prompt">
+          Item 01: A port strike has delayed maritime components. Choose the sentence with flawless causality and grammar:
+        </div>
+        <div class="choice-group">
+          <button class="choice-item" onclick="handleChoice(this, false, 'fb-1', 'Incorrect. "Thanks to" cannot be used for operational delays, and "explain me" is grammatically incorrect.')">
+            A) &ldquo;Thanks to the port strike, the parts are delayed; please explain me when the plant closes.&rdquo;
+          </button>
+          <button class="choice-item" onclick="handleChoice(this, true, 'fb-1', 'Correct! "Due to + noun phrase" provides exact causality, and "a buffer shipment was released" uses professional depersonalized passive voice.')">
+            B) &ldquo;Due to an ongoing maritime port strike, road transit was delayed; consequently, a buffer shipment was released via air freight.&rdquo;
+          </button>
+          <button class="choice-item" onclick="handleChoice(this, false, 'fb-1', 'Incorrect. "Because of" followed by an ungrammatical verb phrase is clumsy, and "inform to your team" contains a prepositional error.')">
+            C) &ldquo;The parts are late because of the strike stopped ships; we will inform to your team shortly.&rdquo;
+          </button>
+        </div>
+        <div class="exercise-feedback" id="fb-1"></div>
+      </div>
+
+      <!-- CHALLENGE 2 -->
+      <div class="exercise-block">
+        <div class="exercise-prompt">
+          Item 02: Your client sent a purchase order with missing tax exhibits. How do you request them diplomatically?
+        </div>
+        <div class="choice-group">
+          <button class="choice-item" onclick="handleChoice(this, false, 'fb-2', 'Incorrect. Direct finger-pointing ("your finance team made a mistake") creates immediate friction.')">
+            A) &ldquo;Your finance team made a mistake and forgot Exhibit C, so we cannot process this order.&rdquo;
+          </button>
+          <button class="choice-item" onclick="handleChoice(this, true, 'fb-2', 'Correct! "Appears to omit" uses diplomatic hedging and depersonalizes the discrepancy without blaming the individual.')">
+            B) &ldquo;Upon review, the purchase order appears to omit Exhibit C. Could your team provide the updated schedule so we may proceed?&rdquo;
+          </button>
+          <button class="choice-item" onclick="handleChoice(this, false, 'fb-2', 'Incorrect. Too informal and vague ("send it again") for multinational executive interaction.')">
+            C) &ldquo;Hey, send the document again because it is incomplete.&rdquo;
+          </button>
+        </div>
+        <div class="exercise-feedback" id="fb-2"></div>
+      </div>
+    </section>
+
+    <!-- PHASE 5: PERFORM & APPLY (AUTHENTIC TASK) -->
+    <section class="lesson-section" id="sec-perform">
+      <div class="section-header">
+        <div class="section-kicker">Phase 05 &middot; Perform &amp; Apply</div>
+        <h2 class="section-title">Executive Mission: Break the Loop</h2>
+        <p class="section-desc">
+          Apply your learning to solve the Horizon Mobility crisis. Your response will generate individual observable evidence.
+        </p>
+      </div>
+
+      <div class="task-brief-box">
+        <div class="task-brief-title">The Scenario Mandate</div>
+        <div class="task-brief-text">
+          <strong>Your Role:</strong> VP of Operations at Horizon Mobility.<br>
+          <strong>Recipient:</strong> Megan Stone (Client Director, Detroit).<br>
+          <strong>Your Task:</strong> Write a 2-to-3 sentence executive response to Megan's voicemail. You must:<br>
+          1. State the root cause using <strong>due to</strong> or <strong>as a result of</strong>.<br>
+          2. Maintain a <strong>depersonalized, diplomatic stance</strong> (no finger-pointing).<br>
+          3. Propose an <strong>actionable contingency</strong> (e.g. <em>an emergency air charter</em>) using <strong>consequently</strong> or <strong>provided that</strong>.
+        </div>
+      </div>
+
+      <textarea class="task-textarea" id="studentTaskInput" placeholder="Write your executive dispatch in English... (e.g. Due to an unforeseen customs verification in Laredo, primary ground transit was delayed. In order to safeguard your Detroit assembly line, we have chartered an emergency air cargo flight. Consequently, the buffer inventory will arrive on your factory floor by 08:30 tomorrow morning.)"></textarea>
+      
+      <button class="task-submit-btn" onclick="evaluateTaskPerformance()">Submit Executive Dispatch</button>
+      <div class="exercise-feedback" id="taskEvaluationFeedback"></div>
     </section>
 
   </main>
 
-  <!-- ACADEMIC MODAL -->
-  <div class="academic-modal" id="academicModal" onclick="closeAcademicModal(event)">
-    <div class="modal-paper" onclick="event.stopPropagation()">
-      <div class="modal-paper-header">
-        <h3 class="modal-paper-title">Academic Rationale &amp; Scholarly Foundations</h3>
-        <button class="modal-close-x" onclick="closeAcademicModal()">&times;</button>
+  <!-- FACULTY MODAL (SECCIÓN 3 DEL DOCUMENTO RECTOR) -->
+  <div class="faculty-modal" id="facultyModal" onclick="closeFacultyModal(event)">
+    <div class="faculty-paper" onclick="event.stopPropagation()">
+      <div class="faculty-header">
+        <h3 class="faculty-title">Faculty Pedagogical Guide (Documento Rector Secc. 3)</h3>
+        <button class="modal-close-x" onclick="closeFacultyModal()">&times;</button>
       </div>
-      <div style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.65;">
-        <h4 style="color: var(--gold); margin-bottom: 6px;">The Empirical Grounding of Our 6-Track Curriculum</h4>
-        <p style="margin-bottom: 14px;">
-          Adult professionals routinely disengage from traditional language courses because textbook models fail to reflect actual corporate workflow. L&amp;D Studio grounds this specialization on four validated pillars:
+      <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.65;">
+        <h4 style="color: var(--gold); margin-bottom: 6px;">1. Canonical Alignment &amp; Target Outcome</h4>
+        <p style="margin-bottom: 12px;">
+          <strong>Course:</strong> Executive Business English Track &middot; BE-00 Orientation.<br>
+          <strong>Outcome:</strong> Students articulate causality and systemic operational disruption using objective markers (<em>due to + NP</em>, <em>consequently</em>) and depersonalized passive voice, reframing the corporate lifecycle through Mintzberg and Senge.
         </p>
-        <ul style="margin-left: 20px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px;">
-          <li><strong>Henry Mintzberg (1973, 2004)</strong>: <em>The Nature of Managerial Work</em>. Proved empirically that managers operate in brief, reactive, verbal episodes under continuous operational friction.</li>
-          <li><strong>Peter M. Senge (1990)</strong>: <em>The Fifth Discipline</em>. Formalized systemic feedback loops and demonstrated how tactical workarounds inevitably trigger cyclic operational crises.</li>
-          <li><strong>Dudley-Evans &amp; St John (1998)</strong>: <em>Developments in ESP</em>. Proved that business language competence must be taught via carrier content and authentic domain constraints rather than isolated syntax.</li>
-          <li><strong>Task-Based Language Teaching (TBLT)</strong>: Ellis, Willis, and Skehan's framework emphasizing task outcomes over rote grammar drills.</li>
+
+        <h4 style="color: var(--gold); margin-bottom: 6px;">2. Language Control (P / P? / N / F)</h4>
+        <ul style="margin-left: 20px; margin-bottom: 12px;">
+          <li><strong>P (Previous):</strong> B1 core grammar (Past Simple, Present Continuous, basic conjunctions *because*, *so*).</li>
+          <li><strong>N (New - Taught Here):</strong> <em>Due to + nominalized noun phrase</em>, <em>consequently</em>, depersonalized passive hedging (<em>was halted, appears to omit</em>).</li>
+          <li><strong>F (Future / Beyond Scope):</strong> Advanced third conditionals or complex legal force majeure clauses (not tested as traps).</li>
         </ul>
-        <p style="color: var(--gold); font-size: 0.85rem; font-weight: 700;">
-          L&amp;D Studio &middot; Where potential takes shape. Understanding comes before advancement.
+
+        <h4 style="color: var(--gold); margin-bottom: 6px;">3. Qualitative Assessment Rubric (E0 &ndash; E3)</h4>
+        <ul style="margin-left: 20px; margin-bottom: 14px;">
+          <li><strong>E0:</strong> Output fails to address causality or uses accusatory/fossil forms despite prompts.</li>
+          <li><strong>E1:</strong> Logically understandable but relies on raw literal translation (*"thanks to the delay we have problems"*).</li>
+          <li><strong>E2 (Proficient):</strong> Accurately deploys *due to + NP* and passive voice, providing a clear contingency solution.</li>
+          <li><strong>E3 (Exemplary):</strong> Fluid, executive-level phrasing demonstrating high diplomatic tact and seamless discourse linking.</li>
+        </ul>
+
+        <p style="color: var(--gold); font-size: 0.82rem; font-weight: 700;">
+          L&amp;D Studio &middot; Understanding Comes Before Advancement.
         </p>
       </div>
     </div>
@@ -1182,17 +825,15 @@
 
   <!-- FOOTER -->
   <footer class="masterclass-footer">
-    <p><strong>Learning &amp; Development Studio</strong> &middot; Executive Business English Specialization</p>
-    <p>Where potential takes shape. 0 Emojis &middot; Documento Rector Canonical Alignment &middot; CEFR Companion Volume 2020.</p>
+    <p><strong>Learning &amp; Development Studio</strong> &middot; Academic Scope &amp; Sequence</p>
+    <p>Where potential takes shape. 0 Emojis &middot; Documento Rector Canonical Architecture &middot; CEFR Companion Volume 2020.</p>
   </footer>
 
-  <!-- INTERACTIVE SCRIPTS & SPEECH ENGINE -->
   <script>
-    // Audio Context sound synthesis for authentic UI clicks and Teams chimes
+    // Audio Context chime engine
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
-
-    function playChime(type) {
+    function playChime(isOk) {
       try {
         if (!audioCtx) audioCtx = new AudioContext();
         if (audioCtx.state === 'suspended') audioCtx.resume();
@@ -1200,283 +841,145 @@
         const gain = audioCtx.createGain();
         osc.connect(gain);
         gain.connect(audioCtx.destination);
-
-        if (type === 'call') {
-          // Teams chime
-          osc.frequency.setValueAtTime(440, audioCtx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15);
+        if (isOk) {
+          osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+          osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
           gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
           gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
           osc.start();
           osc.stop(audioCtx.currentTime + 0.3);
-        } else if (type === 'correct') {
-          osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-          osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
-          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.35);
         } else {
           osc.frequency.setValueAtTime(220, audioCtx.currentTime);
           gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
           osc.start();
-          osc.stop(audioCtx.currentTime + 0.1);
+          osc.stop(audioCtx.currentTime + 0.15);
         }
       } catch(e) {}
     }
 
-    // 1. KEYNOTE AUDIO SYNTHESIZER (Dr. Mintzberg / Senge Keynote)
-    const KEYNOTE_CHAPTERS = [
-      {
-        quote: "The manager does not systematically plan or control in quiet isolation. Real managerial work is characterized by brevity, variety, and fragmentation, where action is reactive, verbal, and relentlessly iterative.",
-        author: "Dr. Henry Mintzberg",
-        source: "Harvard Business Review &middot; The Nature of Managerial Work",
-        speech: "Welcome to Business English at Learning and Development Studio. Let us address the most important truth about executive communication. The textbook myth tells you that managers sit in quiet offices planning five year horizons. Henry Mintzberg proved decades ago that real managerial work is an unrelenting loop of brief, fragmented interruptions and high-stakes conversations. To lead in English, you must master the language of friction."
-      },
-      {
-        quote: "Organizations frequently become trapped in firefighting loops—where emergency workarounds solve today's friction only to create the next operational crisis tomorrow.",
-        author: "Dr. Peter M. Senge",
-        source: "MIT Sloan &middot; The Fifth Discipline: Systemic Loops",
-        speech: "Peter Senge from MIT calls this the firefighting loop. You solve an operational delay on Monday. That workaround triggers a budget discrepancy on Tuesday. That leads to an emergency client negotiation on Wednesday. And the cycle repeats next quarter. Our six specialized tracks reflect that exact loop."
-      },
-      {
-        quote: "Language proficiency in executive settings is measured by diplomatic tact, nominalized precision, and systemic clarity under time pressure.",
-        author: "Executive Specialization Architecture",
-        source: "Task-Based Language Teaching &middot; CEFR Companion B1+ to B2",
-        speech: "Inside the corporate loop, how you explain failure determines your credibility. Saying 'thanks to the delay' sounds bizarre. Pointing fingers at your partners destroys goodwill. We teach you depersonalized stance and bulletproof causality so you communicate like a global executive."
-      }
-    ];
+    // Scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
 
-    let currentChapter = 0;
-    let isKeynotePlaying = false;
+    // 1. POLL SELECTOR
+    function selectPoll(btn, choice) {
+      document.querySelectorAll('.poll-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('pollReveal').style.display = 'block';
+      playChime(true);
+    }
 
-    function switchKeynoteChapter(idx) {
-      currentChapter = idx;
-      const ch = KEYNOTE_CHAPTERS[idx];
-      document.getElementById('keynoteQuoteText').innerHTML = '&ldquo;' + ch.quote + '&rdquo;';
-      document.getElementById('keynoteAuthor').innerHTML = ch.author;
-      document.getElementById('keynoteSource').innerHTML = ch.source;
-      
-      document.querySelectorAll('.chapter-chip').forEach((c, i) => {
-        c.classList.toggle('active', i === idx);
-      });
+    // 2. MEGAN STONE AUDIO DISPATCH (20 SECONDS)
+    let isMeganPlaying = false;
+    function playMeganAudio() {
+      const btn = document.getElementById('playMeganBtn');
+      const status = document.getElementById('meganAudioStatus');
 
-      if (isKeynotePlaying) {
+      if (isMeganPlaying) {
         window.speechSynthesis.cancel();
-        startKeynotePlayback();
-      }
-    }
-
-    function toggleKeynoteAudio() {
-      playChime('click');
-      if (isKeynotePlaying) {
-        window.speechSynthesis.cancel();
-        isKeynotePlaying = false;
-        document.getElementById('masterPlayBtn').innerHTML = '&#9658;';
-        setWaveAnimation(false);
-      } else {
-        startKeynotePlayback();
-      }
-    }
-
-    function startKeynotePlayback() {
-      window.speechSynthesis.cancel();
-      const ch = KEYNOTE_CHAPTERS[currentChapter];
-      const utter = new SpeechSynthesisUtterance(ch.speech);
-      utter.lang = 'en-US';
-      utter.rate = 0.95;
-
-      utter.onstart = () => {
-        isKeynotePlaying = true;
-        document.getElementById('masterPlayBtn').innerHTML = '&#10074;&#10074;';
-        setWaveAnimation(true);
-        updateKeynoteProgressAnim(true);
-      };
-
-      utter.onend = () => {
-        isKeynotePlaying = false;
-        document.getElementById('masterPlayBtn').innerHTML = '&#9658;';
-        setWaveAnimation(false);
-        updateKeynoteProgressAnim(false);
-      };
-
-      window.speechSynthesis.speak(utter);
-    }
-
-    function setWaveAnimation(active) {
-      document.querySelectorAll('.wave-bar').forEach(b => {
-        b.classList.toggle('animating', active);
-      });
-    }
-
-    let progressInterval = null;
-    function updateKeynoteProgressAnim(active) {
-      clearInterval(progressInterval);
-      const bar = document.getElementById('keynoteProgress');
-      const timeLbl = document.getElementById('keynoteTimeDisplay');
-      if (!active) {
-        bar.style.width = '0%';
-        timeLbl.textContent = '00:00 / 02:45';
+        isMeganPlaying = false;
+        btn.innerHTML = '&#9658;';
+        status.textContent = 'Click play to listen (20s)';
         return;
       }
-      let sec = 0;
-      progressInterval = setInterval(() => {
-        sec++;
-        const pct = Math.min((sec / 30) * 100, 100);
-        bar.style.width = pct + '%';
-        const m = String(Math.floor(sec / 60)).padStart(2, '0');
-        const s = String(sec % 60).padStart(2, '0');
-        timeLbl.textContent = m + ':' + s + ' / 02:45';
-        if (sec >= 30) clearInterval(progressInterval);
-      }, 1000);
-    }
 
-    // 2. DISPATCH MEMO AUDIO PLAYER (TEAMS VOICEMAILS)
-    const DISPATCH_MEMOS = {
-      1: {
-        speaker: "Megan Stone (Detroit Client Account Director)",
-        text: "Carlos, our assembly line in Detroit is scheduled to begin battery packaging on Thursday morning. If those modules do not arrive by Wednesday at 17:00, our plant halts, which would trigger significant SLA late penalties. What is the current status?",
-        highlightText: "Carlos, our assembly line in Detroit is scheduled to begin battery packaging on Thursday morning. <span class='focus-marker'>If those modules do not arrive by Wednesday at 17:00</span>, our plant halts, <span class='focus-marker'>which would trigger significant SLA late penalties</span>. What is the current status?"
-      },
-      2: {
-        speaker: "Carlos Garza (VP of Supply Chain, Horizon Mobility)",
-        text: "Thank you for jumping on the line, Megan. Due to a random secondary customs inspection in Laredo, our road transport was held for verification. Consequently, we have chartered a dedicated air cargo flight from Monterrey to Detroit to transfer an emergency buffer of 400 modules.",
-        highlightText: "Thank you for jumping on the line, Megan. <span class='focus-marker'>Due to a random secondary customs inspection</span>, our road transport was held. <span class='focus-marker'>Consequently, we have chartered a dedicated air cargo flight</span> to transfer an emergency buffer of 400 modules."
-      },
-      3: {
-        speaker: "Sandra Morales (Horizon Finance & Contracts Controller)",
-        text: "To reinforce Carlos's point: provided that the charter departs at 20:00 tonight, the buffer inventory will arrive on your factory floor by 08:30 tomorrow morning. Consequently, your assembly line will not experience downtime. We have absorbed the charter cost internally to safeguard our partnership.",
-        highlightText: "To reinforce Carlos's point: <span class='focus-marker'>provided that the charter departs at 20:00 tonight</span>, the buffer inventory will arrive on your factory floor by 08:30 tomorrow morning. <span class='focus-marker'>Consequently, your assembly line will not experience downtime</span>. We have absorbed the charter cost internally."
-      }
-    };
-
-    let activeMemo = null;
-
-    function playMemo(id) {
-      playChime('call');
       window.speechSynthesis.cancel();
-
-      document.querySelectorAll('.memo-card').forEach(c => c.classList.remove('playing'));
-      document.querySelectorAll('.memo-play-trigger').forEach(b => b.innerHTML = '&#9658;');
-
-      const memo = DISPATCH_MEMOS[id];
-      const card = document.getElementById('memoCard' + id);
-      const btn = document.getElementById('memoBtn' + id);
-
-      card.classList.add('playing');
-      btn.innerHTML = '&#10074;&#10074;';
-
-      document.getElementById('transcriptSpeaker').textContent = memo.speaker;
-      document.getElementById('transcriptText').innerHTML = memo.highlightText;
-
-      const utter = new SpeechSynthesisUtterance(memo.text);
+      const text = "Carlos, our Detroit assembly line halts on Thursday morning if those battery modules do not arrive by Wednesday at 17:00. This triggers serious SLA late penalties. What is the current status?";
+      const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'en-US';
-      utter.rate = id === 1 ? 1.05 : 0.95; // Client speaks slightly faster/tense
+      utter.rate = 1.05;
+
+      utter.onstart = () => {
+        isMeganPlaying = true;
+        btn.innerHTML = '&#10074;&#10074;';
+        status.innerHTML = '<span style="color: var(--danger); font-weight: bold;">Playing audio dispatch...</span>';
+      };
 
       utter.onend = () => {
-        card.classList.remove('playing');
+        isMeganPlaying = false;
         btn.innerHTML = '&#9658;';
+        status.textContent = 'Completed (20s) &middot; Click to replay';
       };
 
       window.speechSynthesis.speak(utter);
     }
 
-    // 3. SOUNDBOARD PHRASE SPEAKER
-    function speakPhrase(phrase) {
-      playChime('click');
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(phrase);
-      utter.lang = 'en-US';
-      utter.rate = 0.95;
-      window.speechSynthesis.speak(utter);
-    }
-
-    // 4. INTERACTIVE CHALLENGE EVALUATOR
-    let currentScore = 0;
-    function evalChoice(btn, isCorrect, feedback) {
+    // 3. EXERCISE CHOICES
+    function handleChoice(btn, isCorrect, fbId, explanation) {
       const parent = btn.parentElement;
-      parent.querySelectorAll('.ans-choice-btn').forEach(b => {
-        b.classList.remove('is-correct', 'is-wrong');
+      parent.querySelectorAll('.choice-item').forEach(b => {
+        b.classList.remove('correct', 'incorrect');
         b.disabled = true;
       });
 
-      const fb = document.getElementById('qFeedback');
+      const fb = document.getElementById(fbId);
       fb.style.display = 'block';
 
       if (isCorrect) {
-        playChime('correct');
-        btn.classList.add('is-correct');
+        playChime(true);
+        btn.classList.add('correct');
         fb.style.background = 'var(--success-bg)';
         fb.style.color = '#34d399';
         fb.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-        fb.innerHTML = '<strong>Executive Mastery Approved:</strong> ' + feedback;
-        currentScore += 50;
+        fb.innerHTML = '<strong>Executive Accuracy Confirmed:</strong> ' + explanation;
       } else {
-        playChime('error');
-        btn.classList.add('is-wrong');
+        playChime(false);
+        btn.classList.add('incorrect');
         fb.style.background = 'var(--danger-bg)';
         fb.style.color = '#f87171';
         fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-        fb.innerHTML = '<strong>Critical Revision Required:</strong> ' + feedback;
+        fb.innerHTML = '<strong>Fossil Pattern Detected:</strong> ' + explanation;
       }
-      document.getElementById('scoreBadge').textContent = 'SCORE: ' + currentScore + ' / 100 PTS';
     }
 
-    // 5. EVALUATE STUDENT WRITTEN BRIEFING
-    function evaluateBriefing() {
-      const text = document.getElementById('briefingInput').value.trim();
-      const fb = document.getElementById('briefingFeedback');
+    // 4. TASK PERFORMANCE EVALUATOR (E0-E3)
+    function evaluateTaskPerformance() {
+      const text = document.getElementById('studentTaskInput').value.trim();
+      const fb = document.getElementById('taskEvaluationFeedback');
       fb.style.display = 'block';
 
-      if (text.length < 35) {
+      if (text.length < 30) {
+        playChime(false);
         fb.style.background = 'var(--danger-bg)';
         fb.style.color = '#f87171';
         fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-        fb.innerHTML = '<strong>Dispatch Incomplete:</strong> An executive briefing requires at least 2 full sentences detailing the situation, root cause, and immediate workaround.';
+        fb.innerHTML = '<strong>E0 / Incomplete:</strong> Your dispatch requires at least 2 full sentences detailing the root cause and the operational workaround.';
         return;
       }
 
-      const hasCause = /due to|because of|as a result of|consequently|owing to/i.test(text);
-      const hasContingency = /charter|flight|alternative|contingency|backup|reroute|safeguard|buffer|protect/i.test(text);
+      const hasDueTo = /due to|as a result of|owing to/i.test(text);
+      const hasMitigation = /charter|flight|buffer|air|contingency|protect|safeguard|arranged/i.test(text);
+      const hasConnector = /consequently|in order to|provided that|therefore/i.test(text);
 
-      if (hasCause && hasContingency) {
-        playChime('correct');
+      if (hasDueTo && hasMitigation && hasConnector) {
+        playChime(true);
         fb.style.background = 'var(--success-bg)';
         fb.style.color = '#34d399';
         fb.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-        fb.innerHTML = '<strong>Executive Certification Passed (+50 PTS):</strong> Excellent. You combined an objective causality marker (due to / consequently) with an actionable operational contingency without resorting to aggressive finger-pointing. Ready for boardroom transmission.';
-        currentScore = Math.min(100, currentScore + 50);
-        document.getElementById('scoreBadge').textContent = 'SCORE: ' + currentScore + ' / 100 PTS';
-      } else if (!hasCause) {
+        fb.innerHTML = '<strong>Level E2/E3 (Proficient / Exemplary):</strong> Outstanding executive dispatch. You deployed <em>due to</em> with an objective noun phrase, established a depersonalized stance, and linked an actionable contingency measure. Evidence validated.';
+      } else if (!hasDueTo) {
         fb.style.background = 'rgba(212, 168, 67, 0.15)';
         fb.style.color = 'var(--gold)';
         fb.style.border = '1px solid var(--gold-border)';
-        fb.innerHTML = '<strong>Refine Causality:</strong> Your operational solution is clear, but strengthen your stance by adding <em>due to</em>, <em>as a result of</em>, or <em>consequently</em>.';
+        fb.innerHTML = '<strong>Level E1 (Emergent):</strong> Your contingency is clear, but demonstrate the target resource by introducing the cause with <em>due to + noun phrase</em> (e.g. <em>Due to an unforeseen customs audit...</em>).';
       } else {
         fb.style.background = 'rgba(212, 168, 67, 0.15)';
         fb.style.color = 'var(--gold)';
         fb.style.border = '1px solid var(--gold-border)';
-        fb.innerHTML = '<strong>Propose Actionable Contingency:</strong> You identified the cause, but executives must offer a concrete workaround (e.g. <em>we have chartered an air flight to protect the timeline</em>).';
+        fb.innerHTML = '<strong>Level E1 (Emergent):</strong> The cause was stated, but executive leadership requires an explicit solution linked by <em>consequently</em> or <em>in order to</em> (e.g. <em>Consequently, we have chartered an air flight...</em>).';
       }
     }
 
-    function speakStudentBriefing() {
-      const text = document.getElementById('briefingInput').value.trim();
-      if (!text) {
-        alert('Please type an executive briefing in English first!');
-        return;
-      }
-      speakPhrase(text);
+    // FACULTY MODAL
+    function openFacultyModal() {
+      document.getElementById('facultyModal').classList.add('active');
     }
-
-    function openAcademicModal() {
-      playChime('click');
-      document.getElementById('academicModal').classList.add('active');
-    }
-    function closeAcademicModal(e) {
-      if (!e || e.target.id === 'academicModal' || e.target.classList.contains('modal-close-x')) {
-        document.getElementById('academicModal').classList.remove('active');
+    function closeFacultyModal(e) {
+      if (!e || e.target.id === 'facultyModal' || e.target.classList.contains('modal-close-x')) {
+        document.getElementById('facultyModal').classList.remove('active');
       }
     }
   </script>
