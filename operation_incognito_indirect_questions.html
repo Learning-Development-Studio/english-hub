@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operation Incognito · Indirect Questions Masterclass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-primary: #0f172a;
+      --ink-secondary: #334155;
+      --ink-muted: #64748b;
+      --canvas: #fcfbf9;
+      --slide-bg: #ffffff;
+      --border: #e2e8f0;
+      --gold: #b8860b;
+      --gold-light: #fef9e7;
+      --gold-border: #dfc882;
+      --navy: #1e3a8a;
+      --navy-light: #eff6ff;
+      --crimson: #991b1b;
+      --crimson-light: #fef2f2;
+      --emerald: #166534;
+      --emerald-light: #f0fdf4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--canvas);
+      color: var(--ink-primary);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP BAR */
+    .deck-topbar {
+      height: 56px;
+      padding: 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      background: var(--gold-light);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--gold-border);
+    }
+    .topbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .slide-counter {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-muted);
+    }
+    .btn-action {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--ink-secondary);
+      transition: all .2s;
+    }
+    .btn-action:hover {
+      background: var(--gold-light);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* MAIN STAGE */
+    .deck-stage {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1000px;
+      background: var(--slide-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 44px 52px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      animation: fadeIn .25s ease-out;
+    }
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SLIDE TYPOGRAPHY */
+    .slide-kicker {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .slide-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .slide-subtitle {
+      font-size: 15px;
+      color: var(--ink-secondary);
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+
+    /* GRID LAYOUTS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    /* CARD STYLING */
+    .card-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .card-box.alert-box {
+      background: var(--crimson-light);
+      border-color: #fecaca;
+    }
+    .card-box.success-box {
+      background: var(--emerald-light);
+      border-color: #bbf7d0;
+    }
+    .card-box.gold-box {
+      background: var(--gold-light);
+      border-color: var(--gold-border);
+    }
+    .card-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* SYNTAX BLUEPRINT */
+    .formula-container {
+      background: #fafaf9;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: monospace;
+      font-size: 15px;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    .f-chip {
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #ffffff;
+    }
+    .f-starter { background: var(--navy); }
+    .f-connector { background: var(--gold); }
+    .f-subject { background: #059669; }
+    .f-verb { background: #7c3aed; }
+    .f-plus { color: var(--ink-muted); font-size: 18px; font-weight: 800; }
+
+    /* COMPARISON BLOCKS */
+    .comparison-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .c-wrong {
+      flex: 1;
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--crimson);
+    }
+    .c-wrong strike {
+      color: #e11d48;
+      font-weight: 700;
+    }
+    .c-correct {
+      flex: 1;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* INTERACTIVE ROLEPLAY CARDS */
+    .role-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+    .role-badge {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+    .badge-diplomat { background: #fef3c7; color: #92400e; }
+    .badge-agent { background: #eff6ff; color: #1e40af; }
+    .role-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink-primary);
+    }
+    .secret-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+    }
+
+    /* FOOTER CONTROLS */
+    .deck-nav {
+      height: 64px;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink-primary);
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-nav:hover:not(:disabled) {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+    .btn-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .keyboard-hint {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .keyboard-hint kbd {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="deck-topbar">
+    <div class="brand-title">
+      Learning &amp; Development Studio
+      <span class="brand-badge">Classroom Slide Deck</span>
+    </div>
+    <div class="topbar-controls">
+      <span class="slide-counter" id="slideIndicator">Slide 1 of 6</span>
+      <button type="button" class="btn-action" onclick="toggleFullscreen()">Full Screen</button>
+      <button type="button" class="btn-action" onclick="window.print()">Print Slides</button>
+    </div>
+  </header>
+
+  <!-- DECK STAGE -->
+  <main class="deck-stage">
+
+    <!-- SLIDE 1: MISSION BRIEFING -->
+    <section class="slide active" id="slide-1">
+      <span class="slide-kicker">Interactive Communicative Simulation · B1 Level</span>
+      <h1 class="slide-title">Operation Incognito: The Diplomatic Gala</h1>
+      <p class="slide-subtitle">
+        A high-stakes communicative roleplay designed to master <strong>Indirect Questions</strong> naturally through tact, discretion, and diplomatic etiquette.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-box">
+          <div class="card-title" style="color:var(--navy);">The Context &amp; Objective</div>
+          <p class="card-desc">
+            You are attending the Ambassador's Annual VIP Gala. Half the room are <strong>High-Profile Guests</strong> holding confidential secrets; the other half are <strong>Undercover Agents</strong> tasked with extracting intelligence without raising suspicion.
+          </p>
+        </div>
+        <div class="card-box gold-box">
+          <div class="card-title" style="color:#78350f;">Why Indirect Questions?</div>
+          <p class="card-desc">
+            In formal diplomacy, asking direct questions (<em>"Where is your safe?"</em>) is seen as rude, intrusive, and hostile. You must soften your inquiries to extract sensitive truth.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: THE GOLDEN RULE & PENALTIES -->
+    <section class="slide" id="slide-2">
+      <span class="slide-kicker">Simulation Mechanics</span>
+      <h2 class="slide-title">The Protocol: Two Ironclad Rules</h2>
+      <p class="slide-subtitle">
+        Breaking diplomatic etiquette triggers immediate consequences in the simulation.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-box alert-box">
+          <div class="card-title" style="color:var(--crimson);">Rule 01: Direct Questions Are Banned</div>
+          <p class="card-desc">
+            If an agent asks a direct question (e.g., <em>"How much do you earn?"</em> or <em>"Did you sell the company?"</em>):<br><br>
+            <strong>The Diplomat's Response:</strong><br>
+            <em>"Excuse me?! How utterly intrusive! Security, escort this person away!"</em><br>
+            <strong>Penalty:</strong> Agent loses the intel and cannot speak to this guest again.
+          </p>
+        </div>
+
+        <div class="card-box alert-box">
+          <div class="card-title" style="color:var(--crimson);">Rule 02: The Word-Order Trap</div>
+          <p class="card-desc">
+            If the agent uses a polite starter but inverts the word order (e.g., <em>"Could you tell me where is the key?"</em>):<br><br>
+            <strong>The Diplomat's Response:</strong><br>
+            <em>"A real diplomat would never make that grammatical mistake. You are an amateur impostor!"</em><br>
+            <strong>Penalty:</strong> Question denied.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: THE SYNTAX BLUEPRINT -->
+    <section class="slide" id="slide-3">
+      <span class="slide-kicker">Linguistic Architecture</span>
+      <h2 class="slide-title">The Indirect Question Blueprint</h2>
+      <p class="slide-subtitle">
+        Remember: An indirect question is polite statement word order attached to a polite starter.
+      </p>
+
+      <div class="formula-container">
+        <div class="formula-row">
+          <span class="f-chip f-starter">Polite Starter</span>
+          <span class="f-plus">+</span>
+          <span class="f-chip f-connector">Wh-Word / If / Whether</span>
+          <span class="f-plus">+</span>
+          <span class="f-chip f-subject">Subject</span>
+          <span class="f-plus">+</span>
+          <span class="f-chip f-verb">Verb (No Auxiliary Inversion)</span>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="comparison-row">
+          <div class="c-wrong">
+            <strike>Could you tell me where does he live?</strike> &middot; Error: auxiliary 'does'
+          </div>
+          <div class="c-correct">
+            Could you tell me where he lives? &middot; Affirmative syntax
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="c-wrong">
+            <strike>Do you happen to know what time is it?</strike> &middot; Error: inverted 'is it'
+          </div>
+          <div class="c-correct">
+            Do you happen to know what time it is? &middot; Subject before verb
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="c-wrong">
+            <strike>I was wondering did you sign the contract?</strike> &middot; Error: missing 'if/whether'
+          </div>
+          <div class="c-correct">
+            I was wondering if you signed the contract. &middot; Embedded clause
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: THE DIPLOMAT PROFILES -->
+    <section class="slide" id="slide-4">
+      <span class="slide-kicker">Roleplay Materials · Target Profiles</span>
+      <h2 class="slide-title">Confidential VIP Profiles (Diplomats)</h2>
+      <p class="slide-subtitle">
+        Diplomats answer truthfully <strong>only if</strong> the indirect question is grammatically flawless.
+      </p>
+
+      <div class="grid-3">
+        <div class="role-card">
+          <span class="role-badge badge-diplomat">VIP Guest A</span>
+          <div class="role-name">Ambassador Vance</div>
+          <div class="secret-box">
+            <strong>Secret 1:</strong> Keeps $2.4M in an offshore Swiss account.<br>
+            <strong>Secret 2:</strong> His personal driver is an intelligence informant.<br>
+            <strong>Secret 3:</strong> Plans to flee the gala at 10:45 PM.
+          </div>
+        </div>
+
+        <div class="role-card">
+          <span class="role-badge badge-diplomat">VIP Guest B</span>
+          <div class="role-name">Lady Eleanor Sterling</div>
+          <div class="secret-box">
+            <strong>Secret 1:</strong> Left the vault master key inside her velvet coat.<br>
+            <strong>Secret 2:</strong> Despises the ambassador's political alliance.<br>
+            <strong>Secret 3:</strong> Arrived with an unverified passport.
+          </div>
+        </div>
+
+        <div class="role-card">
+          <span class="role-badge badge-diplomat">VIP Guest C</span>
+          <div class="role-name">CEO Marcus Drake</div>
+          <div class="secret-box">
+            <strong>Secret 1:</strong> Fired his CFO this morning to conceal debts.<br>
+            <strong>Secret 2:</strong> Company faces imminent bankruptcy.<br>
+            <strong>Secret 3:</strong> Purchased a private island last Tuesday.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: THE AGENT MISSIONS -->
+    <section class="slide" id="slide-5">
+      <span class="slide-kicker">Roleplay Materials · Intelligence Dossier</span>
+      <h2 class="slide-title">Agent Intel Checklist (Missions)</h2>
+      <p class="slide-subtitle">
+        Agents circulate during the cocktail. Formulate your indirect inquiry before speaking.
+      </p>
+
+      <div class="grid-2">
+        <div class="role-card">
+          <span class="role-badge badge-agent">Agent Mission Docket A</span>
+          <div class="secret-box">
+            <strong>Mission 01:</strong> Find out when Ambassador Vance is leaving the gala.<br>
+            <em>Target: "Could you tell me when you plan to leave?"</em><br><br>
+            <strong>Mission 02:</strong> Confirm if Lady Sterling has the vault key with her.<br>
+            <em>Target: "Do you happen to know where your vault key is?"</em>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <span class="role-badge badge-agent">Agent Mission Docket B</span>
+          <div class="secret-box">
+            <strong>Mission 03:</strong> Inquire why Marcus Drake dismissed his CFO.<br>
+            <em>Target: "Would you mind telling me why you fired your CFO?"</em><br><br>
+            <strong>Mission 04:</strong> Check whether Ambassador Vance holds overseas assets.<br>
+            <em>Target: "I was wondering if you have an offshore account."</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: DEBRIEF & ASSESSMENT -->
+    <section class="slide" id="slide-6">
+      <span class="slide-kicker">Perform &amp; Reflect</span>
+      <h2 class="slide-title">The Intelligence Debrief &amp; Wrap-Up</h2>
+      <p class="slide-subtitle">
+        Gather in the briefing room. Agents present their extracted intelligence using indirect reporting.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-box success-box">
+          <div class="card-title" style="color:var(--emerald);">Synthesis &amp; Reporting Task</div>
+          <p class="card-desc">
+            Each agent reports back to HQ:<br>
+            <em>"I asked Lady Sterling if she knew where the key was, and she admitted leaving it in her coat."</em><br><br>
+            <em>"I inquired whether Marcus Drake had fired his CFO, and he confirmed the termination occurred this morning."</em>
+          </p>
+        </div>
+
+        <div class="card-box gold-box">
+          <div class="card-title" style="color:#78350f;">CLT + TBLT Evaluation Rubric</div>
+          <p class="card-desc">
+            <strong>E3 (Exemplary):</strong> Flawless indirect word order, zero inverted auxiliaries, natural diplomatic intonation.<br><br>
+            <strong>E2 (Proficient):</strong> Successful information exchange with self-correction on word order.<br><br>
+            <strong>E1 (Developing):</strong> Persistent direct question slips or auxiliary intrusion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION -->
+  <footer class="deck-nav">
+    <button type="button" class="btn-nav" id="btnPrev" onclick="prevSlide()">&larr; Previous</button>
+    <div class="keyboard-hint">
+      Navigate with <kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>Space</kbd>
+    </div>
+    <button type="button" class="btn-nav" id="btnNext" onclick="nextSlide()">Next &rarr;</button>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.toggle('active', idx + 1 === currentSlide);
+      });
+
+      document.getElementById('slideIndicator').textContent = 'Slide ' + currentSlide + ' of ' + totalSlides;
+      document.getElementById('btnPrev').disabled = currentSlide === 1;
+      document.getElementById('btnNext').disabled = currentSlide === totalSlides;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) showSlide(currentSlide - 1);
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'f') {
+        toggleFullscreen();
+      }
+    });
+
+    showSlide(1);
+  </script>
+</body>
+</html>
