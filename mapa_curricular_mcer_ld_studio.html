@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L&D Studio — Academic Scope & Sequence (MCER / CEFR Trajectory)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-primary: #0f172a;
+      --ink-secondary: #334155;
+      --ink-muted: #64748b;
+      --bg-canvas: #fcfbf9;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --accent-gold: #b8860b;
+      --accent-gold-light: #fef9e7;
+      --accent-gold-border: #dfc882;
+      --accent-navy: #1e3a8a;
+      --accent-navy-light: #eff6ff;
+      --accent-teal: #0d9488;
+      --accent-teal-light: #f0fdfa;
+      --tag-p: #2563eb;
+      --tag-n: #b45309;
+      --tag-f: #991b1b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg-canvas);
+      color: var(--ink-primary);
+      line-height: 1.5;
+      padding: 32px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* PRINT ACTION BAR */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-navy);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      transition: color .2s;
+    }
+    .back-link:hover {
+      color: var(--accent-gold);
+    }
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--ink-primary);
+      border: 1px solid var(--card-border);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all .2s;
+    }
+    .btn-print:hover {
+      background: var(--accent-gold-light);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* INSTITUTIONAL HEADER */
+    .inst-header {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-top: 4px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 32px 36px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .inst-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .inst-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .inst-brand span {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold);
+      margin-top: 4px;
+    }
+    .inst-meta {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .inst-meta strong {
+      color: var(--ink-primary);
+    }
+
+    .doc-title-box {
+      margin-top: 8px;
+      padding-top: 18px;
+      border-top: 1px solid #f1f5f9;
+    }
+    .doc-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent-navy);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 14px;
+      color: var(--ink-secondary);
+      max-width: 900px;
+      line-height: 1.55;
+    }
+
+    /* CORE PRINCIPLE CALLOUT */
+    .principle-banner {
+      background: var(--accent-gold-light);
+      border: 1px solid var(--accent-gold-border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .principle-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #78350f;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .principle-desc {
+      font-size: 13px;
+      color: #92400e;
+      font-weight: 500;
+    }
+
+    /* MACRO TIMELINE SEQUENCE */
+    .timeline-wrapper {
+      margin-bottom: 36px;
+    }
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .step-node {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      position: relative;
+    }
+    .step-node.active-gold {
+      border-color: var(--accent-gold-border);
+      background: var(--accent-gold-light);
+    }
+    .step-code {
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--accent-navy);
+      display: block;
+    }
+    .step-name {
+      font-size: 11px;
+      color: var(--ink-secondary);
+      font-weight: 600;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .step-crux {
+      font-size: 10px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      line-height: 1.25;
+    }
+
+    /* COURSE DETAILED CARDS */
+    .courses-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      page-break-inside: avoid;
+    }
+
+    .course-header {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .course-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .course-level-pill {
+      background: var(--accent-navy);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 6px;
+      letter-spacing: -0.01em;
+    }
+    .course-title-group h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink-primary);
+    }
+    .course-title-group span {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+    .course-units-count {
+      font-size: 12px;
+      font-weight: 700;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      color: var(--accent-navy);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .course-body {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1.3fr 1.1fr;
+      gap: 20px;
+    }
+
+    .col-section-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .col-section-title::before {
+      content: "";
+      width: 4px;
+      height: 12px;
+      background: var(--accent-gold);
+      border-radius: 2px;
+    }
+
+    .units-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .unit-item {
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      line-height: 1.4;
+      padding-left: 12px;
+      border-left: 2px solid #e2e8f0;
+    }
+    .unit-item strong {
+      color: var(--ink-primary);
+      display: block;
+    }
+
+    .grammar-box {
+      background: #fafaf9;
+      border: 1px solid #f0eee9;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+    .grammar-box strong {
+      color: var(--accent-navy);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+    .resource-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-n {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .tag-p {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #dbeafe;
+    }
+    .tag-r2 {
+      background: #fdf2f8;
+      color: #9d174d;
+      border: 1px solid #fbcfe8;
+      font-weight: 800;
+    }
+
+    .sequence-box {
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--ink-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .seq-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
+    }
+    .seq-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 1px;
+    }
+    .seq-before {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .seq-focus {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    .seq-after {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    /* FOOTER SIGN-OFF */
+    .inst-footer {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .footer-left strong {
+      color: var(--ink-primary);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .footer-signatures {
+      display: flex;
+      gap: 40px;
+    }
+    .sig-line {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 6px;
+      text-align: center;
+      min-width: 170px;
+    }
+    .sig-name {
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+    .sig-role {
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    /* PRINT SPECIFIC STYLES */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #000000 !important;
+        font-size: 11pt;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .doc-container {
+        max-width: 100% !important;
+      }
+      .inst-header {
+        border-color: #cbd5e1 !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+      }
+      .course-card {
+        border-color: #cbd5e1 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 18px !important;
+      }
+      .course-header {
+        background: #f1f5f9 !important;
+        padding: 10px 16px !important;
+      }
+      .course-body {
+        padding: 14px 16px !important;
+        gap: 14px !important;
+      }
+      .grammar-box, .sequence-box {
+        background: #ffffff !important;
+        border-color: #e2e8f0 !important;
+      }
+      .principle-banner {
+        background: #ffffff !important;
+        border-color: #cbd5e1 !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .course-body {
+        grid-template-columns: 1fr;
+      }
+      .timeline-track {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="doc-container">
+
+    <!-- ACTION BAR -->
+    <div class="action-bar">
+      <a href="./index.html" class="back-link">&larr; Return to English Hub Portal</a>
+      <button type="button" class="btn-print" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print / Export Academic Sheet (PDF)
+      </button>
+    </div>
+
+    <!-- INSTITUTIONAL HEADER -->
+    <header class="inst-header">
+      <div class="inst-topline">
+        <div class="inst-brand">
+          Learning &amp; Development Studio
+          <span>Where potential takes shape &middot; Academic Trajectory</span>
+        </div>
+        <div class="inst-meta">
+          <strong>Documento Rector: Scope &amp; Sequence</strong><br>
+          Reference: R2 Sequence Consolidation<br>
+          Academic Scope: Pre-A1 to B1+ (CEFR Aligned)
+        </div>
+      </div>
+      <div class="doc-title-box">
+        <h1 class="doc-title">Mapa Curricular y Secuencia de Aprendizajes (CEFR / MCER)</h1>
+        <p class="doc-subtitle">
+          Arquitectura comunicativa oficial: desglose de temas por curso, delimitaci&oacute;n de recursos ling&uuml;&iacute;sticos (P / N / F) y orden de precedencia cronol&oacute;gica ("qu&eacute; se ense&ntilde;a antes de qu&eacute;").
+        </p>
+      </div>
+    </header>
+
+    <!-- CORE NON-NEGOTIABLE PRINCIPLE -->
+    <div class="principle-banner">
+      <div class="principle-title">Principio Rector No Negociable</div>
+      <div class="principle-desc">
+        <strong>Understanding Comes Before Advancement:</strong> No se avanza por acumulaci&oacute;n de clases ni por terminar p&aacute;ginas. Todo contenido <em>N</em> debe ense&ntilde;arse antes de evaluarse, y el progreso se acredita mediante evidencia comunicativa observable.
+      </div>
+    </div>
+
+    <!-- MACRO SEQUENCE TRACK -->
+    <div class="timeline-wrapper">
+      <div class="timeline-title">Cadena de Progresi&oacute;n y Precedencias (Trayectoria R2)</div>
+      <div class="timeline-track">
+        <div class="step-node">
+          <span class="step-code">Pre-A1</span>
+          <div class="step-name">Primer Contacto</div>
+          <div class="step-crux">F&oacute;rmulas, fon&eacute;tica y supervivencia</div>
+        </div>
+        <div class="step-node">
+          <span class="step-code">A1.1</span>
+          <div class="step-name">Identidad y Espacios</div>
+          <div class="step-crux">Present Simple (be, have, rutinas b&aacute;sicas)</div>
+        </div>
+        <div class="step-node active-gold">
+          <span class="step-code">A1.2 (R2)</span>
+          <div class="step-name">Acciones en Marcha</div>
+          <div class="step-crux">Present Continuous y contraste con Simple</div>
+        </div>
+        <div class="step-node active-gold">
+          <span class="step-code">A2.1 (R2)</span>
+          <div class="step-name">Pasado Ampliado</div>
+          <div class="step-crux">Past Simple regular/irregular y ciudad</div>
+        </div>
+        <div class="step-node active-gold">
+          <span class="step-code">A2.2 (R2)</span>
+          <div class="step-name">Experiencias y Futuro</div>
+          <div class="step-crux">Present Perfect (vida) y comparaciones</div>
+        </div>
+        <div class="step-node">
+          <span class="step-code">B1.1</span>
+          <div class="step-name">Narraci&oacute;n Compleja</div>
+          <div class="step-crux">Past Continuous, gerundios y causas</div>
+        </div>
+        <div class="step-node">
+          <span class="step-code">B1.2</span>
+          <div class="step-name">Dilemas y Matiz</div>
+          <div class="step-crux">Condicionales 1 y 2, voz pasiva</div>
+        </div>
+        <div class="step-node">
+          <span class="step-code">B1+</span>
+          <div class="step-name">S&iacute;ntesis Profesional</div>
+          <div class="step-crux">Mediaci&oacute;n, debate y puente a B2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILED COURSE SPECIFICATIONS -->
+    <div class="courses-grid">
+
+      <!-- PRE-A1 -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">Pre-A1</span>
+            <div class="course-title-group">
+              <h3>Primer Contacto y Repertorio Formulaico</h3>
+              <span>Nivel de Acceso Inicial &middot; Sin prerrequisitos formales de ingl&eacute;s previo</span>
+            </div>
+          </div>
+          <span class="course-units-count">5 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>PA-U01 Primer contacto e identidad</strong>
+                Saludo elemental, pregunta de nombre y respuesta.
+              </li>
+              <li class="unit-item">
+                <strong>PA-U02 Objetos inmediatos y consignas</strong>
+                Instrucciones de aula y nombres de objetos cotidianos.
+              </li>
+              <li class="unit-item">
+                <strong>PA-U03 Informaci&oacute;n pr&aacute;ctica</strong>
+                N&uacute;meros 1-20, horas puntuales (o'clock), precios y d&iacute;as.
+              </li>
+              <li class="unit-item">
+                <strong>PA-U04 Datos personales b&aacute;sicos</strong>
+                Edad, n&uacute;meros de contacto y datos elementales.
+              </li>
+              <li class="unit-item">
+                <strong>PA-U05 Necesidades inmediatas</strong>
+                Pedir ayuda, expresar comprensi&oacute;n o solicitar repetici&oacute;n.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              F&oacute;rmulas fijas de significado global: <em>What's your name?</em>, <em>My name is...</em>, <em>Hello/Goodbye</em>, <em>How much?</em>, <em>At five o'clock</em>.
+              <div class="resource-tags">
+                <span class="tag tag-n">L&eacute;xico N: N&uacute;meros 1-20</span>
+                <span class="tag tag-n">D&iacute;as Semana</span>
+                <span class="tag tag-n">Reparaci&oacute;n: Again, please</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F (Prohibido exigir):</strong> Presente simple libre, conjugaci&oacute;n de <em>be</em> anal&iacute;tica, construcci&oacute;n de oraciones libres, posesivos complejos.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Modelos visuales, gestos y apoyo oral muy pausado.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco</span>
+                <span>Relaci&oacute;n directa sonido-graf&iacute;a sin deducir reglas abstractas.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>Acreditar PA-U01 a U05 antes de exigir sintaxis de A1.1.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- A1.1 -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">A1.1</span>
+            <div class="course-title-group">
+              <h3>Identidad, Personas, Pertenencias y Espacios</h3>
+              <span>Etapa 01: Foundations &middot; Construcci&oacute;n de la oraci&oacute;n nuclear</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>A1.1-U01 Qui&eacute;n soy y de d&oacute;nde vengo</strong>
+                Nombres, pa&iacute;ses, nacionalidades e idiomas.
+              </li>
+              <li class="unit-item">
+                <strong>A1.1-U02 Pertenencias y entorno inmediato</strong>
+                Objetos personales, adjetivos posesivos y descriptivos b&aacute;sicos.
+              </li>
+              <li class="unit-item">
+                <strong>A1.1-U03 Mi familia y personas cercanas</strong>
+                Relaciones familiares, profesiones y descripciones de terceros.
+              </li>
+              <li class="unit-item">
+                <strong>A1.1-U04 Espacios, ubicaci&oacute;n y vivienda</strong>
+                Habitaciones, mobiliario y preposiciones de lugar (in, on, under).
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              Verbo <em>to be</em> completo (afirmativa, negativa, preguntas <em>Yes/No</em> y respuestas breves). Demostrativos (<em>this, that, these, those</em>). Posesivos (<em>my, your, his, her</em>, genitivo saj&oacute;n <em>'s</em>). <em>There is / There are</em> para existencia.
+              <div class="resource-tags">
+                <span class="tag tag-p">P: N&uacute;meros &amp; Saludos</span>
+                <span class="tag tag-n">N: Verbo to be</span>
+                <span class="tag tag-n">N: There is / are</span>
+                <span class="tag tag-n">N: Preposiciones b&aacute;sicas</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F (Prohibido exigir):</strong> Pasado simple, verbos modales complejos, tiempos continuos.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Supervivencia Pre-A1 ya demostrada individualmente.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco</span>
+                <span>Dominio s&oacute;lido de la descripci&oacute;n est&aacute;tica (ser, estar, tener).</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>Se consolida <em>to be</em> ANTES de introducir verbos din&aacute;micos en A1.2.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- A1.2 (REGLA R2) -->
+      <article class="course-card" style="border-left: 4px solid var(--accent-gold);">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill" style="background:#b8860b;">A1.2 (R2)</span>
+            <div class="course-title-group">
+              <h3>Rutinas, Habilidades y Acciones en Marcha</h3>
+              <span>Correcci&oacute;n R2 Vigente &middot; Entrada del Present Continuous</span>
+            </div>
+          </div>
+          <span class="course-units-count">5 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>A1.2-U01 Vida cotidiana y rutinas habituales</strong>
+                Horarios, d&iacute;a t&iacute;pico y adverbios de frecuencia.
+              </li>
+              <li class="unit-item">
+                <strong>A1.2-U02 Gustos, preferencias y habilidades</strong>
+                <em>Like, love, hate + noun/-ing</em>; modal <em>can / can't</em>.
+              </li>
+              <li class="unit-item">
+                <strong>A1.2-U03 Acciones en curso (R2)</strong>
+                Lo que ocurre en este momento exacto (Present Continuous).
+              </li>
+              <li class="unit-item">
+                <strong>A1.2-U04 Contraste de tiempos (R2 Crucial)</strong>
+                Diferenciar qu&eacute; hago siempre (Simple) vs. qu&eacute; hago ahora (Continuous).
+              </li>
+              <li class="unit-item">
+                <strong>A1.2-U05 Transacciones y vida social</strong>
+                Precios, compras, pedidos sencillos y comida.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              <em>Present Simple</em> con 3ra persona (<em>-s/-es</em>, auxiliares <em>do/does</em>). Adverbios de frecuencia (<em>always, usually, sometimes, never</em>). <em>Can/Can't</em> de habilidad y permiso b&aacute;sico. <strong>Present Continuous (be + -ing) y su contraste expl&iacute;cito con rutinas</strong>.
+              <div class="resource-tags">
+                <span class="tag tag-p">P: To be A1.1</span>
+                <span class="tag tag-n">N: Present Simple</span>
+                <span class="tag tag-r2">R2: Present Continuous</span>
+                <span class="tag tag-r2">R2: Simple vs Continuous</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F:</strong> Pasado simple (no adelantar pasados aqu&iacute;).
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Primero se ense&ntilde;a la rutina (Present Simple).</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco R2</span>
+                <span>Despu&eacute;s se ense&ntilde;a la acci&oacute;n temporal (Continuous) y su contraste.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>El contraste presente queda cerrado ANTES de abrir el pasado en A2.1.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- A2.1 (REGLA R2) -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">A2.1 (R2)</span>
+            <div class="course-title-group">
+              <h3>Servicios, Desplazamientos, Pasado y Acuerdos</h3>
+              <span>Etapa 02: Expansion &middot; Apertura de la l&iacute;nea temporal en pasado</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>A2.1-U01 La ciudad y desplazamientos</strong>
+                Direcciones, medios de transporte y lugares p&uacute;blicos.
+              </li>
+              <li class="unit-item">
+                <strong>A2.1-U02 Servicios y compras cotidianas</strong>
+                Interacci&oacute;n en tiendas, estaciones, hoteles y restaurantes.
+              </li>
+              <li class="unit-item">
+                <strong>A2.1-U03 Pasado simple y an&eacute;cdotas (R2)</strong>
+                Narrar qu&eacute; ocurri&oacute; ayer, el fin de semana o en las &uacute;ltimas vacaciones.
+              </li>
+              <li class="unit-item">
+                <strong>A2.1-U04 Acuerdos, citas y planes inmediatos</strong>
+                Proponer, aceptar o rechazar planes conjuntos.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              <em>Past Simple</em> de <em>to be</em> (<em>was/were</em>) y verbos regulares (<em>-ed</em>) e irregulares de alta frecuencia (<em>went, had, bought, saw, ate</em>). Auxiliar <em>did/didn't</em>. Preposiciones de movimiento y orientaci&oacute;n espacial.
+              <div class="resource-tags">
+                <span class="tag tag-p">P: Rutinas A1.2</span>
+                <span class="tag tag-r2">R2: Past Simple Regular/Irregular</span>
+                <span class="tag tag-n">N: Was / Were</span>
+                <span class="tag tag-n">N: Did / Didn't</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F:</strong> Present Perfect (reservado para A2.2), voz pasiva, condicionales.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Se requiere contraste presente afianzado en A1.2.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco R2</span>
+                <span>Dominio del pasado puntual cerrado (Yesterday, last week).</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>El pasado simple cerrado precede a las experiencias abiertas de A2.2.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- A2.2 (REGLA R2) -->
+      <article class="course-card" style="border-left: 4px solid var(--accent-gold);">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill" style="background:#b8860b;">A2.2 (R2)</span>
+            <div class="course-title-group">
+              <h3>Comparaciones, Planes y Experiencia de Vida</h3>
+              <span>Correcci&oacute;n R2 Vigente &middot; Entrada del Present Perfect</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>A2.2-U01 Comparaciones y toma de decisiones</strong>
+                Comparar productos, ciudades, precios y estilos de vida.
+              </li>
+              <li class="unit-item">
+                <strong>A2.2-U02 Planes, viajes y predicciones</strong>
+                Vacaciones futuras, planes confirmados e intenciones.
+              </li>
+              <li class="unit-item">
+                <strong>A2.2-U03 Consejos y obligaciones cotidianas</strong>
+                Salud, recomendaciones pr&aacute;cticas y normas de convivencia.
+              </li>
+              <li class="unit-item">
+                <strong>A2.2-U04 Experiencias con Present Perfect (R2)</strong>
+                Hablar de qu&eacute; se ha hecho en la vida (<em>Have you ever...?</em>).
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              Comparativos y superlativos (<em>-er/more, -est/most</em>, irregulares <em>better, worse</em>). Futuro con <em>be going to</em> (intenci&oacute;n) y <em>will</em> (decisi&oacute;n espont&aacute;nea/predicci&oacute;n). Modales <em>should, have to, must</em>. <strong>Present Perfect con <em>ever/never</em> para experiencias acumuladas</strong>.
+              <div class="resource-tags">
+                <span class="tag tag-p">P: Past Simple A2.1</span>
+                <span class="tag tag-n">N: Comparatives &amp; Superlatives</span>
+                <span class="tag tag-n">N: Going to / Will</span>
+                <span class="tag tag-r2">R2: Present Perfect (Ever/Never)</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F:</strong> Past Perfect, discurso indirecto, condicionales irreales.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Past Simple de A2.1 debe estar diferenciado de la experiencia general.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco R2</span>
+                <span>Introducir Present Perfect s&oacute;lo para vida (sin contrastes temporales B1).</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>Cierra el ciclo A2 y habilita el perfil de Usuario Independiente B1.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- B1.1 -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">B1.1</span>
+            <div class="course-title-group">
+              <h3>Narraci&oacute;n, Objetivos, Opini&oacute;n y Explicaci&oacute;n</h3>
+              <span>Etapa 03: Independent User &middot; Cohesi&oacute;n y argumentaci&oacute;n</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>B1.1-U01 Historias complejas e interrupciones</strong>
+                Acciones simult&aacute;neas e interrumpidas en el pasado.
+              </li>
+              <li class="unit-item">
+                <strong>B1.1-U02 Metas personales y trayectorias</strong>
+                Planes a medio plazo, motivos, esperanzas y ambiciones.
+              </li>
+              <li class="unit-item">
+                <strong>B1.1-U03 Sentimientos, actitudes y acuerdos</strong>
+                Expresar opini&oacute;n personal, matizar acuerdo y desacuerdo.
+              </li>
+              <li class="unit-item">
+                <strong>B1.1-U04 Procesos, causas y consecuencias</strong>
+                Explicar por qu&eacute; sucedi&oacute; algo y c&oacute;mo funciona un proceso.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              <em>Past Continuous</em> en contraste con <em>Past Simple</em> (conectores <em>when / while</em>). Patrones verbales: <em>verb + gerund</em> vs. <em>verb + infinitive</em>. Conectores de causa y efecto (<em>because, so, therefore, although</em>).
+              <div class="resource-tags">
+                <span class="tag tag-p">P: Past Simple A2.1</span>
+                <span class="tag tag-n">N: Past Continuous</span>
+                <span class="tag tag-n">N: Gerunds &amp; Infinitives</span>
+                <span class="tag tag-n">N: Discourse Connectors</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F:</strong> Tercer condicional, inversiones, oraciones hendidas.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Requiere fluidez b&aacute;sica A2 consolidada.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco</span>
+                <span>Transici&oacute;n de oraciones aisladas a p&aacute;rrafos conectados l&oacute;gicamente.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>Habilita resoluci&oacute;n de dilemas hipot&eacute;ticos en B1.2.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- B1.2 -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">B1.2</span>
+            <div class="course-title-group">
+              <h3>Seguimiento, Imprevistos, Recomendaciones e Integraci&oacute;n</h3>
+              <span>Etapa 03: Independent User &middot; Resoluci&oacute;n de problemas y condiciones</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>B1.2-U01 Resoluci&oacute;n de imprevistos y reclamaciones</strong>
+                Gestionar quejas, retrasos, aver&iacute;as o cambios de planes.
+              </li>
+              <li class="unit-item">
+                <strong>B1.2-U02 Hip&oacute;tesis, dilemas y consecuencias</strong>
+                Situaciones imaginarias y consejos en dilemas morales o pr&aacute;cticos.
+              </li>
+              <li class="unit-item">
+                <strong>B1.2-U03 Procesos y descripciones objetivas</strong>
+                Describir c&oacute;mo se fabrica un objeto o se presta un servicio.
+              </li>
+              <li class="unit-item">
+                <strong>B1.2-U04 Hip&oacute;tesis y deducciones l&oacute;gicas</strong>
+                Especular sobre situaciones presentes con modales de deducci&oacute;n.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              <em>First Conditional</em> (real / probable) y <em>Second Conditional</em> (hipot&eacute;tico / consejo <em>If I were you</em>). <em>Passive Voice</em> en Presente y Pasado Simple. Modales de deducci&oacute;n presente (<em>must, might, can't</em>).
+              <div class="resource-tags">
+                <span class="tag tag-p">P: Conditionals 0/1</span>
+                <span class="tag tag-n">N: Second Conditional</span>
+                <span class="tag tag-n">N: Passive Voice Simple</span>
+                <span class="tag tag-n">N: Modals of Deduction</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#b91c1c;">
+                <strong>L&iacute;mite F:</strong> Tercer condicional mixto, subjuntivo complejo.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Se construyen hip&oacute;tesis sobre causas y opiniones previas de B1.1.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco</span>
+                <span>Capacidad de resolver imprevistos sin depender de un interlocutor servicial.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Despu&eacute;s</span>
+                <span>Prepara la mediaci&oacute;n profesional y s&iacute;ntesis de B1+.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- B1+ -->
+      <article class="course-card">
+        <div class="course-header">
+          <div class="course-badge-wrap">
+            <span class="course-level-pill">B1+</span>
+            <div class="course-title-group">
+              <h3>Comprobaci&oacute;n, Entrevista, Mediaci&oacute;n y S&iacute;ntesis</h3>
+              <span>Nivel Puente al B2 &middot; Competencia profesional y acad&eacute;mica</span>
+            </div>
+          </div>
+          <span class="course-units-count">4 Unidades Propuestas</span>
+        </div>
+        <div class="course-body">
+          <div class="course-col">
+            <div class="col-section-title">Temas y Unidades</div>
+            <ul class="units-list">
+              <li class="unit-item">
+                <strong>B1+-U01 Entrevista estructurada y defensa de perfil</strong>
+                Sustentar fortalezas, experiencia previa y objetivos profesionales.
+              </li>
+              <li class="unit-item">
+                <strong>B1+-U02 Protocolos, directrices y procedimientos</strong>
+                Explicar normativas y procedimientos t&eacute;cnicos con precisi&oacute;n.
+              </li>
+              <li class="unit-item">
+                <strong>B1+-U03 Mediaci&oacute;n, recados y notas de s&iacute;ntesis</strong>
+                Resumir textos complejos y transmitir mensajes sin perder matiz.
+              </li>
+              <li class="unit-item">
+                <strong>B1+-U04 Debate, argumentaci&oacute;n y negociaci&oacute;n</strong>
+                Defender posturas formales, contraargumentar y formular acuerdos.
+              </li>
+            </ul>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Arquitectura Ling&uuml;&iacute;stica</div>
+            <div class="grammar-box">
+              <strong>Recursos Expl&iacute;citos (N):</strong>
+              Discurso indirecto b&aacute;sico (<em>Reported speech</em>). Cl&aacute;usulas de relativo definitorias y no definitorias (<em>defining &amp; non-defining</em>). Marcadores de discurso diplom&aacute;tico y reformulaci&oacute;n.
+              <div class="resource-tags">
+                <span class="tag tag-p">P: B1.2 Completo</span>
+                <span class="tag tag-n">N: Reported Speech</span>
+                <span class="tag tag-n">N: Relative Clauses</span>
+                <span class="tag tag-n">N: Mediation Markers</span>
+              </div>
+              <p style="margin-top:8px; font-size:11.5px; color:#1e3a8a;">
+                <strong>Horizonte B2:</strong> B2 no es un noveno curso curricular, sino el horizonte natural al que conduce la consolidaci&oacute;n de B1+.
+              </p>
+            </div>
+          </div>
+          <div class="course-col">
+            <div class="col-section-title">Secuencia: Qu&eacute; va antes de qu&eacute;</div>
+            <div class="sequence-box">
+              <div class="seq-step">
+                <span class="seq-badge seq-before">Antes</span>
+                <span>Toda la trayectoria previa B1 demostrada objetivamente.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-focus">Foco</span>
+                <span>Capacidad de s&iacute;ntesis r&aacute;pida, mediaci&oacute;n y comunicaci&oacute;n estrat&eacute;gica.</span>
+              </div>
+              <div class="seq-step">
+                <span class="seq-badge seq-after">Horizonte</span>
+                <span>Egresado con perfil de impacto corporativo o admisi&oacute;n universitaria.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- SPECIALIZED TRAJECTORIES NOTE -->
+    <section class="inst-header" style="border-top-color: var(--accent-navy); margin-bottom: 24px;">
+      <h3 style="font-size: 16px; font-weight: 800; color: var(--accent-navy); margin-bottom: 6px;">
+        Programas Especializados y Certificaciones Institucionales
+      </h3>
+      <p style="font-size: 13px; color: var(--ink-secondary); line-height: 1.5; margin-bottom: 14px;">
+        Se articulan de forma complementaria sobre la base de la trayectoria general:
+      </p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; font-size:12px;">
+          <strong style="color:var(--accent-navy); display:block; margin-bottom:3px;">Executive Business English (6 Tracks)</strong>
+          Crisis &amp; Logistics, High-Stakes Meetings, Diplomatic Writing, Negotiations &amp; Deals, Leadership &amp; Conflict, Strategy &amp; Metrics (Prerrequisito m&iacute;nimo recomendado: A2.2/B1.1).
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; font-size:12px;">
+          <strong style="color:var(--accent-navy); display:block; margin-bottom:3px;">TOEIC &middot; Listening &amp; Reading Strategy</strong>
+          Detecci&oacute;n de trampas ac&uacute;sticas (auditory traps), distractores fonol&oacute;gicos, lectura de alta velocidad (Partes 5, 6 y 7 multi-pasaje) para benchmarks corporativos.
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; font-size:12px;">
+          <strong style="color:var(--accent-navy); display:block; margin-bottom:3px;">TOEFL ITP &middot; Academic Readiness</strong>
+          Secci&oacute;n 2 (Structure &amp; Written Expression: detecci&oacute;n de errores sint&aacute;cticos) y Secciones 1 &amp; 3 (Academic Inferences &amp; Reading) para titulaci&oacute;n universitaria (CENNI).
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGN-OFF FOOTER -->
+    <footer class="inst-footer">
+      <div class="footer-left">
+        <strong>Learning &amp; Development Studio &middot; Academic Department</strong>
+        <span>Documento oficial de Scope &amp; Sequence &middot; Versi&oacute;n R2 Consolidada</span>
+      </div>
+      <div class="footer-signatures">
+        <div class="sig-line">
+          <div class="sig-name">Israel Ventura</div>
+          <div class="sig-role">Academic Coordinator</div>
+        </div>
+        <div class="sig-line">
+          <div class="sig-name">Academic Board</div>
+          <div class="sig-role">Curriculum Validation</div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
