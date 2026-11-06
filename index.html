@@ -1193,12 +1193,12 @@
 
         <div class="form-group" id="groupName">
           <label id="labelName">Student Name</label>
-          <input type="text" class="form-input" id="inputName" placeholder="e.g., Sofia" required maxlength="40">
+          <input type="text" class="form-input" id="inputName" placeholder="Enter your name" required maxlength="40">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="groupPin">
           <label id="labelPin">PIN</label>
-          <input type="password" class="form-input pin" id="inputPin" placeholder="••••" maxlength="8" required>
+          <input type="password" class="form-input pin" id="inputPin" placeholder="••••" maxlength="8">
         </div>
 
         <div class="modal-error" id="modalError">
@@ -1276,6 +1276,8 @@
         const labelName = document.getElementById('labelName');
         const inputName = document.getElementById('inputName');
         const labelPin = document.getElementById('labelPin');
+        const groupPin = document.getElementById('groupPin');
+        const pinEl = document.getElementById('inputPin');
         const badge = document.getElementById('modalRoleBadge');
         const title = document.getElementById('modalLevelTitle');
         const desc = document.getElementById('modalLevelDesc');
@@ -1286,6 +1288,8 @@
         if (role === 'coordinator') {
           tabsContainer.style.display = 'none';
           groupLevel.style.display = 'none';
+          if (groupPin) groupPin.style.display = 'block';
+          pinEl.required = true;
           badge.innerText = 'ACADEMIC COORDINATOR';
           title.innerText = "Master Teachers' Map";
           desc.innerText = 'Institutional access for Israel Ventura (PIN: 5726 or admin) to view and manage all level curricula and activities.';
@@ -1297,6 +1301,8 @@
         } else if (role === 'teacher') {
           tabsContainer.style.display = 'flex';
           groupLevel.style.display = 'grid';
+          if (groupPin) groupPin.style.display = 'block';
+          pinEl.required = true;
           tabStudent.classList.remove('active');
           tabTeacher.classList.add('active');
           badge.innerText = 'TEACHER RESOURCES';
@@ -1310,35 +1316,55 @@
         } else {
           tabsContainer.style.display = 'flex';
           groupLevel.style.display = 'grid';
+          if (groupPin) groupPin.style.display = 'none'; // Students don't need a PIN barrier!
+          pinEl.required = false;
           tabTeacher.classList.remove('active');
           tabStudent.classList.add('active');
           badge.innerText = 'STUDENT ACCESS · ' + (currentBadge === 'General' ? 'All Levels' : currentBadge);
           title.innerText = currentTitle;
-          desc.innerText = 'Enter your student name and level PIN to access your workspace.';
+          desc.innerText = 'Enter your student name to access your learning workspace.';
           labelName.innerText = 'Student Name';
           inputName.readOnly = false;
           try {
-            const saved = JSON.parse(localStorage.getItem("ld-english-hub") || "null");
-            inputName.value = (saved && saved.name) ? saved.name : '';
-            if (saved && saved.level && PINS[saved.level] && currentLevel === 'auto') {
-              selectLevel.value = saved.level;
-              currentLevel = saved.level;
+            const savedName = localStorage.getItem("ld_student_name") || "";
+            inputName.value = savedName;
+            if (currentLevel && currentLevel !== 'auto') {
+              selectLevel.value = currentLevel;
             }
           } catch (_) { inputName.value = ''; }
-          labelPin.innerText = 'Level PIN';
           btn.innerHTML = 'Enter Student Workspace &rarr;';
         }
 
-        const pinEl = document.getElementById('inputPin');
         pinEl.value = '';
-        pinEl.focus();
+        if (role !== 'student') {
+          pinEl.focus();
+        } else {
+          inputName.focus();
+        }
       };
 
       // OPEN FROM LEVEL CARDS
       window.openLevelModal = function(displayBadge, title, levelKey) {
+        let studentName = '';
+        try {
+          studentName = localStorage.getItem('ld_student_name') || '';
+          if (!studentName) {
+            const raw = localStorage.getItem('ld-english-hub');
+            if (raw) studentName = JSON.parse(raw).name || '';
+          }
+        } catch (_) {}
+
+        const targetRoute = ROUTES[levelKey] || ROUTES['PreA1'];
+
+        // If student name is already saved, go directly to that level!
+        if (studentName && targetRoute) {
+          window.location.href = targetRoute + '?name=' + encodeURIComponent(studentName);
+          return;
+        }
+
         currentBadge = displayBadge;
         currentTitle = title;
-        currentLevel = levelKey || 'auto';
+        currentLevel = levelKey || 'PreA1';
         document.getElementById('activeLevelCode').value = currentLevel;
         document.getElementById('selectLevel').value = currentLevel;
 
@@ -1350,9 +1376,9 @@
       window.openStudentDirectModal = function() {
         currentBadge = 'General';
         currentTitle = 'English Hub Student Workspace';
-        currentLevel = 'auto';
-        document.getElementById('activeLevelCode').value = 'auto';
-        document.getElementById('selectLevel').value = 'auto';
+        currentLevel = 'PreA1';
+        document.getElementById('activeLevelCode').value = 'PreA1';
+        document.getElementById('selectLevel').value = 'PreA1';
 
         switchRole('student');
         document.getElementById('accessModal').classList.add('active');
@@ -1396,7 +1422,6 @@
             try {
               sessionStorage.setItem("ld-coordinator-auth", "granted");
             } catch (_) {}
-            // Redirect to Master Faculty Portal
             window.location.href = './workspace_completo_ld_studio.html?role=teacher';
             return;
           } else {
@@ -1430,34 +1455,19 @@
           return;
         }
 
-        let targetLevel = level;
-        // Auto-detect level if user selected 'auto' OR if PIN matches known level
-        if (PIN_TO_LEVEL[pin]) {
+        let targetLevel = (level && level !== 'auto') ? level : 'PreA1';
+        // If student provided a valid level PIN, we can also use that level
+        if (pin && PIN_TO_LEVEL[pin]) {
           targetLevel = PIN_TO_LEVEL[pin];
-        } else if (level && level !== 'auto' && PINS[level] && pin === PINS[level]) {
-          targetLevel = level;
-        } else if (COORDINATOR_PINS.includes(pin) || TEACHER_PINS.includes(pin)) {
-          targetLevel = (level && level !== 'auto') ? level : 'A1.1';
-        } else if (pin === '2600' || pin === 'guest' || pin === 'demo') {
-          targetLevel = (level && level !== 'auto') ? level : 'PreA1';
-        } else {
-          err.innerText = 'Incorrect PIN. Enter your assigned 4-digit level PIN (e.g., A1.1: 2611, A1.2: 2612).';
-          err.classList.add('show');
-          document.getElementById('inputPin').select();
-          return;
         }
 
         try {
+          localStorage.setItem("ld_student_name", name);
           localStorage.setItem("ld-english-hub", JSON.stringify({ name: name, level: targetLevel, at: Date.now() }));
         } catch (_) {}
 
-        if (ROUTES[targetLevel]) {
-          window.location.href = ROUTES[targetLevel];
-          return;
-        }
-
-        const folder = encodeURIComponent(targetLevel);
-        window.location.href = './' + folder + '/';
+        const targetRoute = ROUTES[targetLevel] || ROUTES['PreA1'];
+        window.location.href = targetRoute + '?name=' + encodeURIComponent(name);
       };
     
   })();
