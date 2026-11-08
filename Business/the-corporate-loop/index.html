@@ -76,21 +76,16 @@
       text-decoration: none;
     }
     .brand-logo {
-      height: 38px;
+      height: 80px;
       width: auto;
+      object-fit: contain;
+      margin: -18px 0;
       display: block;
+      transition: transform .25s ease, filter .25s ease;
     }
-    .brand-divider {
-      width: 1px;
-      height: 24px;
-      background: rgba(255, 255, 255, 0.15);
-    }
-    .brand-track {
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 700;
+    .brand-lockup:hover .brand-logo {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
     }
     .header-actions {
       display: flex;
@@ -128,12 +123,16 @@
       color: #fff;
     }
 
-    /* HERO BANNER */
+    /* HERO BANNER WITH REAL CORPORATE PHOTOGRAPHY */
     .hero-banner {
-      background: linear-gradient(135deg, var(--navy-deep) 0%, #0c2340 50%, #071527 100%);
+      background: linear-gradient(90deg, rgba(7, 21, 39, 0.96) 0%, rgba(11, 31, 58, 0.90) 55%, rgba(7, 21, 39, 0.45) 100%), 
+                  url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
       color: #fff;
       padding: 56px 24px 44px;
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.28);
       position: relative;
       overflow: hidden;
     }
@@ -944,14 +943,12 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="../../index.html" class="brand-lockup">
+      <a href="../../index.html" class="brand-lockup" title="Return to Learning & Development Studio">
         <img src="../../assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo" onerror="this.onerror=null; this.src='../../assets/logo.png';">
-        <div class="brand-divider"></div>
-        <span class="brand-track">Business English &middot; Executive Orientation</span>
       </a>
       <div class="header-actions">
         <a href="../../business_workspace.html" class="nav-back-link">&larr; Back to Business Portal</a>
-        <button class="academic-notes-btn" onclick="openTeacherNotes()">Faculty &amp; Author Notes</button>
+        <button class="academic-notes-btn" onclick="openTeacherNotes()">Faculty Notes</button>
       </div>
     </div>
   </header>
