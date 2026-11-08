@@ -112,10 +112,10 @@
     /* HERO SECTION */
     .hero-container {
       position: relative;
-      min-height: 80vh;
+      min-height: 75vh;
       display: flex;
       align-items: center;
-      padding: 90px 32px 140px;
+      padding: 90px 32px 100px;
       background: #071527 url('./assets/hero-clean.jpg') no-repeat center right / cover;
       overflow: hidden;
     }
@@ -123,8 +123,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 75% 35%, rgba(7, 21, 39, 0.25) 0%, rgba(7, 21, 39, 0.82) 55%, rgba(7, 21, 39, 0.98) 100%),
-                  linear-gradient(90deg, rgba(7, 21, 39, 0.98) 0%, rgba(7, 21, 39, 0.88) 42%, rgba(7, 21, 39, 0.3) 100%);
+      background: linear-gradient(90deg, rgba(7, 21, 39, 0.85) 0%, rgba(7, 21, 39, 0.55) 48%, rgba(7, 21, 39, 0.18) 100%);
       pointer-events: none;
     }
 
@@ -133,7 +132,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 120px;
+      height: 36px;
       background: linear-gradient(to top, var(--paper) 0%, transparent 100%);
       pointer-events: none;
     }
@@ -308,16 +307,16 @@
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .card {
-      background: var(--paper-card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px 26px;
-      box-shadow: var(--shadow-card);
-      transition: all .25s ease;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px 26px;
+      box-shadow: 0 1px 3px rgba(11, 31, 58, 0.03), 0 6px 16px -6px rgba(11, 31, 58, 0.05);
+      transition: all .2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -326,9 +325,9 @@
       color: inherit;
     }
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(212, 168, 67, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(11, 31, 58, 0.08);
+      border-color: rgba(212, 168, 67, 0.4);
     }
 
     .card.is-hidden {
@@ -339,24 +338,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .card-code {
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.04em;
-      padding: 5px 12px;
-      border-radius: 8px;
+      padding: 4px 12px;
+      border-radius: 6px;
       color: #ffffff;
       background: var(--navy-main);
     }
-    .code-gold { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep); }
-    .code-teal { background: var(--teal); }
+    .code-gold { background: var(--navy-main); border: 1px solid var(--gold); color: var(--gold); }
+    .code-teal { background: var(--navy-main); border: 1px solid var(--teal); color: var(--teal); }
     .code-navy { background: var(--navy-main); }
 
     .card-stage-kicker {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -364,46 +363,51 @@
     }
 
     .card-title {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--navy-main);
-      line-height: 1.25;
+      line-height: 1.3;
       letter-spacing: -0.015em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .card-outcome {
-      font-size: 13.5px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
       margin-bottom: 18px;
       flex-grow: 1;
     }
 
-    .card-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-    .pill {
-      font-size: 11.5px;
+    .card-meta {
+      font-size: 12px;
       font-weight: 600;
-      padding: 3px 10px;
+      color: #0f766e;
+      background: #f0fdfa;
+      padding: 6px 12px;
       border-radius: 6px;
-      background: #f1f5f9;
-      color: #334155;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
     }
-    .pill-gold { background: var(--gold-light); color: #92400e; font-weight: 700; }
-    .pill-teal { background: var(--teal-light); color: #005f63; font-weight: 700; }
+    .card-meta.meta-gold {
+      color: #b45309;
+      background: #fefce8;
+    }
+    .card-meta.meta-navy {
+      color: var(--navy-main);
+      background: #f1f5f9;
+    }
 
     .card-btn {
       font-size: 13.5px;
       font-weight: 700;
       color: var(--navy-main);
       background: #f8fafc;
-      border: 1px solid var(--line);
-      padding: 10px 18px;
+      border: 1px solid #e2e8f0;
+      padding: 11px 18px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
@@ -412,16 +416,12 @@
       transition: all .2s ease;
       cursor: pointer;
       text-decoration: none;
+      width: 100%;
     }
-    .card:hover .card-btn {
+    .card-btn:hover, .card:hover .card-btn {
       background: var(--navy-main);
       color: #ffffff;
       border-color: var(--navy-main);
-    }
-    .card.special-business .card-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy-deep);
-      border: none;
     }
 
     /* FOOTER */
@@ -639,34 +639,31 @@
       </p>
     </div>
 
-    <!-- FILTER TABS -->
+    <!-- FILTER TABS (NO "ALL" TAB - DEFAULTS TO STAGE 1 FOUNDATIONS) -->
     <div class="filter-bar" role="tablist">
-      <button type="button" class="filter-btn active" data-filter="all">All Levels</button>
-      <button type="button" class="filter-btn" data-filter="foundations">Stage 1 · Foundations</button>
+      <button type="button" class="filter-btn active" data-filter="foundations">Stage 1 · Foundations</button>
       <button type="button" class="filter-btn" data-filter="expansion">Stage 2 · Expansion</button>
       <button type="button" class="filter-btn" data-filter="independent">Stage 3 · Independent</button>
-      <button type="button" class="filter-btn" data-filter="specialized">Executive &amp; Certifications</button>
+      <button type="button" class="filter-btn" data-filter="advanced">Stage 4 · Advanced &amp; Fluency</button>
+      <button type="button" class="filter-btn" data-filter="specialized">Stage 5 · Executive &amp; Exams</button>
     </div>
 
     <!-- CARDS GRID -->
     <div class="cards-grid">
 
+      <!-- ================= STAGE 1: FOUNDATIONS ================= -->
       <!-- PRE-A1 -->
       <article class="card" data-stage="foundations">
         <div>
           <div class="card-top">
             <span class="card-code code-navy">Pre-A1</span>
-            <span class="card-stage-kicker">Foundations</span>
+            <span class="card-stage-kicker">Stage 1 · Foundations</span>
           </div>
           <h3 class="card-title">First Contact &amp; Survival</h3>
           <p class="card-outcome">
-            Essential classroom formulas, alphabet names, numbers, age, and simple personal data.
+            Essential classroom formulas, alphabet sounds, numbers, age, and simple personal data.
           </p>
-          <div class="card-pills">
-            <span class="pill">Greetings &amp; Name</span>
-            <span class="pill">Alphabet Sounds</span>
-            <span class="pill">Numbers 1-20</span>
-          </div>
+          <div class="card-meta">15 Communicative Topics &middot; Personal Data &amp; Sound Foundations</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('PreA1', './pre-a1_workspace.html')">
           Enter Pre-A1 &rarr;
@@ -678,18 +675,13 @@
         <div>
           <div class="card-top">
             <span class="card-code code-gold">A1.1</span>
-            <span class="card-stage-kicker">Foundations</span>
+            <span class="card-stage-kicker">Stage 1 · Foundations</span>
           </div>
           <h3 class="card-title">Identity, Spaces &amp; Belongings</h3>
           <p class="card-outcome">
             Say who you are, introduce your family, describe rooms, furniture, and point things in your city.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-gold">Verb To Be</span>
-            <span class="pill">Possessives &amp; 's</span>
-            <span class="pill">There is / are</span>
-            <span class="pill">In the City</span>
-          </div>
+          <div class="card-meta meta-gold">25 Topics &middot; Verb To Be, Possessives &amp; There is/are</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('A1.1', './a1-1_workspace.html')">
           Enter A1.1 &rarr;
@@ -701,39 +693,32 @@
         <div>
           <div class="card-top">
             <span class="card-code code-teal">A1.2</span>
-            <span class="card-stage-kicker">Foundations</span>
+            <span class="card-stage-kicker">Stage 1 · Foundations</span>
           </div>
           <h3 class="card-title">Daily Life &amp; Right Now</h3>
           <p class="card-outcome">
             Talk about daily habits, routines, food ordering, and describe actions happening in this exact moment.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-teal">Present Simple</span>
-            <span class="pill pill-gold">Present Continuous (R2)</span>
-            <span class="pill">Can / Can't</span>
-          </div>
+          <div class="card-meta">25 Topics &middot; Present Simple, Food &amp; Present Continuous</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('A1.2', './a1-2_workspace.html')">
           Enter A1.2 &rarr;
         </button>
       </article>
 
+      <!-- ================= STAGE 2: EXPANSION ================= -->
       <!-- A2.1 -->
-      <article class="card" data-stage="expansion">
+      <article class="card is-hidden" data-stage="expansion">
         <div>
           <div class="card-top">
             <span class="card-code code-navy">A2.1</span>
-            <span class="card-stage-kicker">Expansion</span>
+            <span class="card-stage-kicker">Stage 2 · Expansion</span>
           </div>
           <h3 class="card-title">Past Events, City &amp; Moving Around</h3>
           <p class="card-outcome">
             Narrate past vacations, master regular and irregular past verbs, and navigate the city with directions.
           </p>
-          <div class="card-pills">
-            <span class="pill">-ed Pronunciation</span>
-            <span class="pill">Past Simple (Did)</span>
-            <span class="pill">Directions &amp; Movement</span>
-          </div>
+          <div class="card-meta">20 Topics &middot; Past Simple, Irregular Verbs &amp; Transit</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('A2.1', './a2-1_workspace.html')">
           Enter A2.1 &rarr;
@@ -741,44 +726,36 @@
       </article>
 
       <!-- A2.2 -->
-      <article class="card" data-stage="expansion">
+      <article class="card is-hidden" data-stage="expansion">
         <div>
           <div class="card-top">
             <span class="card-code code-gold">A2.2</span>
-            <span class="card-stage-kicker">Expansion</span>
+            <span class="card-stage-kicker">Stage 2 · Expansion</span>
           </div>
           <h3 class="card-title">Comparisons, Advice &amp; Experiences</h3>
           <p class="card-outcome">
-            Compare choices, give recommendations, discuss future plans, and talk about life experiences.
+            Compare choices, give recommendations, discuss future plans, and talk about memorable life experiences.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-gold">Comparatives</span>
-            <span class="pill">Should &amp; Have to</span>
-            <span class="pill">Present Perfect (Life)</span>
-          </div>
+          <div class="card-meta meta-gold">20 Topics &middot; Comparatives, Modals &amp; Life Present Perfect</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('A2.2', './a2-2_workspace.html')">
           Enter A2.2 &rarr;
         </button>
       </article>
 
+      <!-- ================= STAGE 3: INDEPENDENT ================= -->
       <!-- B1.1 -->
-      <article class="card" data-stage="independent">
+      <article class="card is-hidden" data-stage="independent">
         <div>
           <div class="card-top">
             <span class="card-code code-navy">B1.1</span>
-            <span class="card-stage-kicker">Independent</span>
+            <span class="card-stage-kicker">Stage 3 · Independent</span>
           </div>
           <h3 class="card-title">Complex Stories &amp; Tactful Inquiries</h3>
           <p class="card-outcome">
-            Narrate simultaneous past events, ask polite indirect questions, and master verb patterns.
+            Narrate simultaneous past events, ask polite indirect questions, and master complex relative clauses.
           </p>
-          <div class="card-pills">
-            <span class="pill">Past Continuous</span>
-            <span class="pill">Used to</span>
-            <span class="pill">Indirect Questions</span>
-            <span class="pill">Relative Clauses</span>
-          </div>
+          <div class="card-meta">20 Topics &middot; Past Continuous, Indirect Questions &amp; Clauses</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('B1.1', './b1-1_workspace.html')">
           Enter B1.1 &rarr;
@@ -786,22 +763,17 @@
       </article>
 
       <!-- B1.2 -->
-      <article class="card" data-stage="independent">
+      <article class="card is-hidden" data-stage="independent">
         <div>
           <div class="card-top">
             <span class="card-code code-gold">B1.2</span>
-            <span class="card-stage-kicker">Independent</span>
+            <span class="card-stage-kicker">Stage 3 · Independent</span>
           </div>
           <h3 class="card-title">Dilemmas, Reports &amp; Processes</h3>
           <p class="card-outcome">
             Explore imagined choices, report conversations, describe industrial processes, and delegate services.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-gold">2nd Conditional</span>
-            <span class="pill">Reported Speech</span>
-            <span class="pill">Passive Voice</span>
-            <span class="pill">Causatives</span>
-          </div>
+          <div class="card-meta meta-gold">20 Topics &middot; 2nd Conditional, Reported Speech &amp; Passive</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('B1.2', './b1-2_workspace.html')">
           Enter B1.2 &rarr;
@@ -809,7 +781,7 @@
       </article>
 
       <!-- B1+ -->
-      <article class="card" data-stage="independent">
+      <article class="card is-hidden" data-stage="independent">
         <div>
           <div class="card-top">
             <span class="card-code code-teal">B1+</span>
@@ -819,41 +791,89 @@
           <p class="card-outcome">
             Defend professional profiles, write executive emails with diplomatic hedging, and negotiate agreements.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-teal">Structured Interviews</span>
-            <span class="pill">Hedging &amp; Tone</span>
-            <span class="pill">3rd Conditional</span>
-          </div>
+          <div class="card-meta">20 Topics &middot; Structured Interviews &amp; Diplomatic Hedging</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('B1+', './b1-plus_workspace.html')">
           Enter B1+ &rarr;
         </button>
       </article>
 
-      <!-- BUSINESS ENGLISH SPECIAL CARD -->
-      <article class="card special-business" data-stage="specialized" style="border-top: 4px solid var(--gold); background: #ffffff;">
+      <!-- ================= STAGE 4: ADVANCED & FLUENCY ================= -->
+      <!-- B2.1 -->
+      <article class="card is-hidden" data-stage="advanced">
+        <div>
+          <div class="card-top">
+            <span class="card-code code-navy">B2.1</span>
+            <span class="card-stage-kicker">Stage 4 · Advanced Fluency</span>
+          </div>
+          <h3 class="card-title">Autonomous Communication &amp; Debate</h3>
+          <p class="card-outcome">
+            Defend complex arguments, deliver structured business briefings, and express nuanced viewpoints spontaneously without hesitation.
+          </p>
+          <div class="card-meta meta-navy">Syllabus &middot; 4 Units &middot; Abstract Reasoning &amp; Discourse</div>
+        </div>
+        <button type="button" class="card-btn" onclick="directAccess('B2.1', './b1-plus_workspace.html?level=B2.1')">
+          Enter B2.1 &rarr;
+        </button>
+      </article>
+
+      <!-- B2.2 -->
+      <article class="card is-hidden" data-stage="advanced">
+        <div>
+          <div class="card-top">
+            <span class="card-code code-gold">B2.2</span>
+            <span class="card-stage-kicker">Stage 4 · Advanced Fluency</span>
+          </div>
+          <h3 class="card-title">Executive Precision &amp; Negotiation</h3>
+          <p class="card-outcome">
+            Formulate diplomatic counter-proposals, synthesize multi-party negotiations, and manage high-stakes professional disputes.
+          </p>
+          <div class="card-meta meta-gold">Syllabus &middot; 4 Units &middot; Tactical Concession &amp; Refusal</div>
+        </div>
+        <button type="button" class="card-btn" onclick="directAccess('B2.2', './b1-plus_workspace.html?level=B2.2')">
+          Enter B2.2 &rarr;
+        </button>
+      </article>
+
+      <!-- C1 -->
+      <article class="card is-hidden" data-stage="advanced">
+        <div>
+          <div class="card-top">
+            <span class="card-code code-teal">C1</span>
+            <span class="card-stage-kicker">Stage 4 · Executive Mastery</span>
+          </div>
+          <h3 class="card-title">Strategic Synthesis &amp; Governance</h3>
+          <p class="card-outcome">
+            Authoritative leadership discourse: cross-cultural organizational synthesis, keynote addresses, and high-level corporate governance.
+          </p>
+          <div class="card-meta">Syllabus &middot; 4 Units &middot; Boardroom Strategic Capstone</div>
+        </div>
+        <button type="button" class="card-btn" onclick="directAccess('C1', './business_workspace.html?level=C1')">
+          Enter C1 &rarr;
+        </button>
+      </article>
+
+      <!-- ================= STAGE 5: EXECUTIVE & EXAMS ================= -->
+      <!-- BUSINESS ENGLISH -->
+      <article class="card is-hidden" data-stage="specialized">
         <div>
           <div class="card-top">
             <span class="card-code code-gold">Business Track</span>
-            <span class="card-stage-kicker" style="color: var(--gold-dark);">Executive Suite</span>
+            <span class="card-stage-kicker">Executive Program</span>
           </div>
           <h3 class="card-title">Executive Business English</h3>
           <p class="card-outcome">
-            Workplace communications: negotiating deadlines, accounts payable, client calls, meetings, and tactical pushback.
+            Workplace communications: negotiating deadlines, accounts payable, client calls, meetings, and tactical boundary setting.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-gold">Negotiating Deadlines</span>
-            <span class="pill pill-gold">Invoices &amp; POs</span>
-            <span class="pill pill-gold">TED Leadership Labs</span>
-          </div>
+          <div class="card-meta meta-gold">6 Specialized Tracks &middot; Operations, Finance &amp; TED Labs</div>
         </div>
         <button type="button" class="card-btn" onclick="directAccess('Business', './business_workspace.html')">
           Open Business Portal &rarr;
         </button>
       </article>
 
-      <!-- TOEFL ITP SPECIAL CARD -->
-      <article class="card" data-stage="specialized" style="border-top: 4px solid var(--navy-main);">
+      <!-- TOEFL ITP -->
+      <article class="card is-hidden" data-stage="specialized">
         <div>
           <div class="card-top">
             <span class="card-code code-navy">TOEFL ITP®</span>
@@ -863,19 +883,15 @@
           <p class="card-outcome">
             Targeted diagnostic training for Section 2 (Structure &amp; Written Expression) and CENNI university degree compliance.
           </p>
-          <div class="card-pills">
-            <span class="pill">Error Identification</span>
-            <span class="pill">Syntax Parallelism</span>
-            <span class="pill">Timed Simulation</span>
-          </div>
+          <div class="card-meta meta-navy">Section 1, 2, 3 &middot; Error Spotting &amp; Syntax Parallelism</div>
         </div>
         <a href="https://israelventura104-afk.github.io/toefl-itp-boost-lms/" class="card-btn" target="_blank" rel="noopener">
           Open TOEFL Platform &nearr;
         </a>
       </article>
 
-      <!-- TOEIC SPECIAL CARD -->
-      <article class="card" data-stage="specialized" style="border-top: 4px solid var(--teal);">
+      <!-- TOEIC -->
+      <article class="card is-hidden" data-stage="specialized">
         <div>
           <div class="card-top">
             <span class="card-code code-teal">TOEIC®</span>
@@ -885,11 +901,7 @@
           <p class="card-outcome">
             Listening and Reading strategy: auditory traps, acoustic distractors, multi-passage speed reading, and corporate benchmarks.
           </p>
-          <div class="card-pills">
-            <span class="pill pill-teal">Auditory Trap Detection</span>
-            <span class="pill">Multi-Passage Reading</span>
-            <span class="pill">Speed Drills</span>
-          </div>
+          <div class="card-meta">Listening &amp; Reading &middot; Auditory Trap Neutralization</div>
         </div>
         <a href="https://israelventura104-afk.github.io/toeic-boost-lms/" class="card-btn" target="_blank" rel="noopener">
           Open TOEIC Platform &nearr;
@@ -930,7 +942,12 @@
             <option value="B1.1">B1.1 · Stories &amp; Trajectories</option>
             <option value="B1.2">B1.2 · Dilemmas &amp; Passive</option>
             <option value="B1+">B1+ · Professional Synthesis</option>
+            <option value="B2.1">B2.1 · Autonomous Communication &amp; Debate</option>
+            <option value="B2.2">B2.2 · Executive Precision &amp; Negotiation</option>
+            <option value="C1">C1 · Strategic Leadership &amp; Governance</option>
             <option value="Business">Business English · Executive Suite</option>
+            <option value="TOEFL">TOEFL ITP® · Certification Lab</option>
+            <option value="TOEIC">TOEIC® · Corporate Benchmark</option>
           </select>
         </div>
         <button type="submit" class="btn-submit btn-submit-gold">
@@ -973,25 +990,34 @@
         "B1.1": "./b1-1_workspace.html",
         "B1.2": "./b1-2_workspace.html",
         "B1+": "./b1-plus_workspace.html",
-        "Business": "./business_workspace.html"
+        "B2.1": "./b1-plus_workspace.html?level=B2.1",
+        "B2.2": "./b1-plus_workspace.html?level=B2.2",
+        "C1": "./business_workspace.html?level=C1",
+        "Business": "./business_workspace.html",
+        "TOEFL": "https://israelventura104-afk.github.io/toefl-itp-boost-lms/",
+        "TOEIC": "https://israelventura104-afk.github.io/toeic-boost-lms/"
       };
 
-      // FILTER BUTTONS
+      // FILTER BUTTONS (NO "ALL" TAB - DEFAULTS TO FOUNDATIONS)
       const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
       const cards = Array.from(document.querySelectorAll('.card'));
 
+      function applyFilter(filter) {
+        filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+        cards.forEach(card => {
+          const show = card.dataset.stage === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      }
+
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.dataset.filter;
-          cards.forEach(card => {
-            const show = filter === 'all' || card.dataset.stage === filter;
-            card.classList.toggle('is-hidden', !show);
-          });
+          applyFilter(btn.dataset.filter);
         });
       });
+
+      // Default initial view: Stage 1 Foundations
+      applyFilter('foundations');
 
       // MODAL CONTROLS
       window.openStudentModal = function(defaultLevel) {

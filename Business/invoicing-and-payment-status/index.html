@@ -136,7 +136,7 @@
     .hero-strip {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
       color: #ffffff;
-      padding: 40px 24px 32px;
+      padding: 38px 24px 30px;
       border-bottom: 1px solid rgba(212, 168, 67, 0.25);
     }
 
@@ -183,6 +183,7 @@
       line-height: 1.2;
       margin-bottom: 12px;
       color: #ffffff;
+      letter-spacing: -0.02em;
     }
 
     .hero-title span {
@@ -190,18 +191,18 @@
     }
 
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: #cbd5e1;
       max-width: 820px;
       line-height: 1.6;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .hero-stats-row {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
-      padding-top: 20px;
+      padding-top: 18px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -211,15 +212,15 @@
     }
 
     .hero-stat-num {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: #ffffff;
     }
 
     .hero-stat-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       color: #94a3b8;
       font-weight: 600;
     }
@@ -231,7 +232,7 @@
       padding: 0 24px;
     }
 
-    /* TABS NAV */
+    /* TABS NAV (ZERO EMOJIS) */
     .tabs-nav {
       display: flex;
       gap: 6px;
@@ -257,7 +258,7 @@
       background: transparent;
       color: var(--muted);
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
@@ -278,7 +279,10 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .tab-btn.active .tab-icon {
+    .tab-num-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       color: var(--gold);
     }
 
@@ -370,6 +374,23 @@
       width: 0%;
       transition: width 0.4s ease;
       border-radius: 999px;
+    }
+
+    /* INVOICE MOCKUP */
+    .invoice-mock {
+      background: #ffffff;
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .invoice-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
     }
 
     /* SCENARIO CALLOUT */
@@ -506,6 +527,12 @@
       display: flex;
       align-items: center;
       gap: 4px;
+    }
+
+    .vocab-challenge-section {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
     }
 
     /* GRAMMAR REFERENCE */
@@ -749,7 +776,7 @@
       padding: 12px 24px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -759,23 +786,6 @@
     .btn-audio-play:hover {
       background: #eab308;
       transform: scale(1.02);
-    }
-
-    /* INVOICE PREVIEW DOC */
-    .invoice-mock {
-      background: #ffffff;
-      border: 2px dashed #cbd5e1;
-      border-radius: var(--radius-md);
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .invoice-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 0.88rem;
     }
 
     /* FOOTER */
@@ -837,7 +847,7 @@
         </div>
         <div class="hero-stat">
           <span class="hero-stat-num">Present Perfect</span>
-          <span class="hero-stat-label">Target Syntax (Already/Yet/Just)</span>
+          <span class="hero-stat-label">Syntax (Already/Yet/Just)</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-num">Vendor Call</span>
@@ -850,22 +860,22 @@
   <!-- MAIN WRAPPER -->
   <main class="main-wrap">
 
-    <!-- TABS NAVIGATION -->
+    <!-- TABS NAVIGATION (ZERO EMOJIS) -->
     <nav class="tabs-nav" aria-label="Lesson Sections">
       <button class="tab-btn active" onclick="switchTab('overview')">
-        <span class="tab-icon">📋</span> Overview & Roadmap
+        <span class="tab-num-tag">[01]</span> Overview & Roadmap
       </button>
       <button class="tab-btn" onclick="switchTab('vocabulary')">
-        <span class="tab-icon">💡</span> Financial & AP Lexicon
+        <span class="tab-num-tag">[02]</span> Financial Lexicon & Practice
       </button>
       <button class="tab-btn" onclick="switchTab('grammar')">
-        <span class="tab-icon">📐</span> Grammar Reference
+        <span class="tab-num-tag">[03]</span> Grammar Reference
       </button>
       <button class="tab-btn" onclick="switchTab('practice')">
-        <span class="tab-icon">✍️</span> Practice Lab
+        <span class="tab-num-tag">[04]</span> Practice Lab
       </button>
       <button class="tab-btn" onclick="switchTab('listening')">
-        <span class="tab-icon">🎧</span> Supplier Call & Roleplay
+        <span class="tab-num-tag">[05]</span> Supplier Call & Roleplay
       </button>
     </nav>
 
@@ -879,7 +889,7 @@
 
         <div class="progress-box">
           <div class="progress-row">
-            <span id="progressText">Tasks Completed: 0 / 5</span>
+            <span id="progressText">Tasks Completed: 0 / 4</span>
             <span id="progressPercent">0%</span>
           </div>
           <div class="progress-bar-bg">
@@ -906,7 +916,7 @@
             <h3 style="font-size:1.05rem; font-weight:800; color:#1e40af; margin-bottom:8px;">The Real Workplace Situation</h3>
             <p style="font-size:0.92rem; color:#1e3a8a; line-height:1.6;">
               <strong>Counterpart:</strong> Claudia Morales, Vendor Account Manager at Apex Packaging.<br>
-              <strong>Reason for Call:</strong> She needs to confirm whether Invoice #4082 was approved by Accounts Payable and when the electronic funds transfer (EFT) will take place.<br>
+              <strong>Reason for Call:</strong> She needs to confirm whether Invoice #4082 was approved by Accounts Payable and when electronic disbursement will take place.<br>
               <strong>Your Challenge:</strong> Explain that the invoice has <em>already</em> been matched against the PO, but the warehouse has not signed the delivery receipt <em>yet</em>. Give a clear payment date once cleared.
             </p>
           </div>
@@ -940,19 +950,19 @@
             </div>
             <div class="roadmap-item">
               <span class="roadmap-time">7 Minutes</span>
-              <span class="roadmap-desc">Feedback & pronunciation clinic (regular past participles).</span>
+              <span class="roadmap-desc">Feedback & regular past participle pronunciation clinic.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 2: VOCABULARY ================= -->
+    <!-- ================= TAB 2: VOCABULARY & PRACTICE ================= -->
     <section id="panel-vocabulary" class="tab-panel">
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">Corporate Accounts Payable & Finance Lexicon</h2>
-          <p class="card-subtitle">Tap each card to reveal its operational meaning and examine its use in authentic finance operations.</p>
+          <p class="card-subtitle">Tap each card to reveal its operational meaning in financial operations.</p>
         </div>
 
         <div class="vocab-grid">
@@ -969,7 +979,7 @@
             <div>
               <span class="vocab-term-chip">Financial Obligation</span>
               <p class="vocab-sentence">"According to our contract, the <span class="hl">payment terms</span> are Net 30 days from the invoice date."</p>
-              <div class="vocab-meaning">The agreed conditions under which a seller will complete a sale, specifically specifying the number of days allowed before payment is due.</div>
+              <div class="vocab-meaning">The agreed conditions under which a seller completes a sale, specifying the number of days allowed before payment is due.</div>
             </div>
             <div class="vocab-action-hint">Tap to reveal operational meaning →</div>
           </div>
@@ -978,7 +988,7 @@
             <div>
               <span class="vocab-term-chip">Disbursement Cycle</span>
               <p class="vocab-sentence">"Approved invoices are scheduled for release during our Thursday <span class="hl">payment run</span>."</p>
-              <div class="vocab-meaning">The regular, scheduled process in which a company's accounting department processes and sends electronic bank payments to suppliers.</div>
+              <div class="vocab-meaning">The regular, scheduled cycle in which accounting processes and releases electronic bank payments to suppliers.</div>
             </div>
             <div class="vocab-action-hint">Tap to reveal operational meaning →</div>
           </div>
@@ -1003,13 +1013,55 @@
 
           <div class="vocab-card" onclick="toggleVocab(this)">
             <div>
-              <span class="vocab-term-chip">Operational Process</span>
+              <span class="vocab-term-chip">Internal Process</span>
               <p class="vocab-sentence">"We perform a <span class="hl">3-way match</span> (PO, receiving slip, and invoice) before authorizing disbursement."</p>
-              <div class="vocab-meaning">The internal verification procedure comparing the Purchase Order, the Receiving Report, and the Vendor Invoice to ensure accuracy.</div>
+              <div class="vocab-meaning">The internal verification procedure comparing the Purchase Order, Receiving Report, and Vendor Invoice.</div>
             </div>
             <div class="vocab-action-hint">Tap to reveal operational meaning →</div>
           </div>
         </div>
+
+        <!-- VOCABULARY APPLICATION ACTIVITY -->
+        <div class="vocab-challenge-section">
+          <div class="card-header" style="padding-bottom:12px;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy);">Accounts Payable Lexicon Practice</h3>
+            <p class="card-subtitle">Choose the appropriate financial term for each workplace scenario:</p>
+          </div>
+
+          <!-- AP Vocab Q1 -->
+          <div class="exercise-box" id="ap-vq1">
+            <div class="ex-title"><span class="ex-num">1</span> Proof of Bank Transfer</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">Claudia asks for written confirmation that the bank wire transfer has completed. What document does she need?</p>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq1', 0, false)">A. Purchase Order</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq1', 1, true)">B. Remittance advice</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq1', 2, false)">C. Bill of lading</button>
+            <button class="btn-action" onclick="checkApVocabEx('ap-vq1')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-vq1"></div>
+          </div>
+
+          <!-- AP Vocab Q2 -->
+          <div class="exercise-box" id="ap-vq2">
+            <div class="ex-title"><span class="ex-num">2</span> Billing Differences</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">The invoice bills for 500 units, but the warehouse received slip lists 480 units. What is this called?</p>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq2', 0, true)">A. An invoice discrepancy (mismatch)</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq2', 1, false)">B. Payment terms</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq2', 2, false)">C. Remittance advice</button>
+            <button class="btn-action" onclick="checkApVocabEx('ap-vq2')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-vq2"></div>
+          </div>
+
+          <!-- AP Vocab Q3 -->
+          <div class="exercise-box" id="ap-vq3">
+            <div class="ex-title"><span class="ex-num">3</span> Scheduled Disbursement</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">Accounting releases supplier batch payments every Thursday at 3:00 PM. What is this weekly event called?</p>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq3', 0, false)">A. Credit memo</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq3', 1, true)">B. The payment run</button>
+            <button class="option-btn" onclick="selectApVocabOption('ap-vq3', 2, false)">C. Audit period</button>
+            <button class="btn-action" onclick="checkApVocabEx('ap-vq3')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-vq3"></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1060,18 +1112,18 @@
         </table>
 
         <div class="grammar-mistake-box" style="margin-top:24px;">
-          <h3 style="font-size:1.05rem; font-weight:800; color:#991b1b; margin-bottom:12px;">⚠️ Critical Fossilized Errors in Business Accounts</h3>
+          <h3 style="font-size:1.05rem; font-weight:800; color:#991b1b; margin-bottom:12px;">[Fossilized Errors in Business Accounts]</h3>
           <div class="mistake-item">
-            <div>❌ <span class="bad-text">"We already received the invoice yesterday."</span> (Incorrect mix of specific past time with Present Perfect)</div>
-            <div>➔ ✅ <span class="good-text">"We received the invoice yesterday."</span> (Simple Past) OR <span class="good-text">"We have already received the invoice."</span> (Present Perfect)</div>
+            <div>Incorrect: <span class="bad-text">"We already received the invoice yesterday."</span></div>
+            <div>Correct: <span class="good-text">"We received the invoice yesterday."</span> (Past Simple) OR <span class="good-text">"We have already received the invoice."</span> (Present Perfect)</div>
           </div>
           <div class="mistake-item">
-            <div>❌ <span class="bad-text">"We didn't process the payment yet."</span></div>
-            <div>➔ ✅ <span class="good-text">"We haven't processed the payment yet."</span> (Use Present Perfect with 'yet')</div>
+            <div>Incorrect: <span class="bad-text">"We didn't process the payment yet."</span></div>
+            <div>Correct: <span class="good-text">"We haven't processed the payment yet."</span> (Use Present Perfect with 'yet')</div>
           </div>
           <div class="mistake-item">
-            <div>❌ <span class="bad-text">"I have just send the remittance."</span></div>
-            <div>➔ ✅ <span class="good-text">"I have just sent the remittance."</span> (Must use Past Participle: send ➔ sent)</div>
+            <div>Incorrect: <span class="bad-text">"I have just send the remittance."</span></div>
+            <div>Correct: <span class="good-text">"I have just sent the remittance."</span> (Must use Past Participle: send -> sent)</div>
           </div>
         </div>
       </div>
@@ -1136,7 +1188,7 @@
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">Authentic Supplier Call · Claudia Morales & Accounts Payable</h2>
-          <p class="card-subtitle">Listen to the inquiry or read the transcript to analyze how professional status updates are communicated.</p>
+          <p class="card-subtitle">Listen to the inquiry and verify your auditory comprehension.</p>
         </div>
 
         <div class="audio-player-card">
@@ -1147,7 +1199,7 @@
           <p style="font-size:0.9rem; color:#cbd5e1;">Listen to how Accounts Payable clarifies status without sounding defensive.</p>
           <div class="audio-controls-row">
             <button class="btn-audio-play" onclick="playApAudio()">
-              <span id="audioPlayIcon">▶</span> <span id="audioPlayText">Play Supplier Call</span>
+              <span id="audioPlayText">Play Supplier Call</span>
             </button>
             <button class="btn-return" onclick="toggleTranscriptBox()">
               Toggle Script View
@@ -1194,6 +1246,42 @@
           <div class="speech-bubble bubble-ap">
             <div class="bubble-sender">Accounts Payable · You</div>
             "Absolutely, Claudia. Our automated banking portal will email you the remittance advice as soon as the funds are transferred."
+          </div>
+        </div>
+
+        <!-- LISTENING COMPREHENSION FOR AP -->
+        <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+          <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy); margin-bottom:6px;">Call Comprehension Questions</h3>
+          <p style="font-size:0.9rem; color:var(--muted); margin-bottom:18px;">Based on the dialogue between Claudia Morales and AP, answer the following:</p>
+
+          <div class="exercise-box" id="ap-lq1">
+            <div class="ex-title"><span class="ex-num">1</span> Call Reason</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">What is Claudia Morales's primary objective for calling?</p>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq1', 0, false)">A. To renegotiate product prices</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq1', 1, true)">B. To check the status of Invoice #4082 for $14,500</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq1', 2, false)">C. To file a formal legal claim</button>
+            <button class="btn-action" onclick="checkApListeningEx('ap-lq1')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-lq1"></div>
+          </div>
+
+          <div class="exercise-box" id="ap-lq2">
+            <div class="ex-title"><span class="ex-num">2</span> Current Bottleneck</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">Why hasn't the payment been authorized yet?</p>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq2', 0, true)">A. The warehouse receiving dock hasn't signed the delivery receipt yet.</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq2', 1, false)">B. The company lacks bank funds.</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq2', 2, false)">C. The invoice amount was incorrect.</button>
+            <button class="btn-action" onclick="checkApListeningEx('ap-lq2')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-lq2"></div>
+          </div>
+
+          <div class="exercise-box" id="ap-lq3">
+            <div class="ex-title"><span class="ex-num">3</span> Target Payment Run</div>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">If warehouse signs off before 2:00 PM, when will payment be disbursed?</p>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq3', 0, false)">A. Next month</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq3', 1, true)">B. In Thursday's disbursement run</button>
+            <button class="option-btn" onclick="selectApListeningOption('ap-lq3', 2, false)">C. Immediately during the call</button>
+            <button class="btn-action" onclick="checkApListeningEx('ap-lq3')">Check Answer</button>
+            <div class="feedback-msg" id="fb-ap-lq3"></div>
           </div>
         </div>
 
@@ -1261,6 +1349,55 @@
       updateProgress();
     }
 
+    // AP VOCAB PRACTICE
+    const apVocabState = {
+      'ap-vq1': { selected: null, correctIndex: 1, checked: false },
+      'ap-vq2': { selected: null, correctIndex: 0, checked: false },
+      'ap-vq3': { selected: null, correctIndex: 1, checked: false }
+    };
+
+    function selectApVocabOption(exId, idx, isCorrect) {
+      if (apVocabState[exId].checked) return;
+      apVocabState[exId].selected = idx;
+      
+      const container = document.getElementById(exId);
+      const buttons = container.querySelectorAll('.option-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('selected', i === idx);
+      });
+    }
+
+    function checkApVocabEx(exId) {
+      const state = apVocabState[exId];
+      if (state.selected === null) {
+        alert('Please choose an answer first.');
+        return;
+      }
+      state.checked = true;
+      const container = document.getElementById(exId);
+      const buttons = container.querySelectorAll('.option-btn');
+      const fb = document.getElementById('fb-' + exId);
+
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === state.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === state.selected && state.selected !== state.correctIndex) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      if (state.selected === state.correctIndex) {
+        fb.className = 'feedback-msg good show';
+        fb.innerHTML = 'Correct! Clear grasp of Accounts Payable terminology.';
+      } else {
+        fb.className = 'feedback-msg bad show';
+        fb.innerHTML = 'Review the definition: Check the financial term in the reference cards above.';
+      }
+
+      updateProgress();
+    }
+
     // EXERCISE STATE & CHECKING
     const apState = {
       'ap-ex1': { selected: null, correctIndex: 1, checked: false },
@@ -1302,10 +1439,59 @@
 
       if (state.selected === state.correctIndex) {
         fb.className = 'feedback-msg good show';
-        fb.innerHTML = '✓ Correct! Excellent grasp of Present Perfect in corporate Accounts Payable.';
+        fb.innerHTML = 'Correct! Excellent grasp of Present Perfect in corporate Accounts Payable.';
       } else {
         fb.className = 'feedback-msg bad show';
-        fb.innerHTML = '✗ Review the placement: "already" and "just" go between have/has and the past participle; "yet" goes at the end of negatives and questions.';
+        fb.innerHTML = 'Review the placement: "already" and "just" go between have/has and the past participle; "yet" goes at the end of negatives and questions.';
+      }
+
+      updateProgress();
+    }
+
+    // AP LISTENING COMPREHENSION STATE
+    const apListeningState = {
+      'ap-lq1': { selected: null, correctIndex: 1, checked: false },
+      'ap-lq2': { selected: null, correctIndex: 0, checked: false },
+      'ap-lq3': { selected: null, correctIndex: 1, checked: false }
+    };
+
+    function selectApListeningOption(exId, idx, isCorrect) {
+      if (apListeningState[exId].checked) return;
+      apListeningState[exId].selected = idx;
+      
+      const container = document.getElementById(exId);
+      const buttons = container.querySelectorAll('.option-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('selected', i === idx);
+      });
+    }
+
+    function checkApListeningEx(exId) {
+      const state = apListeningState[exId];
+      if (state.selected === null) {
+        alert('Please choose an answer first.');
+        return;
+      }
+      state.checked = true;
+      const container = document.getElementById(exId);
+      const buttons = container.querySelectorAll('.option-btn');
+      const fb = document.getElementById('fb-' + exId);
+
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === state.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === state.selected && state.selected !== state.correctIndex) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      if (state.selected === state.correctIndex) {
+        fb.className = 'feedback-msg good show';
+        fb.innerHTML = 'Correct! You understood the operational facts of the vendor call.';
+      } else {
+        fb.className = 'feedback-msg bad show';
+        fb.innerHTML = 'Listen to the call again or toggle the script to verify the detail.';
       }
 
       updateProgress();
@@ -1317,13 +1503,16 @@
       const revealedCards = document.querySelectorAll('.vocab-card.revealed').length;
       if (revealedCards >= 3) completedCount++;
 
-      Object.keys(apState).forEach(k => {
-        if (apState[k].checked && apState[k].selected === apState[k].correctIndex) {
-          completedCount++;
-        }
-      });
+      const vocabDone = Object.keys(apVocabState).filter(k => apVocabState[k].checked && apVocabState[k].selected === apVocabState[k].correctIndex).length;
+      if (vocabDone >= 2) completedCount++;
 
-      const totalTasks = 5;
+      const grammarDone = Object.keys(apState).filter(k => apState[k].checked && apState[k].selected === apState[k].correctIndex).length;
+      if (grammarDone >= 3) completedCount++;
+
+      const listeningDone = Object.keys(apListeningState).filter(k => apListeningState[k].checked && apListeningState[k].selected === apListeningState[k].correctIndex).length;
+      if (listeningDone >= 2) completedCount++;
+
+      const totalTasks = 4;
       const percent = Math.min(100, Math.round((completedCount / totalTasks) * 100));
 
       const pText = document.getElementById('progressText');
@@ -1354,7 +1543,6 @@
       if (isSpeaking) {
         window.speechSynthesis.cancel();
         isSpeaking = false;
-        document.getElementById('audioPlayIcon').textContent = '▶';
         document.getElementById('audioPlayText').textContent = 'Play Supplier Call';
         return;
       }
@@ -1371,14 +1559,12 @@
       ];
 
       isSpeaking = true;
-      document.getElementById('audioPlayIcon').textContent = '⏸';
       document.getElementById('audioPlayText').textContent = 'Pause Audio';
 
       let currentLine = 0;
       function speakNext() {
         if (currentLine >= script.length || !isSpeaking) {
           isSpeaking = false;
-          document.getElementById('audioPlayIcon').textContent = '▶';
           document.getElementById('audioPlayText').textContent = 'Play Supplier Call';
           return;
         }
@@ -1396,7 +1582,6 @@
 
         utterance.onerror = () => {
           isSpeaking = false;
-          document.getElementById('audioPlayIcon').textContent = '▶';
           document.getElementById('audioPlayText').textContent = 'Play Supplier Call';
         };
 
@@ -1408,4 +1593,3 @@
   </script>
 </body>
 </html>
-
