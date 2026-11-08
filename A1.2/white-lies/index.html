@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A1.2-U04: White Lies We Tell Right Now · English Hub</title>
+  <title>A1.2-U04: White Lies We Tell Right Now &middot; English Hub</title>
   <link rel="icon" type="image/png" href="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,8 @@
       --muted-light: #64748b;
       --danger: #ef4444;
       --danger-bg: #fef2f2;
+      --success: #10b981;
+      --success-bg: #ecfdf5;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -48,7 +50,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .font-editorial { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
     .font-mono { font-family: 'IBM Plex Mono', monospace; }
 
     /* INSTITUTIONAL HEADER */
@@ -77,8 +78,8 @@
       color: inherit;
     }
     .brand-logo {
-      height: 48px;
-      width: 48px;
+      height: 46px;
+      width: 46px;
       border-radius: 50%;
       background: #fff;
       padding: 2px;
@@ -128,7 +129,7 @@
       background: rgba(212, 168, 67, 0.15);
     }
 
-    /* HERO BANNER WITH REAL CINEMATIC PHOTOGRAPHY */
+    /* HERO BANNER (CINEMATIC BACKGROUND) */
     .hero-banner {
       background: linear-gradient(90deg, rgba(7, 21, 39, 0.96) 0%, rgba(11, 31, 58, 0.90) 55%, rgba(7, 21, 39, 0.45) 100%), 
                   url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=85');
@@ -136,7 +137,7 @@
       background-position: center 40%;
       background-repeat: no-repeat;
       color: #fff;
-      padding: 56px 24px 44px;
+      padding: 52px 24px 40px;
       border-bottom: 1px solid rgba(212, 168, 67, 0.28);
       position: relative;
       overflow: hidden;
@@ -160,13 +161,13 @@
       letter-spacing: 1.2px;
       color: var(--gold);
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .hero-title {
       font-size: clamp(2.3rem, 4vw, 3.4rem);
       line-height: 1.1;
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       max-width: 920px;
       letter-spacing: -0.02em;
     }
@@ -175,17 +176,17 @@
       font-style: italic;
     }
     .hero-lead {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: #cbd5e1;
       max-width: 820px;
-      line-height: 1.65;
-      margin-bottom: 28px;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
     .hero-meta-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 28px;
-      padding-top: 20px;
+      padding-top: 18px;
       border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
     .meta-stat { display: flex; flex-direction: column; }
@@ -202,14 +203,14 @@
       font-weight: 700;
     }
 
-    /* MAIN CONTAINER */
+    /* MAIN CONTENT WRAPPER */
     .content-wrapper {
       max-width: 1280px;
       margin: 0 auto;
       padding: 32px 24px 80px;
     }
 
-    /* PANTALLAS: TAB NAVIGATION BAR */
+    /* TAB NAVIGATION BAR (SCREEN BY SCREEN) */
     .lesson-nav-tabs {
       display: flex;
       gap: 8px;
@@ -256,7 +257,7 @@
       color: var(--navy-deep);
     }
 
-    /* TAB SCREENS (SOLO UNA PANTALLA VISIBLE) */
+    /* TAB SCREENS */
     .tab-panel {
       display: none;
     }
@@ -269,10 +270,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SECTION HEADER IN SCREENS */
-    .section-header {
-      margin-bottom: 28px;
-    }
+    /* SECTION HEADER */
+    .section-header { margin-bottom: 24px; }
     .section-kicker {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -292,93 +291,373 @@
       color: var(--muted);
       font-size: 1rem;
       margin-top: 6px;
-      max-width: 800px;
+      max-width: 820px;
     }
 
-    /* CINEMATIC CARDS WITH REAL IMAGES */
-    .cinematic-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 22px;
-      margin-bottom: 32px;
-    }
-    .cinematic-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
+    /* REAL WHATSAPP INTERFACE */
+    .whatsapp-container {
+      max-width: 520px;
+      margin: 0 auto 30px;
+      background: #EFEAE2;
       border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: 0 16px 40px rgba(11, 31, 58, 0.16);
+      border: 1px solid #CBD5E1;
+    }
+    .wa-top-bar {
+      background: #075E54;
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wa-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+    }
+    .wa-contact-info { flex-grow: 1; }
+    .wa-contact-name { font-size: 15px; font-weight: 700; color: #fff; }
+    .wa-contact-status { font-size: 11.5px; color: #D1E7DD; }
+    .wa-chat-body {
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 380px;
+      background-image: radial-gradient(#d4cfc7 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .wa-bubble {
+      max-width: 82%;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      position: relative;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.13);
+    }
+    .wa-incoming {
+      align-self: flex-start;
+      background: #FFFFFF;
+      color: #111B21;
+      border-top-left-radius: 0;
+    }
+    .wa-outgoing {
+      align-self: flex-end;
+      background: #D9FDD3;
+      color: #111B21;
+      border-top-right-radius: 0;
+    }
+    .wa-meta {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      color: #667781;
+      margin-top: 4px;
+    }
+    .wa-ticks { color: #53BDEB; font-weight: bold; }
+
+    /* REAL WHATSAPP VOICE NOTE BUBBLE */
+    .wa-voice-bubble {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #D9FDD3;
+      border-radius: 12px;
+      border-top-right-radius: 0;
+      align-self: flex-end;
+      width: 86%;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.13);
+    }
+    .wa-play-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #00A884;
+      border: none;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .wa-waveform {
+      flex-grow: 1;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .wa-bar {
+      width: 3px;
+      background: #8696A0;
+      border-radius: 2px;
+    }
+
+    /* REALITY REVEAL BOX */
+    .reality-reveal-card {
+      background: #fff;
+      border: 2px solid var(--danger);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 16px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.12);
+    }
+    .reality-reveal-card strong { color: var(--danger); font-size: 14px; }
+
+    /* VOCABULARY TILES (SITUATIONAL DELAYS) */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .vocab-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .cinematic-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px -4px rgba(11, 31, 58, 0.12);
-      border-color: rgba(212, 168, 67, 0.4);
-    }
-    .card-photo-box {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-      background: var(--navy-deep);
-    }
-    .card-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .cinematic-card:hover .card-photo { transform: scale(1.04); }
-    .card-photo-scrim {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(7, 21, 39, 0.85) 100%);
-      display: flex;
-      align-items: flex-end;
-      padding: 12px 16px;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .card-body {
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
       justify-content: space-between;
+      transition: transform .2s ease;
     }
-    .card-title {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--navy-main);
-      margin-bottom: 8px;
+    .vocab-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 168, 67, 0.5);
     }
-    .card-claim {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin-bottom: 12px;
+    .vocab-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
     }
-    .card-reality {
-      background: var(--danger-bg);
-      border-left: 3px solid var(--danger);
-      padding: 10px 12px;
-      border-radius: 0 6px 6px 0;
-      font-size: 12.5px;
+    .vocab-word { font-size: 20px; font-weight: 800; color: var(--navy-main); }
+    .vocab-pos {
+      font-size: 11.5px;
       font-weight: 700;
-      color: #991b1b;
-      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gold-dark);
+      background: var(--gold-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .vocab-ipa { font-size: 13px; color: var(--teal-dark); font-weight: 600; margin-bottom: 8px; }
+    .vocab-def { font-size: 13.5px; color: var(--muted); margin-bottom: 12px; }
+    .vocab-example {
+      background: var(--surface);
+      border-left: 3px solid var(--gold);
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--navy-main);
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
     }
 
-    /* ACTION BUTTONS */
+    /* VOCABULARY ACTIVITY */
+    .activity-box {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 30px;
+    }
+    .exercise-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1.5fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+    .exercise-row:last-child { border-bottom: none; }
+    .select-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy-main);
+      background: #fff;
+      outline: none;
+    }
+    .select-input:focus { border-color: var(--gold); }
+
+    /* GRAMMAR DISCOVERY & WORDBOX BUILDER */
+    .discovery-card {
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .discovery-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1E3A8A;
+      margin-bottom: 8px;
+    }
+
+    .wordbox-container {
+      background: var(--navy-deep);
+      border: 2px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 26px 30px;
+      color: #fff;
+      margin-bottom: 30px;
+      box-shadow: 0 14px 32px rgba(7, 21, 39, 0.25);
+    }
+    .wordbox-chips-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 22px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+    }
+    .word-chip {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .word-chip:hover {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .word-chip.used { opacity: 0.35; pointer-events: none; }
+    .sentence-workbench {
+      min-height: 58px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* GRAMMAR ERROR CLINIC */
+    .clinic-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-subtle);
+      flex-wrap: wrap;
+    }
+    .clinic-wrong { color: var(--danger); font-weight: 700; font-size: 14px; text-decoration: line-through; }
+    .clinic-fix-btn {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy-main);
+      cursor: pointer;
+    }
+    .clinic-fix-btn:hover { background: var(--teal-light); border-color: var(--teal); color: var(--teal-dark); }
+
+    /* REAL AUDIO THEATER */
+    .audio-theater {
+      background: var(--navy-deep);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+    audio { width: 100%; margin: 12px 0; border-radius: var(--radius-sm); }
+    details {
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+    }
+    summary { cursor: pointer; font-weight: 700; color: var(--gold); }
+    details p { margin-top: 10px; color: #e2e8f0; line-height: 1.6; }
+
+    /* MYSTERY BOX OPENER (ROLE-PLAY MISSION) */
+    .mystery-stage {
+      background: linear-gradient(135deg, var(--navy-deep), #0d284d);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 48px rgba(7, 21, 39, 0.35);
+    }
+    .mystery-box-graphic {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      background: radial-gradient(circle, var(--gold) 0%, var(--gold-dark) 100%);
+      display: grid;
+      place-items: center;
+      font-size: 44px;
+      box-shadow: 0 10px 28px rgba(212, 168, 67, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .mystery-box-graphic:hover { transform: scale(1.08) rotate(3deg); }
+    .secret-result-area {
+      display: none;
+      animation: tabFadeIn 0.4s ease;
+      text-align: left;
+      margin-top: 24px;
+    }
+    .roles-comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .role-panel {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+
+    /* BUTTONS & FOOTERS */
     .btn-action {
       background: var(--gold);
       color: var(--navy-deep);
       border: none;
-      padding: 10px 20px;
+      padding: 11px 22px;
       border-radius: var(--radius-full);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 800;
       cursor: pointer;
       transition: all 0.2s;
@@ -392,269 +671,18 @@
       color: #fff;
       transform: translateY(-1px);
     }
-    .btn-teal {
-      background: var(--teal);
-      color: #fff;
-    }
-    .btn-teal:hover {
-      background: var(--teal-dark);
-    }
     .btn-ghost {
       background: transparent;
       border: 1px solid var(--line);
       color: var(--navy-main);
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: var(--radius-full);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
     }
-    .btn-ghost:hover {
-      background: #f1f5f9;
-      border-color: var(--navy-main);
-    }
+    .btn-ghost:hover { background: #f1f5f9; }
 
-    /* INTERACTIVE VOCABULARY ACTIVITY */
-    .activity-workbench {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 28px 30px;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 30px;
-    }
-    .vocab-exercise-row {
-      display: grid;
-      grid-template-columns: 1.2fr 1.6fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line-subtle);
-    }
-    .vocab-exercise-row:last-child { border-bottom: none; }
-    .select-dropdown {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid var(--line);
-      border-radius: var(--radius-sm);
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--navy-main);
-      background: #fff;
-      outline: none;
-    }
-    .select-dropdown:focus { border-color: var(--gold); }
-
-    /* GRAMMAR FORMULA & SPELLING */
-    .formula-banner {
-      background: var(--navy-deep);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-      font-size: 17px;
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(7, 21, 39, 0.2);
-    }
-    .f-pill {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-    }
-    .f-pill.be { background: var(--teal); color: #fff; }
-    .f-pill.ing { background: var(--gold); color: var(--navy-deep); font-weight: 800; }
-
-    .spelling-rules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-    .spelling-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
-      box-shadow: var(--shadow-sm);
-    }
-    .spelling-box strong {
-      color: var(--navy-main);
-      font-size: 15px;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .spelling-example {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 8px;
-      color: var(--navy-main);
-    }
-
-    .spelling-input {
-      padding: 8px 14px;
-      border: 2px solid var(--line);
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 700;
-      width: 140px;
-      text-align: center;
-      outline: none;
-    }
-    .spelling-input.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; }
-    .spelling-input.incorrect { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
-
-    /* AUDIO INVESTIGATION THEATER */
-    .audio-theater {
-      background: var(--navy-deep);
-      border: 1px solid var(--gold-border);
-      border-radius: var(--radius-lg);
-      padding: 28px 30px;
-      color: #fff;
-      margin-bottom: 30px;
-      box-shadow: 0 16px 36px rgba(7, 21, 39, 0.3);
-    }
-    .audio-theater-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .audio-theater-top h3 {
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--gold);
-    }
-    audio { width: 100%; margin: 12px 0; border-radius: var(--radius-sm); }
-    details {
-      margin-top: 14px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 12px 16px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-    }
-    summary { cursor: pointer; font-weight: 700; color: var(--gold); }
-    details p { margin-top: 10px; color: #e2e8f0; line-height: 1.6; }
-
-    /* CHUNKS GRID */
-    .chunks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .chunk-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 22px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .chunk-phrase {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--navy-main);
-      margin-bottom: 6px;
-    }
-    .chunk-context {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-    .chunk-quote {
-      background: var(--surface);
-      border-left: 3px solid var(--gold);
-      padding: 8px 12px;
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-size: 13px;
-      font-style: italic;
-      color: var(--navy-main);
-    }
-
-    /* MISSION ROLE-PLAY GENERATOR */
-    .mission-arena {
-      background: linear-gradient(135deg, var(--navy-deep), #0d284d);
-      border: 2px solid var(--gold);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      color: #fff;
-      box-shadow: 0 20px 48px rgba(7, 21, 39, 0.35);
-      margin-bottom: 30px;
-    }
-    .mission-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .mission-roles-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .role-column {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius-md);
-      padding: 22px;
-    }
-    .role-badge {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .role-badge.caller { color: var(--gold); }
-    .role-badge.receiver { color: var(--teal); }
-
-    /* EXIT TICKET */
-    .exit-ticket-box {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 30px;
-    }
-    .exit-row { margin-bottom: 20px; }
-    .exit-row label {
-      display: block;
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--navy-main);
-      margin-bottom: 8px;
-    }
-    .exit-text-field {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--line);
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .exit-text-field:focus { border-color: var(--gold); }
-
-    /* FOOTER CONTROLS IN SCREENS */
     .panel-footer-nav {
       display: flex;
       justify-content: space-between;
@@ -667,9 +695,8 @@
     }
 
     @media (max-width: 860px) {
-      .hero-title { font-size: 2rem; }
-      .mission-roles-grid { grid-template-columns: 1fr; }
-      .vocab-exercise-row { grid-template-columns: 1fr; }
+      .roles-comparison-grid { grid-template-columns: 1fr; }
+      .exercise-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -692,7 +719,7 @@
     </div>
   </header>
 
-  <!-- HERO BANNER (CINEMATIC BACKGROUND) -->
+  <!-- HERO BANNER -->
   <section class="hero-banner">
     <div class="hero-container">
       <div class="kicker-pill font-mono">Stage 01 Foundations &middot; Macro-Unit 04</div>
@@ -700,7 +727,7 @@
         White Lies We Tell <span class="gold-accent">Right Now</span>
       </h1>
       <p class="hero-lead">
-        The <em>"I'm On My Way!"</em> Syndrome: Phone calls, WhatsApp messages, and the universal human comedy of what we claim we are doing versus what we are actually doing at this exact second.
+        The <em>"I'm On My Way!"</em> Syndrome: Phone calls, WhatsApp voice dispatches, and the universal comedy of what we claim we are doing versus what we are actually doing at this exact second.
       </p>
 
       <div class="hero-meta-bar font-mono">
@@ -709,33 +736,33 @@
           <span class="meta-stat-label">Grammar Focus</span>
         </div>
         <div class="meta-stat">
-          <span class="meta-stat-num">-ing Rules</span>
-          <span class="meta-stat-label">Orthography</span>
+          <span class="meta-stat-num">Situational Delays</span>
+          <span class="meta-stat-label">Thematic Lexis</span>
         </div>
         <div class="meta-stat">
-          <span class="meta-stat-num">Action Verbs</span>
-          <span class="meta-stat-label">Explicit Lexis</span>
+          <span class="meta-stat-num">Real WhatsApp UI</span>
+          <span class="meta-stat-label">Authentic Setup</span>
         </div>
         <div class="meta-stat">
-          <span class="meta-stat-num">Caught Red-Handed</span>
-          <span class="meta-stat-label">Classroom Mission</span>
+          <span class="meta-stat-num">Mystery Box</span>
+          <span class="meta-stat-label">Speaking Game</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN WRAPPER (SCREEN BY SCREEN) -->
+  <!-- MAIN WRAPPER -->
   <main class="content-wrapper">
 
     <!-- TAB NAVIGATION BAR -->
     <nav class="lesson-nav-tabs" role="tablist">
       <button class="tab-btn active" onclick="showScreen(1)">
         <span class="tab-index-badge">01</span>
-        <span>The Dilemma</span>
+        <span>The WhatsApp Dilemma</span>
       </button>
       <button class="tab-btn" onclick="showScreen(2)">
         <span class="tab-index-badge">02</span>
-        <span>Vocabulary Lab</span>
+        <span>Situational Vocabulary</span>
       </button>
       <button class="tab-btn" onclick="showScreen(3)">
         <span class="tab-index-badge">03</span>
@@ -747,11 +774,11 @@
       </button>
       <button class="tab-btn" onclick="showScreen(5)">
         <span class="tab-index-badge">05</span>
-        <span>Spoken USA Chunks</span>
+        <span>Functional Chunks</span>
       </button>
       <button class="tab-btn" onclick="showScreen(6)">
         <span class="tab-index-badge">06</span>
-        <span>Classroom Mission</span>
+        <span>Mystery Box Mission</span>
       </button>
       <button class="tab-btn" onclick="showScreen(7)">
         <span class="tab-index-badge">07</span>
@@ -759,207 +786,246 @@
       </button>
     </nav>
 
-    <!-- SCREEN 1: THE DILEMMA INVESTIGATION -->
+    <!-- SCREEN 1: THE REAL WHATSAPP DILEMMA -->
     <section class="tab-panel active" id="screen-1">
       <div class="section-header">
-        <div class="section-kicker font-mono">Screen 01 &middot; Contextual Exposure</div>
-        <h2 class="section-heading font-editorial">The White Lies We Tell On The Phone</h2>
+        <div class="section-kicker font-mono">Screen 01 &middot; Authentic Dilemma</div>
+        <h2 class="section-heading">The WhatsApp Setup: Claim vs. Reality</h2>
         <p class="section-desc">
-          Compare the claimed action versus the secret reality. Vote for the excuses you have used before.
+          Inspect the real-time conversation between Alex and Jordan. Notice the functional expressions and voice notes used to excuse a delay.
         </p>
       </div>
 
-      <div class="cinematic-card-grid">
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="Driving" class="card-photo">
-            <div class="card-photo-scrim font-mono">EXCUSE 01 &middot; ON THE ROAD</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">"I'm on my way!"</h3>
-            <p class="card-claim">What you claim: <em>"I'm driving right now, traffic is crazy!"</em></p>
-            <div class="card-reality">
-              &times; Reality: You just entered the shower 20 seconds ago.
-            </div>
-            <button class="btn-action" onclick="voteExcuse(this)">Guilty! Vote (I say this)</button>
+      <!-- WHATSAPP INTERFACE -->
+      <div class="whatsapp-container">
+        <div class="wa-top-bar">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Alex" class="wa-avatar">
+          <div class="wa-contact-info">
+            <div class="wa-contact-name">Alex &middot; Downtown Cafe</div>
+            <div class="wa-contact-status">online &middot; waiting for 20 mins</div>
           </div>
         </div>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80" alt="Phone couch" class="card-photo">
-            <div class="card-photo-scrim font-mono">EXCUSE 02 &middot; BUSY SCREEN</div>
+        <div class="wa-chat-body">
+          <div class="wa-bubble wa-incoming">
+            Hey Jordan! Where are you?? The waiter is asking for our table order right now! ☕⏱️
+            <div class="wa-meta">10:41 AM</div>
           </div>
-          <div class="card-body">
-            <h3 class="card-title">"Can't talk, I'm driving!"</h3>
-            <p class="card-claim">What you claim: <em>"I'm merging onto the expressway right now!"</em></p>
-            <div class="card-reality">
-              &times; Reality: You are sitting on the couch scrolling short videos.
+
+          <!-- VOICE NOTE BUBBLE -->
+          <div class="wa-voice-bubble">
+            <button class="wa-play-btn" onclick="toggleWaVoice()">▶</button>
+            <div class="wa-waveform">
+              <span class="wa-bar" style="height:8px;"></span>
+              <span class="wa-bar" style="height:14px;"></span>
+              <span class="wa-bar" style="height:18px;"></span>
+              <span class="wa-bar" style="height:10px;"></span>
+              <span class="wa-bar" style="height:16px;"></span>
+              <span class="wa-bar" style="height:6px;"></span>
+              <span class="wa-bar" style="height:12px;"></span>
+              <span class="wa-bar" style="height:18px;"></span>
             </div>
-            <button class="btn-action" onclick="voteExcuse(this)">Guilty! Vote (I say this)</button>
+            <span class="font-mono" style="font-size:11px; color:#555;">0:14</span>
+          </div>
+
+          <div class="wa-bubble wa-outgoing">
+            <em>"I'm literally walking out the door right now! Traffic is an absolute nightmare, but I'm on my way! Be right there!"</em> 🏃‍♂️💨
+            <div class="wa-meta">10:42 AM <span class="wa-ticks">✓✓</span></div>
+          </div>
+
+          <div class="wa-bubble wa-incoming">
+            Wait a second... why do I hear someone frying food and TV background noise?! Are you still at home?? 🤨
+            <div class="wa-meta">10:43 AM</div>
           </div>
         </div>
+      </div>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Morning rush" class="card-photo">
-            <div class="card-photo-scrim font-mono">EXCUSE 03 &middot; THE DOOR MYTH</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">"Walking out the door!"</h3>
-            <p class="card-claim">What you claim: <em>"I have my coat on, leaving the house now!"</em></p>
-            <div class="card-reality">
-              &times; Reality: You are searching everywhere for your car keys.
-            </div>
-            <button class="btn-action" onclick="voteExcuse(this)">Guilty! Vote (I say this)</button>
-          </div>
-        </div>
+      <!-- REALITY REVEAL BUTTON -->
+      <div style="max-width:520px; margin:0 auto;">
+        <button class="btn-action" style="width:100%;" onclick="toggleRealityPhoto()">
+          📸 Reveal Jordan's Secret Reality Photo
+        </button>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80" alt="Coffee kitchen" class="card-photo">
-            <div class="card-photo-scrim font-mono">EXCUSE 04 &middot; WORK ILLUSION</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">"I'm finishing the report!"</h3>
-            <p class="card-claim">What you claim: <em>"Typing the final sentence at my desk right now."</em></p>
-            <div class="card-reality">
-              &times; Reality: You are brewing your third cup of coffee in the kitchen.
-            </div>
-            <button class="btn-action" onclick="voteExcuse(this)">Guilty! Vote (I say this)</button>
+        <div class="reality-reveal-card" id="realityBox" style="display:none;">
+          <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=200&q=80" alt="In Bed" style="width:70px; height:70px; border-radius:10px; object-fit:cover;">
+          <div>
+            <strong>CAUGHT IN THE ACT!</strong>
+            <p style="font-size:13px; color:#333; margin-top:2px;">
+              Jordan is lying in bed wearing pajamas, scrolling TikTok, and eating potato chips.
+            </p>
           </div>
         </div>
       </div>
 
       <div class="panel-footer-nav">
-        <span style="font-size:13px; color:var(--muted);">Advance to Screen 02 &middot; Explicit Vocabulary</span>
+        <span style="font-size:13px; color:var(--muted);">Advance to Screen 02 &middot; Situational Vocabulary</span>
         <button class="btn-action" onclick="showScreen(2)">
-          Continue to Vocabulary Lab &rarr;
+          Continue to Situational Vocabulary &rarr;
         </button>
       </div>
     </section>
 
-    <!-- SCREEN 2: VOCABULARY LAB & INTERACTIVE ACTIVITY -->
+    <!-- SCREEN 2: SITUATIONAL VOCABULARY LAB & ACTIVITY -->
     <section class="tab-panel" id="screen-2">
       <div class="section-header">
-        <div class="section-kicker font-mono">Screen 02 &middot; Explicit Lexis</div>
-        <h2 class="section-heading font-editorial">Physical Action Verbs &amp; Daily Dilemmas</h2>
+        <div class="section-kicker font-mono">Screen 02 &middot; Thematic Lexis</div>
+        <h2 class="section-heading">Situational Vocabulary: Calls, Delays &amp; Excuses</h2>
         <p class="section-desc">
-          Study the high-frequency action verbs with real-life photography. Then complete the Vocabulary Activity.
+          Target words for real-life phone situations and excuses at level A1.2.
         </p>
       </div>
 
-      <div class="cinematic-card-grid">
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Rushing" class="card-photo">
-            <div class="card-photo-scrim font-mono">VERB &middot; /rʌʃ/</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">rush</h3>
-            <p class="card-claim">To move or act with urgent speed.</p>
-            <div style="background:var(--gold-light); border-left:3px solid var(--gold); padding:6px 10px; font-size:12px; font-weight:700; color:var(--gold-dark);">
-              Collocation: rushing to the meeting
+      <div class="vocab-grid">
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">stuck</span>
+              <span class="vocab-pos">adjective</span>
             </div>
+            <div class="vocab-ipa font-mono">/stʌk/</div>
+            <div class="vocab-def">Unable to move, escape, or make progress.</div>
           </div>
+          <div class="vocab-example">"I am stuck in traffic right now!"</div>
         </div>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80" alt="Brewing" class="card-photo">
-            <div class="card-photo-scrim font-mono">VERB &middot; /bruː/</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">brew</h3>
-            <p class="card-claim">To prepare coffee or tea with hot water.</p>
-            <div style="background:var(--gold-light); border-left:3px solid var(--gold); padding:6px 10px; font-size:12px; font-weight:700; color:var(--gold-dark);">
-              Collocation: brewing fresh coffee
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">traffic jam</span>
+              <span class="vocab-pos">noun</span>
             </div>
+            <div class="vocab-ipa font-mono">/ˈtræf.ɪk dʒæm/</div>
+            <div class="vocab-def">A long line of cars and trucks unable to move.</div>
           </div>
+          <div class="vocab-example">"There is a terrible traffic jam on 5th Avenue."</div>
         </div>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Searching" class="card-photo">
-            <div class="card-photo-scrim font-mono">VERB &middot; /sɜːrtʃ/</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">search</h3>
-            <p class="card-claim">To look carefully to locate an object.</p>
-            <div style="background:var(--gold-light); border-left:3px solid var(--gold); padding:6px 10px; font-size:12px; font-weight:700; color:var(--gold-dark);">
-              Collocation: searching for my car keys
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">low battery</span>
+              <span class="vocab-pos">noun phrase</span>
             </div>
+            <div class="vocab-ipa font-mono">/loʊ ˈbæt̬.ɚ.i/</div>
+            <div class="vocab-def">When your phone has almost zero electrical energy.</div>
           </div>
+          <div class="vocab-example">"I must hang up, my phone has low battery!"</div>
         </div>
 
-        <div class="cinematic-card">
-          <div class="card-photo-box">
-            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80" alt="Scrolling" class="card-photo">
-            <div class="card-photo-scrim font-mono">VERB &middot; /skroʊl/</div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">scroll</h3>
-            <p class="card-claim">To move content on a smartphone screen.</p>
-            <div style="background:var(--gold-light); border-left:3px solid var(--gold); padding:6px 10px; font-size:12px; font-weight:700; color:var(--gold-dark);">
-              Collocation: scrolling social media in bed
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">excuse</span>
+              <span class="vocab-pos">noun</span>
             </div>
+            <div class="vocab-ipa font-mono">/ɪkˈskjuːs/</div>
+            <div class="vocab-def">A reason you invent to explain why you are late.</div>
           </div>
+          <div class="vocab-example">"That is not a real reason, that is just an excuse."</div>
+        </div>
+
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">background noise</span>
+              <span class="vocab-pos">noun phrase</span>
+            </div>
+            <div class="vocab-ipa font-mono">/ˈbæk.ɡraʊnd nɔɪz/</div>
+            <div class="vocab-def">Sounds heard behind your voice during a call.</div>
+          </div>
+          <div class="vocab-example">"What is that background noise? Are you in a diner?"</div>
+        </div>
+
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">in a hurry</span>
+              <span class="vocab-pos">phrase</span>
+            </div>
+            <div class="vocab-ipa font-mono">/ɪn ə ˈhɝː.i/</div>
+            <div class="vocab-def">Acting or moving quickly because time is short.</div>
+          </div>
+          <div class="vocab-example">"I can't talk right now, I am in a big hurry!"</div>
+        </div>
+
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">pajamas</span>
+              <span class="vocab-pos">noun</span>
+            </div>
+            <div class="vocab-ipa font-mono">/pəˈdʒɑː.məz/</div>
+            <div class="vocab-def">Comfortable clothes worn specifically for sleeping.</div>
+          </div>
+          <div class="vocab-example">"He claims he is ready, but he is still wearing pajamas."</div>
+        </div>
+
+        <div class="vocab-card">
+          <div>
+            <div class="vocab-top">
+              <span class="vocab-word">emergency</span>
+              <span class="vocab-pos">noun</span>
+            </div>
+            <div class="vocab-ipa font-mono">/ɪˈmɝː.dʒən.si/</div>
+            <div class="vocab-def">A sudden urgent event requiring immediate action.</div>
+          </div>
+          <div class="vocab-example">"I have a quick emergency at the office."</div>
         </div>
       </div>
 
-      <!-- VOCABULARY ACTIVITY INTERACTIVE -->
-      <div class="activity-workbench">
+      <!-- INTERACTIVE VOCAB ACTIVITY -->
+      <div class="activity-box">
         <h3 style="font-size:17px; font-weight:800; color:var(--navy-main); margin-bottom:16px;">
-          Vocabulary Activity &middot; Match the action verb to each scenario
+          Vocabulary Activity &middot; Match the situation with the correct lexical item
         </h3>
 
-        <div class="vocab-exercise-row">
-          <div><strong>1. Looking under the couch for your wallet:</strong></div>
+        <div class="exercise-row">
+          <div><strong>1. My phone display shows only 2% and the screen is blinking:</strong></div>
           <div>
-            <select class="select-dropdown" id="sel1" onchange="checkVocabRow()">
-              <option value="">-- Choose matching verb --</option>
-              <option value="searching">I am searching for my wallet</option>
-              <option value="brewing">I am brewing my wallet</option>
-              <option value="scrolling">I am scrolling my wallet</option>
+            <select class="select-input" id="v1" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="battery">low battery</option>
+              <option value="pajamas">pajamas</option>
+              <option value="emergency">emergency</option>
             </select>
           </div>
           <div id="vfb1" class="font-mono" style="font-size:13px; font-weight:800;"></div>
         </div>
 
-        <div class="vocab-exercise-row">
-          <div><strong>2. Making fresh espresso in the kitchen:</strong></div>
+        <div class="exercise-row">
+          <div><strong>2. Two hundred vehicles are parked on the expressway not moving:</strong></div>
           <div>
-            <select class="select-dropdown" id="sel2" onchange="checkVocabRow()">
-              <option value="">-- Choose matching verb --</option>
-              <option value="leaving">I am leaving espresso</option>
-              <option value="brewing">I am brewing fresh espresso</option>
-              <option value="rushing">I am rushing espresso</option>
+            <select class="select-input" id="v2" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="noise">background noise</option>
+              <option value="traffic">traffic jam</option>
+              <option value="hurry">in a hurry</option>
             </select>
           </div>
           <div id="vfb2" class="font-mono" style="font-size:13px; font-weight:800;"></div>
         </div>
 
-        <div class="vocab-exercise-row">
-          <div><strong>3. Running because the bus is about to pull away:</strong></div>
+        <div class="exercise-row">
+          <div><strong>3. I hear coffee cups clinking and dogs barking during your phone call:</strong></div>
           <div>
-            <select class="select-dropdown" id="sel3" onchange="checkVocabRow()">
-              <option value="">-- Choose matching verb --</option>
-              <option value="rushing">I am rushing to catch the bus</option>
-              <option value="searching">I am searching the bus</option>
-              <option value="brewing">I am brewing the bus</option>
+            <select class="select-input" id="v3" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="noise">background noise</option>
+              <option value="stuck">stuck</option>
+              <option value="excuse">excuse</option>
             </select>
           </div>
           <div id="vfb3" class="font-mono" style="font-size:13px; font-weight:800;"></div>
         </div>
 
-        <div class="vocab-exercise-row">
-          <div><strong>4. Checking short clips on your smartphone in bed:</strong></div>
+        <div class="exercise-row">
+          <div><strong>4. You cannot open the bathroom door and you cannot exit:</strong></div>
           <div>
-            <select class="select-dropdown" id="sel4" onchange="checkVocabRow()">
-              <option value="">-- Choose matching verb --</option>
-              <option value="leaving">I am leaving clips</option>
-              <option value="scrolling">I am scrolling through clips</option>
-              <option value="rushing">I am rushing clips</option>
+            <select class="select-input" id="v4" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="pajamas">pajamas</option>
+              <option value="stuck">stuck</option>
+              <option value="battery">low battery</option>
             </select>
           </div>
           <div id="vfb4" class="font-mono" style="font-size:13px; font-weight:800;"></div>
@@ -967,105 +1033,105 @@
       </div>
 
       <div class="panel-footer-nav">
-        <button class="btn-ghost" onclick="showScreen(1)">&larr; Back to Dilemma</button>
+        <button class="btn-ghost" onclick="showScreen(1)">&larr; Back to WhatsApp</button>
         <button class="btn-action" onclick="showScreen(3)">
           Continue to Grammar Mechanics &rarr;
         </button>
       </div>
     </section>
 
-    <!-- SCREEN 3: GRAMMAR MECHANICS & SPELLING -->
+    <!-- SCREEN 3: GRAMMAR MECHANICS (DISCOVERY + WORDBOX + DRILLS) -->
     <section class="tab-panel" id="screen-3">
       <div class="section-header">
         <div class="section-kicker font-mono">Screen 03 &middot; Structural Precision</div>
-        <h2 class="section-heading font-editorial">Grammar Lab &amp; -ing Spelling Rules</h2>
+        <h2 class="section-heading">Grammar Discovery &amp; Formal Practice</h2>
         <p class="section-desc">
-          Master the auxiliary BE agreement and the 4 critical spelling rules of the continuous aspect.
+          Notice how the continuous structure works, build sentences with the Wordbox, and complete the Grammar Clinic.
         </p>
       </div>
 
-      <div class="formula-banner">
-        <span>Formula:</span>
-        <span class="f-pill">Subject (I / You / He / We)</span>
-        <span>+</span>
-        <span class="f-pill be">am / is / are (not)</span>
-        <span>+</span>
-        <span class="f-pill ing">Verb + -ing</span>
-        <span>=</span>
-        <span style="color:var(--gold);">Action happening RIGHT NOW</span>
+      <!-- DISCOVERY NOTICE -->
+      <div class="discovery-card">
+        <div class="discovery-q">🔍 Notice and Discover:</div>
+        <p style="font-size:14px; color:#1E3A8A; line-height:1.6;">
+          Look at Jordan's message: <strong>"I am walking out the door right now."</strong><br>
+          1. Is this an everyday routine, or is it happening in this exact second? &rarr; <em>In this exact second.</em><br>
+          2. What two elements are mandatory? &rarr; <strong>Auxiliary BE (am/is/are) + Main Verb with -ing</strong>.
+        </p>
       </div>
 
-      <div class="spelling-rules-grid">
-        <div class="spelling-box">
-          <strong>Rule 1 &middot; General</strong>
-          <span style="font-size:13px; color:var(--muted);">Add <strong>-ing</strong> directly.</span>
-          <div class="spelling-example">
-            walk &rarr; <strong>walking</strong><br>
-            sleep &rarr; <strong>sleeping</strong><br>
-            cook &rarr; <strong>cooking</strong>
-          </div>
+      <!-- INTERACTIVE WORDBOX SENTENCE BUILDER -->
+      <div class="wordbox-container">
+        <h3 style="font-size:17px; font-weight:800; color:var(--gold);">
+          The Wordbox: Click chips to assemble an affirmative or negative sentence
+        </h3>
+        <p style="font-size:13px; color:#cbd5e1; margin-top:4px;">
+          Build: <em>"I am driving to the cafe right now"</em> or <em>"She is not sleeping in bed"</em>
+        </p>
+
+        <div class="wordbox-chips-area">
+          <button class="word-chip" onclick="addChip(this, 'I')">I</button>
+          <button class="word-chip" onclick="addChip(this, 'She')">She</button>
+          <button class="word-chip" onclick="addChip(this, 'My friend')">My friend</button>
+          <button class="word-chip" onclick="addChip(this, 'They')">They</button>
+          <button class="word-chip" onclick="addChip(this, 'am')">am</button>
+          <button class="word-chip" onclick="addChip(this, 'is')">is</button>
+          <button class="word-chip" onclick="addChip(this, 'are')">are</button>
+          <button class="word-chip" onclick="addChip(this, 'is not')">is not</button>
+          <button class="word-chip" onclick="addChip(this, 'are not')">are not</button>
+          <button class="word-chip" onclick="addChip(this, 'driving')">driving</button>
+          <button class="word-chip" onclick="addChip(this, 'sleeping')">sleeping</button>
+          <button class="word-chip" onclick="addChip(this, 'lying')">lying</button>
+          <button class="word-chip" onclick="addChip(this, 'rushing')">rushing</button>
+          <button class="word-chip" onclick="addChip(this, 'in bed')">in bed</button>
+          <button class="word-chip" onclick="addChip(this, 'to the cafe')">to the cafe</button>
+          <button class="word-chip" onclick="addChip(this, 'right now')">right now</button>
         </div>
 
-        <div class="spelling-box">
-          <strong>Rule 2 &middot; Silent -e</strong>
-          <span style="font-size:13px; color:var(--muted);">Drop <strong>-e</strong>, add <strong>-ing</strong>.</span>
-          <div class="spelling-example">
-            drive &rarr; <strong>driving</strong><br>
-            leave &rarr; <strong>leaving</strong><br>
-            write &rarr; <strong>writing</strong>
-          </div>
+        <div class="sentence-workbench" id="workbench">
+          <span style="color:#64748b; font-weight:normal;" id="wbPlaceholder">Sentence will appear here...</span>
         </div>
 
-        <div class="spelling-box">
-          <strong>Rule 3 &middot; C-V-C Double</strong>
-          <span style="font-size:13px; color:var(--muted);">Double the final consonant.</span>
-          <div class="spelling-example">
-            run &rarr; <strong>running</strong><br>
-            sit &rarr; <strong>sitting</strong><br>
-            stop &rarr; <strong>stopping</strong>
-          </div>
-        </div>
-
-        <div class="spelling-box">
-          <strong>Rule 4 &middot; -ie to -y</strong>
-          <span style="font-size:13px; color:var(--muted);">Change <strong>-ie</strong> to <strong>-y</strong>.</span>
-          <div class="spelling-example">
-            lie (tell a lie) &rarr; <strong>lying</strong><br>
-            tie &rarr; <strong>tying</strong><br>
-            die &rarr; <strong>dying</strong>
-          </div>
+        <div style="display:flex; gap:10px; margin-top:14px;">
+          <button class="btn-action" onclick="verifyWorkbench()">Check Sentence &check;</button>
+          <button class="btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.3);" onclick="clearWorkbench()">Clear</button>
+          <span id="wbFeedback" class="font-mono" style="align-self:center; font-size:13px; font-weight:700;"></span>
         </div>
       </div>
 
-      <!-- INTERACTIVE SPELLING DRILL -->
-      <div class="activity-workbench">
-        <h3 style="font-size:16px; font-weight:800; color:var(--navy-main); margin-bottom:14px;">
-          Interactive Orthography Drill &middot; Type the correct -ing conjugation
+      <!-- FORMAL GRAMMAR CLINIC (ERROR CORRECTION & DRILLS) -->
+      <div class="activity-box">
+        <h3 style="font-size:17px; font-weight:800; color:var(--navy-main); margin-bottom:14px;">
+          Formal Grammar Clinic &middot; Find and Fix the Classical A1.2 Errors
         </h3>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px;">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:14px; font-weight:700;">1. lie &rarr;</span>
-            <input type="text" class="spelling-input" placeholder="-ing" oninput="testSpell(this, 'lying')">
-            <span class="font-mono" style="font-size:13px; font-weight:800;"></span>
+        <div class="clinic-row">
+          <div>
+            <span class="clinic-wrong">1. "He is drive to work right now."</span>
+            <div style="font-size:12.5px; color:var(--muted); margin-top:2px;">Error: Main verb missing -ing ending.</div>
           </div>
-
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:14px; font-weight:700;">2. drive &rarr;</span>
-            <input type="text" class="spelling-input" placeholder="-ing" oninput="testSpell(this, 'driving')">
-            <span class="font-mono" style="font-size:13px; font-weight:800;"></span>
+          <div>
+            <button class="clinic-fix-btn" onclick="fixError(this, 'He is driving to work right now.')">Fix Error</button>
           </div>
+        </div>
 
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:14px; font-weight:700;">3. run &rarr;</span>
-            <input type="text" class="spelling-input" placeholder="-ing" oninput="testSpell(this, 'running')">
-            <span class="font-mono" style="font-size:13px; font-weight:800;"></span>
+        <div class="clinic-row">
+          <div>
+            <span class="clinic-wrong">2. "They sleeping in bed at this moment."</span>
+            <div style="font-size:12.5px; color:var(--muted); margin-top:2px;">Error: Missing auxiliary verb BE (are).</div>
           </div>
+          <div>
+            <button class="clinic-fix-btn" onclick="fixError(this, 'They are sleeping in bed at this moment.')">Fix Error</button>
+          </div>
+        </div>
 
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:14px; font-weight:700;">4. walk &rarr;</span>
-            <input type="text" class="spelling-input" placeholder="-ing" oninput="testSpell(this, 'walking')">
-            <span class="font-mono" style="font-size:13px; font-weight:800;"></span>
+        <div class="clinic-row">
+          <div>
+            <span class="clinic-wrong">3. "Jordan is lie to his best friend."</span>
+            <div style="font-size:12.5px; color:var(--muted); margin-top:2px;">Error: Orthography rule -ie changes to -y (lying).</div>
+          </div>
+          <div>
+            <button class="clinic-fix-btn" onclick="fixError(this, 'Jordan is lying to his best friend.')">Fix Error</button>
           </div>
         </div>
       </div>
@@ -1082,24 +1148,22 @@
     <section class="tab-panel" id="screen-4">
       <div class="section-header">
         <div class="section-kicker font-mono">Screen 04 &middot; Auditory Verification</div>
-        <h2 class="section-heading font-editorial">Catching the Contradiction</h2>
+        <h2 class="section-heading">Audio Track: The Restaurant Call</h2>
         <p class="section-desc">
-          Listen to the phone call. Pay attention to background clues to detect the white lie.
+          Listen to the studio dispatch. Pay attention to background clues to detect the contradiction.
         </p>
       </div>
 
       <div class="audio-theater">
-        <div class="audio-theater-top">
-          <h3>DISPATCH 01 &middot; The Restaurant Call</h3>
-          <span class="font-mono" style="font-size:12px; color:var(--gold);">Ready for Recorded Studio MP3</span>
-        </div>
-
+        <h3 style="font-size:18px; font-weight:800; color:var(--gold); margin-bottom:10px;">
+          DISPATCH 01 &middot; Urgent Dinner Encounter
+        </h3>
         <audio controls src="./audio/audio_01_caller.mp3">
           Your browser does not support the audio element.
         </audio>
 
         <details>
-          <summary>Open Transcript (Click to reveal text)</summary>
+          <summary>Open Audio Transcript (Click after listening)</summary>
           <p>
             <strong>Caller:</strong> "Hey! Where are you? The table is ready and the waiter is asking for our order. Are you driving yet?"<br>
             <strong>Receiver:</strong> "Yes, yes! I'm literally walking out the door right now! Traffic is crazy, but I'm on my way. Be right there!"<br>
@@ -1108,43 +1172,43 @@
         </details>
       </div>
 
-      <div class="activity-workbench">
+      <div class="activity-box">
         <h3 style="font-size:16px; font-weight:800; color:var(--navy-main); margin-bottom:14px;">
-          Auditory Verification &middot; What is the truth behind the call?
+          Auditory Verification Questions
         </h3>
 
         <div style="display:flex; flex-direction:column; gap:14px;">
           <div>
-            <p style="font-size:14px; font-weight:700; margin-bottom:6px;">1. What does the receiver claim they are doing?</p>
+            <p style="font-size:14px; font-weight:700; margin-bottom:6px;">1. What does the receiver state they are doing?</p>
             <label style="display:block; font-size:13.5px; margin-bottom:4px;">
-              <input type="radio" name="aq1" value="w"> They are eating at home.
+              <input type="radio" name="aq1" value="w"> Eating tacos at a diner.
             </label>
             <label style="display:block; font-size:13.5px;">
-              <input type="radio" name="aq1" value="c" id="aq1_c"> They are walking out the door and on their way.
+              <input type="radio" name="aq1" value="c" id="aq1_c"> Walking out the door and on their way.
             </label>
           </div>
 
           <div>
-            <p style="font-size:14px; font-weight:700; margin-bottom:6px;">2. What does the caller catch them doing?</p>
+            <p style="font-size:14px; font-weight:700; margin-bottom:6px;">2. What background evidence betrays the caller?</p>
             <label style="display:block; font-size:13.5px; margin-bottom:4px;">
-              <input type="radio" name="aq2" value="c" id="aq2_c"> Eating tacos in their car.
+              <input type="radio" name="aq2" value="c" id="aq2_c"> Chewing sounds of someone eating food.
             </label>
             <label style="display:block; font-size:13.5px;">
-              <input type="radio" name="aq2" value="w"> Merging onto the expressway.
+              <input type="radio" name="aq2" value="w"> Car horns on the highway.
             </label>
           </div>
 
-          <button class="btn-action" style="align-self:flex-start; margin-top:8px;" onclick="testAudioCheck()">
-            Verify Answers &check;
+          <button class="btn-action" style="align-self:flex-start; margin-top:8px;" onclick="testAudioAnswers()">
+            Check Verification Answers &check;
           </button>
-          <div id="audioFb" class="font-mono" style="font-size:13px; font-weight:800; margin-top:8px;"></div>
+          <div id="audioFb" class="font-mono" style="font-size:13px; font-weight:800;"></div>
         </div>
       </div>
 
       <div class="panel-footer-nav">
         <button class="btn-ghost" onclick="showScreen(3)">&larr; Back to Grammar</button>
         <button class="btn-action" onclick="showScreen(5)">
-          Continue to Spoken USA Chunks &rarr;
+          Continue to Functional Chunks &rarr;
         </button>
       </div>
     </section>
@@ -1153,105 +1217,100 @@
     <section class="tab-panel" id="screen-5">
       <div class="section-header">
         <div class="section-kicker font-mono">Screen 05 &middot; Functional Language</div>
-        <h2 class="section-heading font-editorial">Spoken American Chunks</h2>
+        <h2 class="section-heading">Spoken American Chunks</h2>
         <p class="section-desc">
-          Prefabricated conversational units used across the United States to manage delays and real-time excuses.
+          Prefabricated conversational units used daily across the US to manage delays and excuses.
         </p>
       </div>
 
-      <div class="chunks-grid">
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"I'm on my way!"</div>
-            <div class="chunk-context">Universal reply when someone asks for your current location.</div>
-          </div>
-          <div class="chunk-quote">"Don't worry, I'm on my way right now!"</div>
+      <div class="vocab-grid">
+        <div class="vocab-card">
+          <div class="vocab-word">"I'm on my way!"</div>
+          <p class="vocab-def">Standard reply when someone asks for your current location.</p>
+          <div class="vocab-example">"Don't cancel the table, I'm on my way right now!"</div>
         </div>
 
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"Be right there!"</div>
-            <div class="chunk-context">Signals that your physical arrival will occur in moments.</div>
-          </div>
-          <div class="chunk-quote">"Parking the car &mdash; be right there!"</div>
+        <div class="vocab-card">
+          <div class="vocab-word">"Be right there!"</div>
+          <p class="vocab-def">Signals your physical arrival will occur in moments.</p>
+          <div class="vocab-example">"Just parking the car &mdash; be right there!"</div>
         </div>
 
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"Caught red-handed!"</div>
-            <div class="chunk-context">Said when discovering someone in the act of lying or cheating.</div>
-          </div>
-          <div class="chunk-quote">"You said you were studying? Caught red-handed!"</div>
+        <div class="vocab-card">
+          <div class="vocab-word">"Caught red-handed!"</div>
+          <p class="vocab-def">Used when catching someone in an obvious lie.</p>
+          <div class="vocab-example">"You said you were studying? Caught red-handed!"</div>
         </div>
 
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"Yeah, right!"</div>
-            <div class="chunk-context">Sarcastic reaction meaning "I do not believe you."</div>
-          </div>
-          <div class="chunk-quote">"You're driving? Yeah, right! I hear music!"</div>
+        <div class="vocab-card">
+          <div class="vocab-word">"Yeah, right!"</div>
+          <p class="vocab-def">Sarcastic reaction meaning "I do not believe you at all."</p>
+          <div class="vocab-example">"You're driving? Yeah, right! I hear TV sounds!"</div>
         </div>
 
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"Hold that thought!"</div>
-            <div class="chunk-context">Polite interruption to answer another incoming call.</div>
-          </div>
-          <div class="chunk-quote">"Hold that thought &mdash; my boss is calling me."</div>
+        <div class="vocab-card">
+          <div class="vocab-word">"Hold that thought!"</div>
+          <p class="vocab-def">Polite interruption to pause talk when someone calls.</p>
+          <div class="vocab-example">"Hold that thought &mdash; someone is calling my cell."</div>
         </div>
 
-        <div class="chunk-card">
-          <div>
-            <div class="chunk-phrase">"Traffic is a nightmare."</div>
-            <div class="chunk-context">Standard spoken excuse for urban delays.</div>
-          </div>
-          <div class="chunk-quote">"I'm crawling at 5 mph, traffic is an absolute nightmare."</div>
+        <div class="vocab-card">
+          <div class="vocab-word">"Traffic is a nightmare."</div>
+          <p class="vocab-def">Universal excuse for vehicular delays in the city.</p>
+          <div class="vocab-example">"I'm moving at 2 mph, traffic is an absolute nightmare."</div>
         </div>
       </div>
 
       <div class="panel-footer-nav">
         <button class="btn-ghost" onclick="showScreen(4)">&larr; Back to Audio</button>
         <button class="btn-action" onclick="showScreen(6)">
-          Continue to Classroom Mission &rarr;
+          Continue to Mystery Box Mission &rarr;
         </button>
       </div>
     </section>
 
-    <!-- SCREEN 6: CLASSROOM MISSION (ROLE-PLAY) -->
+    <!-- SCREEN 6: MYSTERY BOX SPEAKING MISSION -->
     <section class="tab-panel" id="screen-6">
       <div class="section-header">
-        <div class="section-kicker font-mono">Screen 06 &middot; Communicative Mission</div>
-        <h2 class="section-heading font-editorial">Mission: "Caught Red-Handed"</h2>
+        <div class="section-kicker font-mono">Screen 06 &middot; Speaking Game</div>
+        <h2 class="section-heading">Classroom Game: The Mystery Box Opener</h2>
         <p class="section-desc">
-          Pair work! Student A calls with urgency. Student B invents a white lie with Present Continuous. Student A challenges them.
+          Click the Mystery Box to unlock your secret reality. Pair up: Student A calls, Student B defends with a white lie!
         </p>
       </div>
 
-      <div class="mission-arena">
-        <div class="mission-top">
-          <div>
-            <h3 class="font-editorial" style="font-size:24px; color:#fff;" id="mTitle">Scenario 1: The Urgent Cafe Meetup</h3>
-            <span class="font-mono" style="font-size:12px; color:var(--gold);">Location: Downtown Cafe &middot; Time: 4:30 PM</span>
-          </div>
-          <button class="btn-action" onclick="rollNewScenario()">
-            🎲 Roll New Scenario Card
-          </button>
-        </div>
+      <div class="mystery-stage">
+        <div class="mystery-box-graphic" onclick="openMysteryBox()">🎁</div>
+        <h3 style="font-size:22px; font-weight:800; color:#fff;" id="boxPrompt">
+          Click the Mystery Box to reveal your Secret Reality!
+        </h3>
+        <p style="font-size:14px; color:#cbd5e1; margin-top:6px;">
+          Student B: Keep your reality secret! Do not let Student A see it.
+        </p>
 
-        <div class="mission-roles-grid">
-          <div class="role-column">
-            <div class="role-badge caller">Student A &middot; The Caller</div>
-            <p id="mCaller" style="font-size:14.5px; line-height:1.6; color:#E2E8F0;">
-              You have been waiting for 25 minutes. Call Student B and ask: <em>"Hey! Where are you? What are you doing right now?"</em> Listen closely for suspicious background noises!
-            </p>
+        <!-- REVEALED SECRET RESULT -->
+        <div class="secret-result-area" id="secretArea">
+          <div class="roles-comparison-grid">
+            <div class="role-panel">
+              <span class="vocab-pos" style="background:var(--gold); color:var(--navy-deep);">Student A &middot; The Caller</span>
+              <h4 style="font-size:16px; color:#fff; margin:10px 0 6px;" id="rA_title">Caller Mission:</h4>
+              <p style="font-size:14px; color:#cbd5e1; line-height:1.5;" id="rA_desc">
+                You have been waiting for 25 minutes at the gym. Call Student B and ask: <em>"Where are you? What are you doing right now?"</em> Challenge any strange noises!
+              </p>
+            </div>
+
+            <div class="role-panel">
+              <span class="vocab-pos" style="background:var(--teal); color:#fff;">Student B &middot; The Guilty Receiver</span>
+              <h4 style="font-size:16px; color:#fff; margin:10px 0 6px;" id="rB_title">Your Secret Reality:</h4>
+              <p style="font-size:14px; color:#cbd5e1; line-height:1.5;" id="rB_desc">
+                <strong>Secret:</strong> You are lying in bed wearing pajamas, eating chips and watching TV.<br><br>
+                <strong>Your White Lie:</strong> Tell Student A: <em>"I'm tying my gym shoes right now! Walking out the door! Be right there!"</em>
+              </p>
+            </div>
           </div>
 
-          <div class="role-column">
-            <div class="role-badge receiver">Student B &middot; The Receiver (Guilty!)</div>
-            <p id="mReceiver" style="font-size:14.5px; line-height:1.6; color:#E2E8F0;">
-              <strong>Secret Reality:</strong> You are eating tacos in your car with loud music.<br><br>
-              <strong>White Lie to Invent:</strong> Tell Student A: <em>"I'm driving right now, traffic is crazy! Be right there!"</em>
-            </p>
+          <div style="text-align:center; margin-top:20px;">
+            <button class="btn-action" onclick="openMysteryBox()">🎲 Draw Another Secret Reality</button>
           </div>
         </div>
       </div>
@@ -1268,38 +1327,44 @@
     <section class="tab-panel" id="screen-7">
       <div class="section-header">
         <div class="section-kicker font-mono">Screen 07 &middot; Evidence Demonstration</div>
-        <h2 class="section-heading font-editorial">60-Second Demonstration Terminal</h2>
+        <h2 class="section-heading">60-Second Demonstration Terminal</h2>
         <p class="section-desc">
-          Complete the 3 observable statements to demonstrate mastery of the continuous aspect before closing the session.
+          Complete the 3 observable statements using Present Continuous before closing the quest.
         </p>
       </div>
 
-      <div class="exit-ticket-box">
-        <div class="exit-row">
-          <label>1. Describe an action someone in your home or office is doing at this exact second:</label>
-          <input type="text" id="et1" class="exit-text-field" placeholder="e.g. My friend is cooking pasta in the kitchen.">
+      <div class="activity-box">
+        <div class="exercise-row" style="display:block; border:none;">
+          <label style="display:block; font-size:14.5px; font-weight:700; color:var(--navy-main); margin-bottom:8px;">
+            1. Describe an action someone in your home or office is doing at this exact second:
+          </label>
+          <input type="text" id="et1" class="select-input" style="font-weight:normal;" placeholder="e.g. My friend is cooking pasta in the kitchen.">
         </div>
 
-        <div class="exit-row">
-          <label>2. Formulate a negative statement about what YOU are NOT doing right now:</label>
-          <input type="text" id="et2" class="exit-text-field" placeholder="e.g. I am not driving, I am participating in class.">
+        <div class="exercise-row" style="display:block; border:none; margin-top:16px;">
+          <label style="display:block; font-size:14.5px; font-weight:700; color:var(--navy-main); margin-bottom:8px;">
+            2. Formulate a negative statement about what YOU are NOT doing right now:
+          </label>
+          <input type="text" id="et2" class="select-input" style="font-weight:normal;" placeholder="e.g. I am not driving, I am participating in class.">
         </div>
 
-        <div class="exit-row">
-          <label>3. Write your favorite white lie using Present Continuous:</label>
-          <input type="text" id="et3" class="exit-text-field" placeholder="e.g. I am telling my boss I am reviewing the document right now.">
+        <div class="exercise-row" style="display:block; border:none; margin-top:16px;">
+          <label style="display:block; font-size:14.5px; font-weight:700; color:var(--navy-main); margin-bottom:8px;">
+            3. Write your favorite white lie using Present Continuous:
+          </label>
+          <input type="text" id="et3" class="select-input" style="font-weight:normal;" placeholder="e.g. I am telling my boss I am reviewing the document right now.">
         </div>
 
-        <button class="btn-action" onclick="submitExitTicket()">
+        <button class="btn-action" style="margin-top:20px;" onclick="saveExitTicket()">
           Submit Exit Evidence &check;
         </button>
-        <div id="etOk" class="font-mono" style="display:none; color:#10b981; margin-top:14px; font-weight:800; font-size:14px;">
-          &check; Evidence recorded successfully! High-quality performance demonstrated.
+        <div id="etOk" class="font-mono" style="display:none; color:var(--success); margin-top:14px; font-weight:800; font-size:14px;">
+          &check; Exit Evidence recorded successfully! High-quality performance demonstrated.
         </div>
       </div>
 
       <div class="panel-footer-nav">
-        <button class="btn-ghost" onclick="showScreen(6)">&larr; Back to Role-Play</button>
+        <button class="btn-ghost" onclick="showScreen(6)">&larr; Back to Mission</button>
         <a href="../../a1-2_workspace.html" class="btn-action">Return to A1.2 Workspace &rarr;</a>
       </div>
     </section>
@@ -1307,7 +1372,7 @@
   </main>
 
   <script>
-    // URL student name extraction
+    // Extract Student Name
     function getStudentName() {
       const p = new URLSearchParams(window.location.search);
       return p.get('name') || 'Coordinator';
@@ -1316,130 +1381,175 @@
 
     // SCREEN-BY-SCREEN TAB SWITCHER
     function showScreen(num) {
-      // Hide all panels
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      // Uncheck all buttons
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-      // Activate selected
       const target = document.getElementById('screen-' + num);
       if (target) target.classList.add('active');
 
       const btns = document.querySelectorAll('.tab-btn');
       if (btns[num - 1]) btns[num - 1].classList.add('active');
 
-      // Scroll smoothly to top of tabs
       window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
-    // Excuse voting
-    function voteExcuse(btn) {
-      if (!btn.dataset.voted) {
-        btn.dataset.voted = "true";
-        btn.textContent = "✓ Voted Guilty! (88% agree)";
-        btn.style.background = "#10b981";
-        btn.style.color = "#fff";
-      } else {
-        delete btn.dataset.voted;
-        btn.textContent = "Guilty! Vote (I say this)";
-        btn.style.background = "var(--gold)";
-        btn.style.color = "var(--navy-deep)";
-      }
+    // Toggle Reality Photo in WhatsApp
+    function toggleRealityPhoto() {
+      const box = document.getElementById('realityBox');
+      box.style.display = box.style.display === 'none' ? 'flex' : 'none';
     }
 
-    // Vocabulary check
-    function checkVocabRow() {
-      const v1 = document.getElementById('sel1').value;
-      const v2 = document.getElementById('sel2').value;
-      const v3 = document.getElementById('sel3').value;
-      const v4 = document.getElementById('sel4').value;
-
-      document.getElementById('vfb1').textContent = v1 === 'searching' ? '✓ Correct' : (v1 ? '✗ Try again' : '');
-      document.getElementById('vfb1').style.color = v1 === 'searching' ? '#10b981' : '#ef4444';
-
-      document.getElementById('vfb2').textContent = v2 === 'brewing' ? '✓ Correct' : (v2 ? '✗ Try again' : '');
-      document.getElementById('vfb2').style.color = v2 === 'brewing' ? '#10b981' : '#ef4444';
-
-      document.getElementById('vfb3').textContent = v3 === 'rushing' ? '✓ Correct' : (v3 ? '✗ Try again' : '');
-      document.getElementById('vfb3').style.color = v3 === 'rushing' ? '#10b981' : '#ef4444';
-
-      document.getElementById('vfb4').textContent = v4 === 'scrolling' ? '✓ Correct' : (v4 ? '✗ Try again' : '');
-      document.getElementById('vfb4').style.color = v4 === 'scrolling' ? '#10b981' : '#ef4444';
+    // Fake WA Voice Note audio waveform interaction
+    let isPlayingWa = false;
+    function toggleWaVoice() {
+      const btn = document.querySelector('.wa-play-btn');
+      isPlayingWa = !isPlayingWa;
+      btn.textContent = isPlayingWa ? '❚❚' : '▶';
     }
 
-    // Spelling check
-    function testSpell(input, target) {
-      const val = input.value.trim().toLowerCase();
-      const fb = input.nextElementSibling;
-      if (!val) {
-        input.className = 'spelling-input';
-        fb.textContent = '';
+    // Vocabulary activity check
+    function evalVocab() {
+      const v1 = document.getElementById('v1').value;
+      const v2 = document.getElementById('v2').value;
+      const v3 = document.getElementById('v3').value;
+      const v4 = document.getElementById('v4').value;
+
+      document.getElementById('vfb1').textContent = v1 === 'battery' ? '✓ Correct' : (v1 ? '✗ Try again' : '');
+      document.getElementById('vfb1').style.color = v1 === 'battery' ? 'var(--success)' : 'var(--danger)';
+
+      document.getElementById('vfb2').textContent = v2 === 'traffic' ? '✓ Correct' : (v2 ? '✗ Try again' : '');
+      document.getElementById('vfb2').style.color = v2 === 'traffic' ? 'var(--success)' : 'var(--danger)';
+
+      document.getElementById('vfb3').textContent = v3 === 'noise' ? '✓ Correct' : (v3 ? '✗ Try again' : '');
+      document.getElementById('vfb3').style.color = v3 === 'noise' ? 'var(--success)' : 'var(--danger)';
+
+      document.getElementById('vfb4').textContent = v4 === 'stuck' ? '✓ Correct' : (v4 ? '✗ Try again' : '');
+      document.getElementById('vfb4').style.color = v4 === 'stuck' ? 'var(--success)' : 'var(--danger)';
+    }
+
+    // Wordbox Builder Logic
+    let workbenchWords = [];
+    function addChip(btn, word) {
+      if (btn.classList.contains('used')) return;
+      btn.classList.add('used');
+      workbenchWords.push({ word, btn });
+      renderWorkbench();
+    }
+    function renderWorkbench() {
+      const wb = document.getElementById('workbench');
+      if (workbenchWords.length === 0) {
+        wb.innerHTML = '<span style="color:#64748b; font-weight:normal;" id="wbPlaceholder">Sentence will appear here...</span>';
         return;
       }
-      if (val === target) {
-        input.className = 'spelling-input correct';
-        fb.textContent = '✓ Correct';
+      wb.innerHTML = workbenchWords.map((item, idx) => `
+        <span style="background:var(--gold); color:var(--navy-deep); padding:5px 12px; border-radius:999px; cursor:pointer;" onclick="removeChip(${idx})">
+          ${item.word} &times;
+        </span>
+      `).join('');
+    }
+    function removeChip(idx) {
+      const item = workbenchWords[idx];
+      item.btn.classList.remove('used');
+      workbenchWords.splice(idx, 1);
+      renderWorkbench();
+    }
+    function clearWorkbench() {
+      workbenchWords.forEach(i => i.btn.classList.remove('used'));
+      workbenchWords = [];
+      renderWorkbench();
+      document.getElementById('wbFeedback').textContent = '';
+    }
+    function verifyWorkbench() {
+      const sentence = workbenchWords.map(i => i.word).join(' ');
+      const fb = document.getElementById('wbFeedback');
+      // Valid combinations
+      const valid = [
+        "I am driving to the cafe right now",
+        "I am rushing to the cafe right now",
+        "She is sleeping in bed",
+        "She is not sleeping in bed",
+        "My friend is driving to the cafe",
+        "They are rushing to the cafe right now",
+        "They are not sleeping in bed",
+        "I am lying in bed right now"
+      ];
+      if (valid.includes(sentence) || (sentence.includes('driving') || sentence.includes('sleeping') || sentence.includes('rushing') || sentence.includes('lying'))) {
+        fb.textContent = '✓ Grammatically Valid Continuous Structure!';
         fb.style.color = '#10b981';
       } else {
-        input.className = 'spelling-input incorrect';
-        fb.textContent = '✗';
+        fb.textContent = 'Check subject + BE + verb-ing agreement.';
         fb.style.color = '#ef4444';
       }
     }
 
-    // Audio verification check
-    function testAudioCheck() {
+    // Error Clinic Fix
+    function fixError(btn, correctText) {
+      const row = btn.closest('.clinic-row');
+      const wrong = row.querySelector('.clinic-wrong');
+      wrong.textContent = correctText;
+      wrong.style.color = 'var(--success)';
+      wrong.style.textDecoration = 'none';
+      btn.textContent = '✓ Corrected';
+      btn.style.background = 'var(--success-bg)';
+      btn.style.color = 'var(--success)';
+      btn.disabled = true;
+    }
+
+    // Audio Verification
+    function testAudioAnswers() {
       const q1 = document.getElementById('aq1_c').checked;
       const q2 = document.getElementById('aq2_c').checked;
       const fb = document.getElementById('audioFb');
 
       if (q1 && q2) {
-        fb.textContent = "✓ 100% Correct! You identified the taco contradiction.";
-        fb.style.color = "#10b981";
+        fb.textContent = "✓ 100% Correct! You identified the taco chewing contradiction.";
+        fb.style.color = "var(--success)";
       } else {
-        fb.textContent = "Review both questions. Listen carefully to what the caller notices at the end.";
-        fb.style.color = "#ef4444";
+        fb.textContent = "Check both options. What did the caller detect at the end?";
+        fb.style.color = "var(--danger)";
       }
     }
 
-    // Role-play Scenarios Deck
-    const scenarios = [
+    // Mystery Box Scenarios
+    const mysteryDecks = [
       {
-        title: "Scenario 1: The Urgent Cafe Meetup",
-        caller: "You have been waiting for 25 minutes. Call Student B and ask: 'Hey! Where are you? What are you doing right now?' Listen closely for suspicious background noises!",
-        receiver: "<strong>Secret Reality:</strong> You are eating tacos in your car with loud music.<br><br><strong>White Lie to Invent:</strong> Tell Student A: 'I'm driving right now, traffic is crazy! Be right there!'"
+        aTitle: "Gym Buddy Meetup (7:00 AM)",
+        aDesc: "You have been waiting on the treadmill for 25 minutes. Call Student B: 'Where are you right now? Did you leave the house?'",
+        bTitle: "Secret Reality: Lying in Bed",
+        bDesc: "<strong>Secret:</strong> You are lying in bed wearing pajamas, scrolling TikTok with coffee.<br><br><strong>Your White Lie:</strong> 'I am tying my running shoes right now! Walking out the door! Be right there!'"
       },
       {
-        title: "Scenario 2: The Urgent Zoom Standup",
-        caller: "The online team call started 10 minutes ago. Student B's webcam is dark. Call out: 'Hey, are you with us? What are you doing right now?'",
-        receiver: "<strong>Secret Reality:</strong> You are frying bacon and making eggs in the kitchen.<br><br><strong>White Lie to Invent:</strong> Say: 'I am taking notes on paper right now! My webcam is restarting.'"
+        aTitle: "Urgent Zoom Client Presentation",
+        aDesc: "The team call started 10 minutes ago. Student B's webcam is dark. Ask: 'Hey, are you with us? What are you doing right now?'",
+        bTitle: "Secret Reality: Making Breakfast",
+        bDesc: "<strong>Secret:</strong> You are frying bacon and eggs in your kitchen.<br><br><strong>Your White Lie:</strong> 'I am taking notes on paper right now! My connection is updating!'"
       },
       {
-        title: "Scenario 3: The Gym Workout Mystery",
-        caller: "You are warming up on the treadmill at 7:00 AM. Call Student B: 'Where are you right now? Did you leave the house?'",
-        receiver: "<strong>Secret Reality:</strong> You are under the blanket scrolling funny videos in bed.<br><br><strong>White Lie to Invent:</strong> Say: 'I am tying my running shoes right now! Heading out the door!'"
-      },
-      {
-        title: "Scenario 4: The Final Slides Deadline",
-        caller: "The project submission closes in 20 minutes. Call Student B: 'Are you finishing the slides right now?'",
-        receiver: "<strong>Secret Reality:</strong> You are playing video games with your headphones on.<br><br><strong>White Lie to Invent:</strong> Say: 'Yes, I am reviewing the grammar on slide 12 right this second!'"
+        aTitle: "Project Deadline in 20 Mins",
+        aDesc: "The teacher closes the submission link in 20 minutes. Call Student B: 'Are you finishing the final slides right now?'",
+        bTitle: "Secret Reality: Playing Video Games",
+        bDesc: "<strong>Secret:</strong> You are playing Fortnite with your headset on.<br><br><strong>Your White Lie:</strong> 'Yes! I am reviewing the grammar on slide 10 right this second!'"
       }
     ];
-    let scIndex = 0;
-    function rollNewScenario() {
-      scIndex = (scIndex + 1) % scenarios.length;
-      const s = scenarios[scIndex];
-      document.getElementById('mTitle').textContent = s.title;
-      document.getElementById('mCaller').innerHTML = s.caller;
-      document.getElementById('mReceiver').innerHTML = s.receiver;
+    let deckIdx = 0;
+    function openMysteryBox() {
+      const area = document.getElementById('secretArea');
+      area.style.display = 'block';
+      const d = mysteryDecks[deckIdx];
+      document.getElementById('rA_title').textContent = d.aTitle;
+      document.getElementById('rA_desc').innerHTML = d.aDesc;
+      document.getElementById('rB_title').textContent = d.bTitle;
+      document.getElementById('rB_desc').innerHTML = d.bDesc;
+      document.getElementById('boxPrompt').textContent = "🎁 Dilemma Unlocked! Begin Role-Play:";
+      deckIdx = (deckIdx + 1) % mysteryDecks.length;
     }
 
-    // Submit Exit Ticket
-    function submitExitTicket() {
-      const a1 = document.getElementById('et1').value.trim();
-      const a2 = document.getElementById('et2').value.trim();
-      const a3 = document.getElementById('et3').value.trim();
-      if (!a1 || !a2 || !a3) {
+    // Save Exit Ticket
+    function saveExitTicket() {
+      const e1 = document.getElementById('et1').value.trim();
+      const e2 = document.getElementById('et2').value.trim();
+      const e3 = document.getElementById('et3').value.trim();
+      if (!e1 || !e2 || !e3) {
         alert("Please complete all 3 statements before submitting your evidence.");
         return;
       }

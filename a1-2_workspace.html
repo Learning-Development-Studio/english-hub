@@ -1,12 +1,15 @@
+g
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A1.2 Student Workspace - Learning &amp; Development Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --gold: #D4A843;
@@ -89,6 +92,7 @@
       height: 48px;
       overflow: hidden;
     }
+
     .brand-logo-img {
       height: 90px;
       width: auto;
@@ -97,6 +101,7 @@
       display: block;
       transition: transform .25s ease, filter .25s ease;
     }
+
     .brand-wrap:hover .brand-logo-img {
       transform: scale(1.02);
       filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
@@ -118,6 +123,7 @@
       padding: 4px 12px;
       backdrop-filter: blur(10px);
     }
+
     .level-select-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -125,6 +131,7 @@
       font-weight: 700;
       color: var(--gold);
     }
+
     .level-select-control {
       background: transparent;
       border: none;
@@ -136,6 +143,7 @@
       outline: none;
       padding: 4px 0;
     }
+
     .level-select-control option,
     .level-select-control optgroup {
       background: #0B1F3A;
@@ -154,6 +162,7 @@
       color: #e2e8f0;
       backdrop-filter: blur(10px);
     }
+
     .user-icon {
       width: 22px;
       height: 22px;
@@ -165,6 +174,7 @@
       font-weight: 800;
       font-size: 11px;
     }
+
     .student-level-tag {
       background: rgba(212, 168, 67, 0.22);
       color: #fef3c7;
@@ -191,11 +201,13 @@
       cursor: pointer;
       transition: all .2s ease;
     }
+
     .role-switch-btn:hover {
       background: rgba(20, 184, 166, 0.28);
       border-color: var(--teal);
       transform: translateY(-1px);
     }
+
     .role-switch-btn svg {
       width: 14px;
       height: 14px;
@@ -215,6 +227,7 @@
       background: rgba(212, 168, 67, 0.12);
       transition: all .2s ease;
     }
+
     .exit-link:hover {
       color: #071527;
       border-color: var(--gold);
@@ -254,6 +267,7 @@
       margin-bottom: 16px;
       flex-wrap: wrap;
     }
+
     .hero-banner-pill {
       display: inline-flex;
       align-items: center;
@@ -268,6 +282,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
+
     .hero-banner-pill-dot {
       width: 6px;
       height: 6px;
@@ -275,6 +290,7 @@
       background: var(--gold);
       box-shadow: 0 0 8px var(--gold);
     }
+
     .hero-banner-meta {
       font-size: 13px;
       color: #cbd5e1;
@@ -290,6 +306,7 @@
       max-width: 24ch;
       letter-spacing: -0.01em;
     }
+
     .gold-accent {
       color: var(--gold);
       font-style: italic;
@@ -315,11 +332,13 @@
       backdrop-filter: blur(14px);
       flex-wrap: wrap;
     }
+
     .stat-item {
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
     .stat-number {
       font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 26px;
@@ -327,19 +346,23 @@
       color: var(--gold);
       line-height: 1;
     }
+
     .stat-meta {
       display: flex;
       flex-direction: column;
     }
+
     .stat-meta strong {
       font-size: 12.5px;
       color: #f8fafc;
       font-weight: 700;
     }
+
     .stat-meta span {
       font-size: 11px;
       color: #94a3b8;
     }
+
     .stat-divider {
       width: 1px;
       height: 32px;
@@ -354,6 +377,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
     .switch-wrapper {
       display: inline-flex;
       background: #e2e8f0;
@@ -361,6 +385,7 @@
       border-radius: var(--radius-full);
       gap: 4px;
     }
+
     .switch-btn {
       display: inline-flex;
       align-items: center;
@@ -376,24 +401,29 @@
       cursor: pointer;
       transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .switch-btn svg {
       width: 16px;
       height: 16px;
       stroke-width: 2.2;
     }
+
     .switch-btn.active.gold-mode {
       background: var(--navy-main);
       color: #ffffff;
       box-shadow: 0 4px 14px rgba(11, 31, 58, 0.20);
     }
+
     .switch-btn.active.gold-mode svg {
       stroke: var(--gold);
     }
+
     .switch-btn.active.teal-mode {
       background: var(--teal-dark);
       color: #ffffff;
       box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
     }
+
     .switch-btn.active.teal-mode svg {
       stroke: #5eead4;
     }
@@ -403,11 +433,13 @@
       color: var(--muted);
       font-weight: 500;
     }
+
     .legend-indicator {
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
+
     .legend-indicator span {
       font-weight: 700;
       color: var(--navy-main);
@@ -431,11 +463,13 @@
       transition: transform .3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .3s ease, border-color .3s ease;
       position: relative;
     }
+
     .cinema-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
       border-color: rgba(212, 168, 67, 0.45);
     }
+
     .teal-theme .cinema-card:hover {
       box-shadow: var(--shadow-hover-teal);
       border-color: rgba(20, 184, 166, 0.45);
@@ -447,15 +481,18 @@
       overflow: hidden;
       background: var(--navy-deep);
     }
+
     .card-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform .4s ease;
     }
+
     .cinema-card:hover .card-photo {
       transform: scale(1.05);
     }
+
     .card-visual-gradient {
       position: absolute;
       inset: 0;
@@ -473,6 +510,7 @@
       gap: 8px;
       z-index: 2;
     }
+
     .unit-tag {
       background: rgba(7, 21, 39, 0.85);
       backdrop-filter: blur(8px);
@@ -485,6 +523,7 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+
     .badge-live {
       background: rgba(16, 185, 129, 0.90);
       color: #ffffff;
@@ -496,6 +535,7 @@
       letter-spacing: 0.05em;
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
     }
+
     .badge-soon {
       background: rgba(148, 163, 184, 0.90);
       color: #0f172a;
@@ -513,6 +553,7 @@
       flex-direction: column;
       flex-grow: 1;
     }
+
     .card-title {
       font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 20px;
@@ -521,6 +562,7 @@
       margin-bottom: 8px;
       color: var(--navy-main);
     }
+
     .card-tagline {
       font-size: 13.5px;
       color: var(--muted);
@@ -536,6 +578,7 @@
       flex-wrap: wrap;
       margin-bottom: 18px;
     }
+
     .pill-chip {
       background: var(--line-subtle);
       border: 1px solid var(--line);
@@ -545,11 +588,13 @@
       padding: 3px 9px;
       border-radius: var(--radius-full);
     }
+
     .pill-chip.highlight {
       background: var(--gold-light);
       border-color: var(--gold-border);
       color: var(--gold-dark);
     }
+
     .teal-theme .pill-chip.highlight {
       background: var(--teal-light);
       border-color: var(--teal-border);
@@ -563,6 +608,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .card-duration {
       font-size: 12px;
       color: var(--muted-light);
@@ -570,6 +616,7 @@
       align-items: center;
       gap: 6px;
     }
+
     .duration-dot {
       width: 5px;
       height: 5px;
@@ -592,16 +639,19 @@
       border: 1px solid rgba(212, 168, 67, 0.35);
       cursor: pointer;
     }
+
     .btn-launch:hover {
       background: var(--gold);
       color: var(--navy-deep);
       border-color: var(--gold);
       transform: translateX(2px);
     }
+
     .teal-theme .btn-launch {
       background: var(--teal-dark);
       border-color: var(--teal-border);
     }
+
     .teal-theme .btn-launch:hover {
       background: var(--teal);
       color: #ffffff;
@@ -622,6 +672,7 @@
       cursor: pointer;
       transition: all .2s ease;
     }
+
     .btn-soon:hover {
       background: #e2e8f0;
       color: #334155;
@@ -640,10 +691,12 @@
       pointer-events: none;
       transition: opacity .25s ease;
     }
+
     .modal-backdrop.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .modal-box {
       background: #ffffff;
       border-radius: var(--radius-lg);
@@ -654,16 +707,26 @@
       overflow: hidden;
       animation: modalSlideUp .3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
+
     @keyframes modalSlideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
+
     .modal-header {
       background: var(--navy-deep);
       color: #ffffff;
       padding: 24px 28px 20px;
       border-bottom: 2px solid var(--gold);
     }
+
     .modal-kicker {
       font-size: 11px;
       text-transform: uppercase;
@@ -672,38 +735,45 @@
       font-weight: 800;
       margin-bottom: 6px;
     }
+
     .modal-title {
       font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 22px;
       font-weight: 700;
       line-height: 1.25;
     }
+
     .modal-unit {
       font-size: 12px;
       color: #94a3b8;
       margin-top: 4px;
     }
+
     .modal-body {
       padding: 24px 28px;
     }
+
     .modal-desc {
       font-size: 14.5px;
       color: var(--navy-soft);
       line-height: 1.6;
       margin-bottom: 20px;
     }
+
     .modal-specs {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-bottom: 20px;
     }
+
     .spec-box {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
       padding: 10px 14px;
     }
+
     .spec-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -712,10 +782,12 @@
       display: block;
       margin-bottom: 2px;
     }
+
     .spec-box strong {
       font-size: 13px;
       color: var(--navy-main);
     }
+
     .roadmap-note {
       font-size: 12px;
       color: var(--muted);
@@ -725,6 +797,7 @@
       border-radius: 4px;
       line-height: 1.5;
     }
+
     .modal-footer {
       padding: 16px 28px;
       background: var(--surface);
@@ -732,6 +805,7 @@
       display: flex;
       justify-content: flex-end;
     }
+
     .btn-modal-close {
       background: var(--navy-main);
       color: #ffffff;
@@ -744,6 +818,7 @@
       cursor: pointer;
       transition: background .2s ease;
     }
+
     .btn-modal-close:hover {
       background: var(--gold-dark);
     }
@@ -752,21 +827,26 @@
       .top-nav {
         padding: 0 16px;
       }
+
       .workspace-hero-banner {
         padding: 36px 24px;
       }
+
       .hero-stats-bar {
         gap: 16px;
       }
+
       .stat-divider {
         display: none;
       }
+
       .classes-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="ambient-backdrop"></div>
@@ -801,20 +881,25 @@
       </div>
 
       <!-- STUDENT / USER BADGE (CLICKABLE TO EDIT NAME) -->
-      <div class="user-badge" id="userBadge" onclick="promptStudentName()" title="Click to change your student name" style="cursor: pointer;">
+      <div class="user-badge" id="userBadge" onclick="promptStudentName()" title="Click to change your student name"
+        style="cursor: pointer;">
         <span class="user-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </span>
-        <span id="userRolePrefix">Student:</span> <strong id="userNameLabel" style="text-decoration: underline dotted rgba(212,168,67,0.5);">Student</strong>
+        <span id="userRolePrefix">Student:</span> <strong id="userNameLabel"
+          style="text-decoration: underline dotted rgba(212,168,67,0.5);">Student</strong>
         <span class="student-level-tag" id="userLevelTag">A1.2</span>
       </div>
 
       <!-- DISCREET ROLE TOGGLE BUTTON (FOR EVALUATOR / TESTING MODE) -->
-      <button type="button" class="role-switch-btn" id="roleToggleBtn" onclick="toggleRoleMode()" title="Toggle Student / Faculty Scope">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" class="role-switch-btn" id="roleToggleBtn" onclick="toggleRoleMode()"
+        title="Toggle Student / Faculty Scope">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+          stroke-linejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
@@ -822,7 +907,8 @@
       </button>
 
       <a href="./index.html" class="exit-link" id="homePortalLink" title="Return to English Hub Main Portal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
@@ -850,7 +936,8 @@
       </h1>
 
       <p class="hero-banner-desc" id="heroDesc">
-        Habitual routines, frequency adverbs, real-time actions with Present Continuous, and high-frequency verb mastery under R2 sequence.
+        Habitual routines, frequency adverbs, real-time actions with Present Continuous, and high-frequency verb mastery
+        under R2 sequence.
       </p>
 
       <!-- FROSTED METRICS STRIP -->
@@ -888,7 +975,8 @@
     <!-- THE EDITORIAL SWITCHER -->
     <div class="controls-bar">
       <div class="switch-wrapper">
-        <button type="button" class="switch-btn active gold-mode" id="btnSwitchExp" onclick="setSwitchMode('experience')">
+        <button type="button" class="switch-btn active gold-mode" id="btnSwitchExp"
+          onclick="setSwitchMode('experience')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
@@ -947,1680 +1035,1682 @@
           </div>
         </div>
         <div class="roadmap-note">
-          This unit is part of the approved L&amp;D Studio Academic Scope &amp; Sequence. Advancement occurs through observable evidence rather than elapsed seat time.
+          This unit is part of the approved L&amp;D Studio Academic Scope &amp; Sequence. Advancement occurs through
+          observable evidence rather than elapsed seat time.
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-modal-close" onclick="document.getElementById('soonModal').classList.remove('active')">Got It</button>
+        <button type="button" class="btn-modal-close"
+          onclick="document.getElementById('soonModal').classList.remove('active')">Got It</button>
       </div>
     </div>
   </div>
 
   <script>
     const CURRICULUM = {
-  "PreA1": {
-    "code": "Pre-A1",
-    "studentLevel": "Pre-A1",
-    "kicker": "Pre-A1 Trajectory · Stage 00 Absolute Beginners",
-    "meta": "CEFR Pre-A1 · General English",
-    "title": "First Words & <span class=\"gold-accent\">Foundations</span>",
-    "desc": "An accessible, step-by-step introduction to English sounds, personal identity, everyday objects, and essential classroom communication.",
-    "heroBg": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "05",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "06",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Phonics & mechanics",
-    "stat3Num": "A0",
-    "stat3Label": "Emergent Competency",
-    "stat3Sub": "Formulaic fluency",
-    "experiences": [
-      {
-        "unit": "PA-U01",
-        "tag": "Communicative Task",
-        "title": "First Contact &amp; Identity",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Meet a peer, introduce yourself, and exchange contact names.",
-        "pill1": "Introductions",
-        "pill2": "Speaking &amp; Names",
-        "action": "Launch Quest",
-        "url": "./PreA1/greetings/index.html",
-        "live": true
+      "PreA1": {
+        "code": "Pre-A1",
+        "studentLevel": "Pre-A1",
+        "kicker": "Pre-A1 Trajectory · Stage 00 Absolute Beginners",
+        "meta": "CEFR Pre-A1 · General English",
+        "title": "First Words & <span class=\"gold-accent\">Foundations</span>",
+        "desc": "An accessible, step-by-step introduction to English sounds, personal identity, everyday objects, and essential classroom communication.",
+        "heroBg": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "05",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "06",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Phonics & mechanics",
+        "stat3Num": "A0",
+        "stat3Label": "Emergent Competency",
+        "stat3Sub": "Formulaic fluency",
+        "experiences": [
+          {
+            "unit": "PA-U01",
+            "tag": "Communicative Task",
+            "title": "First Contact &amp; Identity",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Meet a peer, introduce yourself, and exchange contact names.",
+            "pill1": "Introductions",
+            "pill2": "Speaking &amp; Names",
+            "action": "Launch Quest",
+            "url": "./PreA1/greetings/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-U02",
+            "tag": "Communicative Task",
+            "title": "Classroom Commands &amp; Objects",
+            "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Understand teacher instructions and identify immediate learning tools.",
+            "pill1": "Classroom English",
+            "pill2": "Objects &amp; Tools",
+            "action": "Launch Quest",
+            "url": "./PreA1/classroom/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-U03",
+            "tag": "Communicative Task",
+            "title": "Practical Information: Numbers 0–20",
+            "photo": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Exchange phone numbers, prices, and room numbers accurately.",
+            "pill1": "Digits 0–20",
+            "pill2": "Contact Info",
+            "action": "Launch Quest",
+            "url": "./PreA1/numbers/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-U04",
+            "tag": "Communicative Task",
+            "title": "Personal Details &amp; Name Spelling",
+            "photo": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Spell your first and last name letter by letter for administrative check-ins.",
+            "pill1": "Alphabet &amp; Spelling",
+            "pill2": "Identity Details",
+            "action": "Launch Quest",
+            "url": "./PreA1/whats-your-name/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-U05",
+            "tag": "Capstone Experience",
+            "title": "Pre-A1 Capstone: First Day at the Studio",
+            "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Simulate arriving at a new institute, meeting peers, and checking into class.",
+            "pill1": "Integrative Task",
+            "pill2": "First Day Flow",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "PA-L01",
+            "tag": "Phonics Gym",
+            "title": "English Alphabet &amp; Vowel Sounds",
+            "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Train letter names, vowels, and acoustic recognition with native audio.",
+            "pill1": "Phonemic Audio",
+            "pill2": "26 Letters",
+            "action": "Open Lab",
+            "url": "./PreA1/alphabet/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-L02",
+            "tag": "Structure Gym",
+            "title": "Age &amp; Numbers: How Old Are You?",
+            "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+            "tagline": "I am 18 years old — eliminate the native Spanish fossilized error 'I have'.",
+            "pill1": "I am + Age",
+            "pill2": "Eliminate 'I have'",
+            "action": "Open Lab",
+            "url": "./PreA1/how-old-are-you/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-L03",
+            "tag": "Survival Cues",
+            "title": "Classroom Requests &amp; Survival Cues",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Can you repeat, please? How do you spell...? Essential studio phrases.",
+            "pill1": "Polite Requests",
+            "pill2": "Class Clarification",
+            "action": "Open Lab",
+            "url": "./PreA1/classroom/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-L04",
+            "tag": "Vocabulary Lab",
+            "title": "Family &amp; Social Circle Deck",
+            "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Identify mother, father, brother, sister, and basic personal connections.",
+            "pill1": "Family Ties",
+            "pill2": "Audio Flashcards",
+            "action": "Open Lab",
+            "url": "./PreA1/family/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-L05",
+            "tag": "Vocabulary Lab",
+            "title": "Simple Descriptions &amp; Attributes",
+            "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Recognize basic physical traits: tall, short, glasses, friendly.",
+            "pill1": "Personal Traits",
+            "pill2": "Visual Vocabulary",
+            "action": "Open Lab",
+            "url": "./PreA1/descriptions/index.html",
+            "live": true
+          },
+          {
+            "unit": "PA-L06",
+            "tag": "Grammar Foundation",
+            "title": "Everyday Belongings with Have (I have / You have)",
+            "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Talk about items you carry: a pencil, a backpack, an ID card.",
+            "pill1": "I have / You have",
+            "pill2": "Classroom Objects",
+            "action": "Open Lab",
+            "url": "./PreA1/i-have/index.html",
+            "live": true
+          }
+        ]
       },
-      {
-        "unit": "PA-U02",
-        "tag": "Communicative Task",
-        "title": "Classroom Commands &amp; Objects",
-        "photo": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Understand teacher instructions and identify immediate learning tools.",
-        "pill1": "Classroom English",
-        "pill2": "Objects &amp; Tools",
-        "action": "Launch Quest",
-        "url": "./PreA1/classroom/index.html",
-        "live": true
+      "A1.1": {
+        "code": "A1.1",
+        "studentLevel": "A1.1",
+        "kicker": "A1.1 Trajectory · Stage 01 Foundations",
+        "meta": "CEFR A1.1 · General English (25 Topics)",
+        "title": "Foundations & <span class=\"gold-accent\">Social Identity</span>",
+        "desc": "A rigorous 4-unit trajectory across all 25 official topics. Master personal identity, descriptions, living spaces, and courteous everyday communication.",
+        "heroBg": "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "25",
+        "stat1Label": "Curriculum Topics",
+        "stat1Sub": "4 Official Units",
+        "stat2Num": "05",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Structure & vocabulary",
+        "stat3Num": "A1-",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Basic social exchanges",
+        "experiences": [
+          {
+            "unit": "A11-U01-01",
+            "tag": "Unit 01 · Topic 01 (Live)",
+            "title": "Greetings &amp; Introductions",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "First-day campus interactions: Say hello, give your name, and ask how others are doing.",
+            "pill1": "Meeting People",
+            "pill2": "Campus Life",
+            "action": "Launch Quest",
+            "url": "./A1.1/starting-university/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U01-02",
+            "tag": "Unit 01 · Topic 02 (Live)",
+            "title": "Personal Pronouns &amp; Verb Be (I / You)",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Confirm and correct personal identity with I am, You are, and short answers.",
+            "pill1": "I am / You are",
+            "pill2": "Affirmative &amp; Neg",
+            "action": "Launch Quest",
+            "url": "./A1.1/verb-to-be/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U01-03",
+            "tag": "Unit 01 · Topic 03 (Live)",
+            "title": "Countries &amp; Nationalities",
+            "photo": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Ask and state where peers are from: I am from Mexico, She is Canadian.",
+            "pill1": "Where are you from?",
+            "pill2": "Nationalities",
+            "action": "Launch Quest",
+            "url": "./PreA1/where-are-you-from/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U01-04",
+            "tag": "Unit 01 · Topic 04",
+            "title": "Cities &amp; Places of Residence",
+            "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Clarify home city and current address: Where do you live right now?",
+            "pill1": "Live in / From",
+            "pill2": "City Context",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U01-05",
+            "tag": "Unit 01 · Topic 05",
+            "title": "Jobs &amp; Occupations",
+            "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+            "tagline": "State professions and study fields using articles: I am an engineer, she is a student.",
+            "pill1": "a / an + Job",
+            "pill2": "Occupations",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U01-06",
+            "tag": "Unit 01 · Topic 06",
+            "title": "Personal Information Exchange",
+            "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Fill out a studio identity pass and exchange email addresses and phone numbers.",
+            "pill1": "Contact Cards",
+            "pill2": "Full Exchange",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U02-01",
+            "tag": "Unit 02 · Topic 01 (Live)",
+            "title": "People &amp; Relationships",
+            "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Introduce family members, roommates, and colleagues with accuracy.",
+            "pill1": "Family &amp; Friends",
+            "pill2": "Social Circle",
+            "action": "Launch Quest",
+            "url": "./PreA1/family/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U02-02",
+            "tag": "Unit 02 · Topic 02 (Live)",
+            "title": "Verb Be Expansion (He, She, It, We, They)",
+            "photo": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Subject-verb agreement across singular and plural referents in full profiles.",
+            "pill1": "He's / They're",
+            "pill2": "Full Pronouns",
+            "action": "Launch Quest",
+            "url": "./A1.1/verb-to-be/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U02-03",
+            "tag": "Unit 02 · Topic 03 (Live)",
+            "title": "Describing People &amp; Objects",
+            "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Use common descriptive adjectives: friendly, modern, busy, quiet, tall.",
+            "pill1": "Adjectives",
+            "pill2": "Descriptions",
+            "action": "Launch Quest",
+            "url": "./A1.1/adjectives/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U02-04",
+            "tag": "Unit 02 · Topic 04 (Live)",
+            "title": "Possessive Adjectives (My, Your, His, Her, Their)",
+            "photo": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Clarify whose belongings they are: His notebook, her backpack, our project.",
+            "pill1": "Possessives",
+            "pill2": "Belongings",
+            "action": "Launch Quest",
+            "url": "./A1.1/possessive-adjectives/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U02-05",
+            "tag": "Unit 02 · Topic 05",
+            "title": "Possessive 's &amp; Whose",
+            "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Distinguish between Carlos's phone and Who's calling.",
+            "pill1": "Saxon Genitive",
+            "pill2": "Whose...?",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U02-06",
+            "tag": "Unit 02 · Topic 06 (Live)",
+            "title": "Have &amp; Has (Affirmative Only)",
+            "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Express immediate belongings: I have a laptop, she has the keys.",
+            "pill1": "have / has",
+            "pill2": "Belongings",
+            "action": "Launch Quest",
+            "url": "./PreA1/i-have/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U02-07",
+            "tag": "Unit 02 · Topic 07",
+            "title": "Identifying People &amp; Belongings",
+            "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Match lost items in class: Is this Sofia's notebook?",
+            "pill1": "Lost &amp; Found",
+            "pill2": "Identification",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U03-01",
+            "tag": "Unit 03 · Topic 01 (Live)",
+            "title": "Rooms &amp; Everyday Places",
+            "photo": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Living room, kitchen, bedroom, workspace, campus library.",
+            "pill1": "Living Spaces",
+            "pill2": "Rooms",
+            "action": "Launch Quest",
+            "url": "./A1.1/around-the-house/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U03-02",
+            "tag": "Unit 03 · Topic 02",
+            "title": "Furniture &amp; Everyday Objects",
+            "photo": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Desks, lamps, chargers, windows, and studio appliances.",
+            "pill1": "Furniture",
+            "pill2": "Appliances",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U03-03",
+            "tag": "Unit 03 · Topic 03 (Live)",
+            "title": "There Is / There Are",
+            "photo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Describe presence of objects: There is a screen, There are two chairs.",
+            "pill1": "There is / are",
+            "pill2": "Singular &amp; Plural",
+            "action": "Launch Quest",
+            "url": "./A1.1/there-is-there-are/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U03-04",
+            "tag": "Unit 03 · Topic 04",
+            "title": "Prepositions of Place (in, on, under, next to)",
+            "photo": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Indicate where items sit in 3D studio spaces.",
+            "pill1": "in, on, under",
+            "pill2": "next to, behind",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U03-05",
+            "tag": "Unit 03 · Topic 05 (Live)",
+            "title": "Articles &amp; Demonstratives (This / That)",
+            "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Point to nearby and distant items: This phone here vs That board there.",
+            "pill1": "this / that",
+            "pill2": "these / those",
+            "action": "Launch Quest",
+            "url": "./A1.1/this-that-these-those/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U03-06",
+            "tag": "Unit 03 · Topic 06",
+            "title": "Describing a Space",
+            "photo": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Combine room layout, furniture, and presence into a coherent room description.",
+            "pill1": "Space Synthesis",
+            "pill2": "Room Layout",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U04-01",
+            "tag": "Unit 04 · Topic 01",
+            "title": "Welcoming Someone",
+            "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Welcome guests to an office or apartment with hospitable expressions.",
+            "pill1": "Welcome",
+            "pill2": "Hospitality",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U04-02",
+            "tag": "Unit 04 · Topic 02",
+            "title": "Simple Requests &amp; Polite Expressions",
+            "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Please, thank you, excuse me, you're welcome in everyday encounters.",
+            "pill1": "Courtesy Cues",
+            "pill2": "Daily Etiquette",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U04-03",
+            "tag": "Unit 04 · Topic 03",
+            "title": "Reading Personal Information",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Scan short badges, student cards, and simple social profiles for facts.",
+            "pill1": "Scanning Data",
+            "pill2": "Profile Facts",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U04-04",
+            "tag": "Unit 04 · Topic 04 (Live)",
+            "title": "Writing Short Messages (A1.1 Studio)",
+            "photo": "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Craft greeting notes, contact confirmations, and brief check-in messages.",
+            "pill1": "Message Writing",
+            "pill2": "A1.1 Capstone",
+            "action": "Launch Quest",
+            "url": "./A1.1/a1-1-studio/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-U04-05",
+            "tag": "Unit 04 · Topic 05",
+            "title": "Sharing Information with Others",
+            "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Orally report another classmate's profile to a small study group.",
+            "pill1": "Peer Presentation",
+            "pill2": "Speaking",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A11-U04-06",
+            "tag": "Unit 04 · Topic 06",
+            "title": "Integrated Communication (Capstone A1.1)",
+            "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Multi-step studio interaction: Welcome, describe, exchange contacts, and leave a note.",
+            "pill1": "Full Integration",
+            "pill2": "Exit Evaluation",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "A11-L01",
+            "tag": "Grammar Gym",
+            "title": "Verb To Be Precision Gym",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Affirmative, negative, yes/no queries, and short answers with am, is, are.",
+            "pill1": "am / is / are",
+            "pill2": "Conjugation Gym",
+            "action": "Open Lab",
+            "url": "./A1.1/verb-to-be/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-L02",
+            "tag": "Grammar Gym",
+            "title": "Possessive Adjectives Gym",
+            "photo": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Master my, your, his, her, its, our, their across authentic belongings.",
+            "pill1": "Possessives",
+            "pill2": "Precision Drills",
+            "action": "Open Lab",
+            "url": "./A1.1/possessive-adjectives/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-L03",
+            "tag": "Syntax Gym",
+            "title": "Demonstratives: This, That, These, Those",
+            "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Spatial anchoring: singular vs plural, near vs far across visual boards.",
+            "pill1": "Proximity Cues",
+            "pill2": "4 Demonstratives",
+            "action": "Open Lab",
+            "url": "./A1.1/this-that-these-those/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-L04",
+            "tag": "Syntax Gym",
+            "title": "Existential Structures: There is / There are",
+            "photo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Condition automatic choice between There is + singular and There are + plural.",
+            "pill1": "There is / are",
+            "pill2": "Quantity Agreement",
+            "action": "Open Lab",
+            "url": "./A1.1/there-is-there-are/index.html",
+            "live": true
+          },
+          {
+            "unit": "A11-L05",
+            "tag": "Morphology Gym",
+            "title": "Plurals &amp; Articles: a / an &amp; Irregulars",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Rules of a vs an before vowel sounds, regular -s/-es, and irregular plurals.",
+            "pill1": "a / an Rules",
+            "pill2": "Irregular Plurals",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
       },
-      {
-        "unit": "PA-U03",
-        "tag": "Communicative Task",
-        "title": "Practical Information: Numbers 0–20",
-        "photo": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Exchange phone numbers, prices, and room numbers accurately.",
-        "pill1": "Digits 0–20",
-        "pill2": "Contact Info",
-        "action": "Launch Quest",
-        "url": "./PreA1/numbers/index.html",
-        "live": true
+      "A1.2": {
+        "code": "A1.2",
+        "studentLevel": "A1.2",
+        "kicker": "A1.2 Trajectory · Stage 01 Foundations",
+        "meta": "CEFR A1.2 · General English (R2 Sequence)",
+        "title": "Daily Life & <span class=\"gold-accent\">Actions in Motion</span>",
+        "desc": "Habitual routines, frequency adverbs, real-time actions with Present Continuous, and high-frequency verb mastery under R2 sequence.",
+        "heroBg": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "07",
+        "stat1Label": "Communicative Units",
+        "stat1Sub": "Scope & Sequence Master",
+        "stat2Num": "07",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Structure & verb decks",
+        "stat3Num": "A1",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Everyday routines",
+        "experiences": [
+          {
+            "unit": "A1.2-U01",
+            "tag": "Macro-Unit 01 · Morning Myth",
+            "title": "The Morning Myth &amp; Modern Habits",
+            "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+            "tagline": "The 5 AM Club or Modern Madness? Schedules, sleep thieves (doomscrolling), and frequency adverbs.",
+            "pill1": "Present Simple",
+            "pill2": "Frequency Adverbs",
+            "action": "Launch Quest",
+            "url": "./A1.2/always-online-habits-lab/index.html",
+            "live": true
+          },
+          {
+            "unit": "A1.2-U02",
+            "tag": "Macro-Unit 02 · Friction",
+            "title": "Living with Others &amp; Inevitable Friction",
+            "photo": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Living with a control freak & the 'always 15 minutes late' friend. Simple Present 3rd person questions.",
+            "pill1": "Wh- Questions",
+            "pill2": "3rd Person -s",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A1.2-U03",
+            "tag": "Macro-Unit 03 · Diets &amp; Bills",
+            "title": "Food Culture, Diets &amp; The Dinner Bill",
+            "photo": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Grandma's feast vs miracle diets & splitting the bill drama. Countable/uncountable & would like.",
+            "pill1": "Count / Non-Count",
+            "pill2": "Ordering Food",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A1.2-U04",
+            "tag": "Macro-Unit 04 · Right Now (Active Class)",
+            "title": "White Lies We Tell Right Now &amp; Multitasking",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "The \"I'm On My Way\" Syndrome: Real-time actions, phone white lies ('I am walking out the door' in pajamas), and people-watching.",
+            "pill1": "Present Continuous",
+            "pill2": "White Lies",
+            "action": "Launch Class",
+            "url": "./A1.2/white-lies/index.html",
+            "live": true
+          },
+          {
+            "unit": "A1.2-U05",
+            "tag": "Macro-Unit 05 · Crisis Mode",
+            "title": "Habits vs. Right Now: Breaking Routines",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Crisis Mode: Breaking the pattern when daily routines shatter. Simple Present vs Present Continuous contrast.",
+            "pill1": "Simple vs Continuous",
+            "pill2": "Crisis Contrast",
+            "action": "Launch Quest",
+            "url": "./A2.1/present-simple-vs-continuous/index.html",
+            "live": true
+          },
+          {
+            "unit": "A1.2-U06",
+            "tag": "Macro-Unit 06 · Favor Trap",
+            "title": "Hidden Talents &amp; The Favor Trap",
+            "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+            "tagline": "The family IT guy & things we secretly hate doing: can/can't for favors and like/hate + -ing.",
+            "pill1": "can / can't",
+            "pill2": "like / hate + -ing",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A1.2-U07",
+            "tag": "Macro-Unit 07 · Capstone Studio",
+            "title": "A1.2 Capstone Studio: The 24-Hour Reality Check",
+            "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Full communicative audit of 24 real hours: routine, unexpected interruptions, and live multitasking dispatches.",
+            "pill1": "Capstone Studio",
+            "pill2": "CEFR A1.2 Exit",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "A12-L01",
+            "tag": "Grammar Gym",
+            "title": "Simple Present Verbs &amp; Third Person -s",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Master third-person -s/-es rules and distinguish habitual actions clearly.",
+            "pill1": "Third Person -s",
+            "pill2": "Verb Conjugation",
+            "action": "Open Lab",
+            "url": "./A1.2/simple-present-verbs/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L02",
+            "tag": "Syntax Gym",
+            "title": "Adverbs of Frequency Precision Gym",
+            "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Word order placement of always, usually, often, sometimes, never before main verbs.",
+            "pill1": "Frequency Scale",
+            "pill2": "Sentence Position",
+            "action": "Open Lab",
+            "url": "./A1.2/adverbs-of-frequency/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L03",
+            "tag": "Inquiry Lab",
+            "title": "Question Formulation: Do / Does &amp; Wh-",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Construct accurate yes/no queries and open information inquiries smoothly.",
+            "pill1": "Do / Does Auxiliary",
+            "pill2": "Wh- Questions",
+            "action": "Open Lab",
+            "url": "./A1.2/simple-present-questions/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L04",
+            "tag": "Interactive Game",
+            "title": "Grammar Battle Arena (Speed Drills)",
+            "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Compete against time in Rapid-Fire Simple Present and verb-form challenges.",
+            "pill1": "Speed Mechanics",
+            "pill2": "Grammar Arena",
+            "action": "Open Lab",
+            "url": "./A1.2/simple-present-battle/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L05",
+            "tag": "Verb Deck 1 (Live)",
+            "title": "Verbs 1: High-Frequency Action Verbs",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Essential verb flashcard deck with audio: buy, close, come, cook, do, drink, eat, get up, give, go.",
+            "pill1": "Deck Set 1",
+            "pill2": "Native Audio",
+            "action": "Open Deck",
+            "url": "./A1.2/verbs-1/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L06",
+            "tag": "Verb Deck 2 (Live)",
+            "title": "Verbs 2: Confidence &amp; Daily Life Deck",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Second verb set with audio: ask, begin, believe, bring, call, feel, find, get, happen, hear.",
+            "pill1": "Deck Set 2",
+            "pill2": "Native Audio",
+            "action": "Open Deck",
+            "url": "./A1.2/verbs-2/index.html",
+            "live": true
+          },
+          {
+            "unit": "A12-L07",
+            "tag": "Continuous Gym",
+            "title": "Present Continuous &amp; -ing Morphology Gym",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Master auxiliary be + verb-ing concordance, negative structures, and spelling rules (running, writing, lying).",
+            "pill1": "Continuous Gym",
+            "pill2": "-ing Rules",
+            "action": "Open Gym",
+            "url": "./A1.2/white-lies/index.html#grammar",
+            "live": true
+          }
+        ]
       },
-      {
-        "unit": "PA-U04",
-        "tag": "Communicative Task",
-        "title": "Personal Details &amp; Name Spelling",
-        "photo": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Spell your first and last name letter by letter for administrative check-ins.",
-        "pill1": "Alphabet &amp; Spelling",
-        "pill2": "Identity Details",
-        "action": "Launch Quest",
-        "url": "./PreA1/whats-your-name/index.html",
-        "live": true
+      "A2.1": {
+        "code": "A2.1",
+        "studentLevel": "A2.1",
+        "kicker": "A2.1 Trajectory · Stage 02 Expansion",
+        "meta": "CEFR A2.1 · General English",
+        "title": "Past Events, The City & <span class=\"gold-accent\">Anecdotes</span>",
+        "desc": "City navigation, shopping quantifiers, Simple Past memories with the FOMO Museum, and -ed phonics mastery.",
+        "heroBg": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "07",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Quantifiers & past drills",
+        "stat3Num": "A2",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Narratives & shopping",
+        "experiences": [
+          {
+            "unit": "A2.1-U01",
+            "tag": "Unit 01 · The City (Live)",
+            "title": "City Navigation, Directions &amp; Transit",
+            "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Navigate town, ask for directions, and use transit terms: Go straight, turn left, across from.",
+            "pill1": "Directions",
+            "pill2": "Getting Around",
+            "action": "Launch Quest",
+            "url": "./A1.1/in-the-city/index.html",
+            "live": true
+          },
+          {
+            "unit": "A2.1-U02",
+            "tag": "Unit 02 · Shopping",
+            "title": "Everyday Services, Shops &amp; Quantifiers",
+            "photo": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Shop for supplies: some, any, much, many, a lot of, and food containers.",
+            "pill1": "Shopping &amp; Food",
+            "pill2": "Quantifiers",
+            "action": "Launch Quest",
+            "url": "./A2.1/food-quantifiers/index.html",
+            "live": true
+          },
+          {
+            "unit": "A2.1-U03",
+            "tag": "Unit 03 · Past Memories (Gen 3)",
+            "title": "Past Events, Memories &amp; Anecdotes",
+            "photo": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
+            "tagline": "The FOMO Museum: Share where you were, what you did, and recall memorable experiences.",
+            "pill1": "The FOMO Museum",
+            "pill2": "Simple Past",
+            "action": "Launch Quest",
+            "url": "./A2.1/fomo-museum/index.html",
+            "live": true
+          },
+          {
+            "unit": "A2.1-U04",
+            "tag": "Unit 04 · Outings",
+            "title": "Outings, Appointments &amp; Mutual Plans",
+            "photo": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Coordinate weekend plans with peers, resolve an unforeseen delay, and suggest alternatives.",
+            "pill1": "Group Outings",
+            "pill2": "Arrangements",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "A21-L01",
+            "tag": "Quantifier Gym",
+            "title": "Countable &amp; Uncountable Quantifiers",
+            "photo": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Distinguish count nouns vs mass nouns across pantry lists: much, many, a little, a few.",
+            "pill1": "Count vs Non-Count",
+            "pill2": "some / any",
+            "action": "Open Lab",
+            "url": "./A2.1/countable-and-uncountable/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L02",
+            "tag": "Interactive Game (Live)",
+            "title": "The Fridge Battle: Food &amp; Quantifier Game",
+            "photo": "https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Fast-paced interactive challenge to stock the fridge and pick correct quantifiers.",
+            "pill1": "Fridge Battle",
+            "pill2": "Interactive Game",
+            "action": "Play Game",
+            "url": "./A2.1/fridge-battle/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L03",
+            "tag": "Grammar Gym",
+            "title": "Past of To Be: Was / Were Historical Simulator",
+            "photo": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Lock in was / were, wasn't / weren't, and questions across historical timelines.",
+            "pill1": "was / were",
+            "pill2": "Historical Clues",
+            "action": "Open Lab",
+            "url": "./A2.1/past-of-be/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L04",
+            "tag": "Interactive Game (Live)",
+            "title": "Guess Who? Past Biographies Challenge",
+            "photo": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Interactive biographical guessing game: Who was born in 1879? Deduce from clues.",
+            "pill1": "Guess Who Game",
+            "pill2": "Biographical Clues",
+            "action": "Play Game",
+            "url": "./A2.1/guess-who-past/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L05",
+            "tag": "Phonics Gym",
+            "title": "-ed Ending Pronunciation (/t/, /d/, /ɪd/)",
+            "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Train the ear to distinguish stopped /t/, voiced /d/, and syllabic /ɪd/ endings with audio.",
+            "pill1": "-ed Phonics",
+            "pill2": "Intelligibility",
+            "action": "Open Lab",
+            "url": "./A2.1/ed-pronunciation/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L06",
+            "tag": "Grammar Lab",
+            "title": "Simple Past Regular &amp; Irregular Verbs",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Did + base form in questions and negatives, plus essential irregular past forms.",
+            "pill1": "Did / Didn't",
+            "pill2": "Irregular Verbs",
+            "action": "Open Lab",
+            "url": "./A2.1/simple-past-class/index.html",
+            "live": true
+          },
+          {
+            "unit": "A21-L07",
+            "tag": "Verb Deck (Live)",
+            "title": "Past Verbs Review Deck",
+            "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+            "tagline": "High-speed review flashcards for past forms: went, saw, bought, came, had, made.",
+            "pill1": "Past Verbs Deck",
+            "pill2": "Speed Recall",
+            "action": "Open Deck",
+            "url": "./A2.1/past-verbs-review/index.html",
+            "live": true
+          }
+        ]
       },
-      {
-        "unit": "PA-U05",
-        "tag": "Capstone Experience",
-        "title": "Pre-A1 Capstone: First Day at the Studio",
-        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Simulate arriving at a new institute, meeting peers, and checking into class.",
-        "pill1": "Integrative Task",
-        "pill2": "First Day Flow",
-        "action": "Launch Quest",
-        "soon": true
+      "A2.2": {
+        "code": "A2.2",
+        "studentLevel": "A2.2",
+        "kicker": "A2.2 Trajectory · Stage 02 Expansion",
+        "meta": "CEFR A2.2 · General English",
+        "title": "Comparisons, Travel & <span class=\"gold-accent\">Life Milestones</span>",
+        "desc": "Comparing options, planning journeys, future arrangements, and first steps into the Present Perfect.",
+        "heroBg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "04",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Comparatives & perfect",
+        "stat3Num": "A2+",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Travel & life stories",
+        "experiences": [
+          {
+            "unit": "A2.2-U01",
+            "tag": "Unit 01 · Decisions",
+            "title": "Making Choices &amp; Comparing Options",
+            "photo": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Compare gadgets, housing options, or study programs: faster, more affordable, the best.",
+            "pill1": "Comparatives",
+            "pill2": "Superlatives",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A2.2-U02",
+            "tag": "Unit 02 · Travel",
+            "title": "Journeys, Booking &amp; Transport",
+            "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Inquire at booking desks, manage connections, and resolve luggage inquiries.",
+            "pill1": "Travel Logistics",
+            "pill2": "Bookings",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A2.2-U03",
+            "tag": "Unit 03 · Future Plans",
+            "title": "Future Plans, Intentions &amp; Predictions",
+            "photo": "https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Contrast fixed appointments (Present Continuous) with intentions (be going to) and will.",
+            "pill1": "going to / will",
+            "pill2": "Arrangements",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "A2.2-U04",
+            "tag": "Unit 04 · Experience",
+            "title": "Life Milestones &amp; Life Experiences",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Have you ever...? Exchange life adventures and significant achievements.",
+            "pill1": "Present Perfect",
+            "pill2": "ever / never",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "A22-L01",
+            "tag": "Verb Lab",
+            "title": "Past Participle Mastery Gym",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Train irregular V3 participles (seen, eaten, driven, flown) with audio triggers.",
+            "pill1": "Past Participles",
+            "pill2": "V3 Automation",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "A22-L02",
+            "tag": "Syntax Gym",
+            "title": "Comparative &amp; Superlative Precision",
+            "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Short adjectives (-er/the -est) vs multi-syllable (more/most) and irregulars (better/best).",
+            "pill1": "Adjective Inflexion",
+            "pill2": "Comparison Patterns",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "A22-L03",
+            "tag": "Tense Contrast",
+            "title": "Present Perfect vs Simple Past Contrast",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Specific past time markers (yesterday, in 2022) vs open experience time (ever, so far).",
+            "pill1": "Tense Boundary",
+            "pill2": "Time Adverbials",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "A22-L04",
+            "tag": "Modal Gym",
+            "title": "Obligation, Prohibition &amp; Advice",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Must, have to, should, and can't across safety rules, house guidelines, and transit codes.",
+            "pill1": "must / have to",
+            "pill2": "should / advice",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "B1.1": {
+        "code": "B1.1",
+        "studentLevel": "B1.1",
+        "kicker": "B1.1 Trajectory · Stage 03 Independent User",
+        "meta": "CEFR B1.1 · General English",
+        "title": "Narratives, Goals & <span class=\"gold-accent\">Stance</span>",
+        "desc": "Extended story-telling, discussing personal goals, explaining causes and consequences, and managing everyday problem scenarios.",
+        "heroBg": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "04",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Narratives & linkers",
+        "stat3Num": "B1",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Independent communication",
+        "experiences": [
+          {
+            "unit": "B1.1-U01",
+            "tag": "Unit 01 · Storytelling",
+            "title": "Complex Narratives &amp; Parallel Events",
+            "photo": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Weave past simple, continuous, and perfect into compelling personal stories.",
+            "pill1": "Past Narrative",
+            "pill2": "while / when / had",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1.1-U02",
+            "tag": "Unit 02 · Aspirations",
+            "title": "Personal Goals &amp; Life Trajectories",
+            "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Pitch your academic or career aspirations: gerunds vs infinitives for life ambitions.",
+            "pill1": "Ambitions",
+            "pill2": "verb + -ing / to",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1.1-U03",
+            "tag": "Unit 03 · Opinions",
+            "title": "Opinions, Feelings &amp; Stance",
+            "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Agree, disagree diplomatically, and defend a viewpoint in an informal forum.",
+            "pill1": "In my opinion...",
+            "pill2": "Diplomatic Disagreement",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1.1-U04",
+            "tag": "Unit 04 · Processes",
+            "title": "Causes, Consequences &amp; Sequential Processes",
+            "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Explain why something went wrong, how a procedure works, and propose corrective steps.",
+            "pill1": "due to / as a result",
+            "pill2": "Process Flow",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "B11-L01",
+            "tag": "Narrative Lab",
+            "title": "Narrative Tenses Integration Lab",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Synchronize background scenes (was doing), main plot points (did), and earlier events (had done).",
+            "pill1": "3-Tense Weave",
+            "pill2": "Plot Mechanics",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B11-L02",
+            "tag": "Conditional Lab",
+            "title": "First &amp; Second Conditionals Lab",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Real future consequences (If you study, you will) vs hypothetical dilemmas (If I had more time, I would).",
+            "pill1": "Real vs Hypothetical",
+            "pill2": "Condition Clauses",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B11-L03",
+            "tag": "Voice Gym",
+            "title": "Passive Voice in News &amp; Incident Reports",
+            "photo": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Focus on affected objects and actions: The flight was cancelled, the window was broken.",
+            "pill1": "be + past participle",
+            "pill2": "Incident Reports",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B11-L04",
+            "tag": "Lexicon Gym",
+            "title": "Collocations &amp; Phrasal Verbs in Context",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Natural word partnerships (make a decision) and separable vs inseparable phrasal verbs.",
+            "pill1": "Collocations",
+            "pill2": "Phrasal Mechanics",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "B1.2": {
+        "code": "B1.2",
+        "studentLevel": "B1.2",
+        "kicker": "B1.2 Trajectory · Stage 03 Independent User",
+        "meta": "CEFR B1.2 · General English (Gen 3 Experience)",
+        "title": "Service Claims, Deduction & <span class=\"gold-accent\">Independence</span>",
+        "desc": "Defend rights, negotiate solutions in unexpected crises (The 8:45 Flight), and use logical deduction modals.",
+        "heroBg": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "04",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Modals & reported speech",
+        "stat3Num": "B1+",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Problem resolution",
+        "experiences": [
+          {
+            "unit": "B1.2-U01",
+            "tag": "Airport Disruption (Gen 3 Live)",
+            "title": "Handling Service Disruptions &amp; Formal Claims",
+            "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+            "tagline": "The 8:45 Flight: Your connecting flight is cancelled. Negotiate vouchers, alternatives, and hotel transfers.",
+            "pill1": "The 8:45 Flight",
+            "pill2": "Negotiation Quest",
+            "action": "Launch Quest",
+            "url": "./Guest/the-845-flight/index.html",
+            "live": true
+          },
+          {
+            "unit": "B1.2-U02",
+            "tag": "Unit 02 · Dilemmas",
+            "title": "Hypotheses, Dilemmas &amp; Consequences",
+            "photo": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Weigh pros and cons in workplace and personal dilemmas using complex conditionals.",
+            "pill1": "Dilemmas",
+            "pill2": "Mixed Conditionals",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1.2-U03",
+            "tag": "Unit 03 · Procedures",
+            "title": "Processes &amp; Objective Descriptions",
+            "photo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Explain step-by-step procedures objectively without personal bias.",
+            "pill1": "Technical Clarity",
+            "pill2": "Impersonal Voice",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1.2-U04",
+            "tag": "Unit 04 · Deduction",
+            "title": "Especulation &amp; Logical Deductions",
+            "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Deduce facts from evidence: It must be true, They can't have forgotten.",
+            "pill1": "Logical Deduction",
+            "pill2": "must / can't be",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "B12-L01",
+            "tag": "Modal Gym",
+            "title": "Modals of Deduction: Must, Might, Can't",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Calibrate logical certainty: 95% certain (must), 50% possible (might), 0% possible (can't).",
+            "pill1": "Certainty Degrees",
+            "pill2": "Deduction Clues",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B12-L02",
+            "tag": "Syntax Lab",
+            "title": "Reported Speech &amp; Summary Reporting",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Shift statements, questions, and commands from direct conversation to formal briefing notes.",
+            "pill1": "Tense Backshift",
+            "pill2": "Reporting Verbs",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B12-L03",
+            "tag": "Discourse Gym",
+            "title": "Advanced Discourse Markers &amp; Linkers",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Master sophisticated transitions: furthermore, however, on the contrary, whereas, nevertheless.",
+            "pill1": "Academic Linkers",
+            "pill2": "Contrast &amp; Flow",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B12-L04",
+            "tag": "Phonology Lab",
+            "title": "Sentence Stress &amp; Intonation in Persuasion",
+            "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Place nucleus stress on key words to highlight contrast, urgency, or polite firmness.",
+            "pill1": "Nuclear Stress",
+            "pill2": "Persuasive Cadence",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "B1+": {
+        "code": "B1+",
+        "studentLevel": "B1+",
+        "kicker": "B1+ Trajectory · Pre-B2 Horizon",
+        "meta": "CEFR B1+ · General & Professional Synthesis",
+        "title": "Mediation, Profile Defense & <span class=\"gold-accent\">Synthesis</span>",
+        "desc": "Defending an executive portfolio, mediating complex messages across parties, corporate protocols, and structured debate.",
+        "heroBg": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Communicative Quests",
+        "stat1Sub": "Authentic scenarios",
+        "stat2Num": "04",
+        "stat2Label": "Language Labs",
+        "stat2Sub": "Inversion & register",
+        "stat3Num": "B1+",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Mediation & debate",
+        "experiences": [
+          {
+            "unit": "B1+-U01",
+            "tag": "Unit 01 · Defense",
+            "title": "Structured Interview &amp; Profile Defense",
+            "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Present your professional value, defend project choices, and respond under interview pressure.",
+            "pill1": "Profile Defense",
+            "pill2": "Competency Pitch",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1+-U02",
+            "tag": "Unit 02 · Directives",
+            "title": "Corporate Protocols, Directives &amp; Procedures",
+            "photo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Interpret compliance guidelines and summarize company operating procedures for a team.",
+            "pill1": "Compliance Protocols",
+            "pill2": "Executive Directives",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1+-U03",
+            "tag": "Unit 03 · Mediation",
+            "title": "Executive Mediation, Messages &amp; Synthesis Notes",
+            "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Relay complex technical points to a non-expert client; bridge cultural and linguistic differences.",
+            "pill1": "Mediation Tasks",
+            "pill2": "Executive Notes",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "B1+-U04",
+            "tag": "Unit 04 · Argumentation",
+            "title": "Debate, Structured Argumentation &amp; Compromise",
+            "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Build a persuasive case, rebut opposing data politely, and negotiate a workable consensus.",
+            "pill1": "Debate Arena",
+            "pill2": "Constructive Compromise",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "B1P-L01",
+            "tag": "Syntax Lab",
+            "title": "Complex Sentence Architecture &amp; Inversion",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Not only... but also, Hardly had we arrived when... Elevated rhetorical balance.",
+            "pill1": "Negative Inversion",
+            "pill2": "Rhetorical Balance",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B1P-L02",
+            "tag": "Register Lab",
+            "title": "Academic &amp; Professional Register Gym",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Condition automatic lexical elevation: get &rarr; obtain, ask for &rarr; request, big &rarr; substantial.",
+            "pill1": "Lexical Elevation",
+            "pill2": "Formality Tone",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B1P-L03",
+            "tag": "Pragmatics Lab",
+            "title": "Hedging, Stance &amp; Diplomatic Nuance",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Softening assertions: It appears that, The evidence tends to suggest, With all due respect.",
+            "pill1": "Hedging Markers",
+            "pill2": "Diplomatic Polish",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "B1P-L04",
+            "tag": "Vocabulary Gym",
+            "title": "Executive Phrasal Verbs &amp; Idiomatic Flow",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Integrate native business idioms (touch base, drill down, circle back) with exact precision.",
+            "pill1": "Business Idioms",
+            "pill2": "Executive Collocations",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "Business": {
+        "code": "Business English",
+        "studentLevel": "Executive Track",
+        "kicker": "Specialized Track · Executive Business English",
+        "meta": "Corporate & Workplace Communication (6 Tracks · 24 Modules)",
+        "title": "Executive Communication & <span class=\"gold-accent\">Strategy</span>",
+        "desc": "High-stakes corporate communication: crisis management, deal-making, diplomatic writing, and executive leadership.",
+        "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "06",
+        "stat1Label": "Specialized Tracks",
+        "stat1Sub": "Cross-border scenarios",
+        "stat2Num": "04",
+        "stat2Label": "Executive Labs",
+        "stat2Sub": "Memos, cadence & debate",
+        "stat3Num": "C1-",
+        "stat3Label": "Target Profile",
+        "stat3Sub": "Boardroom proficiency",
+        "experiences": [
+          {
+            "unit": "BUS-U01",
+            "tag": "Track 1 · Operations & Crisis",
+            "title": "Negotiating a Deadline: Supply Chain Crisis",
+            "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Renegotiate critical SLA delivery timelines with client Horizon Mobility after a semiconductor supplier delay in Shenzhen.",
+            "pill1": "First Conditional",
+            "pill2": "Emergency Logistics",
+            "action": "Launch Simulation",
+            "url": "./Business/negotiating-a-deadline/index.html",
+            "live": true
+          },
+          {
+            "unit": "BUS-U02",
+            "tag": "Track 2 · High Finance",
+            "title": "Quarterly Earnings &amp; Financial Synthesis",
+            "photo": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Synthesize balance sheets, explain EBITDA margin compression, and field analyst queries.",
+            "pill1": "EBITDA &amp; Margins",
+            "pill2": "Analyst Q&amp;A",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "BUS-U03",
+            "tag": "Track 3 · Commercial Deals",
+            "title": "Cross-Border Contract Negotiations",
+            "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Anchor pricing, negotiate indemnification clauses, and reach mutual settlement.",
+            "pill1": "Contract Terms",
+            "pill2": "Tactical Bargaining",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "BUS-U04",
+            "tag": "Track 4 · Reputation",
+            "title": "Enterprise Crisis PR &amp; Media Handling",
+            "photo": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Lead press conference statements, manage hostile questions, and protect enterprise brand value.",
+            "pill1": "Crisis Press Room",
+            "pill2": "Brand Protection",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "BUS-U05",
+            "tag": "Track 5 · Expansion",
+            "title": "Global Expansion &amp; M&amp;A Pitch",
+            "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Defend acquisition valuations, post-merger integration plans, and cultural synergy models.",
+            "pill1": "M&amp;A Strategy",
+            "pill2": "Synergy Defense",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "BUS-U06",
+            "tag": "Track 6 · Boardroom",
+            "title": "Boardroom Strategic Capstone Simulation",
+            "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Present 3-year strategic growth horizon to institutional investors and answer governance challenges.",
+            "pill1": "Board Defense",
+            "pill2": "Executive Capstone",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "BUS-L01",
+            "tag": "Financial Lexicon",
+            "title": "Quantitative Lexicon &amp; Financial Modeling",
+            "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Condition terminology for yield, variance, liquidity, amortization, and cap tables.",
+            "pill1": "Quantitative Flow",
+            "pill2": "Financial Metrics",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "BUS-L02",
+            "tag": "Writing Lab",
+            "title": "Executive Memo &amp; Board Resolution Drafting",
+            "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Draft concise C-suite briefing memos with BLUF architecture (Bottom Line Up Front).",
+            "pill1": "BLUF Architecture",
+            "pill2": "Board Resolutions",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "BUS-L03",
+            "tag": "Pragmatics Lab",
+            "title": "Diplomatic Refusal &amp; Tactical Concession",
+            "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Say no without damaging client ties: conditional concessions and professional hedging.",
+            "pill1": "Tactical Concession",
+            "pill2": "Diplomatic Polish",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "BUS-L04",
+            "tag": "Phonology Lab",
+            "title": "Executive Cadence &amp; Voice Conditioning",
+            "photo": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Train low-pitch authority, deliberate pause phrasing, and eliminating fillers in presentations.",
+            "pill1": "Executive Cadence",
+            "pill2": "Vocal Authority",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "TOEFL": {
+        "code": "TOEFL ITP",
+        "studentLevel": "Certification Lab",
+        "kicker": "Institutional Exam Preparation · CEFR B1–B2 / CENNI",
+        "meta": "TOEFL ITP® Diagnostic Mastery (Section 1, 2, 3)",
+        "title": "TOEFL ITP® <span class=\"gold-accent\">Diagnostic Lab</span>",
+        "desc": "Auditory trap detection, grammar error spotting (Section 2 Structure), and timed expository reading strategies.",
+        "heroBg": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Exam Sections",
+        "stat1Sub": "Standardized format",
+        "stat2Num": "04",
+        "stat2Label": "Strategy Labs",
+        "stat2Sub": "Traps & speed reading",
+        "stat3Num": "550+",
+        "stat3Label": "Target Score",
+        "stat3Sub": "Academic degree pass",
+        "experiences": [
+          {
+            "unit": "SEC-01",
+            "tag": "Section 1 · Listening",
+            "title": "Academic Lecture &amp; Dialogue Synthesis",
+            "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Deconstruct Part A campus dialogues and Part C university mini-lectures under single-play audio.",
+            "pill1": "Part A &amp; C Listening",
+            "pill2": "Inference Traps",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "SEC-02",
+            "tag": "Section 2 · Structure (Live)",
+            "title": "Section 2: Structure &amp; Written Expression Trap Battle",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Identify subject-verb inversion traps, parallel syntax flaws, and connector errors in 25 seconds per item.",
+            "pill1": "Trap Battle Arena",
+            "pill2": "Error Identification",
+            "action": "Launch Quest",
+            "url": "./TOEFL/trap-battle/index.html",
+            "live": true
+          },
+          {
+            "unit": "SEC-03",
+            "tag": "Section 3 · Reading",
+            "title": "Section 3: Academic Reading &amp; Speed Navigation",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Scan 5 university textbook passages in 55 minutes: vocabulary-in-context, main idea, and negative factuals.",
+            "pill1": "Academic Reading",
+            "pill2": "55-Minute Clock",
+            "action": "Launch Quest",
+            "soon": true
+          },
+          {
+            "unit": "SEC-04",
+            "tag": "Full Diagnostic",
+            "title": "Full-Length Diagnostic Simulation (ITP 140 Items)",
+            "photo": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+            "tagline": "115-minute complete standardized test under authentic ETS timing with instant CEFR scaled band conversion.",
+            "pill1": "140-Question Run",
+            "pill2": "Scaled Band 310–677",
+            "action": "Launch Quest",
+            "soon": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "TFL-L01",
+            "tag": "Interactive Game (Live)",
+            "title": "Grammatical Error Spotting: Part B Traps",
+            "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Interactive 4-underlined word error detection game (items 16–40).",
+            "pill1": "Written Expression",
+            "pill2": "Underlined Traps",
+            "action": "Play Game",
+            "url": "./TOEFL/trap-battle/index.html",
+            "live": true
+          },
+          {
+            "unit": "TFL-L02",
+            "tag": "Lexicon Gym",
+            "title": "Academic Vocabulary Frequency Matrix (Tier 2/3)",
+            "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Condition high-yield academic verbs, affixes, and discourse connectives.",
+            "pill1": "Tier 2/3 Lexicon",
+            "pill2": "Context Clues",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "TFL-L03",
+            "tag": "Strategy Gym",
+            "title": "Negative Factual &amp; Purpose Question Drills",
+            "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Target the hardest reading question formats: EXCEPT questions and author attitude inferences.",
+            "pill1": "EXCEPT Drills",
+            "pill2": "Author Stance",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "TFL-L04",
+            "tag": "Phonology Lab",
+            "title": "Lecture Intonation &amp; Speaker Stance Decoding",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Decode irony, doubt, and implicit agreement in university dialogue audio clips.",
+            "pill1": "Pragmatic Listening",
+            "pill2": "Attitude Cues",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
+      },
+      "TOEIC": {
+        "code": "TOEIC",
+        "studentLevel": "Corporate Benchmark",
+        "kicker": "Workplace Certification · CEFR B1–B2 / Multinational Standard",
+        "meta": "TOEIC® Listening & Reading Strategy Track",
+        "title": "TOEIC® <span class=\"gold-accent\">Strategy Hub</span>",
+        "desc": "Speed mechanics for Part 5, 6, 7 and auditory trap neutralization for workplace advancement.",
+        "heroBg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=85",
+        "stat1Num": "04",
+        "stat1Label": "Part 5 Strategy Modules",
+        "stat1Sub": "Grammar & speed",
+        "stat2Num": "04",
+        "stat2Label": "Syntax Labs",
+        "stat2Sub": "Speed drills & diagnostics",
+        "stat3Num": "850+",
+        "stat3Label": "Target Score",
+        "stat3Sub": "Global leadership benchmark",
+        "experiences": [
+          {
+            "unit": "PART-01",
+            "tag": "Strategy Track (Live Lab)",
+            "title": "Part 5: Word Form Matrix &amp; Morphological Triggers",
+            "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Instantly identify required parts of speech: noun suffixes vs adverb modifiers in under 10 seconds.",
+            "pill1": "Part 5 Speed",
+            "pill2": "Word Forms",
+            "action": "Launch Part",
+            "url": "./TOEIC/word-forms/index.html",
+            "live": true
+          },
+          {
+            "unit": "PART-02",
+            "tag": "Syntax Track (Live Lab)",
+            "title": "Part 5: Verb Tenses &amp; Timeline Consistency",
+            "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Lock in temporal trigger words (since, recently, by the time) in under 15 seconds.",
+            "pill1": "Verb Timeline",
+            "pill2": "Temporal Triggers",
+            "action": "Launch Part",
+            "url": "./TOEIC/verb-tenses/index.html",
+            "live": true
+          },
+          {
+            "unit": "PART-03",
+            "tag": "Lexicon Track (Live Lab)",
+            "title": "Part 5: Prepositions of Time, Space &amp; Business Idioms",
+            "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Neutralize prepositions traps: during vs while, despite vs although, at/on/in.",
+            "pill1": "Preposition Gym",
+            "pill2": "Corporate Idioms",
+            "action": "Launch Part",
+            "url": "./TOEIC/prepositions/index.html",
+            "live": true
+          },
+          {
+            "unit": "PART-04",
+            "tag": "Grammar Track (Live Lab)",
+            "title": "Part 5: Conjunctions vs Prepositions (Because vs Due To)",
+            "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Instantly distinguish clause connectors from prepositional phrases across corporate sentences.",
+            "pill1": "Conjunctions",
+            "pill2": "Clause Logic",
+            "action": "Launch Part",
+            "url": "./TOEIC/conjunctions/index.html",
+            "live": true
+          }
+        ],
+        "labs": [
+          {
+            "unit": "TC-L01",
+            "tag": "Speed Drill (Live Lab)",
+            "title": "Subject-Verb Agreement Speed Drill",
+            "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Filter intervening prepositional phrases to lock subject and verb in 12 seconds.",
+            "pill1": "S-V Agreement",
+            "pill2": "12-Second Clock",
+            "action": "Open Lab",
+            "url": "./TOEIC/subject-verb-agreement/index.html",
+            "live": true
+          },
+          {
+            "unit": "TC-L02",
+            "tag": "Pronoun Gym (Live Lab)",
+            "title": "Pronoun Case &amp; Reflexive Precision Gym",
+            "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Master subject pronouns, object pronouns, possessive determiners, and reflexives (-self).",
+            "pill1": "Pronoun Cases",
+            "pill2": "Corporate Memos",
+            "action": "Open Lab",
+            "url": "./TOEIC/pronouns/index.html",
+            "live": true
+          },
+          {
+            "unit": "TC-L03",
+            "tag": "Collocations Lab",
+            "title": "Corporate Collocation Frequency Drills",
+            "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+            "tagline": "Condition instantaneous recognition of high-frequency corporate pairings.",
+            "pill1": "Pairing Recognition",
+            "pill2": "Frequency Speed",
+            "action": "Open Lab",
+            "soon": true
+          },
+          {
+            "unit": "TC-L04",
+            "tag": "Diagnostic Arena",
+            "title": "Full 100-Item Reading Diagnostic (Part 5, 6, 7)",
+            "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+            "tagline": "75-minute timed simulation across single, double, and triple passage sets.",
+            "pill1": "Reading Benchmark",
+            "pill2": "Scaled Diagnostic",
+            "action": "Open Lab",
+            "soon": true
+          }
+        ]
       }
-    ],
-    "labs": [
-      {
-        "unit": "PA-L01",
-        "tag": "Phonics Gym",
-        "title": "English Alphabet &amp; Vowel Sounds",
-        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Train letter names, vowels, and acoustic recognition with native audio.",
-        "pill1": "Phonemic Audio",
-        "pill2": "26 Letters",
-        "action": "Open Lab",
-        "url": "./PreA1/alphabet/index.html",
-        "live": true
-      },
-      {
-        "unit": "PA-L02",
-        "tag": "Structure Gym",
-        "title": "Age &amp; Numbers: How Old Are You?",
-        "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
-        "tagline": "I am 18 years old — eliminate the native Spanish fossilized error 'I have'.",
-        "pill1": "I am + Age",
-        "pill2": "Eliminate 'I have'",
-        "action": "Open Lab",
-        "url": "./PreA1/how-old-are-you/index.html",
-        "live": true
-      },
-      {
-        "unit": "PA-L03",
-        "tag": "Survival Cues",
-        "title": "Classroom Requests &amp; Survival Cues",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Can you repeat, please? How do you spell...? Essential studio phrases.",
-        "pill1": "Polite Requests",
-        "pill2": "Class Clarification",
-        "action": "Open Lab",
-        "url": "./PreA1/classroom/index.html",
-        "live": true
-      },
-      {
-        "unit": "PA-L04",
-        "tag": "Vocabulary Lab",
-        "title": "Family &amp; Social Circle Deck",
-        "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Identify mother, father, brother, sister, and basic personal connections.",
-        "pill1": "Family Ties",
-        "pill2": "Audio Flashcards",
-        "action": "Open Lab",
-        "url": "./PreA1/family/index.html",
-        "live": true
-      },
-      {
-        "unit": "PA-L05",
-        "tag": "Vocabulary Lab",
-        "title": "Simple Descriptions &amp; Attributes",
-        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Recognize basic physical traits: tall, short, glasses, friendly.",
-        "pill1": "Personal Traits",
-        "pill2": "Visual Vocabulary",
-        "action": "Open Lab",
-        "url": "./PreA1/descriptions/index.html",
-        "live": true
-      },
-      {
-        "unit": "PA-L06",
-        "tag": "Grammar Foundation",
-        "title": "Everyday Belongings with Have (I have / You have)",
-        "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Talk about items you carry: a pencil, a backpack, an ID card.",
-        "pill1": "I have / You have",
-        "pill2": "Classroom Objects",
-        "action": "Open Lab",
-        "url": "./PreA1/i-have/index.html",
-        "live": true
-      }
-    ]
-  },
-  "A1.1": {
-    "code": "A1.1",
-    "studentLevel": "A1.1",
-    "kicker": "A1.1 Trajectory · Stage 01 Foundations",
-    "meta": "CEFR A1.1 · General English (25 Topics)",
-    "title": "Foundations & <span class=\"gold-accent\">Social Identity</span>",
-    "desc": "A rigorous 4-unit trajectory across all 25 official topics. Master personal identity, descriptions, living spaces, and courteous everyday communication.",
-    "heroBg": "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "25",
-    "stat1Label": "Curriculum Topics",
-    "stat1Sub": "4 Official Units",
-    "stat2Num": "05",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Structure & vocabulary",
-    "stat3Num": "A1-",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Basic social exchanges",
-    "experiences": [
-      {
-        "unit": "A11-U01-01",
-        "tag": "Unit 01 · Topic 01 (Live)",
-        "title": "Greetings &amp; Introductions",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "First-day campus interactions: Say hello, give your name, and ask how others are doing.",
-        "pill1": "Meeting People",
-        "pill2": "Campus Life",
-        "action": "Launch Quest",
-        "url": "./A1.1/starting-university/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U01-02",
-        "tag": "Unit 01 · Topic 02 (Live)",
-        "title": "Personal Pronouns &amp; Verb Be (I / You)",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Confirm and correct personal identity with I am, You are, and short answers.",
-        "pill1": "I am / You are",
-        "pill2": "Affirmative &amp; Neg",
-        "action": "Launch Quest",
-        "url": "./A1.1/verb-to-be/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U01-03",
-        "tag": "Unit 01 · Topic 03 (Live)",
-        "title": "Countries &amp; Nationalities",
-        "photo": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Ask and state where peers are from: I am from Mexico, She is Canadian.",
-        "pill1": "Where are you from?",
-        "pill2": "Nationalities",
-        "action": "Launch Quest",
-        "url": "./PreA1/where-are-you-from/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U01-04",
-        "tag": "Unit 01 · Topic 04",
-        "title": "Cities &amp; Places of Residence",
-        "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Clarify home city and current address: Where do you live right now?",
-        "pill1": "Live in / From",
-        "pill2": "City Context",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U01-05",
-        "tag": "Unit 01 · Topic 05",
-        "title": "Jobs &amp; Occupations",
-        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-        "tagline": "State professions and study fields using articles: I am an engineer, she is a student.",
-        "pill1": "a / an + Job",
-        "pill2": "Occupations",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U01-06",
-        "tag": "Unit 01 · Topic 06",
-        "title": "Personal Information Exchange",
-        "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Fill out a studio identity pass and exchange email addresses and phone numbers.",
-        "pill1": "Contact Cards",
-        "pill2": "Full Exchange",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U02-01",
-        "tag": "Unit 02 · Topic 01 (Live)",
-        "title": "People &amp; Relationships",
-        "photo": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Introduce family members, roommates, and colleagues with accuracy.",
-        "pill1": "Family &amp; Friends",
-        "pill2": "Social Circle",
-        "action": "Launch Quest",
-        "url": "./PreA1/family/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U02-02",
-        "tag": "Unit 02 · Topic 02 (Live)",
-        "title": "Verb Be Expansion (He, She, It, We, They)",
-        "photo": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Subject-verb agreement across singular and plural referents in full profiles.",
-        "pill1": "He's / They're",
-        "pill2": "Full Pronouns",
-        "action": "Launch Quest",
-        "url": "./A1.1/verb-to-be/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U02-03",
-        "tag": "Unit 02 · Topic 03 (Live)",
-        "title": "Describing People &amp; Objects",
-        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Use common descriptive adjectives: friendly, modern, busy, quiet, tall.",
-        "pill1": "Adjectives",
-        "pill2": "Descriptions",
-        "action": "Launch Quest",
-        "url": "./A1.1/adjectives/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U02-04",
-        "tag": "Unit 02 · Topic 04 (Live)",
-        "title": "Possessive Adjectives (My, Your, His, Her, Their)",
-        "photo": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Clarify whose belongings they are: His notebook, her backpack, our project.",
-        "pill1": "Possessives",
-        "pill2": "Belongings",
-        "action": "Launch Quest",
-        "url": "./A1.1/possessive-adjectives/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U02-05",
-        "tag": "Unit 02 · Topic 05",
-        "title": "Possessive 's &amp; Whose",
-        "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Distinguish between Carlos's phone and Who's calling.",
-        "pill1": "Saxon Genitive",
-        "pill2": "Whose...?",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U02-06",
-        "tag": "Unit 02 · Topic 06 (Live)",
-        "title": "Have &amp; Has (Affirmative Only)",
-        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Express immediate belongings: I have a laptop, she has the keys.",
-        "pill1": "have / has",
-        "pill2": "Belongings",
-        "action": "Launch Quest",
-        "url": "./PreA1/i-have/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U02-07",
-        "tag": "Unit 02 · Topic 07",
-        "title": "Identifying People &amp; Belongings",
-        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Match lost items in class: Is this Sofia's notebook?",
-        "pill1": "Lost &amp; Found",
-        "pill2": "Identification",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U03-01",
-        "tag": "Unit 03 · Topic 01 (Live)",
-        "title": "Rooms &amp; Everyday Places",
-        "photo": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Living room, kitchen, bedroom, workspace, campus library.",
-        "pill1": "Living Spaces",
-        "pill2": "Rooms",
-        "action": "Launch Quest",
-        "url": "./A1.1/around-the-house/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U03-02",
-        "tag": "Unit 03 · Topic 02",
-        "title": "Furniture &amp; Everyday Objects",
-        "photo": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Desks, lamps, chargers, windows, and studio appliances.",
-        "pill1": "Furniture",
-        "pill2": "Appliances",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U03-03",
-        "tag": "Unit 03 · Topic 03 (Live)",
-        "title": "There Is / There Are",
-        "photo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Describe presence of objects: There is a screen, There are two chairs.",
-        "pill1": "There is / are",
-        "pill2": "Singular &amp; Plural",
-        "action": "Launch Quest",
-        "url": "./A1.1/there-is-there-are/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U03-04",
-        "tag": "Unit 03 · Topic 04",
-        "title": "Prepositions of Place (in, on, under, next to)",
-        "photo": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Indicate where items sit in 3D studio spaces.",
-        "pill1": "in, on, under",
-        "pill2": "next to, behind",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U03-05",
-        "tag": "Unit 03 · Topic 05 (Live)",
-        "title": "Articles &amp; Demonstratives (This / That)",
-        "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Point to nearby and distant items: This phone here vs That board there.",
-        "pill1": "this / that",
-        "pill2": "these / those",
-        "action": "Launch Quest",
-        "url": "./A1.1/this-that-these-those/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U03-06",
-        "tag": "Unit 03 · Topic 06",
-        "title": "Describing a Space",
-        "photo": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Combine room layout, furniture, and presence into a coherent room description.",
-        "pill1": "Space Synthesis",
-        "pill2": "Room Layout",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U04-01",
-        "tag": "Unit 04 · Topic 01",
-        "title": "Welcoming Someone",
-        "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Welcome guests to an office or apartment with hospitable expressions.",
-        "pill1": "Welcome",
-        "pill2": "Hospitality",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U04-02",
-        "tag": "Unit 04 · Topic 02",
-        "title": "Simple Requests &amp; Polite Expressions",
-        "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Please, thank you, excuse me, you're welcome in everyday encounters.",
-        "pill1": "Courtesy Cues",
-        "pill2": "Daily Etiquette",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U04-03",
-        "tag": "Unit 04 · Topic 03",
-        "title": "Reading Personal Information",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Scan short badges, student cards, and simple social profiles for facts.",
-        "pill1": "Scanning Data",
-        "pill2": "Profile Facts",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U04-04",
-        "tag": "Unit 04 · Topic 04 (Live)",
-        "title": "Writing Short Messages (A1.1 Studio)",
-        "photo": "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Craft greeting notes, contact confirmations, and brief check-in messages.",
-        "pill1": "Message Writing",
-        "pill2": "A1.1 Capstone",
-        "action": "Launch Quest",
-        "url": "./A1.1/a1-1-studio/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-U04-05",
-        "tag": "Unit 04 · Topic 05",
-        "title": "Sharing Information with Others",
-        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Orally report another classmate's profile to a small study group.",
-        "pill1": "Peer Presentation",
-        "pill2": "Speaking",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A11-U04-06",
-        "tag": "Unit 04 · Topic 06",
-        "title": "Integrated Communication (Capstone A1.1)",
-        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Multi-step studio interaction: Welcome, describe, exchange contacts, and leave a note.",
-        "pill1": "Full Integration",
-        "pill2": "Exit Evaluation",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "A11-L01",
-        "tag": "Grammar Gym",
-        "title": "Verb To Be Precision Gym",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Affirmative, negative, yes/no queries, and short answers with am, is, are.",
-        "pill1": "am / is / are",
-        "pill2": "Conjugation Gym",
-        "action": "Open Lab",
-        "url": "./A1.1/verb-to-be/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-L02",
-        "tag": "Grammar Gym",
-        "title": "Possessive Adjectives Gym",
-        "photo": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Master my, your, his, her, its, our, their across authentic belongings.",
-        "pill1": "Possessives",
-        "pill2": "Precision Drills",
-        "action": "Open Lab",
-        "url": "./A1.1/possessive-adjectives/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-L03",
-        "tag": "Syntax Gym",
-        "title": "Demonstratives: This, That, These, Those",
-        "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Spatial anchoring: singular vs plural, near vs far across visual boards.",
-        "pill1": "Proximity Cues",
-        "pill2": "4 Demonstratives",
-        "action": "Open Lab",
-        "url": "./A1.1/this-that-these-those/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-L04",
-        "tag": "Syntax Gym",
-        "title": "Existential Structures: There is / There are",
-        "photo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition automatic choice between There is + singular and There are + plural.",
-        "pill1": "There is / are",
-        "pill2": "Quantity Agreement",
-        "action": "Open Lab",
-        "url": "./A1.1/there-is-there-are/index.html",
-        "live": true
-      },
-      {
-        "unit": "A11-L05",
-        "tag": "Morphology Gym",
-        "title": "Plurals &amp; Articles: a / an &amp; Irregulars",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Rules of a vs an before vowel sounds, regular -s/-es, and irregular plurals.",
-        "pill1": "a / an Rules",
-        "pill2": "Irregular Plurals",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "A1.2": {
-    "code": "A1.2",
-    "studentLevel": "A1.2",
-    "kicker": "A1.2 Trajectory · Stage 01 Foundations",
-    "meta": "CEFR A1.2 · General English (R2 Sequence)",
-    "title": "Daily Life & <span class=\"gold-accent\">Actions in Motion</span>",
-    "desc": "Habitual routines, frequency adverbs, real-time actions with Present Continuous, and high-frequency verb mastery under R2 sequence.",
-    "heroBg": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "07",
-    "stat1Label": "Communicative Units",
-    "stat1Sub": "Scope & Sequence Master",
-    "stat2Num": "07",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Structure & verb decks",
-    "stat3Num": "A1",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Everyday routines",
-    "experiences": [
-      {
-        "unit": "A1.2-U01",
-        "tag": "Macro-Unit 01 · Morning Myth",
-        "title": "The Morning Myth &amp; Modern Habits",
-        "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-        "tagline": "The 5 AM Club or Modern Madness? Schedules, sleep thieves (doomscrolling), and frequency adverbs.",
-        "pill1": "Present Simple",
-        "pill2": "Frequency Adverbs",
-        "action": "Launch Quest",
-        "url": "./A1.2/always-online-habits-lab/index.html",
-        "live": true
-      },
-      {
-        "unit": "A1.2-U02",
-        "tag": "Macro-Unit 02 · Friction",
-        "title": "Living with Others &amp; Inevitable Friction",
-        "photo": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Living with a control freak & the 'always 15 minutes late' friend. Simple Present 3rd person questions.",
-        "pill1": "Wh- Questions",
-        "pill2": "3rd Person -s",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A1.2-U03",
-        "tag": "Macro-Unit 03 · Diets &amp; Bills",
-        "title": "Food Culture, Diets &amp; The Dinner Bill",
-        "photo": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Grandma's feast vs miracle diets & splitting the bill drama. Countable/uncountable & would like.",
-        "pill1": "Count / Non-Count",
-        "pill2": "Ordering Food",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A1.2-U04",
-        "tag": "Macro-Unit 04 · Right Now (Active Class)",
-        "title": "White Lies We Tell Right Now &amp; Multitasking",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "The \"I'm On My Way\" Syndrome: Real-time actions, phone white lies ('I am walking out the door' in pajamas), and people-watching.",
-        "pill1": "Present Continuous",
-        "pill2": "White Lies",
-        "action": "Launch Class",
-        "url": "./A1.2/white-lies/index.html",
-        "live": true
-      },
-      {
-        "unit": "A1.2-U05",
-        "tag": "Macro-Unit 05 · Crisis Mode",
-        "title": "Habits vs. Right Now: Breaking Routines",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Crisis Mode: Breaking the pattern when daily routines shatter. Simple Present vs Present Continuous contrast.",
-        "pill1": "Simple vs Continuous",
-        "pill2": "Crisis Contrast",
-        "action": "Launch Quest",
-        "url": "./A2.1/present-simple-vs-continuous/index.html",
-        "live": true
-      },
-      {
-        "unit": "A1.2-U06",
-        "tag": "Macro-Unit 06 · Favor Trap",
-        "title": "Hidden Talents &amp; The Favor Trap",
-        "photo": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
-        "tagline": "The family IT guy & things we secretly hate doing: can/can't for favors and like/hate + -ing.",
-        "pill1": "can / can't",
-        "pill2": "like / hate + -ing",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A1.2-U07",
-        "tag": "Macro-Unit 07 · Capstone Studio",
-        "title": "A1.2 Capstone Studio: The 24-Hour Reality Check",
-        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Full communicative audit of 24 real hours: routine, unexpected interruptions, and live multitasking dispatches.",
-        "pill1": "Capstone Studio",
-        "pill2": "CEFR A1.2 Exit",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "A12-L01",
-        "tag": "Grammar Gym",
-        "title": "Simple Present Verbs &amp; Third Person -s",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Master third-person -s/-es rules and distinguish habitual actions clearly.",
-        "pill1": "Third Person -s",
-        "pill2": "Verb Conjugation",
-        "action": "Open Lab",
-        "url": "./A1.2/simple-present-verbs/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L02",
-        "tag": "Syntax Gym",
-        "title": "Adverbs of Frequency Precision Gym",
-        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Word order placement of always, usually, often, sometimes, never before main verbs.",
-        "pill1": "Frequency Scale",
-        "pill2": "Sentence Position",
-        "action": "Open Lab",
-        "url": "./A1.2/adverbs-of-frequency/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L03",
-        "tag": "Inquiry Lab",
-        "title": "Question Formulation: Do / Does &amp; Wh-",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Construct accurate yes/no queries and open information inquiries smoothly.",
-        "pill1": "Do / Does Auxiliary",
-        "pill2": "Wh- Questions",
-        "action": "Open Lab",
-        "url": "./A1.2/simple-present-questions/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L04",
-        "tag": "Interactive Game",
-        "title": "Grammar Battle Arena (Speed Drills)",
-        "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Compete against time in Rapid-Fire Simple Present and verb-form challenges.",
-        "pill1": "Speed Mechanics",
-        "pill2": "Grammar Arena",
-        "action": "Open Lab",
-        "url": "./A1.2/simple-present-battle/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L05",
-        "tag": "Verb Deck 1 (Live)",
-        "title": "Verbs 1: High-Frequency Action Verbs",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Essential verb flashcard deck with audio: buy, close, come, cook, do, drink, eat, get up, give, go.",
-        "pill1": "Deck Set 1",
-        "pill2": "Native Audio",
-        "action": "Open Deck",
-        "url": "./A1.2/verbs-1/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L06",
-        "tag": "Verb Deck 2 (Live)",
-        "title": "Verbs 2: Confidence &amp; Daily Life Deck",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Second verb set with audio: ask, begin, believe, bring, call, feel, find, get, happen, hear.",
-        "pill1": "Deck Set 2",
-        "pill2": "Native Audio",
-        "action": "Open Deck",
-        "url": "./A1.2/verbs-2/index.html",
-        "live": true
-      },
-      {
-        "unit": "A12-L07",
-        "tag": "Continuous Gym",
-        "title": "Present Continuous &amp; -ing Morphology Gym",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Master auxiliary be + verb-ing concordance, negative structures, and spelling rules (running, writing, lying).",
-        "pill1": "Continuous Gym",
-        "pill2": "-ing Rules",
-        "action": "Open Gym",
-        "url": "./A1.2/white-lies/index.html#grammar",
-        "live": true
-      }
-    ]
-  },
-  "A2.1": {
-    "code": "A2.1",
-    "studentLevel": "A2.1",
-    "kicker": "A2.1 Trajectory · Stage 02 Expansion",
-    "meta": "CEFR A2.1 · General English",
-    "title": "Past Events, The City & <span class=\"gold-accent\">Anecdotes</span>",
-    "desc": "City navigation, shopping quantifiers, Simple Past memories with the FOMO Museum, and -ed phonics mastery.",
-    "heroBg": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "07",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Quantifiers & past drills",
-    "stat3Num": "A2",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Narratives & shopping",
-    "experiences": [
-      {
-        "unit": "A2.1-U01",
-        "tag": "Unit 01 · The City (Live)",
-        "title": "City Navigation, Directions &amp; Transit",
-        "photo": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Navigate town, ask for directions, and use transit terms: Go straight, turn left, across from.",
-        "pill1": "Directions",
-        "pill2": "Getting Around",
-        "action": "Launch Quest",
-        "url": "./A1.1/in-the-city/index.html",
-        "live": true
-      },
-      {
-        "unit": "A2.1-U02",
-        "tag": "Unit 02 · Shopping",
-        "title": "Everyday Services, Shops &amp; Quantifiers",
-        "photo": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Shop for supplies: some, any, much, many, a lot of, and food containers.",
-        "pill1": "Shopping &amp; Food",
-        "pill2": "Quantifiers",
-        "action": "Launch Quest",
-        "url": "./A2.1/food-quantifiers/index.html",
-        "live": true
-      },
-      {
-        "unit": "A2.1-U03",
-        "tag": "Unit 03 · Past Memories (Gen 3)",
-        "title": "Past Events, Memories &amp; Anecdotes",
-        "photo": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
-        "tagline": "The FOMO Museum: Share where you were, what you did, and recall memorable experiences.",
-        "pill1": "The FOMO Museum",
-        "pill2": "Simple Past",
-        "action": "Launch Quest",
-        "url": "./A2.1/fomo-museum/index.html",
-        "live": true
-      },
-      {
-        "unit": "A2.1-U04",
-        "tag": "Unit 04 · Outings",
-        "title": "Outings, Appointments &amp; Mutual Plans",
-        "photo": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Coordinate weekend plans with peers, resolve an unforeseen delay, and suggest alternatives.",
-        "pill1": "Group Outings",
-        "pill2": "Arrangements",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "A21-L01",
-        "tag": "Quantifier Gym",
-        "title": "Countable &amp; Uncountable Quantifiers",
-        "photo": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Distinguish count nouns vs mass nouns across pantry lists: much, many, a little, a few.",
-        "pill1": "Count vs Non-Count",
-        "pill2": "some / any",
-        "action": "Open Lab",
-        "url": "./A2.1/countable-and-uncountable/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L02",
-        "tag": "Interactive Game (Live)",
-        "title": "The Fridge Battle: Food &amp; Quantifier Game",
-        "photo": "https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Fast-paced interactive challenge to stock the fridge and pick correct quantifiers.",
-        "pill1": "Fridge Battle",
-        "pill2": "Interactive Game",
-        "action": "Play Game",
-        "url": "./A2.1/fridge-battle/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L03",
-        "tag": "Grammar Gym",
-        "title": "Past of To Be: Was / Were Historical Simulator",
-        "photo": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Lock in was / were, wasn't / weren't, and questions across historical timelines.",
-        "pill1": "was / were",
-        "pill2": "Historical Clues",
-        "action": "Open Lab",
-        "url": "./A2.1/past-of-be/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L04",
-        "tag": "Interactive Game (Live)",
-        "title": "Guess Who? Past Biographies Challenge",
-        "photo": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Interactive biographical guessing game: Who was born in 1879? Deduce from clues.",
-        "pill1": "Guess Who Game",
-        "pill2": "Biographical Clues",
-        "action": "Play Game",
-        "url": "./A2.1/guess-who-past/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L05",
-        "tag": "Phonics Gym",
-        "title": "-ed Ending Pronunciation (/t/, /d/, /ɪd/)",
-        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Train the ear to distinguish stopped /t/, voiced /d/, and syllabic /ɪd/ endings with audio.",
-        "pill1": "-ed Phonics",
-        "pill2": "Intelligibility",
-        "action": "Open Lab",
-        "url": "./A2.1/ed-pronunciation/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L06",
-        "tag": "Grammar Lab",
-        "title": "Simple Past Regular &amp; Irregular Verbs",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Did + base form in questions and negatives, plus essential irregular past forms.",
-        "pill1": "Did / Didn't",
-        "pill2": "Irregular Verbs",
-        "action": "Open Lab",
-        "url": "./A2.1/simple-past-class/index.html",
-        "live": true
-      },
-      {
-        "unit": "A21-L07",
-        "tag": "Verb Deck (Live)",
-        "title": "Past Verbs Review Deck",
-        "photo": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-        "tagline": "High-speed review flashcards for past forms: went, saw, bought, came, had, made.",
-        "pill1": "Past Verbs Deck",
-        "pill2": "Speed Recall",
-        "action": "Open Deck",
-        "url": "./A2.1/past-verbs-review/index.html",
-        "live": true
-      }
-    ]
-  },
-  "A2.2": {
-    "code": "A2.2",
-    "studentLevel": "A2.2",
-    "kicker": "A2.2 Trajectory · Stage 02 Expansion",
-    "meta": "CEFR A2.2 · General English",
-    "title": "Comparisons, Travel & <span class=\"gold-accent\">Life Milestones</span>",
-    "desc": "Comparing options, planning journeys, future arrangements, and first steps into the Present Perfect.",
-    "heroBg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Comparatives & perfect",
-    "stat3Num": "A2+",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Travel & life stories",
-    "experiences": [
-      {
-        "unit": "A2.2-U01",
-        "tag": "Unit 01 · Decisions",
-        "title": "Making Choices &amp; Comparing Options",
-        "photo": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Compare gadgets, housing options, or study programs: faster, more affordable, the best.",
-        "pill1": "Comparatives",
-        "pill2": "Superlatives",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A2.2-U02",
-        "tag": "Unit 02 · Travel",
-        "title": "Journeys, Booking &amp; Transport",
-        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Inquire at booking desks, manage connections, and resolve luggage inquiries.",
-        "pill1": "Travel Logistics",
-        "pill2": "Bookings",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A2.2-U03",
-        "tag": "Unit 03 · Future Plans",
-        "title": "Future Plans, Intentions &amp; Predictions",
-        "photo": "https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Contrast fixed appointments (Present Continuous) with intentions (be going to) and will.",
-        "pill1": "going to / will",
-        "pill2": "Arrangements",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "A2.2-U04",
-        "tag": "Unit 04 · Experience",
-        "title": "Life Milestones &amp; Life Experiences",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Have you ever...? Exchange life adventures and significant achievements.",
-        "pill1": "Present Perfect",
-        "pill2": "ever / never",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "A22-L01",
-        "tag": "Verb Lab",
-        "title": "Past Participle Mastery Gym",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Train irregular V3 participles (seen, eaten, driven, flown) with audio triggers.",
-        "pill1": "Past Participles",
-        "pill2": "V3 Automation",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "A22-L02",
-        "tag": "Syntax Gym",
-        "title": "Comparative &amp; Superlative Precision",
-        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Short adjectives (-er/the -est) vs multi-syllable (more/most) and irregulars (better/best).",
-        "pill1": "Adjective Inflexion",
-        "pill2": "Comparison Patterns",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "A22-L03",
-        "tag": "Tense Contrast",
-        "title": "Present Perfect vs Simple Past Contrast",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Specific past time markers (yesterday, in 2022) vs open experience time (ever, so far).",
-        "pill1": "Tense Boundary",
-        "pill2": "Time Adverbials",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "A22-L04",
-        "tag": "Modal Gym",
-        "title": "Obligation, Prohibition &amp; Advice",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Must, have to, should, and can't across safety rules, house guidelines, and transit codes.",
-        "pill1": "must / have to",
-        "pill2": "should / advice",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "B1.1": {
-    "code": "B1.1",
-    "studentLevel": "B1.1",
-    "kicker": "B1.1 Trajectory · Stage 03 Independent User",
-    "meta": "CEFR B1.1 · General English",
-    "title": "Narratives, Goals & <span class=\"gold-accent\">Stance</span>",
-    "desc": "Extended story-telling, discussing personal goals, explaining causes and consequences, and managing everyday problem scenarios.",
-    "heroBg": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Narratives & linkers",
-    "stat3Num": "B1",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Independent communication",
-    "experiences": [
-      {
-        "unit": "B1.1-U01",
-        "tag": "Unit 01 · Storytelling",
-        "title": "Complex Narratives &amp; Parallel Events",
-        "photo": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Weave past simple, continuous, and perfect into compelling personal stories.",
-        "pill1": "Past Narrative",
-        "pill2": "while / when / had",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1.1-U02",
-        "tag": "Unit 02 · Aspirations",
-        "title": "Personal Goals &amp; Life Trajectories",
-        "photo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Pitch your academic or career aspirations: gerunds vs infinitives for life ambitions.",
-        "pill1": "Ambitions",
-        "pill2": "verb + -ing / to",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1.1-U03",
-        "tag": "Unit 03 · Opinions",
-        "title": "Opinions, Feelings &amp; Stance",
-        "photo": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Agree, disagree diplomatically, and defend a viewpoint in an informal forum.",
-        "pill1": "In my opinion...",
-        "pill2": "Diplomatic Disagreement",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1.1-U04",
-        "tag": "Unit 04 · Processes",
-        "title": "Causes, Consequences &amp; Sequential Processes",
-        "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Explain why something went wrong, how a procedure works, and propose corrective steps.",
-        "pill1": "due to / as a result",
-        "pill2": "Process Flow",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "B11-L01",
-        "tag": "Narrative Lab",
-        "title": "Narrative Tenses Integration Lab",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Synchronize background scenes (was doing), main plot points (did), and earlier events (had done).",
-        "pill1": "3-Tense Weave",
-        "pill2": "Plot Mechanics",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B11-L02",
-        "tag": "Conditional Lab",
-        "title": "First &amp; Second Conditionals Lab",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Real future consequences (If you study, you will) vs hypothetical dilemmas (If I had more time, I would).",
-        "pill1": "Real vs Hypothetical",
-        "pill2": "Condition Clauses",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B11-L03",
-        "tag": "Voice Gym",
-        "title": "Passive Voice in News &amp; Incident Reports",
-        "photo": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Focus on affected objects and actions: The flight was cancelled, the window was broken.",
-        "pill1": "be + past participle",
-        "pill2": "Incident Reports",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B11-L04",
-        "tag": "Lexicon Gym",
-        "title": "Collocations &amp; Phrasal Verbs in Context",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Natural word partnerships (make a decision) and separable vs inseparable phrasal verbs.",
-        "pill1": "Collocations",
-        "pill2": "Phrasal Mechanics",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "B1.2": {
-    "code": "B1.2",
-    "studentLevel": "B1.2",
-    "kicker": "B1.2 Trajectory · Stage 03 Independent User",
-    "meta": "CEFR B1.2 · General English (Gen 3 Experience)",
-    "title": "Service Claims, Deduction & <span class=\"gold-accent\">Independence</span>",
-    "desc": "Defend rights, negotiate solutions in unexpected crises (The 8:45 Flight), and use logical deduction modals.",
-    "heroBg": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Modals & reported speech",
-    "stat3Num": "B1+",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Problem resolution",
-    "experiences": [
-      {
-        "unit": "B1.2-U01",
-        "tag": "Airport Disruption (Gen 3 Live)",
-        "title": "Handling Service Disruptions &amp; Formal Claims",
-        "photo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
-        "tagline": "The 8:45 Flight: Your connecting flight is cancelled. Negotiate vouchers, alternatives, and hotel transfers.",
-        "pill1": "The 8:45 Flight",
-        "pill2": "Negotiation Quest",
-        "action": "Launch Quest",
-        "url": "./Guest/the-845-flight/index.html",
-        "live": true
-      },
-      {
-        "unit": "B1.2-U02",
-        "tag": "Unit 02 · Dilemmas",
-        "title": "Hypotheses, Dilemmas &amp; Consequences",
-        "photo": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Weigh pros and cons in workplace and personal dilemmas using complex conditionals.",
-        "pill1": "Dilemmas",
-        "pill2": "Mixed Conditionals",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1.2-U03",
-        "tag": "Unit 03 · Procedures",
-        "title": "Processes &amp; Objective Descriptions",
-        "photo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Explain step-by-step procedures objectively without personal bias.",
-        "pill1": "Technical Clarity",
-        "pill2": "Impersonal Voice",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1.2-U04",
-        "tag": "Unit 04 · Deduction",
-        "title": "Especulation &amp; Logical Deductions",
-        "photo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Deduce facts from evidence: It must be true, They can't have forgotten.",
-        "pill1": "Logical Deduction",
-        "pill2": "must / can't be",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "B12-L01",
-        "tag": "Modal Gym",
-        "title": "Modals of Deduction: Must, Might, Can't",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Calibrate logical certainty: 95% certain (must), 50% possible (might), 0% possible (can't).",
-        "pill1": "Certainty Degrees",
-        "pill2": "Deduction Clues",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B12-L02",
-        "tag": "Syntax Lab",
-        "title": "Reported Speech &amp; Summary Reporting",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Shift statements, questions, and commands from direct conversation to formal briefing notes.",
-        "pill1": "Tense Backshift",
-        "pill2": "Reporting Verbs",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B12-L03",
-        "tag": "Discourse Gym",
-        "title": "Advanced Discourse Markers &amp; Linkers",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Master sophisticated transitions: furthermore, however, on the contrary, whereas, nevertheless.",
-        "pill1": "Academic Linkers",
-        "pill2": "Contrast &amp; Flow",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B12-L04",
-        "tag": "Phonology Lab",
-        "title": "Sentence Stress &amp; Intonation in Persuasion",
-        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Place nucleus stress on key words to highlight contrast, urgency, or polite firmness.",
-        "pill1": "Nuclear Stress",
-        "pill2": "Persuasive Cadence",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "B1+": {
-    "code": "B1+",
-    "studentLevel": "B1+",
-    "kicker": "B1+ Trajectory · Pre-B2 Horizon",
-    "meta": "CEFR B1+ · General & Professional Synthesis",
-    "title": "Mediation, Profile Defense & <span class=\"gold-accent\">Synthesis</span>",
-    "desc": "Defending an executive portfolio, mediating complex messages across parties, corporate protocols, and structured debate.",
-    "heroBg": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Communicative Quests",
-    "stat1Sub": "Authentic scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Language Labs",
-    "stat2Sub": "Inversion & register",
-    "stat3Num": "B1+",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Mediation & debate",
-    "experiences": [
-      {
-        "unit": "B1+-U01",
-        "tag": "Unit 01 · Defense",
-        "title": "Structured Interview &amp; Profile Defense",
-        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Present your professional value, defend project choices, and respond under interview pressure.",
-        "pill1": "Profile Defense",
-        "pill2": "Competency Pitch",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1+-U02",
-        "tag": "Unit 02 · Directives",
-        "title": "Corporate Protocols, Directives &amp; Procedures",
-        "photo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Interpret compliance guidelines and summarize company operating procedures for a team.",
-        "pill1": "Compliance Protocols",
-        "pill2": "Executive Directives",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1+-U03",
-        "tag": "Unit 03 · Mediation",
-        "title": "Executive Mediation, Messages &amp; Synthesis Notes",
-        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Relay complex technical points to a non-expert client; bridge cultural and linguistic differences.",
-        "pill1": "Mediation Tasks",
-        "pill2": "Executive Notes",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "B1+-U04",
-        "tag": "Unit 04 · Argumentation",
-        "title": "Debate, Structured Argumentation &amp; Compromise",
-        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Build a persuasive case, rebut opposing data politely, and negotiate a workable consensus.",
-        "pill1": "Debate Arena",
-        "pill2": "Constructive Compromise",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "B1P-L01",
-        "tag": "Syntax Lab",
-        "title": "Complex Sentence Architecture &amp; Inversion",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Not only... but also, Hardly had we arrived when... Elevated rhetorical balance.",
-        "pill1": "Negative Inversion",
-        "pill2": "Rhetorical Balance",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B1P-L02",
-        "tag": "Register Lab",
-        "title": "Academic &amp; Professional Register Gym",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition automatic lexical elevation: get &rarr; obtain, ask for &rarr; request, big &rarr; substantial.",
-        "pill1": "Lexical Elevation",
-        "pill2": "Formality Tone",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B1P-L03",
-        "tag": "Pragmatics Lab",
-        "title": "Hedging, Stance &amp; Diplomatic Nuance",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Softening assertions: It appears that, The evidence tends to suggest, With all due respect.",
-        "pill1": "Hedging Markers",
-        "pill2": "Diplomatic Polish",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "B1P-L04",
-        "tag": "Vocabulary Gym",
-        "title": "Executive Phrasal Verbs &amp; Idiomatic Flow",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Integrate native business idioms (touch base, drill down, circle back) with exact precision.",
-        "pill1": "Business Idioms",
-        "pill2": "Executive Collocations",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "Business": {
-    "code": "Business English",
-    "studentLevel": "Executive Track",
-    "kicker": "Specialized Track · Executive Business English",
-    "meta": "Corporate & Workplace Communication (6 Tracks · 24 Modules)",
-    "title": "Executive Communication & <span class=\"gold-accent\">Strategy</span>",
-    "desc": "High-stakes corporate communication: crisis management, deal-making, diplomatic writing, and executive leadership.",
-    "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "06",
-    "stat1Label": "Specialized Tracks",
-    "stat1Sub": "Cross-border scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Executive Labs",
-    "stat2Sub": "Memos, cadence & debate",
-    "stat3Num": "C1-",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Boardroom proficiency",
-    "experiences": [
-      {
-        "unit": "BUS-U01",
-        "tag": "Track 1 · Operations & Crisis",
-        "title": "Negotiating a Deadline: Supply Chain Crisis",
-        "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Renegotiate critical SLA delivery timelines with client Horizon Mobility after a semiconductor supplier delay in Shenzhen.",
-        "pill1": "First Conditional",
-        "pill2": "Emergency Logistics",
-        "action": "Launch Simulation",
-        "url": "./Business/negotiating-a-deadline/index.html",
-        "live": true
-      },
-      {
-        "unit": "BUS-U02",
-        "tag": "Track 2 · High Finance",
-        "title": "Quarterly Earnings &amp; Financial Synthesis",
-        "photo": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Synthesize balance sheets, explain EBITDA margin compression, and field analyst queries.",
-        "pill1": "EBITDA &amp; Margins",
-        "pill2": "Analyst Q&amp;A",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "BUS-U03",
-        "tag": "Track 3 · Commercial Deals",
-        "title": "Cross-Border Contract Negotiations",
-        "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Anchor pricing, negotiate indemnification clauses, and reach mutual settlement.",
-        "pill1": "Contract Terms",
-        "pill2": "Tactical Bargaining",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "BUS-U04",
-        "tag": "Track 4 · Reputation",
-        "title": "Enterprise Crisis PR &amp; Media Handling",
-        "photo": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Lead press conference statements, manage hostile questions, and protect enterprise brand value.",
-        "pill1": "Crisis Press Room",
-        "pill2": "Brand Protection",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "BUS-U05",
-        "tag": "Track 5 · Expansion",
-        "title": "Global Expansion &amp; M&amp;A Pitch",
-        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Defend acquisition valuations, post-merger integration plans, and cultural synergy models.",
-        "pill1": "M&amp;A Strategy",
-        "pill2": "Synergy Defense",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "BUS-U06",
-        "tag": "Track 6 · Boardroom",
-        "title": "Boardroom Strategic Capstone Simulation",
-        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Present 3-year strategic growth horizon to institutional investors and answer governance challenges.",
-        "pill1": "Board Defense",
-        "pill2": "Executive Capstone",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "BUS-L01",
-        "tag": "Financial Lexicon",
-        "title": "Quantitative Lexicon &amp; Financial Modeling",
-        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition terminology for yield, variance, liquidity, amortization, and cap tables.",
-        "pill1": "Quantitative Flow",
-        "pill2": "Financial Metrics",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "BUS-L02",
-        "tag": "Writing Lab",
-        "title": "Executive Memo &amp; Board Resolution Drafting",
-        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Draft concise C-suite briefing memos with BLUF architecture (Bottom Line Up Front).",
-        "pill1": "BLUF Architecture",
-        "pill2": "Board Resolutions",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "BUS-L03",
-        "tag": "Pragmatics Lab",
-        "title": "Diplomatic Refusal &amp; Tactical Concession",
-        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Say no without damaging client ties: conditional concessions and professional hedging.",
-        "pill1": "Tactical Concession",
-        "pill2": "Diplomatic Polish",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "BUS-L04",
-        "tag": "Phonology Lab",
-        "title": "Executive Cadence &amp; Voice Conditioning",
-        "photo": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Train low-pitch authority, deliberate pause phrasing, and eliminating fillers in presentations.",
-        "pill1": "Executive Cadence",
-        "pill2": "Vocal Authority",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "TOEFL": {
-    "code": "TOEFL ITP",
-    "studentLevel": "Certification Lab",
-    "kicker": "Institutional Exam Preparation · CEFR B1–B2 / CENNI",
-    "meta": "TOEFL ITP® Diagnostic Mastery (Section 1, 2, 3)",
-    "title": "TOEFL ITP® <span class=\"gold-accent\">Diagnostic Lab</span>",
-    "desc": "Auditory trap detection, grammar error spotting (Section 2 Structure), and timed expository reading strategies.",
-    "heroBg": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Exam Sections",
-    "stat1Sub": "Standardized format",
-    "stat2Num": "04",
-    "stat2Label": "Strategy Labs",
-    "stat2Sub": "Traps & speed reading",
-    "stat3Num": "550+",
-    "stat3Label": "Target Score",
-    "stat3Sub": "Academic degree pass",
-    "experiences": [
-      {
-        "unit": "SEC-01",
-        "tag": "Section 1 · Listening",
-        "title": "Academic Lecture &amp; Dialogue Synthesis",
-        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Deconstruct Part A campus dialogues and Part C university mini-lectures under single-play audio.",
-        "pill1": "Part A &amp; C Listening",
-        "pill2": "Inference Traps",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "SEC-02",
-        "tag": "Section 2 · Structure (Live)",
-        "title": "Section 2: Structure &amp; Written Expression Trap Battle",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Identify subject-verb inversion traps, parallel syntax flaws, and connector errors in 25 seconds per item.",
-        "pill1": "Trap Battle Arena",
-        "pill2": "Error Identification",
-        "action": "Launch Quest",
-        "url": "./TOEFL/trap-battle/index.html",
-        "live": true
-      },
-      {
-        "unit": "SEC-03",
-        "tag": "Section 3 · Reading",
-        "title": "Section 3: Academic Reading &amp; Speed Navigation",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Scan 5 university textbook passages in 55 minutes: vocabulary-in-context, main idea, and negative factuals.",
-        "pill1": "Academic Reading",
-        "pill2": "55-Minute Clock",
-        "action": "Launch Quest",
-        "soon": true
-      },
-      {
-        "unit": "SEC-04",
-        "tag": "Full Diagnostic",
-        "title": "Full-Length Diagnostic Simulation (ITP 140 Items)",
-        "photo": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
-        "tagline": "115-minute complete standardized test under authentic ETS timing with instant CEFR scaled band conversion.",
-        "pill1": "140-Question Run",
-        "pill2": "Scaled Band 310–677",
-        "action": "Launch Quest",
-        "soon": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "TFL-L01",
-        "tag": "Interactive Game (Live)",
-        "title": "Grammatical Error Spotting: Part B Traps",
-        "photo": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Interactive 4-underlined word error detection game (items 16–40).",
-        "pill1": "Written Expression",
-        "pill2": "Underlined Traps",
-        "action": "Play Game",
-        "url": "./TOEFL/trap-battle/index.html",
-        "live": true
-      },
-      {
-        "unit": "TFL-L02",
-        "tag": "Lexicon Gym",
-        "title": "Academic Vocabulary Frequency Matrix (Tier 2/3)",
-        "photo": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition high-yield academic verbs, affixes, and discourse connectives.",
-        "pill1": "Tier 2/3 Lexicon",
-        "pill2": "Context Clues",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "TFL-L03",
-        "tag": "Strategy Gym",
-        "title": "Negative Factual &amp; Purpose Question Drills",
-        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Target the hardest reading question formats: EXCEPT questions and author attitude inferences.",
-        "pill1": "EXCEPT Drills",
-        "pill2": "Author Stance",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "TFL-L04",
-        "tag": "Phonology Lab",
-        "title": "Lecture Intonation &amp; Speaker Stance Decoding",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Decode irony, doubt, and implicit agreement in university dialogue audio clips.",
-        "pill1": "Pragmatic Listening",
-        "pill2": "Attitude Cues",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  },
-  "TOEIC": {
-    "code": "TOEIC",
-    "studentLevel": "Corporate Benchmark",
-    "kicker": "Workplace Certification · CEFR B1–B2 / Multinational Standard",
-    "meta": "TOEIC® Listening & Reading Strategy Track",
-    "title": "TOEIC® <span class=\"gold-accent\">Strategy Hub</span>",
-    "desc": "Speed mechanics for Part 5, 6, 7 and auditory trap neutralization for workplace advancement.",
-    "heroBg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=85",
-    "stat1Num": "04",
-    "stat1Label": "Part 5 Strategy Modules",
-    "stat1Sub": "Grammar & speed",
-    "stat2Num": "04",
-    "stat2Label": "Syntax Labs",
-    "stat2Sub": "Speed drills & diagnostics",
-    "stat3Num": "850+",
-    "stat3Label": "Target Score",
-    "stat3Sub": "Global leadership benchmark",
-    "experiences": [
-      {
-        "unit": "PART-01",
-        "tag": "Strategy Track (Live Lab)",
-        "title": "Part 5: Word Form Matrix &amp; Morphological Triggers",
-        "photo": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Instantly identify required parts of speech: noun suffixes vs adverb modifiers in under 10 seconds.",
-        "pill1": "Part 5 Speed",
-        "pill2": "Word Forms",
-        "action": "Launch Part",
-        "url": "./TOEIC/word-forms/index.html",
-        "live": true
-      },
-      {
-        "unit": "PART-02",
-        "tag": "Syntax Track (Live Lab)",
-        "title": "Part 5: Verb Tenses &amp; Timeline Consistency",
-        "photo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Lock in temporal trigger words (since, recently, by the time) in under 15 seconds.",
-        "pill1": "Verb Timeline",
-        "pill2": "Temporal Triggers",
-        "action": "Launch Part",
-        "url": "./TOEIC/verb-tenses/index.html",
-        "live": true
-      },
-      {
-        "unit": "PART-03",
-        "tag": "Lexicon Track (Live Lab)",
-        "title": "Part 5: Prepositions of Time, Space &amp; Business Idioms",
-        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Neutralize prepositions traps: during vs while, despite vs although, at/on/in.",
-        "pill1": "Preposition Gym",
-        "pill2": "Corporate Idioms",
-        "action": "Launch Part",
-        "url": "./TOEIC/prepositions/index.html",
-        "live": true
-      },
-      {
-        "unit": "PART-04",
-        "tag": "Grammar Track (Live Lab)",
-        "title": "Part 5: Conjunctions vs Prepositions (Because vs Due To)",
-        "photo": "https://images.unsplash.com/photo-1507842229450-70f9df48d1c7?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Instantly distinguish clause connectors from prepositional phrases across corporate sentences.",
-        "pill1": "Conjunctions",
-        "pill2": "Clause Logic",
-        "action": "Launch Part",
-        "url": "./TOEIC/conjunctions/index.html",
-        "live": true
-      }
-    ],
-    "labs": [
-      {
-        "unit": "TC-L01",
-        "tag": "Speed Drill (Live Lab)",
-        "title": "Subject-Verb Agreement Speed Drill",
-        "photo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Filter intervening prepositional phrases to lock subject and verb in 12 seconds.",
-        "pill1": "S-V Agreement",
-        "pill2": "12-Second Clock",
-        "action": "Open Lab",
-        "url": "./TOEIC/subject-verb-agreement/index.html",
-        "live": true
-      },
-      {
-        "unit": "TC-L02",
-        "tag": "Pronoun Gym (Live Lab)",
-        "title": "Pronoun Case &amp; Reflexive Precision Gym",
-        "photo": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Master subject pronouns, object pronouns, possessive determiners, and reflexives (-self).",
-        "pill1": "Pronoun Cases",
-        "pill2": "Corporate Memos",
-        "action": "Open Lab",
-        "url": "./TOEIC/pronouns/index.html",
-        "live": true
-      },
-      {
-        "unit": "TC-L03",
-        "tag": "Collocations Lab",
-        "title": "Corporate Collocation Frequency Drills",
-        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition instantaneous recognition of high-frequency corporate pairings.",
-        "pill1": "Pairing Recognition",
-        "pill2": "Frequency Speed",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "TC-L04",
-        "tag": "Diagnostic Arena",
-        "title": "Full 100-Item Reading Diagnostic (Part 5, 6, 7)",
-        "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
-        "tagline": "75-minute timed simulation across single, double, and triple passage sets.",
-        "pill1": "Reading Benchmark",
-        "pill2": "Scaled Diagnostic",
-        "action": "Open Lab",
-        "soon": true
-      }
-    ]
-  }
-};
+    };
 
     const FILE_MAP = {
       "PreA1": "pre-a1_workspace.html",
@@ -2650,7 +2740,7 @@
     function getStudentName() {
       const urlParam = urlParams.get('name');
       if (urlParam && urlParam.trim()) {
-        try { localStorage.setItem('ld_student_name', urlParam.trim()); } catch (_) {}
+        try { localStorage.setItem('ld_student_name', urlParam.trim()); } catch (_) { }
         return urlParam.trim();
       }
       try {
@@ -2661,7 +2751,7 @@
           const parsed = JSON.parse(stored);
           if (parsed.name && parsed.name.trim()) return parsed.name.trim();
         }
-      } catch (_) {}
+      } catch (_) { }
       return 'Student';
     }
 
@@ -2678,7 +2768,7 @@
           const data = raw ? JSON.parse(raw) : {};
           data.name = clean;
           localStorage.setItem('ld-english-hub', JSON.stringify(data));
-        } catch (_) {}
+        } catch (_) { }
       }
     }
 
@@ -2849,4 +2939,5 @@
     });
   </script>
 </body>
+
 </html>
