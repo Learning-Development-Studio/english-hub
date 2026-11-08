@@ -381,6 +381,32 @@
     .takeaway-text strong {
       color: #ffffff;
     }
+    .video-audio-bar {
+      padding: 16px 24px;
+      background: rgba(7, 21, 39, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .briefing-audio-play-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      color: var(--navy-deep);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform .2s ease;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.4);
+    }
+    .briefing-audio-play-btn:hover {
+      transform: scale(1.06);
+    }
 
     /* BLUF AUTHOR CARDS (SIDE BY SIDE, VISUAL, NO WALL OF TEXT) */
     .authors-bluf-grid {
@@ -986,16 +1012,16 @@
       <div class="video-briefing-theater">
         <div class="video-theater-header">
           <div class="video-theater-meta">
-            <span class="video-badge">Executive Video Briefing &middot; 03:20</span>
-            <span class="video-source">Harvard Business Review &middot; MIT Sloan Systems Thinking</span>
+            <span class="video-badge">Keynote Video Briefing &middot; MIT Sloan Systems Thinking</span>
+            <span class="video-source">Peter Senge, Ph.D. &middot; The Fifth Discipline</span>
           </div>
-          <h4 class="video-theater-title">The Firefighting Trap: Why Managers Stay Trapped in Chaos</h4>
+          <h4 class="video-theater-title">Systems Thinking in Organizations: Navigating Perpetual Operational Friction</h4>
         </div>
         
         <div class="video-player-container">
           <iframe 
-            src="https://www.youtube-nocookie.com/embed/vPhvB0f_Bsw?rel=0&modestbranding=1" 
-            title="The Firefighting Trap - Systems Thinking in Organizations" 
+            src="https://www.youtube-nocookie.com/embed/0QtQqZ6Q5-o?rel=0&modestbranding=1" 
+            title="Peter Senge - Systems Thinking in Organizations" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen 
             class="video-iframe"
@@ -1016,6 +1042,22 @@
             <span class="takeaway-num">03</span>
             <div class="takeaway-text"><strong>Our 6 Tracks:</strong> Tactical language models built directly on the recurring stages of organizational friction.</div>
           </div>
+        </div>
+
+        <!-- NATIVE AUDIO BRIEFING BAR (100% RELIABLE BUILT-IN NARRATION) -->
+        <div class="video-audio-bar">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button type="button" id="playBriefingBtn" onclick="toggleBriefingAudio()" class="briefing-audio-play-btn" title="Play 90-Second Executive Summary">
+              <svg id="briefingPlayIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </button>
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); font-weight: 800;">L&amp;D Studio Audio Briefing &middot; 90 Seconds</div>
+              <strong style="font-size: 13.5px; color: #ffffff;">Mintzberg &amp; Senge: The Corporate Loop Foundation</strong>
+            </div>
+          </div>
+          <span style="font-size: 11.5px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);">
+            Synthesized Native Audio
+          </span>
         </div>
       </div>
 
@@ -1545,6 +1587,49 @@
 
       utterance.onerror = () => {
         isAudioPlaying = false;
+        if (icon) icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    let isBriefingPlaying = false;
+    function toggleBriefingAudio() {
+      if (!('speechSynthesis' in window)) {
+        alert('SpeechSynthesis is not supported on this device/browser.');
+        return;
+      }
+      const icon = document.getElementById('briefingPlayIcon');
+      if (isBriefingPlaying) {
+        window.speechSynthesis.cancel();
+        isBriefingPlaying = false;
+        if (icon) icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      isAudioPlaying = false;
+      const confIcon = document.getElementById('playIcon');
+      if (confIcon) confIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+
+      const summaryText = "Welcome to Learning and Development Studio. Why does traditional business English fail in the real corporate world? Because conventional textbooks pretend that business is composed of quiet, orderly planning. Decades of research by Henry Mintzberg at McGill and Peter Senge at MIT proved that real managerial work is an unrelenting, iterative loop of operational friction and emergency firefighting. You resolve a customs delay on Monday, moderate cross-functional alignment on Tuesday, salvage client trust on Wednesday, reconcile disputed invoices on Thursday, and manage 1-on-1 team friction on Friday. That is why our curriculum is built upon The Corporate Lifecycle. Across our six specialized tracks, we train you to articulate causality, depersonalize conflict, and protect your commercial partnerships under intense operational pressure.";
+
+      const utterance = new SpeechSynthesisUtterance(summaryText);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+
+      utterance.onstart = () => {
+        isBriefingPlaying = true;
+        if (icon) icon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+      };
+
+      utterance.onend = () => {
+        isBriefingPlaying = false;
+        if (icon) icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+      };
+
+      utterance.onerror = () => {
+        isBriefingPlaying = false;
         if (icon) icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
       };
 
