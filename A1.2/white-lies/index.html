@@ -1,0 +1,1170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>White Lies We Tell Right Now · Present Continuous · A1.2 | Learning &amp; Development Studio</title>
+  <link rel="icon" type="image/png" href="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #001F54;
+      --navy-deep: #001233;
+      --navy-light: #0A2A66;
+      --teal: #007A87;
+      --teal-light: #20B7AE;
+      --teal-soft: #E0F2F1;
+      --gold: #D7B35B;
+      --gold-dark: #B57C00;
+      --gold-soft: #FFF8E7;
+      --coral: #D46969;
+      --coral-soft: #FFEBEE;
+      --ink: #0A192F;
+      --muted: #5A6E85;
+      --bg: #F4F7FB;
+      --card-bg: #FFFFFF;
+      --border: #D8E2EC;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 4px 12px rgba(0, 31, 84, 0.05);
+      --shadow-md: 0 12px 30px rgba(0, 31, 84, 0.08);
+      --shadow-lg: 0 20px 48px rgba(0, 31, 84, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TYPOGRAPHY */
+    .font-editorial { font-family: 'Fraunces', serif; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+    /* LAYOUT CONTAINERS */
+    .wrap { width: min(1200px, 92%); margin: 0 auto; }
+
+    /* TOP BAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 31, 84, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--gold);
+      color: #fff;
+      padding: 12px 0;
+    }
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 2px;
+      border: 1.5px solid var(--gold);
+      object-fit: contain;
+    }
+    .brand-text h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+    }
+    .brand-text p {
+      font-size: 11px;
+      color: #A0C4E2;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .user-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #E2E8F0;
+    }
+    .user-pill strong { color: var(--gold); }
+    .btn-hub-back {
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-hub-back:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* HERO STAGE */
+    .hero-stage {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #0d3b66 100%);
+      color: #fff;
+      padding: 48px 0 56px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(215, 179, 91, 0.3);
+    }
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 122, 135, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .badge-kicker {
+      background: rgba(215, 179, 91, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .badge-live-pulse {
+      background: #22C55E;
+      color: #064E3B;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #064E3B;
+      border-radius: 50%;
+      animation: pulseAnim 1.4s infinite;
+    }
+    @keyframes pulseAnim {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.6); opacity: 0.4; }
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .hero-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-tagline {
+      font-size: 17px;
+      color: #CFDCE8;
+      max-width: 58ch;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .frontier-callout {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 3px solid var(--teal-light);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 13px;
+      color: #E2E8F0;
+      margin-bottom: 24px;
+    }
+    .frontier-callout strong { color: var(--teal-light); }
+
+    /* PHONE SIMULATOR CARD */
+    .phone-container {
+      background: #0C1E3A;
+      border: 3px solid #203A63;
+      border-radius: 32px;
+      padding: 20px 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      max-width: 380px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .phone-notch {
+      width: 100px;
+      height: 16px;
+      background: #061122;
+      border-radius: 0 0 12px 12px;
+      margin: -20px auto 14px;
+    }
+    .phone-screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #8CA3C4;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 14px;
+    }
+    .chat-bubble {
+      padding: 11px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      position: relative;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .bubble-incoming {
+      background: #1C335A;
+      color: #F1F5F9;
+      border-bottom-left-radius: 4px;
+      margin-right: 28px;
+    }
+    .bubble-outgoing {
+      background: #007A87;
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+      margin-left: 28px;
+    }
+    .bubble-time {
+      font-size: 10px;
+      opacity: 0.7;
+      margin-top: 4px;
+      text-align: right;
+    }
+    .reality-check-tag {
+      background: #D46969;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 8px;
+      text-align: center;
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+      box-shadow: 0 4px 12px rgba(212, 105, 105, 0.35);
+    }
+
+    /* MAIN CONTENT TABS */
+    .stage-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 66px;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-track {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+    .nav-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-tab-btn:hover {
+      background: #F1F5F9;
+      color: var(--navy);
+    }
+    .nav-tab-btn.active {
+      background: var(--navy);
+      color: #FFFFFF;
+      border-color: var(--navy);
+    }
+
+    /* SECTIONS */
+    .lesson-section {
+      padding: 44px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-head {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-head-title h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .section-head-title p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .section-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: var(--teal-soft);
+      color: var(--teal);
+      border: 1px solid #B2DFDB;
+    }
+
+    /* GRID LAYOUTS */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+    /* CARDS */
+    .interactive-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .interactive-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #B0C7DE;
+    }
+
+    /* MODULE 1: WHITE LIES SPECTRUM (POLL / VOTER) */
+    .lie-card {
+      cursor: pointer;
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .lie-card.voted {
+      border-color: var(--teal);
+      background: #F0FDF4;
+    }
+    .lie-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .lie-said {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lie-reality {
+      font-size: 13px;
+      color: #991B1B;
+      background: #FEE2E2;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .btn-sound {
+      background: #E2E8F0;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-sound:hover { background: var(--teal); color: #fff; }
+    .btn-confess {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s;
+    }
+    .btn-confess:hover { background: var(--teal); }
+
+    /* MODULE 2: GRAMMAR WORKBENCH */
+    .formula-box {
+      background: #001F54;
+      color: #FFFFFF;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+      border: 1px solid var(--gold);
+    }
+    .formula-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .formula-diagram {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .formula-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+    }
+    .formula-pill.be { background: #007A87; color: #fff; }
+    .formula-pill.ing { background: #B57C00; color: #fff; }
+
+    /* SPELLING LAB */
+    .rule-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .rule-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .rule-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .rule-example {
+      background: #F8FAFC;
+      border-left: 3px solid var(--gold);
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* VERB CONJUGATION DRILL */
+    .drill-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .drill-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+    .drill-input {
+      padding: 6px 12px;
+      border: 2px solid #CBD5E1;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      width: 140px;
+      text-align: center;
+    }
+    .drill-input.correct { border-color: #22C55E; background: #F0FDF4; }
+    .drill-input.incorrect { border-color: #EF4444; background: #FEF2F2; }
+
+    /* CHUNKS SOUNDBOARD */
+    .chunk-btn {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .chunk-btn:hover {
+      border-color: var(--teal);
+      background: #F8FAFC;
+      transform: translateY(-2px);
+    }
+    .chunk-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chunk-usage {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ROLE-PLAY GENERATOR */
+    .roleplay-box {
+      background: linear-gradient(135deg, #0A192F 0%, #172A45 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 2px solid var(--gold);
+      box-shadow: var(--shadow-lg);
+    }
+    .roleplay-roles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 20px 0;
+    }
+    .role-column {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .role-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .role-student-a { color: var(--gold); }
+    .role-student-b { color: var(--teal-light); }
+    .role-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #E2E8F0;
+    }
+    .btn-roll-dilemma {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border: none;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-roll-dilemma:hover {
+      background: #FFFFFF;
+      transform: scale(1.02);
+    }
+
+    /* FOOTER */
+    .lesson-footer {
+      background: var(--navy);
+      color: #A0C4E2;
+      padding: 36px 0;
+      border-top: 3px solid var(--gold);
+      font-size: 13px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .roleplay-roles { grid-template-columns: 1fr; }
+      .phone-container { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="wrap topbar-content">
+      <a href="../../a1-2_workspace.html" class="brand-group">
+        <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <h1>Learning &amp; Development Studio</h1>
+          <p>English Hub · A1.2 Actions in Motion</p>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <div class="user-pill" id="studentTag">Student: <strong>Israel (Coordinator)</strong></div>
+        <a href="../../a1-2_workspace.html" class="btn-hub-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Workspace
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO STAGE -->
+  <section class="hero-stage">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-badge-row">
+          <span class="badge-kicker">Macro-Unit 04 · Present Continuous</span>
+          <span class="badge-live-pulse"><span class="pulse-dot"></span> LIVE CLASSROOM QUEST</span>
+        </div>
+        <h1 class="hero-title font-editorial">
+          White Lies We Tell <span>Right Now</span>
+        </h1>
+        <p class="hero-tagline">
+          The <em>"I'm On My Way!"</em> Syndrome: Phone calls, WhatsApp dispatches, and the universal human dilemma of what we <strong>say</strong> we are doing versus what we are <strong>actually</strong> doing at this exact second.
+        </p>
+
+        <div class="frontier-callout">
+          <strong>Límite Pedagógico [F]:</strong> Exclusivamente acciones en desarrollo en este segundo presente. Prohibido usar el continuo para planes futuros (e.g. <em>"I'm traveling tomorrow"</em> pertenece a A2).
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#spectrum" class="btn-hub-back" style="padding:10px 20px; font-size:14px;">
+            Start Lesson Investigation ↓
+          </a>
+          <a href="../present-continuous/index.html" class="btn-hub-back" style="background:transparent; color:#fff; border:1px solid #fff; padding:10px 20px; font-size:14px;">
+            Open 3 Cities Documentary Mode ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE PHONE PREVIEW -->
+      <div>
+        <div class="phone-container">
+          <div class="phone-notch"></div>
+          <div class="phone-screen-header">
+            <span>WhatsApp · Roommate</span>
+            <span class="font-mono">RIGHT NOW</span>
+          </div>
+          
+          <div class="chat-bubble bubble-incoming">
+            Hey! Are you driving yet?? The meeting starts in 5 minutes! 😱
+            <div class="bubble-time">10:42 AM</div>
+          </div>
+
+          <div class="chat-bubble bubble-outgoing">
+            Yes! I'm literally walking out the door right now! Be right there! 🏃‍♂️💨
+            <div class="bubble-time">10:43 AM</div>
+          </div>
+
+          <div class="reality-check-tag">
+            ⚠️ REALITY CHECK: Still in pajamas looking for keys on the sofa.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE NAVIGATION -->
+  <nav class="stage-nav">
+    <div class="wrap nav-track">
+      <button class="nav-tab-btn active" onclick="scrollToSec('spectrum')">1. The White Lies Dilemma</button>
+      <button class="nav-tab-btn" onclick="scrollToSec('grammar')">2. Grammar &amp; -ing Lab</button>
+      <button class="nav-tab-btn" onclick="scrollToSec('chunks')">3. Real USA Chunks</button>
+      <button class="nav-tab-btn" onclick="scrollToSec('roleplay')">4. "Caught Red-Handed" Role-Play</button>
+      <button class="nav-tab-btn" onclick="scrollToSec('gym')">5. Quick Output Gym</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- MODULE 1: THE WHITE LIES SPECTRUM -->
+    <section class="lesson-section" id="spectrum">
+      <div class="section-head">
+        <div class="section-head-title">
+          <h2>1. The White Lies Spectrum: Vote &amp; Confess</h2>
+          <p>Click on each dilemma to hear the phrase, see the reality, and vote if you have said this before.</p>
+        </div>
+        <span class="section-badge">Speaking &amp; Listening</span>
+      </div>
+
+      <div class="grid-2">
+        <!-- Dilemma 1 -->
+        <div class="interactive-card lie-card" id="card-lie-1">
+          <div class="lie-num">Dilemma 01 · On The Road</div>
+          <div class="lie-said">
+            <span>"I'm on my way!"</span>
+            <button class="btn-sound" onclick="speakPhrase('I am on my way!')" title="Listen">🔊</button>
+          </div>
+          <div class="lie-reality">
+            REALITY: You just turned on the shower 20 seconds ago.
+          </div>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+            Target: <em>"He is saying he is on his way, but he is taking a shower."</em>
+          </p>
+          <button class="btn-confess" onclick="confessLie(1)">Guilty! I say this all the time (Vote)</button>
+        </div>
+
+        <!-- Dilemma 2 -->
+        <div class="interactive-card lie-card" id="card-lie-2">
+          <div class="lie-num">Dilemma 02 · The Busy Call</div>
+          <div class="lie-said">
+            <span>"I'm driving right now!"</span>
+            <button class="btn-sound" onclick="speakPhrase('I am driving right now, can I call you back?')">🔊</button>
+          </div>
+          <div class="lie-reality">
+            REALITY: You are sitting on the couch scrolling Instagram.
+          </div>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+            Target: <em>"She isn't driving. She is watching funny videos on her phone."</em>
+          </p>
+          <button class="btn-confess" onclick="confessLie(2)">Guilty! I say this to hang up fast (Vote)</button>
+        </div>
+
+        <!-- Dilemma 3 -->
+        <div class="interactive-card lie-card" id="card-lie-3">
+          <div class="lie-num">Dilemma 03 · The Door Myth</div>
+          <div class="lie-said">
+            <span>"Walking out the door!"</span>
+            <button class="btn-sound" onclick="speakPhrase('I am literally walking out the door!')">🔊</button>
+          </div>
+          <div class="lie-reality">
+            REALITY: You are frantically looking for your shoes and keys.
+          </div>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+            Target: <em>"They are not leaving. They are searching for their wallet."</em>
+          </p>
+          <button class="btn-confess" onclick="confessLie(3)">Guilty! (Vote)</button>
+        </div>
+
+        <!-- Dilemma 4 -->
+        <div class="interactive-card lie-card" id="card-lie-4">
+          <div class="lie-num">Dilemma 04 · The Work Illusion</div>
+          <div class="lie-said">
+            <span>"I'm finishing the report."</span>
+            <button class="btn-sound" onclick="speakPhrase('I am finishing the report right now.')">🔊</button>
+          </div>
+          <div class="lie-reality">
+            REALITY: You are making your third cup of coffee in the kitchen.
+          </div>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+            Target: <em>"He is not working on the document. He is brewing coffee."</em>
+          </p>
+          <button class="btn-confess" onclick="confessLie(4)">Guilty! (Vote)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2: GRAMMAR & SPELLING LAB -->
+    <section class="lesson-section" id="grammar">
+      <div class="section-head">
+        <div class="section-head-title">
+          <h2>2. Grammar Mechanics &amp; -ing Spelling Lab</h2>
+          <p>Master the exact formula: Auxiliary <strong>BE</strong> + Main Verb in <strong>-ING</strong>.</p>
+        </div>
+        <span class="section-badge">Structural Precision</span>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">The Universal Formula (Affirmative &amp; Negative)</div>
+        <div class="formula-diagram">
+          <span class="formula-pill">Subject (I / You / He / We)</span>
+          <span>+</span>
+          <span class="formula-pill be">am / is / are (not)</span>
+          <span>+</span>
+          <span class="formula-pill ing">Verb-ING</span>
+          <span>=</span>
+          <span style="color:var(--gold);">Action in Progress Right Now</span>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; color:var(--navy); margin-bottom:14px;">The 4 Essential Spelling Rules of -ING</h3>
+      <div class="grid-4">
+        <div class="rule-card">
+          <h3>Rule 1: General</h3>
+          <p>Just add <strong>-ing</strong>.</p>
+          <div class="rule-example">
+            walk → <strong>walking</strong><br>
+            sleep → <strong>sleeping</strong><br>
+            cook → <strong>cooking</strong>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <h3>Rule 2: Silent -e</h3>
+          <p>Drop the silent <strong>-e</strong>, add <strong>-ing</strong>.</p>
+          <div class="rule-example">
+            drive → <strong>driving</strong><br>
+            write → <strong>writing</strong><br>
+            leave → <strong>leaving</strong>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <h3>Rule 3: CVC Double</h3>
+          <p>Consonant-Vowel-Consonant: Double the last consonant.</p>
+          <div class="rule-example">
+            run → <strong>running</strong><br>
+            sit → <strong>sitting</strong><br>
+            stop → <strong>stopping</strong>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <h3>Rule 4: -ie to -y</h3>
+          <p>Change <strong>-ie</strong> to <strong>-y</strong>, add <strong>-ing</strong>.</p>
+          <div class="rule-example">
+            lie (mentir) → <strong>lying</strong><br>
+            tie → <strong>tying</strong><br>
+            die → <strong>dying</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SPELLING DRILL -->
+      <div class="drill-container">
+        <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:12px;">
+          Interactive Spell Check: Type the correct -ing form
+        </h3>
+        <div class="grid-2">
+          <div class="drill-item">
+            <span>1. lie (tell a lie) →</span>
+            <input type="text" class="drill-input" placeholder="type -ing..." oninput="checkSpelling(this, 'lying')">
+            <span class="feedback-span font-mono" style="font-size:12px;"></span>
+          </div>
+          <div class="drill-item">
+            <span>2. run (in a hurry) →</span>
+            <input type="text" class="drill-input" placeholder="type -ing..." oninput="checkSpelling(this, 'running')">
+            <span class="feedback-span font-mono" style="font-size:12px;"></span>
+          </div>
+          <div class="drill-item">
+            <span>3. drive (my car) →</span>
+            <input type="text" class="drill-input" placeholder="type -ing..." oninput="checkSpelling(this, 'driving')">
+            <span class="feedback-span font-mono" style="font-size:12px;"></span>
+          </div>
+          <div class="drill-item">
+            <span>4. walk (out the door) →</span>
+            <input type="text" class="drill-input" placeholder="type -ing..." oninput="checkSpelling(this, 'walking')">
+            <span class="feedback-span font-mono" style="font-size:12px;"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3: REAL USA CHUNKS -->
+    <section class="lesson-section" id="chunks">
+      <div class="section-head">
+        <div class="section-head-title">
+          <h2>3. Real-World USA Chunks Soundboard</h2>
+          <p>High-frequency conversational chunks used across the United States. Click to listen and shadow.</p>
+        </div>
+        <span class="section-badge">Functional Chunks [L]</span>
+      </div>
+
+      <div class="grid-3">
+        <button class="chunk-btn" onclick="speakPhrase('I am on my way!')">
+          <div class="chunk-text">"I'm on my way!" 🔊</div>
+          <div class="chunk-usage">Standard reply when someone asks where you are.</div>
+        </button>
+
+        <button class="chunk-btn" onclick="speakPhrase('Be right there!')">
+          <div class="chunk-text">"Be right there!" 🔊</div>
+          <div class="chunk-usage">Short for "I will be right there in a few seconds."</div>
+        </button>
+
+        <button class="chunk-btn" onclick="speakPhrase('I am literally walking out the door!')">
+          <div class="chunk-text">"Walking out the door!" 🔊</div>
+          <div class="chunk-usage">Emphatic chunk to claim you are leaving right now.</div>
+        </button>
+
+        <button class="chunk-btn" onclick="speakPhrase('You are caught red-handed!')">
+          <div class="chunk-text">"Caught red-handed!" 🔊</div>
+          <div class="chunk-usage">When someone discovers you doing something you denied.</div>
+        </button>
+
+        <button class="chunk-btn" onclick="speakPhrase('Yeah, right!')">
+          <div class="chunk-text">"Yeah, right!" 🔊</div>
+          <div class="chunk-usage">Sarcastic reaction meaning "I don't believe you at all."</div>
+        </button>
+
+        <button class="chunk-btn" onclick="speakPhrase('Hold that thought, someone is calling me.')">
+          <div class="chunk-text">"Hold that thought!" 🔊</div>
+          <div class="chunk-usage">Used to pause a conversation because an interruption is happening.</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- MODULE 4: ROLE-PLAY "CAUGHT RED-HANDED" -->
+    <section class="lesson-section" id="roleplay">
+      <div class="section-head">
+        <div class="section-head-title">
+          <h2>4. Role-Play: "The Truth Behind The Call"</h2>
+          <p>Pair up! Student A calls with a question. Student B invents a white lie. Student A tries to catch them.</p>
+        </div>
+        <span class="section-badge">Classroom Production</span>
+      </div>
+
+      <div class="roleplay-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <h3 class="font-editorial" style="font-size:24px; color:#fff;" id="scenarioTitle">Scenario 1: The Urgent Coffee Meetup</h3>
+            <p style="font-size:13px; color:#A0C4E2;">Time: 4:30 PM · Location: Starbucks Downtown</p>
+          </div>
+          <button class="btn-roll-dilemma" onclick="rollScenario()">
+            🎲 Generate New Classroom Scenario
+          </button>
+        </div>
+
+        <div class="roleplay-roles">
+          <div class="role-column">
+            <div class="role-title role-student-a">Caller (Student A)</div>
+            <p class="role-desc" id="roleDescA">
+              You have been waiting for 20 minutes at the cafe. Call Student B and ask: <em>"Hey, where are you? What are you doing right now?"</em> Listen for suspicious noises in the background!
+            </p>
+          </div>
+
+          <div class="role-column">
+            <div class="role-title role-student-b">Receiver (Student B - Secret Reality)</div>
+            <p class="role-desc" id="roleDescB">
+              <strong>Your Secret Reality:</strong> You are eating tacos in your car while listening to loud music.<br><br>
+              <strong>Your White Lie:</strong> Tell Student A: <em>"I'm driving right now, traffic is crazy!"</em>
+            </p>
+          </div>
+        </div>
+
+        <div style="background:rgba(215, 179, 91, 0.15); border:1px solid var(--gold); border-radius:var(--radius-sm); padding:12px; font-size:13px; color:#FDE68A;">
+          💡 <strong>Teacher Cue:</strong> Encourage students to challenge the lie: <em>"Wait, why are you chewing? Are you eating tacos right now?!"</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 5: QUICK GYM AUDIT -->
+    <section class="lesson-section" id="gym">
+      <div class="section-head">
+        <div class="section-head-title">
+          <h2>5. Quick Exit Gym: 60-Second Challenge</h2>
+          <p>Formulate 3 full sentences with Present Continuous before ending the session.</p>
+        </div>
+        <span class="section-badge">Exit Ticket</span>
+      </div>
+
+      <div class="interactive-card">
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div>
+            <label style="font-size:14px; font-weight:700; color:var(--navy);">1. What is someone in your house doing right now?</label>
+            <input type="text" id="exit1" class="drill-input" style="width:100%; text-align:left; margin-top:6px;" placeholder="e.g. My mom is cooking dinner in the kitchen.">
+          </div>
+          <div>
+            <label style="font-size:14px; font-weight:700; color:var(--navy);">2. What are YOU NOT doing at this exact moment?</label>
+            <input type="text" id="exit2" class="drill-input" style="width:100%; text-align:left; margin-top:6px;" placeholder="e.g. I am not sleeping, I am studying English.">
+          </div>
+          <div>
+            <label style="font-size:14px; font-weight:700; color:var(--navy);">3. The White Lie: What do you say when you are running late?</label>
+            <input type="text" id="exit3" class="drill-input" style="width:100%; text-align:left; margin-top:6px;" placeholder="e.g. I'm telling my boss I am parking the car.">
+          </div>
+          <button class="btn-confess" style="align-self:flex-start; width:auto; padding:10px 24px;" onclick="submitExitTicket()">
+            Save &amp; Complete Activity ✓
+          </button>
+          <div id="ticketSuccess" style="display:none; color:#15803D; font-weight:700; font-size:14px; background:#DCFCE7; padding:10px; border-radius:8px;">
+            🎉 Exit ticket saved successfully! Great job mastering the Present Continuous.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="lesson-footer">
+    <div class="wrap footer-content">
+      <div>
+        <strong>Learning &amp; Development Studio</strong> · English Hub Curriculum System<br>
+        <span style="font-size:11px; opacity:0.8;">Level A1.2 · Macro-Unit 04 · Present Continuous in Real Life</span>
+      </div>
+      <div>
+        <a href="../present-continuous/index.html" style="color:#D7B35B; text-decoration:none; margin-right:16px;">
+          Alternate Feed: Three Cities (15:00 UTC) →
+        </a>
+        <a href="../../a1-2_workspace.html" style="color:#FFFFFF; text-decoration:underline;">
+          A1.2 Student Workspace
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // URL student name extraction
+    function getStudentName() {
+      const p = new URLSearchParams(window.location.search);
+      return p.get('name') || 'Coordinator';
+    }
+    document.getElementById('studentTag').innerHTML = `Student: <strong>${getStudentName()}</strong>`;
+
+    // Audio TTS helper
+    function speakPhrase(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = 0.95;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    // Scroll helper
+    function scrollToSec(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Confess Lie
+    function confessLie(num) {
+      const card = document.getElementById('card-lie-' + num);
+      if (card) {
+        card.classList.toggle('voted');
+        const btn = card.querySelector('.btn-confess');
+        if (card.classList.contains('voted')) {
+          btn.textContent = '✓ Confessed! 87% of students agree';
+          btn.style.background = '#059669';
+        } else {
+          btn.textContent = 'Guilty! (Vote)';
+          btn.style.background = 'var(--navy)';
+        }
+      }
+    }
+
+    // Spell Check Interactive
+    function checkSpelling(input, target) {
+      const val = input.value.trim().toLowerCase();
+      const fb = input.nextElementSibling;
+      if (!val) {
+        input.className = 'drill-input';
+        fb.textContent = '';
+        return;
+      }
+      if (val === target) {
+        input.className = 'drill-input correct';
+        fb.textContent = '✓ Perfect!';
+        fb.style.color = '#15803D';
+      } else {
+        input.className = 'drill-input incorrect';
+        fb.textContent = '✗ Try again';
+        fb.style.color = '#B91C1C';
+      }
+    }
+
+    // Scenarios Generator
+    const scenarios = [
+      {
+        title: "Scenario 1: The Urgent Coffee Meetup",
+        caller: "You have been waiting for 20 minutes at the cafe. Call Student B and ask: 'Hey, where are you? What are you doing right now?' Listen for suspicious background noises!",
+        receiver: "Your Secret Reality: You are eating tacos in your car while listening to loud music.<br><br>Your White Lie: Tell Student A: 'I'm driving right now, traffic is crazy!'"
+      },
+      {
+        title: "Scenario 2: The Online Team Meeting",
+        caller: "Your Zoom call started 10 minutes ago. Student B's camera is off. Ask: 'Hey B, are you here? What are you doing right now?'",
+        receiver: "Your Secret Reality: You are frying eggs and making breakfast in the kitchen.<br><br>Your White Lie: Say: 'I am taking notes on paper right now! My connection is slow.'"
+      },
+      {
+        title: "Scenario 3: The Gym Buddy Mystery",
+        caller: "You are already warming up on the treadmill at the gym. Student B promised to arrive at 7:00 AM. Call them!",
+        receiver: "Your Secret Reality: You are lying in bed scrolling funny videos with one eye closed.<br><br>Your White Lie: Say: 'I am tying my running shoes right now! Be right there!'"
+      },
+      {
+        title: "Scenario 4: The Urgent Group Project",
+        caller: "The deadline is in 1 hour. You need Student B to send the slides. Call and ask: 'Are you working on the presentation right now?'",
+        receiver: "Your Secret Reality: You are playing video games with your headphones on.<br><br>Your White Lie: Say: 'Yes, I am proofreading the final slide right this second!'"
+      }
+    ];
+    let currentScIdx = 0;
+    function rollScenario() {
+      currentScIdx = (currentScIdx + 1) % scenarios.length;
+      const sc = scenarios[currentScIdx];
+      document.getElementById('scenarioTitle').textContent = sc.title;
+      document.getElementById('roleDescA').innerHTML = sc.caller;
+      document.getElementById('roleDescB').innerHTML = `<strong>Your Secret Reality:</strong> ${sc.receiver}`;
+    }
+
+    function submitExitTicket() {
+      const e1 = document.getElementById('exit1').value.trim();
+      const e2 = document.getElementById('exit2').value.trim();
+      const e3 = document.getElementById('exit3').value.trim();
+      if (!e1 || !e2 || !e3) {
+        alert('Please complete all 3 sentences to submit your ticket!');
+        return;
+      }
+      document.getElementById('ticketSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
