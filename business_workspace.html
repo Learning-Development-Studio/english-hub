@@ -3408,10 +3408,6 @@
 
       // LEVEL 1: TRACKS HUB (THE 6 BIG TRACK CARDS + LABS)
       if (currentTrack === 'all') {
-        if (navSummary) {
-          navSummary.textContent = "The Corporate Lifecycle Menu · Select a pillar to open its curriculum";
-        }
-
         container.innerHTML = `
           <div class="tracks-hub-grid">
             ${tracks.map(track => {
@@ -3464,9 +3460,6 @@
       if (!targetTrack) return;
 
       const activeInTrack = items.filter(i => i.live).length;
-      if (navSummary) {
-        navSummary.textContent = `Viewing: ${targetTrack.code} · ${targetTrack.title} (${items.length} Modules)`;
-      }
 
       container.innerHTML = `
         <div class="track-breadcrumb-bar">
@@ -3620,9 +3613,6 @@
       const trackParam = urlParams.get('track');
       if (trackParam) {
         currentTrack = trackParam;
-        document.querySelectorAll('.track-pill-btn').forEach(btn => {
-          btn.classList.toggle('active', btn.dataset.track === trackParam);
-        });
       }
       renderBusinessWorkspace();
     });
