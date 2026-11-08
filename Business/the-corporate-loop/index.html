@@ -287,33 +287,187 @@
       max-width: 780px;
     }
 
-    /* CITATION BOX */
-    .citation-card {
-      background: #fff;
+    /* EXECUTIVE VIDEO BRIEFING THEATER */
+    .video-briefing-theater {
+      background: var(--navy-deep);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 16px 36px -4px rgba(7, 21, 39, 0.35);
+    }
+    .video-theater-header {
+      padding: 20px 26px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(180deg, rgba(14, 39, 74, 0.8) 0%, rgba(7, 21, 39, 0.95) 100%);
+    }
+    .video-theater-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .video-badge {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      background: rgba(212, 168, 67, 0.15);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .video-source {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .video-theater-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+    }
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background: #000000;
+    }
+    .video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-takeaways-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding: 20px 24px;
+      background: rgba(11, 31, 58, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .takeaway-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .takeaway-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold);
+      background: rgba(212, 168, 67, 0.15);
+      border: 1px solid rgba(212, 168, 67, 0.3);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .takeaway-text {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .takeaway-text strong {
+      color: #ffffff;
+    }
+
+    /* BLUF AUTHOR CARDS (SIDE BY SIDE, VISUAL, NO WALL OF TEXT) */
+    .authors-bluf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 32px;
+    }
+    .author-bluf-card {
+      background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 26px 30px;
-      margin-bottom: 24px;
+      padding: 24px 26px;
       box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
-    .citation-quote {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--navy-main);
-      line-height: 1.5;
-      margin-bottom: 12px;
+    .author-bluf-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -4px rgba(11, 31, 58, 0.1);
+      border-color: rgba(212, 168, 67, 0.4);
     }
-    .citation-author {
-      font-size: 0.82rem;
-      font-weight: 700;
+    .author-card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 10px rgba(11, 31, 58, 0.15);
+      flex-shrink: 0;
+    }
+    .author-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .author-pill {
+      font-size: 10.5px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.06em;
       color: var(--gold-dark);
     }
-    .citation-source {
-      font-size: 0.78rem;
+    .author-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy-main);
+      margin: 0;
+    }
+    .author-inst {
+      font-size: 11.5px;
       color: var(--muted);
+      font-weight: 600;
+    }
+    .author-quote-box {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--navy-main);
+      line-height: 1.55;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+    .author-takeaway {
+      font-size: 12px;
+      color: var(--navy-soft);
+      line-height: 1.45;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .author-takeaway strong {
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 3px;
     }
 
     /* 6 TRACKS GRID */
@@ -828,20 +982,78 @@
         </p>
       </div>
 
-      <div class="citation-card">
-        <div class="citation-quote">
-          &ldquo;The manager does not systematically plan, coordinate, or control in quiet isolation. Real managerial work is characterized by brevity, variety, and fragmentation, where action is reactive, oral, and relentlessly iterative.&rdquo;
+      <!-- EXECUTIVE VIDEO BRIEFING THEATER -->
+      <div class="video-briefing-theater">
+        <div class="video-theater-header">
+          <div class="video-theater-meta">
+            <span class="video-badge">Executive Video Briefing &middot; 03:20</span>
+            <span class="video-source">Harvard Business Review &middot; MIT Sloan Systems Thinking</span>
+          </div>
+          <h4 class="video-theater-title">The Firefighting Trap: Why Managers Stay Trapped in Chaos</h4>
         </div>
-        <div class="citation-author">Henry Mintzberg, Ph.D.</div>
-        <div class="citation-source">The Nature of Managerial Work &middot; Sloan Management Review / Harvard Business Press</div>
+        
+        <div class="video-player-container">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/vPhvB0f_Bsw?rel=0&modestbranding=1" 
+            title="The Firefighting Trap - Systems Thinking in Organizations" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            class="video-iframe"
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <div class="video-takeaways-bar">
+          <div class="takeaway-item">
+            <span class="takeaway-num">01</span>
+            <div class="takeaway-text"><strong>Brevity &amp; Friction:</strong> Mintzberg proved managers spend 80% of their day in rapid, reactive, oral interactions.</div>
+          </div>
+          <div class="takeaway-item">
+            <span class="takeaway-num">02</span>
+            <div class="takeaway-text"><strong>The Firefighting Trap:</strong> Senge proved quick workarounds without linguistic precision trigger tomorrow's crisis.</div>
+          </div>
+          <div class="takeaway-item">
+            <span class="takeaway-num">03</span>
+            <div class="takeaway-text"><strong>Our 6 Tracks:</strong> Tactical language models built directly on the recurring stages of organizational friction.</div>
+          </div>
+        </div>
       </div>
 
-      <div class="citation-card">
-        <div class="citation-quote">
-          &ldquo;Organizations frequently become trapped in 'firefighting loops'—where emergency workarounds solve today's friction only to create the next operational crisis tomorrow. The professional's challenge is maintaining clarity under perpetual systemic strain.&rdquo;
+      <!-- BLUF AUTHOR CARDS (CONCISE, NO WALL OF TEXT) -->
+      <div class="authors-bluf-grid">
+        <div class="author-bluf-card">
+          <div class="author-card-top">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" alt="Henry Mintzberg" class="author-avatar" onerror="this.onerror=null; this.src='../../assets/logo.png'">
+            <div class="author-card-meta">
+              <span class="author-pill">Empirical Managerial Research</span>
+              <h4 class="author-name">Henry Mintzberg, Ph.D.</h4>
+              <span class="author-inst">McGill University &middot; Harvard Business Review</span>
+            </div>
+          </div>
+          <div class="author-quote-box">
+            &ldquo;Real managerial work is characterized by brevity, variety, and fragmentation. Action is reactive, oral, and relentlessly iterative.&rdquo;
+          </div>
+          <div class="author-takeaway">
+            <strong>Studio Translation:</strong> Polite textbook writing fails. You need rapid-fire diplomatic speaking to manage unexpected interruptions.
+          </div>
         </div>
-        <div class="citation-author">Peter M. Senge, Ph.D.</div>
-        <div class="citation-source">The Fifth Discipline: The Art &amp; Practice of the Learning Organization &middot; MIT Sloan</div>
+
+        <div class="author-bluf-card">
+          <div class="author-card-top">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="Peter Senge" class="author-avatar" onerror="this.onerror=null; this.src='../../assets/logo.png'">
+            <div class="author-card-meta">
+              <span class="author-pill">Systems Dynamics &amp; The 5th Discipline</span>
+              <h4 class="author-name">Peter M. Senge, Ph.D.</h4>
+              <span class="author-inst">MIT Sloan School of Management &middot; Systems Thinking</span>
+            </div>
+          </div>
+          <div class="author-quote-box">
+            &ldquo;Organizations get trapped in firefighting loops—emergency workarounds solve today's friction only to trigger tomorrow's crisis.&rdquo;
+          </div>
+          <div class="author-takeaway">
+            <strong>Studio Translation:</strong> You need depersonalized linguistic models to explain systemic causes and trade conditional concessions.
+          </div>
+        </div>
       </div>
 
       <div class="loop-flow-box">
