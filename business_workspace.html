@@ -413,6 +413,264 @@
       color: var(--navy-main);
     }
 
+    /* CORPORATE LOOP SHOWCASE BANNER */
+    .corporate-loop-banner {
+      background: linear-gradient(135deg, #071527 0%, #0c2340 50%, #071527 100%);
+      border: 1px solid rgba(212, 168, 67, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px -8px rgba(7, 21, 39, 0.3);
+    }
+    .corporate-loop-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(212, 168, 67, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+    .cl-banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(212, 168, 67, 0.18);
+      border: 1px solid var(--gold-border);
+      color: #fef08a;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .cl-banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .cl-banner-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .cl-banner-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(20px, 2.2vw, 24px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .cl-banner-title span {
+      color: var(--gold);
+    }
+    .cl-banner-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 68ch;
+      margin-bottom: 14px;
+    }
+    .cl-banner-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cl-tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e2e8f0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .cl-launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy-deep);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      transition: all .2s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.35);
+    }
+    .cl-launch-btn:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(212, 168, 67, 0.5);
+    }
+
+    /* TRACK FILTER NAVIGATION BAR */
+    .track-nav-container {
+      margin-bottom: 30px;
+    }
+    .track-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .track-nav-kicker {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--navy-soft);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .track-nav-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .track-nav-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .track-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+    }
+    .track-pill-btn:hover {
+      border-color: var(--gold);
+      color: var(--navy-main);
+      transform: translateY(-1px);
+    }
+    .track-pill-btn.active {
+      background: var(--navy-main);
+      color: #ffffff;
+      border-color: var(--gold);
+      box-shadow: 0 4px 14px rgba(11, 31, 58, 0.25);
+    }
+    .track-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: var(--radius-full);
+      background: #f1f5f9;
+      color: var(--navy-main);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .track-pill-btn.active .track-pill-badge {
+      background: var(--gold);
+      color: var(--navy-deep);
+    }
+
+    /* TRACK SECTION BLOCK & HEADER BANNER */
+    .track-section-block {
+      margin-bottom: 48px;
+    }
+    .track-header-banner {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .track-header-main {
+      flex: 1;
+      min-width: 280px;
+    }
+    .track-header-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+    .track-header-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .track-header-subtitle {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--navy-soft);
+      margin-bottom: 6px;
+    }
+    .track-header-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 75ch;
+    }
+    .track-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .track-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: var(--radius-full);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .track-meta-chip.active-chip {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #047857;
+    }
+
     .classes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -838,19 +1096,19 @@
       <div class="hero-banner-topline">
         <div class="hero-banner-pill" id="heroKicker">
           <span class="hero-banner-pill-dot"></span>
-          Specialized Track · Executive Business English
+          Institutional Architecture · The Corporate Lifecycle
         </div>
         <div class="hero-banner-meta" id="heroMeta">
-          Corporate & Workplace Communication (6 Tracks · 24 Modules)
+          Grounded in Organizational Science (Mintzberg &amp; Senge) &middot; 6 Tracks &middot; 28 Modules
         </div>
       </div>
 
       <h1 class="hero-banner-title" id="heroTitle">
-        Executive Communication & <span class="gold-accent">Strategy</span>
+        Executive Communication &amp; <span class="gold-accent">Strategy</span>
       </h1>
 
       <p class="hero-banner-desc" id="heroDesc">
-        High-stakes corporate communication: crisis management, deal-making, diplomatic writing, and executive leadership.
+        Corporate communication is not a quiet linear textbook—it is an unending loop of operational friction. Grounded in organizational research, our curriculum equips executives across the 6 recurring pillars of the corporate lifecycle.
       </p>
 
       <!-- FROSTED METRICS STRIP -->
@@ -858,69 +1116,98 @@
         <div class="stat-item">
           <div class="stat-number" id="stat1Num">06</div>
           <div class="stat-meta">
-            <strong id="stat1Label">Specialized Tracks</strong>
-            <span id="stat1Sub">Cross-border scenarios</span>
+            <strong id="stat1Label">Lifecycle Tracks</strong>
+            <span id="stat1Sub">Ops, Sync, Clients, Finance, HR, Board</span>
           </div>
         </div>
 
         <div class="stat-divider"></div>
 
         <div class="stat-item">
-          <div class="stat-number" id="stat2Num">04</div>
+          <div class="stat-number" id="stat2Num">28</div>
           <div class="stat-meta">
-            <strong id="stat2Label">Executive Labs</strong>
-            <span id="stat2Sub">Memos, cadence & debate</span>
+            <strong id="stat2Label">Executive Modules</strong>
+            <span id="stat2Sub">Active classes &amp; roadmap catalog</span>
           </div>
         </div>
 
         <div class="stat-divider"></div>
 
         <div class="stat-item">
-          <div class="stat-number" id="stat3Num">C1-</div>
+          <div class="stat-number" id="stat3Num">CLT+TBLT</div>
           <div class="stat-meta">
-            <strong id="stat3Label">Target Profile</strong>
-            <span id="stat3Sub">Boardroom proficiency</span>
+            <strong id="stat3Label">Methodology Engine</strong>
+            <span id="stat3Sub">Task-based observable evidence</span>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- THE EDITORIAL SWITCHER -->
-    <div class="controls-bar">
-      <div class="switch-wrapper">
-        <button type="button" class="switch-btn active gold-mode" id="btnSwitchExp" onclick="setSwitchMode('experience')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-          </svg>
-          Communicative Experiences
-        </button>
-
-        <button type="button" class="switch-btn" id="btnSwitchExpl" onclick="setSwitchMode('explore')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="21" x2="4" y2="14"></line>
-            <line x1="4" y1="10" x2="4" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12" y2="3"></line>
-            <line x1="20" y1="21" x2="20" y2="16"></line>
-            <line x1="20" y1="12" x2="20" y2="3"></line>
-            <line x1="1" y1="14" x2="7" y2="14"></line>
-            <line x1="9" y1="8" x2="15" y2="8"></line>
-            <line x1="17" y1="16" x2="23" y2="16"></line>
-          </svg>
-          Explore Labs
-        </button>
-      </div>
-
-      <div class="switch-legend" id="switchLegend">
-        <div class="legend-indicator gold">
-          <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
+    <!-- CORPORATE LOOP FOUNDATIONAL BANNER (DAY 01 MASTERCLASS) -->
+    <section class="corporate-loop-banner">
+      <div class="cl-banner-badge">[Day 01] Foundational Executive Masterclass</div>
+      <div class="cl-banner-content">
+        <div class="cl-banner-text">
+          <h2 class="cl-banner-title">BE-00: The Corporate Loop &middot; <span>Navigating Real-World Executive Friction</span></h2>
+          <p class="cl-banner-desc">
+            Why traditional grammar textbooks fail in the corporate world. Discover how Henry Mintzberg's managerial research and Peter Senge's firefighting loops form the institutional architecture of our 6 tracks.
+          </p>
+          <div class="cl-banner-tags">
+            <span class="cl-tag">Mintzberg &amp; Senge Diagnosis</span>
+            <span class="cl-tag">The 6 Lifecycle Tracks</span>
+            <span class="cl-tag">Cause &amp; Diplomatic Stance</span>
+            <span class="cl-tag">Fossil Error Clinic</span>
+          </div>
+        </div>
+        <div class="cl-banner-action">
+          <a href="./Business/the-corporate-loop/index.html" class="cl-launch-btn">
+            Launch Day 01 Masterclass &rarr;
+          </a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- TRACK FILTER NAVIGATION BAR -->
+    <section class="track-nav-container">
+      <div class="track-nav-header">
+        <div class="track-nav-kicker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Select Departmental Track
+        </div>
+        <div class="track-nav-meta" id="trackNavSummary">
+          The Corporate Lifecycle Menu &middot; Select a pillar to filter modules
+        </div>
+      </div>
+      <div class="track-nav-scroll" id="trackNavPills">
+        <button type="button" class="track-pill-btn active" data-track="all" onclick="selectTrack('all')">
+          All Tracks <span class="track-pill-badge">28</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track1" onclick="selectTrack('track1')">
+          Track 1 &middot; Crisis &amp; Ops <span class="track-pill-badge">4</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track2" onclick="selectTrack('track2')">
+          Track 2 &middot; Meetings &amp; Sync <span class="track-pill-badge">4</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track3" onclick="selectTrack('track3')">
+          Track 3 &middot; Client Relations <span class="track-pill-badge">4</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track4" onclick="selectTrack('track4')">
+          Track 4 &middot; Finance &amp; Legal <span class="track-pill-badge">4</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track5" onclick="selectTrack('track5')">
+          Track 5 &middot; People &amp; HR <span class="track-pill-badge">5</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="track6" onclick="selectTrack('track6')">
+          Track 6 &middot; Boardroom Strategy <span class="track-pill-badge">3</span>
+        </button>
+        <button type="button" class="track-pill-btn" data-track="labs" onclick="selectTrack('labs')">
+          Executive Labs <span class="track-pill-badge">4</span>
+        </button>
+      </div>
+    </section>
 
     <!-- DYNAMIC CLASSES CONTAINER -->
-    <main id="classesContainer" class="classes-grid">
+    <main id="classesContainer" class="classes-container">
       <!-- Injected by JavaScript -->
     </main>
 
@@ -2228,36 +2515,98 @@
   "Business": {
     "code": "Business English",
     "studentLevel": "Executive Track",
-    "kicker": "Specialized Track · Executive Business English",
-    "meta": "Corporate & Workplace Communication (6 Tracks · 24 Modules)",
+    "kicker": "Institutional Architecture · The Corporate Lifecycle",
+    "meta": "Grounded in Organizational Science (Mintzberg & Senge) · 6 Tracks · 28 Modules",
     "title": "Executive Communication & <span class=\"gold-accent\">Strategy</span>",
-    "desc": "High-stakes corporate communication: crisis management, deal-making, diplomatic writing, and executive leadership.",
+    "desc": "Corporate communication is not a quiet linear textbook—it is an unending loop of operational friction. Grounded in organizational research, our curriculum equips executives across the 6 recurring pillars of the corporate lifecycle.",
     "heroBg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
     "stat1Num": "06",
-    "stat1Label": "Specialized Tracks",
-    "stat1Sub": "Cross-border scenarios",
-    "stat2Num": "04",
-    "stat2Label": "Executive Labs",
-    "stat2Sub": "Memos, cadence & debate",
-    "stat3Num": "C1-",
-    "stat3Label": "Target Profile",
-    "stat3Sub": "Boardroom proficiency",
+    "stat1Label": "Lifecycle Tracks",
+    "stat1Sub": "Ops, Sync, Clients, Finance, HR, Board",
+    "stat2Num": "28",
+    "stat2Label": "Executive Modules",
+    "stat2Sub": "Active classes & roadmap catalog",
+    "stat3Num": "CLT+TBLT",
+    "stat3Label": "Methodology Engine",
+    "stat3Sub": "Task-based observable evidence",
+    "tracks": [
+      {
+        "id": "track1",
+        "number": "01",
+        "code": "Track 1",
+        "title": "Crisis & Operations",
+        "subtitle": "Apagar fuegos y retrasos de entrega",
+        "desc": "Manage emergency delivery deadlines, partial shipments, carrier delays, and logistics breakdowns under strict SLA penalties.",
+        "activeCount": 1,
+        "totalCount": 4
+      },
+      {
+        "id": "track2",
+        "number": "02",
+        "code": "Track 2",
+        "title": "Meetings & Alignment",
+        "subtitle": "Explicar qué pasó y moderar la junta",
+        "desc": "Lead post-mortem debriefs, explain operational failures without losing authority, moderate cross-functional standups, and enforce action item ownership.",
+        "activeCount": 0,
+        "totalCount": 4
+      },
+      {
+        "id": "track3",
+        "number": "03",
+        "code": "Track 3",
+        "title": "Client Relations",
+        "subtitle": "Salvar la cuenta y retener al cliente corporativo",
+        "desc": "De-escalate furious enterprise accounts, trade conditional concessions, resist client scope creep diplomatically, and preserve high-value accounts.",
+        "activeCount": 0,
+        "totalCount": 4
+      },
+      {
+        "id": "track4",
+        "number": "04",
+        "code": "Track 4",
+        "title": "Finance & Legal",
+        "subtitle": "Aclarar facturas disputadas y blindar contratos",
+        "desc": "Handle Accounts Payable communications, 3-way match reconciliation, purchase orders, Net 30/60 cash cycles, and master service agreement redlines.",
+        "activeCount": 1,
+        "totalCount": 4
+      },
+      {
+        "id": "track5",
+        "number": "05",
+        "code": "Track 5",
+        "title": "People & HR",
+        "subtitle": "Gestionar la fricción interna en 1-on-1s",
+        "desc": "Establish professional boundaries, deliver radical candor performance feedback, foster psychological safety, and triage executive team burnout.",
+        "activeCount": 1,
+        "totalCount": 5
+      },
+      {
+        "id": "track6",
+        "number": "06",
+        "code": "Track 6",
+        "title": "Boardroom Strategy",
+        "subtitle": "Cerrar el trimestre y defender el presupuesto",
+        "desc": "Defend quarterly Capex/Opex budget variances to financial controllers, deliver boardroom pitch decks, and align multinational teams in corporate town halls.",
+        "activeCount": 0,
+        "totalCount": 3
+      },
+      {
+        "id": "labs",
+        "number": "Labs",
+        "code": "Executive Labs",
+        "title": "Executive Practice Labs & Mechanics",
+        "subtitle": "Micro-laboratorios de precisión lingüística",
+        "desc": "Standalone training gyms for diplomatic refusal, BLUF memo drafting, quantitative financial terminology, and low-pitch vocal cadence.",
+        "activeCount": 1,
+        "totalCount": 4
+      }
+    ],
     "experiences": [
       {
-      "unit": "BUS-U00",
-      "tag": "Masterclass &amp; Orientation",
-      "title": "The Corporate Loop: Real-World Executive Friction",
-      "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-      "tagline": "Explore why corporate communication is an unending operational loop based on Mintzberg and Senge.",
-      "pill1": "The Corporate Loop",
-      "pill2": "Cause &amp; Diplomatic Stance",
-      "action": "Launch Masterclass",
-      "url": "./Business/the-corporate-loop/index.html",
-      "live": true
-},
-      {
-        "unit": "BUS-U01",
-        "tag": "Track 1 · Operations & Logistics",
+        "trackId": "track1",
+        "trackName": "Track 1 · Crisis & Operations",
+        "unit": "TR1 · BE-01",
+        "tag": "Live Negotiation",
         "title": "Negotiating a Deadline: David Brown's Urgent Order",
         "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
         "tagline": "A client requests moving delivery from Friday to Tuesday. Practice professional conditions, preventing overpromising, and negotiating a partial shipment.",
@@ -2268,8 +2617,153 @@
         "live": true
       },
       {
-        "unit": "BUS-U02",
-        "tag": "Track 2 · Corporate Finance & AP",
+        "trackId": "track1",
+        "trackName": "Track 1 · Crisis & Operations",
+        "unit": "TR1 · BE-01.2",
+        "tag": "Supply Chain Bottlenecks",
+        "title": "Supply Chain Disruptions & Carrier Delays",
+        "photo": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Explain customs holds, port congestion, and freight bottlenecks while issuing formal delayed shipment notices.",
+        "pill1": "Customs Holds & Logistics",
+        "pill2": "Delayed Shipment Notice",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track1",
+        "trackName": "Track 1 · Crisis & Operations",
+        "unit": "TR1 · BE-01.3",
+        "tag": "Root-Cause Debrief",
+        "title": "Incident Root-Cause Analysis & SLA Defenses",
+        "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead 5-Whys debriefs, present corrective action plans (CAP), and defend against contractual SLA penalty clauses.",
+        "pill1": "SLA Penalties Defense",
+        "pill2": "5-Whys Debrief",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track1",
+        "trackName": "Track 1 · Crisis & Operations",
+        "unit": "TR1 · BE-01.4",
+        "tag": "Freight Discrepancies",
+        "title": "Warehouse Discrepancies & Bill of Lading Claims",
+        "photo": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Dispute short-shipments, verify Bill of Lading (BOL) paperwork, and coordinate emergency replacement shipments.",
+        "pill1": "Bill of Lading Verification",
+        "pill2": "Short-Shipment Claim",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track2",
+        "trackName": "Track 2 · Meetings & Alignment",
+        "unit": "TR2 · BE-02.1",
+        "tag": "Post-Mortem Meeting",
+        "title": "Post-Mortem Debriefs: Explaining Delays Without Losing Authority",
+        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Explain operational failures to cross-functional stakeholders using depersonalized passive voice and constructive stance.",
+        "pill1": "Depersonalized Stance",
+        "pill2": "Post-Mortem Facilitation",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track2",
+        "trackName": "Track 2 · Meetings & Alignment",
+        "unit": "TR2 · BE-02.2",
+        "tag": "Cross-Functional Sync",
+        "title": "Cross-Functional Alignment: Ops, Sales & Product",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Mediate competing department priorities and establish unified delivery roadmaps across conflicting teams.",
+        "pill1": "Cross-Functional Sync",
+        "pill2": "Roadmap Alignment",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track2",
+        "trackName": "Track 2 · Meetings & Alignment",
+        "unit": "TR2 · BE-02.3",
+        "tag": "Meeting Moderation",
+        "title": "Moderating High-Stakes Standups & Resolving Disagreements",
+        "photo": "https://images.unsplash.com/photo-1573497491765-dccce02b29df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Cut off digressions politely, manage dominant personalities, and maintain brisk executive momentum in virtual standups.",
+        "pill1": "Meeting Floor Control",
+        "pill2": "Diplomatic Interruption",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track2",
+        "trackName": "Track 2 · Meetings & Alignment",
+        "unit": "TR2 · BE-02.4",
+        "tag": "Accountability & Follow-up",
+        "title": "Action Item Ownership & Asynchronous Follow-Up",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Draft crystal-clear post-meeting recap memos with explicit DRI (Directly Responsible Individual) and deadlines.",
+        "pill1": "Action Item Memos",
+        "pill2": "DRI Assignment",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track3",
+        "trackName": "Track 3 · Client Relations",
+        "unit": "TR3 · BE-03.1",
+        "tag": "Account Retention",
+        "title": "De-escalating Furious Enterprise Accounts & SLA Breaches",
+        "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Acknowledge frustration without admitting undue legal liability. Rebuild executive confidence during catastrophic service interruptions.",
+        "pill1": "De-escalation Formulas",
+        "pill2": "Liability Management",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track3",
+        "trackName": "Track 3 · Client Relations",
+        "unit": "TR3 · BE-03.2",
+        "tag": "Commercial Negotiation",
+        "title": "Renegotiating Delivery Windows & Concession Trading",
+        "photo": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Trade conditional concessions ('We can accelerate batch B provided that batch A is accepted as-is') to protect commercial margins.",
+        "pill1": "Conditional Concessions",
+        "pill2": "Margin Defense",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track3",
+        "trackName": "Track 3 · Client Relations",
+        "unit": "TR3 · BE-03.3",
+        "tag": "Scope Defense",
+        "title": "Managing Client Scope Creep Diplomatically",
+        "photo": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Say 'Yes, and...' by attaching cost and timeline impacts to additional requests without alienating enterprise clients.",
+        "pill1": "Scope Change Orders",
+        "pill2": "Diplomatic Pushback",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track3",
+        "trackName": "Track 3 · Client Relations",
+        "unit": "TR3 · BE-03.4",
+        "tag": "Executive Reviews",
+        "title": "Quarterly Business Reviews (QBR) & Strategic Growth",
+        "photo": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Lead strategic QBR sessions, celebrate joint milestones, and position renewal agreements from an advisory stance.",
+        "pill1": "QBR Presentations",
+        "pill2": "Contract Renewals",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track4",
+        "trackName": "Track 4 · Finance & Legal",
+        "unit": "TR4 · BE-02",
+        "tag": "Accounts Payable",
         "title": "Invoicing, Purchase Orders & Payment Status",
         "photo": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
         "tagline": "A supplier calls Accounts Payable to check on Invoice #4082 and PO-915. Master 3-way matching and status updates with already, yet, and just.",
@@ -2280,41 +2774,49 @@
         "live": true
       },
       {
-        "unit": "BUS-U03",
-        "tag": "Track 3 · Commercial Deals",
-        "title": "Cross-Border Contract Negotiations",
-        "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Anchor pricing, negotiate indemnification clauses, and reach mutual settlement.",
-        "pill1": "Contract Terms",
-        "pill2": "Tactical Bargaining",
-        "action": "Scheduled",
+        "trackId": "track4",
+        "trackName": "Track 4 · Finance & Legal",
+        "unit": "TR4 · BE-04.2",
+        "tag": "Reconciliation",
+        "title": "Resolving 3-Way Match Discrepancies & Credit Memos",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Reconcile price and quantity mismatches between PO, packing slip, and invoice; request vendor credit memos politely.",
+        "pill1": "3-Way Reconciliation",
+        "pill2": "Credit Memo Requests",
+        "action": "View Syllabus",
         "soon": true
       },
       {
-        "unit": "BUS-U04",
-        "tag": "Track 4 · Reputation",
-        "title": "Enterprise Crisis PR &amp; Media Handling",
-        "photo": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Lead press conference statements, manage hostile questions, and protect enterprise brand value.",
-        "pill1": "Crisis Press Room",
-        "pill2": "Brand Protection",
-        "action": "Scheduled",
+        "trackId": "track4",
+        "trackName": "Track 4 · Finance & Legal",
+        "unit": "TR4 · BE-04.3",
+        "tag": "Treasury & Terms",
+        "title": "Explaining Net 30/60 Payment Terms & Cash Flow Forecasts",
+        "photo": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Communicate corporate credit terms, 2/10 Net 30 early payment discounts, and manage cash flow cycles.",
+        "pill1": "Payment Terms (Net 30/60)",
+        "pill2": "Cash Flow Projections",
+        "action": "View Syllabus",
         "soon": true
       },
       {
-        "unit": "BUS-U05",
-        "tag": "Track 5 · Expansion",
-        "title": "Global Expansion &amp; M&amp;A Pitch",
-        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Defend acquisition valuations, post-merger integration plans, and cultural synergy models.",
-        "pill1": "M&amp;A Strategy",
-        "pill2": "Synergy Defense",
-        "action": "Scheduled",
+        "trackId": "track4",
+        "trackName": "Track 4 · Finance & Legal",
+        "unit": "TR4 · BE-04.4",
+        "tag": "Contract Redlines",
+        "title": "Master Service Agreements (MSA) & Redline Negotiations",
+        "photo": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Conduct cross-table redline discussions, negotiate limitation of liability, and align data protection agreements (DPA).",
+        "pill1": "MSA Redlining",
+        "pill2": "Liability Indemnification",
+        "action": "View Syllabus",
         "soon": true
       },
       {
-        "unit": "BUS-U06",
-        "tag": "Track 6 · Executive Leadership",
+        "trackId": "track5",
+        "trackName": "Track 5 · People & HR",
+        "unit": "TR5 · BE-W02",
+        "tag": "TED Workshop",
         "title": "Setting Boundaries at Work: The Art of Saying No Professionally",
         "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
         "tagline": "Nedra Glover Tawwab's TED Talk workshop. Equip your professional voice with diplomatic refusal, manage bandwidth, and protect strategic focus.",
@@ -2323,35 +2825,106 @@
         "action": "Launch Workshop",
         "url": "./Business/setting-boundaries/index.html",
         "live": true
+      },
+      {
+        "trackId": "track5",
+        "trackName": "Track 5 · People & HR",
+        "unit": "TR5 · BE-05.2",
+        "tag": "Performance 1-on-1",
+        "title": "Delivering Difficult Feedback & Radical Candor",
+        "photo": "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Challenge directly while caring personally. Lead constructive performance turnarounds anchored to specific behavioral data.",
+        "pill1": "Radical Candor",
+        "pill2": "Constructive 1-on-1s",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track5",
+        "trackName": "Track 5 · People & HR",
+        "unit": "TR5 · BE-05.3",
+        "tag": "Team Dynamics",
+        "title": "Psychological Safety in Corporate Teams (Amy Edmondson)",
+        "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Build cultures of candid inquiry, invite dissent, and reframe operational failures as systemic learning opportunities.",
+        "pill1": "Psychological Safety",
+        "pill2": "Inviting Productive Dissent",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track5",
+        "trackName": "Track 5 · People & HR",
+        "unit": "TR5 · BE-05.4",
+        "tag": "Bandwidth Triage",
+        "title": "Managing Executive Bandwidth & Burnout Triage",
+        "photo": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Implement workload triage, recalibrate deadlines, and establish asynchronous communication standards across distributed teams.",
+        "pill1": "Bandwidth Triage",
+        "pill2": "Asynchronous Standards",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track5",
+        "trackName": "Track 5 · People & HR",
+        "unit": "TR5 · BE-05.5",
+        "tag": "Resource Disputes",
+        "title": "Cross-Departmental Resource Disputes & Friction Resolution",
+        "photo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Negotiate shared engineering or headcount resources with peer directors without escalating to executive leadership.",
+        "pill1": "Peer Negotiation",
+        "pill2": "Resource Allocation",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track6",
+        "trackName": "Track 6 · Boardroom Strategy",
+        "unit": "TR6 · BE-06.1",
+        "tag": "Budget Defense",
+        "title": "Defending Capex/Opex Budget Variance to Controllers",
+        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Present quarterly OPEX and CAPEX variance explanations to senior financial controllers and executive audit committees.",
+        "pill1": "Variance Reporting",
+        "pill2": "Controller Reviews",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track6",
+        "trackName": "Track 6 · Boardroom Strategy",
+        "unit": "TR6 · BE-06.2",
+        "tag": "Executive Pitching",
+        "title": "Boardroom Pitch Deck Defense & Strategic Value",
+        "photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Present business case proposals, defend ROI assumptions, and field tough questions from directors and investors.",
+        "pill1": "ROI Defense",
+        "pill2": "Board Pitching",
+        "action": "View Syllabus",
+        "soon": true
+      },
+      {
+        "trackId": "track6",
+        "trackName": "Track 6 · Boardroom Strategy",
+        "unit": "TR6 · BE-06.3",
+        "tag": "Executive Alignment",
+        "title": "Executive Town Halls: Vision Under Market Uncertainty",
+        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Deliver transparent quarterly all-hands updates, address difficult employee Q&A, and articulate direction amid volatility.",
+        "pill1": "Town Hall Delivery",
+        "pill2": "Strategic Vision",
+        "action": "View Syllabus",
+        "soon": true
       }
     ],
     "labs": [
       {
-        "unit": "BUS-L01",
-        "tag": "Financial Lexicon",
-        "title": "Quantitative Lexicon &amp; Financial Modeling",
-        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Condition terminology for yield, variance, liquidity, amortization, and cap tables.",
-        "pill1": "Quantitative Flow",
-        "pill2": "Financial Metrics",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "BUS-L02",
-        "tag": "Writing Lab",
-        "title": "Executive Memo &amp; Board Resolution Drafting",
-        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Draft concise C-suite briefing memos with BLUF architecture (Bottom Line Up Front).",
-        "pill1": "BLUF Architecture",
-        "pill2": "Board Resolutions",
-        "action": "Open Lab",
-        "soon": true
-      },
-      {
-        "unit": "BUS-L03",
+        "trackId": "labs",
+        "trackName": "Executive Practice Labs",
+        "unit": "LAB-01",
         "tag": "Pragmatics Lab",
-        "title": "Diplomatic Refusal &amp; Workplace Boundaries",
+        "title": "Diplomatic Refusal & Workplace Boundaries Gym",
         "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
         "tagline": "Say no without damaging professional ties: conditional concessions, tactical bandwidth defense, and diplomatic refusal.",
         "pill1": "Tactical Concession",
@@ -2361,11 +2934,39 @@
         "live": true
       },
       {
-        "unit": "BUS-L04",
+        "trackId": "labs",
+        "trackName": "Executive Practice Labs",
+        "unit": "LAB-02",
+        "tag": "Writing Lab",
+        "title": "Executive BLUF Memo & Board Resolution Drafting",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Draft concise C-suite briefing memos with BLUF architecture (Bottom Line Up Front) and actionable decision requests.",
+        "pill1": "BLUF Architecture",
+        "pill2": "Board Resolutions",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "trackId": "labs",
+        "trackName": "Executive Practice Labs",
+        "unit": "LAB-03",
+        "tag": "Financial Lexicon",
+        "title": "Quantitative Lexicon & Financial Modeling",
+        "photo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "tagline": "Master high-frequency financial vocabulary: EBITDA, yield, variance, liquidity ratios, amortization, and cap tables.",
+        "pill1": "Quantitative Flow",
+        "pill2": "Financial Metrics",
+        "action": "Open Lab",
+        "soon": true
+      },
+      {
+        "trackId": "labs",
+        "trackName": "Executive Practice Labs",
+        "unit": "LAB-04",
         "tag": "Phonology Lab",
-        "title": "Executive Cadence &amp; Voice Conditioning",
+        "title": "Executive Cadence & Voice Conditioning",
         "photo": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
-        "tagline": "Train low-pitch authority, deliberate pause phrasing, and eliminating fillers in presentations.",
+        "tagline": "Train low-pitch authority, deliberate pause phrasing, downward inflection, and eliminating filler words in presentations.",
         "pill1": "Executive Cadence",
         "pill2": "Vocal Authority",
         "action": "Open Lab",
@@ -2672,47 +3273,98 @@
       }
     }
 
-    function setSwitchMode(mode, animate = true) {
-      currentMode = mode;
-      const btnExp = document.getElementById('btnSwitchExp');
-      const btnExpl = document.getElementById('btnSwitchExpl');
-      const legend = document.getElementById('switchLegend');
-      const container = document.getElementById('classesContainer');
+    let currentTrack = "all";
 
-      const lvl = CURRICULUM[activeLevelKey];
-
-      if (animate) {
-        container.style.opacity = '0.3';
-      }
-
-      setTimeout(() => {
-        if (mode === 'experience') {
-          btnExp.className = "switch-btn active gold-mode";
-          btnExpl.className = "switch-btn";
-          legend.innerHTML = `
-            <div class="legend-indicator gold">
-              <span>Mode:</span> Real-World Tasks &amp; Communicative Missions
-            </div>
-          `;
-          container.className = "classes-grid";
-          renderCards(lvl.experiences, container, false);
-        } else {
-          btnExp.className = "switch-btn";
-          btnExpl.className = "switch-btn active teal-mode";
-          legend.innerHTML = `
-            <div class="legend-indicator teal">
-              <span>Mode:</span> Language Mechanics, Phonetics &amp; Precision Labs
-            </div>
-          `;
-          container.className = "classes-grid teal-theme";
-          renderCards(lvl.labs, container, true);
-        }
-        container.style.opacity = '1';
-      }, animate ? 120 : 0);
+    function selectTrack(trackId) {
+      currentTrack = trackId;
+      document.querySelectorAll('.track-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.track === trackId);
+      });
+      renderBusinessWorkspace();
     }
 
-    function renderCards(data, container, isTeal) {
-      container.innerHTML = data.map(item => {
+    function renderBusinessWorkspace() {
+      const container = document.getElementById('classesContainer');
+      const bus = CURRICULUM["Business"];
+      if (!bus || !container) return;
+
+      const tracks = bus.tracks;
+      const experiences = bus.experiences;
+      const labs = bus.labs;
+
+      // If specific track is selected
+      if (currentTrack !== 'all') {
+        let targetTrack = tracks.find(t => t.id === currentTrack);
+        let items = currentTrack === 'labs' 
+          ? labs 
+          : experiences.filter(e => e.trackId === currentTrack);
+
+        if (!targetTrack && currentTrack === 'labs') {
+          targetTrack = tracks.find(t => t.id === 'labs');
+        }
+
+        const activeInTrack = items.filter(i => i.live).length;
+
+        container.innerHTML = `
+          <section class="track-section-block">
+            <div class="track-header-banner">
+              <div class="track-header-main">
+                <div class="track-header-kicker">[${targetTrack.number}] Corporate Lifecycle Pillar</div>
+                <h2 class="track-header-title">${targetTrack.code} &middot; ${targetTrack.title}</h2>
+                <div class="track-header-subtitle">&ldquo;${targetTrack.subtitle}&rdquo;</div>
+                <p class="track-header-desc">${targetTrack.desc}</p>
+              </div>
+              <div class="track-header-meta">
+                <span class="track-meta-chip">${items.length} Modules</span>
+                <span class="track-meta-chip ${activeInTrack > 0 ? 'active-chip' : ''}">
+                  ${activeInTrack > 0 ? activeInTrack + ' Active Lesson' + (activeInTrack > 1 ? 's' : '') + ' Available' : 'Syllabus Pipeline'}
+                </span>
+              </div>
+            </div>
+            <div class="classes-grid ${currentTrack === 'labs' ? 'teal-theme' : ''}">
+              ${generateCardsHTML(items, currentTrack === 'labs')}
+            </div>
+          </section>
+        `;
+        return;
+      }
+
+      // If 'all' tracks is selected: render all tracks with headers!
+      let fullHTML = '';
+
+      tracks.forEach(track => {
+        const isLabs = track.id === 'labs';
+        const items = isLabs ? labs : experiences.filter(e => e.trackId === track.id);
+        const activeInTrack = items.filter(i => i.live).length;
+
+        fullHTML += `
+          <section class="track-section-block" id="section-${track.id}">
+            <div class="track-header-banner">
+              <div class="track-header-main">
+                <div class="track-header-kicker">[${track.number}] Corporate Lifecycle Pillar</div>
+                <h2 class="track-header-title">${track.code} &middot; ${track.title}</h2>
+                <div class="track-header-subtitle">&ldquo;${track.subtitle}&rdquo;</div>
+                <p class="track-header-desc">${track.desc}</p>
+              </div>
+              <div class="track-header-meta">
+                <span class="track-meta-chip">${items.length} Modules</span>
+                <span class="track-meta-chip ${activeInTrack > 0 ? 'active-chip' : ''}">
+                  ${activeInTrack > 0 ? activeInTrack + ' Active Lesson' + (activeInTrack > 1 ? 's' : '') + ' Available' : 'Syllabus Pipeline'}
+                </span>
+              </div>
+            </div>
+            <div class="classes-grid ${isLabs ? 'teal-theme' : ''}">
+              ${generateCardsHTML(items, isLabs)}
+            </div>
+          </section>
+        `;
+      });
+
+      container.innerHTML = fullHTML;
+    }
+
+    function generateCardsHTML(data, isTeal) {
+      return data.map(item => {
         const isSoon = !!item.soon;
         const isLive = !!item.live && !!item.url;
 
@@ -2720,7 +3372,7 @@
         if (isLive) {
           statusBadge = '<span class="badge-live">Active</span>';
         } else if (isSoon) {
-          statusBadge = '<span class="badge-soon">Soon</span>';
+          statusBadge = '<span class="badge-soon">Syllabus</span>';
         }
 
         let ctaButton = '';
@@ -2730,11 +3382,11 @@
           if (sName && sName !== 'Student') {
             liveUrl += (liveUrl.includes('?') ? '&' : '?') + 'name=' + encodeURIComponent(sName);
           }
-          ctaButton = '<a href="' + liveUrl + '" class="btn-launch">' + (item.action || 'Launch Quest') + ' &rarr;</a>';
+          ctaButton = '<a href="' + liveUrl + '" class="btn-launch">' + (item.action || 'Open Lesson') + ' &rarr;</a>';
         } else if (isSoon) {
-          ctaButton = '<button type="button" class="btn-soon" onclick="openSoonModal(\'' + item.title.replace(/'/g, "\\'") + '\', \'' + item.unit + '\', \'' + item.tagline.replace(/'/g, "\\'") + '\', \'' + item.pill1 + '\', \'' + item.pill2 + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Soon &middot; In Queue</button>';
+          ctaButton = '<button type="button" class="btn-soon" onclick="openSoonModal(\'' + item.title.replace(/'/g, "\\'") + '\', \'' + item.unit + '\', \'' + item.tagline.replace(/'/g, "\\'") + '\', \'' + item.pill1 + '\', \'' + item.pill2 + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> View Syllabus</button>';
         } else {
-          ctaButton = '<button type="button" class="btn-launch" onclick="alert(\'Opening: ' + item.title.replace(/&amp;/g, '&').replace(/'/g, "\\'") + '\')">' + (item.action || 'Launch Quest') + ' &rarr;</button>';
+          ctaButton = '<button type="button" class="btn-launch" onclick="alert(\'Opening: ' + item.title.replace(/&amp;/g, '&').replace(/'/g, "\\'") + '\')">' + (item.action || 'Open Lesson') + ' &rarr;</button>';
         }
 
         return `
@@ -2750,7 +3402,7 @@
           </div>
 
           <div class="card-body">
-            <h2 class="card-title">${item.title}</h2>
+            <h3 class="card-title">${item.title}</h3>
             <p class="card-tagline">${item.tagline}</p>
 
             <div class="card-pills-row">
@@ -2761,7 +3413,7 @@
             <div class="card-footer">
               <div class="card-duration">
                 <span class="duration-dot"></span>
-                ${isSoon ? 'Scheduled' : 'Interactive Focus'}
+                ${isSoon ? 'In Syllabus Pipeline' : 'Interactive Focus'}
               </div>
               ${ctaButton}
             </div>
@@ -2826,7 +3478,15 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       checkRoleParams();
-      setSwitchMode('experience', false);
+      // Check if track param in URL
+      const trackParam = urlParams.get('track');
+      if (trackParam) {
+        currentTrack = trackParam;
+        document.querySelectorAll('.track-pill-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.track === trackParam);
+        });
+      }
+      renderBusinessWorkspace();
     });
   </script>
 </body>
