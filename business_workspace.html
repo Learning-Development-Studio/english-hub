@@ -674,61 +674,96 @@
     .tracks-hub-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 24px;
+      gap: 28px;
       margin-bottom: 36px;
     }
     .track-hub-card {
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 26px 26px 22px;
+      overflow: hidden;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: transform .25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .25s ease, border-color .25s ease;
+      transition: transform .3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .3s ease, border-color .3s ease;
       position: relative;
     }
     .track-hub-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px -4px rgba(11, 31, 58, 0.12), 0 4px 12px -2px rgba(11, 31, 58, 0.06);
-      border-color: rgba(212, 168, 67, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px -4px rgba(212, 168, 67, 0.22), 0 6px 14px -2px rgba(11, 31, 58, 0.08);
+      border-color: rgba(212, 168, 67, 0.45);
     }
-    .track-hub-top {
+    .track-hub-visual {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+    .track-hub-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .track-hub-card:hover .track-hub-photo {
+      transform: scale(1.05);
+    }
+    .track-hub-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 21, 39, 0.15) 0%, rgba(7, 21, 39, 0.85) 100%);
+    }
+    .track-hub-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 8px;
+      z-index: 2;
     }
     .track-hub-code {
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--gold-dark);
-      background: var(--gold-light);
+      color: #f8fafc;
+      background: rgba(7, 21, 39, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 4px 10px;
       border-radius: var(--radius-full);
-      border: 1px solid var(--gold-border);
     }
     .track-hub-badge-active {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      color: #047857;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #ffffff;
+      background: rgba(16, 185, 129, 0.90);
       padding: 4px 10px;
       border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .track-hub-badge-soon {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
-      color: var(--muted-light);
-      background: var(--surface);
-      border: 1px solid var(--line);
+      color: #e2e8f0;
+      background: rgba(7, 21, 39, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 4px 10px;
       border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .track-hub-body {
+      padding: 24px 26px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
     .track-hub-title {
       font-family: "Plus Jakarta Sans", sans-serif;
@@ -1177,7 +1212,7 @@
   <!-- SLIM LUXURY TOP NAVIGATION -->
   <nav class="top-nav">
     <a href="./index.html" class="brand-wrap">
-      <img src="./assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img">
+      <img src="./assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png'">
     </a>
 
     <div class="nav-meta">
@@ -2682,6 +2717,7 @@
         "title": "Crisis & Operations",
         "subtitle": "Firefighting & Delayed Delivery Windows",
         "desc": "Manage emergency delivery deadlines, partial shipments, carrier delays, and logistics breakdowns under strict SLA penalties.",
+        "photo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
         "activeCount": 1,
         "totalCount": 4
       },
@@ -2692,6 +2728,7 @@
         "title": "Meetings & Alignment",
         "subtitle": "Incident Post-Mortems & Floor Moderation",
         "desc": "Lead post-mortem debriefs, explain operational failures without losing authority, moderate cross-functional standups, and enforce action item ownership.",
+        "photo": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
         "activeCount": 0,
         "totalCount": 4
       },
@@ -2702,6 +2739,7 @@
         "title": "Client Relations",
         "subtitle": "Account Retention & Diplomatic Concessions",
         "desc": "De-escalate furious enterprise accounts, trade conditional concessions, resist client scope creep diplomatically, and preserve high-value accounts.",
+        "photo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
         "activeCount": 0,
         "totalCount": 4
       },
@@ -2712,6 +2750,7 @@
         "title": "Finance & Legal",
         "subtitle": "Disputed Invoices & Contract Redlines",
         "desc": "Handle Accounts Payable communications, 3-way match reconciliation, purchase orders, Net 30/60 cash cycles, and master service agreement redlines.",
+        "photo": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
         "activeCount": 1,
         "totalCount": 4
       },
@@ -2722,6 +2761,7 @@
         "title": "People & HR",
         "subtitle": "Internal 1-on-1 Friction & Boundary Defense",
         "desc": "Establish professional boundaries, deliver radical candor performance feedback, foster psychological safety, and triage executive team burnout.",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
         "activeCount": 1,
         "totalCount": 5
       },
@@ -2732,6 +2772,7 @@
         "title": "Boardroom Strategy",
         "subtitle": "Quarterly Budget Defense & Executive Value",
         "desc": "Defend quarterly Capex/Opex budget variances to financial controllers, deliver boardroom pitch decks, and align multinational teams in corporate town halls.",
+        "photo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
         "activeCount": 0,
         "totalCount": 3
       },
@@ -2742,6 +2783,7 @@
         "title": "Executive Practice Labs & Mechanics",
         "subtitle": "Linguistic Precision Micro-Laboratories",
         "desc": "Standalone training gyms for diplomatic refusal, BLUF memo drafting, quantitative financial terminology, and low-pitch vocal cadence.",
+        "photo": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
         "activeCount": 1,
         "totalCount": 4
       }
@@ -3461,18 +3503,24 @@
 
               return `
                 <article class="track-hub-card" onclick="selectTrack('${track.id}')">
-                  <div class="track-hub-top">
-                    <span class="track-hub-code">[Pillar ${track.number}]</span>
-                    ${statusBadge}
+                  <div class="track-hub-visual">
+                    <img src="${track.photo}" alt="${track.title}" class="track-hub-photo" loading="lazy" onerror="this.onerror=null; this.src='./assets/hero-clean.jpg'">
+                    <div class="track-hub-gradient"></div>
+                    <div class="track-hub-badges">
+                      <span class="track-hub-code">[Pillar ${track.number}]</span>
+                      ${statusBadge}
+                    </div>
                   </div>
-                  <h3 class="track-hub-title">${track.code} &middot; ${track.title}</h3>
-                  <div class="track-hub-subtitle">&ldquo;${track.subtitle}&rdquo;</div>
-                  <p class="track-hub-desc">${track.desc}</p>
-                  <div class="track-hub-footer">
-                    <span class="track-hub-count">${items.length} Curricular Modules</span>
-                    <button type="button" class="track-hub-btn" onclick="event.stopPropagation(); selectTrack('${track.id}')">
-                      Explore Track &rarr;
-                    </button>
+                  <div class="track-hub-body">
+                    <h3 class="track-hub-title">${track.code} &middot; ${track.title}</h3>
+                    <div class="track-hub-subtitle">&ldquo;${track.subtitle}&rdquo;</div>
+                    <p class="track-hub-desc">${track.desc}</p>
+                    <div class="track-hub-footer">
+                      <span class="track-hub-count">${items.length} Curricular Modules</span>
+                      <button type="button" class="track-hub-btn" onclick="event.stopPropagation(); selectTrack('${track.id}')">
+                        Explore Track &rarr;
+                      </button>
+                    </div>
                   </div>
                 </article>
               `;
