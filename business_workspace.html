@@ -604,10 +604,9 @@
     .track-header-banner {
       background: #ffffff;
       border: 1px solid var(--line);
-      border-left: 4px solid var(--gold);
       border-radius: var(--radius-md);
-      padding: 22px 26px;
-      margin-bottom: 22px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-sm);
       display: flex;
       justify-content: space-between;
@@ -669,6 +668,152 @@
       background: rgba(16, 185, 129, 0.12);
       border-color: rgba(16, 185, 129, 0.35);
       color: #047857;
+    }
+
+    /* TRACKS HUB GRID (THE 6 BIG TRACK CARDS + LABS) */
+    .tracks-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .track-hub-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px 26px 22px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform .25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .25s ease, border-color .25s ease;
+      position: relative;
+    }
+    .track-hub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -4px rgba(11, 31, 58, 0.12), 0 4px 12px -2px rgba(11, 31, 58, 0.06);
+      border-color: rgba(212, 168, 67, 0.5);
+    }
+    .track-hub-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .track-hub-code {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-dark);
+      background: var(--gold-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--gold-border);
+    }
+    .track-hub-badge-active {
+      font-size: 11px;
+      font-weight: 800;
+      color: #047857;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .track-hub-badge-soon {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted-light);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .track-hub-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .track-hub-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy-soft);
+      margin-bottom: 12px;
+    }
+    .track-hub-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+    .track-hub-footer {
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .track-hub-count {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted-light);
+    }
+    .track-hub-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy-main);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(212, 168, 67, 0.35);
+      transition: all .2s ease;
+    }
+    .track-hub-card:hover .track-hub-btn {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border-color: var(--gold);
+      transform: translateX(2px);
+    }
+
+    /* BREADCRUMB BAR IN TRACK VIEW */
+    .track-breadcrumb-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-back-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--navy-main);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all .2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-back-hub:hover {
+      background: var(--navy-main);
+      color: #ffffff;
+      border-color: var(--navy-main);
+      transform: translateX(-2px);
     }
 
     .classes-grid {
@@ -978,7 +1123,7 @@
       font-size: 12px;
       color: var(--muted);
       background: var(--gold-light);
-      border-left: 3px solid var(--gold);
+      border: 1px solid var(--gold-border);
       padding: 10px 14px;
       border-radius: 4px;
       line-height: 1.5;
@@ -2535,7 +2680,7 @@
         "number": "01",
         "code": "Track 1",
         "title": "Crisis & Operations",
-        "subtitle": "Apagar fuegos y retrasos de entrega",
+        "subtitle": "Firefighting & Delayed Delivery Windows",
         "desc": "Manage emergency delivery deadlines, partial shipments, carrier delays, and logistics breakdowns under strict SLA penalties.",
         "activeCount": 1,
         "totalCount": 4
@@ -2545,7 +2690,7 @@
         "number": "02",
         "code": "Track 2",
         "title": "Meetings & Alignment",
-        "subtitle": "Explicar qué pasó y moderar la junta",
+        "subtitle": "Incident Post-Mortems & Floor Moderation",
         "desc": "Lead post-mortem debriefs, explain operational failures without losing authority, moderate cross-functional standups, and enforce action item ownership.",
         "activeCount": 0,
         "totalCount": 4
@@ -2555,7 +2700,7 @@
         "number": "03",
         "code": "Track 3",
         "title": "Client Relations",
-        "subtitle": "Salvar la cuenta y retener al cliente corporativo",
+        "subtitle": "Account Retention & Diplomatic Concessions",
         "desc": "De-escalate furious enterprise accounts, trade conditional concessions, resist client scope creep diplomatically, and preserve high-value accounts.",
         "activeCount": 0,
         "totalCount": 4
@@ -2565,7 +2710,7 @@
         "number": "04",
         "code": "Track 4",
         "title": "Finance & Legal",
-        "subtitle": "Aclarar facturas disputadas y blindar contratos",
+        "subtitle": "Disputed Invoices & Contract Redlines",
         "desc": "Handle Accounts Payable communications, 3-way match reconciliation, purchase orders, Net 30/60 cash cycles, and master service agreement redlines.",
         "activeCount": 1,
         "totalCount": 4
@@ -2575,7 +2720,7 @@
         "number": "05",
         "code": "Track 5",
         "title": "People & HR",
-        "subtitle": "Gestionar la fricción interna en 1-on-1s",
+        "subtitle": "Internal 1-on-1 Friction & Boundary Defense",
         "desc": "Establish professional boundaries, deliver radical candor performance feedback, foster psychological safety, and triage executive team burnout.",
         "activeCount": 1,
         "totalCount": 5
@@ -2585,7 +2730,7 @@
         "number": "06",
         "code": "Track 6",
         "title": "Boardroom Strategy",
-        "subtitle": "Cerrar el trimestre y defender el presupuesto",
+        "subtitle": "Quarterly Budget Defense & Executive Value",
         "desc": "Defend quarterly Capex/Opex budget variances to financial controllers, deliver boardroom pitch decks, and align multinational teams in corporate town halls.",
         "activeCount": 0,
         "totalCount": 3
@@ -2595,7 +2740,7 @@
         "number": "Labs",
         "code": "Executive Labs",
         "title": "Executive Practice Labs & Mechanics",
-        "subtitle": "Micro-laboratorios de precisión lingüística",
+        "subtitle": "Linguistic Precision Micro-Laboratories",
         "desc": "Standalone training gyms for diplomatic refusal, BLUF memo drafting, quantitative financial terminology, and low-pitch vocal cadence.",
         "activeCount": 1,
         "totalCount": 4
@@ -3281,6 +3426,11 @@
         btn.classList.toggle('active', btn.dataset.track === trackId);
       });
       renderBusinessWorkspace();
+      // Smooth scroll up to container top on track switch
+      const navEl = document.getElementById('trackNavSummary');
+      if (navEl) {
+        navEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     function renderBusinessWorkspace() {
@@ -3291,76 +3441,95 @@
       const tracks = bus.tracks;
       const experiences = bus.experiences;
       const labs = bus.labs;
+      const navSummary = document.getElementById('trackNavSummary');
 
-      // If specific track is selected
-      if (currentTrack !== 'all') {
-        let targetTrack = tracks.find(t => t.id === currentTrack);
-        let items = currentTrack === 'labs' 
-          ? labs 
-          : experiences.filter(e => e.trackId === currentTrack);
-
-        if (!targetTrack && currentTrack === 'labs') {
-          targetTrack = tracks.find(t => t.id === 'labs');
+      // LEVEL 1: TRACKS HUB (THE 6 BIG TRACK CARDS + LABS)
+      if (currentTrack === 'all') {
+        if (navSummary) {
+          navSummary.textContent = "The Corporate Lifecycle Menu · Select a pillar to open its curriculum";
         }
 
-        const activeInTrack = items.filter(i => i.live).length;
-
         container.innerHTML = `
-          <section class="track-section-block">
-            <div class="track-header-banner">
-              <div class="track-header-main">
-                <div class="track-header-kicker">[${targetTrack.number}] Corporate Lifecycle Pillar</div>
-                <h2 class="track-header-title">${targetTrack.code} &middot; ${targetTrack.title}</h2>
-                <div class="track-header-subtitle">&ldquo;${targetTrack.subtitle}&rdquo;</div>
-                <p class="track-header-desc">${targetTrack.desc}</p>
-              </div>
-              <div class="track-header-meta">
-                <span class="track-meta-chip">${items.length} Modules</span>
-                <span class="track-meta-chip ${activeInTrack > 0 ? 'active-chip' : ''}">
-                  ${activeInTrack > 0 ? activeInTrack + ' Active Lesson' + (activeInTrack > 1 ? 's' : '') + ' Available' : 'Syllabus Pipeline'}
-                </span>
-              </div>
-            </div>
-            <div class="classes-grid ${currentTrack === 'labs' ? 'teal-theme' : ''}">
-              ${generateCardsHTML(items, currentTrack === 'labs')}
-            </div>
-          </section>
+          <div class="tracks-hub-grid">
+            ${tracks.map(track => {
+              const isLabs = track.id === 'labs';
+              const items = isLabs ? labs : experiences.filter(e => e.trackId === track.id);
+              const activeCount = items.filter(i => i.live).length;
+              const statusBadge = activeCount > 0 
+                ? `<span class="track-hub-badge-active">${activeCount} Active Lesson${activeCount > 1 ? 's' : ''}</span>`
+                : `<span class="track-hub-badge-soon">In Syllabus</span>`;
+
+              return `
+                <article class="track-hub-card" onclick="selectTrack('${track.id}')">
+                  <div class="track-hub-top">
+                    <span class="track-hub-code">[Pillar ${track.number}]</span>
+                    ${statusBadge}
+                  </div>
+                  <h3 class="track-hub-title">${track.code} &middot; ${track.title}</h3>
+                  <div class="track-hub-subtitle">&ldquo;${track.subtitle}&rdquo;</div>
+                  <p class="track-hub-desc">${track.desc}</p>
+                  <div class="track-hub-footer">
+                    <span class="track-hub-count">${items.length} Curricular Modules</span>
+                    <button type="button" class="track-hub-btn" onclick="event.stopPropagation(); selectTrack('${track.id}')">
+                      Explore Track &rarr;
+                    </button>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
         `;
         return;
       }
 
-      // If 'all' tracks is selected: render all tracks with headers!
-      let fullHTML = '';
+      // LEVEL 2: SPECIFIC TRACK VIEW (3-5 LESSONS ONLY, NO ENDLESS SCROLL)
+      let targetTrack = tracks.find(t => t.id === currentTrack);
+      let items = currentTrack === 'labs' 
+        ? labs 
+        : experiences.filter(e => e.trackId === currentTrack);
 
-      tracks.forEach(track => {
-        const isLabs = track.id === 'labs';
-        const items = isLabs ? labs : experiences.filter(e => e.trackId === track.id);
-        const activeInTrack = items.filter(i => i.live).length;
+      if (!targetTrack && currentTrack === 'labs') {
+        targetTrack = tracks.find(t => t.id === 'labs');
+      }
 
-        fullHTML += `
-          <section class="track-section-block" id="section-${track.id}">
-            <div class="track-header-banner">
-              <div class="track-header-main">
-                <div class="track-header-kicker">[${track.number}] Corporate Lifecycle Pillar</div>
-                <h2 class="track-header-title">${track.code} &middot; ${track.title}</h2>
-                <div class="track-header-subtitle">&ldquo;${track.subtitle}&rdquo;</div>
-                <p class="track-header-desc">${track.desc}</p>
-              </div>
-              <div class="track-header-meta">
-                <span class="track-meta-chip">${items.length} Modules</span>
-                <span class="track-meta-chip ${activeInTrack > 0 ? 'active-chip' : ''}">
-                  ${activeInTrack > 0 ? activeInTrack + ' Active Lesson' + (activeInTrack > 1 ? 's' : '') + ' Available' : 'Syllabus Pipeline'}
-                </span>
-              </div>
+      if (!targetTrack) return;
+
+      const activeInTrack = items.filter(i => i.live).length;
+      if (navSummary) {
+        navSummary.textContent = `Viewing: ${targetTrack.code} · ${targetTrack.title} (${items.length} Modules)`;
+      }
+
+      container.innerHTML = `
+        <div class="track-breadcrumb-bar">
+          <button type="button" class="btn-back-hub" onclick="selectTrack('all')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to All Tracks Hub
+          </button>
+          <div style="font-size: 13px; color: var(--muted); font-weight: 600;">
+            Showing <strong>${items.length} modules</strong> for ${targetTrack.code}
+          </div>
+        </div>
+
+        <section class="track-section-block">
+          <div class="track-header-banner">
+            <div class="track-header-main">
+              <div class="track-header-kicker">[Pillar ${targetTrack.number}] Corporate Lifecycle Pillar</div>
+              <h2 class="track-header-title">${targetTrack.code} &middot; ${targetTrack.title}</h2>
+              <div class="track-header-subtitle">&ldquo;${targetTrack.subtitle}&rdquo;</div>
+              <p class="track-header-desc">${targetTrack.desc}</p>
             </div>
-            <div class="classes-grid ${isLabs ? 'teal-theme' : ''}">
-              ${generateCardsHTML(items, isLabs)}
+            <div class="track-header-meta">
+              <span class="track-meta-chip">${items.length} Modules</span>
+              <span class="track-meta-chip ${activeInTrack > 0 ? 'active-chip' : ''}">
+                ${activeInTrack > 0 ? activeInTrack + ' Active Lesson' + (activeInTrack > 1 ? 's' : '') : 'Syllabus Pipeline'}
+              </span>
             </div>
-          </section>
-        `;
-      });
-
-      container.innerHTML = fullHTML;
+          </div>
+          <div class="classes-grid ${currentTrack === 'labs' ? 'teal-theme' : ''}">
+            ${generateCardsHTML(items, currentTrack === 'labs')}
+          </div>
+        </section>
+      `;
     }
 
     function generateCardsHTML(data, isTeal) {
