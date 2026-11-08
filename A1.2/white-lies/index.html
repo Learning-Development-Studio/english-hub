@@ -435,38 +435,68 @@
     }
     .reality-banner-card strong { color: var(--danger-600); font-size: 13.5px; }
 
-    /* MODULE 2: SITUATIONAL VOCABULARY (SOPHISTICATED EXECUTIVE TILES - NO SIDE ACCENTS) */
+    /* MODULE 2 & 5: INTERACTIVE 3D FLIP CARDS (REDUCES COGNITIVE OVERLOAD) */
     .vocab-tiles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      gap: 20px;
       margin-bottom: 28px;
     }
-    .clean-vocab-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
+    .vocab-flip-card {
+      background: transparent;
+      perspective: 1000px;
+      height: 215px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .vocab-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
       border-radius: var(--radius-md);
-      padding: 20px 22px;
       box-shadow: var(--shadow-xs);
+    }
+    .vocab-flip-card.flipped .vocab-flip-inner {
+      transform: rotateY(180deg);
+    }
+    .vocab-flip-front, .vocab-flip-back {
+      position: absolute;
+      inset: 0;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--slate-200);
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 14px;
-      transition: all 0.2s ease;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .clean-vocab-card:hover {
+    .vocab-flip-front {
+      background: var(--white);
+    }
+    .vocab-flip-card:hover .vocab-flip-front {
       border-color: var(--slate-300);
-      transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .vocab-flip-back {
+      background: linear-gradient(145deg, #ffffff 0%, #F0FDFA 100%);
+      border-color: var(--teal-500);
+      transform: rotateY(180deg);
+      box-shadow: var(--shadow-sm);
     }
     .vocab-card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .vocab-card-term {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--navy-900);
       letter-spacing: -0.01em;
@@ -483,27 +513,51 @@
       border-radius: var(--radius-full);
     }
     .vocab-card-ipa {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--slate-500);
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-top: 2px;
+    }
+    .flip-reveal-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--teal-700);
+      background: var(--teal-50);
+      border: 1px dashed rgba(0, 122, 135, 0.35);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-top: auto;
+      align-self: flex-start;
     }
     .vocab-card-def {
       font-size: 13.5px;
-      color: var(--slate-600);
-      line-height: 1.5;
+      color: var(--slate-700);
+      line-height: 1.45;
+      margin-bottom: 10px;
     }
     .vocab-card-example {
-      background: var(--slate-50);
+      background: var(--white);
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-sm);
-      padding: 10px 14px;
+      padding: 10px 12px;
       font-size: 13px;
       color: var(--navy-900);
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .vocab-card-example strong {
       color: var(--teal-700);
+    }
+    .flip-return-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate-400);
+      margin-top: 6px;
     }
 
     /* MATCHING EXERCISE ROWS */
@@ -1097,102 +1151,190 @@
         </p>
       </div>
 
-      <!-- 8 CLEAN TILES (NO SIDE ACCENT BARS) -->
+      <!-- 8 INTERACTIVE FLIP CARDS (TAP TO REVEAL MEANING & EXAMPLE) -->
       <div class="vocab-tiles-grid">
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">stuck</span>
-              <span class="vocab-card-pos font-mono">adjective</span>
+        <!-- CARD 1: STUCK -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">stuck</span>
+                  <span class="vocab-card-pos font-mono">adjective</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/stʌk/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/stʌk/</div>
-            <div class="vocab-card-def">Unable to move, escape, or make progress.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Unable to move, escape, or make forward progress.</div>
+                <div class="vocab-card-example">"I am <strong>stuck</strong> in traffic right now!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"I am <strong>stuck</strong> in traffic right now!"</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">traffic jam</span>
-              <span class="vocab-card-pos font-mono">noun</span>
+        <!-- CARD 2: TRAFFIC JAM -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">traffic jam</span>
+                  <span class="vocab-card-pos font-mono">noun</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ˈtræf.ɪk dʒæm/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/ˈtræf.ɪk dʒæm/</div>
-            <div class="vocab-card-def">A long line of vehicles on a road unable to move.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A long line of vehicles on a road unable to move.</div>
+                <div class="vocab-card-example">"There is a huge <strong>traffic jam</strong> on the avenue."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"There is a huge <strong>traffic jam</strong> on the avenue."</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">low battery</span>
-              <span class="vocab-card-pos font-mono">noun phrase</span>
+        <!-- CARD 3: LOW BATTERY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">low battery</span>
+                  <span class="vocab-card-pos font-mono">noun phrase</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/loʊ ˈbæt̬.ɚ.i/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/loʊ ˈbæt̬.ɚ.i/</div>
-            <div class="vocab-card-def">When your mobile device has almost zero electrical power.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> When your device has almost zero electrical energy.</div>
+                <div class="vocab-card-example">"I must hang up &mdash; my phone has <strong>low battery</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"I must hang up &mdash; my phone has <strong>low battery</strong>!"</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">excuse</span>
-              <span class="vocab-card-pos font-mono">noun</span>
+        <!-- CARD 4: EXCUSE -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">excuse</span>
+                  <span class="vocab-card-pos font-mono">noun</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪkˈskjuːs/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/ɪkˈskjuːs/</div>
-            <div class="vocab-card-def">A reason you invent to explain why you are late.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A reason you invent to explain why you are late.</div>
+                <div class="vocab-card-example">"That is not a real reason, that is just an <strong>excuse</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"That is not a real reason, that is just an <strong>excuse</strong>."</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">background noise</span>
-              <span class="vocab-card-pos font-mono">noun phrase</span>
+        <!-- CARD 5: BACKGROUND NOISE -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">background noise</span>
+                  <span class="vocab-card-pos font-mono">noun phrase</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ˈbæk.ɡraʊnd nɔɪz/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/ˈbæk.ɡraʊnd nɔɪz/</div>
-            <div class="vocab-card-def">Sounds heard behind your voice during a call.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Sounds heard behind your voice during a call.</div>
+                <div class="vocab-card-example">"What is that <strong>background noise</strong>? Are you home?"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"What is that <strong>background noise</strong>? Are you home?"</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">in a hurry</span>
-              <span class="vocab-card-pos font-mono">phrase</span>
+        <!-- CARD 6: IN A HURRY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">in a hurry</span>
+                  <span class="vocab-card-pos font-mono">phrase</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪn ə ˈhɝː.i/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/ɪn ə ˈhɝː.i/</div>
-            <div class="vocab-card-def">Acting or moving quickly because time is short.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Moving or acting quickly because time is short.</div>
+                <div class="vocab-card-example">"I can't talk right now, I am <strong>in a hurry</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"I can't talk right now, I am <strong>in a hurry</strong>!"</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">pajamas</span>
-              <span class="vocab-card-pos font-mono">noun</span>
+        <!-- CARD 7: PAJAMAS -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">pajamas</span>
+                  <span class="vocab-card-pos font-mono">noun</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/pəˈdʒɑː.məz/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/pəˈdʒɑː.məz/</div>
-            <div class="vocab-card-def">Comfortable clothes worn specifically for sleeping.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Soft comfortable clothes worn for sleeping.</div>
+                <div class="vocab-card-example">"He claims he is ready, but he is wearing <strong>pajamas</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"He claims he is ready, but he is wearing <strong>pajamas</strong>."</div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div>
-            <div class="vocab-card-top">
-              <span class="vocab-card-term">emergency</span>
-              <span class="vocab-card-pos font-mono">noun</span>
+        <!-- CARD 8: EMERGENCY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">emergency</span>
+                  <span class="vocab-card-pos font-mono">noun</span>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪˈmɝː.dʒən.si/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
             </div>
-            <div class="vocab-card-ipa font-mono">/ɪˈmɝː.dʒən.si/</div>
-            <div class="vocab-card-def">A sudden urgent event requiring immediate attention.</div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A sudden urgent event needing immediate action.</div>
+                <div class="vocab-card-example">"I have a quick <strong>emergency</strong> at work."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
           </div>
-          <div class="vocab-card-example">"I have a quick <strong>emergency</strong> at work."</div>
         </div>
       </div>
 
@@ -1679,41 +1821,126 @@
         </p>
       </div>
 
+      <!-- 6 INTERACTIVE CHUNKS FLIP CARDS -->
       <div class="vocab-tiles-grid">
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"I'm on my way!"</div>
-          <div class="vocab-card-def">Standard spoken response when someone asks for your current location.</div>
-          <div class="vocab-card-example">"Don't leave the table, <strong>I'm on my way</strong> right now!"</div>
+        <!-- CHUNK 1 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"I'm on my way!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Standard spoken reply when someone asks for your current location.</div>
+                <div class="vocab-card-example">"Don't leave the table, <strong>I'm on my way</strong> right now!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"Be right there!"</div>
-          <div class="vocab-card-def">Signals that your physical arrival will occur in moments.</div>
-          <div class="vocab-card-example">"Just parked the car &mdash; <strong>be right there</strong>!"</div>
+        <!-- CHUNK 2 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Be right there!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Signals that your physical arrival will occur in moments.</div>
+                <div class="vocab-card-example">"Just parked the car &mdash; <strong>be right there</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"Caught red-handed!"</div>
-          <div class="vocab-card-def">Used when catching someone in an obvious contradiction or lie.</div>
-          <div class="vocab-card-example">"You said you were driving? <strong>Caught red-handed</strong>!"</div>
+        <!-- CHUNK 3 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Caught red-handed!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Used when catching someone in an obvious contradiction or lie.</div>
+                <div class="vocab-card-example">"You said you were driving? <strong>Caught red-handed</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"Yeah, right!"</div>
-          <div class="vocab-card-def">Informal sarcastic reaction meaning "I do not believe you at all."</div>
-          <div class="vocab-card-example">"You're studying? <strong>Yeah, right!</strong> I hear your video game!"</div>
+        <!-- CHUNK 4 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Yeah, right!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Informal sarcastic reaction meaning "I do not believe you at all."</div>
+                <div class="vocab-card-example">"You're studying? <strong>Yeah, right!</strong> I hear your video game!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"Hold that thought!"</div>
-          <div class="vocab-card-def">Polite interruption to pause talk when someone calls or knocks.</div>
-          <div class="vocab-card-example">"<strong>Hold that thought</strong> &mdash; my boss is calling on line two."</div>
+        <!-- CHUNK 5 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Hold that thought!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Polite interruption to pause talk when someone calls or knocks.</div>
+                <div class="vocab-card-example">"<strong>Hold that thought</strong> &mdash; my boss is calling on line two."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
 
-        <div class="clean-vocab-card">
-          <div class="vocab-card-term">"Traffic is a nightmare."</div>
-          <div class="vocab-card-def">Universal metropolitan excuse for vehicular delays.</div>
-          <div class="vocab-card-example">"Nobody is moving, <strong>traffic is an absolute nightmare</strong>."</div>
+        <!-- CHUNK 6 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Traffic is a nightmare."</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Universal metropolitan excuse for vehicular delays.</div>
+                <div class="vocab-card-example">"Nobody is moving, <strong>traffic is an absolute nightmare</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
         </div>
       </div>
 
