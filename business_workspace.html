@@ -516,85 +516,34 @@
       box-shadow: 0 8px 22px rgba(212, 168, 67, 0.5);
     }
 
-    /* TRACK FILTER NAVIGATION BAR */
-    .track-nav-container {
-      margin-bottom: 30px;
+    /* HUB SECTION HEADER (CLEAN EDITORIAL TITLE, NO CRAMPED HORIZONTAL BAR) */
+    .hub-section-header {
+      margin-top: 10px;
+      margin-bottom: 28px;
     }
-    .track-nav-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .track-nav-kicker {
+    .hub-section-kicker {
       font-size: 11.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       font-weight: 800;
-      color: var(--navy-soft);
-      display: flex;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      margin-bottom: 6px;
     }
-    .track-nav-meta {
-      font-size: 12.5px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .track-nav-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-    }
-    .track-pill-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: var(--radius-full);
-      background: #ffffff;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all .2s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-shadow: var(--shadow-sm);
-    }
-    .track-pill-btn:hover {
-      border-color: var(--gold);
-      color: var(--navy-main);
-      transform: translateY(-1px);
-    }
-    .track-pill-btn.active {
-      background: var(--navy-main);
-      color: #ffffff;
-      border-color: var(--gold);
-      box-shadow: 0 4px 14px rgba(11, 31, 58, 0.25);
-    }
-    .track-pill-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 20px;
-      height: 20px;
-      padding: 0 6px;
-      border-radius: var(--radius-full);
-      background: #f1f5f9;
-      color: var(--navy-main);
-      font-size: 11px;
+    .hub-section-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 24px;
       font-weight: 800;
+      color: var(--navy-main);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
     }
-    .track-pill-btn.active .track-pill-badge {
-      background: var(--gold);
-      color: var(--navy-deep);
+    .hub-section-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     /* TRACK SECTION BLOCK & HEADER BANNER */
@@ -1323,9 +1272,9 @@
       </div>
     </header>
 
-    <!-- CORPORATE LOOP FOUNDATIONAL BANNER (DAY 01 MASTERCLASS) -->
+    <!-- CORPORATE LOOP FOUNDATIONAL BANNER (DAY 01 EXECUTIVE BRIEFING) -->
     <section class="corporate-loop-banner">
-      <div class="cl-banner-badge">[Day 01] Foundational Executive Masterclass</div>
+      <div class="cl-banner-badge">[Day 01] Foundational Executive Briefing</div>
       <div class="cl-banner-content">
         <div class="cl-banner-text">
           <h2 class="cl-banner-title">BE-00: The Corporate Loop &middot; <span>Navigating Real-World Executive Friction</span></h2>
@@ -1341,50 +1290,18 @@
         </div>
         <div class="cl-banner-action">
           <a href="./Business/the-corporate-loop/index.html" class="cl-launch-btn">
-            Launch Day 01 Masterclass &rarr;
+            Launch Day 01 Briefing &rarr;
           </a>
         </div>
       </div>
     </section>
 
-    <!-- TRACK FILTER NAVIGATION BAR -->
-    <section class="track-nav-container">
-      <div class="track-nav-header">
-        <div class="track-nav-kicker">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Select Departmental Track
-        </div>
-        <div class="track-nav-meta" id="trackNavSummary">
-          The Corporate Lifecycle Menu &middot; Select a pillar to filter modules
-        </div>
-      </div>
-      <div class="track-nav-scroll" id="trackNavPills">
-        <button type="button" class="track-pill-btn active" data-track="all" onclick="selectTrack('all')">
-          All Tracks <span class="track-pill-badge">28</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track1" onclick="selectTrack('track1')">
-          Track 1 &middot; Crisis &amp; Ops <span class="track-pill-badge">4</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track2" onclick="selectTrack('track2')">
-          Track 2 &middot; Meetings &amp; Sync <span class="track-pill-badge">4</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track3" onclick="selectTrack('track3')">
-          Track 3 &middot; Client Relations <span class="track-pill-badge">4</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track4" onclick="selectTrack('track4')">
-          Track 4 &middot; Finance &amp; Legal <span class="track-pill-badge">4</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track5" onclick="selectTrack('track5')">
-          Track 5 &middot; People &amp; HR <span class="track-pill-badge">5</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="track6" onclick="selectTrack('track6')">
-          Track 6 &middot; Boardroom Strategy <span class="track-pill-badge">3</span>
-        </button>
-        <button type="button" class="track-pill-btn" data-track="labs" onclick="selectTrack('labs')">
-          Executive Labs <span class="track-pill-badge">4</span>
-        </button>
-      </div>
-    </section>
+    <!-- SECTION TITLE FOR THE 6 TRACK CARDS (NO CRAMPED HORIZONTAL BAR) -->
+    <div class="hub-section-header" id="hubSectionHeader">
+      <div class="hub-section-kicker">Curricular Architecture</div>
+      <h2 class="hub-section-title">The Corporate Lifecycle &middot; Strategic Pillars</h2>
+      <p class="hub-section-desc">Select an operational pillar below to explore its focused case studies and real-world executive scenarios.</p>
+    </div>
 
     <!-- DYNAMIC CLASSES CONTAINER -->
     <main id="classesContainer" class="classes-container">
@@ -3464,14 +3381,15 @@
 
     function selectTrack(trackId) {
       currentTrack = trackId;
-      document.querySelectorAll('.track-pill-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.track === trackId);
-      });
+      const hubHeader = document.getElementById('hubSectionHeader');
+      if (hubHeader) {
+        hubHeader.style.display = trackId === 'all' ? 'block' : 'none';
+      }
       renderBusinessWorkspace();
       // Smooth scroll up to container top on track switch
-      const navEl = document.getElementById('trackNavSummary');
-      if (navEl) {
-        navEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const containerEl = document.getElementById('classesContainer');
+      if (containerEl) {
+        containerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
@@ -3483,7 +3401,10 @@
       const tracks = bus.tracks;
       const experiences = bus.experiences;
       const labs = bus.labs;
-      const navSummary = document.getElementById('trackNavSummary');
+      const hubHeader = document.getElementById('hubSectionHeader');
+      if (hubHeader) {
+        hubHeader.style.display = currentTrack === 'all' ? 'block' : 'none';
+      }
 
       // LEVEL 1: TRACKS HUB (THE 6 BIG TRACK CARDS + LABS)
       if (currentTrack === 'all') {
