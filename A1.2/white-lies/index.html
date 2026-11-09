@@ -726,17 +726,193 @@
       font-weight: 700;
     }
 
-    /* ERROR CLINIC ROWS */
-    .error-clinic-row {
+    /* GUIDED INDUCTION INTERACTIVE */
+    .induction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .induction-item {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .induction-q {
+      font-size: 13.5px;
+      color: var(--navy-900);
+      line-height: 1.45;
+    }
+    .induction-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .opt-btn {
+      text-align: left;
+      background: var(--slate-50);
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .opt-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--teal-600);
+      color: var(--teal-700);
+    }
+    .opt-btn.correct-btn {
+      background: #ECFDF5;
+      border-color: var(--success-600);
+      color: var(--success-700);
+    }
+    .opt-btn.wrong-btn {
+      background: #FEF2F2;
+      border-color: var(--danger-600);
+      color: var(--danger-700);
+    }
+    .induction-feedback {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    .induction-feedback.fb-correct {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: var(--success-700);
+    }
+    .induction-feedback.fb-wrong {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--danger-700);
+    }
+
+    /* FORMAL ERROR CLINIC REPAIR CARDS */
+    .clinic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .clinic-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+    }
+    .clinic-card.completed {
+      background: #FFFFFF;
+      border-color: var(--success-600);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    }
+    .clinic-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--slate-100);
+      gap: 12px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
     }
-    .error-strike { color: var(--danger-600); font-weight: 700; font-size: 14px; text-decoration: line-through; }
+    .clinic-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .clinic-card.completed .clinic-pill {
+      background: #DCFCE7;
+      color: #166534;
+      border-color: #86EFAC;
+    }
+    .clinic-faulty-sentence {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--danger-600);
+      letter-spacing: -0.01em;
+    }
+    .clinic-card.completed .clinic-faulty-sentence {
+      text-decoration: line-through;
+      color: var(--slate-400);
+    }
+    .clinic-input-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .clinic-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--navy-900);
+      background: #FFFFFF;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .clinic-input:focus {
+      outline: none;
+      border-color: var(--teal-600);
+      box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+    }
+    .clinic-input.input-correct {
+      border-color: var(--success-600);
+      background: #F0FDF4;
+    }
+    .clinic-input.input-wrong {
+      border-color: var(--danger-600);
+      background: #FEF2F2;
+    }
+    .clinic-hint {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: #92400E;
+      line-height: 1.5;
+    }
+    .clinic-feedback {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .clinic-feedback.fb-success {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: var(--success-700);
+    }
+    .clinic-feedback.fb-fail {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--danger-700);
+    }
+    .clinic-rule-note {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(16, 185, 129, 0.35);
+      font-size: 12.5px;
+      color: var(--slate-700);
+    }
 
     /* MODULE 4: AUDIO INVESTIGATION (45-50 SECONDS CALL & 6 QUESTIONS) */
     .audio-theater-card {
@@ -1538,16 +1714,37 @@
         </div>
       </div>
 
-      <!-- DISCOVERY NOTICE -->
-      <div class="studio-card" style="background:#EFF6FF; border-color:#BFDBFE;">
-        <div style="font-size:15px; font-weight:800; color:#1E3A8A; margin-bottom:6px;">
-          🔍 Guided Induction &middot; Discover the Real-Time Mechanism:
+      <!-- GUIDED INDUCTION INTERACTIVE DISCOVERY -->
+      <div class="studio-card" style="background:#F0F9FF; border-color:#BAE6FD;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="vocab-card-pos font-mono" style="background:#E0F2FE; color:#0369A1; border-color:#BAE6FD;">Guided Induction</span>
+            <h3 style="font-size:17px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Discover the Real-Time Mechanism: Jordan's Dispatch
+            </h3>
+          </div>
+          <span class="font-mono" style="font-size:12px; color:var(--teal-700); font-weight:700;">Reference: "I am walking out the door right now."</span>
         </div>
-        <p style="font-size:13.5px; color:#1E3A8A; line-height:1.6;">
-          Look at Jordan's message: <em>"I am walking out the door right now."</em><br>
-          &bull; <strong>Question 1:</strong> Is this an everyday routine, or an action happening at this exact second? &rarr; <strong>At this exact second.</strong><br>
-          &bull; <strong>Question 2:</strong> What happens if you remove the auxiliary BE (*I walking*)? &rarr; <strong>It is incomplete and agrammatical in English.</strong>
-        </p>
+
+        <div class="induction-grid">
+          <div class="induction-item" id="ind-item-1">
+            <p class="induction-q"><strong>1. Time Frame Check:</strong> What kind of action is Jordan describing here?</p>
+            <div class="induction-options">
+              <button type="button" class="opt-btn" onclick="checkInduction(1, 'habit', this)">An everyday routine or repeated habit</button>
+              <button type="button" class="opt-btn" onclick="checkInduction(1, 'right-now', this)">An ongoing action happening at this exact second</button>
+            </div>
+            <div class="induction-feedback" id="ind-fb-1" style="display:none;"></div>
+          </div>
+
+          <div class="induction-item" id="ind-item-2">
+            <p class="induction-q"><strong>2. Structural Integrity:</strong> What happens if Jordan says <em>"I walking out the door"</em> (omits BE)?</p>
+            <div class="induction-options">
+              <button type="button" class="opt-btn" onclick="checkInduction(2, 'correct', this)">It is natural and complete in standard English</button>
+              <button type="button" class="opt-btn" onclick="checkInduction(2, 'incomplete', this)">It is incomplete; auxiliary BE is strictly mandatory</button>
+            </div>
+            <div class="induction-feedback" id="ind-fb-2" style="display:none;"></div>
+          </div>
+        </div>
       </div>
 
       <!-- SCRAMBLED WORDBOX BUILDER (ALL CHIPS MIXED UP) -->
@@ -1614,37 +1811,88 @@
 
       <!-- FORMAL ERROR CLINIC -->
       <div class="studio-card">
-        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:14px;">
-          Formal Grammar Clinic &middot; Find and Repair Classical A1.2 Slips
-        </h3>
-
-        <div class="error-clinic-row">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
           <div>
-            <span class="error-strike">1. "He is drive to work right now."</span>
-            <div style="font-size:12px; color:var(--slate-500); margin-top:2px;">Error: Main verb missing -ing suffix after auxiliary BE.</div>
+            <span class="vocab-card-pos font-mono" style="background:#FEF2F2; color:#B91C1C; border-color:#FECACA;">Grammar Clinic</span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Formal Grammar Clinic &middot; Find and Repair Classical A1.2 Slips
+            </h3>
           </div>
-          <div>
-            <button class="btn-brand-secondary" style="padding:6px 14px; font-size:12px;" onclick="fixError(this, 'He is driving to work right now.')">Repair Error</button>
-          </div>
+          <span class="font-mono" style="font-size:12px; color:var(--slate-500); background:var(--slate-50); padding:4px 12px; border-radius:var(--radius-full); border:1px solid var(--slate-200);">
+            4 Slips to Repair &middot; Type the corrected sentence &amp; check
+          </span>
         </div>
+        <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:20px; line-height:1.5;">
+          Each sentence below contains a classical A1.2 slip (missing auxiliary BE, missing <em>-ing</em>, or spelling mutation). Type the fully corrected sentence in the box and verify your repair.
+        </p>
 
-        <div class="error-clinic-row">
-          <div>
-            <span class="error-strike">2. "They sleeping in bed at this moment."</span>
-            <div style="font-size:12px; color:var(--slate-500); margin-top:2px;">Error: Missing auxiliary verb BE (are).</div>
+        <div class="clinic-list">
+          <!-- SLIP 1 -->
+          <div class="clinic-card" id="clinic-card-1">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 01</span>
+              <span class="clinic-faulty-sentence">"He is drive to work right now."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-1" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(1)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(1)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(1)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-1" style="display:none;">
+              💡 <strong>Hint:</strong> Look at the main verb <em>"drive"</em> after auxiliary <em>"is"</em>. What suffix is required for continuous action? Remember Rule 2 (silent -e).
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-1" style="display:none;"></div>
           </div>
-          <div>
-            <button class="btn-brand-secondary" style="padding:6px 14px; font-size:12px;" onclick="fixError(this, 'They are sleeping in bed at this moment.')">Repair Error</button>
-          </div>
-        </div>
 
-        <div class="error-clinic-row">
-          <div>
-            <span class="error-strike">3. "Jordan is lie to his best friend."</span>
-            <div style="font-size:12px; color:var(--slate-500); margin-top:2px;">Error: Orthography mutation (-ie changes to -y: lying).</div>
+          <!-- SLIP 2 -->
+          <div class="clinic-card" id="clinic-card-2">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 02</span>
+              <span class="clinic-faulty-sentence">"They sleeping in bed at this moment."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-2" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(2)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(2)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(2)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-2" style="display:none;">
+              💡 <strong>Hint:</strong> What essential helping verb (auxiliary BE) is missing between the subject <em>"They"</em> and the verb <em>"sleeping"</em>?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-2" style="display:none;"></div>
           </div>
-          <div>
-            <button class="btn-brand-secondary" style="padding:6px 14px; font-size:12px;" onclick="fixError(this, 'Jordan is lying to his best friend.')">Repair Error</button>
+
+          <!-- SLIP 3 -->
+          <div class="clinic-card" id="clinic-card-3">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 03</span>
+              <span class="clinic-faulty-sentence">"Jordan is lie to his best friend."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-3" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(3)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(3)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(3)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-3" style="display:none;">
+              💡 <strong>Hint:</strong> Check Spelling Rule 4 for verbs ending in <em>-ie</em> (like <em>lie</em>). How does the ending mutate before adding <em>-ing</em>?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-3" style="display:none;"></div>
+          </div>
+
+          <!-- SLIP 4 -->
+          <div class="clinic-card" id="clinic-card-4">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 04</span>
+              <span class="clinic-faulty-sentence">"The traffic is stoping right now."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-4" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(4)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(4)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(4)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-4" style="display:none;">
+              💡 <strong>Hint:</strong> Look at Spelling Rule 3: <em>stop</em> is a 1-syllable verb ending in Consonant-Vowel-Consonant (CVC). Do you need a double consonant?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-4" style="display:none;"></div>
           </div>
         </div>
       </div>
@@ -2309,18 +2557,127 @@
       fb.style.color = 'var(--teal-300)';
     }
 
-    // ERROR CLINIC ONE-CLICK FIX
-    function fixError(btn, correctText) {
-      const row = btn.closest('.error-clinic-row');
-      const wrong = row.querySelector('.error-strike');
-      wrong.textContent = correctText;
-      wrong.style.color = 'var(--success-600)';
-      wrong.style.textDecoration = 'none';
-      btn.textContent = '✓ Fixed';
-      btn.style.background = 'var(--success-50)';
-      btn.style.borderColor = 'var(--success-600)';
-      btn.style.color = 'var(--success-600)';
-      btn.disabled = true;
+    // GUIDED INDUCTION INTERACTIVE EVALUATION
+    function checkInduction(qNum, selectedVal, btn) {
+      const item = document.getElementById('ind-item-' + qNum);
+      const fb = document.getElementById('ind-fb-' + qNum);
+      const buttons = item.querySelectorAll('.opt-btn');
+      buttons.forEach(b => {
+        b.classList.remove('correct-btn', 'wrong-btn');
+      });
+
+      let isCorrect = false;
+      let explanation = '';
+
+      if (qNum === 1) {
+        isCorrect = (selectedVal === 'right-now');
+        explanation = isCorrect
+          ? '✓ <strong>Correct!</strong> <em>"am walking... right now"</em> describes an action in active progress at this exact second, not an everyday habit.'
+          : '❌ <strong>Try again.</strong> Everyday routines use the Simple Present (e.g. <em>"I walk to work every morning"</em>). Jordan is describing what he is doing at this exact second.';
+      } else if (qNum === 2) {
+        isCorrect = (selectedVal === 'incomplete');
+        explanation = isCorrect
+          ? '✓ <strong>Correct!</strong> In English, Present Continuous always requires auxiliary BE (<em>am / is / are</em>). Saying <em>*I walking</em> is incomplete.'
+          : '❌ <strong>Try again.</strong> In standard English, the auxiliary verb BE (<em>am / is / are</em>) is strictly mandatory before the -ing participle.';
+      }
+
+      btn.classList.add(isCorrect ? 'correct-btn' : 'wrong-btn');
+      fb.style.display = 'block';
+      fb.className = 'induction-feedback ' + (isCorrect ? 'fb-correct' : 'fb-wrong');
+      fb.innerHTML = explanation;
+    }
+
+    // FORMAL ERROR CLINIC INTERACTIVE REPAIR
+    const clinicData = {
+      1: {
+        accepted: [
+          "he is driving to work right now",
+          "hes driving to work right now",
+          "he is driving to work",
+          "hes driving to work"
+        ],
+        model: "He is driving to work right now.",
+        rule: "In Present Continuous, the main verb requires the <strong>-ing</strong> suffix after auxiliary BE (<em>drive</em> &rarr; <strong>driving</strong>, drop silent -e)."
+      },
+      2: {
+        accepted: [
+          "they are sleeping in bed at this moment",
+          "theyre sleeping in bed at this moment",
+          "they are sleeping in bed",
+          "theyre sleeping in bed"
+        ],
+        model: "They are sleeping in bed at this moment.",
+        rule: "Present Continuous always requires auxiliary BE (<strong>are</strong>) before the verb-ing form."
+      },
+      3: {
+        accepted: [
+          "jordan is lying to his best friend",
+          "jordans lying to his best friend"
+        ],
+        model: "Jordan is lying to his best friend.",
+        rule: "Verbs ending in <em>-ie</em> mutate to <strong>-y</strong> before adding <em>-ing</em> (<em>lie</em> &rarr; <strong>lying</strong>)."
+      },
+      4: {
+        accepted: [
+          "the traffic is stopping right now",
+          "the traffics stopping right now",
+          "the traffic is stopping",
+          "the traffics stopping"
+        ],
+        model: "The traffic is stopping right now.",
+        rule: "One-syllable verbs ending in Consonant-Vowel-Consonant (CVC) double the final consonant (<em>stop</em> &rarr; <strong>stopping</strong>)."
+      }
+    };
+
+    function normClinic(s) {
+      return (s || '')
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function toggleClinicHint(id) {
+      const hintEl = document.getElementById('clinic-hint-' + id);
+      if (hintEl) {
+        hintEl.style.display = (hintEl.style.display === 'none' || !hintEl.style.display) ? 'block' : 'none';
+      }
+    }
+
+    function checkClinicItem(id) {
+      const input = document.getElementById('clinic-in-' + id);
+      const fb = document.getElementById('clinic-fb-' + id);
+      const card = document.getElementById('clinic-card-' + id);
+      const data = clinicData[id];
+      if (!input || !fb || !data) return;
+
+      const val = normClinic(input.value);
+      if (!val) {
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-fail';
+        fb.innerHTML = '⚠️ Please type your corrected sentence before checking.';
+        input.focus();
+        return;
+      }
+
+      const isOk = data.accepted.map(normClinic).includes(val);
+
+      if (isOk) {
+        input.classList.remove('input-wrong');
+        input.classList.add('input-correct');
+        card.classList.add('completed');
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-success';
+        fb.innerHTML = `✓ <strong>Spot on!</strong> <em>"${data.model}"</em>
+          <div class="clinic-rule-note">📘 <strong>Grammar Rule:</strong> ${data.rule}</div>`;
+      } else {
+        input.classList.remove('input-correct');
+        input.classList.add('input-wrong');
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-fail';
+        fb.innerHTML = `❌ <strong>Not quite yet.</strong> Check the structure and spelling carefully. (Click 💡 Hint if you need a clue, then try again!)`;
+      }
     }
 
     // AUDIO INVESTIGATION DECK (48 SECONDS REAL STUDIO RECORDING)
