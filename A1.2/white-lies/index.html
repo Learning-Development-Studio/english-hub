@@ -518,6 +518,25 @@
       font-weight: 600;
       margin-top: 2px;
     }
+    .vocab-audio-btn {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.18s;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .vocab-audio-btn:hover {
+      background: var(--teal-50);
+      border-color: var(--teal-500);
+      transform: scale(1.1);
+    }
     .flip-reveal-hint {
       display: inline-flex;
       align-items: center;
@@ -1160,7 +1179,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">stuck</span>
-                  <span class="vocab-card-pos font-mono">adjective</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">adjective</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('stuck')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/stʌk/</div>
               </div>
@@ -1183,7 +1205,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">traffic jam</span>
-                  <span class="vocab-card-pos font-mono">noun</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('traffic')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/ˈtræf.ɪk dʒæm/</div>
               </div>
@@ -1206,7 +1231,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">low battery</span>
-                  <span class="vocab-card-pos font-mono">noun phrase</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('lowbattery')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/loʊ ˈbæt̬.ɚ.i/</div>
               </div>
@@ -1229,7 +1257,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">excuse</span>
-                  <span class="vocab-card-pos font-mono">noun</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('excuse')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/ɪkˈskjuːs/</div>
               </div>
@@ -1252,7 +1283,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">background noise</span>
-                  <span class="vocab-card-pos font-mono">noun phrase</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('background')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/ˈbæk.ɡraʊnd nɔɪz/</div>
               </div>
@@ -1275,7 +1309,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">in a hurry</span>
-                  <span class="vocab-card-pos font-mono">phrase</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('hurry')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/ɪn ə ˈhɝː.i/</div>
               </div>
@@ -1298,7 +1335,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">pajamas</span>
-                  <span class="vocab-card-pos font-mono">noun</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('pajamas')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/pəˈdʒɑː.məz/</div>
               </div>
@@ -1321,7 +1361,10 @@
               <div>
                 <div class="vocab-card-top">
                   <span class="vocab-card-term">emergency</span>
-                  <span class="vocab-card-pos font-mono">noun</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('emergency')">🔊</button>
+                  </div>
                 </div>
                 <div class="vocab-card-ipa font-mono">/ɪˈmɝː.dʒən.si/</div>
               </div>
@@ -2104,18 +2147,48 @@
     }
 
     // WHATSAPP VOICE NOTE AUDIO
+    let vnAudio = new Audio('./audio/audio_wa_voicenote.mp3');
     let vnPlaying = false;
     function playVoiceAudio() {
       const btn = document.querySelector('.wa-vn-play');
-      vnPlaying = !vnPlaying;
-      btn.textContent = vnPlaying ? '❚❚' : '▶';
-      if ('speechSynthesis' in window && vnPlaying) {
-        window.speechSynthesis.cancel();
-        const utt = new SpeechSynthesisUtterance("I'm literally walking out the door right now! Traffic is an absolute nightmare, but I'm on my way! Be right there!");
-        utt.rate = 1.0;
-        utt.lang = 'en-US';
-        utt.onend = () => { vnPlaying = false; btn.textContent = '▶'; };
-        window.speechSynthesis.speak(utt);
+      if (!vnPlaying) {
+        vnAudio.currentTime = 0;
+        vnAudio.play().then(() => {
+          vnPlaying = true;
+          btn.textContent = '❚❚';
+        }).catch(err => {
+          console.warn('Voice playback:', err);
+        });
+        vnAudio.onended = () => {
+          vnPlaying = false;
+          btn.textContent = '▶';
+        };
+      } else {
+        vnAudio.pause();
+        vnPlaying = false;
+        btn.textContent = '▶';
+      }
+    }
+
+    // SITUATIONAL VOCABULARY AUDIO PLAYBACK
+    let currentVocabAudio = null;
+    function playVocabAudio(key) {
+      if (currentVocabAudio) {
+        currentVocabAudio.pause();
+      }
+      const files = {
+        'stuck': './audio/audio_vocab_stuck.mp3',
+        'traffic': './audio/audio_vocab_traffic.mp3',
+        'lowbattery': './audio/audio_vocab_lowbattery.mp3',
+        'excuse': './audio/audio_vocab_excuse.mp3',
+        'background': './audio/audio_vocab_background.mp3',
+        'hurry': './audio/audio_vocab_in_a_hurry.mp3',
+        'pajamas': './audio/audio_vocab_pajamas.mp3',
+        'emergency': './audio/audio_vocab_emergency.mp3'
+      };
+      if (files[key]) {
+        currentVocabAudio = new Audio(files[key]);
+        currentVocabAudio.play().catch(e => console.warn('Vocab audio error:', e));
       }
     }
 
@@ -2250,71 +2323,58 @@
       btn.disabled = true;
     }
 
-    // AUDIO INVESTIGATION DECK (48 SECONDS)
-    let audioTimer = null;
-    let audioSecs = 0;
+    // AUDIO INVESTIGATION DECK (48 SECONDS REAL STUDIO RECORDING)
     let isMasterPlaying = false;
     let playbackSpeed = 1.0;
+    const realAudio = document.getElementById('realAudioEl');
+    const audioSlider = document.getElementById('audioSlider');
+    const audioCurrentTime = document.getElementById('audioCurrentTime');
+    const audioMasterBtn = document.getElementById('audioMasterBtn');
+
+    if (realAudio) {
+      realAudio.addEventListener('loadedmetadata', () => {
+        if (!isNaN(realAudio.duration)) {
+          audioSlider.max = Math.floor(realAudio.duration);
+        }
+      });
+      realAudio.addEventListener('timeupdate', () => {
+        audioSlider.value = Math.floor(realAudio.currentTime);
+        const s = Math.floor(realAudio.currentTime);
+        const mins = Math.floor(s / 60);
+        const secs = s % 60;
+        audioCurrentTime.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      });
+      realAudio.addEventListener('ended', () => {
+        isMasterPlaying = false;
+        audioMasterBtn.textContent = '▶';
+        audioSlider.value = 0;
+        audioCurrentTime.textContent = '0:00';
+      });
+    }
 
     function toggleMasterAudio() {
-      const btn = document.getElementById('audioMasterBtn');
+      if (!realAudio) return;
       isMasterPlaying = !isMasterPlaying;
-      btn.textContent = isMasterPlaying ? '❚❚' : '▶';
-
-      const realAudio = document.getElementById('realAudioEl');
+      audioMasterBtn.textContent = isMasterPlaying ? '❚❚' : '▶';
       if (isMasterPlaying) {
-        realAudio.play().catch(() => {
-          // Fallback to speech synthesis simulation for 48s if mp3 not yet saved
-          simulateAudioTrack();
+        realAudio.play().catch(err => {
+          console.warn('Real audio playback error:', err);
         });
-        startSliderTimer();
       } else {
         realAudio.pause();
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        clearInterval(audioTimer);
       }
     }
 
-    function startSliderTimer() {
-      clearInterval(audioTimer);
-      audioTimer = setInterval(() => {
-        if (audioSecs < 48) {
-          audioSecs++;
-          document.getElementById('audioSlider').value = audioSecs;
-          document.getElementById('audioCurrentTime').textContent = `0:${audioSecs < 10 ? '0' : ''}${audioSecs}`;
-        } else {
-          audioSecs = 0;
-          isMasterPlaying = false;
-          document.getElementById('audioMasterBtn').textContent = '▶';
-          clearInterval(audioTimer);
-        }
-      }, 1000 / playbackSpeed);
-    }
-
     function seekAudio(val) {
-      audioSecs = parseInt(val, 10);
-      document.getElementById('audioCurrentTime').textContent = `0:${audioSecs < 10 ? '0' : ''}${audioSecs}`;
-      const realAudio = document.getElementById('realAudioEl');
       if (realAudio && !isNaN(realAudio.duration)) {
-        realAudio.currentTime = (audioSecs / 48) * realAudio.duration;
+        realAudio.currentTime = parseFloat(val);
       }
     }
 
     function togglePlaybackSpeed() {
       playbackSpeed = playbackSpeed === 1.0 ? 0.85 : 1.0;
       document.getElementById('speedToggle').textContent = `Speed: ${playbackSpeed}x`;
-      const realAudio = document.getElementById('realAudioEl');
       if (realAudio) realAudio.playbackRate = playbackSpeed;
-    }
-
-    function simulateAudioTrack() {
-      if (!('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel();
-      const scriptText = "Marcus: Elena, where are you? Mr. Davis and I are sitting at the restaurant right now. The waiter is serving the appetizers and our meeting starts in five minutes! Elena: Marcus, I am literally driving on the expressway! Traffic is a nightmare, but I'm on my way! Marcus: Wait a second, why do I hear a cashier over a drive thru loudspeaker? Elena: That's just the radio! Marcus: Elena, I can hear paper bags rustling and someone chewing french fries! You're sitting in a drive thru lane! Elena: Okay, fine! Caught red handed! I'm grabbing lunch right now, but I'm paying and heading over!";
-      const utt = new SpeechSynthesisUtterance(scriptText);
-      utt.rate = playbackSpeed;
-      utt.lang = 'en-US';
-      window.speechSynthesis.speak(utt);
     }
 
     // 6 QUESTIONS VERIFICATION
