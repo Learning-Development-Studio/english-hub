@@ -144,74 +144,131 @@
       background: rgba(212, 168, 67, 0.15);
     }
 
-    /* LIVE CLASS HERO BANNER (STANDARDIZED FROM A1.2 MENU TEMPLATE) */
-    .live-class-banner {
-      background: linear-gradient(90deg, rgba(7, 21, 39, 0.96) 0%, rgba(13, 40, 71, 0.90) 52%, rgba(7, 21, 39, 0.45) 100%),
-                  url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1600&q=85');
-      background-size: cover;
-      background-position: center right;
-      background-repeat: no-repeat;
-      border: 1px solid rgba(20, 184, 166, 0.45);
+    /* CINEMATIC WORKSPACE HERO BANNER (MATCHES A1-2_WORKSPACE.HTML EXACTLY) */
+    .workspace-hero-banner {
       border-radius: var(--radius-lg);
-      padding: 32px 36px;
-      margin-bottom: 28px;
-      position: relative;
       overflow: hidden;
-      box-shadow: 0 16px 36px -8px rgba(7, 21, 39, 0.45);
+      position: relative;
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      padding: 56px 48px;
+      border: 1px solid rgba(212, 168, 67, 0.28);
+      box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.35);
+      margin-bottom: 36px;
+      color: #ffffff;
+      background-image: linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%),
+                        url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85);
     }
-    .live-class-banner::before {
-      content: "";
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(20, 184, 166, 0.22), transparent 70%);
-      pointer-events: none;
+
+    .hero-banner-topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
     }
-    .banner-badge {
+
+    .hero-banner-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(20, 184, 166, 0.18);
-      border: 1px solid rgba(20, 184, 166, 0.4);
-      color: #5eead4;
-      padding: 5px 12px;
+      gap: 7px;
+      background: rgba(212, 168, 67, 0.18);
+      border: 1px solid var(--gold-border);
+      color: #fef08a;
+      padding: 5px 13px;
       border-radius: var(--radius-full);
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 12px;
     }
-    .banner-pulse-dot {
-      width: 8px; height: 8px;
+
+    .hero-banner-pill-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: #14b8a6;
-      box-shadow: 0 0 10px #14b8a6;
-      animation: pulse 1.8s infinite;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.3); }
+
+    .hero-banner-meta {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-weight: 500;
     }
-    .banner-content {
-      position: relative;
-      z-index: 2;
-    }
-    .banner-title {
-      font-size: clamp(22px, 2.5vw, 32px);
-      font-weight: 800;
+
+    .hero-banner-title {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 24ch;
+      letter-spacing: -0.01em;
       color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
     }
-    .banner-title span { color: #2dd4bf; }
-    .banner-desc {
-      font-size: 14.5px;
+
+    .hero-banner-title .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-banner-desc {
+      font-size: clamp(15px, 1.4vw, 17px);
       color: #cbd5e1;
       line-height: 1.6;
-      max-width: 78ch;
-      margin: 0;
+      max-width: 62ch;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .hero-stats-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      background: rgba(7, 21, 39, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 14px 24px;
+      backdrop-filter: blur(14px);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-number {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-meta strong {
+      font-size: 12.5px;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .stat-meta span {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.12);
     }
 
     /* MAIN CONTAINER */
@@ -1202,23 +1259,57 @@
   <!-- 3. MAIN CONTENT STAGE -->
   <main class="content-wrapper">
 
-    <!-- LIVE CLASS HERO BANNER (STANDARDIZED TEMPLATE DIRECTLY FROM MENU) -->
-    <section class="live-class-banner">
-      <div class="banner-badge">
-        <span class="banner-pulse-dot"></span>
-        Active Class in Session &middot; Unit A1.2-U04
-      </div>
-      <div class="banner-content">
-        <div>
-          <h1 class="banner-title">
-            White Lies We Tell Right Now <span>(The "I'm On My Way!" Syndrome)</span>
-          </h1>
-          <p class="banner-desc">
-            The "I'm On My Way!" Syndrome: Phone calls, WhatsApp voice dispatches, and the universal comedy of what we claim we are doing versus what we are actually doing at this exact second.
-          </p>
+    <!-- CINEMATIC WORKSPACE HERO BANNER (IDENTICAL STRUCTURE & HEIGHT TO A1-2_WORKSPACE.HTML) -->
+    <header class="workspace-hero-banner" id="heroBanner">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          A1.2 Trajectory &middot; Stage 01 Foundations
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR A1.2 &middot; Macro-Unit 04
         </div>
       </div>
-    </section>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        White Lies We Tell <span class="gold-accent">Right Now</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        The "I'm On My Way!" Syndrome: Phone calls, WhatsApp voice dispatches, and the universal comedy of what we claim we are doing versus what we are actually doing at this exact second.
+      </p>
+
+      <!-- FROSTED METRICS STRIP -->
+      <div class="hero-stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">07</div>
+          <div class="stat-meta">
+            <strong>Interactive Modules</strong>
+            <span>WhatsApp to Production</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number">48s</div>
+          <div class="stat-meta">
+            <strong>Studio Audio Lab</strong>
+            <span>Drive-Thru Dilemma</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number">A1.2</div>
+          <div class="stat-meta">
+            <strong>Target Profile</strong>
+            <span>Present Continuous</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <!-- MODULE NAVIGATOR TABS -->
     <nav class="module-nav-grid" role="tablist">
