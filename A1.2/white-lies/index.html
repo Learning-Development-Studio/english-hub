@@ -144,7 +144,7 @@
       background: rgba(212, 168, 67, 0.15);
     }
 
-    /* CINEMATIC WORKSPACE HERO BANNER (MATCHES A1-2_WORKSPACE.HTML EXACTLY) */
+    /* CINEMATIC WORKSPACE HERO BANNER (MATCHES A1-2_WORKSPACE.HTML EXACT HEIGHT, NO STATS BAR) */
     .workspace-hero-banner {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -152,7 +152,11 @@
       background-size: cover;
       background-position: center 30%;
       background-repeat: no-repeat;
-      padding: 56px 48px;
+      padding: 60px 48px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       border: 1px solid rgba(212, 168, 67, 0.28);
       box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.35);
       margin-bottom: 36px;
@@ -218,57 +222,9 @@
       font-size: clamp(15px, 1.4vw, 17px);
       color: #cbd5e1;
       line-height: 1.6;
-      max-width: 62ch;
-      margin-bottom: 32px;
+      max-width: 52ch;
+      margin-bottom: 0;
       font-weight: 400;
-    }
-
-    .hero-stats-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 28px;
-      background: rgba(7, 21, 39, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: var(--radius-md);
-      padding: 14px 24px;
-      backdrop-filter: blur(14px);
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .stat-number {
-      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .stat-meta {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .stat-meta strong {
-      font-size: 12.5px;
-      color: #f8fafc;
-      font-weight: 700;
-    }
-
-    .stat-meta span {
-      font-size: 11px;
-      color: #94a3b8;
-    }
-
-    .stat-divider {
-      width: 1px;
-      height: 32px;
-      background: rgba(255, 255, 255, 0.12);
     }
 
     /* MAIN CONTAINER */
@@ -1259,7 +1215,7 @@
   <!-- 3. MAIN CONTENT STAGE -->
   <main class="content-wrapper">
 
-    <!-- CINEMATIC WORKSPACE HERO BANNER (IDENTICAL STRUCTURE & HEIGHT TO A1-2_WORKSPACE.HTML) -->
+    <!-- CINEMATIC WORKSPACE HERO BANNER (IDENTICAL SIZE TO WORKSPACE, NO STATS BAR) -->
     <header class="workspace-hero-banner" id="heroBanner">
       <div class="hero-banner-topline">
         <div class="hero-banner-pill" id="heroKicker">
@@ -1278,37 +1234,6 @@
       <p class="hero-banner-desc" id="heroDesc">
         The "I'm On My Way!" Syndrome: Phone calls, WhatsApp voice dispatches, and the universal comedy of what we claim we are doing versus what we are actually doing at this exact second.
       </p>
-
-      <!-- FROSTED METRICS STRIP -->
-      <div class="hero-stats-bar">
-        <div class="stat-item">
-          <div class="stat-number">07</div>
-          <div class="stat-meta">
-            <strong>Interactive Modules</strong>
-            <span>WhatsApp to Production</span>
-          </div>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat-item">
-          <div class="stat-number">48s</div>
-          <div class="stat-meta">
-            <strong>Studio Audio Lab</strong>
-            <span>Drive-Thru Dilemma</span>
-          </div>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat-item">
-          <div class="stat-number">A1.2</div>
-          <div class="stat-meta">
-            <strong>Target Profile</strong>
-            <span>Present Continuous</span>
-          </div>
-        </div>
-      </div>
     </header>
 
     <!-- MODULE NAVIGATOR TABS -->
