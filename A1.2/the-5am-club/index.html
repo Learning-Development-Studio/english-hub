@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 5 AM Club or Modern Madness? · A1.2 Unit 01 · English Hub</title>
+
+  <!-- GOOGLE FONTS: PLUS JAKARTA SANS & IBM PLEX MONO (NO FRAUNCES / NO CURSIVES) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM: L&D STUDIO EXECUTIVE LUXURY (PLUS JAKARTA SANS)
+       ========================================================================== */
+    :root {
+      --navy-950: #071527;
+      --navy-900: #0B1F3A;
+      --navy-850: #0E2749;
+      --navy-800: #102A4C;
+      --navy-700: #193B68;
+      --navy-600: #254B82;
+
+      --gold: #D4A843;
+      --gold-400: #E5B85C;
+      --gold-500: #D4A843;
+      --gold-600: #B58A2E;
+      --gold-border: rgba(212, 168, 67, 0.35);
+
+      --teal-700: #005A64;
+      --teal-600: #007A87;
+      --teal-500: #0094A5;
+      --teal-400: #2DD4BF;
+      --teal-border: rgba(0, 122, 135, 0.35);
+
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-300: #CBD5E1;
+      --slate-400: #94A3B8;
+      --slate-500: #64748B;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --slate-900: #0F172A;
+
+      --white: #FFFFFF;
+      --success-50: #ECFDF5;
+      --success-600: #16A34A;
+      --success-700: #15803D;
+      --danger-50: #FEF2F2;
+      --danger-600: #DC2626;
+      --danger-700: #B91C1C;
+      --amber-500: #F59E0B;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --shadow-glow: 0 0 24px rgba(212, 168, 67, 0.18);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--slate-50);
+      color: var(--slate-900);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono {
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    /* TOPBAR ACADEMIC (INSTITUTIONAL NAVIGATION) */
+    .topbar-academic {
+      background: var(--navy-950);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.25);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+    .topbar-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .topbar-logo {
+      height: 38px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .topbar-titles {
+      display: flex;
+      flex-direction: column;
+    }
+    .topbar-titles .dept {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--gold-400);
+      font-weight: 700;
+    }
+    .topbar-titles .course {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .student-pill {
+      font-size: 12px;
+      color: var(--slate-300);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .student-pill strong {
+      color: var(--gold-400);
+    }
+    .nav-back-link {
+      font-size: 12px;
+      color: var(--slate-300);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    .nav-back-link:hover {
+      background: rgba(212, 168, 67, 0.15);
+      border-color: var(--gold);
+      color: var(--gold-400);
+    }
+
+    /* MAIN CONTAINER */
+    .content-wrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    /* ==========================================================================
+       CINEMATIC WORKSPACE HERO BANNER (IDENTICAL SIZE TO WORKSPACE, NO STATS BAR)
+       ========================================================================== */
+    .workspace-hero-banner {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      padding: 60px 48px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(212, 168, 67, 0.28);
+      box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.35);
+      margin-bottom: 36px;
+      color: #ffffff;
+      background-image: linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%),
+                        url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1600&q=85');
+    }
+
+    .hero-banner-topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-banner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(212, 168, 67, 0.18);
+      border: 1px solid var(--gold-border);
+      color: #fef08a;
+      padding: 5px 13px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-banner-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .hero-banner-meta {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .hero-banner-title {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 24ch;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+
+    .hero-banner-title .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-banner-desc {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 52ch;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    /* MODULE NAVIGATOR TABS */
+    .module-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .nav-tab-btn {
+      background: #EBF1F6;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--slate-700);
+    }
+    .nav-tab-btn:hover {
+      background: var(--white);
+      border-color: var(--navy-700);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-tab-btn.active {
+      background: var(--white);
+      border: 1.5px solid var(--teal-600);
+      box-shadow: 0 4px 14px rgba(0, 122, 135, 0.15);
+      color: var(--navy-900);
+    }
+    .tab-micro-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--teal-600);
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tab-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--slate-300);
+    }
+    .nav-tab-btn.active .tab-status-dot {
+      background: var(--teal-600);
+      box-shadow: 0 0 6px var(--teal-600);
+    }
+    .tab-title-strong {
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy-950);
+    }
+
+    /* SCREEN STAGES */
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SCREEN HEADERS */
+    .screen-header-block {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .screen-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--teal-600);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .screen-heading {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .screen-desc {
+      font-size: 14.5px;
+      color: var(--slate-600);
+      max-width: 820px;
+      line-height: 1.55;
+    }
+
+    /* CARDS & CONTAINERS */
+    .studio-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    /* ==========================================================================
+       MODULE 01: THE 5 AM POLL & AUTHENTIC VOICE NOTE
+       ========================================================================== */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .intro-grid { grid-template-columns: 1fr; }
+    }
+
+    .vn-card {
+      background: #0B2238;
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+    .vn-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .vn-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+    }
+    .vn-sender-name {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--white);
+    }
+    .vn-sender-sub {
+      font-size: 12px;
+      color: var(--slate-300);
+    }
+    .vn-player-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .vn-play-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--teal-600);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .vn-play-btn:hover {
+      background: var(--teal-500);
+      transform: scale(1.05);
+    }
+    .vn-waves {
+      flex: 1;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .vn-bar {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      transition: height 0.2s ease;
+    }
+
+    /* POLL STAGE */
+    .camp-selector-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .camp-card {
+      border: 2px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .camp-card:hover {
+      border-color: var(--teal-600);
+      background: var(--slate-50);
+      transform: translateY(-1px);
+    }
+    .camp-card.selected {
+      border-color: var(--teal-600);
+      background: #F0FDF4;
+      box-shadow: 0 4px 12px rgba(0, 122, 135, 0.12);
+    }
+    .camp-icon {
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+    .camp-title {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--navy-900);
+      margin-bottom: 2px;
+    }
+    .camp-desc {
+      font-size: 13px;
+      color: var(--slate-600);
+      line-height: 1.45;
+    }
+    .camp-feedback-box {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MODULE 02: 3D INTERACTIVE FLIP CARDS (EXAMPLE ON FRONT, MEANING ON BACK)
+       ========================================================================== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .flip-card-wrapper {
+      background-color: transparent;
+      height: 250px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .flip-card-wrapper:hover .flip-card-inner {
+      box-shadow: var(--shadow-md);
+    }
+    .flip-card-wrapper.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1.5px solid var(--slate-200);
+    }
+    .flip-card-front {
+      background: var(--white);
+    }
+    .flip-card-back {
+      background: linear-gradient(135deg, #0B1F3A 0%, #071527 100%);
+      color: var(--white);
+      transform: rotateY(180deg);
+      border-color: var(--gold-border);
+    }
+    .card-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .pos-pill {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--slate-100);
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+    }
+    .flip-card-back .pos-pill {
+      background: rgba(212, 168, 67, 0.15);
+      color: var(--gold-400);
+      border-color: var(--gold-border);
+    }
+    .audio-speaker-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--teal-700);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .audio-speaker-btn:hover {
+      background: var(--teal-600);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    .card-word-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy-950);
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+    .flip-card-back .card-word-title {
+      color: var(--gold-400);
+    }
+    .card-example-box {
+      background: #F8FAFC;
+      border-left: 3px solid var(--teal-600);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 6px;
+      font-size: 13.5px;
+      color: var(--navy-900);
+      line-height: 1.45;
+    }
+    .card-example-box strong {
+      color: var(--teal-700);
+    }
+    .card-meaning-box {
+      font-size: 13.5px;
+      color: #E2E8F0;
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+    .flip-indicator-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate-400);
+      margin-top: 8px;
+    }
+    .flip-card-back .flip-indicator-hint {
+      color: var(--gold-400);
+    }
+
+    /* MATCHING PRACTICE SECTION */
+    .vocab-matcher-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1.4fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    @media (max-width: 768px) {
+      .vocab-matcher-row { grid-template-columns: 1fr; }
+    }
+    .clean-select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13.5px;
+      background: var(--white);
+      color: var(--slate-800);
+      cursor: pointer;
+    }
+    .clean-select:focus {
+      outline: none;
+      border-color: var(--teal-600);
+    }
+
+    /* ==========================================================================
+       MODULE 03: GRAMMAR MECHANICS (PRESENT SIMPLE I & REALITY TRANSFORMER)
+       ========================================================================== */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 18px 0;
+    }
+    .grammar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    .grammar-table th {
+      background: var(--navy-900);
+      color: var(--white);
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .grammar-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--slate-200);
+      color: var(--slate-800);
+      vertical-align: middle;
+    }
+    .grammar-table tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+    .g-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+    }
+    .g-badge.aff { background: #DCFCE7; color: #166534; }
+    .g-badge.neg { background: #FEE2E2; color: #991B1B; }
+
+    /* REALITY TRANSFORMER CARDS (CREATIVE GRAMMAR PRACTICE) */
+    .transformer-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .transform-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+    }
+    .transform-card.completed {
+      background: #FFFFFF;
+      border-color: var(--success-600);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    }
+    .transform-topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .myth-pill {
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .myth-statement {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy-900);
+    }
+    .transform-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .transform-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--white);
+      color: var(--navy-900);
+    }
+    .transform-input:focus {
+      outline: none;
+      border-color: var(--teal-600);
+      box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+    }
+    .transform-input.input-correct {
+      border-color: var(--success-600);
+      background: #F0FDF4;
+    }
+    .transform-input.input-wrong {
+      border-color: var(--danger-600);
+      background: #FEF2F2;
+    }
+    .transform-hint {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: #92400E;
+      line-height: 1.5;
+    }
+    .transform-feedback {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .transform-feedback.fb-success {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: var(--success-700);
+    }
+    .transform-feedback.fb-fail {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--danger-700);
+    }
+
+    /* ==========================================================================
+       MODULE 04: AUDIO THEATER DECK & QUESTIONS
+       ========================================================================== */
+    .audio-theater-card {
+      background: var(--navy-900);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      color: var(--white);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .deck-play-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold-500);
+      color: var(--navy-950);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.4);
+    }
+    .deck-play-btn:hover {
+      background: var(--gold-400);
+      transform: scale(1.05);
+    }
+    .deck-slider {
+      flex: 1;
+      min-width: 180px;
+      accent-color: var(--gold-400);
+      cursor: pointer;
+    }
+    .deck-speed-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .deck-speed-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .deck-transcript-toggle {
+      background: transparent;
+      border: 1px dashed rgba(212, 168, 67, 0.5);
+      color: var(--gold-400);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .transcript-drawer {
+      margin-top: 18px;
+      background: rgba(7, 21, 39, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      display: none;
+    }
+    .transcript-line {
+      margin-bottom: 10px;
+    }
+    .transcript-speaker {
+      color: var(--gold-400);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    /* COMPREHENSION CHECK GRID */
+    .comprehension-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .comp-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+    .comp-q {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy-900);
+      margin-bottom: 12px;
+    }
+    .comp-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .comp-opt-btn {
+      text-align: left;
+      background: var(--white);
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .comp-opt-btn:hover {
+      border-color: var(--teal-600);
+      color: var(--teal-700);
+    }
+    .comp-opt-btn.correct {
+      background: #ECFDF5;
+      border-color: var(--success-600);
+      color: var(--success-700);
+      font-weight: 700;
+    }
+    .comp-opt-btn.wrong {
+      background: #FEF2F2;
+      border-color: var(--danger-600);
+      color: var(--danger-700);
+    }
+
+    /* ==========================================================================
+       BUTTONS & FOOTER ACTIONS
+       ========================================================================== */
+    .btn-brand-primary {
+      background: var(--teal-600);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-brand-primary:hover {
+      background: var(--teal-700);
+      transform: translateY(-1px);
+    }
+    .btn-brand-secondary {
+      background: transparent;
+      border: 1px solid var(--slate-300);
+      color: var(--slate-700);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-brand-secondary:hover {
+      background: var(--slate-100);
+      color: var(--navy-900);
+    }
+    .screen-footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--slate-200);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* FOOTER */
+    .studio-site-footer {
+      border-top: 2px solid rgba(181, 124, 0, 0.4);
+      background: var(--navy-900);
+      color: var(--slate-200);
+      padding: 30px 24px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR ACADEMIC -->
+  <header class="topbar-academic">
+    <div class="topbar-container">
+      <a href="../../a1-2_workspace.html" class="topbar-brand">
+        <img src="../../assets/logo.png" alt="Learning & Development Studio" class="topbar-logo" onerror="this.onerror=null; this.src='../../assets/favicon.png';">
+        <div class="topbar-titles">
+          <span class="dept font-mono">Learning &amp; Development Studio</span>
+          <span class="course">English Hub &middot; Level A1.2</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="student-pill" id="studentTag">Student: <strong>Coordinator</strong></div>
+        <a href="../../a1-2_workspace.html" class="nav-back-link">&larr; Return to Workspace</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT STAGE -->
+  <main class="content-wrapper">
+
+    <!-- CINEMATIC WORKSPACE HERO BANNER (IDENTICAL SIZE TO WORKSPACE, NO STATS BAR) -->
+    <header class="workspace-hero-banner" id="heroBanner">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          A1.2 Trajectory &middot; Stage 01 Foundations
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR A1.2 &middot; Unit 01 &middot; Lesson 01
+        </div>
+      </div>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        The 5 AM Club or <span class="gold-accent">Modern Madness?</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        Morning routines, early alarms, and the comedy of toxic productivity versus night owls who just need five more minutes.
+      </p>
+    </header>
+
+    <!-- MODULE NAVIGATOR TABS -->
+    <nav class="module-nav-grid" role="tablist">
+      <button class="nav-tab-btn active" onclick="switchScreen(1)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 01</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">The 5 AM Dilemma</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(2)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 02</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Morning Lexis</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(3)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 03</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Grammar Matrix</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(4)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 04</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">The Alarm War</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(5)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 05</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Functional Chunks</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(6)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 06</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Morning Audit</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(7)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 07</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Exit Ticket</div>
+      </button>
+    </nav>
+
+    <!-- ==========================================================================
+         SCREEN 1: THE 5 AM DILEMMA & INTRO VOICE NOTE
+         ========================================================================== -->
+    <section class="tab-panel active" id="screen-1">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 01 &middot; Contextual Exposure</div>
+        <h2 class="screen-heading">The 5 AM Myth vs. Real Life</h2>
+        <p class="screen-desc">
+          Modern lifestyle gurus claim that successful people wake up at dawn to run, meditate, and conquer the world. But what is your honest reality?
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <!-- VOICE NOTE CARD -->
+        <div class="vn-card">
+          <div class="vn-header">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Julian" class="vn-avatar">
+            <div>
+              <div class="vn-sender-name">Julian (Roommate)</div>
+              <div class="vn-sender-sub font-mono">Audio Note &middot; 7:15 AM</div>
+            </div>
+          </div>
+          <p style="font-size:13.5px; color:#cbd5e1; margin-bottom:16px; line-height:1.5;">
+            Listen to Julian's morning dispatch before his roommate Leo starts his workout routine.
+          </p>
+          <div class="vn-player-box">
+            <button type="button" class="vn-play-btn" onclick="toggleIntroVoiceNote(this)">▶</button>
+            <div class="vn-waves">
+              <span class="vn-bar" style="height:12px;"></span>
+              <span class="vn-bar" style="height:22px;"></span>
+              <span class="vn-bar" style="height:16px;"></span>
+              <span class="vn-bar" style="height:26px;"></span>
+              <span class="vn-bar" style="height:10px;"></span>
+              <span class="vn-bar" style="height:24px;"></span>
+              <span class="vn-bar" style="height:18px;"></span>
+              <span class="vn-bar" style="height:14px;"></span>
+            </div>
+            <span class="font-mono" style="font-size:12px; color:var(--teal-400);">0:15</span>
+          </div>
+        </div>
+
+        <!-- CAMP SELECTOR POLL -->
+        <div class="studio-card" style="margin-bottom:0;">
+          <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:12px;">
+            Entrance Poll: Which camp describes your morning?
+          </h3>
+          <div class="camp-selector-stage">
+            <div class="camp-card" onclick="selectCamp('dawn', this)">
+              <div class="camp-icon">🌅</div>
+              <div>
+                <div class="camp-title">The Dawn Enthusiast (5 AM Club)</div>
+                <div class="camp-desc">I wake up early, I don't hit snooze, and I start my day with full energy.</div>
+              </div>
+            </div>
+
+            <div class="camp-card" onclick="selectCamp('owl', this)">
+              <div class="camp-icon">🦉</div>
+              <div>
+                <div class="camp-title">The Night Owl (Snooze Warrior)</div>
+                <div class="camp-desc">I stay up late, I hit snooze three times, and I don't function without coffee.</div>
+              </div>
+            </div>
+          </div>
+          <div id="campFeedback" class="camp-feedback-box" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <div></div>
+        <button class="btn-brand-primary" onclick="switchScreen(2)">
+          Explore Morning Lexis &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 2: SITUATIONAL VOCABULARY (8 FLIP CARDS WITH EXAMPLE ON FRONT)
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-2">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 02 &middot; Situational Lexis</div>
+        <h2 class="screen-heading">Core Lexical Toolkit</h2>
+        <p class="screen-desc">
+          Click any card to flip between the contextual example sentence and its English definition. Listen to native studio pronunciation.
+        </p>
+      </div>
+
+      <!-- 8 3D FLIP CARDS -->
+      <div class="flip-grid">
+        <!-- CARD 1 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('morning_person')">🔊</button>
+                </div>
+                <h3 class="card-word-title">morning person</h3>
+                <div class="card-example-box">
+                  <strong>"I am definitely a morning person;</strong> I wake up early every single day with energy."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">morning person</h3>
+                <p class="card-meaning-box">
+                  Someone who feels energetic and happy in the early hours of the day.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('night_owl')">🔊</button>
+                </div>
+                <h3 class="card-word-title">night owl</h3>
+                <div class="card-example-box">
+                  <strong>"You work late at night</strong> because you are a natural night owl."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">night owl</h3>
+                <p class="card-meaning-box">
+                  Someone who prefers to stay awake and active late into the night.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('alarm_clock')">🔊</button>
+                </div>
+                <h3 class="card-word-title">alarm clock</h3>
+                <div class="card-example-box">
+                  <strong>"We set two loud alarm clocks</strong> so we don't arrive late to work."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">alarm clock</h3>
+                <p class="card-meaning-box">
+                  A device or smartphone feature that sounds a tone at a specific time to wake you up.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Verb Phrase</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('hit_snooze')">🔊</button>
+                </div>
+                <h3 class="card-word-title">hit snooze</h3>
+                <div class="card-example-box">
+                  <strong>"I always hit snooze three times</strong> before I finally open my eyes."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Verb Phrase</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">hit snooze</h3>
+                <p class="card-meaning-box">
+                  To press the alarm button to delay the alarm sound for five or ten minutes.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Phrasal Verb</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('wake_up')">🔊</button>
+                </div>
+                <h3 class="card-word-title">wake up</h3>
+                <div class="card-example-box">
+                  <strong>"They wake up at six in the morning</strong> and make a pot of strong coffee."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Phrasal Verb</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">wake up</h3>
+                <p class="card-meaning-box">
+                  To stop sleeping and become conscious and alert.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Phrasal Verb</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('sleep_in')">🔊</button>
+                </div>
+                <h3 class="card-word-title">sleep in</h3>
+                <div class="card-example-box">
+                  <strong>"On Saturdays, we sleep in until ten</strong> to recover our lost energy."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Phrasal Verb</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">sleep in</h3>
+                <p class="card-meaning-box">
+                  To remain asleep later in the morning than usual, often on rest days.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('early_riser')">🔊</button>
+                </div>
+                <h3 class="card-word-title">early riser</h3>
+                <div class="card-example-box">
+                  <strong>"Early risers start the day</strong> with quiet streets and fresh coffee."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Noun Phrase</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">early riser</h3>
+                <p class="card-meaning-box">
+                  A person who habitually gets out of bed early in the morning.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Adjective</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playVocabAudio('exhausted')">🔊</button>
+                </div>
+                <h3 class="card-word-title">exhausted</h3>
+                <div class="card-example-box">
+                  <strong>"I feel completely exhausted</strong> when I sleep only four hours."
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click card to see meaning</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Adjective</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Meaning</span>
+                </div>
+                <h3 class="card-word-title">exhausted</h3>
+                <p class="card-meaning-box">
+                  Extremely tired and completely drained of physical or mental energy.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTEXTUAL VERIFICATION CHECK -->
+      <div class="studio-card">
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:14px;">
+          Contextual Match &middot; Identify the Natural Lexical Match
+        </h3>
+        
+        <div class="vocab-matcher-row">
+          <div>1. You stay awake watching videos until 2:30 AM every night.</div>
+          <div>
+            <select class="clean-select" id="vcheck1">
+              <option value="">-- Choose natural descriptor --</option>
+              <option value="owl">You are a night owl.</option>
+              <option value="riser">You are an early riser.</option>
+              <option value="snooze">You hit snooze.</option>
+            </select>
+          </div>
+          <div id="vfb1" class="font-mono" style="font-size:13px; font-weight:700;"></div>
+        </div>
+
+        <div class="vocab-matcher-row">
+          <div>2. Your phone rings at 6:00 AM, but you press the button to delay it 10 minutes.</div>
+          <div>
+            <select class="clean-select" id="vcheck2">
+              <option value="">-- Choose natural action --</option>
+              <option value="sleep_in">You sleep in.</option>
+              <option value="hit_snooze">You hit snooze.</option>
+              <option value="exhausted">You are exhausted.</option>
+            </select>
+          </div>
+          <div id="vfb2" class="font-mono" style="font-size:13px; font-weight:700;"></div>
+        </div>
+
+        <div class="vocab-matcher-row">
+          <div>3. It is Sunday morning, and you decide not to set any alarm at all.</div>
+          <div>
+            <select class="clean-select" id="vcheck3">
+              <option value="">-- Choose natural action --</option>
+              <option value="sleep_in">You sleep in.</option>
+              <option value="morning_person">You are a morning person.</option>
+              <option value="alarm">You set an alarm clock.</option>
+            </select>
+          </div>
+          <div id="vfb3" class="font-mono" style="font-size:13px; font-weight:700;"></div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <button class="btn-brand-primary" onclick="verifyVocabMatcher()">Verify Matches &check;</button>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(1)">&larr; Back to Dilemma</button>
+        <button class="btn-brand-primary" onclick="switchScreen(3)">
+          Continue to Grammar Matrix &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 3: GRAMMAR MECHANICS & THE REALITY TRANSFORMER
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-3">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 03 &middot; Structural Precision</div>
+        <h2 class="screen-heading">Grammar Matrix: Present Simple I (I, You, We, They)</h2>
+        <p class="screen-desc">
+          Study the architectural structure for habitual routines. Notice that regular verbs stay in their base form, and negative routines use <code>don't</code>.
+        </p>
+      </div>
+
+      <!-- EXPLICIT GRAMMAR MATRIX TABLE -->
+      <div class="studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+          <div>
+            <span class="pos-pill font-mono" style="background:#EFF6FF; color:#1D4ED8; border-color:#BFDBFE;">Grammar Architecture</span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Present Simple Habitual Matrix (1st &amp; 2nd Person / Plurals)
+            </h3>
+          </div>
+          <div class="font-mono" style="font-size:12px; color:var(--slate-500); background:var(--slate-50); padding:4px 12px; border-radius:var(--radius-full); border:1px solid var(--slate-200);">
+            Formula: Subject + Base Verb / don't + Base Verb
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="grammar-table">
+            <thead>
+              <tr>
+                <th>Subject Pronoun</th>
+                <th>Affirmative Routine (+)</th>
+                <th>Negative Routine (&ndash;)</th>
+                <th>Habitual Time Marker</th>
+                <th>Studio Model Exemplar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>I</strong> <small style="color:var(--slate-500);">(1st person)</small></td>
+                <td><span class="g-badge aff">wake up</span></td>
+                <td><span class="g-badge neg">don't wake up</span></td>
+                <td>at 5:00 AM every day</td>
+                <td><em>"I don't wake up at 5:00 AM."</em></td>
+              </tr>
+              <tr>
+                <td><strong>You</strong> <small style="color:var(--slate-500);">(2nd person)</small></td>
+                <td><span class="g-badge aff">set</span></td>
+                <td><span class="g-badge neg">don't set</span></td>
+                <td>three loud alarms</td>
+                <td><em>"You set three alarms every night."</em></td>
+              </tr>
+              <tr>
+                <td><strong>We</strong> <small style="color:var(--slate-500);">(1st person plural)</small></td>
+                <td><span class="g-badge aff">sleep in</span></td>
+                <td><span class="g-badge neg">don't sleep in</span></td>
+                <td>on Monday mornings</td>
+                <td><em>"We don't sleep in on Mondays."</em></td>
+              </tr>
+              <tr>
+                <td><strong>They</strong> <small style="color:var(--slate-500);">(3rd person plural)</small></td>
+                <td><span class="g-badge aff">drink</span></td>
+                <td><span class="g-badge neg">don't drink</span></td>
+                <td>black coffee at dawn</td>
+                <td><em>"They drink coffee before work."</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:14px; padding:12px 16px; background:#F8FAFC; border-radius:var(--radius-md); border-left:3px solid var(--gold-500); font-size:13px; color:var(--slate-700);">
+          <strong>Architectural Frontier Rule:</strong> When negating with <code>don't</code>, the main verb always remains in its clean base dictionary form (<em>don't wake</em>, <em>don't drink</em>, <em>don't run</em>).
+        </div>
+      </div>
+
+      <!-- CREATIVE GRAMMAR PRACTICE: THE REALITY TRANSFORMER -->
+      <div class="studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+          <div>
+            <span class="pos-pill font-mono" style="background:#FEF3C7; color:#92400E; border-color:#FDE68A;">The Reality Transformer</span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Transform Toxic Productivity into Realistic Night-Owl Routines
+            </h3>
+          </div>
+          <span class="font-mono" style="font-size:12px; color:var(--slate-500); background:var(--slate-50); padding:4px 12px; border-radius:var(--radius-full); border:1px solid var(--slate-200);">
+            5 Sentences &middot; Add negative auxiliary "don't"
+          </span>
+        </div>
+        <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:18px; line-height:1.5;">
+          The sentences below describe extreme 5 AM productivity claims. Type the realistic negative sentence using <strong>don't</strong> and verify your grammar.
+        </p>
+
+        <div class="transformer-stage">
+          <!-- ITEM 1 -->
+          <div class="transform-card" id="trans-card-1">
+            <div class="transform-topline">
+              <span class="myth-pill font-mono">Claim 01</span>
+              <span class="myth-statement">"I wake up at 4:30 AM every morning."</span>
+            </div>
+            <div class="transform-input-row">
+              <input type="text" class="transform-input" id="trans-in-1" placeholder="Type realistic negative sentence..." onkeydown="if(event.key==='Enter') checkTransform(1)" />
+              <button type="button" class="btn-brand-primary" onclick="checkTransform(1)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleTransformHint(1)">💡 Hint</button>
+            </div>
+            <div class="transform-hint" id="trans-hint-1" style="display:none;">
+              💡 <strong>Hint:</strong> Place negative auxiliary <em>don't</em> between the subject <em>I</em> and the base verb <em>wake up</em>.
+            </div>
+            <div class="transform-feedback" id="trans-fb-1" style="display:none;"></div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="transform-card" id="trans-card-2">
+            <div class="transform-topline">
+              <span class="myth-pill font-mono">Claim 02</span>
+              <span class="myth-statement">"We run five kilometers before sunrise."</span>
+            </div>
+            <div class="transform-input-row">
+              <input type="text" class="transform-input" id="trans-in-2" placeholder="Type realistic negative sentence..." onkeydown="if(event.key==='Enter') checkTransform(2)" />
+              <button type="button" class="btn-brand-primary" onclick="checkTransform(2)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleTransformHint(2)">💡 Hint</button>
+            </div>
+            <div class="transform-hint" id="trans-hint-2" style="display:none;">
+              💡 <strong>Hint:</strong> Use <em>don't</em> after <em>We</em>: <em>We don't run...</em>
+            </div>
+            <div class="transform-feedback" id="trans-fb-2" style="display:none;"></div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="transform-card" id="trans-card-3">
+            <div class="transform-topline">
+              <span class="myth-pill font-mono">Claim 03</span>
+              <span class="myth-statement">"They drink cold celery juice at dawn."</span>
+            </div>
+            <div class="transform-input-row">
+              <input type="text" class="transform-input" id="trans-in-3" placeholder="Type realistic negative sentence..." onkeydown="if(event.key==='Enter') checkTransform(3)" />
+              <button type="button" class="btn-brand-primary" onclick="checkTransform(3)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleTransformHint(3)">💡 Hint</button>
+            </div>
+            <div class="transform-hint" id="trans-hint-3" style="display:none;">
+              💡 <strong>Hint:</strong> Place <em>don't</em> before <em>drink</em>: <em>They don't drink...</em>
+            </div>
+            <div class="transform-feedback" id="trans-fb-3" style="display:none;"></div>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="transform-card" id="trans-card-4">
+            <div class="transform-topline">
+              <span class="myth-pill font-mono">Claim 04</span>
+              <span class="myth-statement">"You meditate for sixty minutes in silence."</span>
+            </div>
+            <div class="transform-input-row">
+              <input type="text" class="transform-input" id="trans-in-4" placeholder="Type realistic negative sentence..." onkeydown="if(event.key==='Enter') checkTransform(4)" />
+              <button type="button" class="btn-brand-primary" onclick="checkTransform(4)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleTransformHint(4)">💡 Hint</button>
+            </div>
+            <div class="transform-hint" id="trans-hint-4" style="display:none;">
+              💡 <strong>Hint:</strong> Add <em>don't</em> after <em>You</em>: <em>You don't meditate...</em>
+            </div>
+            <div class="transform-feedback" id="trans-fb-4" style="display:none;"></div>
+          </div>
+
+          <!-- ITEM 5 -->
+          <div class="transform-card" id="trans-card-5">
+            <div class="transform-topline">
+              <span class="myth-pill font-mono">Claim 05</span>
+              <span class="myth-statement">"I jump out of bed immediately."</span>
+            </div>
+            <div class="transform-input-row">
+              <input type="text" class="transform-input" id="trans-in-5" placeholder="Type realistic negative sentence..." onkeydown="if(event.key==='Enter') checkTransform(5)" />
+              <button type="button" class="btn-brand-primary" onclick="checkTransform(5)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleTransformHint(5)">💡 Hint</button>
+            </div>
+            <div class="transform-hint" id="trans-hint-5" style="display:none;">
+              💡 <strong>Hint:</strong> Add <em>don't</em> before <em>jump</em>: <em>I don't jump out of bed immediately.</em>
+            </div>
+            <div class="transform-feedback" id="trans-fb-5" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(2)">&larr; Back to Lexis</button>
+        <button class="btn-brand-primary" onclick="switchScreen(4)">
+          Continue to Auditory Analysis &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 4: AUDITORY VERIFICATION (THE ALARM WAR - 48s SCRIPT)
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-4">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 04 &middot; Auditory Analysis</div>
+        <h2 class="screen-heading">The Alarm War: Leo vs. Julian</h2>
+        <p class="screen-desc">
+          Listen to the 48-second apartment confrontation between early bird Leo and night owl Julian. Answer the 6 auditory comprehension checks below.
+        </p>
+      </div>
+
+      <!-- AUDIO THEATER DECK -->
+      <div class="audio-theater-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="pos-pill font-mono" style="background:rgba(212,168,67,0.15); color:var(--gold-400); border-color:var(--gold-border);">
+              STUDIO AUDIO TRACK 01 &middot; 48 SECONDS
+            </span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--white); margin-top:6px;">
+              Encounter at 5:00 AM: Who Conquers the Day?
+            </h3>
+          </div>
+          <button type="button" class="deck-transcript-toggle" onclick="toggleTranscript()">📜 Show / Hide Transcript</button>
+        </div>
+
+        <div class="deck-controls">
+          <button type="button" class="deck-play-btn" id="audioMasterBtn" onclick="toggleMasterAudio()">▶</button>
+          <input type="range" class="deck-slider" id="audioSlider" min="0" max="48" value="0" oninput="seekMasterAudio(this.value)">
+          <span class="font-mono" id="audioCurrentTime" style="font-size:13px; color:var(--gold-400);">0:00 / 0:48</span>
+          <button type="button" class="deck-speed-btn" onclick="toggleMasterSpeed(this)">Speed: 1.0x</button>
+        </div>
+
+        <audio id="realAudioEl" src="./audio/audio_01_alarm_war.mp3" preload="metadata"></audio>
+
+        <!-- SCRIPT DRAWER (HIDDEN BY DEFAULT) -->
+        <div class="transcript-drawer" id="transcriptDrawer">
+          <div class="transcript-line"><span class="transcript-speaker">SFX:</span> <em>[Loud alarm beeps insistently: BEEP-BEEP-BEEP... Julian groans under pillow]</em></div>
+          <div class="transcript-line"><span class="transcript-speaker">Leo:</span> "Rise and shine, Julian! Five o'clock! Time to conquer the day!"</div>
+          <div class="transcript-line"><span class="transcript-speaker">Julian:</span> "Leo... please turn off that noise. Why do you set four alarms at dawn?"</div>
+          <div class="transcript-line"><span class="transcript-speaker">Leo:</span> "Because successful people wake up at five! We meditate, we drink green tea, and we run five kilometers before sunrise!"</div>
+          <div class="transcript-line"><span class="transcript-speaker">Julian:</span> "You run. I don't run at five in the morning. I don't even open my eyes before seven."</div>
+          <div class="transcript-line"><span class="transcript-speaker">Leo:</span> "Come on! You miss the best hours of the day! We have the morning club!"</div>
+          <div class="transcript-line"><span class="transcript-speaker">Julian:</span> "I don't care about the club, Leo. I stay up late to finish my work. I need eight hours of sleep, and I can't function without three cups of black coffee."</div>
+          <div class="transcript-line"><span class="transcript-speaker">Leo:</span> "Fine, sleep in! But you leave all the energy on the table!"</div>
+          <div class="transcript-line"><span class="transcript-speaker">Julian:</span> "I leave the energy in my bed. Turn off the light and close the door."</div>
+        </div>
+      </div>
+
+      <!-- 6 COMPREHENSION CHECKS -->
+      <div class="studio-card">
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:16px;">
+          Auditory Comprehension &middot; Evidence Extraction
+        </h3>
+
+        <div class="comprehension-grid">
+          <!-- Q1 -->
+          <div class="comp-item" id="cq1">
+            <div class="comp-q">1. What sound opens the conversation?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(1, 'a', this)">A loud alarm clock beeping at 5:00 AM</button>
+              <button class="comp-opt-btn" onclick="checkComp(1, 'b', this)">A coffee grinder in the kitchen</button>
+              <button class="comp-opt-btn" onclick="checkComp(1, 'c', this)">A roommate knocking on the door</button>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="comp-item" id="cq2">
+            <div class="comp-q">2. Why does Leo say successful people wake up at 5:00 AM?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(2, 'a', this)">They meditate, drink green tea, and run</button>
+              <button class="comp-opt-btn" onclick="checkComp(2, 'b', this)">They answer business emails immediately</button>
+              <button class="comp-opt-btn" onclick="checkComp(2, 'c', this)">They drive to the office before traffic</button>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="comp-item" id="cq3">
+            <div class="comp-q">3. Does Julian run at five in the morning?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(3, 'a', this)">No, he says: "I don't run at five in the morning."</button>
+              <button class="comp-opt-btn" onclick="checkComp(3, 'b', this)">Yes, he runs on the treadmill</button>
+              <button class="comp-opt-btn" onclick="checkComp(3, 'c', this)">He only runs on Saturdays</button>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="comp-item" id="cq4">
+            <div class="comp-q">4. Why does Julian stay up late at night?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(4, 'a', this)">He stays up late to finish his work</button>
+              <button class="comp-opt-btn" onclick="checkComp(4, 'b', this)">He plays video games until dawn</button>
+              <button class="comp-opt-btn" onclick="checkComp(4, 'c', this)">He works as a night security guard</button>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="comp-item" id="cq5">
+            <div class="comp-q">5. What does Julian need before he can function?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(5, 'a', this)">Three cups of black coffee</button>
+              <button class="comp-opt-btn" onclick="checkComp(5, 'b', this)">A glass of green tea</button>
+              <button class="comp-opt-btn" onclick="checkComp(5, 'c', this)">A twenty-minute hot shower</button>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="comp-item" id="cq6">
+            <div class="comp-q">6. What is Julian's final request to Leo?</div>
+            <div class="comp-options">
+              <button class="comp-opt-btn" onclick="checkComp(6, 'a', this)">Turn off the light and close the door</button>
+              <button class="comp-opt-btn" onclick="checkComp(6, 'b', this)">Make him a cup of coffee</button>
+              <button class="comp-opt-btn" onclick="checkComp(6, 'c', this)">Call a taxi for him</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(3)">&larr; Back to Grammar</button>
+        <button class="btn-brand-primary" onclick="switchScreen(5)">
+          Explore Functional Chunks &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 5: FUNCTIONAL LANGUAGE (6 PRAGMATIC CHUNKS)
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-5">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 05 &middot; Functional Language</div>
+        <h2 class="screen-heading">Morning Survival Chunks</h2>
+        <p class="screen-desc">
+          Prefabricated conversational formulas native speakers use to describe their morning dilemmas and boundaries.
+        </p>
+      </div>
+
+      <!-- 6 3D FLIP CARDS FOR CHUNKS -->
+      <div class="flip-grid">
+        <!-- CHUNK 1 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('not_morning_person')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I'm definitely not a morning person."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "Don't ask me complex questions at 7:00 AM; <em>I'm definitely not a morning person.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 01</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I'm definitely not a morning person."</h3>
+                <p class="card-meaning-box">
+                  Used politely to excuse slow reactions or set social boundaries before midday.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 2 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('cant_function')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I can't function without coffee."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "Give me five minutes with my mug; <em>I can't function without coffee.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 02</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I can't function without coffee."</h3>
+                <p class="card-meaning-box">
+                  Expresses extreme dependence on caffeine before beginning any mental or physical work.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 3 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('hit_snooze')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I hit snooze three times this morning."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "That is why I am in a hurry; <em>I hit snooze three times this morning.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 03</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I hit snooze three times this morning."</h3>
+                <p class="card-meaning-box">
+                  A common conversational confession when admitting why you are rushing or slightly delayed.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 4 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('stay_up_late')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I stay up way too late reading."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "My eyes hurt today because <em>I stay up way too late reading.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 04</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I stay up way too late reading."</h3>
+                <p class="card-meaning-box">
+                  Explains the true root cause of sleep debt and morning exhaustion.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 5 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('five_more_minutes')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I just need five more minutes."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "Don't turn on the light yet; <em>I just need five more minutes.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 05</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I just need five more minutes."</h3>
+                <p class="card-meaning-box">
+                  The universal bed plea asking someone not to disrupt sleep or push you to get up.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 6 -->
+        <div class="flip-card-wrapper" onclick="toggleCardFlip(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <button type="button" class="audio-speaker-btn" onclick="event.stopPropagation(); playChunkAudio('jump_out_bed')">🔊</button>
+                </div>
+                <h3 class="card-word-title" style="font-size:18px;">"I jump out of bed as soon as the alarm rings."</h3>
+                <div class="card-example-box">
+                  <strong>Example:</strong> "I never snooze; <em>I jump out of bed as soon as the alarm rings.</em>"
+                </div>
+              </div>
+              <span class="flip-indicator-hint">↻ Click for pragmatic intent</span>
+            </div>
+            <div class="flip-card-back">
+              <div>
+                <div class="card-topline">
+                  <span class="pos-pill font-mono">Survival Formula</span>
+                  <span class="font-mono" style="font-size:11px; color:var(--gold-400);">Formula 06</span>
+                </div>
+                <h3 class="card-word-title" style="font-size:16px;">"I jump out of bed as soon as the alarm rings."</h3>
+                <p class="card-meaning-box">
+                  Describes the disciplined, immediate physical action of the true morning person.
+                </p>
+              </div>
+              <span class="flip-indicator-hint">↺ Click to return to example</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(4)">&larr; Back to Audio</button>
+        <button class="btn-brand-primary" onclick="switchScreen(6)">
+          Continue to Morning Audit &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 6: COMMUNICATIVE PRODUCTION (THE MORNING AUDIT)
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-6">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 06 &middot; Communicative Mission</div>
+        <h2 class="screen-heading">The Morning Audit: Build Your Real Schedule</h2>
+        <p class="screen-desc">
+          Contrast what you do on weekdays versus what you don't do. Assemble your authentic routine statement.
+        </p>
+      </div>
+
+      <div class="studio-card">
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:16px;">
+          Step 1 &middot; Configure Your Authentic Profile
+        </h3>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px; margin-bottom:24px;">
+          <div>
+            <label style="font-size:12.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:6px;">1. Your Wake-Up Reality:</label>
+            <select class="clean-select" id="auditWake" onchange="updateAuditStatement()">
+              <option value="I wake up early at 6:00 AM">I wake up early at 6:00 AM</option>
+              <option value="I wake up late around 8:00 AM">I wake up late around 8:00 AM</option>
+              <option value="I don't wake up before 9:00 AM">I don't wake up before 9:00 AM</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:12.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:6px;">2. Your Alarm Strategy:</label>
+            <select class="clean-select" id="auditAlarm" onchange="updateAuditStatement()">
+              <option value="I hit snooze three times">I hit snooze three times</option>
+              <option value="I don't hit snooze at all">I don't hit snooze at all</option>
+              <option value="I set four different alarms">I set four different alarms</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:12.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:6px;">3. Your Fuel Routine:</label>
+            <select class="clean-select" id="auditFuel" onchange="updateAuditStatement()">
+              <option value="I can't function without coffee">I can't function without coffee</option>
+              <option value="I drink green tea in silence">I drink green tea in silence</option>
+              <option value="I don't drink anything until noon">I don't drink anything until noon</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:8px;">
+          Step 2 &middot; Your Generated Morning Manifesto
+        </h3>
+        <div id="manifestoDisplay" style="background:var(--navy-900); color:var(--white); padding:20px; border-radius:var(--radius-md); font-size:15px; line-height:1.6; border:1px solid var(--gold-border);">
+          "On weekdays, I wake up early at 6:00 AM. I hit snooze three times, and I can't function without coffee."
+        </div>
+
+        <div style="margin-top:20px;">
+          <label style="font-size:13px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:6px;">
+            Step 3 &middot; Add one true sentence about what you DON'T do in the morning:
+          </label>
+          <input type="text" class="transform-input" id="userTrueNegative" placeholder="e.g. I don't run five kilometers before sunrise." style="width:100%; margin-bottom:12px;">
+          <button class="btn-brand-primary" onclick="submitManifesto()">Save My Morning Audit &check;</button>
+          <span id="manifestoSavedNotice" class="font-mono" style="margin-left:14px; font-size:13px; color:var(--success-700); font-weight:700; display:none;">
+            ✓ Profile saved to your session!
+          </span>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(5)">&larr; Back to Chunks</button>
+        <button class="btn-brand-primary" onclick="switchScreen(7)">
+          Final Exit Ticket &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 7: EXIT TICKET & CAN-DO CHECKLIST
+         ========================================================================== -->
+    <section class="tab-panel" id="screen-7">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 07 &middot; Educational Verification</div>
+        <h2 class="screen-heading">Exit Ticket &middot; Self-Evaluation</h2>
+        <p class="screen-desc">
+          Verify your communicative competences for Lesson 01 before advancing to Lesson 02 (Doomscrolling: The Sleep Thief).
+        </p>
+      </div>
+
+      <div class="studio-card">
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:16px;">
+          Can-Do Mastery Checklist (A1.2 Level Verification)
+        </h3>
+
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:24px;">
+          <label style="display:flex; align-items:center; gap:12px; font-size:14px; color:var(--slate-800); cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--teal-600);" checked>
+            <span>I can describe my real morning routine using affirmative Present Simple verbs (<em>wake up</em>, <em>sleep in</em>, <em>set alarms</em>).</span>
+          </label>
+
+          <label style="display:flex; align-items:center; gap:12px; font-size:14px; color:var(--slate-800); cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--teal-600);" checked>
+            <span>I can accurately negate morning habits with <strong>don't</strong> (<em>"I don't wake up at 5 AM"</em>, <em>"We don't run at dawn"</em>).</span>
+          </label>
+
+          <label style="display:flex; align-items:center; gap:12px; font-size:14px; color:var(--slate-800); cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--teal-600);" checked>
+            <span>I can catch specific auditory details and sound effects in a 45-second dialogue between roommates.</span>
+          </label>
+
+          <label style="display:flex; align-items:center; gap:12px; font-size:14px; color:var(--slate-800); cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--teal-600);" checked>
+            <span>I can deploy functional survival phrases (<em>"I can't function without coffee"</em>, <em>"I'm definitely not a morning person"</em>).</span>
+          </label>
+        </div>
+
+        <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:var(--radius-md); padding:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="font-weight:800; color:#166534; font-size:15px;">Congratulations on completing Lesson 01!</div>
+            <div style="font-size:12.5px; color:#15803D;">Ready to proceed to Lesson 02: <em>Doomscrolling: The Sleep Thief</em>.</div>
+          </div>
+          <a href="../../a1-2_workspace.html" class="btn-brand-primary" style="text-decoration:none;">
+            Return to A1.2 Workspace &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(6)">&larr; Back to Audit</button>
+        <div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="studio-site-footer">
+    <div class="footer-inner font-mono">
+      <div>Learning &amp; Development Studio &middot; Academic Department</div>
+      <div>CEFR A1.2 Consolidated &middot; Lesson 01 &middot; Educational Use Only</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CLIENT APPLICATION LOGIC
+       ========================================================================== -->
+  <script>
+    // TAB SWITCHING LOGIC
+    function switchScreen(screenNum) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+
+      const targetPanel = document.getElementById('screen-' + screenNum);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      const buttons = document.querySelectorAll('.nav-tab-btn');
+      if (buttons[screenNum - 1]) buttons[screenNum - 1].classList.add('active');
+
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    // 3D CARD FLIP TOGGLE
+    function toggleCardFlip(cardWrapper) {
+      cardWrapper.classList.toggle('flipped');
+    }
+
+    // CAMP POLL SELECTION (MODULE 01)
+    function selectCamp(campType, cardEl) {
+      document.querySelectorAll('.camp-card').forEach(c => c.classList.remove('selected'));
+      cardEl.classList.add('selected');
+      const fb = document.getElementById('campFeedback');
+      fb.style.display = 'block';
+
+      if (campType === 'dawn') {
+        fb.style.background = '#ECFDF5';
+        fb.style.color = '#166534';
+        fb.style.border = '1px solid #BBF7D0';
+        fb.innerHTML = '<strong>Team Dawn!</strong> You value quiet hours and early discipline. In this lesson, practice describing what you do before sunrise!';
+      } else {
+        fb.style.background = '#FFFBEB';
+        fb.style.color = '#92400E';
+        fb.style.border = '1px solid #FDE68A';
+        fb.innerHTML = '<strong>Team Night Owl!</strong> You defend your rest and your coffee. In this lesson, practice using <em>don\'t</em> to reject toxic early wakeups!';
+      }
+    }
+
+    // INTRO VOICE NOTE AUDIO SIMULATOR / NATIVE AUDIO
+    let introVnAudio = new Audio('./audio/audio_intro_voicenote.mp3');
+    let introPlaying = false;
+    function toggleIntroVoiceNote(btn) {
+      if (!introPlaying) {
+        introVnAudio.currentTime = 0;
+        introVnAudio.play().then(() => {
+          introPlaying = true;
+          btn.textContent = '❚❚';
+        }).catch(err => {
+          console.warn('Audio play notice (awaiting recorded studio file):', err);
+          // Fallback speech synthesis simulation if file is pending
+          if ('speechSynthesis' in window) {
+            const ut = new SpeechSynthesisUtterance("Hey... please don't call me early today. People say: 'Join the 5 AM club!' But I don't wake up at dawn. I stay in bed until seven-thirty, and I can't function without coffee. Talk to you later.");
+            ut.lang = 'en-US';
+            ut.rate = 0.95;
+            window.speechSynthesis.speak(ut);
+            introPlaying = true;
+            btn.textContent = '❚❚';
+            ut.onend = () => { introPlaying = false; btn.textContent = '▶'; };
+          }
+        });
+        introVnAudio.onended = () => {
+          introPlaying = false;
+          btn.textContent = '▶';
+        };
+      } else {
+        introVnAudio.pause();
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        introPlaying = false;
+        btn.textContent = '▶';
+      }
+    }
+
+    // VOCABULARY AUDIO PLAYBACK
+    function playVocabAudio(key) {
+      const audioFile = `./audio/audio_vocab_${key}.mp3`;
+      const audio = new Audio(audioFile);
+      audio.play().catch(err => {
+        console.warn(`Vocab audio ${key} awaiting studio file:`, err);
+        if ('speechSynthesis' in window) {
+          const dict = {
+            'morning_person': 'Morning person. I am definitely a morning person; I wake up early every single day.',
+            'night_owl': 'Night owl. You work late at night because you are a night owl.',
+            'alarm_clock': 'Alarm clock. We set two loud alarm clocks on the table.',
+            'hit_snooze': 'Hit snooze. I always hit snooze three times on Monday mornings.',
+            'wake_up': 'Wake up. They wake up at six and start their morning routine.',
+            'sleep_in': 'Sleep in. On Saturdays, we sleep in until ten o\'clock.',
+            'early_riser': 'Early riser. Early risers start the day with high energy.',
+            'exhausted': 'Exhausted. I feel completely exhausted after a short night of sleep.'
+          };
+          const ut = new SpeechSynthesisUtterance(dict[key] || key);
+          ut.lang = 'en-US';
+          ut.rate = 0.9;
+          window.speechSynthesis.speak(ut);
+        }
+      });
+    }
+
+    // FUNCTIONAL CHUNKS AUDIO PLAYBACK
+    function playChunkAudio(key) {
+      const audioFile = `./audio/audio_chunk_${key}.mp3`;
+      const audio = new Audio(audioFile);
+      audio.play().catch(err => {
+        console.warn(`Chunk audio ${key} awaiting studio file:`, err);
+        if ('speechSynthesis' in window) {
+          const dict = {
+            'not_morning_person': "I'm definitely not a morning person.",
+            'cant_function': "I can't function without coffee.",
+            'hit_snooze': "I hit snooze three times this morning.",
+            'stay_up_late': "I stay up way too late reading.",
+            'five_more_minutes': "I just need five more minutes.",
+            'jump_out_bed': "I jump out of bed as soon as the alarm rings."
+          };
+          const ut = new SpeechSynthesisUtterance(dict[key] || key);
+          ut.lang = 'en-US';
+          ut.rate = 0.9;
+          window.speechSynthesis.speak(ut);
+        }
+      });
+    }
+
+    // VOCAB MATCHER VERIFICATION
+    function verifyVocabMatcher() {
+      const a1 = document.getElementById('vcheck1').value;
+      const a2 = document.getElementById('vcheck2').value;
+      const a3 = document.getElementById('vcheck3').value;
+
+      const fb1 = document.getElementById('vfb1');
+      const fb2 = document.getElementById('vfb2');
+      const fb3 = document.getElementById('vfb3');
+
+      fb1.textContent = a1 === 'owl' ? '✓ Correct!' : '❌ Try again';
+      fb1.style.color = a1 === 'owl' ? 'var(--success-600)' : 'var(--danger-600)';
+
+      fb2.textContent = a2 === 'hit_snooze' ? '✓ Correct!' : '❌ Try again';
+      fb2.style.color = a2 === 'hit_snooze' ? 'var(--success-600)' : 'var(--danger-600)';
+
+      fb3.textContent = a3 === 'sleep_in' ? '✓ Correct!' : '❌ Try again';
+      fb3.style.color = a3 === 'sleep_in' ? 'var(--success-600)' : 'var(--danger-600)';
+    }
+
+    // MODULE 03: THE REALITY TRANSFORMER INTERACTIVE CHECK
+    const transformAnswers = {
+      1: {
+        accepted: [
+          "i dont wake up at 4 30 am every morning",
+          "i don't wake up at 4:30 am every morning",
+          "i dont wake up at 4 30 am",
+          "i do not wake up at 4 30 am every morning"
+        ],
+        model: "I don't wake up at 4:30 AM every morning.",
+        rule: "Present Simple negation with 1st person 'I' uses 'don't' + base verb 'wake up'."
+      },
+      2: {
+        accepted: [
+          "we dont run five kilometers before sunrise",
+          "we don't run five kilometers before sunrise",
+          "we dont run 5 kilometers before sunrise",
+          "we do not run five kilometers before sunrise"
+        ],
+        model: "We don't run five kilometers before sunrise.",
+        rule: "Present Simple negation with plural 'We' uses 'don't' + base verb 'run'."
+      },
+      3: {
+        accepted: [
+          "they dont drink cold celery juice at dawn",
+          "they don't drink cold celery juice at dawn",
+          "they do not drink cold celery juice at dawn"
+        ],
+        model: "They don't drink cold celery juice at dawn.",
+        rule: "Present Simple negation with 'They' uses 'don't' + base verb 'drink'."
+      },
+      4: {
+        accepted: [
+          "you dont meditate for sixty minutes in silence",
+          "you don't meditate for sixty minutes in silence",
+          "you dont meditate for 60 minutes in silence",
+          "you do not meditate for sixty minutes in silence"
+        ],
+        model: "You don't meditate for sixty minutes in silence.",
+        rule: "Present Simple negation with 2nd person 'You' uses 'don't' + base verb 'meditate'."
+      },
+      5: {
+        accepted: [
+          "i dont jump out of bed immediately",
+          "i don't jump out of bed immediately",
+          "i do not jump out of bed immediately"
+        ],
+        model: "I don't jump out of bed immediately.",
+        rule: "Present Simple negation with 'I' uses 'don't' + base verb 'jump'."
+      }
+    };
+
+    function normStr(str) {
+      return (str || '')
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function toggleTransformHint(id) {
+      const hint = document.getElementById('trans-hint-' + id);
+      if (hint) {
+        hint.style.display = (hint.style.display === 'none' || !hint.style.display) ? 'block' : 'none';
+      }
+    }
+
+    function checkTransform(id) {
+      const input = document.getElementById('trans-in-' + id);
+      const fb = document.getElementById('trans-fb-' + id);
+      const card = document.getElementById('trans-card-' + id);
+      const data = transformAnswers[id];
+      if (!input || !fb || !data) return;
+
+      const val = normStr(input.value);
+      if (!val) {
+        fb.style.display = 'block';
+        fb.className = 'transform-feedback fb-fail';
+        fb.innerHTML = '⚠️ Please type your transformed sentence before checking.';
+        input.focus();
+        return;
+      }
+
+      const isCorrect = data.accepted.map(normStr).includes(val);
+
+      if (isCorrect) {
+        input.classList.remove('input-wrong');
+        input.classList.add('input-correct');
+        card.classList.add('completed');
+        fb.style.display = 'block';
+        fb.className = 'transform-feedback fb-success';
+        fb.innerHTML = `✓ <strong>Spot on!</strong> <em>"${data.model}"</em>
+          <div style="margin-top:6px; font-size:12.5px; color:#166534;">📘 <strong>Rule:</strong> ${data.rule}</div>`;
+      } else {
+        input.classList.remove('input-correct');
+        input.classList.add('input-wrong');
+        fb.style.display = 'block';
+        fb.className = 'transform-feedback fb-fail';
+        fb.innerHTML = `❌ <strong>Not quite yet.</strong> Remember to add <em>don't</em> before the main verb. Check spelling and try again!`;
+      }
+    }
+
+    // MODULE 04: MASTER AUDIO DECK
+    const realAudio = document.getElementById('realAudioEl');
+    const audioSlider = document.getElementById('audioSlider');
+    const audioCurrentTime = document.getElementById('audioCurrentTime');
+    const audioMasterBtn = document.getElementById('audioMasterBtn');
+    let isMasterPlaying = false;
+    let masterPlaybackSpeed = 1.0;
+
+    if (realAudio) {
+      realAudio.addEventListener('loadedmetadata', () => {
+        if (!isNaN(realAudio.duration)) audioSlider.max = Math.floor(realAudio.duration);
+      });
+      realAudio.addEventListener('timeupdate', () => {
+        audioSlider.value = Math.floor(realAudio.currentTime);
+        const curM = Math.floor(realAudio.currentTime / 60);
+        const curS = Math.floor(realAudio.currentTime % 60).toString().padStart(2, '0');
+        const durM = Math.floor((realAudio.duration || 48) / 60);
+        const durS = Math.floor((realAudio.duration || 48) % 60).toString().padStart(2, '0');
+        audioCurrentTime.textContent = `${curM}:${curS} / ${durM}:${durS}`;
+      });
+      realAudio.addEventListener('ended', () => {
+        isMasterPlaying = false;
+        audioMasterBtn.textContent = '▶';
+      });
+    }
+
+    function toggleMasterAudio() {
+      if (!isMasterPlaying) {
+        realAudio.play().then(() => {
+          isMasterPlaying = true;
+          audioMasterBtn.textContent = '❚❚';
+        }).catch(err => {
+          console.warn('Master audio file awaiting studio MP3:', err);
+          // Simulation speech fallback
+          if ('speechSynthesis' in window) {
+            const dialogue = "Rise and shine, Julian! Five o'clock! Time to conquer the day! Leo, please turn off that noise. Why do you set four alarms at dawn? Because successful people wake up at five! We meditate, we drink green tea, and we run five kilometers before sunrise! You run. I don't run at five in the morning. I don't even open my eyes before seven. Come on! You miss the best hours of the day! We have the morning club! I don't care about the club, Leo. I stay up late to finish my work. I need eight hours of sleep, and I can't function without three cups of black coffee. Fine, sleep in! But you leave all the energy on the table! I leave the energy in my bed. Turn off the light and close the door.";
+            const ut = new SpeechSynthesisUtterance(dialogue);
+            ut.lang = 'en-US';
+            ut.rate = masterPlaybackSpeed;
+            window.speechSynthesis.speak(ut);
+            isMasterPlaying = true;
+            audioMasterBtn.textContent = '❚❚';
+            ut.onend = () => { isMasterPlaying = false; audioMasterBtn.textContent = '▶'; };
+          }
+        });
+      } else {
+        realAudio.pause();
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        isMasterPlaying = false;
+        audioMasterBtn.textContent = '▶';
+      }
+    }
+
+    function seekMasterAudio(val) {
+      if (realAudio) realAudio.currentTime = val;
+    }
+
+    function toggleMasterSpeed(btn) {
+      masterPlaybackSpeed = masterPlaybackSpeed === 1.0 ? 0.85 : 1.0;
+      if (realAudio) realAudio.playbackRate = masterPlaybackSpeed;
+      btn.textContent = `Speed: ${masterPlaybackSpeed}x`;
+    }
+
+    function toggleTranscript() {
+      const drawer = document.getElementById('transcriptDrawer');
+      drawer.style.display = drawer.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // COMPREHENSION CHECKS
+    const compAnswers = { 1: 'a', 2: 'a', 3: 'a', 4: 'a', 5: 'a', 6: 'a' };
+    function checkComp(qNum, selectedOpt, btn) {
+      const container = document.getElementById('cq' + qNum);
+      const buttons = container.querySelectorAll('.comp-opt-btn');
+      buttons.forEach(b => b.classList.remove('correct', 'wrong'));
+
+      if (selectedOpt === compAnswers[qNum]) {
+        btn.classList.add('correct');
+      } else {
+        btn.classList.add('wrong');
+      }
+    }
+
+    // MODULE 06: MORNING AUDIT MANIFESTO
+    function updateAuditStatement() {
+      const w = document.getElementById('auditWake').value;
+      const a = document.getElementById('auditAlarm').value;
+      const f = document.getElementById('auditFuel').value;
+      const disp = document.getElementById('manifestoDisplay');
+      disp.textContent = `"On weekdays, ${w}. ${a}, and ${f}."`;
+    }
+
+    function submitManifesto() {
+      const notice = document.getElementById('manifestoSavedNotice');
+      notice.style.display = 'inline';
+      setTimeout(() => { notice.style.display = 'none'; }, 4000);
+    }
+
+    // INITIALIZE
+    document.addEventListener('DOMContentLoaded', () => {
+      // URL Param support: ?name=Israel
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      if (name) {
+        document.getElementById('studentTag').innerHTML = `Student: <strong>${name}</strong>`;
+      }
+    });
+  </script>
+</body>
+</html>
