@@ -2819,7 +2819,7 @@
 
         function toggleRoleMode() {
       if (!isTeacherView) {
-        const pin = prompt('Enter Teacher PIN (2680) or Coordinator PIN to unlock Faculty View:');
+        const pin = prompt('Enter Faculty Authorization PIN:');
         if (!pin) return;
         const validPins = ['2680', '5726', '8826', '2026', 'admin'];
         if (validPins.includes(pin.trim())) {
