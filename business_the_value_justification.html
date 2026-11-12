@@ -146,25 +146,6 @@
       gap: 12px;
     }
 
-    .btn-guide {
-      background: rgba(212, 168, 67, 0.15);
-      color: var(--gold);
-      border: 1px solid var(--gold-border);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .btn-guide:hover {
-      background: rgba(212, 168, 67, 0.25);
-      transform: translateY(-1px);
-    }
-
     .btn-return {
       background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
@@ -840,9 +821,6 @@
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
       </div>
       <div class="nav-actions">
-        <button type="button" class="btn-guide" id="btnFacultyGuide" style="display:none;" onclick="openFacultyModal()">
-          Faculty Guide (P/P?/N/F)
-        </button>
         <a href="./business_workspace.html" class="btn-return">
           &larr; Back to Business Workspace
         </a>
@@ -1244,101 +1222,6 @@
     </section>
 
   </main>
-
-  <!-- FACULTY PEDAGOGICAL MODAL -->
-  <div class="modal-backdrop" id="facultyModal" onclick="closeFacultyOnBackdrop(event)">
-    <div class="modal-window">
-      <button type="button" class="modal-close" onclick="closeFacultyModal()">&times;</button>
-      <span class="badge badge-gold" style="margin-bottom:12px;">Documento Rector · Faculty Notes</span>
-      <h2 style="font-size:1.4rem; font-weight:800; color:var(--navy); margin-bottom:16px;">Curricular Architecture &amp; Mediation</h2>
-
-      <div style="font-size:0.92rem; line-height:1.65; color:var(--ink);">
-        <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin:14px 0 6px;">1. Linguistic Boundaries (P / P? / N / F)</h3>
-        <ul style="padding-left:20px; margin-bottom:14px;">
-          <li><strong>P (Prerequisites):</strong> Past Simple forms (launched, led, finalized), basic workplace vocabulary (client, team, budget).</li>
-          <li><strong>P? (To Confirm):</strong> Correct regular vs irregular past endings and standard business numbers/percentages.</li>
-          <li><strong>N (New Repertoire Taught):</strong> The Time-Impact sequence (Past milestone &rarr; Present Perfect ROI &rarr; Diplomatic conditional ask: <em>Given that + have assumed... I would like to align...</em>).</li>
-          <li><strong>F (Forbidden / Beyond Limit):</strong> Third Conditionals (<em>If I had known...</em>), Mixed Conditionals, Subjunctive inversions.</li>
-        </ul>
-
-        <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin:14px 0 6px;">2. Qualitative Evaluation Rubric (E0–E3)</h3>
-        <ul style="padding-left:20px;">
-          <li><strong>E0 (No evidence):</strong> Student relies entirely on personal financial need (<em>"Rent is higher"</em>) without business data.</li>
-          <li><strong>E1 (Emergent):</strong> Mentions a past project but confuses Past Simple and Present Perfect (<em>"Last month I have finished"</em>).</li>
-          <li><strong>E2 (Competent):</strong> Accurately executes the 3-part Time-Impact formula with clear business metrics.</li>
-          <li><strong>E3 (Autonomous Fluency):</strong> Flawless cadence, confident executive posture, and natural delivery under pushback.</li>
-        </ul>
-        <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin:18px 0 8px; border-top:1px solid var(--wash); padding-top:14px;">3. Executive Acronym Reference</h3>
-        <div style="background:var(--wash); border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:14px; font-size:0.88rem;">
-          <p style="margin-bottom:6px;"><strong>ROI (Return on Investment):</strong> The quantifiable money saved or revenue created by the employee's work.</p>
-          <p style="margin-bottom:6px;"><strong>ARR (Annual Recurring Revenue):</strong> Guaranteed contracted yearly revenue from recurring clients/subscriptions.</p>
-          <p style="margin-bottom:6px;"><strong>MRR (Monthly Recurring Revenue):</strong> Predictable monthly recurring revenue.</p>
-          <p style="margin-bottom:6px;"><strong>SLA (Service Level Agreement):</strong> Contractual commitment on turnaround speed or service quality.</p>
-          <p><strong>Turnaround Time:</strong> Total duration required to process a project from intake to final delivery.</p>
-        </div>
-
-        <h3 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin:18px 0 8px;">4. Executive Connector Bank &amp; Formulations</h3>
-        <div style="overflow-x:auto; margin-bottom:14px;">
-          <table style="width:100%; border-collapse:collapse; font-size:0.84rem; text-align:left;">
-            <thead>
-              <tr style="background:var(--navy); color:#ffffff;">
-                <th style="padding:8px 10px; border-radius:4px 0 0 4px;">Function</th>
-                <th style="padding:8px 10px;">Connector</th>
-                <th style="padding:8px 10px; border-radius:0 4px 4px 0;">Executive Classroom Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Causal Premise</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--gold-dark); font-weight:700;">Given that...</td>
-                <td style="padding:8px 10px;"><em>"Given that I have assumed full operational ownership..."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border); background:#fcfdfe;">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Causal Premise</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--gold-dark); font-weight:700;">Considering that...</td>
-                <td style="padding:8px 10px;"><em>"Considering that our department has expanded ARR by 18%..."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Causal Premise</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--gold-dark); font-weight:700;">In light of...</td>
-                <td style="padding:8px 10px;"><em>"In light of these continuous results, I would like to..."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border); background:#fcfdfe;">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Causal Premise</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--gold-dark); font-weight:700;">Now that...</td>
-                <td style="padding:8px 10px;"><em>"Now that I have stabilized our regional delivery team..."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Ongoing Return</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--teal-dark); font-weight:700;">Since that rollout...</td>
-                <td style="padding:8px 10px;"><em>"Since that deployment, this system has cut errors by 35%."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border); background:#fcfdfe;">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Ongoing Return</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--teal-dark); font-weight:700;">Over the past...</td>
-                <td style="padding:8px 10px;"><em>"Over the past six months, we have protected 140,000 USD."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Ongoing Return</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--teal-dark); font-weight:700;">To date...</td>
-                <td style="padding:8px 10px;"><em>"To date, this framework has prevented SLA defaults."</em></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border); background:#fcfdfe;">
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Direct ROI</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--navy); font-weight:700;">Thereby + [ing]...</td>
-                <td style="padding:8px 10px;"><em>"I restructured supplier workflows, thereby saving 80,000 USD."</em></td>
-              </tr>
-              <tr>
-                <td style="padding:8px 10px; font-weight:700; color:var(--navy);">Diplomatic Ask</td>
-                <td style="padding:8px 10px; font-family:'JetBrains Mono',monospace; color:var(--gold-dark); font-weight:700;">I would like to align...</td>
-                <td style="padding:8px 10px;"><em>"I would like to align my compensation with this expanded scope."</em></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
   </div>
 
   <!-- FOOTER -->
@@ -1347,15 +1230,6 @@
   </footer>
 
   <script>
-    // TEACHER ROLE CHECK (Keeps Faculty Guide exclusively for instructors)
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('role') === 'teacher' || sessionStorage.getItem('ld-coordinator-auth') === 'granted') {
-        const fg = document.getElementById('btnFacultyGuide');
-        if (fg) fg.style.display = 'inline-flex';
-      }
-    } catch (_) {}
-
     // TAB NAVIGATION
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -1626,18 +1500,6 @@
       }).catch(() => {
         alert('Pitch copied to clipboard.');
       });
-    }
-
-
-    // FACULTY MODAL
-    function openFacultyModal() {
-      document.getElementById('facultyModal').classList.add('active');
-    }
-    function closeFacultyModal() {
-      document.getElementById('facultyModal').classList.remove('active');
-    }
-    function closeFacultyOnBackdrop(e) {
-      if (e.target.id === 'facultyModal') closeFacultyModal();
     }
   </script>
 </body>
