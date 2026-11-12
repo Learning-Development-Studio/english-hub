@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teacher's Hub · BE-05.2: The Value Justification 1-on-1 | Learning & Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071527;
+      --navy-main: #0B1F3A;
+      --navy-light: #1A3668;
+      --teal: #14B8A6;
+      --teal-dark: #0f766e;
+      --gold: #D4A843;
+      --gold-dark: #b88a28;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --line: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --good: #10B981;
+      --bad: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+    
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 0;
+      border-bottom: 3px solid var(--gold);
+    }
+    .headin {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .badge-hub {
+      background: rgba(212, 168, 67, 0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    main { padding: 36px 0 60px; }
+    .hero-doc {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px rgba(11, 31, 58, 0.05);
+    }
+    .hero-kicker {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy-main);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+    .meta-item strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .meta-item span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-main);
+    }
+
+    .doc-section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(11, 31, 58, 0.04);
+    }
+    .doc-section h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .doc-section h2::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-step:last-child { border-bottom: none; }
+    .step-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      background: #fef8eb;
+      padding: 4px 8px;
+      border-radius: 6px;
+      text-align: center;
+      height: fit-content;
+    }
+    .step-content h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy-main);
+      margin-bottom: 6px;
+    }
+    .step-content p {
+      font-size: 0.92rem;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .step-tips {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 3px solid var(--teal);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 12px;
+    }
+    th {
+      background: var(--navy-main);
+      color: #ffffff;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    tr:nth-child(even) { background: #f8fafc; }
+
+    .print-bar {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .btn-print {
+      background: var(--navy-main);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-print:hover { background: var(--navy-light); }
+
+    @media print {
+      header, .print-bar { display: none; }
+      body { background: #fff; }
+      .doc-section, .hero-doc { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap headin">
+      <div class="brand-wrap">
+        <span>Learning &amp; Development Studio · Faculty Portal</span>
+      </div>
+      <span class="badge-hub">Teacher's Hub · Official Lesson Plan</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="print-bar">
+      <button type="button" class="btn-print" onclick="window.print()">Print Lesson Plan (PDF)</button>
+    </div>
+
+    <!-- HERO METADATA -->
+    <div class="hero-doc">
+      <div class="hero-kicker">Documento Rector · Scope &amp; Sequence</div>
+      <h1 class="hero-title">Lesson Plan: The Value Justification 1-on-1 (Defending ROI &amp; Impact)</h1>
+      <p style="font-size: 0.95rem; color: var(--muted); max-width: 820px;">
+        Guía docente para facilitar la defensa de valor, métricas de retorno de inversión y negociación de título o compensación mediante el contraste funcional entre Past Simple y Present Perfect.
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="meta-item">
+          <strong>Curso &amp; Unidad</strong>
+          <span>Track 5 · People &amp; HR (BE-05.2)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Nivel MCER</strong>
+          <span>B1.2 &rarr; B2 (General Business)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Duración Recomendada</strong>
+          <span>60 Minutos (Seminario Ejecutivo)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Metodología</strong>
+          <span>CLT + Task-Based Language Teaching (TBLT)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. OBJETIVO COMUNICATIVO & LÍMITES LINGÜÍSTICOS -->
+    <div class="doc-section">
+      <h2>1. Resultado Comunicativo &amp; Control Lingüístico (P / P? / N / F)</h2>
+      <p style="font-size:0.92rem; margin-bottom:14px;">
+        <strong>Resultado Observable:</strong> El alumno redacta y defiende verbalmente un *Value Pitch* de 3 pasos conectando un hito pasado con beneficios continuos y una petición diplomática con conector causal.
+      </p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Descripción</th>
+            <th>Inventario Exacto de la Clase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>P (Prerrequisitos)</strong></td>
+            <td>Estructuras previas dominadas</td>
+            <td>Past Simple regular/irregular (led, launched, completed), vocabulario laboral básico (team, client, budget).</td>
+          </tr>
+          <tr>
+            <td><strong>P? (Por confirmar)</strong></td>
+            <td>Puntos de fricción fonética/morfología</td>
+            <td>Pronunciación de terminaciones -ed (/t/, /d/, /ɪd/), lectura de porcentajes y cantidades numéricas grandes en USD.</td>
+          </tr>
+          <tr>
+            <td><strong>N (Nuevo repertorio)</strong></td>
+            <td>Contenido explícito enseñado</td>
+            <td>Fórmula Time-Impact: Past Simple + Present Perfect continuo + Conectores causales (<em>Given that, Considering that, Now that</em>) + Petición modal (<em>would like to align</em>).</td>
+          </tr>
+          <tr>
+            <td><strong>F (Fuera de límite)</strong></td>
+            <td>Prohibido exigir / penalizar</td>
+            <td>Mixed Conditionals (<em>If I had done... I would have...</em>), Inversiones complejas (<em>Had I known...</em>).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. ARQUITECTURA DE LA SESIÓN DE 60 MINUTOS -->
+    <div class="doc-section">
+      <h2>2. Flujo Metodológico de la Clase (60 Minutos)</h2>
+
+      <div class="timeline-step">
+        <span class="step-time">00 – 10 min</span>
+        <div class="step-content">
+          <h3>Fase 1: Engage &amp; Mindset Diagnostic</h3>
+          <p>Presenta el dilema: <em>"¿Por qué el esfuerzo no basta para negociar un aumento?"</em>. Guía al alumno a comparar Pitch A (esfuerzo personal) vs Pitch B (estándar de ROI corporativo). Respondan el Diagnostic Poll de la plataforma.</p>
+          <div class="step-tips">
+            <strong>Pregunta de mediación:</strong> <em>"If a vendor charges you 20% more because their own rent went up, do you automatically pay them? Why does leadership think the same way about our salaries?"</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-time">10 – 25 min</span>
+        <div class="step-content">
+          <h3>Fase 2: Notice &amp; Bimodal Auditory Contrast</h3>
+          <p>Reproduzcan los audios reales de Carlos (Pitch A) y Elena (Pitch B). Analicen en grupo las diferencias de cadencia, tono emocional y vocabulario. Hagan notar cómo Elena usa <em>completed</em> (Past Simple) para el hito y <em>has cut</em> (Present Perfect) para el beneficio activo.</p>
+          <div class="step-tips">
+            <strong>Foco de atención:</strong> Haz que el alumno detecte las palabras clave que transmiten seguridad vs defensividad.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-time">25 – 38 min</span>
+        <div class="step-content">
+          <h3>Fase 3: Notice &amp; Grammar Architecture (The 3-Step Formula)</h3>
+          <p>Mapea en la pizarra digital la fórmula Time-Impact de 3 pasos: (1) Milestone en Past Simple &rarr; (2) Ongoing Return en Present Perfect &rarr; (3) Diplomatic Alignment Ask. Enfatiza los conectores causales (<em>Given that, Considering that</em>).</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-time">38 – 48 min</span>
+        <div class="step-content">
+          <h3>Fase 4: Practice &amp; Metric Transformation Arena</h3>
+          <p>El alumno resuelve los retos interactivos de la pantalla [04], transformando oraciones débiles de esfuerzo en formulaciones de alto impacto de ROI. Validen con la retroalimentación instantánea de la plataforma.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-time">48 – 60 min</span>
+        <div class="step-content">
+          <h3>Fase 5: Perform &amp; Apply (The Autonomous Pitch Studio)</h3>
+          <p>Cada alumno redacta su propio Value Pitch en la pantalla [05] usando sus datos reales de trabajo. Usan el botón <em>Listen to My Custom Pitch</em> para practicar dicción y lo defienden en roleplay 1-on-1 contigo (el docente asume el rol de Director/VP).</p>
+          <div class="step-tips">
+            <strong>Roleplay docente:</strong> Ofrece un leve *pushback* ejecutivo (<em>"We are in a tight budget cycle right now"</em>) para ver si el alumno reitera su ROI con diplomacia.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CHEAT SHEET DE SIGLAS EJECUTIVAS -->
+    <div class="doc-section">
+      <h2>3. Glosario de Siglas Corporativas para el Docente</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Término en Inglés</th>
+            <th>Significado &amp; Cómo Explicarlo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ROI</strong></td>
+            <td>Return on Investment</td>
+            <td>Retorno de inversión: dinero o tiempo medible que la empresa ahorra o gana gracias al trabajo del empleado.</td>
+          </tr>
+          <tr>
+            <td><strong>ARR</strong></td>
+            <td>Annual Recurring Revenue</td>
+            <td>Ingresos recurrentes anuales garantizados por contratos o suscripciones. Métrica reina de estabilidad financiera.</td>
+          </tr>
+          <tr>
+            <td><strong>MRR</strong></td>
+            <td>Monthly Recurring Revenue</td>
+            <td>Ingresos recurrentes mensuales.</td>
+          </tr>
+          <tr>
+            <td><strong>SLA</strong></td>
+            <td>Service Level Agreement</td>
+            <td>Acuerdo formal de tiempos de entrega y estándares de calidad comprometidos con el cliente.</td>
+          </tr>
+          <tr>
+            <td><strong>Turnaround</strong></td>
+            <td>Turnaround Time</td>
+            <td>Tiempo total que toma completar un proceso desde su solicitud hasta su entrega final.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. BANCO COMPLETO DE CONECTORES EJECUTIVOS -->
+    <div class="doc-section">
+      <h2>4. Banco Ejecutivo de Conectores (Teacher's Master List)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Conector</th>
+            <th>Función en la Negociación</th>
+            <th>Ejemplo Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Premisa Objetiva</strong></td>
+            <td><strong>Given that...</strong></td>
+            <td>Establece un hecho probado</td>
+            <td><em>"Given that I have assumed full operational ownership..."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Premisa Objetiva</strong></td>
+            <td><strong>Considering that...</strong></td>
+            <td>Analítico y respetuoso</td>
+            <td><em>"Considering that our department has expanded ARR by 18%..."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Premisa Objetiva</strong></td>
+            <td><strong>In light of [results]...</strong></td>
+            <td>Apunta a la evidencia</td>
+            <td><em>"In light of these continuous results, I would like to..."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Premisa Objetiva</strong></td>
+            <td><strong>Now that...</strong></td>
+            <td>Natural y directivo</td>
+            <td><em>"Now that I have stabilized our regional team..."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Retorno Continuo</strong></td>
+            <td><strong>Since that rollout...</strong></td>
+            <td>Marca inicio del beneficio</td>
+            <td><em>"Since that deployment, this system has cut errors by 35%."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Retorno Continuo</strong></td>
+            <td><strong>Over the past [months]...</strong></td>
+            <td>Abarca período activo</td>
+            <td><em>"Over the past six months, we have protected 140,000 USD."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Retorno Continuo</strong></td>
+            <td><strong>To date...</strong></td>
+            <td>Hasta el presente</td>
+            <td><em>"To date, this framework has prevented SLA defaults."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Consecuencia Directa</strong></td>
+            <td><strong>Thereby + [ing]...</strong></td>
+            <td>Explica el ROI directo</td>
+            <td><em>"I restructured workflows, thereby saving 80,000 USD annually."</em></td>
+          </tr>
+          <tr>
+            <td><strong>Petición Modal</strong></td>
+            <td><strong>I would like to align...</strong></td>
+            <td>Cierre de negociación</td>
+            <td><em>"I would like to align my compensation with this expanded scope."</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. RÚBRICA CUALITATIVA DE EVALUACIÓN (E0 - E3) -->
+    <div class="doc-section">
+      <h2>5. Criterios de Evaluación Observable (E0 – E3)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nivel</th>
+            <th>Descriptor de Desempeño</th>
+            <th>Evidencia Observable en Clase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>E0 (No Evidencia)</strong></td>
+            <td>No logra justificar valor comercial</td>
+            <td>El alumno solo menciona necesidad personal (renta, horas trabajadas) sin datos de negocio ni métricas.</td>
+          </tr>
+          <tr>
+            <td><strong>E1 (Emergente)</strong></td>
+            <td>Identifica el proyecto pero confunde tiempos</td>
+            <td>Usa Present Perfect para fechas fijas pasadas (<em>"Last month I have finished"</em>) o suena demandante (<em>"I want a raise"</em>).</td>
+          </tr>
+          <tr>
+            <td><strong>E2 (Competente)</strong></td>
+            <td>Ejecuta la fórmula completa con métricas</td>
+            <td>Articula con precisión: Past Simple (hito) + Present Perfect (retorno continuo) + Conector causal y petición modal cortés.</td>
+          </tr>
+          <tr>
+            <td><strong>E3 (Autónomo)</strong></td>
+            <td>Cadencia ejecutiva fluida bajo pushback</td>
+            <td>Defiende su postura con aplomo, reitera métricas cuando el docente le da objeciones y mantiene tono de socio estratégico.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
