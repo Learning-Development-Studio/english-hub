@@ -1282,16 +1282,140 @@
           </a>
         </div>
 
-        <!-- CASE SCENARIO -->
-        <div style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px; margin-bottom:22px;">
-          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--navy); font-weight:800; margin-bottom:6px;">The Case Scenario</div>
-          <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">The Fire That Consumed Corporate Headquarters</h4>
-          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
-            A small fire breaks out in the courtyard garden outside a corporate headquarters. Employees in finance, marketing, legal, and engineering observe the smoke from their respective cubicle windows. Yet every employee rationalizes: <em>&ldquo;Extinguishing fires is not in my job description; facilities or external maintenance will handle it.&rdquo;</em>
-          </p>
-          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65;">
-            Nobody steps forward, nobody communicates across departmental borders, and nobody assumes cross-functional ownership. By the time the flames reach the server room and executive suites, the entire enterprise is reduced to ashes. Every department executed its narrow remit with technical precision&mdash;yet the organization suffered total failure.
-          </p>
+        <!-- INTERACTIVE CRISIS STEPPER: THE ANATOMY OF A CORPORATE BREAKDOWN -->
+        <div class="crisis-stepper-container" style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px; margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <span class="badge badge-gold" style="margin-bottom:6px; display:inline-block;">Interactive Case Stepper</span>
+              <h4 style="font-size:1.15rem; font-weight:800; color:var(--navy); margin:0;">The 4 Phases of Organizational Collapse</h4>
+            </div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--muted); align-self:center;">
+              Click phases to inspect breakdown &darr;
+            </div>
+          </div>
+
+          <!-- STEPPER NAV PILLS -->
+          <div class="stepper-nav" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:18px;">
+            <button type="button" class="stepper-tab active" onclick="switchCrisisPhase(1)" id="phaseBtn-1" style="display:flex; flex-direction:column; align-items:flex-start; padding:10px 12px; background:#ffffff; border:1px solid var(--navy); border-radius:var(--radius-sm); cursor:pointer; text-align:left; transition:all 0.2s ease; box-shadow:0 2px 8px rgba(7, 21, 39, 0.08);">
+              <span style="font-size:0.7rem; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em;">Phase 01</span>
+              <strong style="font-size:0.85rem; color:var(--navy); line-height:1.2; margin-top:2px;">The Blind Spot</strong>
+            </button>
+            <button type="button" class="stepper-tab" onclick="switchCrisisPhase(2)" id="phaseBtn-2" style="display:flex; flex-direction:column; align-items:flex-start; padding:10px 12px; background:rgba(255,255,255,0.7); border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:0.7rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em;">Phase 02</span>
+              <strong style="font-size:0.85rem; color:var(--muted); line-height:1.2; margin-top:2px;">Ignored Spark</strong>
+            </button>
+            <button type="button" class="stepper-tab" onclick="switchCrisisPhase(3)" id="phaseBtn-3" style="display:flex; flex-direction:column; align-items:flex-start; padding:10px 12px; background:rgba(255,255,255,0.7); border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:0.7rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em;">Phase 03</span>
+              <strong style="font-size:0.85rem; color:var(--muted); line-height:1.2; margin-top:2px;">The Buck Pass</strong>
+            </button>
+            <button type="button" class="stepper-tab" onclick="switchCrisisPhase(4)" id="phaseBtn-4" style="display:flex; flex-direction:column; align-items:flex-start; padding:10px 12px; background:rgba(255,255,255,0.7); border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:0.7rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em;">Phase 04</span>
+              <strong style="font-size:0.85rem; color:var(--muted); line-height:1.2; margin-top:2px;">Total Collapse</strong>
+            </button>
+          </div>
+
+          <!-- STEPPER PANELS -->
+          <!-- PHASE 1 -->
+          <div id="crisisPanel-1" class="crisis-panel" style="display:block; background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; color:var(--gold);">Phase 01 &middot; External Dependency Failure</span>
+              <span style="font-size:0.75rem; font-weight:700; color:var(--muted); background:var(--wash); padding:3px 10px; border-radius:999px; border:1px solid var(--border);">Step 1 of 4</span>
+            </div>
+            <h5 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">Utility Crew Shuts Off Water Supply</h5>
+            <p style="font-size:0.9rem; color:var(--ink); line-height:1.55; margin-bottom:14px;">
+              City maintenance workers cut the building water supply to repair an outside pipe. They notice the office building is occupied, but fail to notify reception or building management because cross-entity communication is not part of their contractual remit.
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin-bottom:16px;">
+              <div style="background:#fefbf3; border:1px solid rgba(212,168,67,0.35); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:#854d0e; letter-spacing:0.05em; margin-bottom:4px;">Defensive Rationalization</div>
+                <div style="font-size:0.85rem; font-style:italic; color:var(--navy);">&ldquo;Notifying building tenants isn't in our contract. Maintenance or facilities should handle that.&rdquo;</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:var(--navy); letter-spacing:0.05em; margin-bottom:4px;">Silo Breakdown Diagnosis</div>
+                <div style="font-size:0.85rem; color:var(--ink);"><strong>Upstream Blind Spot:</strong> An external dependency fails without sending an early warning downstream.</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" onclick="switchCrisisPhase(2)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">Next: Phase 02 &rarr;</button>
+            </div>
+          </div>
+
+          <!-- PHASE 2 -->
+          <div id="crisisPanel-2" class="crisis-panel" style="display:none; background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; color:var(--gold);">Phase 02 &middot; Administrative Passivity</span>
+              <span style="font-size:0.75rem; font-weight:700; color:var(--muted); background:var(--wash); padding:3px 10px; border-radius:999px; border:1px solid var(--border);">Step 2 of 4</span>
+            </div>
+            <h5 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">A Discarded Cigarette Ignites the Courtyard</h5>
+            <p style="font-size:0.9rem; color:var(--ink); line-height:1.55; margin-bottom:14px;">
+              A small flame begins smoldering in the courtyard grass outside the main executive wing. Employees in finance, marketing, and legal observe the smoke rising outside their cubicle windows while continuing to type.
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin-bottom:16px;">
+              <div style="background:#fefbf3; border:1px solid rgba(212,168,67,0.35); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:#854d0e; letter-spacing:0.05em; margin-bottom:4px;">Defensive Rationalization</div>
+                <div style="font-size:0.85rem; font-style:italic; color:var(--navy);">&ldquo;Extinguishing outdoor fires is not in my job description. The groundskeeper or janitor will notice.&rdquo;</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:var(--navy); letter-spacing:0.05em; margin-bottom:4px;">Silo Breakdown Diagnosis</div>
+                <div style="font-size:0.85rem; color:var(--ink);"><strong>Role Protectionism:</strong> Staff treat rigid job descriptions as a shield against individual accountability.</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+              <button type="button" onclick="switchCrisisPhase(1)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">&larr; Back: Phase 01</button>
+              <button type="button" onclick="switchCrisisPhase(3)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">Next: Phase 03 &rarr;</button>
+            </div>
+          </div>
+
+          <!-- PHASE 3 -->
+          <div id="crisisPanel-3" class="crisis-panel" style="display:none; background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; color:var(--gold);">Phase 03 &middot; Bureaucratic Buck-Passing</span>
+              <span style="font-size:0.75rem; font-weight:700; color:var(--muted); background:var(--wash); padding:3px 10px; border-radius:999px; border:1px solid var(--border);">Step 3 of 4</span>
+            </div>
+            <h5 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">The Memo Shuffle &amp; Waiting for Authorization</h5>
+            <p style="font-size:0.9rem; color:var(--ink); line-height:1.55; margin-bottom:14px;">
+              As flames lick the second-floor windows, department heads draft internal memos and debate jurisdictional responsibility. Nobody pulls the fire extinguisher because protocol dictates that only certified facilities personnel may authorize emergency intervention.
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin-bottom:16px;">
+              <div style="background:#fefbf3; border:1px solid rgba(212,168,67,0.35); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:#854d0e; letter-spacing:0.05em; margin-bottom:4px;">Defensive Rationalization</div>
+                <div style="font-size:0.85rem; font-style:italic; color:var(--navy);">&ldquo;We cannot call the fire department without director sign-off; that would bypass standard chain of command.&rdquo;</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:var(--navy); letter-spacing:0.05em; margin-bottom:4px;">Silo Breakdown Diagnosis</div>
+                <div style="font-size:0.85rem; color:var(--ink);"><strong>Hierarchical Deferral:</strong> Mintzberg's Machine Bureaucracy paralyzes horizontal initiative under red tape.</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+              <button type="button" onclick="switchCrisisPhase(2)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">&larr; Back: Phase 02</button>
+              <button type="button" onclick="switchCrisisPhase(4)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">Next: Phase 04 &rarr;</button>
+            </div>
+          </div>
+
+          <!-- PHASE 4 -->
+          <div id="crisisPanel-4" class="crisis-panel" style="display:none; background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; color:var(--gold);">Phase 04 &middot; Systemic Collapse</span>
+              <span style="font-size:0.75rem; font-weight:700; color:var(--muted); background:var(--wash); padding:3px 10px; border-radius:999px; border:1px solid var(--border);">Step 4 of 4</span>
+            </div>
+            <h5 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">Enterprise Destruction Under Perfect Protocol</h5>
+            <p style="font-size:0.9rem; color:var(--ink); line-height:1.55; margin-bottom:14px;">
+              The building is completely engulfed in flames. Server rooms, client contracts, and operational assets turn to ash. Standing outside on the pavement, employees defend themselves: <em>&ldquo;Every department strictly followed its procedure.&rdquo;</em>
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin-bottom:16px;">
+              <div style="background:#fefbf3; border:1px solid rgba(212,168,67,0.35); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:#854d0e; letter-spacing:0.05em; margin-bottom:4px;">Defensive Rationalization</div>
+                <div style="font-size:0.85rem; font-style:italic; color:var(--navy);">&ldquo;Nobody did anything wrong. Our departmental KPIs were 100% green right until the building collapsed.&rdquo;</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px;">
+                <div style="font-size:0.72rem; text-transform:uppercase; font-weight:800; color:var(--navy); letter-spacing:0.05em; margin-bottom:4px;">Silo Breakdown Diagnosis</div>
+                <div style="font-size:0.85rem; color:var(--ink);"><strong>Senge's Paradox:</strong> Local departmental rationality produces global organizational suicide.</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-start;">
+              <button type="button" onclick="switchCrisisPhase(3)" class="btn btn-outline" style="font-size:0.82rem; padding:6px 16px; cursor:pointer;">&larr; Back: Phase 03</button>
+            </div>
+          </div>
         </div>
 
         <!-- THEORETICAL FOUNDATION: MINTZBERG + SENGE -->
@@ -1678,6 +1802,34 @@
   </footer>
 
   <script>
+    function switchCrisisPhase(phaseNum) {
+      for (let i = 1; i <= 4; i++) {
+        const p = document.getElementById('crisisPanel-' + i);
+        const b = document.getElementById('phaseBtn-' + i);
+        if (p && b) {
+          if (i === phaseNum) {
+            p.style.display = 'block';
+            b.style.background = '#ffffff';
+            b.style.borderColor = 'var(--navy)';
+            b.style.boxShadow = '0 2px 8px rgba(7, 21, 39, 0.08)';
+            const strong = b.querySelector('strong');
+            if (strong) strong.style.color = 'var(--navy)';
+            const span = b.querySelector('span');
+            if (span) span.style.color = 'var(--gold)';
+          } else {
+            p.style.display = 'none';
+            b.style.background = 'rgba(255, 255, 255, 0.7)';
+            b.style.borderColor = 'var(--border)';
+            b.style.boxShadow = 'none';
+            const strong = b.querySelector('strong');
+            if (strong) strong.style.color = 'var(--muted)';
+            const span = b.querySelector('span');
+            if (span) span.style.color = 'var(--muted)';
+          }
+        }
+      }
+    }
+
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
