@@ -88,16 +88,42 @@
     }
 
     .brand-lockup {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 14px;
       text-decoration: none;
     }
 
-    .brand-logo {
-      height: 38px;
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 44px;
+      overflow: hidden;
+    }
+
+    .brand-logo-img {
+      height: 82px;
       width: auto;
+      max-width: 250px;
+      object-fit: contain;
+      margin: -19px 0;
       display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
+    }
+
+    .brand-logo {
+      height: 40px;
+      max-height: 40px;
+      width: auto;
+      max-width: 240px;
+      display: block;
+      object-fit: contain;
     }
 
     .brand-divider {
@@ -806,11 +832,13 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="./business_workspace.html" class="brand-lockup">
-        <img src="assets/logo-white-lockup.webp" alt="Learning & Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png';">
+            <div class="brand-lockup">
+        <a href="./business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
+          <img src="assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png';">
+        </a>
         <div class="brand-divider"></div>
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
-      </a>
+      </div>
       <div class="nav-actions">
         <button type="button" class="btn-guide" id="btnFacultyGuide" style="display:none;" onclick="openFacultyModal()">
           Faculty Guide (P/P?/N/F)
