@@ -65,20 +65,25 @@
       cursor: pointer;
     }
 
-    /* TOP BAR */
+        /* TOP BAR - INSTITUTIONAL STANDARD */
     .topbar {
-      background: var(--navy-deep);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+      height: 70px;
+      display: flex;
+      align-items: center;
     }
 
     .topbar-inner {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -86,30 +91,50 @@
     }
 
     .brand-lockup {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 14px;
       text-decoration: none;
     }
 
-    .brand-logo {
-      height: 38px;
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 48px;
+      overflow: hidden;
+    }
+
+    .brand-logo-img {
+      height: 90px;
       width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      margin: -21px 0;
       display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
     }
 
     .brand-divider {
       width: 1px;
       height: 24px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
     }
 
     .brand-track {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--gold);
       font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
 
     .nav-actions {
@@ -541,15 +566,16 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="../../index.html" class="brand-lockup">
-        <img src="../../assets/logo-white-lockup.webp" alt="Learning & Development Studio" class="brand-logo"
-          onerror="this.onerror=null; this.src='../../assets/logo.png';">
+      <div class="brand-lockup">
+        <a href="../../business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
+          <img src="../../assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='../../assets/logo.png';">
+        </a>
         <div class="brand-divider"></div>
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
-      </a>
+      </div>
       <div class="nav-actions">
         <a href="../../business_workspace.html" class="btn-return">
-          ← Back to Business Portal
+          &larr; Back to Business Workspace
         </a>
       </div>
     </div>

@@ -67,20 +67,25 @@
       cursor: pointer;
     }
 
-    /* TOP BAR */
+        /* TOP BAR - INSTITUTIONAL STANDARD */
     .topbar {
-      background: var(--navy-deep);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+      height: 70px;
+      display: flex;
+      align-items: center;
     }
 
     .topbar-inner {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,27 +99,53 @@
       text-decoration: none;
     }
 
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 48px;
+      overflow: hidden;
+    }
+
+    .brand-logo-img {
+      height: 90px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      margin: -21px 0;
+      display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
+    }
+
     .brand-logo {
-      height: 38px !important;
-      max-height: 38px !important;
+      height: 90px !important;
       width: auto !important;
-      max-width: 240px !important;
-      display: block !important;
+      max-width: 260px !important;
       object-fit: contain !important;
+      margin: -21px 0 !important;
+      display: block !important;
     }
 
     .brand-divider {
       width: 1px;
       height: 24px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
     }
 
     .brand-track {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--gold);
       font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
 
     .nav-actions {
@@ -533,6 +564,135 @@
       background: #ffffff;
     }
 
+    
+    /* EXECUTIVE VOCABULARY & PHRASING TOOLKIT */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .vocab-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .vocab-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(212, 168, 67, 0.4);
+    }
+
+    .vocab-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .vocab-term {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .vocab-type {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--wash);
+      color: var(--slate);
+    }
+
+    .vocab-def {
+      font-size: 0.86rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .vocab-collocation {
+      font-size: 0.82rem;
+      background: #fdfaf3;
+      border-left: 3px solid var(--gold);
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .vocab-example {
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .phrase-category-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      margin: 22px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .phrase-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .phrase-card-intent {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold-dark);
+      font-weight: 800;
+    }
+
+    .phrase-card-text {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+
+    .phrase-card-when {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .toolkit-subhead {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     /* GRAMMAR ARCHITECTURE CARDS */
     .formula-step {
       border: 1px solid var(--border);
@@ -863,8 +1023,8 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand-lockup">
-        <a href="./business_workspace.html" style="display:inline-flex; align-items:center; text-decoration:none;" title="Learning &amp; Development Studio">
-          <img src="assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo" style="height:38px; width:auto; max-height:38px; display:block;" onerror="this.onerror=null; this.src='./assets/logo.png';">
+        <a href="./business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
+          <img src="assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png';">
         </a>
         <div class="brand-divider"></div>
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
@@ -928,7 +1088,7 @@
         <span class="tab-num-tag">[02]</span> Bimodal Audio &amp; Contrast
       </button>
       <button class="tab-btn" onclick="switchTab('grammar')">
-        <span class="tab-num-tag">[03]</span> Time-Impact Formula
+        <span class="tab-num-tag">[03]</span> Executive Language Toolkit
       </button>
       <button class="tab-btn" onclick="switchTab('arena')">
         <span class="tab-num-tag">[04]</span> Metric Arena
@@ -1125,7 +1285,7 @@
       </div>
     </section>
 
-    <!-- ================= TAB 3: GRAMMAR ARCHITECTURE ================= -->
+        <!-- ================= TAB 3: EXECUTIVE LANGUAGE TOOLKIT ================= -->
     <section id="panel-grammar" class="tab-panel">
 
       <!-- TEACHER IN-SITU FACILITATION NOTE · PHASE 3 -->
@@ -1133,34 +1293,107 @@
         <div class="teacher-note-header" onclick="toggleTeacherNote(3)">
           <span class="teacher-note-title">
             <span class="badge badge-gold" style="padding:2px 8px; font-size:10px;">Teacher Note</span>
-            Phase 3 Facilitation: Time-Impact Grammar Architecture (25–38 min)
+            Phase 3 Facilitation: Executive Language Toolkit (25–38 min)
           </span>
           <span class="teacher-note-icon" id="teacherNoteIcon3">[ + ]</span>
         </div>
         <div class="teacher-note-body" id="teacherNoteBody3">
           <div class="teacher-note-row">
             <span class="teacher-note-label">Timing &amp; Pedagogical Objective</span>
-            <p>Lock the 3-step Time-Impact Formula into muscle memory. Clarify the boundary between finished past launch and continuous compounding return.</p>
+            <p>Deconstruct high-leverage ROI lexicon, lock the 3-step Time-Impact grammatical sequence, and drill strategic discourse connectors before free production.</p>
           </div>
           <div class="teacher-note-row">
             <span class="teacher-note-label">Classroom Mediation Prompt</span>
-            <p style="background:var(--wash); padding:8px 12px; border-radius:6px; font-style:italic;">"Why can we not say: "Last month I have finished the rollout"? What happens to the Present Perfect when a finished date is mentioned?"</p>
+            <p style="background:var(--wash); padding:8px 12px; border-radius:6px; font-style:italic;">"Elena, how does using 'cost avoidance' elevate your posture compared to simply saying 'we saved money'? Carlos, when we lead with 'Given that...', which verb tense immediately follows to ground your evidence?"</p>
           </div>
           <div class="teacher-note-row">
             <span class="teacher-note-label">Anticipated Learner Pitfall</span>
-            <p style="color:#991b1b;">Confusing Past Simple and Present Perfect. Emphasize: Past Simple = Date/Finished; Present Perfect = Unfinished period connecting to present revenue.</p>
+            <p style="color:#991b1b;">Learners confusing 'cost avoidance' (preventing future recurring expense) with 'cost reduction' (cutting existing budgets), or using conversational connectors like 'and then' instead of executive discourse stems like 'Since that milestone' or 'Given that'.</p>
           </div>
           <div class="teacher-note-row">
             <span class="teacher-note-label">Model Target Formulation</span>
-            <p style="color:#065f46; font-weight:600;">Given that I have absorbed direct management... I would like to align my compensation with this expanded scope.</p>
+            <p style="color:#065f46; font-weight:600;">Given that our initiative has yielded 140,000 USD in cost avoidance over the past two quarters, I would like to explore aligning my compensation with this expanded scope.</p>
           </div>
         </div>
       </div>
-  
-      <div class="card">
+
+      <!-- PART A: EXECUTIVE BUSINESS LEXICON -->
+      <div class="card" style="margin-bottom:24px;">
         <div class="card-header">
-          <h2 class="card-title">Phase 3: The Time-Impact Grammar Architecture</h2>
-          <p class="card-subtitle">Master the 3-step grammatical sequence that turns past efforts into present negotiation leverage.</p>
+          <span class="badge badge-gold" style="margin-bottom:8px;">Part 1 · Domain Lexicon</span>
+          <h2 class="card-title">High-Leverage Business Lexicon &amp; Collocations</h2>
+          <p class="card-subtitle">Elevate everyday operational tasks into board-level strategic terminology that proves business value.</p>
+        </div>
+
+        <div class="vocab-grid">
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Cost Avoidance</span>
+              <span class="vocab-type">Financial Strategy</span>
+            </div>
+            <div class="vocab-def">Preventing future recurring expenditures through proactive system optimization (contrasted with mere budget cutting).</div>
+            <div class="vocab-collocation">Collocation: <em>yield / generate cost avoidance</em></div>
+            <div class="vocab-example">"Our vendor automation yielded 140,000 USD in cost avoidance by eliminating external agency fees."</div>
+          </div>
+
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Compounding Return</span>
+              <span class="vocab-type">ROI Metric</span>
+            </div>
+            <div class="vocab-def">Sustained business value and efficiency gains that accumulate exponentially across quarters.</div>
+            <div class="vocab-collocation">Collocation: <em>deliver / demonstrate compounding returns</em></div>
+            <div class="vocab-example">"Automating client onboarding delivers compounding returns as transaction volume scales."</div>
+          </div>
+
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Annual Recurring Revenue (ARR)</span>
+              <span class="vocab-type">Executive Metric</span>
+            </div>
+            <div class="vocab-def">The annualized contract value of predictable client subscriptions; key driver of company valuation.</div>
+            <div class="vocab-collocation">Collocation: <em>protect / expand ARR</em></div>
+            <div class="vocab-example">"Our proactive escalation protocol protected 240,000 USD in at-risk ARR across tier-1 enterprise accounts."</div>
+          </div>
+
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Customer Churn Rate</span>
+              <span class="vocab-type">Retention Metric</span>
+            </div>
+            <div class="vocab-def">The percentage of contractual subscribers or clients who discontinue service within a given period.</div>
+            <div class="vocab-collocation">Collocation: <em>curb / lower / mitigate customer churn</em></div>
+            <div class="vocab-example">"Since introducing the dedicated account review, our team has decreased quarterly churn from 6.8% to 3.2%."</div>
+          </div>
+
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Scope Absorption</span>
+              <span class="vocab-type">Negotiation &amp; Scope</span>
+            </div>
+            <div class="vocab-def">Formally taking operational governance over elevated strategic duties without adding departmental headcount.</div>
+            <div class="vocab-collocation">Collocation: <em>absorb direct oversight / client escalations</em></div>
+            <div class="vocab-example">"Given that I have absorbed direct regional client escalations, aligning my role formalizes this leadership."</div>
+          </div>
+
+          <div class="vocab-card">
+            <div class="vocab-header">
+              <span class="vocab-term">Operational Bandwidth</span>
+              <span class="vocab-type">Resource Governance</span>
+            </div>
+            <div class="vocab-def">Productive capacity available to deliver high-priority strategic initiatives without quality degradation.</div>
+            <div class="vocab-collocation">Collocation: <em>commit / protect / free up bandwidth</em></div>
+            <div class="vocab-example">"Restructuring the reporting cadence freed up 12 hours of weekly operational bandwidth for product development."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART B: GRAMMAR ARCHITECTURE -->
+      <div class="card" style="margin-bottom:24px;">
+        <div class="card-header">
+          <span class="badge badge-teal" style="margin-bottom:8px;">Part 2 · Grammar Engine</span>
+          <h2 class="card-title">The Time-Impact Grammar Architecture</h2>
+          <p class="card-subtitle">Master the 3-step sequence that turns completed past actions into present compounding negotiation leverage.</p>
         </div>
 
         <div class="formula-step">
@@ -1197,6 +1430,73 @@
               "Given that I <strong>have absorbed</strong> direct client escalations across Latin America, I <strong>would like to align</strong> my current title and package with this responsibility."
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- PART C: STRATEGIC FUNCTIONAL LANGUAGE -->
+      <div class="card">
+        <div class="card-header">
+          <span class="badge badge-outline" style="margin-bottom:8px;">Part 3 · Strategic Discourse</span>
+          <h2 class="card-title">Strategic Functional Phrasing &amp; Connectors</h2>
+          <p class="card-subtitle">Deploy these executive discourse stems to frame your evidence, handle executive objections, and deliver your ask with poise.</p>
+        </div>
+
+        <div class="phrase-category-title">Section 1: Time &amp; Continuity Connectors</div>
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Temporal Bridge (Finished Milestone &rarr; Continuous Leverage)</div>
+          <div class="phrase-card-text">"Since that milestone, the platform has generated..."</div>
+          <div class="phrase-card-when">Use when: Linking a finished launch in the past directly to revenue or efficiency that continues today.</div>
+        </div>
+
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Cumulative Duration Marker</div>
+          <div class="phrase-card-text">"Over the past [number] quarters, this initiative has sustained..."</div>
+          <div class="phrase-card-when">Use when: Demonstrating that your impact is consistent and compounding rather than an isolated spike.</div>
+        </div>
+
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Present Realization Anchor</div>
+          <div class="phrase-card-text">"To date, our revised workflow has protected..."</div>
+          <div class="phrase-card-when">Use when: Stating total accumulated return up to the exact moment of your 1-on-1 negotiation.</div>
+        </div>
+
+        <div class="phrase-category-title">Section 2: Data-Grounding &amp; Justification Stems</div>
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Premise-Led Justification</div>
+          <div class="phrase-card-text">"Given that our team has achieved [verified metric], my recommendation is..."</div>
+          <div class="phrase-card-when">Use when: Leading with proven business facts so your negotiation request sounds inevitable.</div>
+        </div>
+
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Objective Evidence Framing</div>
+          <div class="phrase-card-text">"In light of the verified [percentage] reduction in operational backlog, ..."</div>
+          <div class="phrase-card-when">Use when: Grounding your proposal in audited department results before asking for compensation alignment.</div>
+        </div>
+
+        <div class="phrase-category-title">Section 3: Strategic Pivot &amp; Objection Handling</div>
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Reframing Cost as Governance</div>
+          <div class="phrase-card-text">"Rather than an incremental overhead, this adjustment reflects ongoing governance over [revenue stream]."</div>
+          <div class="phrase-card-when">Use when: The manager or executive pushes back that 'budget is frozen' or 'costs must stay flat.'</div>
+        </div>
+
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Diplomatic Financial Alignment</div>
+          <div class="phrase-card-text">"While I recognize current budgetary constraints, the verified ROI generated covers this investment multiple times over."</div>
+          <div class="phrase-card-when">Use when: Acknowledging leadership constraints without conceding your earned business valuation.</div>
+        </div>
+
+        <div class="phrase-category-title">Section 4: The Diplomatic Executive Ask</div>
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Collaborative Role Progression</div>
+          <div class="phrase-card-text">"I would like to explore aligning my compensation and title with this expanded scope."</div>
+          <div class="phrase-card-when">Use when: Formally delivering your core negotiation ask with executive poise and zero entitlement.</div>
+        </div>
+
+        <div class="phrase-card">
+          <div class="phrase-card-intent">Executive Recommendation Stance</div>
+          <div class="phrase-card-text">"My recommendation would be to formalize these responsibilities through a title and package adjustment."</div>
+          <div class="phrase-card-when">Use when: Positioning yourself as a strategic partner recommending organizational clarity.</div>
         </div>
       </div>
     </section>
