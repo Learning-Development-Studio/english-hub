@@ -1453,7 +1453,7 @@
 <body>
 
   <!-- TOP HEADER -->
-  <header class="app-header">
+  <header class="site-header">
     <div class="header-inner">
       <a href="../../a1-2_workspace.html" class="brand-lockup">
         <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="L&D Studio Logo" class="brand-logo" style="width: 44px; height: 44px; max-width: 44px; max-height: 44px; object-fit: contain; border-radius: 50%; background: var(--white); padding: 2px;">
@@ -1473,27 +1473,31 @@
     </div>
   </header>
 
-  <main class="page-container">
+  <main class="content-wrapper">
 
-    <!-- HERO BANNER -->
-    <section class="workspace-hero-banner" style="background-image: linear-gradient(135deg, rgba(7,21,39,0.92) 0%, rgba(11,37,69,0.85) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85');">
-      <div class="hero-content">
-        <div class="hero-badge font-mono">A1.2 Trajectory &middot; R2 Contrast Module</div>
-        <h1 class="hero-title">Crisis Mode: <span class="gold-accent">Breaking the Pattern</span></h1>
-        <p class="hero-lead">
-          <em>&ldquo;Normally I cook healthy meals at 7:00 PM, but this week I am living on pizza and iced coffee.&rdquo;</em><br>
-          Contrast stable everyday routines with temporary disruptions using clear time markers and action vs. state verbs.
-        </p>
-        <div class="hero-meta-strip font-mono">
-          <span>&bull; Target: CEFR A1.2</span>
-          <span>&bull; Principle: Understanding Before Advancement</span>
-          <span>&bull; Frontier: Strictly Present Forms (No Past Tense)</span>
+    <!-- CINEMATIC WORKSPACE HERO BANNER -->
+    <header class="workspace-hero-banner" id="heroBanner" style="background-image: linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.45) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85');">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          A1.2 Trajectory &middot; R2 Contrast Module
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR A1.2 &middot; Strictly Present Forms (No Past Tense)
         </div>
       </div>
-    </section>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        Crisis Mode: <span class="gold-accent">Breaking the Pattern</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        <em>&ldquo;Normally I cook healthy meals at 7:00 PM, but this week I am living on pizza and iced coffee.&rdquo;</em> Contrast stable everyday routines with temporary disruptions using clear time markers and action vs. state verbs.
+      </p>
+    </header>
 
     <!-- MODULE NAVIGATION TABS -->
-    <nav class="nav-tabs-bar" aria-label="Lesson Modules">
+    <nav class="module-nav-grid" role="tablist" aria-label="Lesson Modules">
       <button class="nav-tab-btn active" onclick="switchScreen(1)">
         <div class="tab-micro-label font-mono"><span>Module 01</span><span class="tab-status-dot"></span></div>
         <div class="tab-title-strong">The Crisis Setup</div>
