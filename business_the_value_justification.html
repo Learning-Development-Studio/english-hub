@@ -94,36 +94,13 @@
       text-decoration: none;
     }
 
-    .brand-wrap {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      height: 44px;
-      overflow: hidden;
-    }
-
-    .brand-logo-img {
-      height: 82px;
-      width: auto;
-      max-width: 250px;
-      object-fit: contain;
-      margin: -19px 0;
-      display: block;
-      transition: transform .25s ease, filter .25s ease;
-    }
-
-    .brand-wrap:hover .brand-logo-img {
-      transform: scale(1.02);
-      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
-    }
-
     .brand-logo {
-      height: 40px;
-      max-height: 40px;
-      width: auto;
-      max-width: 240px;
-      display: block;
-      object-fit: contain;
+      height: 38px !important;
+      max-height: 38px !important;
+      width: auto !important;
+      max-width: 240px !important;
+      display: block !important;
+      object-fit: contain !important;
     }
 
     .brand-divider {
@@ -885,15 +862,19 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
-            <div class="brand-lockup">
-        <a href="./business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
-          <img src="assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png';">
+      <div class="brand-lockup">
+        <a href="./business_workspace.html" style="display:inline-flex; align-items:center; text-decoration:none;" title="Learning &amp; Development Studio">
+          <img src="assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo" style="height:38px; width:auto; max-height:38px; display:block;" onerror="this.onerror=null; this.src='./assets/logo.png';">
         </a>
         <div class="brand-divider"></div>
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
       </div>
       <div class="nav-actions">
         <a href="https://learning-development-studio.github.io/english-hub/teacher-hub/Business/the-value-justification/" target="_blank" class="btn-return" id="teacherHubLink" style="display:none; color:var(--gold); border-color:var(--gold-border); margin-right:8px;">Faculty Lesson Plan &nearr;</a>
+        <button type="button" onclick="toggleTeacherView()" class="btn-return" id="teacherToggleBtn" style="cursor:pointer; margin-right:8px; display:inline-flex; align-items:center; gap:6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span id="teacherToggleText">Teacher Mode</span>
+        </button>
         <a href="./business_workspace.html" class="btn-return">
           &larr; Back to Business Workspace
         </a>
@@ -1723,6 +1704,106 @@
       }).catch(() => {
         alert('Pitch copied to clipboard.');
       });
+    }
+  
+    /* --- TEACHER FACILITATION & ROLE SYSTEM --- */
+    let isTeacherMode = false;
+
+    function checkTeacherRole() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const role = urlParams.get('role');
+      let authGranted = false;
+      try {
+        if (sessionStorage.getItem('ld-coordinator-auth') === 'granted' || localStorage.getItem('ld_role') === 'teacher') {
+          authGranted = true;
+        }
+      } catch (_) {}
+
+      if (role === 'teacher' || role === 'coordinator' || authGranted) {
+        setTeacherMode(true);
+      } else {
+        setTeacherMode(false);
+      }
+    }
+
+    function setTeacherMode(active) {
+      isTeacherMode = active;
+      const boxes = document.querySelectorAll('.teacher-note-box');
+      const teacherHubLink = document.getElementById('teacherHubLink');
+      const toggleBtn = document.getElementById('teacherToggleBtn');
+      const toggleText = document.getElementById('teacherToggleText');
+
+      boxes.forEach(box => {
+        if (active) {
+          box.style.display = 'block';
+          const body = box.querySelector('.teacher-note-body');
+          const icon = box.querySelector('.teacher-note-icon');
+          if (body) body.classList.add('open');
+          if (icon) icon.textContent = '[ — ]';
+        } else {
+          box.style.display = 'none';
+        }
+      });
+
+      if (teacherHubLink) {
+        teacherHubLink.style.display = active ? 'inline-block' : 'none';
+      }
+
+      if (toggleBtn && toggleText) {
+        if (active) {
+          toggleBtn.style.background = 'rgba(212, 168, 67, 0.15)';
+          toggleBtn.style.borderColor = 'var(--gold)';
+          toggleBtn.style.color = 'var(--gold)';
+          toggleText.textContent = 'Teacher Mode: ON';
+        } else {
+          toggleBtn.style.background = '';
+          toggleBtn.style.borderColor = '';
+          toggleBtn.style.color = '';
+          toggleText.textContent = 'Teacher Mode';
+        }
+      }
+    }
+
+    function toggleTeacherView() {
+      if (!isTeacherMode) {
+        const pin = prompt('Enter Faculty Authorization PIN:');
+        if (!pin) return;
+        const validPins = ['2680', '5726', '8826', '2026', 'admin'];
+        if (validPins.includes(pin.trim())) {
+          try {
+            sessionStorage.setItem('ld-coordinator-auth', 'granted');
+            localStorage.setItem('ld_role', 'teacher');
+          } catch (_) {}
+          setTeacherMode(true);
+        } else {
+          alert('Incorrect PIN. Faculty access denied.');
+        }
+      } else {
+        try {
+          sessionStorage.removeItem('ld-coordinator-auth');
+          localStorage.removeItem('ld_role');
+        } catch (_) {}
+        setTeacherMode(false);
+      }
+    }
+
+    function toggleTeacherNote(phaseNum) {
+      const body = document.getElementById('teacherNoteBody' + phaseNum);
+      const icon = document.getElementById('teacherNoteIcon' + phaseNum);
+      if (!body) return;
+      if (body.classList.contains('open')) {
+        body.classList.remove('open');
+        if (icon) icon.textContent = '[ + ]';
+      } else {
+        body.classList.add('open');
+        if (icon) icon.textContent = '[ — ]';
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkTeacherRole);
+    } else {
+      checkTeacherRole();
     }
   </script>
 </body>

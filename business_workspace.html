@@ -3514,6 +3514,9 @@
           if (sName && sName !== 'Student') {
             liveUrl += (liveUrl.includes('?') ? '&' : '?') + 'name=' + encodeURIComponent(sName);
           }
+          if (isTeacherView || (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('ld-coordinator-auth') === 'granted')) {
+            liveUrl += (liveUrl.includes('?') ? '&' : '?') + 'role=teacher';
+          }
           ctaButton = '<a href="' + liveUrl + '" class="btn-launch">' + (item.action || 'Open Lesson') + ' &rarr;</a>';
         } else if (isSoon) {
           ctaButton = '<button type="button" class="btn-soon" onclick="openSoonModal(\'' + item.title.replace(/'/g, "\\'") + '\', \'' + item.unit + '\', \'' + item.tagline.replace(/'/g, "\\'") + '\', \'' + item.pill1 + '\', \'' + item.pill2 + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> View Syllabus</button>';
@@ -3602,6 +3605,8 @@
         nameLabel.style.cursor = 'pointer';
         nameLabel.style.textDecoration = 'underline dotted rgba(212,168,67,0.5)';
       }
+      try { localStorage.setItem('ld_role', isTeacherView ? 'teacher' : 'student'); } catch(_) {}
+      if (typeof renderCards === 'function') renderCards();
     }
 
         function toggleRoleMode() {
