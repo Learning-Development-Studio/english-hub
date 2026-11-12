@@ -1038,290 +1038,66 @@
 
 
     /* ==========================================================================
-       EXECUTIVE SILO POST-MORTEM COCKPIT & 3D FLIP TRACKS (PREMIUM BUSINESS UX)
+       EDITORIAL 3D FLIP FOR TRACKS (SOBER, CLEAN, ZERO COLORED BORDERS)
        ========================================================================== */
-    
-    /* Prominent Structural Dividers */
-    .silo-structural-divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 14px 0;
-      position: relative;
-    }
-    .silo-divider-line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.15));
-    }
-    .silo-divider-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #0f172a;
-      color: #f8fafc;
-      font-family: 'JetBrains Mono', monospace, monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 4px;
-      border: 1px solid #334155;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
-      white-space: nowrap;
-    }
-    .silo-divider-badge .divider-icon {
-      color: var(--gold);
-      font-size: 0.6rem;
-    }
-    .silo-divider-badge .divider-meta {
-      color: #94a3b8;
-      font-weight: 400;
-      border-left: 1px solid #475569;
-      padding-left: 8px;
-    }
-
-    /* Cockpit Floor Cards */
-    .cockpit-tier-card {
-      background: #ffffff;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 16px 18px;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-    .cockpit-tier-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    }
-    .cockpit-tier-card.is-active {
-      border-color: var(--gold);
-      background: #fdfbf7;
-      box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(212, 168, 67, 0.12);
-    }
-    .cockpit-tier-header {
+    .tracks-header-bar {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .cockpit-tier-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-    }
-    .cockpit-tier-card.is-active .cockpit-tier-badge {
-      background: #fefce8;
-      color: #854d0e;
-      border-color: rgba(212, 168, 67, 0.4);
-    }
-    .cockpit-tier-elev {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: #64748b;
-      font-weight: 600;
-    }
-    .cockpit-tier-title {
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: var(--navy-deep);
-      margin: 0 0 6px;
-      letter-spacing: -0.01em;
-    }
-    .cockpit-tier-stance {
-      font-size: 0.82rem;
-      color: #475569;
-      line-height: 1.45;
-      margin: 0;
-    }
-    .cockpit-tier-tagbar {
-      display: flex;
-      gap: 6px;
-      margin-top: 10px;
+      align-items: flex-end;
+      margin-bottom: 24px;
       flex-wrap: wrap;
-    }
-    .cockpit-tier-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      color: #64748b;
-    }
-    .cockpit-tier-card.is-active .cockpit-tier-tag.status-tag {
-      background: #fef2f2;
-      border-color: #fecaca;
-      color: #991b1b;
-    }
-
-    /* Right Audit Monitor */
-    .cockpit-monitor-panel {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-      position: relative;
-    }
-    .cockpit-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .cockpit-kpi-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 10px 12px;
-    }
-    .cockpit-kpi-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #64748b;
-      margin-bottom: 4px;
-    }
-    .cockpit-kpi-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    .cockpit-kpi-val.kpi-danger {
-      color: #b91c1c;
-    }
-    .cockpit-quote-box {
-      background: #fff7ed;
-      border-left: 4px solid #f97316;
-      border-radius: 0 6px 6px 0;
-      padding: 14px 18px;
-      margin-bottom: 16px;
-    }
-    .cockpit-quote-label {
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #c2410c;
-      margin-bottom: 4px;
-    }
-    .cockpit-quote-text {
-      font-size: 0.95rem;
-      font-style: italic;
-      font-weight: 600;
-      color: #7c2d12;
-      line-height: 1.45;
-      margin: 0;
-    }
-    .cockpit-diagnosis-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 14px;
-      margin-bottom: 16px;
-    }
-    .cockpit-bridge-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 6px;
-      padding: 14px;
-      border-left: 4px solid #16a34a;
-    }
-
-    /* ==========================================================================
-       3D INTERACTIVE FLIP TRACK CARDS (ZERO AMONTONADERO DE LETRAS)
-       ========================================================================== */
-    .tracks-header-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-bottom: 14px;
+      gap: 14px;
       border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
     }
-    .tracks-toolbar-actions {
+    .tracks-header-text h3 {
+      margin: 0 0 6px;
+    }
+    .tracks-header-text p {
+      margin: 0;
+      max-width: 650px;
+    }
+    .tracks-toolbar-btns {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
-    .tracks-action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 6px 14px;
+    .btn-track-action {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 7px 14px;
       font-size: 0.78rem;
       font-weight: 700;
       color: var(--navy-deep);
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .tracks-action-btn:hover {
-      background: var(--wash);
-      border-color: var(--navy-deep);
-      color: var(--navy-deep);
+    .btn-track-action:hover {
+      background: var(--surface);
+      border-color: var(--navy);
     }
-    .tracks-action-btn.active {
-      background: var(--navy-deep);
-      color: #ffffff;
-      border-color: var(--navy-deep);
-    }
-
-    /* 3D Flip Card Container */
-    .tracks-flip-grid {
+    
+    .tracks-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 22px;
       margin-bottom: 36px;
     }
-    .track-flip-card {
-      background-color: transparent;
-      perspective: 1200px;
-      height: 310px;
-      cursor: pointer;
+    .track-card-flip-wrap {
+      perspective: 1000px;
+      height: 290px;
     }
-    .track-flip-inner {
+    .track-card-flipper {
       position: relative;
       width: 100%;
       height: 100%;
-      text-align: left;
-      transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 0.5s ease;
       transform-style: preserve-3d;
-      border-radius: var(--radius-md);
-      box-shadow: 0 4px 16px rgba(7, 21, 39, 0.05);
     }
-    .track-flip-card.is-flipped .track-flip-inner {
+    .track-card-flip-wrap.is-flipped .track-card-flipper {
       transform: rotateY(180deg);
     }
-    .track-flip-card:hover .track-flip-inner {
-      box-shadow: 0 10px 28px rgba(7, 21, 39, 0.1);
-    }
-
-    /* Front and Back Face Styles */
-    .track-flip-front, .track-flip-back {
+    .track-card-face {
       position: absolute;
       top: 0;
       left: 0;
@@ -1329,176 +1105,50 @@
       height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      padding: 22px;
-      box-sizing: border-box;
+      padding: 24px;
+      box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-
-    /* FRONT FACE: Crisp, Architectural, Clean, Breathable */
-    .track-flip-front {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-top: 4px solid var(--gold);
+    .track-card-flip-wrap:hover .track-card-face {
+      box-shadow: var(--shadow-hover);
+      border-color: #cbd5e1;
     }
-    .track-front-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .track-front-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--navy-deep);
-      margin: 0 0 6px;
-      letter-spacing: -0.01em;
-    }
-    .track-front-subtitle {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #854d0e;
-      margin-bottom: 10px;
-    }
-    .track-front-desc {
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.5;
-      margin: 0 0 12px;
-      flex: 1;
-    }
-    .track-front-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-    .track-front-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #64748b;
-      background: #f1f5f9;
-      padding: 2px 8px;
-      border-radius: 4px;
-      border: 1px solid #e2e8f0;
-    }
-    .track-front-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--navy-deep);
-      transition: all 0.2s ease;
-    }
-    .track-flip-card:hover .track-front-btn {
-      background: var(--navy-deep);
-      color: #ffffff;
-      border-color: var(--navy-deep);
-    }
-
-    /* BACK FACE: High-Stakes Friction Point Reveal ("A la vuelta") */
-    .track-flip-back {
-      background: #0f172a;
-      color: #f8fafc;
+    .track-card-face.track-card-back {
       transform: rotateY(180deg);
-      border: 1px solid #334155;
-      border-top: 4px solid #ea580c;
+      background: var(--surface);
     }
-    .track-back-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #334155;
-      padding-bottom: 10px;
-    }
-    .track-back-kicker {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #fb923c;
-    }
-    .track-back-friction-label {
-      font-size: 0.65rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #ea580c;
-      background: rgba(234, 88, 12, 0.15);
-      border: 1px solid rgba(234, 88, 12, 0.3);
-      padding: 2px 8px;
-      border-radius: 999px;
-    }
-    .track-back-friction-text {
-      font-size: 0.88rem;
-      color: #f1f5f9;
-      line-height: 1.5;
-      margin: 0 0 14px;
-      font-style: italic;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 12px 14px;
-      border-left: 3px solid #ea580c;
-      border-radius: 0 6px 6px 0;
-    }
-    .track-back-linguistic {
-      margin-top: auto;
-      margin-bottom: 12px;
-      background: rgba(212, 168, 67, 0.08);
-      border: 1px solid rgba(212, 168, 67, 0.25);
-      border-radius: 6px;
-      padding: 10px 12px;
-    }
-    .track-back-ling-label {
-      font-size: 0.65rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      margin-bottom: 3px;
-    }
-    .track-back-ling-val {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-      line-height: 1.4;
-      margin: 0;
-    }
-    .track-back-btn {
+    .btn-flip-trigger {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      width: 100%;
-      background: #1e293b;
-      border: 1px solid #475569;
-      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--line);
       padding: 8px 12px;
+      border-radius: var(--radius-sm);
       font-size: 0.78rem;
       font-weight: 700;
-      color: #e2e8f0;
-      transition: all 0.2s ease;
+      color: var(--navy-deep);
       cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
     }
-    .track-back-btn:hover {
-      background: #334155;
-      color: #ffffff;
-      border-color: #64748b;
+    .btn-flip-trigger:hover {
+      background: #ffffff;
+      border-color: var(--navy);
+    }
+    .track-card-back .btn-flip-trigger {
+      background: #ffffff;
+    }
+    .track-card-back .btn-flip-trigger:hover {
+      background: var(--surface);
     }
 
   </style>
@@ -1747,554 +1397,290 @@
           </a>
         </div>
 
-        <!-- INTERACTIVE SILO BLUEPRINT: ARCHITECTURAL CROSS-SECTION -->
-<!-- REFINED EXECUTIVE ARCHITECTURAL BLUEPRINT (PREMIUM L&D STUDIO FINISH) -->
-<!-- LIGHT-THEME EXECUTIVE ARCHITECTURAL BLUEPRINT (LUMINOUS, CLEAN, EDITORIAL FINISH) -->
+        <!-- CASE SCENARIO -->
+        <!-- CLEAN MARKED DIVIDER -->
+        <div style="border-top: 1px solid var(--border); margin: 26px 0 22px;"></div>
 
-<!-- ==========================================================================
-     EXECUTIVE INCIDENT COCKPIT: SILO POST-MORTEM AUDIT (MARKED SLAB DIVIDERS)
-     ========================================================================== -->
-<div class="silo-blueprint-container" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 28px; margin-bottom: 32px; color: var(--ink); box-shadow: 0 4px 24px rgba(7, 21, 39, 0.06); position: relative; overflow: hidden;">
-  
-  <!-- ARCHITECTURAL BLUEPRINT GRID BACKGROUND -->
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(7, 21, 39, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(7, 21, 39, 0.02) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none;"></div>
+        <!-- CASE SCENARIO -->
+        <div style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-sm); padding:22px; margin-bottom:22px;">
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--navy); font-weight:800; margin-bottom:6px;">The Case Scenario</div>
+          <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">The Fire That Consumed Corporate Headquarters</h4>
+          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
+            A small fire breaks out in the courtyard garden outside a corporate headquarters. Employees in finance, marketing, legal, and engineering observe the smoke from their respective cubicle windows. Yet every employee rationalizes: <em>&ldquo;Extinguishing fires is not in my job description; facilities or external maintenance will handle it.&rdquo;</em>
+          </p>
+          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65;">
+            Nobody steps forward, nobody communicates across departmental borders, and nobody assumes cross-functional ownership. By the time the flames reach the server room and executive suites, the entire enterprise is reduced to ashes. Every department executed its narrow remit with technical precision&mdash;yet the organization suffered total failure.
+          </p>
+        </div>
 
-  <!-- COCKPIT HEADER -->
-  <div style="position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; border-bottom: 2px solid #0f172a; padding-bottom: 18px; flex-wrap: wrap; gap: 14px;">
-    <div>
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-        <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #854d0e; background: #fefce8; padding: 3px 12px; border-radius: 999px; border: 1px solid rgba(212, 168, 67, 0.4);">
-          Mintzberg Structural Dissection &middot; Post-Mortem Audit
-        </span>
-        <span style="font-size: 0.72rem; color: #64748b; font-family: 'JetBrains Mono', monospace;">AUDIT-REF: DWG-00 / SILO-COLLAPSE</span>
-      </div>
-      <h4 style="font-size: 1.35rem; font-weight: 800; color: var(--navy-deep); margin: 0; letter-spacing: -0.01em;">
-        Corporate Silo Dissection: The Anatomy of Inaction
-      </h4>
-      <p style="font-size: 0.9rem; color: #475569; margin: 4px 0 0; line-height: 1.5; max-width: 780px;">
-        Architectural cross-section demonstrating how hyper-specialization isolates leadership from operational reality. Click any level to inspect the systemic pathology and executive intervention.
-      </p>
-    </div>
-    <div style="align-self: center;">
-      <div style="display: flex; align-items: center; gap: 8px; background: #fef2f2; border: 1px solid #fecaca; padding: 6px 14px; border-radius: 6px;">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #dc2626; animation: pulse 2s infinite;"></span>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 800; color: #991b1b; text-transform: uppercase; letter-spacing: 0.06em;">
-          DRI: VACANT &middot; TOTAL LOSS
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- MAIN 2-COLUMN COCKPIT GRID -->
-  <div style="position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: stretch;">
-    
-    <!-- LEFT: STRUCTURAL ELEVATION WITH MARKED SEPARATION BARRIERS -->
-    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
-      
-      <!-- ROOF / CAPPING -->
-      <div style="border-bottom: 2px solid #0f172a; padding-bottom: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; color: #0f172a; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
-          Top Elevation +18.50m &middot; Boardroom Roof
-        </span>
-        <span style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-          Mintzberg 5-Part Model
-        </span>
-      </div>
-
-      <!-- TIER 03: STRATEGIC APEX -->
-      <div class="cockpit-tier-card" id="cockpitTier-3" onclick="selectCockpitStation(3)">
-        <div class="cockpit-tier-header">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="cockpit-tier-badge">LVL 03</span>
-            <span class="cockpit-tier-title" style="margin: 0;">Strategic Apex</span>
+        <!-- THEORETICAL FOUNDATION: MINTZBERG + SENGE -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; margin-bottom:22px;">
+          <!-- MINTZBERG -->
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <span class="badge badge-outline" style="font-size:10.5px;">Henry Mintzberg</span>
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Structural Diagnosis</span>
+            </div>
+            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The Machine Bureaucracy &amp; Silo Paralysis</h4>
+            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
+              Mintzberg proved that hyper-specialization and rigid job descriptions breed defensive functional silos. When unexpected cross-functional crises emerge, horizontal communication breaks down because employees defer coordination entirely to distant upper hierarchy.
+            </p>
           </div>
-          <span class="cockpit-tier-elev">ELEV +14.0m</span>
-        </div>
-        <p class="cockpit-tier-stance">
-          Boardroom &amp; Executive Suite. Formulates macro strategy, governance, and capital allocation while completely insulated from operational reality.
-        </p>
-        <div class="cockpit-tier-tagbar">
-          <span class="cockpit-tier-tag">C-Suite &middot; Board</span>
-          <span class="cockpit-tier-tag status-tag">Blind Horizon</span>
-          <span class="cockpit-tier-tag">Escalation Latency: Critical</span>
-        </div>
-      </div>
 
-      <!-- MARKED STRUCTURAL DIVIDER 01 -->
-      <div class="silo-structural-divider">
-        <div class="silo-divider-line"></div>
-        <div class="silo-divider-badge">
-          <span class="divider-icon">&#9670;</span>
-          <span class="divider-title">STRUCTURAL ISOLATION BARRIER 02</span>
-          <span class="divider-meta">LATENCY GAP: +45 MINS &middot; 0% UPWARD ESCALATION</span>
-        </div>
-        <div class="silo-divider-line"></div>
-      </div>
-
-      <!-- TIER 02: MIDDLE LINE -->
-      <div class="cockpit-tier-card" id="cockpitTier-2" onclick="selectCockpitStation(2)">
-        <div class="cockpit-tier-header">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="cockpit-tier-badge">LVL 02</span>
-            <span class="cockpit-tier-title" style="margin: 0;">Middle Line &middot; Directorate</span>
+          <!-- SENGE -->
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <span class="badge badge-teal" style="font-size:10.5px;">Peter Senge</span>
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Cognitive Diagnosis</span>
+            </div>
+            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The 1st Learning Disability: &ldquo;I Am My Position&rdquo;</h4>
+            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
+              In <em>The Fifth Discipline</em>, Senge diagnoses the fatal mental model: when professionals identify exclusively with their job title rather than the broader enterprise, they develop zero accountability for the outcomes produced where multiple positions interact.
+            </p>
           </div>
-          <span class="cockpit-tier-elev">ELEV +9.5m</span>
         </div>
-        <p class="cockpit-tier-stance">
-          Finance, Legal, and Operations. Chokepoint of bureaucratic protocols. Drafts red-tape memos and protects departmental boundaries instead of containing the incident.
-        </p>
-        <div class="cockpit-tier-tagbar">
-          <span class="cockpit-tier-tag">Finance &middot; Legal &middot; Ops</span>
-          <span class="cockpit-tier-tag status-tag">Protocol Paralysis</span>
-          <span class="cockpit-tier-tag">Bureaucratic Buffer</span>
-        </div>
-      </div>
 
-      <!-- MARKED STRUCTURAL DIVIDER 02 -->
-      <div class="silo-structural-divider">
-        <div class="silo-divider-line"></div>
-        <div class="silo-divider-badge">
-          <span class="divider-icon">&#9670;</span>
-          <span class="divider-title">STRUCTURAL ISOLATION BARRIER 01</span>
-          <span class="divider-meta">RESPONSIBILITY GAP &middot; "NOT MY JOB" FILTER</span>
-        </div>
-        <div class="silo-divider-line"></div>
-      </div>
-
-      <!-- TIER 01: OPERATING CORE -->
-      <div class="cockpit-tier-card is-active" id="cockpitTier-1" onclick="selectCockpitStation(1)">
-        <div class="cockpit-tier-header">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="cockpit-tier-badge">LVL 01</span>
-            <span class="cockpit-tier-title" style="margin: 0;">Operating Core &middot; Frontline</span>
+        <!-- THE BUSINESS ENGLISH BRIDGE -->
+        <div style="background:#fdfaf3; border:1px solid rgba(212, 168, 67, 0.4); border-radius:var(--radius-sm); padding:20px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span class="badge badge-gold">The Business English Bridge</span>
+            <h4 style="font-size:1.02rem; font-weight:800; color:var(--navy);">Why Traditional Grammar Textbooks Fail in Real Management</h4>
           </div>
-          <span class="cockpit-tier-elev">ELEV +4.5m</span>
+          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
+            Traditional courses assume business communication consists of polite greetings, formal letters, and generic grammar units. But real managerial life&mdash;as Mintzberg and Senge prove&mdash;is an unrelenting cycle of friction, operational firefighting, and cross-functional interdependence.
+          </p>
+          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65;">
+            L&amp;D Studio's 6 lifecycle tracks provide bilingual professionals with the <strong>diplomatic and systemic linguistic tools</strong> required to break through departmental silos: explaining operational breakdowns without defensiveness, trading conditional concessions, negotiating dependencies, and leading cross-functional alignment before systemic friction destroys enterprise value.
+          </p>
         </div>
-        <p class="cockpit-tier-stance">
-          Lobby Reception &amp; Frontline Clerks. Ground zero of incident detection. Identifies the initial smoke but disclaims responsibility due to rigid job descriptions.
-        </p>
-        <div class="cockpit-tier-tagbar">
-          <span class="cockpit-tier-tag">Reception &middot; Support Desk</span>
-          <span class="cockpit-tier-tag status-tag">Ground Zero &middot; Fire Origin</span>
-          <span class="cockpit-tier-tag">Containment Window: 15m</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT: EXECUTIVE CRISIS AUDIT MONITOR -->
-    <div class="cockpit-monitor-panel">
-      
-      <!-- MONITOR TOP BAR -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 800; color: #0f172a; text-transform: uppercase;">
-            STATION AUDIT &middot; <span id="cockpitStationId">TIER 01 / OPERATING CORE</span>
-          </span>
-        </div>
-        <span style="font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: #64748b;" id="cockpitStationCoord">ELEV +4.5m &middot; SEC 01</span>
-      </div>
-
-      <!-- 3 EXECUTIVE IMPACT METRICS -->
-      <div class="cockpit-kpi-grid">
-        <div class="cockpit-kpi-card">
-          <div class="cockpit-kpi-label">Financial Exposure</div>
-          <div class="cockpit-kpi-val kpi-danger" id="cockpitKpiLoss">$4,200,000</div>
-          <div style="font-size: 0.65rem; color: #94a3b8; margin-top: 2px;" id="cockpitKpiLossSub">Total Asset Conflagration</div>
-        </div>
-        <div class="cockpit-kpi-card">
-          <div class="cockpit-kpi-label">Escalation Velocity</div>
-          <div class="cockpit-kpi-val kpi-danger" id="cockpitKpiSpeed">0 km/h</div>
-          <div style="font-size: 0.65rem; color: #94a3b8; margin-top: 2px;" id="cockpitKpiSpeedSub">Paralyzed at Frontline</div>
-        </div>
-        <div class="cockpit-kpi-card">
-          <div class="cockpit-kpi-label">Accountability</div>
-          <div class="cockpit-kpi-val kpi-danger" id="cockpitKpiIndex">0.0 / 10</div>
-          <div style="font-size: 0.65rem; color: #94a3b8; margin-top: 2px;" id="cockpitKpiIndexSub">DRI Disclaimed</div>
-        </div>
-      </div>
-
-      <!-- AUDIT TESTIMONY (WHAT THEY SAID) -->
-      <div class="cockpit-quote-box">
-        <div class="cockpit-quote-label" id="cockpitQuoteLabel">Station Testimony &middot; Frontline Clerk</div>
-        <p class="cockpit-quote-text" id="cockpitQuoteText">
-          &ldquo;Look at that smoke in the courtyard! But extinguishing fires is not specified anywhere in my employment contract. That is definitively not my job.&rdquo;
-        </p>
-      </div>
-
-      <!-- SYSTEMIC PATHOLOGY (PETER SENGE DIAGNOSIS) -->
-      <div class="cockpit-diagnosis-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-deep);">
-            Systemic Pathology &middot; Peter Senge
-          </strong>
-          <span style="font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; color: #64748b;" id="cockpitSengeRef">The Fifth Discipline &middot; MIT</span>
-        </div>
-        <p style="font-size: 0.85rem; color: #334155; line-height: 1.5; margin: 0;" id="cockpitDiagnosisText">
-          <strong>&ldquo;I am my position&rdquo;:</strong> When individuals confuse their job description with their systemic responsibility, they disclaim ownership of evolving crises. The failure to intervene at ground level guarantees systemic destruction.
-        </p>
-      </div>
-
-      <!-- L&D STUDIO EXECUTIVE PIVOT -->
-      <div class="cockpit-bridge-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #15803d;">
-            L&amp;D Studio Tactical English Bridge
-          </strong>
-          <span style="font-size: 0.68rem; font-weight: 700; color: #16a34a; background: #dcfce7; padding: 1px 6px; border-radius: 3px;">
-            C-Suite Standard
-          </span>
-        </div>
-        <p style="font-size: 0.85rem; color: #14532d; line-height: 1.5; margin: 0 0 6px;" id="cockpitBridgePhrase">
-          <em>&ldquo;While this falls outside standard reception protocol, the immediate threat demands cross-functional action. I am initiating emergency containment and establishing direct line ownership immediately.&rdquo;</em>
-        </p>
-        <div style="font-size: 0.72rem; color: #166534; font-weight: 600;" id="cockpitBridgeFocus">
-          Linguistic Focus: Proactive cross-functional initiative &middot; Piercing the silo boundary before conflagration.
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-<!-- ==========================================================================
-     END EXECUTIVE INCIDENT COCKPIT
-     ========================================================================== -->
-
-
-</div>
-
       </div>
 
         
-        <div class="tracks-header-toolbar">
-          <div>
-            <h3 class="section-heading" style="margin: 0 0 6px;">The 6 Pillars of the Corporate Lifecycle</h3>
-            <p class="section-desc" style="margin: 0; max-width: 680px;">
-              Instead of disconnected grammar drills, L&amp;D Studio maps English directly to the recurring operational loop where managerial credibility is made or lost. Click any card to inspect its high-stakes friction point.
-            </p>
-          </div>
-          <div class="tracks-toolbar-actions">
-            <button class="tracks-action-btn" onclick="toggleAllTrackCards(true)">
-              Flip All to Friction &orarr;
-            </button>
-            <button class="tracks-action-btn" onclick="toggleAllTrackCards(false)">
-              Reset to Overview &olarr;
-            </button>
+      <!-- TRACKS HEADER TOOLBAR -->
+      <div class="tracks-header-bar">
+        <div class="tracks-header-text">
+          <h3 class="section-heading">The 6 Pillars of the Corporate Lifecycle</h3>
+          <p class="section-desc">
+            Instead of disconnected grammar chapters, L&amp;D Studio maps English directly to the recurring operational loop. Haz clic en cada tarjeta para consultar el Friction Point &ldquo;a la vuelta&rdquo;.
+          </p>
+        </div>
+        <div class="tracks-toolbar-btns">
+          <button type="button" class="btn-track-action" onclick="toggleAllTrackFlips(true)">
+            Ver todos a la vuelta &rarr;
+          </button>
+          <button type="button" class="btn-track-action" onclick="toggleAllTrackFlips(false)">
+            Restablecer al frente &larr;
+          </button>
+        </div>
+      </div>
+
+      <div class="tracks-grid">
+        
+        <!-- TRACK 01 -->
+        <div class="track-card-flip-wrap" id="trackFlip-1">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 01</div>
+                <h4 class="track-card-title">Crisis &amp; Operations</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Firefighting &amp; Delayed Delivery Windows&rdquo;</div>
+                <p class="track-card-desc">
+                  Sudden client deadline renegotiations, unexpected port congestion, logistics bottlenecks, and SLA breach defenses under strict delivery windows.
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(1)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 01 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">Crisis &amp; Operations</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Explaining systemic failure without appearing incompetent; proposing partial shipments and viable contingencies without overpromising.&rdquo;
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(1)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="tracks-flip-grid">
-          
-          <!-- TRACK 01 -->
-          <div class="track-flip-card" id="trackCard-1" onclick="flipTrackCard(event, 1)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 01</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Operational</span>
-                  </div>
-                  <h4 class="track-front-title">Crisis &amp; Operations</h4>
-                  <div class="track-front-subtitle">&ldquo;Firefighting &amp; Delayed Delivery Windows&rdquo;</div>
-                  <p class="track-front-desc">
-                    Sudden client deadline renegotiations, unexpected port congestion, logistics bottlenecks, and SLA breach defenses under strict delivery windows.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">Logistics</span>
-                    <span class="track-front-tag">SLA Defense</span>
-                    <span class="track-front-tag">Customs</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
+        <!-- TRACK 02 -->
+        <div class="track-card-flip-wrap" id="trackFlip-2">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 02</div>
+                <h4 class="track-card-title">Meetings &amp; Alignment</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Incident Post-Mortems &amp; Floor Moderation&rdquo;</div>
+                <p class="track-card-desc">
+                  Post-mortem incident debriefs, facilitating tense cross-functional meetings between Ops, Sales, and Tech, and assigning explicit DRI follow-up.
+                </p>
               </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 01 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Explaining systemic failure without appearing incompetent; proposing partial shipments and viable contingencies without overpromising.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Third Conditionals, Counterfactual Causality (<em>due to vs because of</em>) &amp; Mitigated Contingency Proposals.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(2)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 02 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">Meetings &amp; Alignment</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Explaining operational breakdowns without defensiveness; cutting off digressions politely and establishing action item ownership.&rdquo;
+                </p>
               </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(2)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
             </div>
           </div>
-
-          <!-- TRACK 02 -->
-          <div class="track-flip-card" id="trackCard-2" onclick="flipTrackCard(event, 2)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 02</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Alignment</span>
-                  </div>
-                  <h4 class="track-front-title">Meetings &amp; Alignment</h4>
-                  <div class="track-front-subtitle">&ldquo;Incident Post-Mortems &amp; Floor Moderation&rdquo;</div>
-                  <p class="track-front-desc">
-                    Post-mortem incident debriefs, facilitating tense cross-functional meetings between Ops, Sales, and Tech, and assigning explicit DRI follow-up.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">Post-Mortem</span>
-                    <span class="track-front-tag">Cross-Functional</span>
-                    <span class="track-front-tag">DRI Ownership</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
-              </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 02 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Explaining operational breakdowns without defensiveness; cutting off digressions politely and establishing action item ownership.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Floor Moderation Signposts, Diplomatic Interruption &amp; Action Item Accountability Syntax.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TRACK 03 -->
-          <div class="track-flip-card" id="trackCard-3" onclick="flipTrackCard(event, 3)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 03</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Commercial</span>
-                  </div>
-                  <h4 class="track-front-title">Client Relations</h4>
-                  <div class="track-front-subtitle">&ldquo;Account Retention &amp; Diplomatic Concessions&rdquo;</div>
-                  <p class="track-front-desc">
-                    De-escalating furious enterprise buyers, trading conditional concessions, resisting scope creep diplomatically, and preserving strategic partnerships.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">De-escalation</span>
-                    <span class="track-front-tag">Scope Creep</span>
-                    <span class="track-front-tag">Account Retention</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
-              </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 03 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Calming angry stakeholders without admitting unwarranted legal liability; conceding on non-essentials to preserve commercial margin.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Conditional Concession Stance (<em>Provided that / On condition that</em>) &amp; Depersonalized Empathy.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TRACK 04 -->
-          <div class="track-flip-card" id="trackCard-4" onclick="flipTrackCard(event, 4)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 04</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Corporate</span>
-                  </div>
-                  <h4 class="track-front-title">Finance &amp; Legal</h4>
-                  <div class="track-front-subtitle">&ldquo;Disputed Invoices &amp; Contract Redlines&rdquo;</div>
-                  <p class="track-front-desc">
-                    Accounts Payable reconciliations, resolving 3-way matching discrepancies (PO, packing slip, invoice), communicating Net 30/60 terms, and negotiating MSA redlines.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">AP / AR</span>
-                    <span class="track-front-tag">3-Way Match</span>
-                    <span class="track-front-tag">MSA Redlines</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
-              </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 04 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Eliminating payment ambiguity, defending corporate credit terms, and negotiating indemnification clauses across legal jurisdictions.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Precision Financial Assertiveness, Contractual Modality (<em>shall vs may</em>) &amp; Discrepancy Reconciliation.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TRACK 05 -->
-          <div class="track-flip-card" id="trackCard-5" onclick="flipTrackCard(event, 5)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 05</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Leadership</span>
-                  </div>
-                  <h4 class="track-front-title">People &amp; HR</h4>
-                  <div class="track-front-subtitle">&ldquo;Internal 1-on-1 Friction &amp; Boundary Defense&rdquo;</div>
-                  <p class="track-front-desc">
-                    Setting diplomatic workplace boundaries (saying &ldquo;No&rdquo; professionally), delivering radical candor performance feedback, and managing team burnout.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">Radical Candor</span>
-                    <span class="track-front-tag">Boundary Defense</span>
-                    <span class="track-front-tag">1-on-1 Friction</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
-              </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 05 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Challenging directly while caring personally; protecting personal bandwidth without damaging professional relationships.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Professional Refusal Strategies (<em>Saying &ldquo;No&rdquo; Diplomatically</em>) &amp; SBI Feedback Protocol.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TRACK 06 -->
-          <div class="track-flip-card" id="trackCard-6" onclick="flipTrackCard(event, 6)">
-            <div class="track-flip-inner">
-              <!-- FRONT -->
-              <div class="track-flip-front">
-                <div>
-                  <div class="track-front-num">
-                    <span>Track 06</span>
-                    <span style="font-size: 0.65rem; color: #94a3b8;">Governance</span>
-                  </div>
-                  <h4 class="track-front-title">Boardroom Strategy</h4>
-                  <div class="track-front-subtitle">&ldquo;Quarterly Budget Defense &amp; Executive Value&rdquo;</div>
-                  <p class="track-front-desc">
-                    Defending quarterly Capex/Opex budget variances to corporate controllers, presenting strategic value pitches to directors, and leading all-hands town halls.
-                  </p>
-                  <div class="track-front-tags">
-                    <span class="track-front-tag">Capex / Opex</span>
-                    <span class="track-front-tag">Budget Defense</span>
-                    <span class="track-front-tag">C-Suite Pitch</span>
-                  </div>
-                </div>
-                <button class="track-front-btn" type="button">
-                  <span>Inspect Friction Point &ldquo;a la vuelta&rdquo;</span> &orarr;
-                </button>
-              </div>
-              <!-- BACK -->
-              <div class="track-flip-back">
-                <div>
-                  <div class="track-back-header">
-                    <span class="track-back-kicker">Track 06 &middot; Friction Point</span>
-                    <span class="track-back-friction-label">High Stakes</span>
-                  </div>
-                  <div class="track-back-friction-text">
-                    &ldquo;Justifying overhead variations with mathematical precision and inspiring organizational alignment under market uncertainty.&rdquo;
-                  </div>
-                </div>
-                <div>
-                  <div class="track-back-linguistic">
-                    <div class="track-back-ling-label">Tactical Linguistic Focus</div>
-                    <p class="track-back-ling-val">
-                      Executive Summary Cadence (<em>Bottom-Line-Up-Front</em>) &amp; Quantitative Variance Justification.
-                    </p>
-                  </div>
-                  <button class="track-back-btn" type="button">
-                    <span>Return to Overview</span> &olarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
+        <!-- TRACK 03 -->
+        <div class="track-card-flip-wrap" id="trackFlip-3">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 03</div>
+                <h4 class="track-card-title">Client Relations</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Account Retention &amp; Diplomatic Concessions&rdquo;</div>
+                <p class="track-card-desc">
+                  De-escalating furious enterprise buyers, trading conditional concessions, resisting scope creep diplomatically, and preserving strategic partnerships.
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(3)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 03 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">Client Relations</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Calming angry stakeholders without admitting unwarranted legal liability; conceding on non-essentials to preserve commercial margin.&rdquo;
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(3)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 04 -->
+        <div class="track-card-flip-wrap" id="trackFlip-4">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 04</div>
+                <h4 class="track-card-title">Finance &amp; Legal</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Disputed Invoices &amp; Contract Redlines&rdquo;</div>
+                <p class="track-card-desc">
+                  Accounts Payable reconciliations, resolving 3-way matching discrepancies (PO, packing slip, invoice), communicating Net 30/60 terms, and negotiating MSA redlines.
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(4)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 04 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">Finance &amp; Legal</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Eliminating payment ambiguity, defending corporate credit terms, and negotiating indemnification clauses across legal jurisdictions.&rdquo;
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(4)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 05 -->
+        <div class="track-card-flip-wrap" id="trackFlip-5">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 05</div>
+                <h4 class="track-card-title">People &amp; HR</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Internal 1-on-1 Friction &amp; Boundary Defense&rdquo;</div>
+                <p class="track-card-desc">
+                  Setting diplomatic workplace boundaries (saying &ldquo;No&rdquo; professionally), delivering radical candor performance feedback, and managing team burnout.
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(5)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 05 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">People &amp; HR</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Challenging directly while caring personally; protecting personal bandwidth without damaging professional relationships.&rdquo;
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(5)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 06 -->
+        <div class="track-card-flip-wrap" id="trackFlip-6">
+          <div class="track-card-flipper">
+            <!-- FRONT -->
+            <div class="track-card-face track-card-front">
+              <div>
+                <div class="track-card-num">Track 06</div>
+                <h4 class="track-card-title">Boardroom Strategy</h4>
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 8px;">&ldquo;Quarterly Budget Defense &amp; Executive Value&rdquo;</div>
+                <p class="track-card-desc">
+                  Defending quarterly Capex/Opex budget variances to corporate controllers, presenting strategic value pitches to directors, and leading all-hands town halls.
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(6)">
+                <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
+              </button>
+            </div>
+            <!-- BACK -->
+            <div class="track-card-face track-card-back">
+              <div>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 06 &middot; Friction Point</div>
+                <h4 class="track-card-title" style="font-size: 1rem; margin-bottom: 12px;">Boardroom Strategy</h4>
+                <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px;">The Operational Dilemma:</div>
+                <p style="font-size: 0.88rem; color: var(--ink); line-height: 1.6; font-style: italic; margin: 0 0 14px;">
+                  &ldquo;Justifying overhead variations with mathematical precision and inspiring organizational alignment under market uncertainty.&rdquo;
+                </p>
+              </div>
+              <button type="button" class="btn-flip-trigger" onclick="toggleTrackFlip(6)">
+                &larr; <span>Volver a la descripción</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- TAB 3: GRAMMAR ANCHOR -->
@@ -2552,87 +1938,6 @@
   </footer>
 
   <script>
-    const floorData = {
-      0: {
-        level: "LVL 00 &middot; ELEV &plusmn;0.0m",
-        badge: "Critical Boundary Trigger",
-        title: "Ground Zero &middot; The Courtyard Perimeter &amp; Utilities",
-        desc: "A severed municipal water supply pipe and a discarded smoldering cigarette create a compound hazard. Third-party utility workers assume building facilities will discover the shutdown autonomously.",
-        quote: "&ldquo;Notifying building tenants is outside our service contract. External maintenance or facilities should handle that.&rdquo;",
-        theory: "Upstream Blind Spot &amp; Outsourcing Friction: Critical infrastructure dependencies severed without downstream warning signaling.",
-        tactical: "Direct cross-entity alert formula: &ldquo;Be advised that main water utilities are shut down until 17:00 due to exterior line maintenance.&rdquo;"
-      },
-      1: {
-        level: "LVL 01 &middot; ELEV +4.5m",
-        badge: "Operating Core &middot; Frontline Role Shield",
-        title: "Operating Core &middot; Reception Desk &amp; Frontline Staff",
-        desc: "Reception and frontline administrative clerks are the first to smell smoke blowing into the lobby. They look out the window at the smoldering lawn, yet choose not to act because crisis management is not in their job description.",
-        quote: "&ldquo;I am only on reception. Extinguishing outdoor fires is not in my job description; maintenance or the managers upstairs will deal with it.&rdquo;",
-        theory: "Senge's 1st Disability: &ldquo;I Am My Position&rdquo; &mdash; frontline personnel defining their responsibilities strictly by narrow task boundaries rather than enterprise survival.",
-        tactical: "Horizontal intervention model: &ldquo;Flagging an immediate structural hazard directly outside the lobby entrance to initiate early containment.&rdquo;"
-      },
-      2: {
-        level: "LVL 02 &middot; ELEV +9.5m",
-        badge: "Middle Line &middot; Bureaucratic Latency",
-        title: "Middle Line &middot; Finance, Operations &amp; Legal Directorate",
-        desc: "Department heads and middle managers observe flames licking exterior windows. Instead of taking immediate horizontal initiative, they draft internal memos and argue about departmental jurisdiction and chain of command.",
-        quote: "&ldquo;We cannot dial emergency services without executive sign-off; that would bypass standard chain-of-command protocol.&rdquo;",
-        theory: "Mintzberg's Machine Bureaucracy: Hyper-standardized rules and vertical reporting lines paralyze swift decision-making in non-routine crises.",
-        tactical: "Conditional urgency escalation: &ldquo;Given the active structural threat, I am initiating emergency protocols unless expressly countermanded.&rdquo;"
-      },
-      3: {
-        level: "LVL 03 &middot; ELEV +14.0m",
-        badge: "Strategic Apex &middot; Executive Suite",
-        title: "The Strategic Apex &middot; Boardroom &amp; C-Suite",
-        desc: "Flames engulf the server core, executive suites, and corporate archives. The organization collapses while every department head defends their KPI compliance record on the pavement outside.",
-        quote: "&ldquo;Nobody did anything wrong. Every single department strictly adhered to its operating guidelines right until the building collapsed.&rdquo;",
-        theory: "The Silo Paradox: Flawless individual execution of localized micro-protocols leading directly to total enterprise failure.",
-        tactical: "The Corporate Loop Mindset: Equipping bilingual leaders with cross-functional negotiation and alignment language across all 6 operational tracks."
-      }
-    };
-
-    let currentSelectedFloor = 0;
-
-    function selectBlueprintFloor(floorNum) {
-      currentSelectedFloor = floorNum;
-      const data = floorData[floorNum];
-      if (!data) return;
-
-      document.getElementById('inspectBadge').innerHTML = data.badge;
-      document.getElementById('inspectLevel').innerHTML = data.level;
-      document.getElementById('inspectTitle').innerHTML = data.title;
-      document.getElementById('inspectDescription').innerHTML = data.desc;
-      document.getElementById('inspectQuote').innerHTML = data.quote;
-      document.getElementById('inspectTheory').innerHTML = data.theory;
-      document.getElementById('inspectTactical').innerHTML = data.tactical;
-
-      for (let i = 0; i <= 3; i++) {
-        const f = document.getElementById('bFloor-' + i);
-        if (f) {
-          if (i === floorNum) {
-            f.style.background = '#fefce8';
-            f.style.borderColor = 'var(--gold)';
-            f.style.boxShadow = '0 2px 14px rgba(212, 168, 67, 0.22)';
-          } else {
-            f.style.background = '#ffffff';
-            f.style.borderColor = 'var(--border)';
-            f.style.boxShadow = 'none';
-          }
-        }
-      }
-    }
-
-    function cycleBlueprintFloor(direction) {
-      let next = currentSelectedFloor + direction;
-      if (next < 0) next = 3;
-      if (next > 3) next = 0;
-      selectBlueprintFloor(next);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      selectBlueprintFloor(0);
-    });
-
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -2801,134 +2106,17 @@
     }
   
 
-    /* ==========================================================================
-       EXECUTIVE COCKPIT & 3D FLIP TRACKS CONTROLLERS
-       ========================================================================== */
-    const cockpitData = {
-      1: {
-        stationId: "TIER 01 / OPERATING CORE",
-        coord: "ELEV +4.5m &middot; SEC 01 (GROUND ZERO)",
-        loss: "$45,000",
-        lossSub: "Early Inception Window",
-        speed: "0 km/h",
-        speedSub: "Paralyzed at Frontline Desk",
-        index: "1.0 / 10",
-        indexSub: "Local Disclaiming",
-        quoteLabel: "Station Testimony &middot; Lobby Receptionist",
-        quoteText: "\u201cLook at that smoke in the courtyard! But extinguishing fires is not specified anywhere in my employment contract. That is definitively not my job.\u201d",
-        sengeRef: "The Fifth Discipline &middot; MIT",
-        diagnosisText: "<strong>\u201cI am my position\u201d:</strong> When individuals confuse their job description with their systemic responsibility, they disclaim ownership of evolving crises. The failure to intervene at ground level guarantees systemic destruction.",
-        bridgePhrase: "\u201cWhile this falls outside standard reception protocol, the immediate threat demands cross-functional action. I am initiating emergency containment and establishing direct line ownership immediately.\u201d",
-        bridgeFocus: "Linguistic Focus: Proactive cross-functional initiative &middot; Piercing the silo boundary before conflagration."
-      },
-      2: {
-        stationId: "TIER 02 / MIDDLE LINE & DIRECTORATE",
-        coord: "ELEV +9.5m &middot; SEC 02 (BUREAUCRATIC CHOKEPOINT)",
-        loss: "$850,000",
-        lossSub: "Compounding Asset Exposure",
-        speed: "5 km/h",
-        speedSub: "Delayed by Paperwork & Memos",
-        index: "2.5 / 10",
-        indexSub: "Risk Aversion Buffer",
-        quoteLabel: "Station Testimony &middot; Operations & Legal Directorate",
-        quoteText: "\u201cWe have drafted a formal internal memorandum regarding the smoke report. Until Finance approves the requisition order and Legal confirms liability boundaries, we cannot authorize operational intervention.\u201d",
-        sengeRef: "Structure Influences Behavior &middot; MIT",
-        diagnosisText: "<strong>\u201cThe Enemy is Out There\u201d:</strong> Middle management defends functional turf and checklists to avoid liability. They treat interdepartmental friction as an external inconvenience rather than a shared operational emergency.",
-        bridgePhrase: "\u201cGiven the operational escalation risk, let us bypass conventional sign-off latency. I am expediting provisional authorization for emergency assets, subject to retroactive post-incident reconciliation.\u201d",
-        bridgeFocus: "Linguistic Focus: Diplomatic bypassing of red tape &middot; Provisional authorization with retroactive auditing."
-      },
-      3: {
-        stationId: "TIER 03 / STRATEGIC APEX (C-SUITE)",
-        coord: "ELEV +14.0m &middot; SEC 03 (BOARDROOM HORIZON)",
-        loss: "$4,200,000",
-        lossSub: "Total Enterprise Conflagration",
-        speed: "0 km/h",
-        speedSub: "Zero Upward Signal Visibility",
-        index: "0.0 / 10",
-        indexSub: "Total Governance Failure",
-        quoteLabel: "Station Testimony &middot; Executive Boardroom",
-        quoteText: "\u201cWhy was the Executive Committee not briefed on this conflagration forty-five minutes ago? Who holds primary operational accountability for this facility?\u201d",
-        sengeRef: "The Delusion of Learning from Experience &middot; MIT",
-        diagnosisText: "<strong>\u201cThe Boiling Frog &amp; Executive Insulation\u201d:</strong> Because vertical communication channels filter out unpleasant signals, the C-Suite remains completely oblivious until catastrophe is irreversible.",
-        bridgePhrase: "\u201cThe post-mortem confirms that structural silos suppressed early warning indicators. To prevent recurring blindness, we are institutionalizing cross-functional rapid escalation channels with single DRI ownership across all tiers.\u201d",
-        bridgeFocus: "Linguistic Focus: Root cause framing &middot; Decisive governance restructuring without interpersonal recrimination."
-      }
-    };
-
-    function selectCockpitStation(tierNum) {
-      // Update active card state
-      [1, 2, 3].forEach(n => {
-        const card = document.getElementById('cockpitTier-' + n);
-        if (card) {
-          if (n === tierNum) card.classList.add('is-active');
-          else card.classList.remove('is-active');
-        }
-      });
-
-      // Update monitor data
-      const data = cockpitData[tierNum];
-      if (!data) return;
-
-      const stationIdEl = document.getElementById('cockpitStationId');
-      if (stationIdEl) stationIdEl.innerHTML = data.stationId;
-
-      const coordEl = document.getElementById('cockpitStationCoord');
-      if (coordEl) coordEl.innerHTML = data.coord;
-
-      const lossEl = document.getElementById('cockpitKpiLoss');
-      if (lossEl) lossEl.innerText = data.loss;
-
-      const lossSubEl = document.getElementById('cockpitKpiLossSub');
-      if (lossSubEl) lossSubEl.innerText = data.lossSub;
-
-      const speedEl = document.getElementById('cockpitKpiSpeed');
-      if (speedEl) speedEl.innerText = data.speed;
-
-      const speedSubEl = document.getElementById('cockpitKpiSpeedSub');
-      if (speedSubEl) speedSubEl.innerText = data.speedSub;
-
-      const indexEl = document.getElementById('cockpitKpiIndex');
-      if (indexEl) indexEl.innerText = data.index;
-
-      const indexSubEl = document.getElementById('cockpitKpiIndexSub');
-      if (indexSubEl) indexSubEl.innerText = data.indexSub;
-
-      const quoteLabelEl = document.getElementById('cockpitQuoteLabel');
-      if (quoteLabelEl) quoteLabelEl.innerText = data.quoteLabel;
-
-      const quoteTextEl = document.getElementById('cockpitQuoteText');
-      if (quoteTextEl) quoteTextEl.innerHTML = data.quoteText;
-
-      const sengeRefEl = document.getElementById('cockpitSengeRef');
-      if (sengeRefEl) sengeRefEl.innerText = data.sengeRef;
-
-      const diagnosisTextEl = document.getElementById('cockpitDiagnosisText');
-      if (diagnosisTextEl) diagnosisTextEl.innerHTML = data.diagnosisText;
-
-      const bridgePhraseEl = document.getElementById('cockpitBridgePhrase');
-      if (bridgePhraseEl) bridgePhraseEl.innerHTML = '<em>' + data.bridgePhrase + '</em>';
-
-      const bridgeFocusEl = document.getElementById('cockpitBridgeFocus');
-      if (bridgeFocusEl) bridgeFocusEl.innerHTML = data.bridgeFocus;
+    function toggleTrackFlip(trackNum) {
+      const el = document.getElementById('trackFlip-' + trackNum);
+      if (el) el.classList.toggle('is-flipped');
     }
 
-    // 3D Flip Card Toggle Functions
-    function flipTrackCard(event, trackNum) {
-      const card = document.getElementById('trackCard-' + trackNum);
-      if (card) {
-        card.classList.toggle('is-flipped');
-      }
-    }
-
-    function toggleAllTrackCards(flipToBack) {
+    function toggleAllTrackFlips(toBack) {
       for (let i = 1; i <= 6; i++) {
-        const card = document.getElementById('trackCard-' + i);
-        if (card) {
-          if (flipToBack) {
-            card.classList.add('is-flipped');
-          } else {
-            card.classList.remove('is-flipped');
-          }
+        const el = document.getElementById('trackFlip-' + i);
+        if (el) {
+          if (toBack) el.classList.add('is-flipped');
+          else el.classList.remove('is-flipped');
         }
       }
     }
