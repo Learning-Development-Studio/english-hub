@@ -1195,6 +1195,16 @@
   
 
     /* CUSTOM ENHANCEMENTS FOR CRISIS MODE */
+    img { max-width: 100%; }
+    .brand-logo, .brand-logo-img {
+      width: 44px !important;
+      height: 44px !important;
+      max-width: 44px !important;
+      max-height: 44px !important;
+      object-fit: contain !important;
+      border-radius: 50% !important;
+      display: inline-block !important;
+    }
     .crisis-card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1402,13 +1412,13 @@
   <!-- TOP HEADER -->
   <header class="app-header">
     <div class="header-inner">
-      <div class="brand-block">
-        <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="L&D Studio Logo" class="brand-logo-img">
+      <a href="../../a1-2_workspace.html" class="brand-lockup">
+        <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="L&D Studio Logo" class="brand-logo" style="width: 44px; height: 44px; max-width: 44px; max-height: 44px; object-fit: contain; border-radius: 50%; background: var(--white); padding: 2px;">
         <div class="brand-text-block">
           <small class="font-mono">Learning &amp; Development Studio</small>
           <strong>English Hub &middot; Executive Interactive Class</strong>
         </div>
-      </div>
+      </a>
       <div class="header-actions">
         <span class="student-pill font-mono" id="studentTag">Student: <strong>Israel Ventura</strong></span>
         <a href="../../a1-2_workspace.html" class="nav-back-link">&larr; Back to A1.2 Workspace</a>
