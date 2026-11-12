@@ -1182,6 +1182,10 @@
         <span class="brand-track">Business English · Foundation · BE-00</span>
       </div>
       <div class="nav-actions">
+        <button type="button" onclick="unlockTeacherNotes()" class="btn-return" id="teacherVersionBtn" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; border-color: rgba(212, 168, 67, 0.45); color: #fef3c7;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Teacher&rsquo;s Version</span>
+        </button>
         <a href="../../business_workspace.html" class="btn-return">
           &larr; Back to Business Workspace
         </a>
@@ -2149,6 +2153,25 @@
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active');
       window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    
+    function unlockTeacherNotes() {
+      try {
+        if (sessionStorage.getItem('ld-coordinator-auth') === 'granted') {
+          openTeacherNotes();
+          return;
+        }
+      } catch (_) {}
+      const pin = prompt('Enter Teacher PIN to open Teacher\x27s Version:');
+      if (!pin) return;
+      const validPins = ['2680', '5726', '8826', '2026', 'admin'];
+      if (validPins.includes(pin.trim())) {
+        try { sessionStorage.setItem('ld-coordinator-auth', 'granted'); } catch (_) {}
+        openTeacherNotes();
+      } else {
+        alert('Incorrect PIN. Teacher access denied.');
+      }
     }
 
     function openTeacherNotes() {
