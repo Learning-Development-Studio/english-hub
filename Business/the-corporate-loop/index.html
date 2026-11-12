@@ -1038,8 +1038,34 @@
 
 
     /* ==========================================================================
-       EDITORIAL 3D FLIP FOR TRACKS (SOBER, CLEAN, ZERO COLORED BORDERS)
+       MARKED STRUCTURAL DIVIDERS & CLEAN FLIP TRACKS (L&D STUDIO EDITORIAL)
        ========================================================================== */
+    .silo-marked-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .silo-marked-line {
+      flex: 1;
+      height: 2px;
+      background: var(--navy);
+      opacity: 0.85;
+    }
+    .silo-marked-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.64rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      background: #ffffff;
+      padding: 2px 10px;
+      border: 1.5px solid var(--navy);
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
     .tracks-header-bar {
       display: flex;
       justify-content: space-between;
@@ -1050,17 +1076,9 @@
       border-bottom: 1px solid var(--line);
       padding-bottom: 16px;
     }
-    .tracks-header-text h3 {
-      margin: 0 0 6px;
-    }
-    .tracks-header-text p {
-      margin: 0;
-      max-width: 650px;
-    }
-    .tracks-toolbar-btns {
-      display: flex;
-      gap: 8px;
-    }
+    .tracks-header-text h3 { margin: 0 0 6px; }
+    .tracks-header-text p { margin: 0; max-width: 650px; }
+    .tracks-toolbar-btns { display: flex; gap: 8px; }
     .btn-track-action {
       background: var(--paper);
       border: 1px solid var(--line);
@@ -1076,7 +1094,7 @@
       background: var(--surface);
       border-color: var(--navy);
     }
-    
+
     .tracks-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -1099,10 +1117,8 @@
     }
     .track-card-face {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       background: var(--paper);
@@ -1397,62 +1413,194 @@
           </a>
         </div>
 
-        <!-- CASE SCENARIO -->
-        <!-- CLEAN MARKED DIVIDER -->
-        <div style="border-top: 1px solid var(--border); margin: 26px 0 22px;"></div>
+        <!-- INTERACTIVE SILO BLUEPRINT: ARCHITECTURAL CROSS-SECTION -->
+<!-- REFINED EXECUTIVE ARCHITECTURAL BLUEPRINT (PREMIUM L&D STUDIO FINISH) -->
+<!-- LIGHT-THEME EXECUTIVE ARCHITECTURAL BLUEPRINT (LUMINOUS, CLEAN, EDITORIAL FINISH) -->
+<div class="silo-blueprint-container" style="background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 26px; margin-bottom: 28px; color: var(--ink); box-shadow: 0 4px 20px rgba(7, 21, 39, 0.05); position: relative; overflow: hidden;">
+  
+  <!-- HEADER -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 2px solid var(--navy); padding-bottom: 14px; flex-wrap: wrap; gap: 12px;">
+    <div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+        <span style="font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #854d0e; background: #fefce8; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(212, 168, 67, 0.35);">
+          Structural Section Blueprint &middot; Mintzberg Architecture
+        </span>
+        <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">DWG-00 / SILO-DISSECTION</span>
+      </div>
+      <h4 style="font-size: 1.3rem; font-weight: 800; color: var(--navy); margin: 0; letter-spacing: -0.01em;">
+        Corporate Silo Dissection: The Anatomy of Inaction
+      </h4>
+      <p style="font-size: 0.88rem; color: var(--muted); margin: 4px 0 0; line-height: 1.5;">
+        Architectural cross-section demonstrating how hyper-specialization isolates leadership from operational reality during an evolving crisis.
+      </p>
+    </div>
+    <div style="align-self: center;">
+      <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); font-weight: 700; border: 1px solid var(--border); padding: 5px 12px; border-radius: 4px; background: var(--wash);">
+        Select floor plate to inspect
+      </span>
+    </div>
+  </div>
 
-        <!-- CASE SCENARIO -->
-        <div style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-sm); padding:22px; margin-bottom:22px;">
-          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--navy); font-weight:800; margin-bottom:6px;">The Case Scenario</div>
-          <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">The Fire That Consumed Corporate Headquarters</h4>
-          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
-            A small fire breaks out in the courtyard garden outside a corporate headquarters. Employees in finance, marketing, legal, and engineering observe the smoke from their respective cubicle windows. Yet every employee rationalizes: <em>&ldquo;Extinguishing fires is not in my job description; facilities or external maintenance will handle it.&rdquo;</em>
-          </p>
-          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65;">
-            Nobody steps forward, nobody communicates across departmental borders, and nobody assumes cross-functional ownership. By the time the flames reach the server room and executive suites, the entire enterprise is reduced to ashes. Every department executed its narrow remit with technical precision&mdash;yet the organization suffered total failure.
-          </p>
+  <!-- MAIN 2-COLUMN GRID WITH MARKED VERTICAL DIVIDER -->
+  <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; align-items: stretch;">
+    
+    <!-- LEFT: CLEAN ARCHITECTURAL CROSS-SECTION WITH MARKED HORIZONTAL DIVIDERS -->
+    <div style="background: var(--wash); border: 1px solid var(--border); border-right: 2px solid var(--navy); border-radius: 8px 0 0 8px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between;">
+      
+      <!-- ROOF CAPPING -->
+      <div style="border-bottom: 2px solid var(--navy); padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.65rem; font-family: monospace; color: var(--navy); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">Roof Parapet &middot; Elevation +18.50m</span>
+        <span style="font-size: 0.65rem; color: #64748b; font-weight: 700;">H. MINTZBERG FIVE-PART MODEL</span>
+      </div>
+
+      <!-- LEVEL 03: STRATEGIC APEX -->
+      <div class="blueprint-level-card" id="bFloor-3" onclick="selectBlueprintFloor(3)" style="background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; cursor: pointer; transition: all 0.2s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.68rem; font-weight: 800; font-family: monospace; color: var(--navy); background: var(--wash); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border);">LVL 03</span>
+            <strong style="font-size: 0.94rem; color: var(--navy);">Strategic Apex</strong>
+          </div>
+          <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">ELEV +14.0m</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--muted);">
+          Boardroom &amp; Executive Suite &mdash; Macro Governance &amp; Capital
+        </div>
+      </div>
+
+      <!-- MARKED DIVIDER 1 -->
+      <div class="silo-marked-divider">
+        <div class="silo-marked-line"></div>
+        <span class="silo-marked-label">Silo Boundary &middot; Vertical Filter</span>
+        <div class="silo-marked-line"></div>
+      </div>
+
+      <!-- LEVEL 02: MIDDLE LINE -->
+      <div class="blueprint-level-card" id="bFloor-2" onclick="selectBlueprintFloor(2)" style="background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; cursor: pointer; transition: all 0.2s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.68rem; font-weight: 800; font-family: monospace; color: var(--navy); background: var(--wash); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border);">LVL 02</span>
+            <strong style="font-size: 0.94rem; color: var(--navy);">Middle Line &middot; Functional Directorate</strong>
+          </div>
+          <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">ELEV +9.5m</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--muted);">
+          Finance, Operations &amp; Legal &mdash; Departmental Protocols &amp; KPIs
+        </div>
+      </div>
+
+      <!-- MARKED DIVIDER 2 -->
+      <div class="silo-marked-divider">
+        <div class="silo-marked-line"></div>
+        <span class="silo-marked-label">Silo Boundary &middot; Bureaucratic Latency</span>
+        <div class="silo-marked-line"></div>
+      </div>
+
+      <!-- LEVEL 01: OPERATING CORE -->
+      <div class="blueprint-level-card" id="bFloor-1" onclick="selectBlueprintFloor(1)" style="background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; cursor: pointer; transition: all 0.2s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.68rem; font-weight: 800; font-family: monospace; color: var(--navy); background: var(--wash); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border);">LVL 01</span>
+            <strong style="font-size: 0.94rem; color: var(--navy);">Operating Core &middot; Reception &amp; Frontline</strong>
+          </div>
+          <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">ELEV +4.5m</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--muted);">
+          Reception &amp; Frontline Admin &mdash; Lobby Desk &amp; &ldquo;Not My Job&rdquo; Stance
+        </div>
+      </div>
+
+      <!-- MARKED DIVIDER 3 -->
+      <div class="silo-marked-divider">
+        <div class="silo-marked-line"></div>
+        <span class="silo-marked-label">Critical Boundary &middot; Unreported Trigger</span>
+        <div class="silo-marked-line"></div>
+      </div>
+
+      <!-- LEVEL 00: GROUND PERIMETER -->
+      <div class="blueprint-level-card" id="bFloor-0" onclick="selectBlueprintFloor(0)" style="background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; cursor: pointer; transition: all 0.2s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.68rem; font-weight: 800; font-family: monospace; color: var(--navy); background: var(--wash); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border);">LVL 00</span>
+            <strong style="font-size: 0.94rem; color: var(--navy);">Ground Zero &middot; Courtyard Perimeter</strong>
+          </div>
+          <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">ELEV &plusmn;0.0m</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--muted);">
+          Discarded Cigarette Spark &amp; Severed Water Valve (Utility Lockout)
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: CLEAN EXECUTIVE INSPECTOR (NO COLORED AI BOXES, CRISP DIVIDERS) -->
+    <div id="inspectorDisplayCard" style="background: #ffffff; border: 1px solid var(--border); border-left: none; border-radius: 0 8px 8px 0; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        
+        <!-- TOP META -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+          <span id="inspectBadge" style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy);">
+            Structural Floor Analysis
+          </span>
+          <span id="inspectLevel" style="font-size: 0.75rem; font-family: monospace; color: #64748b; font-weight: 600;">
+            Select a floor
+          </span>
         </div>
 
-        <!-- THEORETICAL FOUNDATION: MINTZBERG + SENGE -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; margin-bottom:22px;">
-          <!-- MINTZBERG -->
-          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-              <span class="badge badge-outline" style="font-size:10.5px;">Henry Mintzberg</span>
-              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Structural Diagnosis</span>
-            </div>
-            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The Machine Bureaucracy &amp; Silo Paralysis</h4>
-            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
-              Mintzberg proved that hyper-specialization and rigid job descriptions breed defensive functional silos. When unexpected cross-functional crises emerge, horizontal communication breaks down because employees defer coordination entirely to distant upper hierarchy.
-            </p>
-          </div>
+        <!-- TITLE & OCCURRENCE -->
+        <h4 id="inspectTitle" style="font-size: 1.18rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.01em;">
+          Level Inspector
+        </h4>
+        <p id="inspectDescription" style="font-size: 0.88rem; color: var(--ink); line-height: 1.55; margin-bottom: 16px;">
+          Select a floor plate on the structural section to inspect the behavioral breakdown.
+        </p>
 
-          <!-- SENGE -->
-          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-              <span class="badge badge-teal" style="font-size:10.5px;">Peter Senge</span>
-              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Cognitive Diagnosis</span>
-            </div>
-            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The 1st Learning Disability: &ldquo;I Am My Position&rdquo;</h4>
-            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
-              In <em>The Fifth Discipline</em>, Senge diagnoses the fatal mental model: when professionals identify exclusively with their job title rather than the broader enterprise, they develop zero accountability for the outcomes produced where multiple positions interact.
-            </p>
+        <!-- DEFENSIVE QUOTE -->
+        <div style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 12px 0; margin-bottom: 16px;">
+          <div style="font-size: 0.68rem; text-transform: uppercase; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 4px;">
+            Verbatim Silo Rationalization
+          </div>
+          <div id="inspectQuote" style="font-size: 0.9rem; font-style: italic; color: var(--navy); line-height: 1.45;">
+            &ldquo;That is not my problem; it is not in my job description.&rdquo;
           </div>
         </div>
 
-        <!-- THE BUSINESS ENGLISH BRIDGE -->
-        <div style="background:#fdfaf3; border:1px solid rgba(212, 168, 67, 0.4); border-radius:var(--radius-sm); padding:20px;">
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-            <span class="badge badge-gold">The Business English Bridge</span>
-            <h4 style="font-size:1.02rem; font-weight:800; color:var(--navy);">Why Traditional Grammar Textbooks Fail in Real Management</h4>
+        <!-- SYSTEMIC DIAGNOSIS & TACTICAL BRIDGE (CLEAN TYPOGRAPHIC SEPARATION) -->
+        <div style="margin-bottom: 14px;">
+          <div style="font-size: 0.68rem; text-transform: uppercase; font-weight: 800; color: var(--navy); letter-spacing: 0.08em; margin-bottom: 4px;">
+            Systemic Diagnosis (Mintzberg &middot; Senge)
           </div>
-          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
-            Traditional courses assume business communication consists of polite greetings, formal letters, and generic grammar units. But real managerial life&mdash;as Mintzberg and Senge prove&mdash;is an unrelenting cycle of friction, operational firefighting, and cross-functional interdependence.
-          </p>
-          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65;">
-            L&amp;D Studio's 6 lifecycle tracks provide bilingual professionals with the <strong>diplomatic and systemic linguistic tools</strong> required to break through departmental silos: explaining operational breakdowns without defensiveness, trading conditional concessions, negotiating dependencies, and leading cross-functional alignment before systemic friction destroys enterprise value.
-          </p>
+          <div id="inspectTheory" style="font-size: 0.84rem; color: var(--muted); line-height: 1.5;">
+            Structural analysis of the organizational failure.
+          </div>
         </div>
+
+        <div style="border-top: 1px solid var(--border); padding-top: 14px;">
+          <div style="font-size: 0.68rem; text-transform: uppercase; font-weight: 800; color: #854d0e; letter-spacing: 0.08em; margin-bottom: 4px;">
+            L&amp;D Studio Tactical English Bridge
+          </div>
+          <div id="inspectTactical" style="font-size: 0.84rem; color: var(--ink); line-height: 1.5; font-weight: 500;">
+            Language formulas designed to bridge this specific boundary.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM NAVIGATION -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 16px;">
+        <span style="font-size: 0.72rem; color: #64748b; font-family: monospace;">SECTION TRAVERSAL:</span>
+        <div style="display: flex; gap: 6px;">
+          <button type="button" onclick="cycleBlueprintFloor(-1)" class="btn btn-outline" style="font-size: 0.75rem; padding: 5px 14px; background: #ffffff; color: var(--navy); border-color: var(--border); cursor: pointer;">&larr; Down</button>
+          <button type="button" onclick="cycleBlueprintFloor(1)" class="btn btn-outline" style="font-size: 0.75rem; padding: 5px 14px; background: #ffffff; color: var(--navy); border-color: var(--border); cursor: pointer;">Up &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
       </div>
 
         
@@ -1479,7 +1627,6 @@
         <!-- TRACK 01 -->
         <div class="track-card-flip-wrap" id="trackFlip-1">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 01</div>
@@ -1493,7 +1640,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 01 &middot; Friction Point</div>
@@ -1513,7 +1659,6 @@
         <!-- TRACK 02 -->
         <div class="track-card-flip-wrap" id="trackFlip-2">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 02</div>
@@ -1527,7 +1672,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 02 &middot; Friction Point</div>
@@ -1547,7 +1691,6 @@
         <!-- TRACK 03 -->
         <div class="track-card-flip-wrap" id="trackFlip-3">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 03</div>
@@ -1561,7 +1704,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 03 &middot; Friction Point</div>
@@ -1581,7 +1723,6 @@
         <!-- TRACK 04 -->
         <div class="track-card-flip-wrap" id="trackFlip-4">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 04</div>
@@ -1595,7 +1736,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 04 &middot; Friction Point</div>
@@ -1615,7 +1755,6 @@
         <!-- TRACK 05 -->
         <div class="track-card-flip-wrap" id="trackFlip-5">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 05</div>
@@ -1629,7 +1768,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 05 &middot; Friction Point</div>
@@ -1649,7 +1787,6 @@
         <!-- TRACK 06 -->
         <div class="track-card-flip-wrap" id="trackFlip-6">
           <div class="track-card-flipper">
-            <!-- FRONT -->
             <div class="track-card-face track-card-front">
               <div>
                 <div class="track-card-num">Track 06</div>
@@ -1663,7 +1800,6 @@
                 <span>Ver Friction Point &middot; A la vuelta</span> &rarr;
               </button>
             </div>
-            <!-- BACK -->
             <div class="track-card-face track-card-back">
               <div>
                 <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px;">Track 06 &middot; Friction Point</div>
@@ -1938,6 +2074,87 @@
   </footer>
 
   <script>
+    const floorData = {
+      0: {
+        level: "LVL 00 &middot; ELEV &plusmn;0.0m",
+        badge: "Critical Boundary Trigger",
+        title: "Ground Zero &middot; The Courtyard Perimeter &amp; Utilities",
+        desc: "A severed municipal water supply pipe and a discarded smoldering cigarette create a compound hazard. Third-party utility workers assume building facilities will discover the shutdown autonomously.",
+        quote: "&ldquo;Notifying building tenants is outside our service contract. External maintenance or facilities should handle that.&rdquo;",
+        theory: "Upstream Blind Spot &amp; Outsourcing Friction: Critical infrastructure dependencies severed without downstream warning signaling.",
+        tactical: "Direct cross-entity alert formula: &ldquo;Be advised that main water utilities are shut down until 17:00 due to exterior line maintenance.&rdquo;"
+      },
+      1: {
+        level: "LVL 01 &middot; ELEV +4.5m",
+        badge: "Operating Core &middot; Frontline Role Shield",
+        title: "Operating Core &middot; Reception Desk &amp; Frontline Staff",
+        desc: "Reception and frontline administrative clerks are the first to smell smoke blowing into the lobby. They look out the window at the smoldering lawn, yet choose not to act because crisis management is not in their job description.",
+        quote: "&ldquo;I am only on reception. Extinguishing outdoor fires is not in my job description; maintenance or the managers upstairs will deal with it.&rdquo;",
+        theory: "Senge's 1st Disability: &ldquo;I Am My Position&rdquo; &mdash; frontline personnel defining their responsibilities strictly by narrow task boundaries rather than enterprise survival.",
+        tactical: "Horizontal intervention model: &ldquo;Flagging an immediate structural hazard directly outside the lobby entrance to initiate early containment.&rdquo;"
+      },
+      2: {
+        level: "LVL 02 &middot; ELEV +9.5m",
+        badge: "Middle Line &middot; Bureaucratic Latency",
+        title: "Middle Line &middot; Finance, Operations &amp; Legal Directorate",
+        desc: "Department heads and middle managers observe flames licking exterior windows. Instead of taking immediate horizontal initiative, they draft internal memos and argue about departmental jurisdiction and chain of command.",
+        quote: "&ldquo;We cannot dial emergency services without executive sign-off; that would bypass standard chain-of-command protocol.&rdquo;",
+        theory: "Mintzberg's Machine Bureaucracy: Hyper-standardized rules and vertical reporting lines paralyze swift decision-making in non-routine crises.",
+        tactical: "Conditional urgency escalation: &ldquo;Given the active structural threat, I am initiating emergency protocols unless expressly countermanded.&rdquo;"
+      },
+      3: {
+        level: "LVL 03 &middot; ELEV +14.0m",
+        badge: "Strategic Apex &middot; Executive Suite",
+        title: "The Strategic Apex &middot; Boardroom &amp; C-Suite",
+        desc: "Flames engulf the server core, executive suites, and corporate archives. The organization collapses while every department head defends their KPI compliance record on the pavement outside.",
+        quote: "&ldquo;Nobody did anything wrong. Every single department strictly adhered to its operating guidelines right until the building collapsed.&rdquo;",
+        theory: "The Silo Paradox: Flawless individual execution of localized micro-protocols leading directly to total enterprise failure.",
+        tactical: "The Corporate Loop Mindset: Equipping bilingual leaders with cross-functional negotiation and alignment language across all 6 operational tracks."
+      }
+    };
+
+    let currentSelectedFloor = 0;
+
+    function selectBlueprintFloor(floorNum) {
+      currentSelectedFloor = floorNum;
+      const data = floorData[floorNum];
+      if (!data) return;
+
+      document.getElementById('inspectBadge').innerHTML = data.badge;
+      document.getElementById('inspectLevel').innerHTML = data.level;
+      document.getElementById('inspectTitle').innerHTML = data.title;
+      document.getElementById('inspectDescription').innerHTML = data.desc;
+      document.getElementById('inspectQuote').innerHTML = data.quote;
+      document.getElementById('inspectTheory').innerHTML = data.theory;
+      document.getElementById('inspectTactical').innerHTML = data.tactical;
+
+      for (let i = 0; i <= 3; i++) {
+        const f = document.getElementById('bFloor-' + i);
+        if (f) {
+          if (i === floorNum) {
+            f.style.background = '#fefce8';
+            f.style.borderColor = 'var(--gold)';
+            f.style.boxShadow = '0 2px 14px rgba(212, 168, 67, 0.22)';
+          } else {
+            f.style.background = '#ffffff';
+            f.style.borderColor = 'var(--border)';
+            f.style.boxShadow = 'none';
+          }
+        }
+      }
+    }
+
+    function cycleBlueprintFloor(direction) {
+      let next = currentSelectedFloor + direction;
+      if (next < 0) next = 3;
+      if (next > 3) next = 0;
+      selectBlueprintFloor(next);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      selectBlueprintFloor(0);
+    });
+
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
