@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A1.2-U05: Crisis Mode &middot; Breaking the Pattern &middot; English Hub &middot; Learning &amp; Development Studio</title>
+  <title>A1.2 R2 Contrast: Crisis Mode &middot; Breaking the Pattern &middot; English Hub &middot; Learning &amp; Development Studio</title>
   <link rel="icon" type="image/png" href="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1405,6 +1405,49 @@
       padding: 32px;
       border: 1px solid rgba(212, 168, 67, 0.3);
     }
+
+    .teacher-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(7, 21, 39, 0.72);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .teacher-modal.active { display: flex; }
+    .teacher-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 780px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 28px 32px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--slate-200);
+    }
+    .teacher-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .close-modal-btn {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--navy-900);
+    }
+
   </style>
 </head>
 <body>
@@ -1420,7 +1463,11 @@
         </div>
       </a>
       <div class="header-actions">
-        <span class="student-pill font-mono" id="studentTag">Student: <strong>Israel Ventura</strong></span>
+        <span class="student-pill font-mono" id="studentTag">Student: <strong>Participant</strong></span>
+        <button type="button" onclick="unlockTeacherVersion()" class="nav-back-link" style="cursor:pointer; border-color: rgba(212, 168, 67, 0.45); color: #fef3c7; display:inline-flex; align-items:center; gap:6px; background: rgba(212,168,67,0.12);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Teacher&rsquo;s Version</span>
+        </button>
         <a href="../../a1-2_workspace.html" class="nav-back-link">&larr; Back to A1.2 Workspace</a>
       </div>
     </div>
@@ -1431,11 +1478,11 @@
     <!-- HERO BANNER -->
     <section class="workspace-hero-banner" style="background-image: linear-gradient(135deg, rgba(7,21,39,0.92) 0%, rgba(11,37,69,0.85) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85');">
       <div class="hero-content">
-        <div class="hero-badge font-mono">Macro-Unit 05 &middot; Lesson A1.2-U05-L01</div>
+        <div class="hero-badge font-mono">A1.2 Trajectory &middot; R2 Contrast Module</div>
         <h1 class="hero-title">Crisis Mode: <span class="gold-accent">Breaking the Pattern</span></h1>
         <p class="hero-lead">
           <em>&ldquo;Normally I cook healthy meals at 7:00 PM, but this week I am living on pizza and iced coffee.&rdquo;</em><br>
-          Master the contrast between stable everyday routines and temporary crisis disruptions with precision time markers and state verbs.
+          Contrast stable everyday routines with temporary disruptions using clear time markers and action vs. state verbs.
         </p>
         <div class="hero-meta-strip font-mono">
           <span>&bull; Target: CEFR A1.2</span>
@@ -1489,13 +1536,13 @@
         <div class="crisis-card-grid">
           <!-- ROUTINE -->
           <div class="routine-box">
-            <h3><span>🟢</span> Elena's Normal Life (Routine)</h3>
+            <h3><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#16A34A; margin-right:6px; vertical-align:middle;"></span> Elena's Normal Life (Routine)</h3>
             <p style="font-size: 0.88rem; color: #166534; margin-bottom: 14px;"><strong>Time frame:</strong> 365 days a year &middot; Permanent habit</p>
             <ul class="schedule-list">
-              <li><span>🥗</span> <div><strong>She cooks</strong> healthy meals at home every night.</div></li>
-              <li><span>🛌</span> <div><strong>She sleeps</strong> 8 full hours from Sunday to Thursday.</div></li>
-              <li><span>🏢</span> <div><strong>She leaves</strong> the office promptly at 5:00 PM.</div></li>
-              <li><span>🍵</span> <div><strong>She drinks</strong> one cup of green tea in the morning.</div></li>
+              <li><span class="font-mono" style="color:#166534; font-weight:700;">01</span> <div><strong>She cooks</strong> healthy meals at home every night.</div></li>
+              <li><span class="font-mono" style="color:#166534; font-weight:700;">02</span> <div><strong>She sleeps</strong> 8 full hours from Sunday to Thursday.</div></li>
+              <li><span class="font-mono" style="color:#166534; font-weight:700;">03</span> <div><strong>She leaves</strong> the office promptly at 5:00 PM.</div></li>
+              <li><span class="font-mono" style="color:#166534; font-weight:700;">04</span> <div><strong>She drinks</strong> one cup of green tea in the morning.</div></li>
             </ul>
             <div style="margin-top: 16px;">
               <span class="tag-marker marker-routine">Present Simple Active</span>
@@ -1504,13 +1551,13 @@
 
           <!-- CRISIS -->
           <div class="crisis-box">
-            <h3><span>🔴</span> Elena This Week (Crisis Mode!)</h3>
+            <h3><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#DC2626; margin-right:6px; vertical-align:middle;"></span> Elena This Week (Crisis Mode!)</h3>
             <p style="font-size: 0.88rem; color: #991B1B; margin-bottom: 14px;"><strong>Time frame:</strong> Product Launch Week &middot; Temporary emergency</p>
             <ul class="schedule-list">
-              <li><span>🍕</span> <div>This week, <strong>she is eating</strong> cold pizza and instant noodles at her desk.</div></li>
-              <li><span>☕</span> <div><strong>She is sleeping</strong> only 4 hours each night.</div></li>
-              <li><span>💻</span> <div><strong>She is working</strong> until 11:00 PM every day this week.</div></li>
-              <li><span>⚡</span> <div>Right now, <strong>she is drinking</strong> her fifth iced coffee!</div></li>
+              <li><span class="font-mono" style="color:#991B1B; font-weight:700;">01</span> <div>This week, <strong>she is eating</strong> cold pizza and instant noodles at her desk.</div></li>
+              <li><span class="font-mono" style="color:#991B1B; font-weight:700;">02</span> <div><strong>She is sleeping</strong> only 4 hours each night.</div></li>
+              <li><span class="font-mono" style="color:#991B1B; font-weight:700;">03</span> <div><strong>She is working</strong> until 11:00 PM every day this week.</div></li>
+              <li><span class="font-mono" style="color:#991B1B; font-weight:700;">04</span> <div>Right now, <strong>she is drinking</strong> her fifth iced coffee!</div></li>
             </ul>
             <div style="margin-top: 16px;">
               <span class="tag-marker marker-crisis">Present Continuous Active</span>
@@ -1546,7 +1593,7 @@
       <div class="studio-card">
         <div class="crisis-card-grid">
           <div style="background: var(--slate-50); border: 1.5px solid #86EFAC; border-radius: var(--radius-md); padding: 20px;">
-            <h3 style="color: #166534; font-size: 1.1rem; margin-bottom: 12px;">🟢 Routine Markers &rarr; Present Simple</h3>
+            <h3 style="color: #166534; font-size: 1.1rem; margin-bottom: 12px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#16A34A; margin-right:6px; vertical-align:middle;"></span>Routine Markers &rarr; Present Simple</h3>
             <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 14px;">Use these when an action happens regularly, always, or repeatedly:</p>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag-marker marker-routine">usually</span>
@@ -1563,7 +1610,7 @@
           </div>
 
           <div style="background: var(--slate-50); border: 1.5px solid #FCA5A5; border-radius: var(--radius-md); padding: 20px;">
-            <h3 style="color: #991B1B; font-size: 1.1rem; margin-bottom: 12px;">🔴 Crisis / Temporary Markers &rarr; Present Continuous</h3>
+            <h3 style="color: #991B1B; font-size: 1.1rem; margin-bottom: 12px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#DC2626; margin-right:6px; vertical-align:middle;"></span>Crisis / Temporary Markers &rarr; Present Continuous</h3>
             <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 14px;">Use these when an action is happening right now or is a short-term crisis:</p>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag-marker marker-crisis">this week</span>
@@ -1608,7 +1655,7 @@
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 03 &middot; Structural Precision</div>
         <h2 class="screen-heading">The Two Worlds &amp; The State Verbs Shield</h2>
-        <p class="screen-desc">Master the exact formulas and protect yourself against the #1 fossilized error in English: applying continuous forms to state verbs.</p>
+        <p class="screen-desc">Apply the exact formulas and avoid a frequent error in English: adding -ing to state verbs.</p>
       </div>
 
       <div class="studio-card">
@@ -1639,7 +1686,7 @@
 
         <!-- STATE VERBS SHIELD -->
         <div class="state-shield-box">
-          <h4><span>🛡️</span> THE STATE VERBS SHIELD (STRICT L&amp;D STUDIO RULE)</h4>
+          <h4>THE STATE VERBS SHIELD (STRICT L&amp;D STUDIO RULE)</h4>
           <p style="font-size: 0.95rem; color: #92400E; line-height: 1.5; margin-bottom: 14px;">
             Some verbs describe <strong>mental states, desires, knowledge, and feelings</strong>—NOT physical actions.
             Even if you are in the middle of a massive crisis, <strong>NEVER add -ing</strong> to these verbs:
@@ -1654,8 +1701,8 @@
           </div>
 
           <div style="background: var(--white); border-radius: 6px; padding: 14px; font-size: 0.92rem;">
-            <div>❌ <strong>Wrong:</strong> <em>&ldquo;Right now I am needing a coffee.&rdquo;</em></div>
-            <div>✅ <strong>Correct:</strong> <em>&ldquo;Right now I <strong>need</strong> a coffee.&rdquo;</em></div>
+            <div><strong style="color:#991B1B;">[Incorrect]</strong> <em>&ldquo;Right now I am needing a coffee.&rdquo;</em></div>
+            <div><strong style="color:#166534;">[Correct]</strong> <em>&ldquo;Right now I <strong>need</strong> a coffee.&rdquo;</em></div>
           </div>
         </div>
       </div>
@@ -1710,7 +1757,7 @@
               <option value="takes">takes</option>
               <option value="is taking">is taking</option>
             </select>
-            the subway because his car has a flat tire.
+            the subway today (his car has a flat tire).
           </div>
           <span class="drill-status-icon"></span>
         </div>
@@ -1802,7 +1849,7 @@
             <div class="chunk-title">&ldquo;It's just a phase.&rdquo;</div>
             <div class="chunk-meaning">This crazy situation is temporary. It will pass soon, so do not panic.</div>
             <div class="chunk-example">&ldquo;Don't worry about the long hours. It's just a phase!&rdquo;</div>
-            <button class="btn-audio-listen" onclick="speakText('It\'s just a phase.')">🔊 Listen Pronunciation</button>
+            <button class="btn-audio-listen" onclick="speakText('It\'s just a phase.')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>Listen Pronunciation</button>
           </div>
 
           <!-- CHUNK 2 -->
@@ -1811,7 +1858,7 @@
             <div class="chunk-title">&ldquo;Hang in there!&rdquo;</div>
             <div class="chunk-meaning">Be strong! Don't quit! You have the strength to survive this difficult moment.</div>
             <div class="chunk-example">&ldquo;I know you are working 12 hours today. Hang in there!&rdquo;</div>
-            <button class="btn-audio-listen" onclick="speakText('Hang in there!')">🔊 Listen Pronunciation</button>
+            <button class="btn-audio-listen" onclick="speakText('Hang in there!')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>Listen Pronunciation</button>
           </div>
 
           <!-- CHUNK 3 -->
@@ -1820,7 +1867,7 @@
             <div class="chunk-title">&ldquo;Under the weather.&rdquo;</div>
             <div class="chunk-meaning">Feeling exhausted, slightly sick, drained of energy, or under physical strain.</div>
             <div class="chunk-example">&ldquo;I feel a bit under the weather, so I am resting today.&rdquo;</div>
-            <button class="btn-audio-listen" onclick="speakText('Under the weather.')">🔊 Listen Pronunciation</button>
+            <button class="btn-audio-listen" onclick="speakText('Under the weather.')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>Listen Pronunciation</button>
           </div>
         </div>
 
@@ -1861,7 +1908,7 @@
       <div class="studio-card">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
           <div>
-            <h4 style="color: #166534; margin-bottom: 12px;">🟢 My Everyday Normal Routine (Present Simple):</h4>
+            <h4 style="color: #166534; margin-bottom: 12px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#16A34A; margin-right:6px; vertical-align:middle;"></span>My Everyday Normal Routine (Present Simple):</h4>
             <div style="margin-bottom: 12px;">
               <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--slate-700); margin-bottom:4px;">1. Usual cooking / eating habit:</label>
               <input type="text" id="norm1" class="form-control" value="I usually cook dinner at home at 7:00 PM." style="width:100%; padding:10px; border:1px solid var(--slate-300); border-radius:6px;">
@@ -1877,14 +1924,14 @@
           </div>
 
           <div>
-            <h4 style="color: #991B1B; margin-bottom: 12px;">🔴 My Crisis Mode This Week (Present Continuous):</h4>
+            <h4 style="color: #991B1B; margin-bottom: 12px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#DC2626; margin-right:6px; vertical-align:middle;"></span>My Crisis Mode This Week (Present Continuous):</h4>
             <div style="margin-bottom: 12px;">
               <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--slate-700); margin-bottom:4px;">1. What are you eating this week?</label>
               <input type="text" id="cris1" class="form-control" value="This week I am ordering pizza and drinking energy drinks." style="width:100%; padding:10px; border:1px solid var(--slate-300); border-radius:6px;">
             </div>
             <div style="margin-bottom: 12px;">
               <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--slate-700); margin-bottom:4px;">2. How are you sleeping this week?</label>
-              <input type="text" id="cris2" class="form-control" value="Currently, I am sleeping only 5 hours because of the project." style="width:100%; padding:10px; border:1px solid var(--slate-300); border-radius:6px;">
+              <input type="text" id="cris2" class="form-control" value="Currently, I am sleeping only 5 hours for the project this week." style="width:100%; padding:10px; border:1px solid var(--slate-300); border-radius:6px;">
             </div>
             <div style="margin-bottom: 12px;">
               <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--slate-700); margin-bottom:4px;">3. What are you doing at work right now?</label>
@@ -1895,7 +1942,7 @@
 
         <div style="margin-top: 20px; text-align: center;">
           <button class="btn-brand-primary" onclick="generateAuditCard()" style="font-size: 1rem; padding: 12px 28px;">
-            ⚡ Generate Official Audit Card
+            Generate Official Audit Card
           </button>
         </div>
 
@@ -1919,11 +1966,11 @@
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 07 &middot; Evidence Demonstration</div>
         <h2 class="screen-heading">Can-Do Exit Ticket &amp; Observable Rubric</h2>
-        <p class="screen-desc">Check your demonstrated mastery. In L&D Studio, understanding always comes before advancement!</p>
+        <p class="screen-desc">Review your observable evidence. In L&amp;D Studio, understanding always comes before advancement.</p>
       </div>
 
       <div class="studio-card">
-        <h3 style="color: var(--navy-900); font-size: 1.15rem; margin-bottom: 16px;">Observable Mastery Checklist:</h3>
+        <h3 style="color: var(--navy-900); font-size: 1.15rem; margin-bottom: 16px;">Observable Evidence Checklist:</h3>
         
         <div style="display:flex; flex-direction:column; gap:12px; font-size:0.95rem;">
           <label style="display:flex; align-items:center; gap:12px; background:var(--slate-50); padding:12px 16px; border-radius:6px; cursor:pointer;">
@@ -1946,7 +1993,7 @@
 
         <div id="ticketResultBox" style="margin-top:24px; padding:20px; border-radius:var(--radius-md); background:var(--slate-100); text-align:center;">
           <div style="font-size:1.1rem; font-weight:800; color:var(--navy-900);">Evaluation Level: <span id="evalLevelTag" style="color:var(--gold-600);">E0 (In Progress)</span></div>
-          <p id="evalLevelDesc" style="font-size:0.9rem; color:var(--slate-600); margin-top:6px;">Check all 4 criteria above after demonstrating your spoken presentation to achieve E2 / E3 Standard Mastery.</p>
+          <p id="evalLevelDesc" style="font-size:0.9rem; color:var(--slate-600); margin-top:6px;">Check all 4 criteria above after your spoken presentation to document E2 / E3 observable evidence.</p>
         </div>
       </div>
 
@@ -1958,11 +2005,74 @@
 
   </main>
 
+
+  <!-- TEACHER'S VERSION MODAL (SEPARATE FROM STUDENT MATERIAL) -->
+  <div id="teacherModal" class="teacher-modal" onclick="closeTeacherModal(event)">
+    <div class="teacher-card" onclick="event.stopPropagation()">
+      <div class="teacher-card-header">
+        <div>
+          <div class="font-mono" style="font-size:0.72rem; color:var(--gold-600); font-weight:700; text-transform:uppercase;">Teacher&rsquo;s Version &middot; Documento Rector R2</div>
+          <h3 style="color:var(--navy-900); font-size:1.25rem; font-weight:800; margin-top:2px;">Faculty Guide, Answer Keys &amp; Observation Protocol</h3>
+        </div>
+        <button type="button" class="close-modal-btn" onclick="closeTeacherModal()">&times;</button>
+      </div>
+      <div style="font-size:0.9rem; color:var(--slate-700); line-height:1.6;">
+        <h4 style="color:var(--navy-900); margin-bottom:6px;">1. Curricular Placement &amp; Linguistic Control (P / P? / N / F)</h4>
+        <ul style="margin-left:20px; margin-bottom:14px;">
+          <li><strong>R2 Integration (A1.2):</strong> Develops <em>Present Continuous</em> and its contrast with <em>Present Simple</em> prior to Past Tense, without assigning a new unit number.</li>
+          <li><strong>P / P? (Prerequisites):</strong> Subject pronouns, <em>be</em> (<em>am/is/are</em>), Present Simple routines and frequency markers (<em>A12-U01</em>).</li>
+          <li><strong>N (Taught here):</strong> <em>am/is/are + -ing</em>, temporary time markers (<em>this week, today, right now, at the moment</em>), core state verbs (<em>need, want, know, understand, like, hate</em>), and functional chunks.</li>
+          <li><strong>F (Forbidden as requirement):</strong> Past tense, future <em>will</em>, modals of obligation (<em>should, have to</em>), and mandatory <em>because</em> clauses.</li>
+        </ul>
+
+        <h4 style="color:var(--navy-900); margin-bottom:6px;">2. Answer Keys</h4>
+        <ul style="margin-left:20px; margin-bottom:14px;">
+          <li><strong>Module 01 CCQ:</strong> <em>It is temporary (only for this crisis week).</em></li>
+          <li><strong>Module 02 Marker Sorter:</strong> Routine = <em>usually, every day, normally</em> | Temporary Crisis = <em>this week, right now, at the moment, today</em>.</li>
+          <li><strong>Module 04 Precision Drills:</strong> 1. <em>sleep / am sleeping</em> &bull; 2. <em>drives / is taking</em> &bull; 3. <em>eat / are working</em> &bull; 4. <em>need</em> (State Verb) &bull; 5. <em>wears / is working / is wearing</em>.</li>
+        </ul>
+
+        <h4 style="color:var(--navy-900); margin-bottom:6px;">3. Observation, Separate Recording &amp; Recovery</h4>
+        <p style="margin-bottom:8px;">
+          Record listening, reading, interaction, and production separately; do not mark <em>not observed</em> as E0. Evaluate pronunciation by intelligibility.
+        </p>
+        <p>
+          <strong>Recovery:</strong> If a learner omits <em>be</em> (<em>&ldquo;She eating&rdquo;</em>) or adds <em>-ing</em> to state verbs (<em>&ldquo;I am needing&rdquo;</em>), contrast routine vs. action in progress using time markers first, then return to guided oral production before independent presentation.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <script>
+
+    function unlockTeacherVersion() {
+      try {
+        if (sessionStorage.getItem('ld-coordinator-auth') === 'granted') {
+          document.getElementById('teacherModal').classList.add('active');
+          return;
+        }
+      } catch (_) {}
+      const pin = prompt('Enter Teacher PIN to open Teacher\x27s Version:');
+      if (!pin) return;
+      const validPins = ['2680', '5726', '8826', '2026', 'admin'];
+      if (validPins.includes(pin.trim())) {
+        try { sessionStorage.setItem('ld-coordinator-auth', 'granted'); } catch (_) {}
+        document.getElementById('teacherModal').classList.add('active');
+      } else {
+        alert('Incorrect PIN. Teacher access denied.');
+      }
+    }
+
+    function closeTeacherModal(e) {
+      if (!e || e.target.id === 'teacherModal' || e.target.classList.contains('close-modal-btn')) {
+        document.getElementById('teacherModal').classList.remove('active');
+      }
+    }
+
     // URL Student Parameter
     function getStudentName() {
       const p = new URLSearchParams(window.location.search);
-      return p.get('name') || 'Israel Ventura';
+      return p.get('name') || 'Participant';
     }
     document.getElementById('studentTag').innerHTML = 'Student: <strong>' + getStudentName() + '</strong>';
 
@@ -2041,11 +2151,11 @@
       if (isCorrect) {
         playSuccessChime();
         fb.style.color = '#166534';
-        fb.innerHTML = '✅ Correct! Elena is in a temporary crisis due to the product launch. This is why we use Present Continuous (be + -ing)!';
+        fb.innerHTML = '<strong>Correct:</strong> Elena is in a temporary crisis due to the product launch. This is why we use Present Continuous (be + -ing)!';
       } else {
         playErrorChime();
         fb.style.color = '#991B1B';
-        fb.innerHTML = '❌ Not quite. Elena does not always sleep 4 hours or eat noodles. It is only this week!';
+        fb.innerHTML = '<strong>Not quite:</strong> Elena does not always sleep 4 hours or eat noodles. It is only this week!';
       }
     }
 
@@ -2058,14 +2168,14 @@
         btn.style.borderColor = '#16A34A';
         btn.style.color = '#166534';
         fb.style.color = '#166534';
-        fb.innerHTML = '🟢 &ldquo;' + btn.textContent + '&rdquo; is a <strong>Routine Marker</strong> &rarr; Use Present Simple!';
+        fb.innerHTML = '<span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#16A34A; margin-right:6px; vertical-align:middle;"></span>&ldquo;' + btn.textContent + '&rdquo; is a <strong>Routine Marker</strong> &rarr; Use Present Simple!';
       } else {
         playSuccessChime();
         btn.style.background = '#FEE2E2';
         btn.style.borderColor = '#DC2626';
         btn.style.color = '#991B1B';
         fb.style.color = '#991B1B';
-        fb.innerHTML = '🔴 &ldquo;' + btn.textContent + '&rdquo; is a <strong>Crisis / Temporary Marker</strong> &rarr; Use Present Continuous!';
+        fb.innerHTML = '<span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#DC2626; margin-right:6px; vertical-align:middle;"></span>&ldquo;' + btn.textContent + '&rdquo; is a <strong>Crisis / Temporary Marker</strong> &rarr; Use Present Continuous!';
       }
     }
 
@@ -2095,7 +2205,7 @@
       if (correct === selects.length) {
         box.style.background = '#DCFCE7';
         box.style.color = '#166534';
-        box.innerHTML = '🎉 100% Accuracy! You have mastered the contrast between habitual routines and temporary crisis disruptions.';
+        box.innerHTML = '<strong>100% Accuracy:</strong> You have accurately contrasted habitual routines and temporary disruptions.';
       } else {
         box.innerHTML = 'Score: ' + correct + ' of ' + selects.length + ' correct. Keep refining!';
       }
@@ -2116,13 +2226,13 @@
         <div style="margin-bottom:12px;"><strong>Student Presenter:</strong> ${student}</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <div style="background:rgba(22,101,52,0.25); border:1px solid #16A34A; padding:12px; border-radius:6px;">
-            <div style="color:#86EFAC; font-weight:700; margin-bottom:6px;">🟢 Stable Everyday Habits (Present Simple):</div>
+            <div style="color:#86EFAC; font-weight:700; margin-bottom:6px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#16A34A; margin-right:6px; vertical-align:middle;"></span>Stable Everyday Habits (Present Simple):</div>
             <div>&bull; ${n1}</div>
             <div>&bull; ${n2}</div>
             <div>&bull; ${n3}</div>
           </div>
           <div style="background:rgba(153,27,27,0.25); border:1px solid #DC2626; padding:12px; border-radius:6px;">
-            <div style="color:#FCA5A5; font-weight:700; margin-bottom:6px;">🔴 Crisis Disruption This Week (Continuous):</div>
+            <div style="color:#FCA5A5; font-weight:700; margin-bottom:6px;"><span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#DC2626; margin-right:6px; vertical-align:middle;"></span>Crisis Disruption This Week (Continuous):</div>
             <div>&bull; ${c1}</div>
             <div>&bull; ${c2}</div>
             <div>&bull; ${c3}</div>
