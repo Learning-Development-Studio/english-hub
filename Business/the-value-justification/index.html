@@ -1089,43 +1089,120 @@
           <p class="card-subtitle">Synthesize your personal business case using the validated 3-part Time-Impact framework.</p>
         </div>
 
-        <div class="builder-step">
-          <label class="builder-label">1. Choose your past completed milestone (Past Simple):</label>
-          <select id="pitchMilestone" class="builder-select" onchange="updatePitchPreview()">
-            <option value="In Q3, I led the cross-functional restructuring of our client delivery team">In Q3, I led the cross-functional restructuring of our client delivery team</option>
-            <option value="Last November, our department launched the regional supply chain automation protocol">Last November, our department launched the regional supply chain automation protocol</option>
-            <option value="In May, I finalized the strategic contract renegotiation with key vendors">In May, I finalized the strategic contract renegotiation with key vendors</option>
-          </select>
-        </div>
-
-        <div class="builder-step">
-          <label class="builder-label">2. Choose your continuous ongoing business return (Present Perfect):</label>
-          <select id="pitchReturn" class="builder-select" onchange="updatePitchPreview()">
-            <option value="Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue">Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue</option>
-            <option value="Over the past six months, this framework has prevented SLA defaults and has preserved client retention at 98%">Over the past six months, this framework has prevented SLA defaults and has preserved client retention at 98%</option>
-            <option value="Since Q2, our redesigned workflow has eliminated process bottlenecks and has saved over 120 engineering hours monthly">Since Q2, our redesigned workflow has eliminated process bottlenecks and has saved over 120 engineering hours monthly</option>
-          </select>
-        </div>
-
-        <div class="builder-step">
-          <label class="builder-label">3. Choose your diplomatic scope alignment request (Diplomatic Conditional):</label>
-          <select id="pitchAsk" class="builder-select" onchange="updatePitchPreview()">
-            <option value="Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.">Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.</option>
-            <option value="Considering that our responsibilities have expanded to encompass the entire tier-1 portfolio, I would like to discuss aligning my title and remuneration accordingly.">Considering that our responsibilities have expanded to encompass the entire tier-1 portfolio, I would like to discuss aligning my title and remuneration accordingly.</option>
-            <option value="Because our department has consistently delivered above target, I would like to propose a structured compensation review to reflect this ongoing ROI.">Because our department has consistently delivered above target, I would like to propose a structured compensation review to reflect this ongoing ROI.</option>
-          </select>
-        </div>
-
-        <div class="pitch-preview-card">
-          <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold);">Live Pitch Blueprint</span>
-          <div id="pitchDisplay" class="pitch-text-display">
-            In Q3, I led the cross-functional restructuring of our client delivery team. Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue. Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.
+        
+        <!-- PART A: GUIDED BLUEPRINT -->
+        <div style="margin-bottom: 36px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; border-bottom:2px solid var(--wash); padding-bottom:8px;">
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy);">Step 1 · Guided Model Scaffolding</h3>
+            <span class="badge badge-gold">Interactive Scaffold</span>
           </div>
-          <button type="button" class="btn-play" style="background:var(--gold); color:var(--navy-deep); font-weight:800;" onclick="speakMyPitch()">
-            Listen to My Pitch (Speech Synthesis)
-          </button>
+          <p style="font-size:0.9rem; color:var(--muted); margin-bottom:16px;">
+            Select high-impact corporate building blocks to observe how the 3-part Time-Impact framework locks together.
+          </p>
+
+          <div class="builder-step">
+            <label class="builder-label">1. Past Completed Milestone (Past Simple):</label>
+            <select id="pitchMilestone" class="builder-select" onchange="updatePitchPreview()">
+              <option value="In Q3, I led the cross-functional restructuring of our client delivery team">In Q3, I led the cross-functional restructuring of our client delivery team</option>
+              <option value="Last November, our department launched the regional supply chain automation protocol">Last November, our department launched the regional supply chain automation protocol</option>
+              <option value="In May, I finalized the strategic contract renegotiation with key vendors">In May, I finalized the strategic contract renegotiation with key vendors</option>
+            </select>
+          </div>
+
+          <div class="builder-step">
+            <label class="builder-label">2. Continuous Ongoing Business Return (Present Perfect):</label>
+            <select id="pitchReturn" class="builder-select" onchange="updatePitchPreview()">
+              <option value="Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue">Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue</option>
+              <option value="Over the past six months, this framework has prevented SLA defaults and has preserved client retention at 98%">Over the past six months, this framework has prevented SLA defaults and has preserved client retention at 98%</option>
+              <option value="Since Q2, our redesigned workflow has eliminated process bottlenecks and has saved over 120 engineering hours monthly">Since Q2, our redesigned workflow has eliminated process bottlenecks and has saved over 120 engineering hours monthly</option>
+            </select>
+          </div>
+
+          <div class="builder-step">
+            <label class="builder-label">3. Diplomatic Scope Alignment (Causal Connector + Modal Ask):</label>
+            <select id="pitchAsk" class="builder-select" onchange="updatePitchPreview()">
+              <option value="Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.">Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.</option>
+              <option value="Considering that our responsibilities have expanded to encompass the entire tier-1 portfolio, I would like to discuss aligning my title and remuneration accordingly.">Considering that our responsibilities have expanded to encompass the entire tier-1 portfolio, I would like to discuss aligning my title and remuneration accordingly.</option>
+              <option value="Because our department has consistently delivered above target, I would like to propose a structured compensation review to reflect this ongoing ROI.">Because our department has consistently delivered above target, I would like to propose a structured compensation review to reflect this ongoing ROI.</option>
+            </select>
+          </div>
+
+          <div class="pitch-preview-card" style="margin-top:16px;">
+            <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold);">Guided Model Preview</span>
+            <div id="pitchDisplay" class="pitch-text-display">
+              In Q3, I led the cross-functional restructuring of our client delivery team. Since that deployment, this initiative has reduced operating turnaround times by 35% and has protected 160,000 USD in revenue. Given that I have assumed full operational ownership for this region, I would like to align my compensation with this expanded scope.
+            </div>
+            <button type="button" class="btn-play" style="background:var(--gold); color:var(--navy-deep); font-weight:800; border:none;" onclick="speakMyPitch('guided')">
+              Listen to Guided Model
+            </button>
+          </div>
         </div>
-      </div>
+
+        <!-- PART B: AUTONOMOUS FROM-SCRATCH PITCH STUDIO -->
+        <div style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; border-bottom:2px solid rgba(11, 31, 58, 0.1); padding-bottom:8px;">
+            <div>
+              <h3 style="font-size:1.15rem; font-weight:800; color:var(--navy);">Step 2 · Autonomous Studio: Craft Your Own Pitch From Scratch</h3>
+              <p style="font-size:0.86rem; color:var(--muted); margin-top:2px;">Apply your real-world job responsibilities, project metrics, and compensation goal.</p>
+            </div>
+            <span class="badge badge-teal" style="font-size:0.75rem;">Free Production</span>
+          </div>
+
+          <div class="grid-3" style="gap:14px; margin-bottom:14px;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:800; color:var(--navy); text-transform:uppercase; display:block; margin-bottom:6px;">
+                1. Finished Milestone (Past Simple)
+              </label>
+              <textarea id="customMilestone" class="builder-textarea" style="height:95px; resize:none;" placeholder="e.g. In March, I led the ERP data migration ahead of deadline..." oninput="updateCustomPitchPreview()"></textarea>
+              <span style="font-size:0.75rem; color:var(--muted); display:block; margin-top:4px;">Include a past date + past simple verb.</span>
+            </div>
+
+            <div>
+              <label style="font-size:0.82rem; font-weight:800; color:var(--navy); text-transform:uppercase; display:block; margin-bottom:6px;">
+                2. Continuous Ongoing Return (Present Perfect)
+              </label>
+              <textarea id="customReturn" class="builder-textarea" style="height:95px; resize:none;" placeholder="e.g. Since that rollout, this platform has reduced downtime by 25% and has saved 90,000 USD..." oninput="updateCustomPitchPreview()"></textarea>
+              <span style="font-size:0.75rem; color:var(--muted); display:block; margin-top:4px;">Use has/have + duration + quantifiable metric.</span>
+            </div>
+
+            <div>
+              <label style="font-size:0.82rem; font-weight:800; color:var(--navy); text-transform:uppercase; display:block; margin-bottom:6px;">
+                3. Diplomatic Scope Alignment Ask
+              </label>
+              <textarea id="customAsk" class="builder-textarea" style="height:95px; resize:none;" placeholder="e.g. Given that I have absorbed direct management of the regional team, I would like to align my compensation..." oninput="updateCustomPitchPreview()"></textarea>
+              <span style="font-size:0.75rem; color:var(--muted); display:block; margin-top:4px;">Start with Given that / Considering that / Now that.</span>
+            </div>
+          </div>
+
+          <div class="pitch-preview-card" style="margin-top:16px; background:linear-gradient(135deg, #071527 0%, #132a4a 100%);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal);">Your Personal Executive Value Pitch</span>
+              <span id="customCharCount" style="font-size:0.75rem; color:var(--muted);">0 words</span>
+            </div>
+
+            <div id="customPitchDisplay" class="pitch-text-display" style="border-left-color:var(--teal); min-height:60px; font-style:italic;">
+              Type in the three boxes above to generate your real executive pitch in real time...
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+              <div style="display:flex; gap:10px;">
+                <button type="button" class="btn-play" style="background:var(--teal); color:var(--navy-deep); font-weight:800; border:none;" onclick="speakMyPitch('custom')">
+                  Listen to My Custom Pitch
+                </button>
+                <button type="button" class="btn-verify" onclick="analyzeCustomPitch()">
+                  Analyze Pitch Architecture
+                </button>
+              </div>
+
+              <button type="button" class="btn-return" style="font-size:0.8rem; padding:8px 14px; background:rgba(255,255,255,0.08);" onclick="copyCustomPitch()">
+                Copy Pitch to Clipboard
+              </button>
+            </div>
+
+            <div id="customPitchFeedback" class="feedback-box" style="margin-top:14px;"></div>
+          </div>
+        </div>
+</div>
     </section>
 
   </main>
@@ -1314,7 +1391,8 @@
       }
     }
 
-    // PITCH BUILDER PREVIEW
+    
+    // PITCH BUILDER PREVIEW & SCRATCH STUDIO
     function updatePitchPreview() {
       const m = document.getElementById('pitchMilestone').value;
       const r = document.getElementById('pitchReturn').value;
@@ -1323,15 +1401,117 @@
       document.getElementById('pitchDisplay').innerText = m + '. ' + r + '. ' + a;
     }
 
-    function speakMyPitch() {
-      const text = document.getElementById('pitchDisplay').innerText;
+    function updateCustomPitchPreview() {
+      const m = (document.getElementById('customMilestone').value || '').trim();
+      const r = (document.getElementById('customReturn').value || '').trim();
+      const a = (document.getElementById('customAsk').value || '').trim();
+
+      const display = document.getElementById('customPitchDisplay');
+      const counter = document.getElementById('customCharCount');
+
+      let combined = [m, r, a].filter(Boolean).join('. ');
+      if (combined && !combined.endsWith('.')) combined += '.';
+
+      if (!combined) {
+        display.innerText = 'Type in the three boxes above to generate your real executive pitch in real time...';
+        display.style.fontStyle = 'italic';
+        counter.innerText = '0 words';
+      } else {
+        display.innerText = combined;
+        display.style.fontStyle = 'normal';
+        const words = combined.split(/\s+/).filter(Boolean).length;
+        counter.innerText = words + ' words';
+      }
+    }
+
+    function speakMyPitch(mode) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
+
+      let text = '';
+      if (mode === 'custom') {
+        const m = (document.getElementById('customMilestone').value || '').trim();
+        const r = (document.getElementById('customReturn').value || '').trim();
+        const a = (document.getElementById('customAsk').value || '').trim();
+        text = [m, r, a].filter(Boolean).join('. ');
+        if (!text) {
+          alert('Please enter your pitch in the fields above first.');
+          return;
+        }
+      } else {
+        text = document.getElementById('pitchDisplay').innerText;
+      }
+
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'en-US';
-      utter.rate = 0.98;
+      utter.rate = 0.96;
+      utter.pitch = 1.0;
       window.speechSynthesis.speak(utter);
     }
+
+    function analyzeCustomPitch() {
+      const m = (document.getElementById('customMilestone').value || '').trim();
+      const r = (document.getElementById('customReturn').value || '').trim();
+      const a = (document.getElementById('customAsk').value || '').trim();
+      const fb = document.getElementById('customPitchFeedback');
+
+      if (!m || !r || !a) {
+        fb.className = 'feedback-box incorrect show';
+        fb.innerHTML = '<strong>Incomplete Blueprint:</strong> Please complete all three sections (Milestone, Ongoing Return, and Alignment Ask) to analyze your executive posture.';
+        return;
+      }
+
+      let checks = [];
+      const hasPastTime = /in\s+(january|february|march|april|may|june|july|august|september|october|november|december|q1|q2|q3|q4|202[0-9])|last\s+(year|month|quarter|week)/i.test(m);
+      const hasPastVerb = /led|launched|finalized|completed|restructured|designed|implemented|delivered|managed|built|created|negotiated|organized/i.test(m);
+      if (hasPastVerb && hasPastTime) {
+        checks.push('Step 1 (Milestone): Verified past simple event with chronological anchor.');
+      } else {
+        checks.push('Step 1 (Milestone Warning): Ensure you anchor with a specific time (e.g. In Q2, Last month) and a past simple verb.');
+      }
+
+      const hasPresentPerf = /has\s+[a-z]+ed|have\s+[a-z]+ed|has\s+cut|has\s+built|has\s+grown|has\s+saved|has\s+reduced|have\s+saved|have\s+reduced|has\s+protected|have\s+protected/i.test(r);
+      const hasMetric = /[0-9]+%|\$[0-9]+|[0-9]+\s*usd|[0-9]+\s*hours|[0-9]+\s*accounts|[0-9]+\s*clients/i.test(r);
+      if (hasPresentPerf && hasMetric) {
+        checks.push('Step 2 (Ongoing Return): Verified present perfect compounding impact with concrete metric data.');
+      } else {
+        checks.push('Step 2 (Return Warning): Use has/have + past participle (e.g. has reduced) and include a quantifiable metric (%, USD, hours).');
+      }
+
+      const hasDiplomatic = /given that|considering that|now that|in light of/i.test(a);
+      const hasModal = /would like to|would propose to|would appreciate/i.test(a);
+      if (hasDiplomatic && hasModal) {
+        checks.push('Step 3 (Diplomatic Ask): Verified executive causal connector with polite modal alignment request.');
+      } else {
+        checks.push('Step 3 (Ask Warning): Anchor with a connector like Given that / Considering that / Now that and use "would like to align".');
+      }
+
+      const isAllGood = hasPastVerb && hasPresentPerf && hasDiplomatic && hasModal;
+      fb.className = 'feedback-box ' + (isAllGood ? 'correct' : 'incorrect') + ' show';
+      fb.innerHTML = '<strong>' + (isAllGood ? 'Executive Quality Cleared' : 'Refinement Recommended') + ':</strong><ul style="margin-top:6px; padding-left:18px;">' + checks.map(c => '<li>' + c + '</li>').join('') + '</ul>';
+    }
+
+    function copyCustomPitch() {
+      const m = (document.getElementById('customMilestone').value || '').trim();
+      const r = (document.getElementById('customReturn').value || '').trim();
+      const a = (document.getElementById('customAsk').value || '').trim();
+      let text = [m, r, a].filter(Boolean).join('. ');
+      if (text && !text.endsWith('.')) text += '.';
+
+      if (!text) {
+        alert('Please write your pitch before copying.');
+        return;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        const fb = document.getElementById('customPitchFeedback');
+        fb.className = 'feedback-box correct show';
+        fb.innerHTML = '<strong>Copied to Clipboard!</strong> Your executive pitch is ready to paste into your notes or share with your teacher.';
+      }).catch(() => {
+        alert('Pitch copied to clipboard.');
+      });
+    }
+
 
     // FACULTY MODAL
     function openFacultyModal() {
