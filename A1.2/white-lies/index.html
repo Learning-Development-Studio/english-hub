@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1.2-U04: White Lies We Tell Right Now &middot; English Hub &middot; Learning &amp; Development Studio</title>
+  <link rel="icon" type="image/png" href="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* DESIGN SYSTEM: LEARNING & DEVELOPMENT STUDIO (EXECUTIVE STANDARD) */
+    :root {
+      --navy-950: #071527;
+      --navy-900: #001F54;
+      --navy-800: #0B2545;
+      --navy-700: #133E68;
+      --gold-600: #B57C00;
+      --gold-500: #D4A843;
+      --gold-400: #E5A922;
+      --gold-100: #FEF8EB;
+      --gold-border: rgba(212, 168, 67, 0.35);
+      --teal-800: #0F766E;
+      --teal-700: #007A87;
+      --teal-500: #14B8A6;
+      --teal-300: #4DD0E1;
+      --teal-50: #F0FDFA;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-300: #CBD5E1;
+      --slate-400: #94A3B8;
+      --slate-500: #64748B;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --slate-900: #0A192F;
+      --white: #FFFFFF;
+      --danger-600: #DC2626;
+      --danger-50: #FEF2F2;
+      --danger-border: rgba(239, 68, 68, 0.25);
+      --success-600: #059669;
+      --success-50: #ECFDF5;
+      --success-border: rgba(16, 185, 129, 0.25);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --shadow-xs: 0 1px 2px rgba(10, 25, 47, 0.04);
+      --shadow-sm: 0 2px 6px rgba(10, 25, 47, 0.05);
+      --shadow-md: 0 6px 18px -2px rgba(10, 25, 47, 0.06), 0 2px 6px -1px rgba(10, 25, 47, 0.03);
+      --shadow-lg: 0 16px 36px -4px rgba(10, 25, 47, 0.10), 0 4px 12px -2px rgba(10, 25, 47, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-900);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+    /* INSTITUTIONAL TOP BAR */
+    .site-header {
+      background: var(--navy-900);
+      border-bottom: 2px solid var(--gold-600);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 31, 84, 0.15);
+    }
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      padding: 2px;
+      border: 1.5px solid var(--gold-400);
+      object-fit: contain;
+    }
+    .brand-text-block small {
+      display: block;
+      color: var(--slate-300);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
+    .brand-text-block strong {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .student-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: var(--slate-200);
+    }
+    .student-pill strong { color: var(--gold-400); }
+    .nav-back-link {
+      color: var(--slate-200);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transition: all 0.2s;
+    }
+    .nav-back-link:hover {
+      color: var(--white);
+      border-color: var(--gold-400);
+      background: rgba(212, 168, 67, 0.15);
+    }
+
+    /* CINEMATIC WORKSPACE HERO BANNER (MATCHES A1-2_WORKSPACE.HTML EXACT HEIGHT, NO STATS BAR) */
+    .workspace-hero-banner {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      padding: 60px 48px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(212, 168, 67, 0.28);
+      box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.35);
+      margin-bottom: 36px;
+      color: #ffffff;
+      background-image: linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 50%, rgba(7, 21, 39, 0.40) 100%),
+                        url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85);
+    }
+
+    .hero-banner-topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-banner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(212, 168, 67, 0.18);
+      border: 1px solid var(--gold-border);
+      color: #fef08a;
+      padding: 5px 13px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-banner-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .hero-banner-meta {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .hero-banner-title {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 24ch;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+
+    .hero-banner-title .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-banner-desc {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 52ch;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    /* MAIN CONTAINER */
+    .content-wrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    /* MODULE NAVIGATOR TABS (THE WORLD IS HAPPENING BENCHMARK) */
+    .module-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .nav-tab-btn {
+      background: #EBF1F6;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--slate-700);
+    }
+    .nav-tab-btn:hover {
+      background: var(--white);
+      border-color: var(--navy-700);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-tab-btn.active {
+      background: var(--white);
+      border-color: var(--teal-700);
+      box-shadow: 0 0 0 2px rgba(0, 122, 135, 0.25), var(--shadow-sm);
+    }
+    .tab-micro-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gold-600);
+    }
+    .nav-tab-btn.active .tab-micro-label {
+      color: var(--teal-700);
+    }
+    .tab-title-strong {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy-900);
+      line-height: 1.35;
+    }
+    .tab-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--slate-300);
+    }
+    .nav-tab-btn.active .tab-status-dot {
+      background: var(--teal-700);
+    }
+
+    /* TAB SCREENS */
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: tabFadeIn 0.25s ease-out;
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SCREEN SECTION HEADERS */
+    .screen-header-block {
+      margin-bottom: 24px;
+    }
+    .screen-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--teal-700);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .screen-heading {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .screen-desc {
+      font-size: 0.98rem;
+      color: var(--slate-600);
+      max-width: 860px;
+      margin-top: 6px;
+    }
+
+    /* EXECUTIVE WHITE CARD CONTAINERS (L&D STUDIO STANDARD) */
+    .studio-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+    }
+
+    /* MODULE 1: WHATSAPP INTERFACE */
+    .wa-mock-device {
+      max-width: 480px;
+      margin: 0 auto 28px;
+      background: #EFEAE2;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--slate-300);
+    }
+    .wa-bar-header {
+      background: #075E54;
+      color: var(--white);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wa-avatar-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .wa-header-contact { flex-grow: 1; }
+    .wa-name { font-size: 14.5px; font-weight: 700; color: #fff; }
+    .wa-status { font-size: 11px; color: #D1E7DD; }
+    .wa-thread-body {
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 380px;
+      background-image: radial-gradient(#d4cfc7 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .wa-message-bubble {
+      max-width: 84%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      position: relative;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    }
+    .wa-msg-in {
+      align-self: flex-start;
+      background: var(--white);
+      color: #111B21;
+      border-top-left-radius: 0;
+    }
+    .wa-msg-out {
+      align-self: flex-end;
+      background: #D9FDD3;
+      color: #111B21;
+      border-top-right-radius: 0;
+    }
+    .wa-time-meta {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      color: #667781;
+      margin-top: 4px;
+    }
+    .wa-blue-ticks { color: #53BDEB; font-weight: bold; }
+
+    /* REAL WHATSAPP VOICE NOTE BUBBLE */
+    .wa-voice-bubble {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #D9FDD3;
+      border-radius: 12px;
+      border-top-right-radius: 0;
+      align-self: flex-end;
+      width: 86%;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    }
+    .wa-vn-play {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #00A884;
+      border: none;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .wa-bars-wave {
+      flex-grow: 1;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .wa-wave-bar {
+      width: 3px;
+      background: #8696A0;
+      border-radius: 2px;
+    }
+
+    /* REALITY REVEAL CARD */
+    .reality-banner-card {
+      background: var(--white);
+      border: 1.5px solid var(--danger-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+      margin-top: 14px;
+    }
+    .reality-banner-card strong { color: var(--danger-600); font-size: 13.5px; }
+
+    /* MODULE 2 & 5: INTERACTIVE 3D FLIP CARDS (REDUCES COGNITIVE OVERLOAD) */
+    .vocab-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .vocab-flip-card {
+      background: transparent;
+      perspective: 1000px;
+      height: 215px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .vocab-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+    }
+    .vocab-flip-card.flipped .vocab-flip-inner {
+      transform: rotateY(180deg);
+    }
+    .vocab-flip-front, .vocab-flip-back {
+      position: absolute;
+      inset: 0;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--slate-200);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .vocab-flip-front {
+      background: var(--white);
+    }
+    .vocab-flip-card:hover .vocab-flip-front {
+      border-color: var(--slate-300);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .vocab-flip-back {
+      background: linear-gradient(145deg, #ffffff 0%, #F0FDFA 100%);
+      border-color: var(--teal-500);
+      transform: rotateY(180deg);
+      box-shadow: var(--shadow-sm);
+    }
+    .vocab-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .vocab-card-term {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.01em;
+    }
+    .vocab-card-pos {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--teal-700);
+      background: var(--teal-50);
+      border: 1px solid rgba(0, 122, 135, 0.22);
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+    }
+    .vocab-card-ipa {
+      font-size: 13px;
+      color: var(--slate-500);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .vocab-audio-btn {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.18s;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .vocab-audio-btn:hover {
+      background: var(--teal-50);
+      border-color: var(--teal-500);
+      transform: scale(1.1);
+    }
+    .flip-reveal-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--teal-700);
+      background: var(--teal-50);
+      border: 1px dashed rgba(0, 122, 135, 0.35);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .vocab-card-def {
+      font-size: 13.5px;
+      color: var(--slate-700);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+    .vocab-card-example {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--navy-900);
+      line-height: 1.45;
+    }
+    .vocab-card-example strong {
+      color: var(--teal-700);
+    }
+    .flip-return-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate-400);
+      margin-top: 6px;
+    }
+
+    /* MATCHING EXERCISE ROWS */
+    .vocab-practice-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1.4fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .vocab-practice-row:last-child { border-bottom: none; }
+    .clean-select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy-900);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .clean-select:focus { border-color: var(--gold-500); }
+
+    /* MODULE 3: GRAMMAR ARCHITECTURE (EXPLICIT CHART & MIXED WORDBOX) */
+    .table-container-responsive {
+      overflow-x: auto;
+      margin: 16px 0 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--slate-200);
+    }
+    .grammar-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+      background: var(--white);
+    }
+    .grammar-matrix-table th {
+      background: var(--navy-900);
+      color: var(--white);
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 2px solid var(--gold-500);
+      white-space: nowrap;
+    }
+    .grammar-matrix-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--slate-200);
+      color: var(--slate-800);
+      vertical-align: middle;
+    }
+    .grammar-matrix-table tr:last-child td { border-bottom: none; }
+    .grammar-matrix-table tr:hover { background: var(--slate-50); }
+
+    .g-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .g-pill.aff { background: var(--success-50); color: var(--success-600); border: 1px solid rgba(5,150,105,0.25); }
+    .g-pill.neg { background: var(--danger-50); color: var(--danger-600); border: 1px solid rgba(220,38,38,0.25); }
+    .g-pill.verb { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+
+    /* SPELLING RULE PILLS */
+    .spelling-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .spelling-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+    .spelling-rule-tag {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--gold-600);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    /* SCRAMBLED WORDBOX BUILDER */
+    .wordbox-stage {
+      background: var(--navy-900);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      color: var(--white);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .chips-scramble-pool {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 22px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+    .chip-item {
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    .chip-item:hover {
+      background: var(--gold-500);
+      color: var(--navy-950);
+      border-color: var(--gold-500);
+      transform: translateY(-2px);
+    }
+    .chip-item.used { opacity: 0.28; pointer-events: none; }
+    .sentence-dock {
+      min-height: 60px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* GUIDED INDUCTION INTERACTIVE */
+    .induction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .induction-item {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .induction-q {
+      font-size: 13.5px;
+      color: var(--navy-900);
+      line-height: 1.45;
+    }
+    .induction-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .opt-btn {
+      text-align: left;
+      background: var(--slate-50);
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .opt-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--teal-600);
+      color: var(--teal-700);
+    }
+    .opt-btn.correct-btn {
+      background: #ECFDF5;
+      border-color: var(--success-600);
+      color: var(--success-700);
+    }
+    .opt-btn.wrong-btn {
+      background: #FEF2F2;
+      border-color: var(--danger-600);
+      color: var(--danger-700);
+    }
+    .induction-feedback {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    .induction-feedback.fb-correct {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: var(--success-700);
+    }
+    .induction-feedback.fb-wrong {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--danger-700);
+    }
+
+    /* FORMAL ERROR CLINIC REPAIR CARDS */
+    .clinic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .clinic-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: all 0.2s ease;
+    }
+    .clinic-card.completed {
+      background: #FFFFFF;
+      border-color: var(--success-600);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    }
+    .clinic-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .clinic-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .clinic-card.completed .clinic-pill {
+      background: #DCFCE7;
+      color: #166534;
+      border-color: #86EFAC;
+    }
+    .clinic-faulty-sentence {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--danger-600);
+      letter-spacing: -0.01em;
+    }
+    .clinic-card.completed .clinic-faulty-sentence {
+      text-decoration: line-through;
+      color: var(--slate-400);
+    }
+    .clinic-input-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .clinic-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--navy-900);
+      background: #FFFFFF;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .clinic-input:focus {
+      outline: none;
+      border-color: var(--teal-600);
+      box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+    }
+    .clinic-input.input-correct {
+      border-color: var(--success-600);
+      background: #F0FDF4;
+    }
+    .clinic-input.input-wrong {
+      border-color: var(--danger-600);
+      background: #FEF2F2;
+    }
+    .clinic-hint {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: #92400E;
+      line-height: 1.5;
+    }
+    .clinic-feedback {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .clinic-feedback.fb-success {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: var(--success-700);
+    }
+    .clinic-feedback.fb-fail {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: var(--danger-700);
+    }
+    .clinic-rule-note {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(16, 185, 129, 0.35);
+      font-size: 12.5px;
+      color: var(--slate-700);
+    }
+
+    /* MODULE 4: AUDIO INVESTIGATION (45-50 SECONDS CALL & 6 QUESTIONS) */
+    .audio-theater-card {
+      background: var(--navy-900);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      color: var(--white);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .audio-player-deck {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+    .deck-play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gold-500);
+      border: none;
+      color: var(--navy-950);
+      font-size: 18px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .deck-play-btn:hover { transform: scale(1.05); background: var(--gold-400); }
+    .deck-track-scrubber {
+      flex-grow: 1;
+      min-width: 200px;
+    }
+    .deck-slider {
+      width: 100%;
+      accent-color: var(--gold-400);
+      cursor: pointer;
+    }
+    .deck-time-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--slate-300);
+      margin-top: 4px;
+    }
+    .deck-speed-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* SCRIPT TRANSCRIPT VIEW */
+    .script-accordion {
+      margin-top: 18px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-size: 13.5px;
+    }
+    .script-cue {
+      margin-bottom: 12px;
+      line-height: 1.55;
+    }
+    .script-cue:last-child { margin-bottom: 0; }
+    .spk-marcus { color: #60A5FA; font-weight: 800; }
+    .spk-elena { color: var(--gold-400); font-weight: 800; }
+    .sfx-tag { color: var(--slate-400); font-style: italic; font-size: 12.5px; }
+
+    /* 6 LISTENING QUESTIONS GRID */
+    .questions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .q-card-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+    }
+    .q-tag-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--slate-200);
+      color: var(--slate-800);
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .q-prompt-heading {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 12px;
+    }
+    .q-choice-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .q-choice-row:hover { background: #EFF6FF; }
+    .q-choice-row input[type="radio"] { accent-color: var(--teal-700); cursor: pointer; }
+
+    /* MODULE 6: MYSTERY BOX SPEAKING MISSION */
+    .mystery-hero-box {
+      background: linear-gradient(135deg, var(--navy-900), #082d61);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .mystery-icon-btn {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle, var(--gold-400) 0%, var(--gold-600) 100%);
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      box-shadow: 0 10px 28px rgba(212, 168, 67, 0.4);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .mystery-icon-btn:hover { transform: scale(1.08) rotate(3deg); }
+    .roleplay-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 22px;
+      text-align: left;
+    }
+    .roleplay-half-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+
+    /* ACTION BUTTONS & FOOTERS */
+    .btn-brand-primary {
+      background: var(--gold-500);
+      color: var(--navy-950);
+      border: none;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-brand-primary:hover {
+      background: var(--gold-400);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.35);
+    }
+    .btn-brand-secondary {
+      background: transparent;
+      border: 1px solid var(--slate-300);
+      color: var(--slate-700);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-brand-secondary:hover { background: var(--slate-100); color: var(--navy-900); }
+
+    .screen-footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--slate-200);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* FOOTER (THE WORLD IS HAPPENING BENCHMARK) */
+    .studio-site-footer {
+      border-top: 2px solid rgba(181, 124, 0, 0.4);
+      background: var(--navy-900);
+      color: var(--slate-200);
+      padding: 30px 24px;
+      margin-top: 60px;
+    }
+    .footer-content-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 12.5px;
+    }
+    @media (min-width: 768px) {
+      .footer-content-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .footer-left-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-brand-dot { color: var(--gold-400); }
+
+    @media (max-width: 860px) {
+      .roleplay-grid-two { grid-template-columns: 1fr; }
+      .vocab-practice-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. INSTITUTIONAL HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../a1-2_workspace.html" class="brand-lockup">
+        <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="Logo" class="brand-logo">
+        <div class="brand-text-block">
+          <small>Learning &amp; Development Studio</small>
+          <strong>English Hub &middot; Level A1.2</strong>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="student-pill" id="studentTag">Student: <strong>Coordinator</strong></div>
+        <a href="../../a1-2_workspace.html" class="nav-back-link">&larr; Return to Workspace</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. MAIN CONTENT STAGE -->
+  <main class="content-wrapper">
+
+    <!-- CINEMATIC WORKSPACE HERO BANNER (IDENTICAL SIZE TO WORKSPACE, NO STATS BAR) -->
+    <header class="workspace-hero-banner" id="heroBanner">
+      <div class="hero-banner-topline">
+        <div class="hero-banner-pill" id="heroKicker">
+          <span class="hero-banner-pill-dot"></span>
+          A1.2 Trajectory &middot; Stage 01 Foundations
+        </div>
+        <div class="hero-banner-meta" id="heroMeta">
+          CEFR A1.2 &middot; Macro-Unit 04
+        </div>
+      </div>
+
+      <h1 class="hero-banner-title" id="heroTitle">
+        White Lies We Tell <span class="gold-accent">Right Now</span>
+      </h1>
+
+      <p class="hero-banner-desc" id="heroDesc">
+        The "I'm On My Way!" Syndrome: Phone calls, WhatsApp voice dispatches, and the universal comedy of what we claim we are doing versus what we are actually doing at this exact second.
+      </p>
+    </header>
+
+    <!-- MODULE NAVIGATOR TABS -->
+    <nav class="module-nav-grid" role="tablist">
+      <button class="nav-tab-btn active" onclick="switchScreen(1)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 01</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">The WhatsApp Setup</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(2)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 02</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Situational Vocabulary</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(3)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 03</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Grammar Mechanics</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(4)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 04</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Audio Investigation</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(5)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 05</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Functional Chunks</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(6)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 06</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Mystery Box Mission</div>
+      </button>
+
+      <button class="nav-tab-btn" onclick="switchScreen(7)">
+        <div class="tab-micro-label font-mono">
+          <span>Module 07</span>
+          <span class="tab-status-dot"></span>
+        </div>
+        <div class="tab-title-strong">Exit Ticket</div>
+      </button>
+    </nav>
+
+    <!-- SCREEN 1: THE REAL WHATSAPP DILEMMA -->
+    <section class="tab-panel active" id="screen-1">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 01 &middot; Authentic Dilemma</div>
+        <h2 class="screen-heading">The WhatsApp Setup: Claim vs. Reality</h2>
+        <p class="screen-desc">
+          Inspect this live exchange between Alex and Jordan. Notice how we use the Present Continuous to describe what we claim to be doing right now.
+        </p>
+      </div>
+
+      <!-- WHATSAPP INTERFACE -->
+      <div class="wa-mock-device">
+        <div class="wa-bar-header">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Alex" class="wa-avatar-img">
+          <div class="wa-header-contact">
+            <div class="wa-name">Alex &middot; Downtown Cafe</div>
+            <div class="wa-status">online &middot; waiting for 20 mins</div>
+          </div>
+        </div>
+
+        <div class="wa-thread-body">
+          <div class="wa-message-bubble wa-msg-in">
+            Hey Jordan! Where are you?? The waiter is asking for our table order right now! ☕⏱️
+            <div class="wa-time-meta">10:41 AM</div>
+          </div>
+
+          <!-- VOICE NOTE BUBBLE -->
+          <div class="wa-voice-bubble">
+            <button class="wa-vn-play" onclick="playVoiceAudio()">▶</button>
+            <div class="wa-bars-wave">
+              <span class="wa-wave-bar" style="height:8px;"></span>
+              <span class="wa-wave-bar" style="height:14px;"></span>
+              <span class="wa-wave-bar" style="height:18px;"></span>
+              <span class="wa-wave-bar" style="height:10px;"></span>
+              <span class="wa-wave-bar" style="height:16px;"></span>
+              <span class="wa-wave-bar" style="height:6px;"></span>
+              <span class="wa-wave-bar" style="height:12px;"></span>
+              <span class="wa-wave-bar" style="height:18px;"></span>
+              <span class="wa-wave-bar" style="height:9px;"></span>
+            </div>
+            <span class="font-mono" style="font-size:11px; color:#555;">0:14</span>
+          </div>
+
+          <div class="wa-message-bubble wa-msg-out">
+            <em>"I'm literally walking out the door right now! Traffic is an absolute nightmare, but I'm on my way! Be right there!"</em> 🏃‍♂️💨
+            <div class="wa-time-meta">10:42 AM <span class="wa-blue-ticks">✓✓</span></div>
+          </div>
+
+          <div class="wa-message-bubble wa-msg-in">
+            Wait a second... why do I hear someone frying food and TV background noise?! Are you still at home?? 🤨
+            <div class="wa-time-meta">10:43 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REALITY REVEAL BUTTON -->
+      <div style="max-width:480px; margin:0 auto;">
+        <button class="btn-brand-primary" style="width:100%;" onclick="toggleRealityPhoto()">
+          📸 Reveal Jordan's Secret Reality Photo
+        </button>
+
+        <div class="reality-banner-card" id="realityBox" style="display:none;">
+          <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=200&q=80" alt="In Bed" style="width:72px; height:72px; border-radius:10px; object-fit:cover;">
+          <div>
+            <strong>CAUGHT IN THE ACT!</strong>
+            <p style="font-size:13px; color:var(--slate-700); margin-top:2px;">
+              Jordan is lying in bed wearing pajamas, scrolling TikTok, and eating potato chips.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <span style="font-size:13px; color:var(--slate-500);">Advance to Module 02 &middot; Situational Vocabulary</span>
+        <button class="btn-brand-primary" onclick="switchScreen(2)">
+          Continue to Situational Vocabulary &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: SITUATIONAL VOCABULARY LAB & ACTIVITY -->
+    <section class="tab-panel" id="screen-2">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 02 &middot; Thematic Lexis</div>
+        <h2 class="screen-heading">Situational Vocabulary: Calls, Delays &amp; Excuses</h2>
+        <p class="screen-desc">
+          High-frequency situational vocabulary for phone encounters, unexpected delays, and everyday excuses at level A1.2.
+        </p>
+      </div>
+
+      <!-- 8 INTERACTIVE FLIP CARDS (TAP TO REVEAL MEANING & EXAMPLE) -->
+      <div class="vocab-tiles-grid">
+        <!-- CARD 1: STUCK -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">stuck</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">adjective</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('stuck')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/stʌk/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Unable to move, escape, or make forward progress.</div>
+                <div class="vocab-card-example">"I am <strong>stuck</strong> in traffic right now!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: TRAFFIC JAM -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">traffic jam</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('traffic')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ˈtræf.ɪk dʒæm/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A long line of vehicles on a road unable to move.</div>
+                <div class="vocab-card-example">"There is a huge <strong>traffic jam</strong> on the avenue."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: LOW BATTERY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">low battery</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('lowbattery')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/loʊ ˈbæt̬.ɚ.i/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> When your device has almost zero electrical energy.</div>
+                <div class="vocab-card-example">"I must hang up &mdash; my phone has <strong>low battery</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: EXCUSE -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">excuse</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('excuse')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪkˈskjuːs/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A reason you invent to explain why you are late.</div>
+                <div class="vocab-card-example">"That is not a real reason, that is just an <strong>excuse</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: BACKGROUND NOISE -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">background noise</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('background')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ˈbæk.ɡraʊnd nɔɪz/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Sounds heard behind your voice during a call.</div>
+                <div class="vocab-card-example">"What is that <strong>background noise</strong>? Are you home?"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: IN A HURRY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">in a hurry</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">phrase</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('hurry')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪn ə ˈhɝː.i/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Moving or acting quickly because time is short.</div>
+                <div class="vocab-card-example">"I can't talk right now, I am <strong>in a hurry</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7: PAJAMAS -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">pajamas</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('pajamas')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/pəˈdʒɑː.məz/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> Soft comfortable clothes worn for sleeping.</div>
+                <div class="vocab-card-example">"He claims he is ready, but he is wearing <strong>pajamas</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8: EMERGENCY -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <div class="vocab-card-top">
+                  <span class="vocab-card-term">emergency</span>
+                  <div style="display:flex; align-items:center;">
+                    <span class="vocab-card-pos font-mono">noun</span>
+                    <button class="vocab-audio-btn" title="Listen pronunciation" onclick="event.stopPropagation(); playVocabAudio('emergency')">🔊</button>
+                  </div>
+                </div>
+                <div class="vocab-card-ipa font-mono">/ɪˈmɝː.dʒən.si/</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal meaning &amp; example</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Meaning:</strong> A sudden urgent event needing immediate action.</div>
+                <div class="vocab-card-example">"I have a quick <strong>emergency</strong> at work."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE VOCAB PRACTICE -->
+      <div class="studio-card">
+        <h3 style="font-size:16px; font-weight:800; color:var(--navy-900); margin-bottom:14px;">
+          Situational Match &middot; Choose the accurate lexical item for each scenario
+        </h3>
+
+        <div class="vocab-practice-row">
+          <div><strong>1. My phone display shows 2% and the screen is blinking:</strong></div>
+          <div>
+            <select class="clean-select" id="v1" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="battery">low battery</option>
+              <option value="pajamas">pajamas</option>
+              <option value="emergency">emergency</option>
+            </select>
+          </div>
+          <div id="vfb1" class="font-mono" style="font-size:13px; font-weight:800;"></div>
+        </div>
+
+        <div class="vocab-practice-row">
+          <div><strong>2. Two hundred vehicles are parked on the expressway not moving:</strong></div>
+          <div>
+            <select class="clean-select" id="v2" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="noise">background noise</option>
+              <option value="traffic">traffic jam</option>
+              <option value="hurry">in a hurry</option>
+            </select>
+          </div>
+          <div id="vfb2" class="font-mono" style="font-size:13px; font-weight:800;"></div>
+        </div>
+
+        <div class="vocab-practice-row">
+          <div><strong>3. I hear coffee cups clinking and dogs barking during your call:</strong></div>
+          <div>
+            <select class="clean-select" id="v3" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="noise">background noise</option>
+              <option value="stuck">stuck</option>
+              <option value="excuse">excuse</option>
+            </select>
+          </div>
+          <div id="vfb3" class="font-mono" style="font-size:13px; font-weight:800;"></div>
+        </div>
+
+        <div class="vocab-practice-row">
+          <div><strong>4. You cannot open the bathroom door and you cannot exit:</strong></div>
+          <div>
+            <select class="clean-select" id="v4" onchange="evalVocab()">
+              <option value="">-- Select vocabulary --</option>
+              <option value="pajamas">pajamas</option>
+              <option value="stuck">stuck</option>
+              <option value="battery">low battery</option>
+            </select>
+          </div>
+          <div id="vfb4" class="font-mono" style="font-size:13px; font-weight:800;"></div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(1)">&larr; Back to WhatsApp</button>
+        <button class="btn-brand-primary" onclick="switchScreen(3)">
+          Continue to Grammar Mechanics &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: GRAMMAR MECHANICS (EXPLICIT CHART & SCRAMBLED WORDBOX) -->
+    <section class="tab-panel" id="screen-3">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 03 &middot; Structural Precision</div>
+        <h2 class="screen-heading">Grammar Mechanics: Present Continuous</h2>
+        <p class="screen-desc">
+          Study the architectural structure table, explore spelling mutations, assemble sentences from the scrambled Wordbox, and debug typical A1.2 errors.
+        </p>
+      </div>
+
+      <!-- EXPLICIT GRAMMAR STRUCTURE CHART (CUADRO LITERAL) -->
+      <div class="studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="vocab-card-pos font-mono" style="background:#EFF6FF; color:#1D4ED8; border-color:#BFDBFE;">Grammar Architecture &middot; Structural Chart</span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Present Continuous Structural Matrix (Real-Time Actions)
+            </h3>
+          </div>
+          <div class="font-mono" style="font-size:12px; color:var(--slate-500); background:var(--slate-50); padding:4px 12px; border-radius:var(--radius-full); border:1px solid var(--slate-200);">
+            Formula: Subject + BE (am / is / are) + Verb-ing
+          </div>
+        </div>
+
+        <div class="table-container-responsive">
+          <table class="grammar-matrix-table">
+            <thead>
+              <tr>
+                <th>Person / Subject</th>
+                <th>Affirmative BE (+)</th>
+                <th>Negative BE (&ndash;)</th>
+                <th>Action Verb (-ing)</th>
+                <th>Time Marker / Complement</th>
+                <th>Natural Studio Exemplar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>I</strong> <small style="color:var(--slate-500);">(1st person singular)</small></td>
+                <td><span class="g-pill aff">am</span> <small style="color:var(--slate-500);">('m)</small></td>
+                <td><span class="g-pill neg">am not</span> <small style="color:var(--slate-500);">('m not)</small></td>
+                <td><span class="g-pill verb">walking</span></td>
+                <td>out the door right now</td>
+                <td><em>"I'm walking out the door right now."</em></td>
+              </tr>
+              <tr>
+                <td><strong>He / She / It</strong><br><small style="color:var(--slate-500);">Jordan, My boss, The waiter</small></td>
+                <td><span class="g-pill aff">is</span> <small style="color:var(--slate-500);">('s)</small></td>
+                <td><span class="g-pill neg">is not</span> <small style="color:var(--slate-500);">(isn't)</small></td>
+                <td><span class="g-pill verb">driving</span></td>
+                <td>in heavy traffic at this moment</td>
+                <td><em>"Jordan is driving in traffic right now."</em></td>
+              </tr>
+              <tr>
+                <td><strong>We / You / They</strong><br><small style="color:var(--slate-500);">My friends, The clients</small></td>
+                <td><span class="g-pill aff">are</span> <small style="color:var(--slate-500);">('re)</small></td>
+                <td><span class="g-pill neg">are not</span> <small style="color:var(--slate-500);">(aren't)</small></td>
+                <td><span class="g-pill verb">waiting</span></td>
+                <td>at the restaurant for our order</td>
+                <td><em>"They aren't waiting in the car."</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4 SPELLING RULES -->
+        <div class="spelling-grid">
+          <div class="spelling-box">
+            <span class="spelling-rule-tag font-mono">RULE 1 &middot; GENERAL</span>
+            <strong>Base + ing</strong>
+            <p style="color:var(--slate-600); margin-top:2px;">walk &rarr; <code style="color:var(--teal-700); font-weight:700;">walking</code><br>wait &rarr; <code style="color:var(--teal-700); font-weight:700;">waiting</code></p>
+          </div>
+          <div class="spelling-box">
+            <span class="spelling-rule-tag font-mono">RULE 2 &middot; SILENT -E</span>
+            <strong>Drop -e + ing</strong>
+            <p style="color:var(--slate-600); margin-top:2px;">drive &rarr; <code style="color:var(--teal-700); font-weight:700;">driving</code><br>make &rarr; <code style="color:var(--teal-700); font-weight:700;">making</code></p>
+          </div>
+          <div class="spelling-box">
+            <span class="spelling-rule-tag font-mono">RULE 3 &middot; CVC DOUBLE</span>
+            <strong>Double consonant</strong>
+            <p style="color:var(--slate-600); margin-top:2px;">stop &rarr; <code style="color:var(--teal-700); font-weight:700;">stopping</code><br>run &rarr; <code style="color:var(--teal-700); font-weight:700;">running</code></p>
+          </div>
+          <div class="spelling-box">
+            <span class="spelling-rule-tag font-mono">RULE 4 &middot; -IE TO -Y</span>
+            <strong>Change -ie to -y</strong>
+            <p style="color:var(--slate-600); margin-top:2px;">lie &rarr; <code style="color:var(--teal-700); font-weight:700;">lying</code><br>die &rarr; <code style="color:var(--teal-700); font-weight:700;">dying</code></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUIDED INDUCTION INTERACTIVE DISCOVERY -->
+      <div class="studio-card" style="background:#F0F9FF; border-color:#BAE6FD;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="vocab-card-pos font-mono" style="background:#E0F2FE; color:#0369A1; border-color:#BAE6FD;">Guided Induction</span>
+            <h3 style="font-size:17px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Discover the Real-Time Mechanism: Jordan's Dispatch
+            </h3>
+          </div>
+          <span class="font-mono" style="font-size:12px; color:var(--teal-700); font-weight:700;">Reference: "I am walking out the door right now."</span>
+        </div>
+
+        <div class="induction-grid">
+          <div class="induction-item" id="ind-item-1">
+            <p class="induction-q"><strong>1. Time Frame Check:</strong> What kind of action is Jordan describing here?</p>
+            <div class="induction-options">
+              <button type="button" class="opt-btn" onclick="checkInduction(1, 'habit', this)">An everyday routine or repeated habit</button>
+              <button type="button" class="opt-btn" onclick="checkInduction(1, 'right-now', this)">An ongoing action happening at this exact second</button>
+            </div>
+            <div class="induction-feedback" id="ind-fb-1" style="display:none;"></div>
+          </div>
+
+          <div class="induction-item" id="ind-item-2">
+            <p class="induction-q"><strong>2. Structural Integrity:</strong> What happens if Jordan says <em>"I walking out the door"</em> (omits BE)?</p>
+            <div class="induction-options">
+              <button type="button" class="opt-btn" onclick="checkInduction(2, 'correct', this)">It is natural and complete in standard English</button>
+              <button type="button" class="opt-btn" onclick="checkInduction(2, 'incomplete', this)">It is incomplete; auxiliary BE is strictly mandatory</button>
+            </div>
+            <div class="induction-feedback" id="ind-fb-2" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRAMBLED WORDBOX BUILDER (ALL CHIPS MIXED UP) -->
+      <div class="wordbox-stage">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <h3 style="font-size:17px; font-weight:800; color:var(--gold-400);">
+              The Scrambled Wordbox: Build an affirmative or negative statement
+            </h3>
+            <p style="font-size:12.5px; color:var(--slate-300); margin-top:2px;">
+              Words are completely mixed. Click chips from the scrambled pool to assemble your sentence in the dock.
+            </p>
+          </div>
+          <button class="deck-speed-btn" onclick="shuffleChips()">🔀 Reshuffle Chips</button>
+        </div>
+
+        <!-- 32 SCRAMBLED MIXED CHIPS -->
+        <div class="chips-scramble-pool" id="chipsPool">
+          <button class="chip-item" onclick="addChip(this, 'right now')">right now</button>
+          <button class="chip-item" onclick="addChip(this, 'am')">am</button>
+          <button class="chip-item" onclick="addChip(this, 'Jordan')">Jordan</button>
+          <button class="chip-item" onclick="addChip(this, 'driving')">driving</button>
+          <button class="chip-item" onclick="addChip(this, 'in bed')">in bed</button>
+          <button class="chip-item" onclick="addChip(this, 'aren\'t')">aren't</button>
+          <button class="chip-item" onclick="addChip(this, 'eating')">eating</button>
+          <button class="chip-item" onclick="addChip(this, 'She')">She</button>
+          <button class="chip-item" onclick="addChip(this, 'to the office')">to the office</button>
+          <button class="chip-item" onclick="addChip(this, 'is not')">is not</button>
+          <button class="chip-item" onclick="addChip(this, 'in traffic')">in traffic</button>
+          <button class="chip-item" onclick="addChip(this, 'They')">They</button>
+          <button class="chip-item" onclick="addChip(this, 'walking')">walking</button>
+          <button class="chip-item" onclick="addChip(this, 'is')">is</button>
+          <button class="chip-item" onclick="addChip(this, 'tacos')">tacos</button>
+          <button class="chip-item" onclick="addChip(this, 'I')">I</button>
+          <button class="chip-item" onclick="addChip(this, 'sleeping')">sleeping</button>
+          <button class="chip-item" onclick="addChip(this, 'My boss')">My boss</button>
+          <button class="chip-item" onclick="addChip(this, 'are')">are</button>
+          <button class="chip-item" onclick="addChip(this, 'out the door')">out the door</button>
+          <button class="chip-item" onclick="addChip(this, 'lying')">lying</button>
+          <button class="chip-item" onclick="addChip(this, 'Alex')">Alex</button>
+          <button class="chip-item" onclick="addChip(this, 'rushing')">rushing</button>
+          <button class="chip-item" onclick="addChip(this, 'at this moment')">at this moment</button>
+          <button class="chip-item" onclick="addChip(this, 'isn\'t')">isn't</button>
+          <button class="chip-item" onclick="addChip(this, 'The waiter')">The waiter</button>
+          <button class="chip-item" onclick="addChip(this, 'cooking')">cooking</button>
+          <button class="chip-item" onclick="addChip(this, 'on the phone')">on the phone</button>
+          <button class="chip-item" onclick="addChip(this, 'am not')">am not</button>
+          <button class="chip-item" onclick="addChip(this, 'waiting')">waiting</button>
+          <button class="chip-item" onclick="addChip(this, 'for the bill')">for the bill</button>
+          <button class="chip-item" onclick="addChip(this, 'We')">We</button>
+        </div>
+
+        <!-- SENTENCE DOCK -->
+        <div class="sentence-dock" id="workbench">
+          <span style="color:#94a3b8; font-weight:normal;" id="wbPlaceholder">Assembled sentence will appear here...</span>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+          <button class="btn-brand-primary" onclick="verifyWorkbench()">Check Sentence &check;</button>
+          <button class="btn-brand-secondary" style="color:#fff; border-color:rgba(255,255,255,0.3);" onclick="clearWorkbench()">Clear All</button>
+          <span id="wbFeedback" class="font-mono" style="align-self:center; font-size:13px; font-weight:700;"></span>
+        </div>
+      </div>
+
+      <!-- FORMAL ERROR CLINIC -->
+      <div class="studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="vocab-card-pos font-mono" style="background:#FEF2F2; color:#B91C1C; border-color:#FECACA;">Grammar Clinic</span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--navy-900); margin-top:6px;">
+              Formal Grammar Clinic &middot; Find and Repair Classical A1.2 Slips
+            </h3>
+          </div>
+          <span class="font-mono" style="font-size:12px; color:var(--slate-500); background:var(--slate-50); padding:4px 12px; border-radius:var(--radius-full); border:1px solid var(--slate-200);">
+            4 Slips to Repair &middot; Type the corrected sentence &amp; check
+          </span>
+        </div>
+        <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:20px; line-height:1.5;">
+          Each sentence below contains a classical A1.2 slip (missing auxiliary BE, missing <em>-ing</em>, or spelling mutation). Type the fully corrected sentence in the box and verify your repair.
+        </p>
+
+        <div class="clinic-list">
+          <!-- SLIP 1 -->
+          <div class="clinic-card" id="clinic-card-1">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 01</span>
+              <span class="clinic-faulty-sentence">"He is drive to work right now."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-1" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(1)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(1)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(1)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-1" style="display:none;">
+              💡 <strong>Hint:</strong> Look at the main verb <em>"drive"</em> after auxiliary <em>"is"</em>. What suffix is required for continuous action? Remember Rule 2 (silent -e).
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-1" style="display:none;"></div>
+          </div>
+
+          <!-- SLIP 2 -->
+          <div class="clinic-card" id="clinic-card-2">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 02</span>
+              <span class="clinic-faulty-sentence">"They sleeping in bed at this moment."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-2" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(2)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(2)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(2)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-2" style="display:none;">
+              💡 <strong>Hint:</strong> What essential helping verb (auxiliary BE) is missing between the subject <em>"They"</em> and the verb <em>"sleeping"</em>?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-2" style="display:none;"></div>
+          </div>
+
+          <!-- SLIP 3 -->
+          <div class="clinic-card" id="clinic-card-3">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 03</span>
+              <span class="clinic-faulty-sentence">"Jordan is lie to his best friend."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-3" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(3)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(3)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(3)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-3" style="display:none;">
+              💡 <strong>Hint:</strong> Check Spelling Rule 4 for verbs ending in <em>-ie</em> (like <em>lie</em>). How does the ending mutate before adding <em>-ing</em>?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-3" style="display:none;"></div>
+          </div>
+
+          <!-- SLIP 4 -->
+          <div class="clinic-card" id="clinic-card-4">
+            <div class="clinic-header">
+              <span class="clinic-pill font-mono">SLIP 04</span>
+              <span class="clinic-faulty-sentence">"The traffic is stoping right now."</span>
+            </div>
+            <div class="clinic-input-group">
+              <input type="text" class="clinic-input" id="clinic-in-4" placeholder="Type the corrected sentence here..." onkeydown="if(event.key==='Enter') checkClinicItem(4)" />
+              <button type="button" class="btn-brand-primary" onclick="checkClinicItem(4)">Check &check;</button>
+              <button type="button" class="btn-brand-secondary" onclick="toggleClinicHint(4)">💡 Hint</button>
+            </div>
+            <div class="clinic-hint" id="clinic-hint-4" style="display:none;">
+              💡 <strong>Hint:</strong> Look at Spelling Rule 3: <em>stop</em> is a 1-syllable verb ending in Consonant-Vowel-Consonant (CVC). Do you need a double consonant?
+            </div>
+            <div class="clinic-feedback" id="clinic-fb-4" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(2)">&larr; Back to Vocabulary</button>
+        <button class="btn-brand-primary" onclick="switchScreen(4)">
+          Continue to Audio Investigation &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: AUDIO INVESTIGATION (45-50 SEC SCRIPT & 6 COMPREHENSION QUESTIONS) -->
+    <section class="tab-panel" id="screen-4">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 04 &middot; Auditory Verification</div>
+        <h2 class="screen-heading">Audio Investigation: The Drive-Thru Dilemma</h2>
+        <p class="screen-desc">
+          Listen to the full 48-second telephone encounter between Marcus and Elena. Track background audio clues to detect the contradiction and complete the 6 comprehension checks.
+        </p>
+      </div>
+
+      <!-- AUDIO THEATER DECK -->
+      <div class="audio-theater-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span class="vocab-card-pos font-mono" style="background:rgba(212,168,67,0.15); color:var(--gold-400); border-color:var(--gold-border);">
+              AUDIO TRACK 01 &middot; 48 SECONDS
+            </span>
+            <h3 style="font-size:18px; font-weight:800; color:var(--white); margin-top:6px;">
+              Encounter at the Bistro: Where is Elena Really?
+            </h3>
+          </div>
+          <button class="deck-speed-btn" id="speedToggle" onclick="togglePlaybackSpeed()">Speed: 1.0x</button>
+        </div>
+
+        <!-- PLAYER CONTROLS -->
+        <div class="audio-player-deck">
+          <button class="deck-play-btn" id="audioMasterBtn" onclick="toggleMasterAudio()">▶</button>
+          <div class="deck-track-scrubber">
+            <input type="range" class="deck-slider" id="audioSlider" min="0" max="48" value="0" oninput="seekAudio(this.value)">
+            <div class="deck-time-row font-mono">
+              <span id="audioCurrentTime">0:00</span>
+              <span>0:48</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REAL AUDIO ELEMENT + SYNTHESIS FALLBACK -->
+        <audio id="realAudioEl" src="./audio/audio_01_caller.mp3" preload="metadata"></audio>
+
+        <!-- SCRIPT TRANSCRIPT VIEW -->
+        <details class="script-accordion">
+          <summary style="cursor:pointer; font-weight:800; color:var(--gold-400);">
+            📄 View Full Audio Script (48 Seconds &middot; Click to Toggle)
+          </summary>
+          <div style="margin-top:14px;">
+            <div class="script-cue">
+              <span class="sfx-tag">[00:00 - 00:09 &middot; Restaurant ambiance: clinking glasses, distant chatter]</span><br>
+              <span class="spk-marcus">Marcus:</span> "Elena? Where are you? Mr. Davis and I are sitting at the restaurant right now. The waiter is serving the appetizers and our client meeting starts in five minutes!"
+            </div>
+
+            <div class="script-cue">
+              <span class="sfx-tag">[00:09 - 00:21 &middot; Elena speaking over cellular phone]</span><br>
+              <span class="spk-elena">Elena:</span> "Marcus! I'm so sorry! I am literally driving on the expressway as we speak! Traffic is an absolute nightmare, cars are completely stopped, but I'm on my way! Be right there!"
+            </div>
+
+            <div class="script-cue">
+              <span class="sfx-tag">[00:21 - 00:31 &middot; Background metallic drive-thru loudspeaker voice: "Welcome to Super Burger, may I take your order?"]</span><br>
+              <span class="spk-marcus">Marcus:</span> "Wait a second... you're driving? Elena, why do I hear a cashier over a drive-thru loudspeaker saying: <em>'Welcome to Super Burger, may I take your order?'</em>"
+            </div>
+
+            <div class="script-cue">
+              <span class="sfx-tag">[00:31 - 00:39 &middot; Elena nervous laugh]</span><br>
+              <span class="spk-elena">Elena:</span> "(Laughs nervously) Uh... well... that's just the radio! The radio hosts are broadcasting a comedy sketch right now!"
+            </div>
+
+            <div class="script-cue">
+              <span class="sfx-tag">[00:39 - 00:48 &middot; Paper bag rustling, chewing sound]</span><br>
+              <span class="spk-marcus">Marcus:</span> "The radio? Elena, I can literally hear paper bags rustling and someone chewing french fries! You're sitting in a drive-thru lane right now, aren't you?"<br>
+              <span class="spk-elena">Elena:</span> "(Sighs) Okay, fine! Caught red-handed! I haven't eaten all day. I'm grabbing lunch right now, but I'm paying the cashier and heading over. Please save me a seat!"
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 6 EXTENSIVE COMPREHENSION & INFERENCE QUESTIONS -->
+      <div class="studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+          <h3 style="font-size:17px; font-weight:800; color:var(--navy-900);">
+            Auditory Verification &middot; 6 Investigative Questions
+          </h3>
+          <span class="font-mono" style="font-size:12px; color:var(--slate-500);">Score required: 6/6</span>
+        </div>
+
+        <div class="questions-stack">
+          <!-- Q1 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 1 &middot; Gist &amp; Context</span>
+            <div class="q-prompt-heading">What is Marcus doing at the beginning of the phone call?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq1" value="w"> He is driving to the office in heavy traffic.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq1" value="c" id="aq1_c"> He is sitting at a restaurant with a client while the waiter serves food.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq1" value="w"> He is ordering food at Super Burger.
+            </label>
+            <div id="qfb1" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 2 &middot; Speaker's Claim</span>
+            <div class="q-prompt-heading">What is Elena's initial white lie to excuse her delay?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq2" value="w"> She claims her car battery died on the driveway.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq2" value="c" id="aq2_c"> She claims she is literally driving on the expressway in a nightmare traffic jam.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq2" value="w"> She claims she is finishing an emergency report at home.
+            </label>
+            <div id="qfb2" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 3 &middot; Auditory Evidence</span>
+            <div class="q-prompt-heading">What specific background noise first makes Marcus suspicious?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq3" value="w"> Car horns and emergency sirens on the expressway.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq3" value="c" id="aq3_c"> A drive-thru cashier voice asking: "Welcome to Super Burger, may I take your order?"
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq3" value="w"> A dog barking loudly inside Elena's living room.
+            </label>
+            <div id="qfb3" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 4 &middot; The Cover-Up</span>
+            <div class="q-prompt-heading">How does Elena attempt to justify the strange voice?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq4" value="c" id="aq4_c"> She claims it is just a comedy sketch playing on her car radio.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq4" value="w"> She says the driver in the next car is shouting loudly.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq4" value="w"> She claims her phone is switching to a podcast automatically.
+            </label>
+            <div id="qfb4" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 5 &middot; The Definitive Proof</span>
+            <div class="q-prompt-heading">What sound finally confirms beyond doubt that Elena is eating?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq5" value="w"> Rain hitting the windshield of her car.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq5" value="c" id="aq5_c"> Paper bags rustling and someone chewing french fries.
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq5" value="w"> An ATM machine dispensing cash notes.
+            </label>
+            <div id="qfb5" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="q-card-item">
+            <span class="q-tag-label font-mono">Question 6 &middot; Functional Language Idiom</span>
+            <div class="q-prompt-heading">What conversational chunk does Elena use when she surrenders and confesses?</div>
+            <label class="q-choice-row">
+              <input type="radio" name="aq6" value="w"> "Hold that thought!"
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq6" value="w"> "Traffic is a nightmare!"
+            </label>
+            <label class="q-choice-row">
+              <input type="radio" name="aq6" value="c" id="aq6_c"> "Caught red-handed!"
+            </label>
+            <div id="qfb6" class="font-mono" style="font-size:12.5px; margin-top:8px;"></div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <button class="btn-brand-primary" onclick="verifyAudioQuestions()">
+            Submit All 6 Verification Answers &check;
+          </button>
+          <div id="audioFinalScore" class="font-mono" style="font-size:14px; font-weight:800;"></div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(3)">&larr; Back to Grammar</button>
+        <button class="btn-brand-primary" onclick="switchScreen(5)">
+          Continue to Functional Chunks &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: SPOKEN USA CHUNKS -->
+    <section class="tab-panel" id="screen-5">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 05 &middot; Functional Language</div>
+        <h2 class="screen-heading">Spoken American Chunks for Delays &amp; Calls</h2>
+        <p class="screen-desc">
+          Prefabricated conversational units used daily across the US to manage delays, challenge excuses, and navigate phone encounters.
+        </p>
+      </div>
+
+      <!-- 6 INTERACTIVE CHUNKS FLIP CARDS -->
+      <div class="vocab-tiles-grid">
+        <!-- CHUNK 1 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"I'm on my way!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Standard spoken reply when someone asks for your current location.</div>
+                <div class="vocab-card-example">"Don't leave the table, <strong>I'm on my way</strong> right now!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 2 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Be right there!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Signals that your physical arrival will occur in moments.</div>
+                <div class="vocab-card-example">"Just parked the car &mdash; <strong>be right there</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 3 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Caught red-handed!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Used when catching someone in an obvious contradiction or lie.</div>
+                <div class="vocab-card-example">"You said you were driving? <strong>Caught red-handed</strong>!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 4 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Yeah, right!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Informal sarcastic reaction meaning "I do not believe you at all."</div>
+                <div class="vocab-card-example">"You're studying? <strong>Yeah, right!</strong> I hear your video game!"</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 5 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Hold that thought!"</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Polite interruption to pause talk when someone calls or knocks.</div>
+                <div class="vocab-card-example">"<strong>Hold that thought</strong> &mdash; my boss is calling on line two."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHUNK 6 -->
+        <div class="vocab-flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="vocab-flip-inner">
+            <div class="vocab-flip-front">
+              <div>
+                <span class="vocab-card-pos font-mono" style="background:#FEF3C7; color:#92400E; border-color:rgba(212,168,67,0.3);">American Spoken Chunk</span>
+                <div class="vocab-card-term" style="margin-top:10px;">"Traffic is a nightmare."</div>
+              </div>
+              <div class="flip-reveal-hint font-mono">↻ Tap to reveal pragmatic use</div>
+            </div>
+            <div class="vocab-flip-back">
+              <div>
+                <div class="vocab-card-def"><strong>Pragmatic Use:</strong> Universal metropolitan excuse for vehicular delays.</div>
+                <div class="vocab-card-example">"Nobody is moving, <strong>traffic is an absolute nightmare</strong>."</div>
+              </div>
+              <div class="flip-return-hint font-mono">↺ Tap to flip back</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(4)">&larr; Back to Audio</button>
+        <button class="btn-brand-primary" onclick="switchScreen(6)">
+          Continue to Mystery Box Mission &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: MYSTERY BOX SPEAKING MISSION -->
+    <section class="tab-panel" id="screen-6">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 06 &middot; Production Game</div>
+        <h2 class="screen-heading">Classroom Game: The Mystery Box Opener</h2>
+        <p class="screen-desc">
+          Click the Mystery Box to unlock a secret reality dilemma. Pair up with a partner: Student A calls, Student B defends with a white lie!
+        </p>
+      </div>
+
+      <div class="mystery-hero-box">
+        <div class="mystery-icon-btn" onclick="openMysteryBox()">🎁</div>
+        <h3 style="font-size:22px; font-weight:800; color:var(--white);" id="boxPromptHeading">
+          Click the Mystery Box to Reveal Your Secret Reality!
+        </h3>
+        <p style="font-size:13.5px; color:var(--slate-300); margin-top:6px;">
+          Student B: Keep your screen hidden from Student A! Invent your white lie using Present Continuous.
+        </p>
+
+        <!-- REVEALED SECRET CARDS -->
+        <div id="mysteryRevealArea" style="display:none;">
+          <div class="roleplay-grid-two">
+            <div class="roleplay-half-card">
+              <span class="vocab-card-pos font-mono" style="background:var(--gold-500); color:var(--navy-950);">Student A &middot; The Caller</span>
+              <h4 style="font-size:16px; color:var(--white); margin:10px 0 6px;" id="rA_title">Gym Partner Calling</h4>
+              <p style="font-size:13.5px; color:var(--slate-200); line-height:1.55;" id="rA_desc">
+                You have been waiting on the treadmill for 25 minutes. Call Student B: <em>"Where are you right now? Did you leave the house?"</em> Challenge any suspicious background sounds!
+              </p>
+            </div>
+
+            <div class="roleplay-half-card">
+              <span class="vocab-card-pos font-mono" style="background:var(--teal-500); color:var(--white);">Student B &middot; The Guilty Receiver</span>
+              <h4 style="font-size:16px; color:var(--white); margin:10px 0 6px;" id="rB_title">Secret Reality: In Bed</h4>
+              <p style="font-size:13.5px; color:var(--slate-200); line-height:1.55;" id="rB_desc">
+                <strong>Secret:</strong> You are lying in bed wearing pajamas, scrolling TikTok with coffee.<br><br>
+                <strong>Your White Lie:</strong> Tell Student A: <em>"I am tying my running shoes right now! Walking out the door! Be right there!"</em>
+              </p>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:22px;">
+            <button class="btn-brand-primary" onclick="openMysteryBox()">🎲 Draw Another Secret Reality</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(5)">&larr; Back to Chunks</button>
+        <button class="btn-brand-primary" onclick="switchScreen(7)">
+          Complete Exit Ticket &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 7: EXIT TICKET -->
+    <section class="tab-panel" id="screen-7">
+      <div class="screen-header-block">
+        <div class="screen-eyebrow font-mono">Module 07 &middot; Evidence Demonstration</div>
+        <h2 class="screen-heading">60-Second Observable Evidence Terminal</h2>
+        <p class="screen-desc">
+          Formulate 3 observable statements using Present Continuous before concluding this unit.
+        </p>
+      </div>
+
+      <div class="studio-card">
+        <div style="margin-bottom:18px;">
+          <label style="display:block; font-size:14px; font-weight:700; color:var(--navy-900); margin-bottom:8px;">
+            1. Describe an action someone in your home, office, or city is performing at this exact second:
+          </label>
+          <input type="text" id="et1" class="clean-select" style="font-weight:normal;" placeholder="e.g. My coworker is typing an email to our client right now.">
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label style="display:block; font-size:14px; font-weight:700; color:var(--navy-900); margin-bottom:8px;">
+            2. Formulate a negative statement about what YOU are NOT doing at this exact moment:
+          </label>
+          <input type="text" id="et2" class="clean-select" style="font-weight:normal;" placeholder="e.g. I am not sleeping in bed, I am actively learning in class.">
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label style="display:block; font-size:14px; font-weight:700; color:var(--navy-900); margin-bottom:8px;">
+            3. Write your favorite white lie using Present Continuous and a situational complement:
+          </label>
+          <input type="text" id="et3" class="clean-select" style="font-weight:normal;" placeholder="e.g. I am telling my friends I am stuck in traffic right now.">
+        </div>
+
+        <button class="btn-brand-primary" onclick="saveExitTicket()">
+          Submit Observable Evidence &check;
+        </button>
+
+        <div id="etOk" class="font-mono" style="display:none; color:var(--success-600); margin-top:14px; font-weight:800; font-size:14px;">
+          &check; Exit Evidence recorded successfully! High-quality performance demonstrated.
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button class="btn-brand-secondary" onclick="switchScreen(6)">&larr; Back to Mission</button>
+        <a href="../../a1-2_workspace.html" class="btn-brand-primary">Return to A1.2 Workspace &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. INSTITUTIONAL FOOTER (MATCHING THE WORLD IS HAPPENING BENCHMARK) -->
+  <footer class="studio-site-footer">
+    <div class="footer-content-inner">
+      <div class="footer-left-lockup">
+        <img src="../present-continuous/assets/aistudio/logo-oficial-circular-transparente_17e956b8.png" alt="Logo" style="height:32px; width:32px; border-radius:50%; background:#fff; padding:1px;">
+        <strong>Learning &amp; Development Studio</strong>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--teal-300);">Educate &middot; Design &middot; Grow</span>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--slate-300);">English Hub &middot; White Lies We Tell Right Now (A1.2)</span>
+      </div>
+      <div>
+        <a href="../../teacher-hub/A1.2/white-lies/index.html" target="_blank" style="color:var(--gold-400); text-decoration:none; font-weight:700;">
+          Teacher's Portal &amp; Pedagogical Guide &rarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 4. LOGIC ENGINE -->
+  <script>
+    // URL Student Parameter
+    function getStudentName() {
+      const p = new URLSearchParams(window.location.search);
+      return p.get('name') || 'Coordinator';
+    }
+    document.getElementById('studentTag').innerHTML = `Student: <strong>${getStudentName()}</strong>`;
+
+    // SCREEN-BY-SCREEN TAB NAVIGATION
+    function switchScreen(num) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById('screen-' + num);
+      if (target) target.classList.add('active');
+
+      const btns = document.querySelectorAll('.nav-tab-btn');
+      if (btns[num - 1]) btns[num - 1].classList.add('active');
+
+      window.scrollTo({ top: 40, behavior: 'smooth' });
+    }
+
+    // TOGGLE REALITY PHOTO IN SCREEN 1
+    function toggleRealityPhoto() {
+      const box = document.getElementById('realityBox');
+      box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    // WHATSAPP VOICE NOTE AUDIO
+    let vnAudio = new Audio('./audio/audio_wa_voicenote.mp3');
+    let vnPlaying = false;
+    function playVoiceAudio() {
+      const btn = document.querySelector('.wa-vn-play');
+      if (!vnPlaying) {
+        vnAudio.currentTime = 0;
+        vnAudio.play().then(() => {
+          vnPlaying = true;
+          btn.textContent = '❚❚';
+        }).catch(err => {
+          console.warn('Voice playback:', err);
+        });
+        vnAudio.onended = () => {
+          vnPlaying = false;
+          btn.textContent = '▶';
+        };
+      } else {
+        vnAudio.pause();
+        vnPlaying = false;
+        btn.textContent = '▶';
+      }
+    }
+
+    // SITUATIONAL VOCABULARY AUDIO PLAYBACK
+    let currentVocabAudio = null;
+    function playVocabAudio(key) {
+      if (currentVocabAudio) {
+        currentVocabAudio.pause();
+      }
+      const files = {
+        'stuck': './audio/audio_vocab_stuck.mp3',
+        'traffic': './audio/audio_vocab_traffic.mp3',
+        'lowbattery': './audio/audio_vocab_lowbattery.mp3',
+        'excuse': './audio/audio_vocab_excuse.mp3',
+        'background': './audio/audio_vocab_background.mp3',
+        'hurry': './audio/audio_vocab_in_a_hurry.mp3',
+        'pajamas': './audio/audio_vocab_pajamas.mp3',
+        'emergency': './audio/audio_vocab_emergency.mp3'
+      };
+      if (files[key]) {
+        currentVocabAudio = new Audio(files[key]);
+        currentVocabAudio.play().catch(e => console.warn('Vocab audio error:', e));
+      }
+    }
+
+    // VOCABULARY MATCHING ACTIVITY EVALUATION
+    function evalVocab() {
+      const v1 = document.getElementById('v1').value;
+      const v2 = document.getElementById('v2').value;
+      const v3 = document.getElementById('v3').value;
+      const v4 = document.getElementById('v4').value;
+
+      document.getElementById('vfb1').textContent = v1 === 'battery' ? '✓ Correct' : (v1 ? '✗ Try again' : '');
+      document.getElementById('vfb1').style.color = v1 === 'battery' ? 'var(--success-600)' : 'var(--danger-600)';
+
+      document.getElementById('vfb2').textContent = v2 === 'traffic' ? '✓ Correct' : (v2 ? '✗ Try again' : '');
+      document.getElementById('vfb2').style.color = v2 === 'traffic' ? 'var(--success-600)' : 'var(--danger-600)';
+
+      document.getElementById('vfb3').textContent = v3 === 'noise' ? '✓ Correct' : (v3 ? '✗ Try again' : '');
+      document.getElementById('vfb3').style.color = v3 === 'noise' ? 'var(--success-600)' : 'var(--danger-600)';
+
+      document.getElementById('vfb4').textContent = v4 === 'stuck' ? '✓ Correct' : (v4 ? '✗ Try again' : '');
+      document.getElementById('vfb4').style.color = v4 === 'stuck' ? 'var(--success-600)' : 'var(--danger-600)';
+    }
+
+    // SCRAMBLED WORDBOX BUILDER LOGIC
+    let benchItems = [];
+    function addChip(btn, word) {
+      if (btn.classList.contains('used')) return;
+      btn.classList.add('used');
+      benchItems.push({ word, btn });
+      renderWorkbench();
+    }
+    function renderWorkbench() {
+      const wb = document.getElementById('workbench');
+      if (benchItems.length === 0) {
+        wb.innerHTML = '<span style="color:#94a3b8; font-weight:normal;" id="wbPlaceholder">Assembled sentence will appear here...</span>';
+        return;
+      }
+      wb.innerHTML = benchItems.map((item, idx) => `
+        <span style="background:var(--gold-500); color:var(--navy-950); padding:5px 12px; border-radius:9999px; cursor:pointer;" onclick="removeChip(${idx})">
+          ${item.word} &times;
+        </span>
+      `).join('');
+    }
+    function removeChip(idx) {
+      const item = benchItems[idx];
+      item.btn.classList.remove('used');
+      benchItems.splice(idx, 1);
+      renderWorkbench();
+    }
+    function clearWorkbench() {
+      benchItems.forEach(i => i.btn.classList.remove('used'));
+      benchItems = [];
+      renderWorkbench();
+      document.getElementById('wbFeedback').textContent = '';
+    }
+    function shuffleChips() {
+      const pool = document.getElementById('chipsPool');
+      for (let i = pool.children.length; i >= 0; i--) {
+        pool.appendChild(pool.children[Math.random() * i | 0]);
+      }
+    }
+    function verifyWorkbench() {
+      const sentence = benchItems.map(i => i.word).join(' ');
+      const fb = document.getElementById('wbFeedback');
+      if (!sentence) {
+        fb.textContent = 'Click chips above to build a sentence first.';
+        fb.style.color = 'var(--gold-400)';
+        return;
+      }
+
+      // Check syntactic structure: Subject + Aux BE + Verb-ing
+      const subjectsSingular = ['She', 'Jordan', 'My boss', 'Alex', 'The waiter'];
+      const subjectsPlural = ['They', 'We'];
+      const auxiliaries = ['am', 'is', 'are', 'is not', 'are not', 'am not', "isn't", "aren't"];
+      const verbsIng = ['driving', 'sleeping', 'eating', 'walking', 'lying', 'rushing', 'cooking', 'waiting'];
+
+      const words = benchItems.map(i => i.word);
+      const hasSubject = words.some(w => ['I', ...subjectsSingular, ...subjectsPlural].includes(w));
+      const hasAux = words.some(w => auxiliaries.includes(w));
+      const hasVerbIng = words.some(w => verbsIng.includes(w));
+
+      if (!hasSubject) {
+        fb.textContent = 'Sentence needs a Subject (I, Jordan, She, They, etc.).';
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+      if (!hasAux) {
+        fb.textContent = 'Missing auxiliary BE (am, is, are, is not, etc.).';
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+      if (!hasVerbIng) {
+        fb.textContent = 'Missing action verb with -ing suffix.';
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+
+      // Agreement test
+      const subj = words[0];
+      const aux = words[1];
+      if (subj === 'I' && !['am', 'am not'].includes(aux)) {
+        fb.textContent = "Agreement error: 'I' requires 'am' or 'am not'.";
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+      if (subjectsSingular.includes(subj) && !['is', 'is not', "isn't"].includes(aux)) {
+        fb.textContent = `Agreement error: '${subj}' requires singular auxiliary 'is' / 'is not'.`;
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+      if (subjectsPlural.includes(subj) && !['are', 'are not', "aren't"].includes(aux)) {
+        fb.textContent = `Agreement error: '${subj}' requires plural auxiliary 'are' / 'are not'.`;
+        fb.style.color = 'var(--danger-600)';
+        return;
+      }
+
+      fb.textContent = '✓ Excellent! Grammatically accurate Present Continuous sentence!';
+      fb.style.color = 'var(--teal-300)';
+    }
+
+    // GUIDED INDUCTION INTERACTIVE EVALUATION
+    function checkInduction(qNum, selectedVal, btn) {
+      const item = document.getElementById('ind-item-' + qNum);
+      const fb = document.getElementById('ind-fb-' + qNum);
+      const buttons = item.querySelectorAll('.opt-btn');
+      buttons.forEach(b => {
+        b.classList.remove('correct-btn', 'wrong-btn');
+      });
+
+      let isCorrect = false;
+      let explanation = '';
+
+      if (qNum === 1) {
+        isCorrect = (selectedVal === 'right-now');
+        explanation = isCorrect
+          ? '✓ <strong>Correct!</strong> <em>"am walking... right now"</em> describes an action in active progress at this exact second, not an everyday habit.'
+          : '❌ <strong>Try again.</strong> Everyday routines use the Simple Present (e.g. <em>"I walk to work every morning"</em>). Jordan is describing what he is doing at this exact second.';
+      } else if (qNum === 2) {
+        isCorrect = (selectedVal === 'incomplete');
+        explanation = isCorrect
+          ? '✓ <strong>Correct!</strong> In English, Present Continuous always requires auxiliary BE (<em>am / is / are</em>). Saying <em>*I walking</em> is incomplete.'
+          : '❌ <strong>Try again.</strong> In standard English, the auxiliary verb BE (<em>am / is / are</em>) is strictly mandatory before the -ing participle.';
+      }
+
+      btn.classList.add(isCorrect ? 'correct-btn' : 'wrong-btn');
+      fb.style.display = 'block';
+      fb.className = 'induction-feedback ' + (isCorrect ? 'fb-correct' : 'fb-wrong');
+      fb.innerHTML = explanation;
+    }
+
+    // FORMAL ERROR CLINIC INTERACTIVE REPAIR
+    const clinicData = {
+      1: {
+        accepted: [
+          "he is driving to work right now",
+          "hes driving to work right now",
+          "he is driving to work",
+          "hes driving to work"
+        ],
+        model: "He is driving to work right now.",
+        rule: "In Present Continuous, the main verb requires the <strong>-ing</strong> suffix after auxiliary BE (<em>drive</em> &rarr; <strong>driving</strong>, drop silent -e)."
+      },
+      2: {
+        accepted: [
+          "they are sleeping in bed at this moment",
+          "theyre sleeping in bed at this moment",
+          "they are sleeping in bed",
+          "theyre sleeping in bed"
+        ],
+        model: "They are sleeping in bed at this moment.",
+        rule: "Present Continuous always requires auxiliary BE (<strong>are</strong>) before the verb-ing form."
+      },
+      3: {
+        accepted: [
+          "jordan is lying to his best friend",
+          "jordans lying to his best friend"
+        ],
+        model: "Jordan is lying to his best friend.",
+        rule: "Verbs ending in <em>-ie</em> mutate to <strong>-y</strong> before adding <em>-ing</em> (<em>lie</em> &rarr; <strong>lying</strong>)."
+      },
+      4: {
+        accepted: [
+          "the traffic is stopping right now",
+          "the traffics stopping right now",
+          "the traffic is stopping",
+          "the traffics stopping"
+        ],
+        model: "The traffic is stopping right now.",
+        rule: "One-syllable verbs ending in Consonant-Vowel-Consonant (CVC) double the final consonant (<em>stop</em> &rarr; <strong>stopping</strong>)."
+      }
+    };
+
+    function normClinic(s) {
+      return (s || '')
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function toggleClinicHint(id) {
+      const hintEl = document.getElementById('clinic-hint-' + id);
+      if (hintEl) {
+        hintEl.style.display = (hintEl.style.display === 'none' || !hintEl.style.display) ? 'block' : 'none';
+      }
+    }
+
+    function checkClinicItem(id) {
+      const input = document.getElementById('clinic-in-' + id);
+      const fb = document.getElementById('clinic-fb-' + id);
+      const card = document.getElementById('clinic-card-' + id);
+      const data = clinicData[id];
+      if (!input || !fb || !data) return;
+
+      const val = normClinic(input.value);
+      if (!val) {
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-fail';
+        fb.innerHTML = '⚠️ Please type your corrected sentence before checking.';
+        input.focus();
+        return;
+      }
+
+      const isOk = data.accepted.map(normClinic).includes(val);
+
+      if (isOk) {
+        input.classList.remove('input-wrong');
+        input.classList.add('input-correct');
+        card.classList.add('completed');
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-success';
+        fb.innerHTML = `✓ <strong>Spot on!</strong> <em>"${data.model}"</em>
+          <div class="clinic-rule-note">📘 <strong>Grammar Rule:</strong> ${data.rule}</div>`;
+      } else {
+        input.classList.remove('input-correct');
+        input.classList.add('input-wrong');
+        fb.style.display = 'block';
+        fb.className = 'clinic-feedback fb-fail';
+        fb.innerHTML = `❌ <strong>Not quite yet.</strong> Check the structure and spelling carefully. (Click 💡 Hint if you need a clue, then try again!)`;
+      }
+    }
+
+    // AUDIO INVESTIGATION DECK (48 SECONDS REAL STUDIO RECORDING)
+    let isMasterPlaying = false;
+    let playbackSpeed = 1.0;
+    const realAudio = document.getElementById('realAudioEl');
+    const audioSlider = document.getElementById('audioSlider');
+    const audioCurrentTime = document.getElementById('audioCurrentTime');
+    const audioMasterBtn = document.getElementById('audioMasterBtn');
+
+    if (realAudio) {
+      realAudio.addEventListener('loadedmetadata', () => {
+        if (!isNaN(realAudio.duration)) {
+          audioSlider.max = Math.floor(realAudio.duration);
+        }
+      });
+      realAudio.addEventListener('timeupdate', () => {
+        audioSlider.value = Math.floor(realAudio.currentTime);
+        const s = Math.floor(realAudio.currentTime);
+        const mins = Math.floor(s / 60);
+        const secs = s % 60;
+        audioCurrentTime.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      });
+      realAudio.addEventListener('ended', () => {
+        isMasterPlaying = false;
+        audioMasterBtn.textContent = '▶';
+        audioSlider.value = 0;
+        audioCurrentTime.textContent = '0:00';
+      });
+    }
+
+    function toggleMasterAudio() {
+      if (!realAudio) return;
+      isMasterPlaying = !isMasterPlaying;
+      audioMasterBtn.textContent = isMasterPlaying ? '❚❚' : '▶';
+      if (isMasterPlaying) {
+        realAudio.play().catch(err => {
+          console.warn('Real audio playback error:', err);
+        });
+      } else {
+        realAudio.pause();
+      }
+    }
+
+    function seekAudio(val) {
+      if (realAudio && !isNaN(realAudio.duration)) {
+        realAudio.currentTime = parseFloat(val);
+      }
+    }
+
+    function togglePlaybackSpeed() {
+      playbackSpeed = playbackSpeed === 1.0 ? 0.85 : 1.0;
+      document.getElementById('speedToggle').textContent = `Speed: ${playbackSpeed}x`;
+      if (realAudio) realAudio.playbackRate = playbackSpeed;
+    }
+
+    // 6 QUESTIONS VERIFICATION
+    function verifyAudioQuestions() {
+      const q1 = document.getElementById('aq1_c').checked;
+      const q2 = document.getElementById('aq2_c').checked;
+      const q3 = document.getElementById('aq3_c').checked;
+      const q4 = document.getElementById('aq4_c').checked;
+      const q5 = document.getElementById('aq5_c').checked;
+      const q6 = document.getElementById('aq6_c').checked;
+
+      let score = 0;
+      const setFb = (id, isCorrect, msg) => {
+        const el = document.getElementById(id);
+        el.textContent = isCorrect ? '✓ ' + msg : '✗ Incorrect. Review the audio.';
+        el.style.color = isCorrect ? 'var(--success-600)' : 'var(--danger-600)';
+        if (isCorrect) score++;
+      };
+
+      setFb('qfb1', q1, 'Marcus is waiting with Mr. Davis at the restaurant.');
+      setFb('qfb2', q2, "Elena claims she is driving on the expressway.");
+      setFb('qfb3', q3, "The Super Burger cashier loudspeaker betrayed her.");
+      setFb('qfb4', q4, "Elena falsely claimed the sound came from her radio.");
+      setFb('qfb5', q5, "Rustling paper bags and chewing french fries gave her away.");
+      setFb('qfb6', q6, "She conceded with 'Caught red-handed!'");
+
+      const scoreBox = document.getElementById('audioFinalScore');
+      if (score === 6) {
+        scoreBox.textContent = `✓ 6/6 Perfect Score! High-fidelity comprehension verified.`;
+        scoreBox.style.color = 'var(--success-600)';
+      } else {
+        scoreBox.textContent = `Score: ${score}/6. Check the flagged questions and review the audio.`;
+        scoreBox.style.color = 'var(--danger-600)';
+      }
+    }
+
+    // MYSTERY BOX SPEAKING DILEMMAS
+    const mysteryDecks = [
+      {
+        aTitle: "Gym Partner Meetup (7:00 AM)",
+        aDesc: "You have been waiting on the treadmill for 25 minutes. Call Student B: 'Where are you right now? Did you leave the house?'",
+        bTitle: "Secret Reality: Lying in Bed",
+        bDesc: "<strong>Secret:</strong> You are lying in bed wearing pajamas, scrolling TikTok with coffee.<br><br><strong>Your White Lie:</strong> 'I am tying my running shoes right now! Walking out the door! Be right there!'"
+      },
+      {
+        aTitle: "Urgent Zoom Client Briefing",
+        aDesc: "The team call started 10 minutes ago. Student B's webcam is dark. Call Student B: 'Hey, are you connected? What are you doing right now?'",
+        bTitle: "Secret Reality: Making Breakfast",
+        bDesc: "<strong>Secret:</strong> You are frying eggs and making toast in your kitchen.<br><br><strong>Your White Lie:</strong> 'I am taking notes on paper right now! My webcam is updating!'"
+      },
+      {
+        aTitle: "Project Deadline in 15 Minutes",
+        aDesc: "The submission link closes in 15 minutes. Call Student B: 'Are you reviewing the final presentation slides right now?'",
+        bTitle: "Secret Reality: Playing Video Games",
+        bDesc: "<strong>Secret:</strong> You are playing Fortnite with your gaming headset.<br><br><strong>Your White Lie:</strong> 'Yes! I am checking the grammar on slide 10 right this second!'"
+      }
+    ];
+    let dilemmaIdx = 0;
+    function openMysteryBox() {
+      const area = document.getElementById('mysteryRevealArea');
+      area.style.display = 'block';
+      const d = mysteryDecks[dilemmaIdx];
+      document.getElementById('rA_title').textContent = d.aTitle;
+      document.getElementById('rA_desc').innerHTML = d.aDesc;
+      document.getElementById('rB_title').textContent = d.bTitle;
+      document.getElementById('rB_desc').innerHTML = d.bDesc;
+      document.getElementById('boxPromptHeading').textContent = "🎁 Secret Dilemma Unlocked! Begin Role-Play:";
+      dilemmaIdx = (dilemmaIdx + 1) % mysteryDecks.length;
+    }
+
+    // SAVE EXIT TICKET
+    function saveExitTicket() {
+      const e1 = document.getElementById('et1').value.trim();
+      const e2 = document.getElementById('et2').value.trim();
+      const e3 = document.getElementById('et3').value.trim();
+      if (!e1 || !e2 || !e3) {
+        alert("Please complete all 3 observable statements before submitting.");
+        return;
+      }
+      document.getElementById('etOk').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

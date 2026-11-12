@@ -1,22 +1,1231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="apple-touch-icon" href="../assets/logo.png">
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <link rel="icon" type="image/png" href="../assets/favicon.png"><title>A1.2 · English Hub | Learning &amp; Development Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>A1.2 Student Workspace · Learning &amp; Development Studio</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#0B1F3A;--teal:#5bb8b0;--teal-dark:#238d85;--gold:#d4a843;--ink:#172033;--muted:#6b7fa3;--secondary:#6b7a94;--line:rgba(30,45,90,.08);--paper:#fff;--shadow:0 1px 2px rgba(30,45,90,.04),0 12px 32px rgba(30,45,90,.06)}*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at top right,rgba(91,184,176,.16),transparent 34rem),linear-gradient(180deg,#f7fafc,#eef4f7);min-height:100vh;line-height:1.45}.shell{max-width:960px;margin:auto;padding:24px}.topbar{position:sticky;top:16px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px;padding:12px 16px;background:var(--navy);color:#fff;border-radius:18px;box-shadow:0 16px 34px rgba(11,31,58,.22)}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:52px;height:52px;border-radius:50%;background:#fff;padding:3px;overflow:hidden}.brand-mark img{width:100%;height:100%;border-radius:50%;object-fit:cover}.brand h1{font-size:1.25rem}.brand p{color:#d7ecea;font-size:.82rem;margin-top:3px}.actions{display:flex;gap:10px;align-items:center}.home,.pill{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:800;white-space:nowrap}.home{color:#fff;text-decoration:none;background:rgba(91,184,176,.28)}.hero{border-radius:20px;background:#f4fbfa;border:1px solid var(--line);box-shadow:var(--shadow);padding:clamp(20px,4vw,32px);margin-bottom:18px}.eyebrow{color:var(--teal-dark);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800}.hero h2{margin-top:10px;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.08}.hero h2 span{color:var(--teal)}.hero p{color:var(--muted);margin-top:12px;max-width:55ch}.group{background:#fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line)}.row{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;padding:13px 16px;min-height:66px;text-decoration:none;color:inherit;position:relative}.row+.row:before{content:"";position:absolute;left:68px;right:0;top:0;height:1px;background:var(--line)}a.row:hover{background:rgba(30,45,90,.045)}.glyph{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff}.navy{background:var(--navy)}.teal{background:var(--teal)}.gold{background:var(--gold);color:var(--navy)}.row h3{font-size:16px;color:var(--navy)}.row p{font-size:13px;color:var(--secondary);margin-top:2px}.chev{color:#c2cad6;font-size:1.3rem}.soon{opacity:.65;background:rgba(30,45,90,.02)}.tag{font-size:10px;border-radius:99px;padding:2px 7px;background:rgba(91,184,176,.16);color:var(--teal-dark);text-transform:uppercase}.footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px 8px}.footer strong{color:var(--navy)}@media(max-width:720px){.shell{padding:12px}.brand p,.pill{display:none}.chev{display:none}}
+    :root {
+      --gold: #D4A843;
+      --gold-dark: #b88a28;
+      --gold-light: #fef8eb;
+      --gold-border: rgba(212, 168, 67, 0.4);
+      --navy-deep: #071527;
+      --navy-main: #0B1F3A;
+      --navy-soft: #1e293b;
+      --teal: #14b8a6;
+      --teal-light: #f0fdfa;
+      --teal-dark: #0f766e;
+      --teal-border: rgba(20, 184, 166, 0.4);
+      --surface: #F8FAFC;
+      --paper: #ffffff;
+      --line: #E2E8F0;
+      --muted: #475569;
+      --muted-light: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 999px;
+      --shadow-sm: 0 1px 3px rgba(11, 31, 58, 0.05);
+      --shadow-card: 0 4px 18px -2px rgba(11, 31, 58, 0.07), 0 2px 6px -1px rgba(11, 31, 58, 0.04);
+      --shadow-hover: 0 16px 36px -4px rgba(20, 184, 166, 0.22), 0 6px 12px -2px rgba(11, 31, 58, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--surface);
+      color: var(--navy-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .ambient-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 440px;
+      background: linear-gradient(180deg, #071527 0%, #0B1F3A 60%, #F8FAFC 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(20, 184, 166, 0.28);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform .25s ease;
+    }
+    .brand-wrap:hover .brand-logo-img { transform: scale(1.03); }
+
+    .brand-text h1 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .brand-text p {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-pill {
+      background: rgba(20, 184, 166, 0.15);
+      border: 1px solid var(--teal-border);
+      color: #5eead4;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn-home {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+    .nav-btn-home:hover { background: rgba(255, 255, 255, 0.16); }
+
+    .main-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      flex: 1;
+    }
+
+    /* LIVE CLASS HERO BANNER */
+    .live-class-banner {
+      background: linear-gradient(135deg, #071527 0%, #0d2847 45%, #082236 100%);
+      border: 1px solid rgba(20, 184, 166, 0.45);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 36px -8px rgba(7, 21, 39, 0.45);
+    }
+    .live-class-banner::before {
+      content: "";
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.22), transparent 70%);
+      pointer-events: none;
+    }
+    .banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 184, 166, 0.18);
+      border: 1px solid var(--teal-border);
+      color: #5eead4;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .banner-pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #14b8a6;
+      box-shadow: 0 0 10px #14b8a6;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .banner-title {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .banner-title span { color: var(--teal); }
+    .banner-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 65ch;
+      margin-bottom: 16px;
+    }
+    .banner-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .b-tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e2e8f0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .btn-live-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(20, 184, 166, 0.35);
+      transition: transform .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+    .btn-live-launch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(20, 184, 166, 0.45);
+    }
+
+    /* SECTION TITLE */
+    .section-head {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-head-text h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .section-head-text p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* UNITS GRID (LEVEL 1) */
+    .units-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    .unit-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+    .unit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(20, 184, 166, 0.4);
+    }
+
+    .unit-visual {
+      position: relative;
+      height: 180px;
+      background: var(--navy-deep);
+      overflow: hidden;
+    }
+    .unit-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .unit-card:hover .unit-photo {
+      transform: scale(1.05);
+    }
+    .unit-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 21, 39, 0.1) 0%, rgba(7, 21, 39, 0.82) 100%);
+    }
+
+    .unit-chips-top {
+      position: absolute;
+      top: 14px; left: 14px; right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .chip-code {
+      background: rgba(7, 21, 39, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #f8fafc;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .chip-status-live {
+      background: #14b8a6;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 2px 8px rgba(20, 184, 166, 0.4);
+    }
+    .chip-status-ready {
+      background: rgba(212, 168, 67, 0.9);
+      color: var(--navy-deep);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .unit-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .unit-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .unit-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal-dark);
+      margin-bottom: 10px;
+    }
+    .unit-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .unit-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .u-pill {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+    }
+    .u-pill.active {
+      background: rgba(20, 184, 166, 0.12);
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
+    .unit-footer {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .unit-count {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted-light);
+    }
+    .btn-explore {
+      background: transparent;
+      border: none;
+      color: var(--teal-dark);
+      font-size: 13px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: gap .2s ease;
+    }
+    .unit-card:hover .btn-explore { gap: 9px; }
+
+    /* SINGLE UNIT DETAIL VIEW (LEVEL 2) */
+    .single-unit-view {
+      display: none;
+    }
+    .single-unit-view.active {
+      display: block;
+    }
+
+    .back-btn-row {
+      margin-bottom: 24px;
+    }
+    .btn-back-hub {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: background .2s ease, transform .2s ease;
+    }
+    .btn-back-hub:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-2px);
+    }
+
+    .unit-header-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .unit-header-info { flex: 1; min-width: 280px; }
+    .unit-header-code {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .unit-header-title {
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .unit-header-dilemma {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+    }
+    .unit-header-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+    .unit-header-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    /* ATOMIC LESSONS GRID */
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .lesson-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .lesson-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .lesson-card.is-live {
+      border: 2px solid var(--teal);
+      background: #fcfdfd;
+    }
+
+    .lesson-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .lesson-code-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted-light);
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .lesson-live-pill {
+      background: #14b8a6;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .lesson-lab-pill {
+      background: rgba(212, 168, 67, 0.15);
+      color: var(--gold-dark);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .lesson-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .lesson-dilemma {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .lesson-details-box {
+      background: #f8fafc;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 12px;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .detail-row {
+      display: flex;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .detail-label {
+      font-weight: 800;
+      color: var(--navy-main);
+      min-width: 65px;
+    }
+    .detail-val {
+      color: var(--muted);
+    }
+    .detail-val.chunks {
+      color: var(--teal-dark);
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .lesson-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .lesson-duration {
+      font-size: 12px;
+      color: var(--muted-light);
+      font-weight: 600;
+    }
+    .btn-lesson-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy-main);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+    .btn-lesson-cta:hover { background: var(--teal-dark); }
+    .btn-lesson-cta.live {
+      background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    }
+    .btn-syllabus-modal {
+      background: #f1f5f9;
+      color: var(--muted);
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .btn-syllabus-modal:hover {
+      background: #e2e8f0;
+      color: var(--navy-main);
+    }
+
+    /* SYLLABUS MODAL */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 21, 39, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal-box {
+      background: var(--paper);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .modal-code {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy-main);
+      margin-bottom: 12px;
+    }
+    .modal-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .modal-meta-grid {
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    .studio-footer {
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: auto;
+    }
+    .studio-footer strong { color: var(--navy-main); }
+
+    @media (max-width: 768px) {
+      .top-nav { padding: 0 16px; }
+      .brand-text p { display: none; }
+      .main-container { padding: 20px 16px 48px; }
+      .live-class-banner { padding: 20px; }
+      .banner-content { flex-direction: column; align-items: flex-start; }
+      .btn-live-launch { width: 100%; justify-content: center; }
+      .units-grid { grid-template-columns: 1fr; }
+      .lessons-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body><main class="shell"><header class="topbar"><div class="brand"><div class="brand-mark"><img src="../assets/logo.png" alt=""></div><div><h1>A1.2 Lessons</h1><p>Learning &amp; Development Studio · Israel Ventura</p></div></div><div class="actions"><a class="home" href="../">Home</a><span class="pill">A1.2</span></div></header><section class="hero"><span class="eyebrow">A1.2 · Level landing</span><h2>Daily life and the <span>Simple Present</span>.</h2><p>Habits, verbs, and everyday life — in teaching order. Gray rows with <strong>Soon</strong> are next to build.</p></section><div class="group" aria-label="A1.2 activities">
-    <a class="row" href="./simple-present-battle/"><span class="glyph navy">SP</span><div><h3>Simple Present Battle</h3><p>Game · Affirmative &amp; Negative</p></div><span class="chev">›</span></a>
-    <a class="row" href="./simple-present-verbs/"><span class="glyph teal">SV</span><div><h3>Simple Present Verbs</h3><p>Interactive grammar, reading, and speaking practice.</p></div><span class="chev">›</span></a>
-    <a class="row" href="./simple-present-questions/"><span class="glyph teal">Q?</span><div><h3>Simple Present Questions</h3><p>do / does, short answers, and real questions.</p></div><span class="chev">›</span></a>
-    <a class="row" href="./adverbs-of-frequency/"><span class="glyph gold">Fq</span><div><h3>Adverbs of Frequency</h3><p>always, usually, often, sometimes, never · How often…?</p></div><span class="chev">›</span></a>
-    <a class="row" href="./always-online-habits-lab/"><span class="glyph navy">ON</span><div><h3>Always Online Habits Lab</h3><p>Adverbs of frequency, digital habits, listening, and speaking practice.</p></div><span class="chev">›</span></a>
-    <div class="row soon"><span class="glyph navy">Day</span><div><h3>Daily Routines <span class="tag">Soon</span></h3><p>A typical day with Present Simple.</p></div></div>
-    <a class="row" href="./verbs-1/"><span class="glyph teal">V1</span><div><h3>Verbs 1</h3><p>Verb deck set 1 — high-frequency verbs.</p></div><span class="chev">›</span></a>
-    <a class="row" href="./verbs-2/"><span class="glyph gold">V2</span><div><h3>Verbs 2</h3><p>Verb deck set 2 — high-frequency verbs.</p></div><span class="chev">›</span></a>
-    <a class="row" href="./present-continuous/"><span class="glyph navy">PC</span><div><h3>Present Continuous</h3><p>Live updates · Actions happening now, vocabulary, and interactive practice.</p></div><span class="chev">›</span></a>
-  </div><footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.2</footer></main></body></html>
+<body>
+  <div class="ambient-backdrop"></div>
+
+  <!-- TOPBAR -->
+  <header class="top-nav">
+    <a href="../" class="brand-wrap">
+      <img src="../assets/logo.png" alt="Learning &amp; Development Studio" class="brand-logo-img">
+      <div class="brand-text">
+        <h1>General English · A1.2</h1>
+        <p>Learning &amp; Development Studio · Israel Ventura</p>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <span class="nav-pill">A1.2 Consolidated</span>
+      <a href="../" class="nav-btn-home">&larr; Studio Hub</a>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- FEATURED ACTIVE CLASS BANNER (MONDAY PRIORITY) -->
+    <section class="live-class-banner">
+      <div class="banner-badge">
+        <span class="banner-pulse-dot"></span>
+        Active Class in Session · Unit A1.2-U04
+      </div>
+      <div class="banner-content">
+        <div>
+          <h2 class="banner-title">White Lies We Tell Right Now <span>(The &ldquo;I'm On My Way&rdquo; Syndrome)</span></h2>
+          <p class="banner-desc">Las mentiras piadosas que decimos por celular o WhatsApp en tiempo real: decir &ldquo;I'm literally walking out the door&rdquo; cuando sigues en pijama, o &ldquo;I'm driving right now&rdquo; para colgar rápido. Observación y acción con Present Continuous.</p>
+          <div class="banner-tags">
+            <span class="b-tag">Present Continuous</span>
+            <span class="b-tag">&ldquo;I'm on my way!&rdquo;</span>
+            <span class="b-tag">Caught Red-Handed</span>
+            <span class="b-tag">Interactive Classroom Lab</span>
+          </div>
+        </div>
+        <a href="./white-lies/" class="btn-live-launch">
+          Launch Live Class &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- LEVEL 1: MACRO-UNITS HUB -->
+    <div id="hubView">
+      <div class="section-head">
+        <div class="section-head-text">
+          <h2>A1.2 Curriculum Tracks &amp; Macro-Units</h2>
+          <p>Organized around universal human dilemmas, contemporary lifestyle, and real-world conversations.</p>
+        </div>
+      </div>
+
+      <div class="units-grid" id="macroUnitsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- LEVEL 2: SINGLE MACRO-UNIT VIEW -->
+    <div id="singleUnitView" class="single-unit-view">
+      <div class="back-btn-row">
+        <button type="button" class="btn-back-hub" onclick="backToHub()">&larr; Back to All Macro-Units</button>
+      </div>
+
+      <div id="unitDetailContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL FOR SYLLABUS DETAILS -->
+  <div class="modal-backdrop" id="syllabusModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-code" id="modalCode">A1.2-U01-L01</div>
+      <h3 class="modal-title" id="modalTitle">Lesson Title</h3>
+      <p class="modal-body" id="modalDilemma">Dilemma description goes here.</p>
+      
+      <div class="modal-meta-grid">
+        <div class="detail-row">
+          <span class="detail-label">Grammar:</span>
+          <span class="detail-val" id="modalGrammar">Grammar structure</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">USA Chunks:</span>
+          <span class="detail-val chunks" id="modalChunks">"Functional language"</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Dual Target:</span>
+          <span class="detail-val" id="modalResources">Student's Book (Debate) + Workbook Gym</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Frontier [F]:</span>
+          <span class="detail-val" id="modalFrontier">Forbidden advanced content</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="studio-footer">
+    <strong>Learning &amp; Development Studio</strong> &middot; Celaya, Guanajuato &middot; <em>Where potential takes shape</em> &middot; Master Scope &amp; Sequence 2026
+  </footer>
+
+  <script>
+    const A12_DATA = [
+      {
+        id: "u01",
+        code: "A1.2-U01",
+        title: "The Morning Myth & The Exhaustion Trap",
+        subtitle: "Habits, alarms, night owls vs. 5 AM routines",
+        desc: "¿Por qué la sociedad premia levantarse de madrugada y juzga a los nocturnos? El mito de la productividad tóxica, el cansancio crónico y el scrolling antes de dormir.",
+        photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=700&q=80",
+        pills: ["Present Simple I", "Don't / Do", "Sleep Debt", "USA Chunks"],
+        lessons: [
+          {
+            code: "A1.2-U01-L01",
+            title: "The 5 AM Club or Modern Madness?",
+            dilemma: "Morning routines: meditar, gym y café vs. los amantes de la noche y el snooze.",
+            grammar: "Present Simple I (I, you, we, they) afirmativo y negaciones con don't.",
+            chunks: "\"I'm a morning person / night owl\", \"Hit snooze\", \"Can't function without coffee\"",
+            frontier: "Prohibido 3ra persona singular (-s/-es).",
+            status: "live",
+            action: "Launch Class",
+            url: "./the-5am-club/"
+          },
+          {
+            code: "A1.2-U01-L02",
+            title: "Doomscrolling: The Sleep Thief",
+            dilemma: "¿Qué hacemos de verdad antes de dormir? El scrolling infinito que nos roba el sueño.",
+            grammar: "Preguntas con Do (Do you...? / Do they...?) + respuestas cortas.",
+            chunks: "\"Call it a day\", \"Crash on the couch\", \"Sleep like a log\", \"Toss and turn\"",
+            frontier: "Prohibido auxiliares de pasado (did).",
+            status: "ready",
+            action: "Simple Present Verbs",
+            url: "./simple-present-verbs/"
+          },
+          {
+            code: "A1.2-U01-L03",
+            title: "Weekend Chores vs. Real Rest",
+            dilemma: "El fin de semana no es descanso: lavar ropa, ir al súper y los compromisos familiares.",
+            grammar: "Marcadores de hábito: on weekends, at night, every Saturday, once a week.",
+            chunks: "\"Back to the grind\", \"TGI Friday!\", \"Run errands\", \"Catch up on sleep\"",
+            frontier: "Prohibido planes futuros con going to.",
+            status: "pipeline"
+          }
+        ]
+      },
+      {
+        id: "u02",
+        code: "A1.2-U02",
+        title: "Living with Others: Quirks, Habits & Judgment",
+        subtitle: "Roommates, control freaks & the 'always late' friend",
+        desc: "Convivir con familiares, roomies o compañeros de trabajo: el que nunca lava los trastes, la persona obsesiva del orden y la clásica impuntualidad mexicana.",
+        photo: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=80",
+        pills: ["Present Simple II", "-s / -es", "Adverbs of Frequency", "Does"],
+        lessons: [
+          {
+            code: "A1.2-U02-L01",
+            title: "Living with a Control Freak",
+            dilemma: "Manías ajenas que desesperan: la persona que acomoda todo por color.",
+            grammar: "Present Simple II (he, she, it: -s/-es y negación doesn't). Fonética de la -s (/s/, /z/, /ɪz/).",
+            chunks: "\"Drive someone up the wall\", \"Set in their ways\", \"Pick your battles\"",
+            frontier: "Prohibido presente continuo.",
+            status: "ready",
+            action: "Simple Present Battle",
+            url: "./simple-present-battle/"
+          },
+          {
+            code: "A1.2-U02-L02",
+            title: "The 'Always 15 Minutes Late' Friend",
+            dilemma: "La impuntualidad cultural: ¿falta de respeto o forma relajada de ver la vida?",
+            grammar: "Adverbios de frecuencia (always, usually, often, sometimes, rarely, never) y posición.",
+            chunks: "\"Fashionably late\", \"Like clockwork\", \"Better late than never\", \"Lose track of time\"",
+            frontier: "Prohibido inversiones complejas (Seldom do I...).",
+            status: "ready",
+            action: "Adverbs Lab",
+            url: "./adverbs-of-frequency/"
+          },
+          {
+            code: "A1.2-U02-L03",
+            title: "What Does He Actually Do All Day?",
+            dilemma: "El choque generacional: Las mamás pensando que el hijo en home office 'no hace nada'.",
+            grammar: "Preguntas con auxiliar Does + Wh- (What time, Where, How often).",
+            chunks: "\"Work from home\", \"Hands full\", \"Pull your weight\", \"Give me a break!\"",
+            frontier: "Prohibido doble marcado del verbo (Does he works? ❌).",
+            status: "ready",
+            action: "Questions Practice",
+            url: "./simple-present-questions/"
+          }
+        ]
+      },
+      {
+        id: "u03",
+        code: "A1.2-U03",
+        title: "Food Culture, The Bill & The Guilt",
+        subtitle: "Grandma's kitchen, miracle diets & splitting the check",
+        desc: "La comida como afecto familiar vs. contar calorías. Y el gran drama social de la sobremesa: dividir la cuenta en el restaurante cuando alguien pidió champaña.",
+        photo: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80",
+        pills: ["Countable / Uncountable", "Some / Any", "How Much / Many", "Dining Out"],
+        lessons: [
+          {
+            code: "A1.2-U03-L01",
+            title: "Grandma's Feast vs. The Miracle Diet",
+            dilemma: "La abuela ofendida si no repites plato vs. la obsesión con dietas milagro y gluten-free.",
+            grammar: "Sustantivos contables e incontables + uso de some (afirm.) y any (neg./preg.).",
+            chunks: "\"I'm stuffed!\", \"Guilty pleasure\", \"My mouth is watering\", \"Clean your plate\"",
+            frontier: "Prohibido cuantificadores abstractos avanzados.",
+            status: "pipeline"
+          },
+          {
+            code: "A1.2-U03-L02",
+            title: "Splitting the Bill: The Dinner Drama",
+            dilemma: "Uno pidió corte caro y tragos, tú una ensalada. ¿Dividir parejo o cada quien lo suyo?",
+            grammar: "Preguntas de cantidad: How much...? vs. How many...? + a lot of, much, many, a few.",
+            chunks: "\"Split the bill\", \"Go Dutch\", \"It's on me\", \"Cover the tip\", \"I gotta go\"",
+            frontier: "Prohibido condicionales para pedir rebajas.",
+            status: "pipeline"
+          },
+          {
+            code: "A1.2-U03-L03",
+            title: "Ordering Real Food (Without Sounding Like a Robot)",
+            dilemma: "En un restaurante real en USA: 'How would you like that cooked? Dressing on the side?'.",
+            grammar: "Peticiones de cortesía: I would like... / Could I get...? / with, without, on the side.",
+            chunks: "\"Check, please\", \"On the side\", \"Can we get a box for this?\", \"Keep the change\"",
+            frontier: "Prohibido narrativas en pasado sobre experiencias previas.",
+            status: "pipeline"
+          }
+        ]
+      },
+      {
+        id: "u04",
+        code: "A1.2-U04",
+        title: "White Lies We Tell Right Now & Multitasking",
+        subtitle: "Active Class · The \"I'm On My Way\" Syndrome & Real-Time Actions",
+        desc: "Acciones en el segundo exacto presente. Las mentiras piadosas que decimos por celular ('I am walking out the door!' en pijama) y la observación de lo que la gente hace de verdad.",
+        photo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80",
+        pills: ["Present Continuous", "White Lies", "Live Class", "USA Chunks"],
+        lessons: [
+          {
+            code: "A1.2-U04-L01",
+            title: "White Lies We Tell Right Now (The \"I'm On My Way\" Syndrome)",
+            dilemma: "Decir 'I am driving right now' o 'I am getting ready' cuando sigues en la cama.",
+            grammar: "Present Continuous afirmativo y negativo (sujeto + be + verb-ing). Reglas de ortografía de -ing.",
+            chunks: "\"I'm on my way!\", \"Be right there\", \"Caught red-handed\", \"Yeah, right!\", \"Hold that thought\"",
+            frontier: "Prohibido usar continuo para planes futuros. Solo presente inmediato.",
+            status: "live",
+            action: "Open Interactive Class",
+            url: "./white-lies/"
+          },
+          {
+            code: "A1.2-U04-L02",
+            title: "The Secret Life of Waiting Rooms",
+            dilemma: "¿Qué hace la gente cuando nadie la ve? Esperando en el dentista o en el banco: fisgonear pantallas, morderse las uñas.",
+            grammar: "Preguntas con Present Continuous (What are you doing? / Is he watching us?).",
+            chunks: "\"People-watching\", \"Killing time\", \"None of your business\", \"Mind your own business\"",
+            frontier: "Prohibido verbos de estado en continuo (I am knowing ❌).",
+            status: "ready",
+            action: "Always Online Lab",
+            url: "./always-online-habits-lab/"
+          }
+        ]
+      },
+      {
+        id: "u05",
+        code: "A1.2-U05",
+        title: "Routines vs. The Crisis Phase (The Great Contrast)",
+        subtitle: "Everyday life vs. emergency mode",
+        desc: "'Normalmente cocino en casa y duermo 8 horas, pero esta semana estoy viviendo a base de café instantáneo porque estamos en auditoría'.",
+        photo: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=700&q=80",
+        pills: ["Simple vs. Continuous", "State Verbs", "Time Markers", "Crisis Mode"],
+        lessons: [
+          {
+            code: "A1.2-U05-L01",
+            title: "Crisis Mode: Breaking the Pattern",
+            dilemma: "Contrastar con nitidez absoluta los hábitos estables frente a las emergencias temporales.",
+            grammar: "Simple (usually, every day) vs. Continuous (right now, this week) + Verbos de estado (want, need, know, love).",
+            chunks: "\"It's just a phase\", \"Hang in there\", \"Business as usual\", \"Under the weather\", \"Keep it together\"",
+            frontier: "Prohibido introducir tiempos pasados para justificar la crisis.",
+            status: "pipeline"
+          }
+        ]
+      },
+      {
+        id: "u06",
+        code: "A1.2-U06",
+        title: "Hidden Talents & The Burden of Favors",
+        subtitle: "Can / Can't, abilities & things we secretly hate",
+        desc: "Si tu familia sabe que arreglas computadoras o pasteles, ya fuiste: favores gratis los domingos. Y las cosas que en secreto odiamos hacer por compromiso.",
+        photo: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80",
+        pills: ["Can / Can't", "Requests", "Verb + -ing Patterns", "Boundaries"],
+        lessons: [
+          {
+            code: "A1.2-U06-L01",
+            title: "The Family IT Guy: The Favor Trap",
+            dilemma: "El abuso de la confianza familiar: pedir favores profesionales complejos gratis.",
+            grammar: "Modal can / can't para habilidad y preguntas de petición cortés (Can you help me? / Can you fix this?).",
+            chunks: "\"Do me a favor\", \"I'm no expert\", \"I'm handy with...\", \"Don't push your luck\", \"Piece of cake!\"",
+            frontier: "Prohibido modales de deducción o posibilidad (could, might, must).",
+            status: "ready",
+            action: "Verbs 2 Deck",
+            url: "./verbs-2/"
+          },
+          {
+            code: "A1.2-U06-L02",
+            title: "Things We Secretly Hate Doing",
+            dilemma: "Cosas que todo el mundo dice que ama pero son un martirio: baby showers, eventos de networking forzado, tráfico.",
+            grammar: "Patrones de preferencia: love / like / don't mind / hate / can't stand + verb-ing.",
+            chunks: "\"I can't stand it\", \"Not my cup of tea\", \"It grows on you\", \"Give it a shot\", \"Over my dead body\"",
+            frontier: "Prohibido infinitivos con to (like to do) para no saturar al alumno en esta etapa.",
+            status: "pipeline"
+          }
+        ]
+      },
+      {
+        id: "u07",
+        code: "A1.2-U07",
+        title: "A1.2 Capstone Studio — The Real Life Audit",
+        subtitle: "Level exit exam & honest chronicle",
+        desc: "El balance honesto de 24 horas: tus manías matutinas, cómo comes, qué estás viviendo en modo crisis y qué favor no volverás a hacer jamás.",
+        photo: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=80",
+        pills: ["Capstone Studio", "Level Integration", "Oral Pitch", "A1 Exit Exam"],
+        lessons: [
+          {
+            code: "A1.2-U07-L01",
+            title: "The 24-Hour Reality Check (A1 Capstone)",
+            dilemma: "Presentar una crónica sin filtros de un día de tu vida integrando todas las habilidades de A1.",
+            grammar: "Integración total: Present Simple I & II, Continuous, Countable/Uncountable, Can/Can't, Like/hate + -ing.",
+            chunks: "\"Long story short\", \"At the end of the day\", \"That's how it goes\", \"I gotta run\"",
+            frontier: "Prohibido tiempos de pasado o condicionales complejos.",
+            status: "pipeline"
+          }
+        ]
+      }
+    ];
+
+    function renderMacroUnits() {
+      const grid = document.getElementById('macroUnitsGrid');
+      grid.innerHTML = A12_DATA.map(unit => {
+        const hasLive = unit.lessons.some(l => l.status === 'live');
+        const badgeHTML = hasLive 
+          ? '<span class="chip-status-live">Live Active</span>'
+          : '<span class="chip-status-ready">' + unit.lessons.length + ' Lessons</span>';
+
+        return `
+          <article class="unit-card" onclick="openUnitDetail('${unit.id}')">
+            <div class="unit-visual">
+              <img src="${unit.photo}" alt="${unit.title}" class="unit-photo" loading="lazy">
+              <div class="unit-overlay"></div>
+              <div class="unit-chips-top">
+                <span class="chip-code">${unit.code}</span>
+                ${badgeHTML}
+              </div>
+            </div>
+            <div class="unit-body">
+              <h3 class="unit-title">${unit.title}</h3>
+              <div class="unit-subtitle">${unit.subtitle}</div>
+              <p class="unit-desc">${unit.desc}</p>
+              
+              <div class="unit-pills">
+                ${unit.pills.map((p, idx) => `<span class="u-pill ${idx === 0 && hasLive ? 'active' : ''}">${p}</span>`).join('')}
+              </div>
+
+              <div class="unit-footer">
+                <span class="unit-count">${unit.lessons.length} Atomic Lessons</span>
+                <button type="button" class="btn-explore">Explore Unit &rarr;</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openUnitDetail(unitId) {
+      const unit = A12_DATA.find(u => u.id === unitId);
+      if (!unit) return;
+
+      const container = document.getElementById('unitDetailContent');
+      container.innerHTML = `
+        <div class="unit-header-card">
+          <div class="unit-header-info">
+            <div class="unit-header-code">${unit.code} &middot; Macro-Unit Focus</div>
+            <h2 class="unit-header-title">${unit.title}</h2>
+            <div class="unit-header-dilemma">&ldquo;${unit.subtitle}&rdquo;</div>
+            <p class="unit-header-desc">${unit.desc}</p>
+          </div>
+          <div class="unit-header-meta">
+            <span class="chip-code">${unit.lessons.length} Atomic Lessons</span>
+            ${unit.lessons.some(l => l.status === 'live') ? '<span class="chip-status-live">Contains Active Live Class</span>' : ''}
+          </div>
+        </div>
+
+        <div class="lessons-grid">
+          ${unit.lessons.map(lesson => {
+            const isLive = lesson.status === 'live';
+            const isReady = lesson.status === 'ready';
+
+            let badgeHTML = '';
+            if (isLive) badgeHTML = '<span class="lesson-live-pill">Live Now</span>';
+            else if (isReady) badgeHTML = '<span class="lesson-lab-pill">Practice Lab</span>';
+
+            let ctaHTML = '';
+            if (isLive && lesson.url) {
+              ctaHTML = `<a href="${lesson.url}" class="btn-lesson-cta live">${lesson.action || 'Open Live Class'} &rarr;</a>`;
+            } else if (isReady && lesson.url) {
+              ctaHTML = `<a href="${lesson.url}" class="btn-lesson-cta">${lesson.action || 'Open Lab'} &rarr;</a>`;
+            } else {
+              ctaHTML = `<button type="button" class="btn-syllabus-modal" onclick="openSyllabusModal('${lesson.code}', '${lesson.title.replace(/'/g, "\\'")}', '${lesson.dilemma.replace(/'/g, "\\'")}', '${lesson.grammar.replace(/'/g, "\\'")}', '${lesson.chunks.replace(/'/g, "\\'")}', '${lesson.frontier.replace(/'/g, "\\'")}')">View Syllabus</button>`;
+            }
+
+            return `
+              <div class="lesson-card ${isLive ? 'is-live' : ''}">
+                <div>
+                  <div class="lesson-top">
+                    <span class="lesson-code-badge">${lesson.code}</span>
+                    ${badgeHTML}
+                  </div>
+                  <h4 class="lesson-title">${lesson.title}</h4>
+                  <p class="lesson-dilemma">${lesson.dilemma}</p>
+
+                  <div class="lesson-details-box">
+                    <div class="detail-row">
+                      <span class="detail-label">[N] Grammar:</span>
+                      <span class="detail-val">${lesson.grammar}</span>
+                    </div>
+                    <div class="detail-row">
+                      <span class="detail-label">[L] Chunks:</span>
+                      <span class="detail-val chunks">${lesson.chunks}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lesson-footer">
+                  <span class="lesson-duration">45&ndash;60 min</span>
+                  ${ctaHTML}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+
+      document.getElementById('hubView').style.display = 'none';
+      document.getElementById('singleUnitView').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToHub() {
+      document.getElementById('singleUnitView').classList.remove('active');
+      document.getElementById('hubView').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openSyllabusModal(code, title, dilemma, grammar, chunks, frontier) {
+      document.getElementById('modalCode').textContent = code;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDilemma').textContent = dilemma;
+      document.getElementById('modalGrammar').textContent = grammar;
+      document.getElementById('modalChunks').textContent = chunks;
+      document.getElementById('modalFrontier').textContent = frontier;
+      document.getElementById('syllabusModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('syllabusModal').classList.remove('active');
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'syllabusModal') closeModal();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMacroUnits();
+      
+      // If URL has ?unit=u04, open it directly
+      const params = new URLSearchParams(window.location.search);
+      const unitParam = params.get('unit');
+      if (unitParam) {
+        openUnitDetail(unitParam);
+      }
+    });
+  </script>
+</body>
+</html>
