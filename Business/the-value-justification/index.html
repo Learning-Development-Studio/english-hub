@@ -957,7 +957,7 @@
                   <span style="font-size:0.75rem; color:var(--muted);">Defensive cadence</span>
                 </div>
               </div>
-              <button type="button" class="btn-play" onclick="playSimulatedSpeech('PitchA')">
+              <button type="button" class="btn-play" id="btnPlayPitchA" onclick="playSimulatedSpeech('PitchA')">
                 Listen to Pitch A
               </button>
             </div>
@@ -977,7 +977,7 @@
                   <span style="font-size:0.75rem; color:var(--muted);">Decisive executive poise</span>
                 </div>
               </div>
-              <button type="button" class="btn-play" onclick="playSimulatedSpeech('PitchB')">
+              <button type="button" class="btn-play" id="btnPlayPitchB" onclick="playSimulatedSpeech('PitchB')">
                 Listen to Pitch B
               </button>
             </div>
@@ -1182,34 +1182,106 @@
       fb.style.display = 'block';
     }
 
-    // SIMULATED SPEECH (AUDIO PLAYER)
+    
+    // REAL AUDIO PLAYERS (Carlos & Elena)
+    let currentPlayingAudio = null;
+    let currentPlayingType = null;
+
     function playSimulatedSpeech(pitchType) {
-      if (!('speechSynthesis' in window)) {
-        alert("Text-to-speech audio player active.");
+      const btnA = document.getElementById('btnPlayPitchA');
+      const btnB = document.getElementById('btnPlayPitchB');
+
+      if (currentPlayingAudio && currentPlayingType === pitchType && !currentPlayingAudio.paused) {
+        currentPlayingAudio.pause();
+        resetAudioButtons();
         return;
       }
-      window.speechSynthesis.cancel();
 
-      let text = "";
-      let rate = 0.95;
-      let pitch = 1.0;
-
-      if (pitchType === 'PitchA') {
-        text = "Hey Sandra, thanks for meeting with me. As you know, things have been crazy lately. I worked every weekend in October dealing with the factory in Shenzhen. I feel like I'm doing director-level work and my salary really hasn't kept up with everything I deal with on a daily basis.";
-        rate = 0.9;
-        pitch = 0.9;
-      } else {
-        text = "Good afternoon, Sandra. In Q3, our team completed the automated warehouse rollout three weeks ahead of schedule. Since August, this system has cut order fulfillment errors by 42%, saving approximately 140,000 USD. Given that I have assumed full operational ownership for North America, I would like to align my compensation with this expanded scope.";
-        rate = 1.0;
-        pitch = 1.05;
+      if (currentPlayingAudio) {
+        currentPlayingAudio.pause();
+        currentPlayingAudio.currentTime = 0;
+        resetAudioButtons();
       }
 
+      const audioPaths = {
+        'PitchA': [
+          'audio/audio_pitch_a_carlos.mp3',
+          './Business/the-value-justification/audio/audio_pitch_a_carlos.mp3',
+          '../audio/audio_pitch_a_carlos.mp3'
+        ],
+        'PitchB': [
+          'audio/audio_pitch_b_elena.mp3',
+          './Business/the-value-justification/audio/audio_pitch_b_elena.mp3',
+          '../audio/audio_pitch_b_elena.mp3'
+        ]
+      };
+
+      const candidatePaths = audioPaths[pitchType];
+      let audio = new Audio();
+      let pathIdx = 0;
+
+      function tryPlay() {
+        audio.src = candidatePaths[pathIdx];
+        audio.play().then(() => {
+          currentPlayingAudio = audio;
+          currentPlayingType = pitchType;
+          updateButtonPlaying(pitchType);
+        }).catch(err => {
+          pathIdx++;
+          if (pathIdx < candidatePaths.length) {
+            tryPlay();
+          } else {
+            fallbackSpeechSynth(pitchType);
+          }
+        });
+      }
+
+      audio.onended = () => {
+        resetAudioButtons();
+        currentPlayingAudio = null;
+        currentPlayingType = null;
+      };
+
+      tryPlay();
+    }
+
+    function updateButtonPlaying(pitchType) {
+      const btn = document.getElementById('btnPlay' + pitchType);
+      if (btn) {
+        btn.innerHTML = '<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; margin-right:6px;"></span> Pause ' + (pitchType === 'PitchA' ? 'Carlos' : 'Elena');
+        btn.style.background = 'var(--navy-card)';
+        btn.style.borderColor = 'var(--gold)';
+      }
+    }
+
+    function resetAudioButtons() {
+      const btnA = document.getElementById('btnPlayPitchA');
+      const btnB = document.getElementById('btnPlayPitchB');
+      if (btnA) {
+        btnA.innerHTML = 'Listen to Pitch A';
+        btnA.style.background = 'var(--navy)';
+        btnA.style.borderColor = 'transparent';
+      }
+      if (btnB) {
+        btnB.innerHTML = 'Listen to Pitch B';
+        btnB.style.background = 'var(--navy)';
+        btnB.style.borderColor = 'transparent';
+      }
+    }
+
+    function fallbackSpeechSynth(pitchType) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      let text = (pitchType === 'PitchA')
+        ? "Hey Sandra, thanks for meeting with me. As you know, things have been crazy lately. I worked every weekend in October dealing with the factory in Shenzhen. I feel like I'm doing director-level work and my salary really hasn't kept up with everything I deal with on a daily basis."
+        : "Good afternoon, Sandra. In Q3, our team completed the automated warehouse rollout three weeks ahead of schedule. Since August, this system has cut order fulfillment errors by 42%, saving approximately 140,000 USD. Given that I have assumed full operational ownership for North America, I would like to align my compensation with this expanded scope.";
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'en-US';
-      utter.rate = rate;
-      utter.pitch = pitch;
+      utter.onstart = () => updateButtonPlaying(pitchType);
+      utter.onend = () => resetAudioButtons();
       window.speechSynthesis.speak(utter);
     }
+
 
     // METRIC ARENA VERIFICATION
     function verifyArena(challengeNum) {
