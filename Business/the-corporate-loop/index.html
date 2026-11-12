@@ -936,19 +936,124 @@
     .site-footer strong {
       color: var(--gold);
     }
-  </style>
+  
+    /* TOP BAR - INSTITUTIONAL STANDARD */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 21, 39, 0.94);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+      height: 70px;
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 48px;
+      overflow: hidden;
+    }
+
+    .brand-logo-img {
+      height: 90px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      margin: -21px 0;
+      display: block;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .brand-wrap:hover .brand-logo-img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.35));
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .brand-track {
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-return {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-return:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+
+</style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="../../index.html" class="brand-lockup" title="Return to Learning & Development Studio">
-        <img src="../../assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo" onerror="this.onerror=null; this.src='../../assets/logo.png';">
-      </a>
-      <div class="header-actions">
-        <a href="../../business_workspace.html" class="nav-back-link">&larr; Back to Business Portal</a>
-        <button class="academic-notes-btn" onclick="openTeacherNotes()">Faculty Notes</button>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-lockup">
+        <a href="../../business_workspace.html" class="brand-wrap" title="Learning &amp; Development Studio">
+          <img src="../../assets/logo-white-lockup.webp" alt="Learning &amp; Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='../../assets/logo.png';">
+        </a>
+        <div class="brand-divider"></div>
+        <span class="brand-track">Business English · Foundation · BE-00</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../business_workspace.html" class="btn-return">
+          &larr; Back to Business Workspace
+        </a>
       </div>
     </div>
   </header>
@@ -1062,7 +1167,7 @@
       <div class="authors-bluf-grid">
         <div class="author-bluf-card">
           <div class="author-card-top">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/HenryMintzberg230948.jpg" alt="Henry Mintzberg" class="author-avatar" onerror="this.onerror=null; this.src='../../assets/logo.png'">
+            <img src="../../assets/henry-mintzberg.jpg" alt="Henry Mintzberg" class="author-avatar" onerror="this.onerror=null; this.src='../../assets/logo.png';">
             <div class="author-card-meta">
               <span class="author-pill">Empirical Managerial Research</span>
               <h4 class="author-name">Henry Mintzberg, Ph.D.</h4>
@@ -1124,6 +1229,79 @@
     <div id="tab-lifecycle" class="tab-panel">
       <div class="section-header">
         <div class="section-kicker">Curricular Architecture</div>
+
+      <!-- ================= THE PARABLE OF THE BURNING COURTYARD & THEORETICAL FOUNDATION ================= -->
+      <div class="card" style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; margin-bottom:28px;">
+        <div class="card-header" style="margin-bottom:18px;">
+          <span class="badge badge-gold" style="margin-bottom:8px; display:inline-block;">Executive Case Study &middot; Systems Thinking</span>
+          <h3 style="font-size:1.35rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The Parable of the Burning Courtyard: &ldquo;That's Not My Job!&rdquo;</h3>
+          <p style="font-size:0.92rem; color:var(--muted); line-height:1.5;">Examine how rigid bureaucratic specialization and role isolation trigger total corporate collapse.</p>
+        </div>
+
+        <!-- VIDEO WRAPPER -->
+        <div class="video-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:var(--radius-md); background:#000000; margin-bottom:22px; box-shadow:0 4px 16px rgba(11, 31, 58, 0.12);">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLbpi6ZahtOH6vI103w6PjX9gL5i_YQJ6s" 
+            title="Organizational Systems Thinking &amp; The Silo Dilemma" 
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- CASE SCENARIO -->
+        <div style="background:var(--wash); border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px; margin-bottom:22px;">
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--navy); font-weight:800; margin-bottom:6px;">The Case Scenario</div>
+          <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:8px;">The Fire That Consumed Corporate Headquarters</h4>
+          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
+            A small fire breaks out in the courtyard garden outside a corporate headquarters. Employees in finance, marketing, legal, and engineering observe the smoke from their respective cubicle windows. Yet every employee rationalizes: <em>&ldquo;Extinguishing fires is not in my job description; facilities or external maintenance will handle it.&rdquo;</em>
+          </p>
+          <p style="font-size:0.92rem; color:var(--ink); line-height:1.65;">
+            Nobody steps forward, nobody communicates across departmental borders, and nobody assumes cross-functional ownership. By the time the flames reach the server room and executive suites, the entire enterprise is reduced to ashes. Every department executed its narrow remit with technical precision&mdash;yet the organization suffered total failure.
+          </p>
+        </div>
+
+        <!-- THEORETICAL FOUNDATION: MINTZBERG + SENGE -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; margin-bottom:22px;">
+          <!-- MINTZBERG -->
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <span class="badge badge-outline" style="font-size:10.5px;">Henry Mintzberg</span>
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Structural Diagnosis</span>
+            </div>
+            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The Machine Bureaucracy &amp; Silo Paralysis</h4>
+            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
+              Mintzberg proved that hyper-specialization and rigid job descriptions breed defensive functional silos. When unexpected cross-functional crises emerge, horizontal communication breaks down because employees defer coordination entirely to distant upper hierarchy.
+            </p>
+          </div>
+
+          <!-- SENGE -->
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:18px 20px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <span class="badge badge-teal" style="font-size:10.5px;">Peter Senge</span>
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:700;">Cognitive Diagnosis</span>
+            </div>
+            <h4 style="font-size:0.98rem; font-weight:800; color:var(--navy); margin-bottom:6px;">The 1st Learning Disability: &ldquo;I Am My Position&rdquo;</h4>
+            <p style="font-size:0.86rem; color:var(--muted); line-height:1.55;">
+              In <em>The Fifth Discipline</em>, Senge diagnoses the fatal mental model: when professionals identify exclusively with their job title rather than the broader enterprise, they develop zero accountability for the outcomes produced where multiple positions interact.
+            </p>
+          </div>
+        </div>
+
+        <!-- THE BUSINESS ENGLISH BRIDGE -->
+        <div style="background:#fdfaf3; border:1px solid rgba(212, 168, 67, 0.4); border-radius:var(--radius-sm); padding:20px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span class="badge badge-gold">The Business English Bridge</span>
+            <h4 style="font-size:1.02rem; font-weight:800; color:var(--navy);">Why Traditional Grammar Textbooks Fail in Real Management</h4>
+          </div>
+          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65; margin-bottom:10px;">
+            Traditional courses assume business communication consists of polite greetings, formal letters, and generic grammar units. But real managerial life&mdash;as Mintzberg and Senge prove&mdash;is an unrelenting cycle of friction, operational firefighting, and cross-functional interdependence.
+          </p>
+          <p style="font-size:0.9rem; color:var(--ink); line-height:1.65;">
+            L&amp;D Studio's 6 lifecycle tracks provide bilingual professionals with the <strong>diplomatic and systemic linguistic tools</strong> required to break through departmental silos: explaining operational breakdowns without defensiveness, trading conditional concessions, negotiating dependencies, and leading cross-functional alignment before systemic friction destroys enterprise value.
+          </p>
+        </div>
+      </div>
+
         <h3 class="section-heading">The 6 Pillars of the Corporate Lifecycle</h3>
         <p class="section-desc">
           Instead of inventing disconnected grammar chapters (Unit 1: Conditionals, Unit 2: Passive Voice), L&amp;D Studio maps English directly to the recurring operational loop where managerial credibility is made or lost.
