@@ -389,14 +389,27 @@
       border: 1px solid var(--border);
     }
 
+    .contrast-card {
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .contrast-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
     .contrast-card.danger {
-      border-left: 4px solid var(--bad);
-      background: var(--bad-bg);
+      background: #fafaf9;
+      border-color: #e7e5e4;
     }
 
     .contrast-card.success {
-      border-left: 4px solid var(--good);
-      background: var(--good-bg);
+      background: #ffffff;
+      border-color: var(--border);
     }
 
     .contrast-tag {
@@ -447,17 +460,14 @@
       gap: 14px;
     }
 
-    .audio-disc {
-      width: 44px;
-      height: 44px;
+    .audio-avatar-img {
+      width: 48px;
+      height: 48px;
       border-radius: 999px;
-      background: var(--navy);
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.85rem;
+      object-fit: cover;
+      border: 2px solid #e2e8f0;
+      flex-shrink: 0;
+      display: block;
     }
 
     .btn-play {
@@ -585,13 +595,13 @@
 
     .formula-example {
       background: var(--wash);
-      border-left: 3px solid var(--gold);
-      padding: 10px 14px;
-      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      font-size: 0.92rem;
       font-style: italic;
       color: var(--navy);
-      margin-top: 6px;
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 10px;
+      border-radius: var(--radius-sm);
     }
 
     /* INTERACTIVE ARENA */
@@ -713,10 +723,10 @@
       line-height: 1.7;
       color: #f1f5f9;
       margin: 16px 0 20px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-sm);
-      border-left: 4px solid var(--gold);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     /* FACULTY MODAL */
@@ -797,12 +807,12 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a href="./business_workspace.html" class="brand-lockup">
-        <img src="assets/logo-white-lockup.webp" alt="Learning & Development Studio" class="brand-logo" onerror="this.onerror=null; this.src='./assets/logo.png';">
+        <img src="assets/logo-white-lockup.webp" alt="Learning & Development Studio" class="brand-logo-img" onerror="this.onerror=null; this.src='./assets/logo.png';">
         <div class="brand-divider"></div>
         <span class="brand-track">Business English · Track 5 · People &amp; HR</span>
       </a>
       <div class="nav-actions">
-        <button type="button" class="btn-guide" onclick="openFacultyModal()">
+        <button type="button" class="btn-guide" id="btnFacultyGuide" style="display:none;" onclick="openFacultyModal()">
           Faculty Guide (P/P?/N/F)
         </button>
         <a href="./business_workspace.html" class="btn-return">
@@ -951,7 +961,7 @@
             </p>
             <div class="audio-player-box">
               <div class="audio-info">
-                <div class="audio-disc">A</div>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" alt="Carlos" class="audio-avatar-img" onerror="this.onerror=null; this.src='./assets/hero-clean.jpg';">
                 <div>
                   <strong style="font-size:0.88rem; color:var(--navy); display:block;">Carlos (32 sec)</strong>
                   <span style="font-size:0.75rem; color:var(--muted);">Defensive cadence</span>
@@ -971,7 +981,7 @@
             </p>
             <div class="audio-player-box">
               <div class="audio-info">
-                <div class="audio-disc" style="background:var(--teal-dark);">B</div>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Elena" class="audio-avatar-img" onerror="this.onerror=null; this.src='./assets/hero-clean.jpg';">
                 <div>
                   <strong style="font-size:0.88rem; color:var(--navy); display:block;">Elena (30 sec)</strong>
                   <span style="font-size:0.75rem; color:var(--muted);">Decisive executive poise</span>
@@ -1240,6 +1250,15 @@
   </footer>
 
   <script>
+    // TEACHER ROLE CHECK (Keeps Faculty Guide exclusively for instructors)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('role') === 'teacher' || sessionStorage.getItem('ld-coordinator-auth') === 'granted') {
+        const fg = document.getElementById('btnFacultyGuide');
+        if (fg) fg.style.display = 'inline-flex';
+      }
+    } catch (_) {}
+
     // TAB NAVIGATION
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
