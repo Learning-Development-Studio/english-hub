@@ -112,10 +112,29 @@
 
   @media print {
     body { background: #fff; padding: 0; }
-    .topbar { display: none; }
+    .topbar, .th-pin-gate { display: none !important; }
     .hero, .card { border-color: #CBD5E1; box-shadow: none; margin-bottom: 10px; padding: 14px 16px; }
     .wrap { max-width: 100%; }
   }
+  body.th-locked .wrap { display: none; }
+  .th-pin-gate {
+    display: none; max-width: 400px; margin: 72px auto;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 28px; text-align: center;
+  }
+  body.th-locked .th-pin-gate { display: block; }
+  .th-pin-gate h2 { font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+  .th-pin-gate p { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; }
+  .th-pin-gate input {
+    width: 100%; padding: 10px 14px; border: 1.5px solid var(--line);
+    border-radius: 8px; font-size: 18px; text-align: center;
+    letter-spacing: 0.25em; margin-bottom: 12px;
+  }
+  .th-pin-gate button {
+    width: 100%; padding: 10px 16px; border: none; border-radius: 8px;
+    background: var(--teal); color: #fff; font-weight: 800; font-size: 14px; cursor: pointer;
+  }
+  .th-pin-err { color: #991B1B; font-size: 12.5px; font-weight: 700; margin-top: 8px; min-height: 18px; }
 </style>
 </head>
 <body>
@@ -210,5 +229,33 @@
 
     <footer><strong>Learning &amp; Development Studio</strong> &middot; Printable Lesson Plan &middot; A1.1-U01-L02</footer>
   </div>
+  <div class="th-pin-gate" id="thPinGate">
+    <h2>Acceso Docente &middot; Lesson Plan</h2>
+    <p>Ingresa el PIN del nivel (ciclo 26) para ver e imprimir el plan de clase.</p>
+    <input type="password" id="thPinInput" inputmode="numeric" maxlength="8" placeholder="••••" autocomplete="off">
+    <button type="button" id="thPinBtn">Desbloquear</button>
+    <div class="th-pin-err" id="thPinErr"></div>
+  </div>
+  <script>
+  (function () {
+    var KEY = 'th-print-unlock-a11';
+    var PIN = '2612';
+    var inp = document.getElementById('thPinInput');
+    var btn = document.getElementById('thPinBtn');
+    var err = document.getElementById('thPinErr');
+    function unlock() {
+      document.body.classList.remove('th-locked');
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    }
+    try { if (sessionStorage.getItem(KEY) === '1') { unlock(); return; } } catch (e) {}
+    document.body.classList.add('th-locked');
+    function check() {
+      if ((inp.value || '').trim() === PIN) { unlock(); }
+      else { err.textContent = 'PIN incorrecto. Solo uso docente.'; inp.value = ''; inp.focus(); }
+    }
+    btn.addEventListener('click', check);
+    inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') check(); });
+  })();
+  </script>
 </body>
 </html>
