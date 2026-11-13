@@ -151,28 +151,71 @@
 
     .lessons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 20px;
     }
     .lesson-card {
       background: var(--white);
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-lg);
-      padding: 24px;
+      overflow: hidden;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
     }
-    .lesson-card:hover { box-shadow: var(--shadow-md); border-color: var(--slate-300); }
+    .lesson-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--slate-300);
+    }
+    .card-visual {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      background: var(--navy-900);
+    }
+    .card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .lesson-card:hover .card-photo { transform: scale(1.04); }
+    .card-visual-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 21, 39, 0.15) 0%, rgba(7, 21, 39, 0.72) 100%);
+    }
+    .card-badges {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .lesson-code {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      color: var(--teal-700);
+      color: #fef08a;
+      background: rgba(7, 21, 39, 0.78);
+      border: 1px solid var(--gold-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.7px;
+    }
+    .card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
     }
     .lesson-title {
       font-size: 1.2rem;
@@ -251,55 +294,87 @@
 
     <section class="lessons-grid">
       <article class="lesson-card">
-        <div>
-          <div class="lesson-code font-mono">A1.1-U01-L01 &middot; Live</div>
-          <h2 class="lesson-title">The Story Behind Your Name</h2>
-          <p class="lesson-desc">First names, family nicknames, spelling, and first impressions with <em>I / you + To Be + my / your</em>.</p>
-          <div class="lesson-pills">
-            <span class="pill">I'm / Are you...?</span>
-            <span class="pill">Call me [Name]</span>
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="The Story Behind Your Name">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U01-L01 &middot; Live</span>
           </div>
         </div>
-        <a href="../the-story-behind-your-name/index.html" class="btn-launch">Open Lesson 01 &rarr;</a>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">The Story Behind Your Name</h2>
+            <p class="lesson-desc">First names, family nicknames, spelling, and first impressions with <em>I / you + To Be + my / your</em>.</p>
+            <div class="lesson-pills">
+              <span class="pill">I'm / Are you...?</span>
+              <span class="pill">Call me [Name]</span>
+            </div>
+          </div>
+          <a href="../the-story-behind-your-name/index.html" class="btn-launch">Open Lesson 01 &rarr;</a>
+        </div>
       </article>
 
       <article class="lesson-card">
-        <div>
-          <div class="lesson-code font-mono">A1.1-U01-L02 &middot; Live</div>
-          <h2 class="lesson-title">Where Are You Really From?</h2>
-          <p class="lesson-desc">Origin, hometown, and nationality beyond clich&eacute;s with <em>To Be (he, she, we, they) + Yes/No questions</em>.</p>
-          <div class="lesson-pills">
-            <span class="pill">Born &amp; raised in...</span>
-            <span class="pill">Small world!</span>
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" alt="Where Are You Really From?">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U01-L02 &middot; Live</span>
           </div>
         </div>
-        <a href="../where-are-you-really-from/index.html" class="btn-launch">Open Lesson 02 &rarr;</a>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">Where Are You Really From?</h2>
+            <p class="lesson-desc">Origin, hometown, and nationality beyond clich&eacute;s with <em>To Be (he, she, we, they) + Yes/No questions</em>.</p>
+            <div class="lesson-pills">
+              <span class="pill">Born &amp; raised in...</span>
+              <span class="pill">Small world!</span>
+            </div>
+          </div>
+          <a href="../where-are-you-really-from/index.html" class="btn-launch">Open Lesson 02 &rarr;</a>
+        </div>
       </article>
 
       <article class="lesson-card">
-        <div>
-          <div class="lesson-code font-mono">A1.1-U01-L03 &middot; Coming Soon</div>
-          <h2 class="lesson-title">The Job vs. The Human</h2>
-          <p class="lesson-desc">Express professions with precise indefinite articles (<em>a / an + To Be</em>).</p>
-          <div class="lesson-pills">
-            <span class="pill">a / an + To Be</span>
-            <span class="pill">What do you do?</span>
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="The Job vs. The Human">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U01-L03 &middot; Coming Soon</span>
           </div>
         </div>
-        <span class="btn-soon">Coming Soon</span>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">The Job vs. The Human</h2>
+            <p class="lesson-desc">Express professions with precise indefinite articles (<em>a / an + To Be</em>).</p>
+            <div class="lesson-pills">
+              <span class="pill">a / an + To Be</span>
+              <span class="pill">What do you do?</span>
+            </div>
+          </div>
+          <span class="btn-soon">Coming Soon</span>
+        </div>
       </article>
 
       <article class="lesson-card">
-        <div>
-          <div class="lesson-code font-mono">A1.1-U01-L04 &middot; Coming Soon</div>
-          <h2 class="lesson-title">The First 30 Seconds</h2>
-          <p class="lesson-desc">Integrate <em>Wh-</em> questions + <em>To Be</em> (<em>Who, Where, How old</em>) to profile people.</p>
-          <div class="lesson-pills">
-            <span class="pill">Wh- + To Be</span>
-            <span class="pill">First impressions matter</span>
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="The First 30 Seconds">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U01-L04 &middot; Coming Soon</span>
           </div>
         </div>
-        <span class="btn-soon">Coming Soon</span>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">The First 30 Seconds</h2>
+            <p class="lesson-desc">Integrate <em>Wh-</em> questions + <em>To Be</em> (<em>Who, Where, How old</em>) to profile people.</p>
+            <div class="lesson-pills">
+              <span class="pill">Wh- + To Be</span>
+              <span class="pill">First impressions matter</span>
+            </div>
+          </div>
+          <span class="btn-soon">Coming Soon</span>
+        </div>
       </article>
     </section>
   </main>
