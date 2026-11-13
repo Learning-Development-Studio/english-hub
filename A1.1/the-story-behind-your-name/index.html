@@ -672,6 +672,66 @@
     }
     .studio-site-footer strong { color: #FFFFFF; }
     .footer-brand-dot { color: #FBBF24; }
+
+    /* BUSINESS-ENGLISH STYLE IN-SITU TEACHER NOTES (HIDDEN BY DEFAULT) */
+    .teacher-note-box {
+      border: 1px solid rgba(212, 168, 67, 0.45);
+      border-radius: 10px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      display: none;
+      background: #FFFFFF;
+    }
+    .teacher-note-header {
+      background: #FDFAF3;
+      padding: 11px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+    }
+    .teacher-note-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #926B15;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .teacher-badge-pill {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+    .teacher-note-icon { font-size: 0.85rem; font-weight: 800; color: var(--navy-900); }
+    .teacher-note-body {
+      padding: 14px 18px;
+      font-size: 0.86rem;
+      color: var(--slate-800);
+      line-height: 1.55;
+      display: none;
+      background: #FFFFFF;
+    }
+    .teacher-note-body.open { display: block; }
+    .teacher-note-row { margin-bottom: 10px; }
+    .teacher-note-row:last-child { margin-bottom: 0; }
+    .teacher-note-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy-900);
+      display: block;
+      margin-bottom: 2px;
+    }
   </style>
 </head>
 <body>
@@ -688,6 +748,12 @@
       </a>
       <div class="header-actions">
         <div class="student-pill">Lesson: <strong>A1.1-U01-L01</strong></div>
+        <a href="../../teacher-hub/A1.1/the-story-behind-your-name/index.html" target="_blank" class="nav-back-link" id="teacherNotesLink" style="display:none; color:#FBBF24; border-color:rgba(251,191,36,0.45);">Teacher's Notes &nearr;</a>
+        <a href="../../lesson-plans/a11-u01-l01.html" target="_blank" class="nav-back-link" id="teacherHubLink" style="display:none; color:#FBBF24; border-color:rgba(251,191,36,0.45);">Faculty Lesson Plan &nearr;</a>
+        <button type="button" onclick="toggleTeacherView()" class="nav-back-link" id="teacherToggleBtn" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; background:transparent;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span id="teacherToggleText">Teacher Mode</span>
+        </button>
         <a href="../u01/index.html" class="nav-back-link">&larr; Return to Macro-Unit 01</a>
       </div>
     </div>
@@ -751,6 +817,17 @@
 
     <!-- SCREEN 1: THE NAME DILEMMA -->
     <section class="tab-panel active" id="screen-1">
+      <div class="teacher-note-box" id="teacherNote1">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(1)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 1 Facilitation: Authentic Dilemma (00–07 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon1">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody1">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Activate real name vs. nickname preference and model USA chunks [L]: &ldquo;Call me [Name]&rdquo; &amp; &ldquo;Nice to put a face to the name.&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;If your full name is hard to pronounce, do you spell it or give your nickname first?&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">[F] Zero action verbs: redirect *I like Lupe* to &ldquo;Call me Lupe.&rdquo;</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 01 &middot; Authentic Dilemma</div>
         <h2 class="screen-heading">Real Name vs. Nickname: What Is True for You?</h2>
@@ -787,6 +864,17 @@
 
     <!-- SCREEN 2: SITUATIONAL VOCABULARY -->
     <section class="tab-panel" id="screen-2">
+      <div class="teacher-note-box" id="teacherNote2">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(2)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 2 Facilitation: Situational Vocabulary (07–15 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon2">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody2">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Contrast first name, last name, nickname, and full name with choral audio drilling.</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;Rivera! Is it first name or last name? &mdash; Lupe! Nickname or full name?&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">Watch confusion between last name (surname) and full name.</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 02 &middot; Situational Vocabulary</div>
         <h2 class="screen-heading">Name &amp; Identity Lexicon (Tap to Listen)</h2>
@@ -824,6 +912,17 @@
 
     <!-- SCREEN 3: GRAMMAR MECHANICS -->
     <section class="tab-panel" id="screen-3">
+      <div class="teacher-note-box" id="teacherNote3">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(3)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 3 Facilitation: To Be (I / You) &amp; Possessives (15–24 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon3">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody3">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Anchor am / am not / are / aren't + my / your and Yes/No short answers.</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;Are you Sara without H? &mdash; Yes, I am / No, I'm not.&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">Never contract affirmative short answers (*Yes, I'm is wrong -> Yes, I am).</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 03 &middot; Grammar Mechanics</div>
         <h2 class="screen-heading">I / You + To Be (am / are) + My / Your</h2>
@@ -872,6 +971,17 @@
 
     <!-- SCREEN 4: AUDIO INVESTIGATION -->
     <section class="tab-panel" id="screen-4">
+      <div class="teacher-note-box" id="teacherNote4">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(4)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 4 Facilitation: Audio Investigation (24–32 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon4">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody4">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Contrast robotic Intro A vs. natural A1.1 Intro B (audio_01_first_contact.mp3).</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;What is different between A and B? Did Lupe use any action verbs?&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">Ensure slow, clear letter-by-letter spelling (A/E/I, G/J, B/V).</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 04 &middot; Audio Investigation</div>
         <h2 class="screen-heading">First Contact: Unclear vs. Clear</h2>
@@ -911,6 +1021,17 @@
 
     <!-- SCREEN 5: FUNCTIONAL PRACTICE -->
     <section class="tab-panel" id="screen-5">
+      <div class="teacher-note-box" id="teacherNote5">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(5)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 5 Facilitation: Controlled Practice (32–42 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon5">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody5">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Students complete Items 1–4 independently before whole-class check.</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;Check Item 2: why is B correct instead of Yes, I'm?&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">Answer Keys: 1: B | 2: B | 3: A | 4: My, Are, am, your.</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 05 &middot; Functional Chunks &amp; Practice</div>
         <h2 class="screen-heading">Name &amp; Spelling Arena</h2>
@@ -983,6 +1104,17 @@
 
     <!-- SCREEN 6: NAME CARD MISSION -->
     <section class="tab-panel" id="screen-6">
+      <div class="teacher-note-box" id="teacherNote6">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(6)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 6 Facilitation: Name Card Mission (42–52 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon6">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody6">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Pair role-play (A/B): greet, ask Are you...?, correct spelling, state nickname.</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;Close your notes. Look at your partner: greet, spell, and tell them what to call you.&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">Do not allow *Do you spell...? or *I live/work/like.</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 06 &middot; Name Card Mission</div>
         <h2 class="screen-heading">My Name &amp; Nickname Card (Individual Evidence)</h2>
@@ -1007,6 +1139,17 @@
 
     <!-- SCREEN 7: EXIT TICKET -->
     <section class="tab-panel" id="screen-7">
+      <div class="teacher-note-box" id="teacherNote7">
+        <div class="teacher-note-header" onclick="toggleTeacherNote(7)">
+          <span class="teacher-note-title"><span class="teacher-badge-pill">Teacher Note</span> Phase 7 Facilitation: Exit Ticket &amp; Rubric E0–E3 (52–60 min)</span>
+          <span class="teacher-note-icon" id="teacherNoteIcon7">[ + ]</span>
+        </div>
+        <div class="teacher-note-body" id="teacherNoteBody7">
+          <div class="teacher-note-row"><span class="teacher-note-label">Timing &amp; Pedagogical Objective</span><p>Verify E2 mastery: I/you + To Be + my/your, clear spelling, and 1 chunk [L].</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Classroom Mediation Prompt</span><p style="background:#F1F5F9; padding:8px 12px; border-radius:6px; font-style:italic;">&ldquo;Before you leave, give me your full name, your spelling, and Call me...&rdquo;</p></div>
+          <div class="teacher-note-row"><span class="teacher-note-label">Anticipated Pitfall / Key [F]</span><p style="color:#991B1B;">E0/E1 students repeat one clean choral line before advancing to L02.</p></div>
+        </div>
+      </div>
       <div class="screen-header-block">
         <div class="screen-eyebrow font-mono">Module 07 &middot; Exit Ticket</div>
         <h2 class="screen-heading">Ready for Lesson 02?</h2>
@@ -1049,9 +1192,7 @@
         <span>English Hub &middot; The Story Behind Your Name (A1.1)</span>
       </div>
       <div>
-        <a href="../../teacher-hub/A1.1/the-story-behind-your-name/index.html" target="_blank" style="color:#FBBF24; text-decoration:none; font-weight:700;">
-          Teacher's Portal &amp; Pedagogical Guide &rarr;
-        </a>
+        <span style="color:#94A3B8;">Master Scope &amp; Sequence 2026 &middot; CEFR A1.1</span>
       </div>
     </div>
   </footer>
@@ -1264,6 +1405,96 @@
       if (!e || e.target.id === 'facultyModal' || e.target.classList.contains('close-x')) {
         document.getElementById('facultyModal').classList.remove('active');
       }
+    }
+
+    /* --- TEACHER FACILITATION & ROLE SYSTEM (BUSINESS ENGLISH STANDARD) --- */
+    let isTeacherMode = false;
+    function checkTeacherRole() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const role = urlParams.get('role');
+      let authGranted = false;
+      try {
+        if (sessionStorage.getItem('ld-coordinator-auth') === 'granted' || localStorage.getItem('ld_role') === 'teacher') {
+          authGranted = true;
+        }
+      } catch (_) {}
+      if (role === 'teacher' || role === 'coordinator' || authGranted) {
+        setTeacherMode(true);
+      } else {
+        setTeacherMode(false);
+      }
+    }
+    function setTeacherMode(active) {
+      isTeacherMode = active;
+      document.querySelectorAll('.teacher-note-box').forEach(box => {
+        if (active) {
+          box.style.display = 'block';
+          const body = box.querySelector('.teacher-note-body');
+          const icon = box.querySelector('.teacher-note-icon');
+          if (body) body.classList.add('open');
+          if (icon) icon.textContent = '[ — ]';
+        } else {
+          box.style.display = 'none';
+        }
+      });
+      const hubLink = document.getElementById('teacherHubLink');
+      const notesLink = document.getElementById('teacherNotesLink');
+      const toggleBtn = document.getElementById('teacherToggleBtn');
+      const toggleText = document.getElementById('teacherToggleText');
+      if (hubLink) hubLink.style.display = active ? 'inline-block' : 'none';
+      if (notesLink) notesLink.style.display = active ? 'inline-block' : 'none';
+      if (toggleBtn && toggleText) {
+        if (active) {
+          toggleBtn.style.background = 'rgba(251, 191, 36, 0.16)';
+          toggleBtn.style.borderColor = '#FBBF24';
+          toggleBtn.style.color = '#FBBF24';
+          toggleText.textContent = 'Teacher Mode: ON';
+        } else {
+          toggleBtn.style.background = 'transparent';
+          toggleBtn.style.borderColor = '';
+          toggleBtn.style.color = '';
+          toggleText.textContent = 'Teacher Mode';
+        }
+      }
+    }
+    function toggleTeacherView() {
+      if (!isTeacherMode) {
+        const pin = prompt('Enter Faculty Authorization PIN:');
+        if (!pin) return;
+        const validPins = ['2680', '5726', '8826', '2026', '2612', 'admin'];
+        if (validPins.includes(pin.trim())) {
+          try {
+            sessionStorage.setItem('ld-coordinator-auth', 'granted');
+            localStorage.setItem('ld_role', 'teacher');
+          } catch (_) {}
+          setTeacherMode(true);
+        } else {
+          alert('Incorrect PIN. Faculty access denied.');
+        }
+      } else {
+        try {
+          sessionStorage.removeItem('ld-coordinator-auth');
+          localStorage.removeItem('ld_role');
+        } catch (_) {}
+        setTeacherMode(false);
+      }
+    }
+    function toggleTeacherNote(phaseNum) {
+      const body = document.getElementById('teacherNoteBody' + phaseNum);
+      const icon = document.getElementById('teacherNoteIcon' + phaseNum);
+      if (!body) return;
+      if (body.classList.contains('open')) {
+        body.classList.remove('open');
+        if (icon) icon.textContent = '[ + ]';
+      } else {
+        body.classList.add('open');
+        if (icon) icon.textContent = '[ — ]';
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkTeacherRole);
+    } else {
+      checkTeacherRole();
     }
   </script>
 </body>
