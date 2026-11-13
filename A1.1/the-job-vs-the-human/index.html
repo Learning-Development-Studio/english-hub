@@ -1166,7 +1166,7 @@
       if (ok) {
         fb.style.background = 'var(--success-50)';
         fb.style.color = '#065f46';
-        fb.innerHTML = '<strong>Exact!</strong> &ldquo;What do you do? / I'm an engineer, but at heart I'm a musician! My parents are teachers.&rdquo;';
+        fb.innerHTML = '<strong>Exact!</strong> &ldquo;What do you do? / I&rsquo;m an engineer, but at heart I&rsquo;m a musician! My parents are teachers.&rdquo;';
       } else {
         fb.style.background = 'var(--danger-50)';
         fb.style.color = '#991b1b';
@@ -1175,9 +1175,9 @@
     }
 
     const scenarios = [
-      '&ldquo;I'm an accountant &mdash; it pays the bills! At heart, I'm a photographer, and my parents are doctors.&rdquo;',
-      '&ldquo;She's an architect, and he's a designer. We're both artists at heart!&rdquo;',
-      '&ldquo;Are your friends engineers? No, they aren't &mdash; they're teachers!&rdquo;'
+      '&ldquo;I&rsquo;m an accountant &mdash; it pays the bills! At heart, I&rsquo;m a photographer, and my parents are doctors.&rdquo;',
+      '&ldquo;She&rsquo;s an architect, and he&rsquo;s a designer. We&rsquo;re both artists at heart!&rdquo;',
+      '&ldquo;Are your friends engineers? No, they aren&rsquo;t &mdash; they&rsquo;re teachers!&rdquo;'
     ];
     let scIdx = 0;
     function nextScenario() {
