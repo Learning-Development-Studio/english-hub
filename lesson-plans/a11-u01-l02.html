@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Plan · A1.1-U01-L02 · Where Are You Really From?</title>
+<style>
+  :root {
+    --ink: #0F172A;
+    --muted: #475569;
+    --line: #CBD5E1;
+    --bg: #F8FAFC;
+    --card: #FFFFFF;
+    --navy: #0B192C;
+    --teal: #0F766E;
+    --teal-soft: #F0FDFA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 0 16px 48px;
+  }
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--navy); color: #fff;
+    margin: 0 -16px 24px; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+  }
+  .topbar a { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: 13px; }
+  .topbar a:hover { color: #FFFFFF; }
+  .topbar .left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .topbar .title { font-weight: 800; font-size: 14px; }
+  .topbar .actions { display: flex; align-items: center; gap: 10px; }
+  .topbar button {
+    background: var(--teal); color: #fff; border: none; border-radius: 8px;
+    padding: 8px 16px; font-weight: 800; font-size: 13px; cursor: pointer;
+  }
+  .topbar button:hover { background: #115E59; }
+  .topbar .ghost-link {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22);
+    padding: 7px 13px; border-radius: 8px;
+  }
+
+  .wrap { max-width: 820px; margin: 0 auto; }
+  .hero {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 6px;
+  }
+  .hero h1 { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 6px; line-height: 1.2; }
+  .hero .sub { font-size: 14px; color: var(--muted); }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+    padding-top: 12px; border-top: 1px solid #E2E8F0;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .meta-pill {
+    background: #F1F5F9; border: 1px solid var(--line); border-radius: 6px;
+    padding: 4px 10px; color: var(--ink); font-weight: 700;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 22px; margin-bottom: 14px;
+    break-inside: avoid;
+  }
+  .card h3 {
+    font-size: 16px; font-weight: 800; color: var(--navy);
+    margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .time {
+    font-size: 11.5px; font-weight: 800; color: var(--teal);
+    background: var(--teal-soft); border: 1px solid #CCFBF1;
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .tag {
+    font-size: 11px; font-weight: 800; color: #334155;
+    background: #F1F5F9; border: 1px solid var(--line);
+    padding: 2px 8px; border-radius: 999px; text-transform: uppercase;
+  }
+  .aim { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+  ol, ul { margin-left: 20px; font-size: 13.5px; }
+  li { margin-bottom: 6px; }
+
+  .say {
+    margin-top: 10px; padding: 10px 12px; border-radius: 8px;
+    background: #F8FAFC; border: 1px solid var(--line);
+    font-size: 13px; color: var(--ink);
+  }
+  .board {
+    margin-top: 10px; padding: 10px 12px; border-radius: 8px;
+    background: #F1F5F9; border: 1px solid var(--line);
+    font-size: 13px; color: var(--navy);
+  }
+  .frontier-strip {
+    margin-top: 10px; padding: 10px 12px; border-radius: 8px;
+    background: #FEF2F2; border: 1px solid #FECACA;
+    font-size: 12.5px; color: #991B1B;
+  }
+  footer {
+    text-align: center; font-size: 12px; color: var(--muted);
+    margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .topbar { display: none; }
+    .hero, .card { border-color: #CBD5E1; box-shadow: none; margin-bottom: 10px; padding: 14px 16px; }
+    .wrap { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="left">
+      <a href="../A1.1/where-are-you-really-from/index.html">&larr; Volver a la lecci&oacute;n</a>
+      <span class="title">A1.1-U01-L02 &middot; Printable Lesson Plan</span>
+    </div>
+    <div class="actions">
+      <a href="../teacher-hub/A1.1/where-are-you-really-from/index.html" class="ghost-link">Teacher's Notes</a>
+      <button type="button" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">L&amp;D Studio &middot; CEFR A1.1 &middot; Master Scope &amp; Sequence 2026</div>
+      <h1>A1.1-U01-L02: Where Are You Really From?</h1>
+      <p class="sub">Capacitar al alumno para preguntar y responder sobre origen, nacionalidad y ciudad actual usando <em>To Be</em> (<em>he/she/we/they</em>), sin usar <em>come from</em> con <em>do</em> ni <em>live in</em>.</p>
+      <div class="meta-row">
+        <span class="meta-pill">Duraci&oacute;n: 45&ndash;60 min</span>
+        <span class="meta-pill">Macro-Unidad 01: Identity &amp; Origin</span>
+        <span class="meta-pill">Frontera [F]: Prohibido "come from" con "do" y prohibido "live in"</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Objetivos y Preparaci&oacute;n <span class="tag">Setup</span></h3>
+      <ul>
+        <li><strong>Can-do:</strong> Preguntar origen con <em>Where are you from?</em>, hablar de terceros con <em>he/she/we/they + To Be</em> y distinguir lugar de nacimiento vs. hogar actual.</li>
+        <li><strong>Materiales:</strong> Pantalla del alumno (<code>A1.1/where-are-you-really-from/</code>), audio del sal&oacute;n o bocina, pizarr&oacute;n para modelado corto.</li>
+        <li><strong>Chunks [L]:</strong> <em>"Born and raised in..."</em> &middot; <em>"Small world!"</em></li>
+      </ul>
+      <div class="frontier-strip"><strong>Frontera [F] &mdash; No permitir hoy:</strong> No usar <em>Where do you come from?</em>, <em>I live in...</em>, ni artículos con nacionalidades (<em>*a Mexican</em>). Usar <em>To Be + from</em> y <em>My home is in...</em>.</div>
+    </section>
+
+    <section class="card">
+      <h3>0 · Warm-up & Hook <span class="time">5–7 min</span> <span class="tag">Engage</span></h3>
+      <p class="aim">Conectar con el dilema: origen vs. ciudad donde vives hoy.</p>
+      <ol>
+        <li>Proyectar Module 01 y votar el dilema de respuesta.</li>
+        <li>Escuchar los chunks [L]: <em>"Born and raised in Mérida."</em> y <em>"Small world!"</em>.</li>
+      </ol>
+      <div class="say"><strong>Teacher Line:</strong> "Where you were born and where your home is now can be two different cities. Let's say both cleanly."</div>
+      
+    </section>
+
+    <section class="card">
+      <h3>1 · Country, City, Nationality & Home <span class="time">8–9 min</span> <span class="tag">Vocab</span></h3>
+      <p class="aim">Fijar las 6 tarjetas léxicas de Module 02 y evitar el artículo antes de nacionalidad.</p>
+      <ol>
+        <li>Reproducir las 6 tarjetas de audio (<em>country, city, Mexican, Colombian, Canadian, home</em>).</li>
+        <li>Juego rápido Country &rarr; Nationality: dices <em>"Colombia!"</em> y responden <em>"Colombian!"</em>; dices <em>"Canada!"</em> y responden <em>"Canadian!"</em>.</li>
+      </ol>
+      
+      <div class="board"><strong>Pizarr&oacute;n:</strong> from + Country/City (from Mexico) · To Be + Nationality (Mexican — NO "a")</div>
+    </section>
+
+    <section class="card">
+      <h3>2 · Grammar Frame (He / She / We / They) <span class="time">8–10 min</span> <span class="tag">Grammar</span></h3>
+      <p class="aim">Expandir <em>To Be</em> a tercera persona y plural, más contraste <em>from</em> vs. <em>My home is in...</em>.</p>
+      <ol>
+        <li>Revisar las 3 tarjetas de Module 03.</li>
+        <li>Practicar negaciones e interrogativas rápidas: <em>"Is she from Mérida?" &rarr; "No, she isn't."</em> / <em>"Are they Canadian?" &rarr; "Yes, they are."</em></li>
+        <li>Recordar la Frontera [F]: cero <em>do</em>, cero <em>come from</em>.</li>
+      </ol>
+      
+      <div class="board"><strong>Pizarr&oacute;n:</strong> Where are you from? -> I'm from Mérida, but my home is in León.</div>
+    </section>
+
+    <section class="card">
+      <h3>3 · Audio Investigation & Controlled Practice <span class="time">12–14 min</span> <span class="tag">Practice</span></h3>
+      <p class="aim">Detectar errores de suposición y resolver los 4 ítems de Module 05.</p>
+      <ol>
+        <li>Comparar Exchange A (errores típicos) contra <code>audio_01_small_world.mp3</code> (Exchange B) en Module 04.</li>
+        <li>Resolver Module 05 (Items 1–4) y revisar en plenaria la diferencia entre <em>"She's Colombian"</em> y <em>"She's from Colombia"</em>.</li>
+      </ol>
+      
+      
+    </section>
+
+    <section class="card">
+      <h3>4 · Mission: Origin & Home Check + Exit <span class="time">10–12 min</span> <span class="tag">Production</span></h3>
+      <p class="aim">Intercambio real en parejas y reporte de un tercero (<em>He/She is...</em>).</p>
+      <ol>
+        <li>En Module 06, Alumno A pregunta origen y hogar actual a Alumno B usando <em>Where are you from?</em> y <em>Is your home in...?</em>.</li>
+        <li>Luego cada alumno reporta al grupo sobre su pareja usando <em>he/she</em> y al menos un chunk [L].</li>
+      </ol>
+      <div class="say"><strong>Teacher Line:</strong> "No 'do', no 'live', no 'a Mexican'. Clean To Be from start to finish."</div>
+      
+    </section>
+
+    <footer><strong>Learning &amp; Development Studio</strong> &middot; Printable Lesson Plan &middot; A1.1-U01-L02</footer>
+  </div>
+</body>
+</html>
