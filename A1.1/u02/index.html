@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1.1 · Macro-Unit 02: Chosen Family &amp; Household Boundaries | L&amp;D Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #071527;
+      --navy-900: #001F54;
+      --navy-700: #133E68;
+      --gold-600: #B57C00;
+      --gold-500: #D4A843;
+      --gold-400: #E5A922;
+      --gold-border: rgba(212, 168, 67, 0.35);
+      --teal-700: #007A87;
+      --teal-50: #F0FDFA;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-300: #CBD5E1;
+      --slate-500: #64748B;
+      --slate-600: #475569;
+      --slate-900: #0A192F;
+      --white: #FFFFFF;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 6px rgba(10, 25, 47, 0.05);
+      --shadow-md: 0 8px 24px -4px rgba(10, 25, 47, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-900);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+    .site-header {
+      background: rgba(7, 21, 39, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.28);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      height: 52px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .brand-logo-white {
+      height: 92px;
+      width: auto;
+      object-fit: contain;
+      margin: -20px 0;
+      display: block;
+      flex-shrink: 0;
+    }
+    .brand-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.18);
+      flex-shrink: 0;
+    }
+    .brand-course-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-200);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .nav-back-link {
+      color: var(--slate-200);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-back-link:hover {
+      color: var(--white);
+      border-color: var(--gold-400);
+      background: rgba(212, 168, 67, 0.15);
+    }
+
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
+
+    .workspace-hero-banner {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      padding: 48px 42px;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(212, 168, 67, 0.28);
+      box-shadow: 0 20px 40px -12px rgba(7, 21, 39, 0.30);
+      margin-bottom: 32px;
+      color: #ffffff;
+      background-size: cover;
+      background-position: center 30%;
+      background-image: linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.92) 55%, rgba(7, 21, 39, 0.45) 100%),
+                        url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85);
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(212, 168, 67, 0.18);
+      border: 1px solid var(--gold-border);
+      color: #fef08a;
+      padding: 5px 13px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero-title span { color: var(--gold-500); font-style: italic; }
+    .hero-desc { font-size: 1rem; color: #cbd5e1; max-width: 56ch; }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 20px;
+    }
+    .lesson-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .lesson-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--slate-300);
+    }
+    .card-visual {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      background: var(--navy-900);
+    }
+    .card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .lesson-card:hover .card-photo { transform: scale(1.04); }
+    .card-visual-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 21, 39, 0.15) 0%, rgba(7, 21, 39, 0.72) 100%);
+    }
+    .card-badges {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lesson-code {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #fef08a;
+      background: rgba(7, 21, 39, 0.78);
+      border: 1px solid var(--gold-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+    .card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 16px;
+    }
+    .lesson-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin: 4px 0 6px;
+    }
+    .lesson-desc { font-size: 0.88rem; color: var(--slate-600); }
+    .lesson-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .pill {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--slate-100);
+      color: var(--navy-900);
+    }
+    .btn-launch {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background: var(--navy-900);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      transition: background 0.2s;
+    }
+    .btn-launch:hover { background: var(--navy-700); }
+    .btn-soon {
+      display: inline-block;
+      text-align: center;
+      background: var(--slate-100);
+      color: var(--slate-500);
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--slate-200);
+      padding: 22px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--slate-500);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../a1-1_workspace.html" class="brand-lockup">
+        <span class="brand-logo-wrap">
+          <img src="../../assets/logo-white-lockup.webp" onerror="this.onerror=null;this.src='https://learning-development-studio.github.io/english-hub/assets/logo-white-lockup.webp';" alt="Learning &amp; Development Studio" class="brand-logo-white">
+        </span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-course-label">English Hub &middot; Level A1.1</span>
+      </a>
+      <a href="../../a1-1_workspace.html" class="nav-back-link">&larr; Return to A1.1 Workspace</a>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <header class="workspace-hero-banner">
+      <div class="hero-pill">A1.1 &middot; Macro-Unidad 02 &middot; 3 Lessons</div>
+      <h1 class="hero-title">Chosen Family &amp; <span>Household Boundaries</span></h1>
+      <p class="hero-desc">
+        Talk about family bonds, borrowed everyday objects, and meaningful possessions using possessive adjectives, possessive 's, and have / has.
+      </p>
+    </header>
+
+    <section class="lessons-grid">
+      <article class="lesson-card">
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="Blood vs. Bond">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U02-L01 &middot; Live</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">Blood vs. Bond</h2>
+            <p class="lesson-desc">Chosen family and close relationships using <em>his, her, our, their</em> + <em>To Be</em>.</p>
+            <div class="lesson-pills">
+              <span class="pill">Possessive Adjectives</span>
+              <span class="pill">Chosen Family</span>
+            </div>
+          </div>
+          <a href="../u02-l01-blood-vs-bond/index.html" class="btn-launch">Open Lesson 01 &rarr;</a>
+        </div>
+      </article>
+
+      <article class="lesson-card">
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80" alt="The Borrowed Jacket">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U02-L02 &middot; Live</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">The Borrowed Jacket</h2>
+            <p class="lesson-desc">Household boundaries, shared items, and ownership with possessive <em>'s</em> and <em>Whose...?</em></p>
+            <div class="lesson-pills">
+              <span class="pill">Possessive 's</span>
+              <span class="pill">Whose is this?</span>
+            </div>
+          </div>
+          <a href="../u02-l02-the-borrowed-jacket/index.html" class="btn-launch">Open Lesson 02 &rarr;</a>
+        </div>
+      </article>
+
+      <article class="lesson-card">
+        <div class="card-visual">
+          <img class="card-photo" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="The Meaning Behind the Object">
+          <div class="card-visual-gradient"></div>
+          <div class="card-badges">
+            <span class="lesson-code font-mono">A1.1-U02-L03 &middot; Live</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="lesson-title">The Meaning Behind the Object</h2>
+            <p class="lesson-desc">Describe meaningful personal objects and everyday possessions with <em>have / has</em>.</p>
+            <div class="lesson-pills">
+              <span class="pill">have / has</span>
+              <span class="pill">Personal Stories</span>
+            </div>
+          </div>
+          <a href="../u02-l03-the-meaning-behind-the-object/index.html" class="btn-launch">Open Lesson 03 &rarr;</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>Learning &amp; Development Studio</strong> &middot; Where potential takes shape</div>
+    <div>Master Scope &amp; Sequence 2026 &middot; Macro-Unit 02</div>
+  </footer>
+</body>
+</html>
