@@ -112,7 +112,8 @@ body {
 .header-inner {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 0 24px;
+  height: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,10 +129,19 @@ body {
   min-width: 0;
 }
 
+.brand-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .brand-logo-white {
-  height: 46px;
+  height: 92px;
   width: auto;
   object-fit: contain;
+  margin: -20px 0;
   display: block;
   flex-shrink: 0;
 }
@@ -1221,12 +1231,12 @@ body.teacher-mode .teacher-note-box {
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html" class="brand-lockup">
-        <img
+        <span class="brand-logo-wrap"><img
           src="../../assets/logo-white-lockup.webp"
           onerror="this.onerror=null;this.src='https://learning-development-studio.github.io/english-hub/assets/logo-white-lockup.webp';"
           alt="Learning &amp; Development Studio"
           class="brand-logo-white"
-        >
+        ></span>
         <span class="brand-divider" aria-hidden="true"></span>
         <span class="brand-course-label">A1.1 &middot; Explore (Workbook)</span>
       </a>
