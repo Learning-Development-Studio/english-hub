@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Explore · A1.1-U01-L01: The Story Behind Your Name | Learning &amp; Development Studio</title>
+  <link rel="icon" type="image/png" href="https://learning-development-studio.github.io/english-hub/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   LEARNING & DEVELOPMENT STUDIO · ENGLISH HUB
+   Executive Standard Design System (hub-core.css)
+   Typography: Plus Jakarta Sans + IBM Plex Mono
+   ========================================================================== */
+
+:root {
+  /* Deep Navy (Dominant) */
+  --navy-950: #071527;
+  --navy-900: #001F54;
+  --navy-800: #0B2545;
+  --navy-700: #133E68;
+
+  /* Champagne Gold (Accent / Emphasis) */
+  --gold-600: #B57C00;
+  --gold-500: #D4A843;
+  --gold-400: #E5A922;
+  --gold-100: #FEF8EB;
+  --gold-border: rgba(212, 168, 67, 0.35);
+
+  /* Teal (Secondary / Interaction) */
+  --teal-800: #0F766E;
+  --teal-700: #007A87;
+  --teal-500: #14B8A6;
+  --teal-300: #4DD0E1;
+  --teal-50: #F0FDFA;
+
+  /* Neutrals & Surfaces */
+  --white: #FFFFFF;
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0A192F;
+
+  /* Semantic Status */
+  --danger-600: #DC2626;
+  --danger-50: #FEF2F2;
+  --danger-border: rgba(220, 38, 38, 0.25);
+  --success-600: #059669;
+  --success-50: #ECFDF5;
+  --success-border: rgba(5, 150, 105, 0.25);
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-xs: 0 1px 2px rgba(10, 25, 47, 0.04);
+  --shadow-sm: 0 2px 6px rgba(10, 25, 47, 0.05);
+  --shadow-md: 0 6px 18px -2px rgba(10, 25, 47, 0.06), 0 2px 6px -1px rgba(10, 25, 47, 0.03);
+  --shadow-lg: 0 16px 36px -4px rgba(10, 25, 47, 0.10), 0 4px 12px -2px rgba(10, 25, 47, 0.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--slate-50);
+  color: var(--slate-900);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ==========================================================================
+   1. INSTITUTIONAL HEADER (.site-header)
+   Navy background, inverted white logo on left, 3 clean typographic items on right
+   ========================================================================== */
+.site-header {
+  background: var(--navy-900);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.28);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(7, 21, 39, 0.16);
+}
+
+.header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+}
+
+.brand-logo-white {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+.brand-course-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-200);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Exactly 3 clean typographic elements on the right */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+.header-student-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate-300);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.18s ease;
+}
+
+.header-student-tag:hover {
+  color: var(--white);
+}
+
+.header-student-tag strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.header-teacher-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-500);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.header-teacher-link:hover {
+  color: var(--gold-400);
+}
+
+body.teacher-mode .header-teacher-link {
+  color: var(--teal-300);
+}
+
+.header-back-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-200);
+  text-decoration: none;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.header-back-link:hover {
+  color: var(--white);
+}
+
+/* ==========================================================================
+   2. MAIN CONTAINER & HERO BANNER (.workspace-hero-banner)
+   ========================================================================== */
+.content-wrapper {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px 72px;
+  flex: 1;
+}
+
+.workspace-hero-banner {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  padding: 60px 48px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(212, 168, 67, 0.24);
+  box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.32);
+  margin-bottom: 36px;
+  color: var(--white);
+  background-color: var(--navy-950);
+  background-image:
+    linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.90) 52%, rgba(7, 21, 39, 0.42) 100%),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85');
+}
+
+.hero-banner-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 24ch;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+
+.hero-banner-title .gold-accent {
+  color: var(--gold-500);
+  font-style: italic;
+}
+
+.hero-banner-desc {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--slate-300);
+  line-height: 1.6;
+  max-width: 54ch;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   3. MODULAR NAVIGATION: SEGMENTED BAR (.segmented-bar)
+   #F1F5F9 surface, elevated white active segment, ZERO thick colored borders
+   ========================================================================== */
+.segmented-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  background: var(--slate-100);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  padding: 5px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.segmented-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.segment-btn {
+  flex: 1 0 auto;
+  min-width: 132px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--slate-600);
+  font-family: inherit;
+  transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.segment-btn:hover {
+  color: var(--navy-900);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.segment-btn.active {
+  background: var(--white);
+  color: var(--navy-900);
+  border-color: rgba(10, 25, 47, 0.06);
+  box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08), 0 1px 2px rgba(10, 25, 47, 0.04);
+}
+
+.segment-index {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-400);
+  flex-shrink: 0;
+}
+
+.segment-btn.active .segment-index {
+  color: var(--teal-700);
+}
+
+.segment-label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* Tab Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: hubFadeIn 0.22s ease-out;
+}
+
+@keyframes hubFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Screen Section Headers */
+.screen-header-block {
+  margin-bottom: 24px;
+}
+
+.screen-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal-700);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 4px;
+}
+
+.screen-heading {
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.screen-desc {
+  font-size: 0.96rem;
+  color: var(--slate-600);
+  max-width: 72ch;
+  margin-top: 6px;
+}
+
+/* Footer Prev/Next Navigation */
+.screen-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--slate-200);
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   4. CLEAN EXECUTIVE CARDS (NO border-top / border-left ACCENTS)
+   ========================================================================== */
+.studio-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   5. INTERACTIVE 3D FLIP CARDS (.flip-card)
+   ========================================================================== */
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.flip-card {
+  background: transparent;
+  perspective: 1000px;
+  min-height: 244px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 244px;
+  text-align: left;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-md);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--slate-200);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flip-card-front > div:first-child,
+.flip-card-back > div:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-card-front {
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+}
+
+.flip-card:hover .flip-card-front {
+  border-color: var(--slate-300);
+  box-shadow: var(--shadow-md);
+}
+
+.flip-card-back {
+  background: linear-gradient(155deg, var(--white) 0%, var(--teal-50) 100%);
+  border-color: rgba(0, 122, 135, 0.3);
+  transform: rotateY(180deg);
+  box-shadow: var(--shadow-sm);
+}
+
+.flip-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.flip-card-term {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.flip-card-pos {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal-700);
+  background: var(--teal-50);
+  border: 1px solid rgba(0, 122, 135, 0.22);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.flip-card-ipa {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--slate-500);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.flip-card-example {
+  font-size: 13px;
+  color: var(--slate-700);
+  background: var(--slate-50);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+
+.flip-card-example strong {
+  color: var(--teal-700);
+}
+
+.flip-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.flip-hint {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate-400);
+}
+
+.flip-card-meaning-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-700);
+  margin-bottom: 5px;
+}
+
+.flip-card-back-term {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.flip-card-meaning {
+  font-size: 14.5px;
+  color: var(--slate-800);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   6. HTML5 REAL AUDIO PLAYER (.audio-pill & .audio-deck)
+   Zero speechSynthesis; graceful "Audio pending" state when MP3 is missing
+   ========================================================================== */
+.audio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--slate-100);
+  border: 1px solid var(--slate-200);
+  color: var(--navy-900);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.audio-pill:hover:not(.is-pending) {
+  background: var(--teal-50);
+  border-color: var(--teal-500);
+  color: var(--teal-800);
+}
+
+.audio-pill.is-playing {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--white);
+}
+
+.audio-pill.is-pending {
+  background: var(--slate-50);
+  border-color: var(--slate-200);
+  color: var(--slate-400);
+  cursor: default;
+}
+
+.audio-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal-500);
+  flex-shrink: 0;
+}
+
+.audio-pill.is-playing .audio-pill-dot {
+  background: var(--gold-400);
+}
+
+.audio-pill.is-pending .audio-pill-dot {
+  background: var(--slate-300);
+}
+
+/* Full Track Audio Deck */
+.audio-deck {
+  background: var(--navy-900);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.audio-deck-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  border: none;
+  color: var(--navy-950);
+  font-size: 15px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.audio-deck-play:hover:not(:disabled) {
+  background: var(--gold-400);
+  transform: scale(1.04);
+}
+
+.audio-deck-play:disabled {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--slate-400);
+  cursor: default;
+}
+
+.audio-deck-scrubber {
+  flex: 1 1 200px;
+}
+
+.audio-deck-slider {
+  width: 100%;
+  accent-color: var(--gold-400);
+  cursor: pointer;
+}
+
+.audio-deck-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--slate-300);
+  margin-top: 4px;
+}
+
+.audio-deck-speed {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   7. TEACHER'S VERSION ACCORDIONS (.teacher-note-box)
+   Hidden by default; revealed only when body.teacher-mode is active
+   ========================================================================== */
+.teacher-note-box {
+  display: none;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  margin-top: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+body.teacher-mode .teacher-note-box {
+  display: block;
+}
+
+.teacher-note-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.teacher-note-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-600);
+  margin-right: 8px;
+}
+
+.teacher-note-chevron {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--gold-600);
+  transition: transform 0.2s ease;
+}
+
+.teacher-note-box.is-open .teacher-note-chevron {
+  transform: rotate(180deg);
+}
+
+.teacher-note-body {
+  display: none;
+  padding: 0 18px 16px;
+  font-size: 13.5px;
+  color: var(--slate-800);
+  line-height: 1.6;
+  border-top: 1px solid rgba(212, 168, 67, 0.22);
+  padding-top: 12px;
+}
+
+.teacher-note-box.is-open .teacher-note-body {
+  display: block;
+}
+
+/* ==========================================================================
+   8. BUTTONS & CONTROLS
+   ========================================================================== */
+.btn-brand-primary {
+  background: var(--gold-500);
+  color: var(--navy-950);
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-brand-primary:hover {
+  background: var(--gold-400);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 168, 67, 0.3);
+}
+
+.btn-brand-secondary {
+  background: var(--white);
+  border: 1px solid var(--slate-300);
+  color: var(--slate-700);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.btn-brand-secondary:hover {
+  background: var(--slate-100);
+  color: var(--navy-900);
+}
+
+.btn-teal {
+  background: var(--teal-700);
+  color: var(--white);
+  border: 1px solid transparent;
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+
+.btn-teal:hover {
+  background: var(--teal-800);
+}
+
+/* ==========================================================================
+   9. MODALS (PIN ENTRY, STUDENT NAME, SYLLABUS)
+   ========================================================================== */
+.hub-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 21, 39, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 250;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hub-modal-backdrop.active {
+  display: flex;
+}
+
+.hub-modal-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 28px 30px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.hub-modal-card.wide {
+  max-width: 640px;
+}
+
+.hub-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--slate-400);
+  cursor: pointer;
+}
+
+.hub-modal-close:hover {
+  color: var(--navy-900);
+}
+
+.hub-modal-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-700);
+  margin-bottom: 6px;
+}
+
+.hub-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  margin-bottom: 8px;
+}
+
+.hub-modal-desc {
+  font-size: 13.5px;
+  color: var(--slate-600);
+  margin-bottom: 18px;
+}
+
+.hub-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--slate-300);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--navy-900);
+  background: var(--white);
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.hub-input:focus {
+  border-color: var(--teal-700);
+  box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+}
+
+.hub-modal-error {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--danger-600);
+  margin-bottom: 12px;
+  min-height: 18px;
+}
+
+/* ==========================================================================
+   10. INSTITUTIONAL FOOTER (.studio-site-footer)
+   ========================================================================== */
+.studio-site-footer {
+  border-top: 1px solid rgba(212, 168, 67, 0.32);
+  background: var(--navy-900);
+  color: var(--slate-200);
+  padding: 28px 24px;
+  margin-top: auto;
+}
+
+.footer-content-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 12.5px;
+}
+
+@media (min-width: 768px) {
+  .footer-content-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-left-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-brand-dot {
+  color: var(--gold-400);
+}
+
+.footer-teacher-portal-link {
+  color: var(--gold-400);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-teacher-portal-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 10px 16px;
+  }
+  .brand-divider,
+  .brand-course-label {
+    display: none;
+  }
+  .header-actions {
+    gap: 14px;
+  }
+  .header-student-tag {
+    display: none;
+  }
+  .content-wrapper {
+    padding: 20px 16px 56px;
+  }
+  .workspace-hero-banner {
+    padding: 40px 24px;
+    min-height: 300px;
+  }
+  .studio-card {
+    padding: 20px 18px;
+  }
+}
+
+/* ==========================================================================
+   12. CLEAN PRINT STYLES (Explore Worksheets & Teacher's Hub Lesson Plan)
+   ========================================================================== */
+@media print {
+  .site-header,
+  .studio-site-footer,
+  .segmented-bar,
+  .screen-footer-actions,
+  .no-print,
+  .hub-modal-backdrop,
+  .audio-pill,
+  .audio-deck,
+  .teacher-note-box {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #0A192F !important;
+  }
+
+  .content-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .studio-card,
+  .doc-hero-card,
+  .section-card,
+  .drill-item,
+  .badge-card {
+    box-shadow: none !important;
+    border-color: #CBD5E1 !important;
+    break-inside: avoid;
+  }
+}
+
+</style>
+  <style>
+    .explore-hero {
+      background-image:
+        linear-gradient(90deg, rgba(7, 21, 39, 0.96) 0%, rgba(11, 31, 58, 0.88) 54%, rgba(7, 21, 39, 0.42) 100%),
+        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=85');
+    }
+
+    .drill-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+
+    .drill-prompt {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy-900);
+      margin-bottom: 10px;
+    }
+
+    .choice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .choice-chip {
+      background: var(--white);
+      border: 1px solid var(--slate-300);
+      border-radius: var(--radius-full);
+      padding: 7px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .choice-chip:hover {
+      border-color: var(--teal-700);
+      color: var(--navy-900);
+    }
+
+    .choice-chip.correct {
+      background: var(--success-50);
+      border-color: var(--success-600);
+      color: var(--success-600);
+    }
+
+    .choice-chip.wrong {
+      background: var(--danger-50);
+      border-color: var(--danger-600);
+      color: var(--danger-600);
+    }
+
+    .inline-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .inline-input {
+      flex: 1 1 220px;
+      padding: 9px 13px;
+      border: 1px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--navy-900);
+      background: var(--white);
+      outline: none;
+    }
+
+    .inline-input:focus {
+      border-color: var(--teal-700);
+      box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+    }
+
+    .feedback-msg {
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-top: 8px;
+      min-height: 18px;
+    }
+
+    .feedback-msg.ok { color: var(--success-600); }
+    .feedback-msg.err { color: var(--danger-600); }
+
+    .badge-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+
+    .worksheet-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 14px;
+    }
+
+    .print-worksheet-header {
+      display: none;
+    }
+
+    @media print {
+      .workspace-hero-banner,
+      .worksheet-toolbar,
+      .check-type-btn,
+      .feedback-msg {
+        display: none !important;
+      }
+
+      .print-worksheet-header {
+        display: block;
+        border-bottom: 1.5px solid #0A192F;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+      }
+
+      .print-worksheet-header h1 {
+        font-size: 18px;
+        font-weight: 800;
+        color: #001F54;
+        margin-bottom: 6px;
+      }
+
+      .print-worksheet-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12.5px;
+        color: #334155;
+      }
+
+      .tab-panel {
+        display: block !important;
+        margin-bottom: 22px;
+      }
+
+      .inline-input {
+        border: none !important;
+        border-bottom: 1.5px solid #64748B !important;
+        border-radius: 0 !important;
+        padding: 4px 2px !important;
+        background: transparent !important;
+      }
+
+      .choice-chip {
+        border-color: #94A3B8 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INSTITUTIONAL HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand-lockup">
+        <img
+          src="../../assets/logo-white-lockup.webp"
+          onerror="this.onerror=null;this.src='https://learning-development-studio.github.io/english-hub/assets/logo-white-lockup.webp';"
+          alt="Learning &amp; Development Studio"
+          class="brand-logo-white"
+        >
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-course-label">A1.1 &middot; Explore (Workbook)</span>
+      </a>
+      <nav class="header-actions" aria-label="Header actions">
+        <button type="button" class="header-student-tag" data-hub-student title="Update student name">
+          Student &middot; <strong>Guest</strong>
+        </button>
+        <button type="button" class="header-teacher-link" data-hub-teacher-trigger>
+          Teacher's Version &#8599;
+        </button>
+        <a href="../index.html" class="header-back-link">&larr; Back to Menu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <!-- HERO BANNER -->
+    <header class="workspace-hero-banner explore-hero">
+      <h1 class="hero-banner-title">Explore: <span class="gold-accent">Your Name</span></h1>
+      <p class="hero-banner-desc">
+        Independent practice with contractions, personal introductions, and the 6 name words from today's lesson.
+      </p>
+    </header>
+
+    <!-- PRINT-ONLY WORKSHEET HEADER -->
+    <div class="print-worksheet-header">
+      <h1>A1.1-U01-L01 &middot; The Story Behind Your Name (Explore Worksheet)</h1>
+      <div class="print-worksheet-meta">
+        <span>Name: ________________________________________</span>
+        <span>Date: ____________________</span>
+      </div>
+    </div>
+
+    <!-- WORKSHEET PRINT ACTION -->
+    <div class="worksheet-toolbar no-print">
+      <button type="button" class="btn-brand-secondary" onclick="window.print()">Print Worksheet</button>
+    </div>
+
+    <!-- SEGMENTED BAR -->
+    <nav class="segmented-bar" role="tablist" aria-label="Explore practice modules">
+      <button type="button" class="segment-btn active" role="tab" aria-selected="true" data-tab-target="exp-01" data-target="exp-01">
+        <span class="segment-index">01</span>
+        <span class="segment-label">Contractions</span>
+      </button>
+      <button type="button" class="segment-btn" role="tab" aria-selected="false" data-tab-target="exp-02" data-target="exp-02">
+        <span class="segment-index">02</span>
+        <span class="segment-label">Name Words</span>
+      </button>
+      <button type="button" class="segment-btn" role="tab" aria-selected="false" data-tab-target="exp-03" data-target="exp-03">
+        <span class="segment-index">03</span>
+        <span class="segment-label">Badge Check</span>
+      </button>
+    </nav>
+
+    <!-- ==================================================================
+         01 · CONTRACTIONS (I'm vs I am, I'm not, you're, My)
+         ================================================================== -->
+    <section id="exp-01" class="tab-panel active" data-tab-panel>
+      <div class="screen-header-block">
+        <div class="screen-eyebrow">01 &middot; Grammar Practice</div>
+        <h2 class="screen-heading">I'm vs. I am, I'm not, You're &amp; My</h2>
+        <p class="screen-desc">Choose the natural form for each real-life moment.</p>
+      </div>
+
+      <div class="studio-card">
+        <div class="drill-item" data-answer="a">
+          <div class="drill-prompt">1. At a coffee shop: "Hi! _____ Daniel, with one L."</div>
+          <div class="choice-row">
+            <button type="button" class="choice-chip" data-choice="a">I'm</button>
+            <button type="button" class="choice-chip" data-choice="b">I'm is</button>
+            <button type="button" class="choice-chip" data-choice="c">My</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-answer="b">
+          <div class="drill-prompt">2. Confirming a name: "You're Sofía?" &mdash; "Yes, _____."</div>
+          <div class="choice-row">
+            <button type="button" class="choice-chip" data-choice="a">I'm</button>
+            <button type="button" class="choice-chip" data-choice="b">I am</button>
+            <button type="button" class="choice-chip" data-choice="c">you're</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-answer="c">
+          <div class="drill-prompt">3. Correcting a mix-up: "_____ Marcos. My first name is Marco."</div>
+          <div class="choice-row">
+            <button type="button" class="choice-chip" data-choice="a">I not</button>
+            <button type="button" class="choice-chip" data-choice="b">I'm isn't</button>
+            <button type="button" class="choice-chip" data-choice="c">I'm not</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-answer="a">
+          <div class="drill-prompt">4. Greeting a new colleague: "_____ Alex, right? Nice to finally put a face to the name!"</div>
+          <div class="choice-row">
+            <button type="button" class="choice-chip" data-choice="a">You're</button>
+            <button type="button" class="choice-chip" data-choice="b">I'm</button>
+            <button type="button" class="choice-chip" data-choice="c">My</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-answer="b">
+          <div class="drill-prompt">5. Sharing your initials: "_____ initials are C.R."</div>
+          <div class="choice-row">
+            <button type="button" class="choice-chip" data-choice="a">I'm</button>
+            <button type="button" class="choice-chip" data-choice="b">My</button>
+            <button type="button" class="choice-chip" data-choice="c">You're</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+      </div>
+
+      <div class="teacher-note-box">
+        <button type="button" class="teacher-note-toggle" aria-expanded="false">
+          <span><span class="teacher-note-tag">Teacher Note</span>Explore 01 Key</span>
+          <span class="teacher-note-chevron">&#9662;</span>
+        </button>
+        <div class="teacher-note-body">
+          <strong>Key:</strong> 1. <em>I'm</em> &middot; 2. <em>I am</em> (never contract at the end of a short affirmative answer) &middot; 3. <em>I'm not</em> &middot; 4. <em>You're</em> &middot; 5. <em>My</em>.
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <a href="./index.html" class="btn-brand-secondary">&larr; Back to Experience</a>
+        <button type="button" class="btn-brand-primary" data-nav-next>Next: Name Words &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         02 · NAME WORDS (6 Vocabulary Words Consolidation)
+         ================================================================== -->
+    <section id="exp-02" class="tab-panel" data-tab-panel>
+      <div class="screen-header-block">
+        <div class="screen-eyebrow">02 &middot; Vocabulary Practice</div>
+        <h2 class="screen-heading">6 Name Words in Action</h2>
+        <p class="screen-desc">Type the missing vocabulary word from the box: <strong>first name</strong>, <strong>last name</strong>, <strong>nickname</strong>, <strong>middle name</strong>, <strong>full name</strong>, <strong>initials</strong>.</p>
+      </div>
+
+      <div class="studio-card">
+        <div class="drill-item" data-type-answer="full name">
+          <div class="drill-prompt">1. "On my passport, my __________ is Elena María Torres."</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 2 words...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-type-answer="middle name">
+          <div class="drill-prompt">2. "My first name is Elena, and my __________ is María."</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 2 words...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-type-answer="nickname">
+          <div class="drill-prompt">3. "I'm Alejandro, and my __________ is Ale. Just call me Ale!"</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 1 word...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-type-answer="initials">
+          <div class="drill-prompt">4. "My __________ are E.M.T."</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 1 word...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-type-answer="first name">
+          <div class="drill-prompt">5. "My __________ is Carlos, not Carl."</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 2 words...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+
+        <div class="drill-item" data-type-answer="last name">
+          <div class="drill-prompt">6. "My first name is Carlos, and my __________ is Navarro."</div>
+          <div class="inline-input-row">
+            <input type="text" class="inline-input" placeholder="Type 2 words...">
+            <button type="button" class="btn-teal check-type-btn">Check</button>
+          </div>
+          <div class="feedback-msg"></div>
+        </div>
+      </div>
+
+      <div class="teacher-note-box">
+        <button type="button" class="teacher-note-toggle" aria-expanded="false">
+          <span><span class="teacher-note-tag">Teacher Note</span>Explore 02 Key</span>
+          <span class="teacher-note-chevron">&#9662;</span>
+        </button>
+        <div class="teacher-note-body">
+          <strong>Key:</strong> 1. <em>full name</em> &middot; 2. <em>middle name</em> &middot; 3. <em>nickname</em> &middot; 4. <em>initials</em> &middot; 5. <em>first name</em> &middot; 6. <em>last name</em>.
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button type="button" class="btn-brand-secondary" data-nav-prev>&larr; Previous</button>
+        <button type="button" class="btn-brand-primary" data-nav-next>Next: Badge Check &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         03 · BADGE CHECK (Word Reordering / Natural vs Broken)
+         ================================================================== -->
+    <section id="exp-03" class="tab-panel" data-tab-panel>
+      <div class="screen-header-block">
+        <div class="screen-eyebrow">03 &middot; Name Detective</div>
+        <h2 class="screen-heading">Natural vs. Broken Introductions</h2>
+        <p class="screen-desc">Read each visitor badge and choose the completely natural sentence.</p>
+      </div>
+
+      <div class="studio-card">
+        <div class="badge-card">
+          <div class="font-mono" style="font-size:11px; font-weight:700; color:var(--teal-700); text-transform:uppercase; margin-bottom:6px;">Visitor Badge #1 &middot; Mateo Gómez</div>
+          <div class="drill-item" data-answer="b" style="background:var(--white); margin-bottom:0;">
+            <div class="drill-prompt">Which introduction is 100% natural?</div>
+            <div class="choice-row">
+              <button type="button" class="choice-chip" data-choice="a">I'm is Mateo, and my initials is M.G.</button>
+              <button type="button" class="choice-chip" data-choice="b">I'm Mateo, and my initials are M.G.</button>
+              <button type="button" class="choice-chip" data-choice="c">My first name am Mateo.</button>
+            </div>
+            <div class="feedback-msg"></div>
+          </div>
+        </div>
+
+        <div class="badge-card">
+          <div class="font-mono" style="font-size:11px; font-weight:700; color:var(--teal-700); text-transform:uppercase; margin-bottom:6px;">Visitor Badge #2 &middot; Sofía "Sofi" Morales</div>
+          <div class="drill-item" data-answer="a" style="background:var(--white); margin-bottom:0;">
+            <div class="drill-prompt">Which correction is 100% natural?</div>
+            <div class="choice-row">
+              <button type="button" class="choice-chip" data-choice="a">I'm not Sara. Just call me Sofi!</button>
+              <button type="button" class="choice-chip" data-choice="b">I not Sara. My nickname are Sofi.</button>
+              <button type="button" class="choice-chip" data-choice="c">It's no big deal, I'm is Sofi.</button>
+            </div>
+            <div class="feedback-msg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-footer-actions">
+        <button type="button" class="btn-brand-secondary" data-nav-prev>&larr; Previous</button>
+        <a href="./index.html" class="btn-brand-primary">Return to Experience &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="studio-site-footer">
+    <div class="footer-content-inner">
+      <div class="footer-left-lockup">
+        <strong>Learning &amp; Development Studio</strong>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--teal-300);">Educate &bull; Design &bull; Grow</span>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--slate-300);">English Hub &middot; Explore: The Story Behind Your Name (A1.1)</span>
+      </div>
+      <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center;">
+        <a href="./index.html" class="footer-teacher-portal-link" style="color:var(--teal-300);">
+          &larr; Experience (Student's Book)
+        </a>
+        <a href="../../teacher-hub/A1.1/u01-l01-the-story-behind-your-name/index.html" class="footer-teacher-portal-link">
+          Teacher's Portal &amp; Printable Version &rarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+/* ==========================================================================
+   LEARNING & DEVELOPMENT STUDIO · ENGLISH HUB
+   Core Runtime Engine (hub-core.js)
+   - Student Name (localStorage)
+   - Teacher's Version PIN Modal & Session Persistence
+   - Segmented Bar + Previous/Next Navigation
+   - 3D Flip Cards
+   - Teacher Note Accordions (.teacher-note-box)
+   - HTML5 Real Audio Player (ZERO speechSynthesis)
+   ========================================================================== */
+
+(function (global) {
+  'use strict';
+
+  const TEACHER_PINS = ['2680', '5726', '8826', '2026', 'admin'];
+  const STUDENT_KEYS = ['ld-student-name', 'ld_student_name', 'english_hub_student_name', 'studentName'];
+  const TEACHER_SESSION_KEY = 'ld-teacher-mode';
+  const STUDENT_PROMPTED_KEY = 'ld-student-prompted';
+
+  let activeAudio = null;
+  let activeAudioBtn = null;
+
+  /* ------------------------------------------------------------------------
+     1. STUDENT NAME MANAGEMENT
+     ------------------------------------------------------------------------ */
+  function getStoredStudentName() {
+    const params = new URLSearchParams(window.location.search);
+    const urlName = params.get('name');
+    if (urlName && urlName.trim()) {
+      const clean = urlName.trim();
+      localStorage.setItem('ld-student-name', clean);
+      return clean;
+    }
+    for (const key of STUDENT_KEYS) {
+      const val = localStorage.getItem(key);
+      if (val && val.trim()) return val.trim();
+    }
+    return '';
+  }
+
+  function setStudentName(name) {
+    const clean = (name || '').trim();
+    if (clean) {
+      localStorage.setItem('ld-student-name', clean);
+    }
+    updateStudentHeaderDisplay();
+  }
+
+  function updateStudentHeaderDisplay() {
+    const name = getStoredStudentName() || 'Guest';
+    const els = document.querySelectorAll('[data-hub-student], #studentTag, #studentNameTag');
+    els.forEach((el) => {
+      el.innerHTML = `Student &middot; <strong>${escapeHtml(name)}</strong>`;
+    });
+  }
+
+  function ensureStudentModal() {
+    if (document.getElementById('hubStudentModal')) return;
+    const modal = document.createElement('div');
+    modal.id = 'hubStudentModal';
+    modal.className = 'hub-modal-backdrop';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML = `
+      <div class="hub-modal-card">
+        <button type="button" class="hub-modal-close" data-close-student-modal aria-label="Close">&times;</button>
+        <div class="hub-modal-eyebrow">Learning &amp; Development Studio</div>
+        <h3 class="hub-modal-title">Welcome to English Hub</h3>
+        <p class="hub-modal-desc">Enter your name to personalize your workspace session.</p>
+        <form id="hubStudentForm">
+          <input type="text" id="hubStudentInput" class="hub-input" placeholder="Your full name (e.g. Sofía Martínez)" autocomplete="name" maxlength="60">
+          <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:6px;">
+            <button type="button" class="btn-brand-secondary" data-close-student-modal>Continue as Guest</button>
+            <button type="submit" class="btn-brand-primary">Save Name</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.closest('[data-close-student-modal]')) {
+        sessionStorage.setItem(STUDENT_PROMPTED_KEY, '1');
+        modal.classList.remove('active');
+      }
+    });
+
+    const form = modal.querySelector('#hubStudentForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = modal.querySelector('#hubStudentInput');
+      if (input && input.value.trim()) {
+        setStudentName(input.value.trim());
+      }
+      sessionStorage.setItem(STUDENT_PROMPTED_KEY, '1');
+      modal.classList.remove('active');
+    });
+  }
+
+  function openStudentModal() {
+    ensureStudentModal();
+    const modal = document.getElementById('hubStudentModal');
+    const input = document.getElementById('hubStudentInput');
+    const current = getStoredStudentName();
+    if (input) {
+      input.value = current;
+      setTimeout(() => input.focus(), 50);
+    }
+    modal.classList.add('active');
+  }
+
+  /* ------------------------------------------------------------------------
+     2. TEACHER'S VERSION PIN MODAL & SESSION PERSISTENCE
+     ------------------------------------------------------------------------ */
+  function isTeacherMode() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('role') === 'teacher') {
+      sessionStorage.setItem(TEACHER_SESSION_KEY, 'true');
+      return true;
+    }
+    return sessionStorage.getItem(TEACHER_SESSION_KEY) === 'true';
+  }
+
+  function applyTeacherMode(active) {
+    if (active) {
+      document.body.classList.add('teacher-mode');
+      sessionStorage.setItem(TEACHER_SESSION_KEY, 'true');
+    } else {
+      document.body.classList.remove('teacher-mode');
+      sessionStorage.removeItem(TEACHER_SESSION_KEY);
+    }
+    document.querySelectorAll('[data-hub-teacher-trigger], .header-teacher-link').forEach((btn) => {
+      btn.innerHTML = active ? "Teacher's Version &#10003;" : "Teacher's Version &#8599;";
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  function ensureTeacherPinModal() {
+    if (document.getElementById('hubPinModal')) return;
+    const modal = document.createElement('div');
+    modal.id = 'hubPinModal';
+    modal.className = 'hub-modal-backdrop';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML = `
+      <div class="hub-modal-card">
+        <button type="button" class="hub-modal-close" data-close-pin-modal aria-label="Close">&times;</button>
+        <div class="hub-modal-eyebrow">Faculty Access</div>
+        <h3 class="hub-modal-title">Teacher's Version</h3>
+        <p class="hub-modal-desc">Enter your instructor or coordinator PIN to reveal live facilitation notes and answer keys.</p>
+        <form id="hubPinForm">
+          <input type="password" id="hubPinInput" class="hub-input font-mono" placeholder="Enter PIN" autocomplete="off" maxlength="20">
+          <div class="hub-modal-error" id="hubPinError"></div>
+          <div style="display:flex; gap:10px; justify-content:flex-end;">
+            <button type="button" class="btn-brand-secondary" data-close-pin-modal>Cancel</button>
+            <button type="submit" class="btn-brand-primary">Unlock Notes</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.closest('[data-close-pin-modal]')) {
+        modal.classList.remove('active');
+      }
+    });
+
+    const form = modal.querySelector('#hubPinForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('hubPinInput');
+      const err = document.getElementById('hubPinError');
+      const val = (input ? input.value : '').trim().toLowerCase();
+      if (TEACHER_PINS.includes(val)) {
+        if (err) err.textContent = '';
+        if (input) input.value = '';
+        modal.classList.remove('active');
+        applyTeacherMode(true);
+      } else {
+        if (err) err.textContent = 'Invalid PIN. Please verify with academic coordination.';
+        if (input) input.focus();
+      }
+    });
+  }
+
+  function handleTeacherTriggerClick() {
+    if (document.body.classList.contains('teacher-mode')) {
+      applyTeacherMode(false);
+      return;
+    }
+    ensureTeacherPinModal();
+    const modal = document.getElementById('hubPinModal');
+    const input = document.getElementById('hubPinInput');
+    const err = document.getElementById('hubPinError');
+    if (err) err.textContent = '';
+    if (input) {
+      input.value = '';
+      setTimeout(() => input.focus(), 50);
+    }
+    modal.classList.add('active');
+  }
+
+  /* ------------------------------------------------------------------------
+     3. SEGMENTED BAR & PREVIOUS / NEXT NAVIGATION
+     ------------------------------------------------------------------------ */
+  function switchScreen(targetIndexOrId) {
+    const buttons = Array.from(document.querySelectorAll('.segmented-bar .segment-btn'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    if (!panels.length) return;
+
+    let targetIndex = -1;
+    if (typeof targetIndexOrId === 'number') {
+      targetIndex = targetIndexOrId - 1;
+    } else if (typeof targetIndexOrId === 'string') {
+      const asNum = parseInt(targetIndexOrId, 10);
+      if (!isNaN(asNum) && String(asNum) === targetIndexOrId.trim()) {
+        targetIndex = asNum - 1;
+      } else {
+        targetIndex = panels.findIndex((p) => p.id === targetIndexOrId);
+      }
+    }
+
+    if (targetIndex < 0 || targetIndex >= panels.length) return;
+
+    buttons.forEach((b, idx) => {
+      const isActive = idx === targetIndex;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    panels.forEach((p, idx) => {
+      p.classList.toggle('active', idx === targetIndex);
+    });
+
+    if (buttons[targetIndex] && typeof buttons[targetIndex].scrollIntoView === 'function') {
+      buttons[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    const bar = document.querySelector('.segmented-bar');
+    if (bar) {
+      const top = Math.max(0, bar.getBoundingClientRect().top + window.scrollY - 84);
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  function getActiveScreenIndex() {
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    return panels.findIndex((p) => p.classList.contains('active'));
+  }
+
+  function prevScreen() {
+    const idx = getActiveScreenIndex();
+    if (idx > 0) switchScreen(idx); // 1-based: idx is previous
+  }
+
+  function nextScreen() {
+    const panels = document.querySelectorAll('.tab-panel');
+    const idx = getActiveScreenIndex();
+    if (idx >= 0 && idx < panels.length - 1) switchScreen(idx + 2);
+  }
+
+  /* ------------------------------------------------------------------------
+     4. FLIP CARDS & TEACHER NOTE ACCORDIONS
+     ------------------------------------------------------------------------ */
+  function initInteractions() {
+    document.addEventListener('click', (e) => {
+      // Teacher trigger
+      const teacherTrigger = e.target.closest('[data-hub-teacher-trigger], .header-teacher-link');
+      if (teacherTrigger) {
+        e.preventDefault();
+        handleTeacherTriggerClick();
+        return;
+      }
+
+      // Student name trigger
+      const studentTrigger = e.target.closest('[data-hub-student], #studentTag, #studentNameTag');
+      if (studentTrigger) {
+        e.preventDefault();
+        openStudentModal();
+        return;
+      }
+
+      // Segmented bar button
+      const segBtn = e.target.closest('.segmented-bar .segment-btn');
+      if (segBtn) {
+        const target = segBtn.getAttribute('data-target') || segBtn.getAttribute('data-screen');
+        if (target) {
+          switchScreen(target);
+        } else {
+          const allBtns = Array.from(document.querySelectorAll('.segmented-bar .segment-btn'));
+          const idx = allBtns.indexOf(segBtn);
+          if (idx !== -1) switchScreen(idx + 1);
+        }
+        return;
+      }
+
+      // Prev / Next buttons
+      if (e.target.closest('[data-nav-prev]')) {
+        prevScreen();
+        return;
+      }
+      if (e.target.closest('[data-nav-next]')) {
+        nextScreen();
+        return;
+      }
+
+      // Audio pill click
+      const audioPill = e.target.closest('.audio-pill');
+      if (audioPill) {
+        e.stopPropagation();
+        playAudioPill(audioPill);
+        return;
+      }
+
+      // Teacher note accordion toggle
+      const noteToggle = e.target.closest('.teacher-note-toggle');
+      if (noteToggle) {
+        const box = noteToggle.closest('.teacher-note-box');
+        if (box) {
+          const isOpen = box.classList.toggle('is-open');
+          noteToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        return;
+      }
+
+      // Flip card click (ignore nested interactive elements)
+      const flipCard = e.target.closest('.flip-card');
+      if (flipCard && !e.target.closest('button, a, .audio-pill')) {
+        flipCard.classList.toggle('flipped');
+      }
+    });
+
+    // Keyboard support for flip cards
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('flip-card')) {
+        e.preventDefault();
+        e.target.classList.toggle('flipped');
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     5. HTML5 REAL AUDIO PLAYER (ZERO speechSynthesis)
+     ------------------------------------------------------------------------ */
+  function resetActiveAudioPill() {
+    if (activeAudioBtn) {
+      activeAudioBtn.classList.remove('is-playing');
+      const label = activeAudioBtn.querySelector('.audio-pill-label');
+      if (label && activeAudioBtn.dataset.defaultLabel) {
+        label.textContent = activeAudioBtn.dataset.defaultLabel;
+      }
+    }
+    activeAudioBtn = null;
+  }
+
+  function markAudioPillPending(pill) {
+    pill.classList.remove('is-playing');
+    pill.classList.add('is-pending');
+    pill.disabled = true;
+    const label = pill.querySelector('.audio-pill-label');
+    if (label) {
+      label.textContent = 'Audio pending';
+    } else {
+      pill.textContent = 'Audio pending';
+    }
+  }
+
+  function playAudioPill(pill) {
+    if (pill.classList.contains('is-pending')) return;
+
+    const src = pill.getAttribute('data-audio-src');
+    if (!src) {
+      markAudioPillPending(pill);
+      return;
+    }
+
+    // Store default label once
+    const labelEl = pill.querySelector('.audio-pill-label');
+    if (labelEl && !pill.dataset.defaultLabel) {
+      pill.dataset.defaultLabel = labelEl.textContent.trim();
+    }
+
+    // Toggle pause if clicking the currently playing pill
+    if (activeAudioBtn === pill && activeAudio && !activeAudio.paused) {
+      activeAudio.pause();
+      resetActiveAudioPill();
+      return;
+    }
+
+    if (activeAudio) {
+      activeAudio.pause();
+      resetActiveAudioPill();
+    }
+
+    const audio = new Audio(src);
+    activeAudio = audio;
+    activeAudioBtn = pill;
+
+    audio.addEventListener('error', () => {
+      resetActiveAudioPill();
+      markAudioPillPending(pill);
+    }, { once: true });
+
+    audio.addEventListener('ended', () => {
+      resetActiveAudioPill();
+    }, { once: true });
+
+    pill.classList.add('is-playing');
+    if (labelEl) labelEl.textContent = 'Playing...';
+
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {
+        resetActiveAudioPill();
+        markAudioPillPending(pill);
+      });
+    }
+  }
+
+  function initAudioDecks() {
+    document.querySelectorAll('[data-audio-deck]').forEach((deck) => {
+      const src = deck.getAttribute('data-audio-src');
+      const playBtn = deck.querySelector('.audio-deck-play');
+      const slider = deck.querySelector('.audio-deck-slider');
+      const currentEl = deck.querySelector('[data-audio-current]');
+      const durationEl = deck.querySelector('[data-audio-duration]');
+      const speedBtn = deck.querySelector('.audio-deck-speed');
+      const statusEl = deck.querySelector('[data-audio-status]');
+
+      if (!src) {
+        if (playBtn) playBtn.disabled = true;
+        if (statusEl) statusEl.textContent = 'Audio pending';
+        return;
+      }
+
+      const audio = new Audio(src);
+      let speed = 1.0;
+
+      audio.addEventListener('loadedmetadata', () => {
+        if (slider && !isNaN(audio.duration)) {
+          slider.max = Math.floor(audio.duration);
+        }
+        if (durationEl && !isNaN(audio.duration)) {
+          durationEl.textContent = formatTime(audio.duration);
+        }
+      });
+
+      audio.addEventListener('error', () => {
+        if (playBtn) playBtn.disabled = true;
+        if (slider) slider.disabled = true;
+        if (statusEl) statusEl.textContent = 'Audio pending';
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        if (slider) slider.value = Math.floor(audio.currentTime);
+        if (currentEl) currentEl.textContent = formatTime(audio.currentTime);
+      });
+
+      audio.addEventListener('ended', () => {
+        if (playBtn) playBtn.textContent = '▶';
+      });
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (audio.paused) {
+            if (activeAudio && activeAudio !== audio) {
+              activeAudio.pause();
+              resetActiveAudioPill();
+            }
+            activeAudio = audio;
+            audio.play().then(() => {
+              playBtn.textContent = '❚❚';
+            }).catch(() => {
+              playBtn.disabled = true;
+              if (statusEl) statusEl.textContent = 'Audio pending';
+            });
+          } else {
+            audio.pause();
+            playBtn.textContent = '▶';
+          }
+        });
+      }
+
+      if (slider) {
+        slider.addEventListener('input', () => {
+          if (!isNaN(audio.duration)) {
+            audio.currentTime = parseFloat(slider.value);
+          }
+        });
+      }
+
+      if (speedBtn) {
+        speedBtn.addEventListener('click', () => {
+          speed = speed === 1.0 ? 0.85 : 1.0;
+          audio.playbackRate = speed;
+          speedBtn.textContent = `${speed}x`;
+        });
+      }
+    });
+  }
+
+  function formatTime(seconds) {
+    const s = Math.floor(seconds || 0);
+    const mins = Math.floor(s / 60);
+    const secs = s % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[m]));
+  }
+
+  /* ------------------------------------------------------------------------
+     6. INITIALIZATION
+     ------------------------------------------------------------------------ */
+  function init() {
+    updateStudentHeaderDisplay();
+    applyTeacherMode(isTeacherMode());
+    initInteractions();
+    initAudioDecks();
+
+    // Prompt once cleanly for student name if empty and not in teacher mode
+    if (!getStoredStudentName() && !isTeacherMode() && !sessionStorage.getItem(STUDENT_PROMPTED_KEY)) {
+      openStudentModal();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  global.HubCore = {
+    switchScreen,
+    prevScreen,
+    nextScreen,
+    getStudentName: getStoredStudentName,
+    setStudentName,
+    openStudentModal,
+    isTeacherMode,
+    setTeacherMode: applyTeacherMode
+  };
+})(window);
+
+</script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Multiple-choice drills
+      document.querySelectorAll('.drill-item[data-answer]').forEach((item) => {
+        const answer = item.getAttribute('data-answer');
+        const msg = item.querySelector('.feedback-msg');
+        item.querySelectorAll('.choice-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            item.querySelectorAll('.choice-chip').forEach((c) => c.classList.remove('correct', 'wrong'));
+            if (chip.getAttribute('data-choice') === answer) {
+              chip.classList.add('correct');
+              msg.className = 'feedback-msg ok';
+              msg.textContent = 'Correct!';
+            } else {
+              chip.classList.add('wrong');
+              msg.className = 'feedback-msg err';
+              msg.textContent = 'Check the subject and To Be form, then try again.';
+            }
+          });
+        });
+      });
+
+      // Typed vocabulary drills
+      document.querySelectorAll('.check-type-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.drill-item');
+          const input = item.querySelector('.inline-input');
+          const msg = item.querySelector('.feedback-msg');
+          const expected = (item.getAttribute('data-type-answer') || '').trim().toLowerCase();
+          const actual = (input.value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+          if (!actual) {
+            msg.className = 'feedback-msg err';
+            msg.textContent = 'Type your answer first.';
+            return;
+          }
+          if (actual === expected) {
+            msg.className = 'feedback-msg ok';
+            msg.textContent = 'Correct! "' + expected + '"';
+          } else {
+            msg.className = 'feedback-msg err';
+            msg.textContent = 'Not quite. Choose from the 6 name words above.';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

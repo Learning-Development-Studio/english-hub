@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Guía Docente &middot; A1.1-U01-L02: Where Are You Really From? | Teacher's Hub</title>
+  <link rel="icon" type="image/png" href="https://learning-development-studio.github.io/english-hub/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   LEARNING & DEVELOPMENT STUDIO · ENGLISH HUB
+   Executive Standard Design System (hub-core.css)
+   Typography: Plus Jakarta Sans + IBM Plex Mono
+   ========================================================================== */
+
+:root {
+  /* Deep Navy (Dominant) */
+  --navy-950: #071527;
+  --navy-900: #001F54;
+  --navy-800: #0B2545;
+  --navy-700: #133E68;
+
+  /* Champagne Gold (Accent / Emphasis) */
+  --gold-600: #B57C00;
+  --gold-500: #D4A843;
+  --gold-400: #E5A922;
+  --gold-100: #FEF8EB;
+  --gold-border: rgba(212, 168, 67, 0.35);
+
+  /* Teal (Secondary / Interaction) */
+  --teal-800: #0F766E;
+  --teal-700: #007A87;
+  --teal-500: #14B8A6;
+  --teal-300: #4DD0E1;
+  --teal-50: #F0FDFA;
+
+  /* Neutrals & Surfaces */
+  --white: #FFFFFF;
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0A192F;
+
+  /* Semantic Status */
+  --danger-600: #DC2626;
+  --danger-50: #FEF2F2;
+  --danger-border: rgba(220, 38, 38, 0.25);
+  --success-600: #059669;
+  --success-50: #ECFDF5;
+  --success-border: rgba(5, 150, 105, 0.25);
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-xs: 0 1px 2px rgba(10, 25, 47, 0.04);
+  --shadow-sm: 0 2px 6px rgba(10, 25, 47, 0.05);
+  --shadow-md: 0 6px 18px -2px rgba(10, 25, 47, 0.06), 0 2px 6px -1px rgba(10, 25, 47, 0.03);
+  --shadow-lg: 0 16px 36px -4px rgba(10, 25, 47, 0.10), 0 4px 12px -2px rgba(10, 25, 47, 0.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--slate-50);
+  color: var(--slate-900);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ==========================================================================
+   1. INSTITUTIONAL HEADER (.site-header)
+   Navy background, inverted white logo on left, 3 clean typographic items on right
+   ========================================================================== */
+.site-header {
+  background: var(--navy-900);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.28);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(7, 21, 39, 0.16);
+}
+
+.header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+}
+
+.brand-logo-white {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+.brand-course-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-200);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Exactly 3 clean typographic elements on the right */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+.header-student-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate-300);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.18s ease;
+}
+
+.header-student-tag:hover {
+  color: var(--white);
+}
+
+.header-student-tag strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.header-teacher-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-500);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.header-teacher-link:hover {
+  color: var(--gold-400);
+}
+
+body.teacher-mode .header-teacher-link {
+  color: var(--teal-300);
+}
+
+.header-back-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-200);
+  text-decoration: none;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.header-back-link:hover {
+  color: var(--white);
+}
+
+/* ==========================================================================
+   2. MAIN CONTAINER & HERO BANNER (.workspace-hero-banner)
+   ========================================================================== */
+.content-wrapper {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px 72px;
+  flex: 1;
+}
+
+.workspace-hero-banner {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  padding: 60px 48px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(212, 168, 67, 0.24);
+  box-shadow: 0 24px 48px -12px rgba(7, 21, 39, 0.32);
+  margin-bottom: 36px;
+  color: var(--white);
+  background-color: var(--navy-950);
+  background-image:
+    linear-gradient(90deg, rgba(7, 21, 39, 0.97) 0%, rgba(11, 31, 58, 0.90) 52%, rgba(7, 21, 39, 0.42) 100%),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85');
+}
+
+.hero-banner-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 24ch;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+
+.hero-banner-title .gold-accent {
+  color: var(--gold-500);
+  font-style: italic;
+}
+
+.hero-banner-desc {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--slate-300);
+  line-height: 1.6;
+  max-width: 54ch;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   3. MODULAR NAVIGATION: SEGMENTED BAR (.segmented-bar)
+   #F1F5F9 surface, elevated white active segment, ZERO thick colored borders
+   ========================================================================== */
+.segmented-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  background: var(--slate-100);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  padding: 5px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.segmented-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.segment-btn {
+  flex: 1 0 auto;
+  min-width: 132px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--slate-600);
+  font-family: inherit;
+  transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.segment-btn:hover {
+  color: var(--navy-900);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.segment-btn.active {
+  background: var(--white);
+  color: var(--navy-900);
+  border-color: rgba(10, 25, 47, 0.06);
+  box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08), 0 1px 2px rgba(10, 25, 47, 0.04);
+}
+
+.segment-index {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-400);
+  flex-shrink: 0;
+}
+
+.segment-btn.active .segment-index {
+  color: var(--teal-700);
+}
+
+.segment-label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* Tab Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: hubFadeIn 0.22s ease-out;
+}
+
+@keyframes hubFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Screen Section Headers */
+.screen-header-block {
+  margin-bottom: 24px;
+}
+
+.screen-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal-700);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 4px;
+}
+
+.screen-heading {
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.screen-desc {
+  font-size: 0.96rem;
+  color: var(--slate-600);
+  max-width: 72ch;
+  margin-top: 6px;
+}
+
+/* Footer Prev/Next Navigation */
+.screen-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--slate-200);
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   4. CLEAN EXECUTIVE CARDS (NO border-top / border-left ACCENTS)
+   ========================================================================== */
+.studio-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   5. INTERACTIVE 3D FLIP CARDS (.flip-card)
+   ========================================================================== */
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.flip-card {
+  background: transparent;
+  perspective: 1000px;
+  min-height: 244px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 244px;
+  text-align: left;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-md);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--slate-200);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flip-card-front > div:first-child,
+.flip-card-back > div:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-card-front {
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+}
+
+.flip-card:hover .flip-card-front {
+  border-color: var(--slate-300);
+  box-shadow: var(--shadow-md);
+}
+
+.flip-card-back {
+  background: linear-gradient(155deg, var(--white) 0%, var(--teal-50) 100%);
+  border-color: rgba(0, 122, 135, 0.3);
+  transform: rotateY(180deg);
+  box-shadow: var(--shadow-sm);
+}
+
+.flip-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.flip-card-term {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.flip-card-pos {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal-700);
+  background: var(--teal-50);
+  border: 1px solid rgba(0, 122, 135, 0.22);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.flip-card-ipa {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--slate-500);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.flip-card-example {
+  font-size: 13px;
+  color: var(--slate-700);
+  background: var(--slate-50);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+
+.flip-card-example strong {
+  color: var(--teal-700);
+}
+
+.flip-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.flip-hint {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate-400);
+}
+
+.flip-card-meaning-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-700);
+  margin-bottom: 5px;
+}
+
+.flip-card-back-term {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.flip-card-meaning {
+  font-size: 14.5px;
+  color: var(--slate-800);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   6. HTML5 REAL AUDIO PLAYER (.audio-pill & .audio-deck)
+   Zero speechSynthesis; graceful "Audio pending" state when MP3 is missing
+   ========================================================================== */
+.audio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--slate-100);
+  border: 1px solid var(--slate-200);
+  color: var(--navy-900);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.audio-pill:hover:not(.is-pending) {
+  background: var(--teal-50);
+  border-color: var(--teal-500);
+  color: var(--teal-800);
+}
+
+.audio-pill.is-playing {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--white);
+}
+
+.audio-pill.is-pending {
+  background: var(--slate-50);
+  border-color: var(--slate-200);
+  color: var(--slate-400);
+  cursor: default;
+}
+
+.audio-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal-500);
+  flex-shrink: 0;
+}
+
+.audio-pill.is-playing .audio-pill-dot {
+  background: var(--gold-400);
+}
+
+.audio-pill.is-pending .audio-pill-dot {
+  background: var(--slate-300);
+}
+
+/* Full Track Audio Deck */
+.audio-deck {
+  background: var(--navy-900);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.audio-deck-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  border: none;
+  color: var(--navy-950);
+  font-size: 15px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.audio-deck-play:hover:not(:disabled) {
+  background: var(--gold-400);
+  transform: scale(1.04);
+}
+
+.audio-deck-play:disabled {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--slate-400);
+  cursor: default;
+}
+
+.audio-deck-scrubber {
+  flex: 1 1 200px;
+}
+
+.audio-deck-slider {
+  width: 100%;
+  accent-color: var(--gold-400);
+  cursor: pointer;
+}
+
+.audio-deck-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--slate-300);
+  margin-top: 4px;
+}
+
+.audio-deck-speed {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   7. TEACHER'S VERSION ACCORDIONS (.teacher-note-box)
+   Hidden by default; revealed only when body.teacher-mode is active
+   ========================================================================== */
+.teacher-note-box {
+  display: none;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  margin-top: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+body.teacher-mode .teacher-note-box {
+  display: block;
+}
+
+.teacher-note-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.teacher-note-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-600);
+  margin-right: 8px;
+}
+
+.teacher-note-chevron {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--gold-600);
+  transition: transform 0.2s ease;
+}
+
+.teacher-note-box.is-open .teacher-note-chevron {
+  transform: rotate(180deg);
+}
+
+.teacher-note-body {
+  display: none;
+  padding: 0 18px 16px;
+  font-size: 13.5px;
+  color: var(--slate-800);
+  line-height: 1.6;
+  border-top: 1px solid rgba(212, 168, 67, 0.22);
+  padding-top: 12px;
+}
+
+.teacher-note-box.is-open .teacher-note-body {
+  display: block;
+}
+
+/* ==========================================================================
+   8. BUTTONS & CONTROLS
+   ========================================================================== */
+.btn-brand-primary {
+  background: var(--gold-500);
+  color: var(--navy-950);
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-brand-primary:hover {
+  background: var(--gold-400);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 168, 67, 0.3);
+}
+
+.btn-brand-secondary {
+  background: var(--white);
+  border: 1px solid var(--slate-300);
+  color: var(--slate-700);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.btn-brand-secondary:hover {
+  background: var(--slate-100);
+  color: var(--navy-900);
+}
+
+.btn-teal {
+  background: var(--teal-700);
+  color: var(--white);
+  border: 1px solid transparent;
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+
+.btn-teal:hover {
+  background: var(--teal-800);
+}
+
+/* ==========================================================================
+   9. MODALS (PIN ENTRY, STUDENT NAME, SYLLABUS)
+   ========================================================================== */
+.hub-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 21, 39, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 250;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hub-modal-backdrop.active {
+  display: flex;
+}
+
+.hub-modal-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 28px 30px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.hub-modal-card.wide {
+  max-width: 640px;
+}
+
+.hub-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--slate-400);
+  cursor: pointer;
+}
+
+.hub-modal-close:hover {
+  color: var(--navy-900);
+}
+
+.hub-modal-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-700);
+  margin-bottom: 6px;
+}
+
+.hub-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  margin-bottom: 8px;
+}
+
+.hub-modal-desc {
+  font-size: 13.5px;
+  color: var(--slate-600);
+  margin-bottom: 18px;
+}
+
+.hub-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--slate-300);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--navy-900);
+  background: var(--white);
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.hub-input:focus {
+  border-color: var(--teal-700);
+  box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
+}
+
+.hub-modal-error {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--danger-600);
+  margin-bottom: 12px;
+  min-height: 18px;
+}
+
+/* ==========================================================================
+   10. INSTITUTIONAL FOOTER (.studio-site-footer)
+   ========================================================================== */
+.studio-site-footer {
+  border-top: 1px solid rgba(212, 168, 67, 0.32);
+  background: var(--navy-900);
+  color: var(--slate-200);
+  padding: 28px 24px;
+  margin-top: auto;
+}
+
+.footer-content-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 12.5px;
+}
+
+@media (min-width: 768px) {
+  .footer-content-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-left-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-brand-dot {
+  color: var(--gold-400);
+}
+
+.footer-teacher-portal-link {
+  color: var(--gold-400);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-teacher-portal-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 10px 16px;
+  }
+  .brand-divider,
+  .brand-course-label {
+    display: none;
+  }
+  .header-actions {
+    gap: 14px;
+  }
+  .header-student-tag {
+    display: none;
+  }
+  .content-wrapper {
+    padding: 20px 16px 56px;
+  }
+  .workspace-hero-banner {
+    padding: 40px 24px;
+    min-height: 300px;
+  }
+  .studio-card {
+    padding: 20px 18px;
+  }
+}
+
+/* ==========================================================================
+   12. CLEAN PRINT STYLES (Explore Worksheets & Teacher's Hub Lesson Plan)
+   ========================================================================== */
+@media print {
+  .site-header,
+  .studio-site-footer,
+  .segmented-bar,
+  .screen-footer-actions,
+  .no-print,
+  .hub-modal-backdrop,
+  .audio-pill,
+  .audio-deck,
+  .teacher-note-box {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #0A192F !important;
+  }
+
+  .content-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .studio-card,
+  .doc-hero-card,
+  .section-card,
+  .drill-item,
+  .badge-card {
+    box-shadow: none !important;
+    border-color: #CBD5E1 !important;
+    break-inside: avoid;
+  }
+}
+
+</style>
+  <style>
+    .doc-hero-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 30px 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .doc-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-700);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .doc-title {
+      font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+      font-weight: 800;
+      color: var(--navy-900);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .doc-lead {
+      font-size: 0.96rem;
+      color: var(--slate-600);
+      max-width: 74ch;
+      margin-bottom: 20px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      font-size: 13.5px;
+    }
+
+    .meta-item strong {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--slate-500);
+      margin-bottom: 3px;
+    }
+
+    .section-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-card h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 10px;
+    }
+
+    .frontier-box {
+      background: var(--danger-50);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--slate-800);
+    }
+
+    .frontier-box strong {
+      color: var(--danger-600);
+    }
+
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 13.5px;
+    }
+
+    .doc-table th,
+    .doc-table td {
+      border: 1px solid var(--slate-200);
+      padding: 11px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .doc-table th {
+      background: var(--navy-900);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .doc-table tr:nth-child(even) td {
+      background: var(--slate-50);
+    }
+
+    .rubric-pill {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+    }
+
+    .e0 { background: var(--danger-50); color: var(--danger-600); border: 1px solid var(--danger-border); }
+    .e1 { background: var(--gold-100); color: var(--gold-600); border: 1px solid var(--gold-border); }
+    .e2 { background: var(--success-50); color: var(--success-600); border: 1px solid var(--success-border); }
+    .e3 { background: var(--teal-50); color: var(--teal-800); border: 1px solid rgba(0, 122, 135, 0.25); }
+
+    @media print {
+      .site-header,
+      .studio-site-footer,
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #fff;
+      }
+      .content-wrapper {
+        padding: 0;
+        max-width: 100%;
+      }
+      .doc-hero-card {
+        box-shadow: none;
+        border-color: #cbd5e1;
+        break-inside: avoid;
+      }
+      .section-card {
+        box-shadow: none;
+        border-color: #cbd5e1;
+        break-inside: auto;
+      }
+      .section-card h2 {
+        break-after: avoid;
+      }
+      .doc-table thead {
+        display: table-header-group;
+      }
+      .doc-table tr {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INSTITUTIONAL HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../../A1.1/index.html" class="brand-lockup">
+        <img
+          src="../../../assets/logo-white-lockup.webp"
+          onerror="this.onerror=null;this.src='https://learning-development-studio.github.io/english-hub/assets/logo-white-lockup.webp';"
+          alt="Learning &amp; Development Studio"
+          class="brand-logo-white"
+        >
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-course-label">Teacher's Hub &middot; Documento Rector</span>
+      </a>
+      <nav class="header-actions" aria-label="Header actions">
+        <a href="../../../A1.1/u01-l02-where-are-you-really-from/index.html" class="header-teacher-link">
+          Experience &#8599;
+        </a>
+        <a href="../../../A1.1/u01-l02-where-are-you-really-from/explore.html" class="header-back-link">
+          Explore &#8599;
+        </a>
+        <a href="../../../A1.1/index.html" class="header-back-link">&larr; Back to Menu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="doc-hero-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+        <div>
+          <div class="doc-eyebrow">Ficha Técnica y Guía Pedagógica Docente</div>
+          <h1 class="doc-title">A1.1-U01-L02: Where Are You Really From?</h1>
+          <p class="doc-lead">
+            Delimitación curricular P / N / F, guion completo de producción de audios en estudio, protocolo de mediación para el Origin Mixer y rúbrica cualitativa E0–E3.
+          </p>
+        </div>
+        <button type="button" class="btn-brand-primary no-print" onclick="window.print()">
+          Print Teacher Guide
+        </button>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>Nivel y Tramo</strong>
+          CEFR A1.1 &middot; Unidad 01 · Lección 02
+        </div>
+        <div class="meta-item">
+          <strong>Macro-Unidad</strong>
+          U01: The Name We Carry &amp; First Impressions
+        </div>
+        <div class="meta-item">
+          <strong>Recursos del Alumno</strong>
+          <a href="../../../A1.1/u01-l02-where-are-you-really-from/index.html" style="color:var(--teal-700); font-weight:700; text-decoration:none;">Experience</a>
+          &nbsp;&middot;&nbsp;
+          <a href="../../../A1.1/u01-l02-where-are-you-really-from/explore.html" style="color:var(--teal-700); font-weight:700; text-decoration:none;">Explore</a>
+        </div>
+        <div class="meta-item">
+          <strong>Criterio de Avance</strong>
+          Understanding Comes Before Advancement (E2)
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. DELIMITACIÓN P / N / F -->
+    <section class="section-card">
+      <h2>1. Delimitación Curricular P / N / F</h2>
+      <p style="font-size:14px; color:var(--slate-600);">
+        Control estricto del repertorio permitido en aula para esta segunda lección de A1.1.
+      </p>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:24%;">Categoría</th>
+            <th>Especificación Técnica en el Aula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Prerrequisitos [P]</strong></td>
+            <td>Pronombres <em>I, you</em> + <em>To Be</em> afirmativo y negativo (<em>I'm, I'm not, you're, you're not</em>), posesivo <em>My</em>, saludos básicos (<em>Hi, Hello</em>), respuestas breves (<em>Yes, No</em>) y vocabulario de nombre (U01-L01).</td>
+          </tr>
+          <tr>
+            <td><strong>Nuevo en la Clase [N]</strong></td>
+            <td>
+              <strong>Gramática:</strong> <em>To Be</em> con <em>he, she, we, they</em> en afirmativo y negativo (<em>he's / she's / we're / they're</em>; <em>he isn't / she isn't / we aren't / they aren't</em>) + preguntas <em>Yes/No</em> por inversión (<em>Are you from...? / Is he from...? / Is she from...? / Are we/they from...?</em>) y respuestas cortas (<em>Yes, I am. / No, I'm not. / Yes, he is. / No, she isn't. / Yes, we are. / No, they aren't.</em>).<br>
+              <strong>Vocabulario (6 palabras):</strong> <em>hometown, city, town, neighborhood, country, local</em>.<br>
+              <strong>Inteligibilidad:</strong> Contracciones fluidas (<em>he's, she's, we're, they're</em>) y entonación ascendente en preguntas <em>Yes/No</em> (<em>Are you from...? &#8599;</em>).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Functional Language [L]</strong></td>
+            <td>
+              3 bloques pragmáticos fijos (sin análisis gramatical):<br>
+              1. <em>"Born and raised!"</em><br>
+              2. <em>"Out in the middle of nowhere"</em><br>
+              3. <em>"Small world!"</em>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="frontier-box">
+        <strong>FRONTERA ESTRICTA [F] (Prohibiciones Pedagógicas):</strong>
+        <ul style="margin:8px 0 0 18px; line-height:1.65;">
+          <li><strong>Prohibido <em>come from</em> con auxiliar <em>do/does</em>:</strong> todo origen se expresa exclusivamente con <em>To Be + from</em> (ej. <em>"Are you from Mexico?"</em>, nunca <em>"*Do you come from Mexico?"</em>).</li>
+          <li><strong>Prohibidos verbos de acción:</strong> no usar <em>live, work, like, love, have, has, go, visit</em> en consignas, textos, ejemplos o correcciones. Excepción única: el chunk fijo lexicalizado <em>"Born and raised!"</em> [L].</li>
+          <li><strong>Prohibidas preguntas <em>Wh-</em>:</strong> <em>Where are you from?</em>, <em>What city...?</em> y <em>Who is...?</em> pertenecen a U01-L04. En esta lección las preguntas son exclusivamente <em>Yes/No</em>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. GUION DE PRODUCCIÓN DE AUDIOS -->
+    <section class="section-card">
+      <h2>2. Guion de Producción de Audios (Grabación en Estudio)</h2>
+      <p style="font-size:14px; color:var(--slate-600);">
+        Guardar todos los archivos MP3 en <code>A1.1/u01-l02-where-are-you-really-from/audio/</code> con los nombres exactos de la tabla.
+      </p>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Ruta del Archivo</th>
+            <th style="width:22%;">Tipo / Dirección</th>
+            <th>Texto Exacto de Grabación (Inglés)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>./audio/vocab-01.mp3</code><br><code>./audio/vocab-01-ex.mp3</code></td>
+            <td>Vocabulario 01<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "Hometown."<br><strong>Example:</strong> "My hometown is Oaxaca, Mexico."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/vocab-02.mp3</code><br><code>./audio/vocab-02-ex.mp3</code></td>
+            <td>Vocabulario 02<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "City."<br><strong>Example:</strong> "Bogotá is a big, busy city."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/vocab-03.mp3</code><br><code>./audio/vocab-03-ex.mp3</code></td>
+            <td>Vocabulario 03<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "Town."<br><strong>Example:</strong> "He's from a small, quiet town."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/vocab-04.mp3</code><br><code>./audio/vocab-04-ex.mp3</code></td>
+            <td>Vocabulario 04<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "Neighborhood."<br><strong>Example:</strong> "They're from the same neighborhood!"</td>
+          </tr>
+          <tr>
+            <td><code>./audio/vocab-05.mp3</code><br><code>./audio/vocab-05-ex.mp3</code></td>
+            <td>Vocabulario 05<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "Country."<br><strong>Example:</strong> "She's from Colombia, a nice country."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/vocab-06.mp3</code><br><code>./audio/vocab-06-ex.mp3</code></td>
+            <td>Vocabulario 06<br>(Locutor EE.UU. claro)</td>
+            <td><strong>Word:</strong> "Local."<br><strong>Example:</strong> "We're local! This is our home city."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/pron-contractions.mp3</code><br><code>./audio/pron-intonation.mp3</code></td>
+            <td>Inteligibilidad<br>(Contraste rítmico y entonación)</td>
+            <td><strong>pron-contractions:</strong> "He's. She's. We're. They're."<br><strong>pron-intonation:</strong> "Are you from Mexico? Is she from Guadalajara?" (entonación ascendente clara al final).</td>
+          </tr>
+          <tr>
+            <td><code>./audio/chunk-01.mp3</code><br><code>./audio/chunk-01-ex.mp3</code></td>
+            <td>USA Chunk 01<br>(Tono cálido natural)</td>
+            <td><strong>Chunk:</strong> "Born and raised!"<br><strong>Example:</strong> "Are you from Guadalajara? — Yes! Born and raised!"</td>
+          </tr>
+          <tr>
+            <td><code>./audio/chunk-02.mp3</code><br><code>./audio/chunk-02-ex.mp3</code></td>
+            <td>USA Chunk 02<br>(Tono expresivo amable)</td>
+            <td><strong>Chunk:</strong> "Out in the middle of nowhere."<br><strong>Example:</strong> "My hometown is very small—out in the middle of nowhere!"</td>
+          </tr>
+          <tr>
+            <td><code>./audio/chunk-03.mp3</code><br><code>./audio/chunk-03-ex.mp3</code></td>
+            <td>USA Chunk 03<br>(Tono de sorpresa alegre)</td>
+            <td><strong>Chunk:</strong> "Small world!"<br><strong>Example:</strong> "You're from Chapinero too? Small world!"</td>
+          </tr>
+          <tr>
+            <td><code>./audio/reading-01.mp3</code></td>
+            <td>Reading Profile 01<br>(Mateo &middot; opcional post-lectura)</td>
+            <td>"Hi! I'm Mateo. I'm from Mexico—born and raised! My hometown isn't a big city. My hometown is a small town, out in the middle of nowhere! Is my neighborhood big and busy? No, it isn't. My neighborhood is small and quiet."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/reading-02.mp3</code></td>
+            <td>Reading Profile 02<br>(Valeria &amp; Sofía &middot; opcional post-lectura)</td>
+            <td>"I'm Valeria, and this is Sofía. Are we from Madrid? No, we aren't! We're from Guadalajara, a big city in Mexico—born and raised! Sofía is local, and she's very happy in Guadalajara."</td>
+          </tr>
+          <tr>
+            <td><code>./audio/reading-03.mp3</code></td>
+            <td>Reading Profile 03<br>(Daniel &amp; Lucas &middot; opcional post-lectura)</td>
+            <td>"Daniel is from Colombia, and Lucas is from Colombia, too. Are they from the same neighborhood in Bogotá? Yes, they are! He's from Chapinero, and Lucas is from Chapinero too. 'Small world!'"</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PROTOCOLO DE MEDIACIÓN PARA EL ORIGIN MIXER -->
+    <section class="section-card">
+      <h2>3. Protocolo de Mediación: Origin Mixer Roleplay</h2>
+      <ul style="margin:10px 0 0 20px; font-size:14px; line-height:1.75; color:var(--slate-800);">
+        <li><strong>Asignación de tarjetas:</strong> cada alumno selecciona una tarjeta (<em>Origin Card 1–4</em>). En clase 1-a-1, el docente toma la Tarjeta 2 si el alumno tiene la 1 (para provocar la coincidencia de Puebla y activar <em>"Small world!"</em>).</li>
+        <li><strong>Dinámica de preguntas Yes/No:</strong> el alumno debe formular al menos 2 preguntas de inversión (<em>"Are you from Mexico?"</em>, <em>"Is your friend from a big city?"</em>) sin usar <em>Where</em> ni <em>Do you come from</em>.</li>
+        <li><strong>Activación de Chunks [L]:</strong> quien confirma su ciudad natal responde con orgullo <em>"Yes! Born and raised!"</em> (cuidar que no digan <em>*I'm born*</em>); quien tiene un pueblo pequeño usa <em>"Out in the middle of nowhere"</em>; al encontrar coincidencia responden <em>"Small world!"</em>.</li>
+        <li><strong>Corrección diferida:</strong> si el alumno dice <em>"*Do you come from...?*"</em> o <em>"*He are...*"</em>, no interrumpir el turno; anotar el enunciado, modelar al final de la ronda y rotar a una nueva tarjeta.</li>
+      </ul>
+    </section>
+
+    <!-- 4. COMPLETE LESSON PLAN (DIDACTIC SEQUENCE) -->
+    <section class="section-card">
+      <h2>4. Complete Lesson Plan (Didactic Sequence &middot; 7 Moments)</h2>
+      <p style="font-size:14px; color:var(--slate-600);">
+        Secuencia didáctica inductiva paso a paso para toda la sesión (60 min aprox.), optimizada para impresión directa con <strong>Print Teacher Guide</strong>.
+      </p>
+
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:15%;">Momento</th>
+            <th style="width:18%;">Objetivo</th>
+            <th style="width:24%;">Qué hace el Teacher</th>
+            <th style="width:23%;">Qué hace el Alumno</th>
+            <th style="width:20%;">Claves y Apoyos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>01 &middot; Warm-Up</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">4–5 min</span></td>
+            <td>Activar raíces personales y contraste ciudad vs. pueblo sin romper [F].</td>
+            <td>Presenta la <em>Origins Gallery</em>, modela su propio origen con <em>I'm from / My hometown is</em> y cuida [F].</td>
+            <td>Elige Option A o B en la galería y realiza el intercambio de 3 preguntas con su pareja.</td>
+            <td>Respuestas abiertas.<br>Apoyo: cuidar <em>Are you from...?</em></td>
+          </tr>
+          <tr>
+            <td><strong>02 &middot; Vocabulary</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">8–10 min</span></td>
+            <td>Dominar 6 palabras de origen + contracciones y entonación ascendente.</td>
+            <td>Guía la escucha antes de voltear tarjetas, modela <em>he's / she's / we're / they're</em> y entonación &#8599;, y revisa <em>Match the Place</em>.</td>
+            <td>Escucha Word &amp; Example, voltea tarjetas, practica el foco de pronunciación y relaciona los 6 lugares.</td>
+            <td><strong>Keys:</strong> 1. <em>hometown</em> &middot; 2. <em>city</em> &middot; 3. <em>town</em> &middot; 4. <em>neighborhood</em> &middot; 5. <em>country</em> &middot; 6. <em>local</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>03 &middot; USA Chunks</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">6–7 min</span></td>
+            <td>Incorporar 3 bloques pragmáticos fijos [L] sin análisis gramatical.</td>
+            <td>Presenta los 3 chunks como unidades listas para usar; evita explicar participios dentro de <em>"Born and raised!"</em> y aclara que va sin <em>I'm</em>.</td>
+            <td>Escucha los audios, voltea las tarjetas y responde oralmente <em>"Are you from [City]? — Yes! Born and raised!"</em>.</td>
+            <td>3 bloques [L]: <em>Born and raised! / Out in the middle of nowhere / Small world!</em></td>
+          </tr>
+          <tr>
+            <td><strong>04 &middot; Reading</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">8–10 min</span></td>
+            <td>Exposición inductiva a <em>he/she/we/they + To Be</em> y preguntas <em>Yes/No</em> antes de Grammar.</td>
+            <td>Pide lectura silenciosa de los 3 perfiles (<em>Mateo, Valeria &amp; Sofía, Daniel &amp; Lucas</em>) y señala <em>Are we...? / Are they...?</em>.</td>
+            <td>Lee los perfiles (<em>Three People, Three Places</em>), localiza los 3 chunks y responde las 3 preguntas de comprensión.</td>
+            <td><strong>Keys:</strong> 1. B (<em>No, he isn't &mdash; a small town.</em>) &middot; 2. C (<em>No, they aren't.</em>) &middot; 3. A (<em>Yes, they are &mdash; Chapinero.</em>).</td>
+          </tr>
+          <tr>
+            <td><strong>05 &middot; Grammar</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">8–10 min</span></td>
+            <td>Sistematizar <em>he/she/we/they + To Be</em> e inversión <em>Yes/No</em>.</td>
+            <td>Conecta el cuadro con los perfiles del Reading, enfatiza respuestas cortas sin contracción afirmativa y supervisa <em>Change the Sentence</em>.</td>
+            <td>Analiza el cuadro, completa las 4 oraciones (Oración &harr; Pregunta Yes/No) y lee ambas versiones en voz alta.</td>
+            <td><strong>Keys:</strong> 1. <em>Is she from Medellín?</em> &middot; 2. <em>They aren't from a big city.</em> &middot; 3. <em>Are we from the same neighborhood?</em> &middot; 4. <em>He is from a small town.</em></td>
+          </tr>
+          <tr>
+            <td><strong>06 &middot; Speaking</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">12–15 min</span></td>
+            <td>Integrar P + N + L en el <em>Origin Mixer</em>.</td>
+            <td>Asigna tarjetas 1–4, modela la primera interacción y aplica corrección diferida entre rondas.</td>
+            <td>Formula preguntas <em>Yes/No</em>, responde con formas cortas y reacciona con 2+ USA Chunks.</td>
+            <td>Apoyo: <em>Useful Model Lines</em> visibles; rotar tarjetas tras cada encuentro.</td>
+          </tr>
+          <tr>
+            <td><strong>07 &middot; Exit Ticket</strong><br><span class="font-mono" style="font-size:11px; color:var(--slate-500);">5 min</span></td>
+            <td>Verificar micro-producción escrita/oral y criterio de avance E2.</td>
+            <td>Da 3–4 min de escritura independiente, valida con <em>Check My Sentences</em> y registra evidencia E2.</td>
+            <td>Escribe 3 frases reales (origen propio + <em>he/she/we/they</em> + pregunta <em>Yes/No</em>), lee en voz alta y marca su checklist.</td>
+            <td><strong>Gate E2:</strong> 3 frases precisas + 2 chunks + Origin Mixer sin <em>come from + do</em> ni <em>Wh-</em>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. RÚBRICA CUALITATIVA E0 - E3 -->
+    <section class="section-card">
+      <h2>5. Rúbrica Cualitativa de Avance (E0–E3)</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th style="width:12%;">Nivel</th>
+            <th>Descriptor Observable en el Aula</th>
+            <th>Intervención Pedagógica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rubric-pill e0">E0</span></td>
+            <td>No logra formar preguntas <em>Yes/No</em> ni usar <em>he/she/we/they + To Be</em>; omite el verbo (<em>*She from Puebla*</em>) o recurre al español.</td>
+            <td>Modelar 2 pares base (<em>"She's from Puebla. / Is she from Puebla?"</em>) y repetir el ejercicio guiado antes de pasar a Explore.</td>
+          </tr>
+          <tr>
+            <td><span class="rubric-pill e1">E1</span></td>
+            <td>Logro parcial: confunde concordancia (<em>*They is*</em> / <em>*He are*</em>), no invierte sujeto-verbo en pregunta o contrae respuestas cortas afirmativas (<em>*Yes, she's*</em>).</td>
+            <td>Reforzar el contraste rítmico y asignar <em>Explore 01 y 02</em> para consolidar inversión y concordancia.</td>
+          </tr>
+          <tr>
+            <td><span class="rubric-pill e2">E2</span></td>
+            <td><strong>Competencia Alcanzada (Criterio de Avance):</strong> Usa <em>he/she/we/they + To Be</em> y preguntas <em>Yes/No</em> con respuestas cortas precisas, integra al menos 3 palabras de origen y 2 USA Chunks, y completa el Origin Mixer sin errores de frontera [F].</td>
+            <td>Registrar evidencia cumplida y habilitar <em>A1.1-U01-L03: The Job vs. The Human</em>.</td>
+          </tr>
+          <tr>
+            <td><span class="rubric-pill e3">E3</span></td>
+            <td>Autonomía sobresaliente: pregunta y responde con entonación ascendente natural en múltiples rondas del Origin Mixer, usa los 3 chunks con fluidez y redacta su Exit Ticket sin errores [F].</td>
+            <td>Invitar al alumno a liderar la ronda de preguntas rápidas al inicio de la siguiente clase.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="studio-site-footer">
+    <div class="footer-content-inner">
+      <div class="footer-left-lockup">
+        <strong>Learning &amp; Development Studio</strong>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--teal-300);">Educate &bull; Design &bull; Grow</span>
+        <span class="footer-brand-dot">&middot;</span>
+        <span style="color:var(--slate-300);">Teacher's Hub &middot; A1.1-U01-L02</span>
+      </div>
+      <div>
+        <a href="../../../A1.1/u01-l02-where-are-you-really-from/index.html" class="footer-teacher-portal-link">
+          Abrir Experience (Alumno) &rarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

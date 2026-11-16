@@ -1,5 +1,7 @@
+g
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,7 +10,8 @@
   <title>A1.1 · English Hub | Learning &amp; Development Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --navy: #0B1F3A;
@@ -27,8 +30,17 @@
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
       font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
       color: var(--ink);
@@ -39,57 +51,147 @@
       min-height: 100dvh;
       line-height: 1.45;
     }
-    a { color: inherit; }
+
+    a {
+      color: inherit;
+    }
+
     .shell {
       max-width: 960px;
       margin: 0 auto;
       padding: calc(24px + var(--safe-top)) 24px calc(32px + var(--safe-bottom));
     }
+
     .topbar {
-      position: sticky; top: 16px; z-index: 20;
-      display: flex; align-items: center; justify-content: space-between; gap: 18px;
-      margin-bottom: 18px; padding: 12px 16px;
-      background: var(--navy); color: #fff; border-radius: 18px;
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 12px 16px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 18px;
       box-shadow: 0 16px 34px rgba(11, 31, 58, 0.22);
     }
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
     .brand-mark {
-      width: 52px; height: 52px; border-radius: 999px;
-      display: grid; place-items: center; background: #fff;
-      overflow: hidden; padding: 3px; flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      overflow: hidden;
+      padding: 3px;
+      flex: 0 0 auto;
     }
-    .brand-mark img { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block; }
-    .brand h1 { margin: 0; color: #fff; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.1; font-weight: 800; }
-    .brand p { margin: 3px 0 0; color: #d7ecea; font-size: 0.82rem; }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.1;
+      font-weight: 800;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: #d7ecea;
+      font-size: 0.82rem;
+    }
+
     .home-btn {
-      display: inline-flex; align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.28); color: #fff !important;
-      background: rgba(91, 184, 176, 0.28); border-radius: 999px;
-      padding: 8px 14px; font-size: 0.82rem; font-weight: 800;
-      text-decoration: none !important; white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #fff !important;
+      background: rgba(91, 184, 176, 0.28);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none !important;
+      white-space: nowrap;
     }
-    .home-btn:hover { background: rgba(91, 184, 176, 0.48); }
+
+    .home-btn:hover {
+      background: rgba(91, 184, 176, 0.48);
+    }
+
     .mode-pill {
-      border: 1px solid rgba(255, 255, 255, 0.18); color: #fff;
-      background: rgba(255, 255, 255, 0.10); border-radius: 999px;
-      padding: 8px 12px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
     }
-    .topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .hero {
-      border-radius: 20px; background: #f4fbfa; color: var(--navy);
-      border: 1px solid rgba(30, 45, 90, 0.08); box-shadow: var(--shadow);
-      padding: clamp(20px, 4vw, 32px); margin-bottom: 18px;
+      border-radius: 20px;
+      background: #f4fbfa;
+      color: var(--navy);
+      border: 1px solid rgba(30, 45, 90, 0.08);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 32px);
+      margin-bottom: 18px;
     }
+
     .eyebrow {
-      color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.12em;
-      font-size: 0.75rem; font-weight: 800;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      font-weight: 800;
     }
+
     .hero h2 {
-      margin: 10px 0 0; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.08;
-      letter-spacing: -0.03em; font-weight: 800;
+      margin: 10px 0 0;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
     }
-    .hero h2 span { color: var(--teal); }
-    .hero p { color: var(--muted); margin: 12px 0 0; line-height: 1.6; max-width: 52ch; font-size: 0.98rem; }
+
+    .hero h2 span {
+      color: var(--teal);
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 12px 0 0;
+      line-height: 1.6;
+      max-width: 52ch;
+      font-size: 0.98rem;
+    }
+
     .group {
       background: var(--paper);
       border-radius: var(--radius);
@@ -97,6 +199,7 @@
       overflow: hidden;
       border: 1px solid rgba(30, 45, 90, 0.06);
     }
+
     .row {
       display: grid;
       grid-template-columns: 40px minmax(0, 1fr) auto;
@@ -109,7 +212,8 @@
       position: relative;
       -webkit-tap-highlight-color: transparent;
     }
-    .row + .row::before {
+
+    .row+.row::before {
       content: "";
       position: absolute;
       left: 66px;
@@ -118,42 +222,109 @@
       height: 1px;
       background: var(--line);
     }
-    a.row { cursor: pointer; }
-    a.row:hover { background: var(--fill); }
-    a.row:active { background: rgba(30, 45, 90, 0.06); }
-    a.row:focus-visible { outline: 3px solid rgba(91, 184, 176, 0.55); outline-offset: -3px; }
+
+    a.row {
+      cursor: pointer;
+    }
+
+    a.row:hover {
+      background: var(--fill);
+    }
+
+    a.row:active {
+      background: rgba(30, 45, 90, 0.06);
+    }
+
+    a.row:focus-visible {
+      outline: 3px solid rgba(91, 184, 176, 0.55);
+      outline-offset: -3px;
+    }
+
     .glyph {
-      width: 40px; height: 40px; border-radius: 11px;
-      display: grid; place-items: center;
-      font-size: 13px; font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      flex-shrink: 0;
     }
-    .g-navy { background: var(--navy); }
-    .g-teal { background: var(--teal); }
-    .g-gold { background: var(--gold); color: var(--navy); }
-    .row.tone-navy .row-body h3 { color: var(--navy); }
-    .row.tone-teal .row-body h3 { color: var(--teal-dark); }
-    .row.tone-gold .row-body h3 { color: #b8892a; }
-    .row-body { min-width: 0; }
+
+    .g-navy {
+      background: var(--navy);
+    }
+
+    .g-teal {
+      background: var(--teal);
+    }
+
+    .g-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .row.tone-navy .row-body h3 {
+      color: var(--navy);
+    }
+
+    .row.tone-teal .row-body h3 {
+      color: var(--teal-dark);
+    }
+
+    .row.tone-gold .row-body h3 {
+      color: #b8892a;
+    }
+
+    .row-body {
+      min-width: 0;
+    }
+
     .row-body h3 {
-      font-size: 16px; font-weight: 700; letter-spacing: -0.02em;
-      color: var(--navy); line-height: 1.2;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      line-height: 1.2;
     }
+
     .row-body p {
-      margin-top: 2px; font-size: 13px; color: var(--secondary); line-height: 1.35;
+      margin-top: 2px;
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.35;
     }
+
     .chev {
-      width: 18px; height: 18px; color: #c2cad6; flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c2cad6;
+      flex-shrink: 0;
     }
-    .footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 8px 0; }
-    .footer strong { color: var(--navy); }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 24px 8px 0;
+    }
+
+    .footer strong {
+      color: var(--navy);
+    }
 
     .row.soon {
       opacity: 0.72;
       cursor: default;
       background: rgba(30, 45, 90, 0.02);
     }
-    .row.soon .glyph { opacity: 0.85; }
+
+    .row.soon .glyph {
+      opacity: 0.85;
+    }
+
     .soon-tag {
       display: inline-block;
       margin-left: 6px;
@@ -167,16 +338,33 @@
       background: rgba(91, 184, 176, 0.16);
       color: var(--teal-dark);
     }
-    .row.soon .chev { opacity: 0.35; }
+
+    .row.soon .chev {
+      opacity: 0.35;
+    }
+
     @media (min-width: 900px) {
-      .row { padding: 14px 18px; min-height: 72px; }
+      .row {
+        padding: 14px 18px;
+        min-height: 72px;
+      }
     }
+
     @media (max-width: 720px) {
-      .shell { padding-left: 12px; padding-right: 12px; }
-      .brand p { display: none; }
-      .chev { display: none; }
+      .shell {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .brand p {
+        display: none;
+      }
+
+      .chev {
+        display: none;
+      }
     }
-  
+
     /* A1.1 header actions — Home teal, level navy, nothing else */
     .topbar-actions .home-btn,
     .actions a.home,
@@ -185,21 +373,24 @@
       color: #fff !important;
       border: 0 !important;
     }
+
     .topbar-actions .home-btn:hover,
     .actions a.home:hover,
     .top-actions .home-btn:hover {
       background: #238d85 !important;
     }
+
     .topbar-actions .mode-pill,
     .topbar-actions .level-pill,
     .actions .pill,
     .top-actions .level-pill {
       background: #0B1F3A !important;
       color: #fff !important;
-      border: 1px solid rgba(255,255,255,.45) !important;
+      border: 1px solid rgba(255, 255, 255, .45) !important;
     }
-</style>
+  </style>
 </head>
+
 <body>
   <div class="shell">
     <header class="topbar">
@@ -219,25 +410,50 @@
     <section class="hero">
       <span class="eyebrow">A1.1 · Level landing</span>
       <h2>Who I am, what I <span>see</span>.</h2>
-      <p>Identity, description, space, and pointing — in that order. Gray rows with <strong>Soon</strong> mark topics still to build.</p>
+      <p>Identity, description, space, and pointing — in that order. Gray rows with <strong>Soon</strong> mark topics
+        still to build.</p>
     </section>
 
     <div class="group" aria-label="A1.1 activities">
-      <a class="row tone-navy" href="./the-story-behind-your-name/">
+      <a class="row tone-navy" href="./u01-l01-the-story-behind-your-name/">
         <span class="glyph g-navy">L1</span>
         <div class="row-body">
           <h3>The Story Behind Your Name</h3>
           <p>First names, nicknames, spelling, and I / you + To Be + my / your.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
-      <a class="row tone-navy" href="./where-are-you-really-from/">
+      <a class="row tone-navy" href="./u01-l02-where-are-you-really-from/">
         <span class="glyph g-navy">L2</span>
         <div class="row-body">
           <h3>Where Are You Really From?</h3>
           <p>Origin, hometown, and nationality with he / she / we / they + To Be.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </a>
+      <a class="row tone-navy" href="./u01-l03-the-job-vs-the-human/">
+        <span class="glyph g-navy">L3</span>
+        <div class="row-body">
+          <h3>The Job vs. The Human</h3>
+          <p>Professions and identity with a / an + To Be.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </a>
+      <a class="row tone-navy" href="./u01-l04-the-first-30-seconds/">
+        <span class="glyph g-navy">L4</span>
+        <div class="row-body">
+          <h3>The First 30 Seconds</h3>
+          <p>Wh- questions + To Be (Who, Where, How old) to profile people.</p>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <div class="row soon tone-teal" aria-disabled="true">
         <span class="glyph g-teal">A/</span>
@@ -245,7 +461,9 @@
           <h3>Articles &amp; Plurals <span class="soon-tag">Soon</span></h3>
           <p>a / an and regular plurals — before you name things.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </div>
       <a class="row tone-gold" href="./adjectives/">
         <span class="glyph g-gold">Ad</span>
@@ -253,7 +471,9 @@
           <h3>Adjectives</h3>
           <p>Photo cards, audio, and games for how things feel and look.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <a class="row tone-navy" href="./possessive-adjectives/">
         <span class="glyph g-navy">My</span>
@@ -261,7 +481,9 @@
           <h3>Possessives</h3>
           <p>My brother, Emma’s brother, my parents’ house.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <div class="row soon tone-teal" aria-disabled="true">
         <span class="glyph g-teal">Hv</span>
@@ -269,7 +491,9 @@
           <h3>Have / Has <span class="soon-tag">Soon</span></h3>
           <p>I have… / She has… — possession with a verb.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </div>
       <a class="row tone-gold" href="./around-the-house/">
         <span class="glyph g-gold">Ho</span>
@@ -277,7 +501,9 @@
           <h3>Around the House</h3>
           <p>Lina, Mateo, and Rosa — rooms, furniture, and things you can point to.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <div class="row soon tone-navy" aria-disabled="true">
         <span class="glyph g-navy">In</span>
@@ -285,7 +511,9 @@
           <h3>Prepositions of Place <span class="soon-tag">Soon</span></h3>
           <p>in, on, under, next to, between, behind…</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </div>
       <a class="row tone-teal" href="./there-is-there-are/">
         <span class="glyph g-teal">Is</span>
@@ -293,7 +521,9 @@
           <h3>There is / There are</h3>
           <p>Bruno, Inés, and Leo — what exists in a place.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <a class="row tone-gold" href="./in-the-city/">
         <span class="glyph g-gold">Ci</span>
@@ -301,7 +531,9 @@
           <h3>In the City</h3>
           <p>Diego, Valeria, and Sam — places and getting around town.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <a class="row tone-navy" href="./this-that-these-those/">
         <span class="glyph g-navy">Th</span>
@@ -309,7 +541,9 @@
           <h3>This / that / these / those</h3>
           <p>Aisha, Tomás, and Greta — point near and far.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
       <a class="row tone-teal" href="./a1-1-studio/">
         <span class="glyph g-teal">A1</span>
@@ -317,11 +551,14 @@
           <h3>A1.1 English Studio</h3>
           <p>Bring Structure, Reading, Listening, and Writing together.</p>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </a>
     </div>
 
     <footer class="footer"><strong>Learning &amp; Development Studio</strong> · Israel Ventura · A1.1</footer>
   </div>
 </body>
+
 </html>
