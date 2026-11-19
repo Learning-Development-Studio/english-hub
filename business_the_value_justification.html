@@ -76,7 +76,8 @@
       -webkit-backdrop-filter: blur(20px);
       background: rgba(7, 21, 39, 0.94);
       border-bottom: 1px solid rgba(212, 168, 67, 0.22);
-      height: 70px;
+      min-height: 70px;
+      padding: 10px 0;
       display: flex;
       align-items: center;
     }
@@ -89,7 +90,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 12px 16px;
     }
 
     .brand-lockup {
@@ -97,22 +99,23 @@
       align-items: center;
       gap: 14px;
       text-decoration: none;
+      min-width: 0;
     }
 
     .brand-wrap {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      height: 48px;
-      overflow: hidden;
+      height: 44px;
+      flex-shrink: 0;
     }
 
     .brand-logo-img {
-      height: 90px;
+      height: 44px;
       width: auto;
-      max-width: 260px;
+      max-width: 240px;
       object-fit: contain;
-      margin: -21px 0;
+      margin: 0;
       display: block;
       transition: transform .25s ease, filter .25s ease;
     }
@@ -283,15 +286,15 @@
     /* TABS NAV */
     .tabs-nav {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
-      overflow-x: auto;
       padding: 6px;
       background: var(--paper);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
       position: sticky;
-      top: 68px;
+      top: 70px;
       z-index: 50;
       margin-bottom: 24px;
     }
@@ -301,19 +304,19 @@
     }
 
     .tab-btn {
-      flex: 1;
-      min-width: 170px;
-      padding: 12px 18px;
+      flex: 1 1 180px;
+      min-width: 0;
+      padding: 11px 14px;
       border: none;
       background: transparent;
       color: var(--muted);
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
       white-space: nowrap;
     }
@@ -1019,10 +1022,34 @@
       margin-top: 40px;
     }
 
+    @media (max-width: 900px) {
+      .tabs-nav {
+        position: static;
+      }
+      .tab-btn {
+        flex: 1 1 46%;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
     @media (max-width: 768px) {
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0 16px;
+      }
+      .brand-divider, .brand-track {
+        display: none;
+      }
+      .nav-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+      }
+      .main-wrap {
+        padding: 0 16px;
       }
       .hero-stats-row {
         gap: 16px;
@@ -1136,6 +1163,7 @@
         <span class="badge badge-teal">Lesson BE-05.2</span>
         <span class="badge badge-outline">Target: B1–B2</span>
       </div>
+      <div id="learnerGreeting" style="display:none; font-size:0.88rem; font-weight:700; color:var(--gold); margin-bottom:8px; letter-spacing:0.02em;"></div>
       <h1 class="hero-title">The Value Justification 1-on-1: <span>Defending ROI &amp; Impact</span></h1>
       <p class="hero-desc">
         How to defend expanded scope, demonstrate quantifiable business impact, and negotiate title or salary adjustments using the strategic contrast between Past Simple milestones and Present Perfect ongoing ROI.
@@ -1167,19 +1195,19 @@
 
     <!-- TABS NAVIGATION (ZERO EMOJIS) -->
     <nav class="tabs-nav" aria-label="Lesson Progression Phases">
-      <button class="tab-btn active" onclick="switchTab('overview')">
+      <button class="tab-btn active" onclick="switchTab('overview', this)">
         <span class="tab-num-tag">[01]</span> Mindset Diagnostic
       </button>
-      <button class="tab-btn" onclick="switchTab('contrast')">
+      <button class="tab-btn" onclick="switchTab('contrast', this)">
         <span class="tab-num-tag">[02]</span> Bimodal Audio &amp; Contrast
       </button>
-      <button class="tab-btn" onclick="switchTab('grammar')">
+      <button class="tab-btn" onclick="switchTab('grammar', this)">
         <span class="tab-num-tag">[03]</span> Executive Language Toolkit
       </button>
-      <button class="tab-btn" onclick="switchTab('arena')">
+      <button class="tab-btn" onclick="switchTab('arena', this)">
         <span class="tab-num-tag">[04]</span> Metric Arena
       </button>
-      <button class="tab-btn" onclick="switchTab('pitch')">
+      <button class="tab-btn" onclick="switchTab('pitch', this)">
         <span class="tab-num-tag">[05]</span> The Value Pitch Builder
       </button>
     </nav>
@@ -1337,6 +1365,10 @@
                 Listen to Pitch A
               </button>
             </div>
+            <div id="audioStatusPitchA" style="display:none; margin-top:8px; font-size:0.76rem; color:var(--muted);">
+              <div style="height:4px; background:var(--border); border-radius:999px; overflow:hidden; margin-bottom:4px;"><div id="audioBarPitchA" style="height:100%; width:0%; background:var(--gold); transition:width 0.2s linear;"></div></div>
+              <span id="audioTimePitchA">0:00 / 0:00</span>
+            </div>
           </div>
 
           <div class="contrast-card success">
@@ -1357,12 +1389,22 @@
                 Listen to Pitch B
               </button>
             </div>
+            <div id="audioStatusPitchB" style="display:none; margin-top:8px; font-size:0.76rem; color:var(--muted);">
+              <div style="height:4px; background:var(--border); border-radius:999px; overflow:hidden; margin-bottom:4px;"><div id="audioBarPitchB" style="height:100%; width:0%; background:var(--teal); transition:width 0.2s linear;"></div></div>
+              <span id="audioTimePitchB">0:00 / 0:00</span>
+            </div>
           </div>
         </div>
 
         <div class="card" style="margin-top:24px; background:var(--wash); border:none;">
-          <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:10px;">Linguistic Breakdown: Why Elena Succeeded</h4>
-          <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--ink); line-height: 1.7;">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
+            <div>
+              <h4 style="font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:4px;">Noticing Check: Spot the Shift</h4>
+              <p style="font-size:0.88rem; color:var(--muted); margin:0;">Before revealing the breakdown: which verb tense does Elena use for the Q3 launch vs. the ongoing savings since August?</p>
+            </div>
+            <button type="button" class="btn-verify" onclick="toggleLinguisticBreakdown(this)">Reveal Linguistic Breakdown</button>
+          </div>
+          <ul id="linguisticBreakdownList" style="display:none; margin-top:14px; padding-left: 20px; font-size: 0.92rem; color: var(--ink); line-height: 1.7;">
             <li><strong>Completed (Past Simple):</strong> Anchors a finished milestone with a clear date (<em>In Q3</em>).</li>
             <li><strong>Has cut / Has saved (Present Perfect):</strong> Connects that milestone to ongoing, compounding financial return in the present.</li>
             <li><strong>Given that I have assumed (Diplomatic Linker):</strong> Establishes that the scope change already occurred and is operational, not a hypothetical wish.</li>
@@ -1390,7 +1432,7 @@
           </div>
           <div class="teacher-note-row">
             <span class="teacher-note-label">Classroom Mediation Prompt</span>
-            <p style="background:var(--wash); padding:8px 12px; border-radius:6px; font-style:italic;">"Elena, how does using 'cost avoidance' elevate your posture compared to simply saying 'we saved money'? Carlos, when we lead with 'Given that...', which verb tense immediately follows to ground your evidence?"</p>
+            <p style="background:var(--wash); padding:8px 12px; border-radius:6px; font-style:italic;">"How does using 'cost avoidance' elevate your posture compared to simply saying 'we saved money'? And when we lead with 'Given that...', which verb tense immediately follows to ground your evidence?"</p>
           </div>
           <div class="teacher-note-row">
             <span class="teacher-note-label">Anticipated Learner Pitfall</span>
@@ -1414,7 +1456,7 @@
         
                 <div class="vocab-grid">
           <!-- CARD: Cost Avoidance -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1456,7 +1498,7 @@
             </div>
           </div>
           <!-- CARD: Compounding Return -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1498,7 +1540,7 @@
             </div>
           </div>
           <!-- CARD: Annual Recurring Revenue (ARR) -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1540,7 +1582,7 @@
             </div>
           </div>
           <!-- CARD: Customer Churn Rate -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1582,7 +1624,7 @@
             </div>
           </div>
           <!-- CARD: Scope Absorption -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1624,7 +1666,7 @@
             </div>
           </div>
           <!-- CARD: Operational Bandwidth -->
-          <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" role="button" aria-label="Flip card for meaning">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}" tabindex="0" aria-label="Flip card for meaning">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div>
@@ -1827,7 +1869,7 @@
             <strong>Weak Draft:</strong> "I handled a lot of customer tickets in June so the team wasn't overwhelmed."
           </p>
           <label style="font-size:0.85rem; font-weight:700; color:var(--ink);">Transform using: <em>In June (resolve)</em> + <em>Since then (decrease)</em>:</label>
-          <input type="text" id="arenaInput1" class="arena-input" placeholder='Type your sentence (e.g. "In June, our team resolved...")'>
+          <textarea id="arenaInput1" class="arena-input" rows="2" style="resize:vertical; min-height:64px;" placeholder='Type your sentence (e.g. "In June, our team resolved...")'></textarea>
           <button type="button" class="btn-verify" onclick="verifyArena(1)">
             Verify Sentence Formulation
           </button>
@@ -1842,7 +1884,7 @@
             <strong>Weak Draft:</strong> "I worked hard on the cloud migration last year and things run faster now."
           </p>
           <label style="font-size:0.85rem; font-weight:700; color:var(--ink);">Transform using: <em>Last year (complete)</em> + <em>Over the past six months (reduce)</em>:</label>
-          <input type="text" id="arenaInput2" class="arena-input" placeholder='Type your sentence (e.g. "Last year, we completed...")'>
+          <textarea id="arenaInput2" class="arena-input" rows="2" style="resize:vertical; min-height:64px;" placeholder='Type your sentence (e.g. "Last year, we completed...")'></textarea>
           <button type="button" class="btn-verify" onclick="verifyArena(2)">
             Verify Sentence Formulation
           </button>
@@ -1976,7 +2018,7 @@
 
           <div class="pitch-preview-card" style="margin-top:16px; background:linear-gradient(135deg, #071527 0%, #132a4a 100%);">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal);">Your Personal Executive Value Pitch</span>
+              <span id="customPitchOwnerTitle" style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal);">Your Personal Executive Value Pitch</span>
               <span id="customCharCount" style="font-size:0.75rem; color:var(--muted);">0 words</span>
             </div>
 
@@ -1985,11 +2027,11 @@
             </div>
 
             <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
-              <div style="display:flex; gap:10px;">
+              <div style="display:flex; flex-wrap:wrap; gap:10px;">
                 <button type="button" class="btn-play" style="background:var(--teal); color:var(--navy-deep); font-weight:800; border:none;" onclick="speakMyPitch('custom')">
                   Listen to My Custom Pitch
                 </button>
-                <button type="button" class="btn-verify" onclick="analyzeCustomPitch()">
+                <button type="button" class="btn-verify" style="background:rgba(212, 168, 67, 0.16); color:var(--gold); border:1.5px solid var(--gold);" onclick="analyzeCustomPitch()">
                   Analyze Pitch Architecture
                 </button>
               </div>
@@ -1999,6 +2041,7 @@
               </button>
             </div>
 
+            <div id="customCopyFeedback" class="feedback-box" style="margin-top:12px;"></div>
             <div id="customPitchFeedback" class="feedback-box" style="margin-top:14px;"></div>
           </div>
         </div>
@@ -2015,11 +2058,11 @@
 
   <script>
     // TAB NAVIGATION
-    function switchTab(tabId) {
+    function switchTab(tabId, btnEl) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
 
-      event.currentTarget.classList.add('active');
+      if (btnEl) btnEl.classList.add('active');
       const panel = document.getElementById('panel-' + tabId);
       if (panel) panel.classList.add('active');
       window.scrollTo({ top: 120, behavior: 'smooth' });
@@ -2031,6 +2074,25 @@
       el.classList.add('selected');
       const fb = document.getElementById('pollFeedback');
       fb.style.display = 'block';
+      if (optionNum === 2) {
+        fb.className = 'feedback-box correct';
+        fb.innerHTML = '<strong>Executive Consensus:</strong> Option B anchors to the Present Perfect (<em>has absorbed, expanded</em>) to prove that the business already benefits from your expanded scope today.';
+      } else if (optionNum === 1) {
+        fb.className = 'feedback-box incorrect';
+        fb.innerHTML = '<strong>Low Executive Leverage (Option A):</strong> Tenure alone signals time spent rather than ongoing business return. <strong>Executive Consensus:</strong> Option B is strongest because it uses Present Perfect (<em>has absorbed, expanded</em>) to prove active ROI today.';
+      } else {
+        fb.className = 'feedback-box incorrect';
+        fb.innerHTML = '<strong>Weak Framing (Option C):</strong> External salary benchmarks without internal business impact often trigger budget pushback. <strong>Executive Consensus:</strong> Option B is strongest because it anchors to verified, ongoing internal ROI.';
+      }
+    }
+
+    // PHASE 2 NOTICING REVEAL
+    function toggleLinguisticBreakdown(btn) {
+      const list = document.getElementById('linguisticBreakdownList');
+      if (!list) return;
+      const isHidden = list.style.display === 'none';
+      list.style.display = isHidden ? 'block' : 'none';
+      if (btn) btn.textContent = isHidden ? 'Hide Linguistic Breakdown' : 'Reveal Linguistic Breakdown';
     }
 
     
@@ -2087,8 +2149,30 @@
         });
       }
 
+      function formatAudioTime(sec) {
+        if (!isFinite(sec) || sec < 0) return '0:00';
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      audio.ontimeupdate = () => {
+        const statusEl = document.getElementById('audioStatus' + pitchType);
+        const barEl = document.getElementById('audioBar' + pitchType);
+        const timeEl = document.getElementById('audioTime' + pitchType);
+        if (statusEl) statusEl.style.display = 'block';
+        if (barEl && audio.duration) {
+          barEl.style.width = Math.min(100, (audio.currentTime / audio.duration) * 100) + '%';
+        }
+        if (timeEl) {
+          timeEl.textContent = formatAudioTime(audio.currentTime) + ' / ' + formatAudioTime(audio.duration);
+        }
+      };
+
       audio.onended = () => {
         resetAudioButtons();
+        const barEl = document.getElementById('audioBar' + pitchType);
+        if (barEl) barEl.style.width = '100%';
         currentPlayingAudio = null;
         currentPlayingType = null;
       };
@@ -2141,8 +2225,8 @@
       fb.classList.remove('correct', 'incorrect');
 
       if (challengeNum === 1) {
-        const hasPast = /resolved|cleared|completed/i.test(input);
-        const hasPerf = /has decreased|has reduced|have decreased|have reduced/i.test(input);
+        const hasPast = /\b(resolved|cleared|completed|addressed|handled)\b/i.test(input);
+        const hasPerf = /\b(has|have)\s+(decreased|reduced|dropped|lowered|cut|fallen)\b/i.test(input);
 
         if (hasPast && hasPerf) {
           fb.className = 'feedback-box correct show';
@@ -2152,27 +2236,34 @@
           fb.innerHTML = '<strong>Grammar Anchor Missing:</strong> Ensure you use <em>Past Simple</em> (e.g. <em>resolved</em>) for June, and <em>Present Perfect</em> (e.g. <em>has decreased / has reduced</em>) for the continuous return.';
         }
       } else if (challengeNum === 2) {
-        const hasPast = /completed|finished|finalized/i.test(input);
-        const hasPerf = /has reduced|has cut|have reduced/i.test(input);
+        const hasPast = /\b(completed|finished|finalized|executed|delivered)\b/i.test(input);
+        const hasPerf = /\b(has|have)\s+(reduced|cut|decreased|lowered|improved|accelerated)\b/i.test(input);
 
         if (hasPast && hasPerf) {
           fb.className = 'feedback-box correct show';
           fb.innerHTML = '<strong>Executive Standard Achieved:</strong> High-impact formulation. The business case connects past execution with ongoing system reliability.';
         } else {
           fb.className = 'feedback-box incorrect show';
-          fb.innerHTML = '<strong>Grammar Anchor Missing:</strong> Ensure you use <em>completed</em> for last year and <em>has reduced</em> for the past six months.';
+          fb.innerHTML = '<strong>Grammar Anchor Missing:</strong> Ensure you use <em>completed</em> for last year and <em>has reduced / has cut</em> for the past six months.';
         }
       }
     }
 
-    
+    function joinPitchSentences(parts) {
+      const cleaned = parts
+        .map(p => (p || '').trim().replace(/[.!?]+$/g, '').trim())
+        .filter(Boolean);
+      if (!cleaned.length) return '';
+      return cleaned.join('. ') + '.';
+    }
+
     // PITCH BUILDER PREVIEW & SCRATCH STUDIO
     function updatePitchPreview() {
       const m = document.getElementById('pitchMilestone').value;
       const r = document.getElementById('pitchReturn').value;
       const a = document.getElementById('pitchAsk').value;
 
-      document.getElementById('pitchDisplay').innerText = m + '. ' + r + '. ' + a;
+      document.getElementById('pitchDisplay').innerText = joinPitchSentences([m, r, a]);
     }
 
     function updateCustomPitchPreview() {
@@ -2183,8 +2274,7 @@
       const display = document.getElementById('customPitchDisplay');
       const counter = document.getElementById('customCharCount');
 
-      let combined = [m, r, a].filter(Boolean).join('. ');
-      if (combined && !combined.endsWith('.')) combined += '.';
+      const combined = joinPitchSentences([m, r, a]);
 
       if (!combined) {
         display.innerText = 'Type in the three boxes above to generate your real executive pitch in real time...';
@@ -2260,7 +2350,7 @@
         checks.push('Step 3 (Ask Warning): Anchor with a connector like Given that / Considering that / Now that and use "would like to align".');
       }
 
-      const isAllGood = hasPastVerb && hasPresentPerf && hasDiplomatic && hasModal;
+      const isAllGood = hasPastVerb && hasPastTime && hasPresentPerf && hasMetric && hasDiplomatic && hasModal;
       fb.className = 'feedback-box ' + (isAllGood ? 'correct' : 'incorrect') + ' show';
       fb.innerHTML = '<strong>' + (isAllGood ? 'Executive Quality Cleared' : 'Refinement Recommended') + ':</strong><ul style="margin-top:6px; padding-left:18px;">' + checks.map(c => '<li>' + c + '</li>').join('') + '</ul>';
     }
@@ -2269,18 +2359,19 @@
       const m = (document.getElementById('customMilestone').value || '').trim();
       const r = (document.getElementById('customReturn').value || '').trim();
       const a = (document.getElementById('customAsk').value || '').trim();
-      let text = [m, r, a].filter(Boolean).join('. ');
-      if (text && !text.endsWith('.')) text += '.';
+      const text = joinPitchSentences([m, r, a]);
 
       if (!text) {
         alert('Please write your pitch before copying.');
         return;
       }
 
+      const copyFb = document.getElementById('customCopyFeedback');
       navigator.clipboard.writeText(text).then(() => {
-        const fb = document.getElementById('customPitchFeedback');
-        fb.className = 'feedback-box correct show';
-        fb.innerHTML = '<strong>Copied to Clipboard!</strong> Your executive pitch is ready to paste into your notes or share with your teacher.';
+        if (copyFb) {
+          copyFb.className = 'feedback-box correct show';
+          copyFb.innerHTML = '<strong>Copied to Clipboard!</strong> Your executive pitch is ready to paste into your notes or share with your teacher.';
+        }
       }).catch(() => {
         alert('Pitch copied to clipboard.');
       });
@@ -2316,7 +2407,15 @@
       setVocabButtonActive(id, true);
 
       audio.play().catch(() => {
-        resetVocabAudioButtons();
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(id.replace(/_/g, ' '));
+          utter.lang = 'en-US';
+          utter.onend = () => resetVocabAudioButtons();
+          window.speechSynthesis.speak(utter);
+        } else {
+          resetVocabAudioButtons();
+        }
       });
 
       audio.onended = () => {
@@ -2441,10 +2540,32 @@
       }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', checkTeacherRole);
-    } else {
+    function applyLearnerPersonalization() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawName = (urlParams.get('name') || '').trim();
+      if (!rawName) return;
+
+      const greetingEl = document.getElementById('learnerGreeting');
+      if (greetingEl) {
+        greetingEl.textContent = 'Prepared for ' + rawName + ' · Executive 1-on-1 Session';
+        greetingEl.style.display = 'block';
+      }
+
+      const pitchTitleEl = document.getElementById('customPitchOwnerTitle');
+      if (pitchTitleEl) {
+        pitchTitleEl.textContent = rawName + "'s Executive Value Pitch";
+      }
+    }
+
+    function initLessonPage() {
       checkTeacherRole();
+      applyLearnerPersonalization();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLessonPage);
+    } else {
+      initLessonPage();
     }
   </script>
 </body>
